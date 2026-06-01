@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Sparkles, Activity, Boxes, Send, Timer, ShieldCheck, GitBranch, FlaskConical } from "lucide-react";
 import { DomainCard } from "@/components/DomainCard";
+import { LearningJourney } from "@/components/LearningJourney";
 import { domains, metrics, runtimes } from "@/lib/lab-data";
 
 export const Route = createFileRoute("/")({
@@ -97,6 +98,10 @@ function Dashboard() {
           })}
         </div>
       </section>
+
+      <LearningJourney />
+
+
 
       {/* Domains */}
       <section className="px-6 lg:px-10 py-14">
