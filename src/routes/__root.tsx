@@ -8,7 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import { LayoutDashboard, Database, FlaskConical, ClipboardCheck, BookOpen, Beaker } from "lucide-react";
+import { LayoutDashboard, Database, FlaskConical, BookOpen, Beaker } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -81,7 +81,6 @@ const navItems = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard },
   { to: "/domains", label: "Domains", icon: Database },
   { to: "/workspace", label: "Workspace", icon: FlaskConical },
-  { to: "/assessments", label: "Assessments", icon: ClipboardCheck },
   { to: "/resources", label: "Resources", icon: BookOpen },
 ] as const;
 
