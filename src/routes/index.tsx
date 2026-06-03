@@ -42,8 +42,8 @@ function Dashboard() {
               <Link to="/workspace" className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:bg-primary/90">
                 Launch Workspace <ArrowUpRight className="size-4" />
               </Link>
-              <Link to="/branches" className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-secondary">
-                Browse Branches
+              <Link to="/courses" className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-5 py-2.5 text-sm font-medium hover:bg-secondary">
+                Browse Courses
               </Link>
             </div>
           </div>
@@ -57,16 +57,21 @@ function Dashboard() {
 
 
 
-      {/* Branches */}
+      {/* Courses */}
       <section className="px-6 lg:px-10 py-14">
         <div className="flex items-end justify-between flex-wrap gap-4">
-          <SectionHeader eyebrow="Curriculum Tracks" title="Branches" caption="Technical branches aligned to the undergraduate computer science syllabus." />
-          <Link to="/branches" className="inline-flex items-center gap-1 text-sm font-medium hover:gap-2 transition-all">
+          <SectionHeader eyebrow="Curriculum Tracks" title="Courses" caption="Technical courses aligned to the undergraduate computer science syllabus." />
+          <Link to="/courses" className="inline-flex items-center gap-1 text-sm font-medium hover:gap-2 transition-all">
             View matrix <ArrowUpRight className="size-4" />
           </Link>
         </div>
         <div className="mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {branches.map((d) => <BranchCard key={d.code} d={d} />)}
+          {branches.find(b => b.code === "IT")?.topics.map((t) => (
+            <div key={t} className="p-4 rounded-xl border border-border bg-card">
+              <h3 className="font-semibold text-lg">{t}</h3>
+              <Link to={`/course/${t.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} className="text-sm text-cyan mt-2 inline-block">Explore Course &rarr;</Link>
+            </div>
+          ))}
         </div>
       </section>
 

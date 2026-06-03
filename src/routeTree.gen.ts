@@ -11,10 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkspaceRouteImport } from './routes/workspace'
 import { Route as ResourcesRouteImport } from './routes/resources'
-import { Route as BranchesRouteImport } from './routes/branches'
+import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CourseCourseIdRouteImport } from './routes/course.$courseId'
-import { Route as BranchBranchIdRouteImport } from './routes/branch.$branchId'
 
 const WorkspaceRoute = WorkspaceRouteImport.update({
   id: '/workspace',
@@ -26,9 +25,9 @@ const ResourcesRoute = ResourcesRouteImport.update({
   path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BranchesRoute = BranchesRouteImport.update({
-  id: '/branches',
-  path: '/branches',
+const CoursesRoute = CoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -41,70 +40,53 @@ const CourseCourseIdRoute = CourseCourseIdRouteImport.update({
   path: '/course/$courseId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BranchBranchIdRoute = BranchBranchIdRouteImport.update({
-  id: '/branch/$branchId',
-  path: '/branch/$branchId',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/branches': typeof BranchesRoute
+  '/courses': typeof CoursesRoute
   '/resources': typeof ResourcesRoute
   '/workspace': typeof WorkspaceRoute
-  '/branch/$branchId': typeof BranchBranchIdRoute
   '/course/$courseId': typeof CourseCourseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/branches': typeof BranchesRoute
+  '/courses': typeof CoursesRoute
   '/resources': typeof ResourcesRoute
   '/workspace': typeof WorkspaceRoute
-  '/branch/$branchId': typeof BranchBranchIdRoute
   '/course/$courseId': typeof CourseCourseIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/branches': typeof BranchesRoute
+  '/courses': typeof CoursesRoute
   '/resources': typeof ResourcesRoute
   '/workspace': typeof WorkspaceRoute
-  '/branch/$branchId': typeof BranchBranchIdRoute
   '/course/$courseId': typeof CourseCourseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/branches'
+    | '/courses'
     | '/resources'
     | '/workspace'
-    | '/branch/$branchId'
     | '/course/$courseId'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/branches'
-    | '/resources'
-    | '/workspace'
-    | '/branch/$branchId'
-    | '/course/$courseId'
+  to: '/' | '/courses' | '/resources' | '/workspace' | '/course/$courseId'
   id:
     | '__root__'
     | '/'
-    | '/branches'
+    | '/courses'
     | '/resources'
     | '/workspace'
-    | '/branch/$branchId'
     | '/course/$courseId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BranchesRoute: typeof BranchesRoute
+  CoursesRoute: typeof CoursesRoute
   ResourcesRoute: typeof ResourcesRoute
   WorkspaceRoute: typeof WorkspaceRoute
-  BranchBranchIdRoute: typeof BranchBranchIdRoute
   CourseCourseIdRoute: typeof CourseCourseIdRoute
 }
 
@@ -124,11 +106,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/branches': {
-      id: '/branches'
-      path: '/branches'
-      fullPath: '/branches'
-      preLoaderRoute: typeof BranchesRouteImport
+    '/courses': {
+      id: '/courses'
+      path: '/courses'
+      fullPath: '/courses'
+      preLoaderRoute: typeof CoursesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -145,22 +127,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CourseCourseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/branch/$branchId': {
-      id: '/branch/$branchId'
-      path: '/branch/$branchId'
-      fullPath: '/branch/$branchId'
-      preLoaderRoute: typeof BranchBranchIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BranchesRoute: BranchesRoute,
+  CoursesRoute: CoursesRoute,
   ResourcesRoute: ResourcesRoute,
   WorkspaceRoute: WorkspaceRoute,
-  BranchBranchIdRoute: BranchBranchIdRoute,
   CourseCourseIdRoute: CourseCourseIdRoute,
 }
 export const routeTree = rootRouteImport
