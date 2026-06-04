@@ -1,3 +1,4 @@
+import { dbmsCourse } from './dbms-data';
 export type MCQ = {
   question: string;
   options: string[];
@@ -7,7 +8,7 @@ export type MCQ = {
 export type SimulationStep = {
   line: number;
   annotation: string;
-  memory: { variable: string; type: string; value: string }[];
+  memory: { variable: string; type: string; value: string; address?: string }[];
   output: string;
 };
 
@@ -4454,181 +4455,7 @@ export const courses: Record<string, Course> = {
       },
     ],
   },
-  "dbms": {
-    id: "dbms",
-    title: "Database Management Systems Lab",
-    objectives: "To introduce basic SQL as a universal language, demonstrate relational algebra configurations, system design using normalization principles, and transaction workflows.",
-    weeks: [
-      {
-        title: "WEEK 1",
-        objective: "Understand database characteristics, centralized vs client-server systems and schema environments.",
-        tutorial: "Tutorial 1: Database System Concepts & Architectures",
-        labTitle: "Lab 1: Baseline Environments",
-        experiments: [
-          {
-            id: "dbms-w1-1",
-            title: "Database Architecture Identification",
-            desc: "Write an structural script modeling a three-schema architecture layout showing clear boundaries between External, Conceptual, and Internal storage mappings.",
-            expected: "Schema environment verified successfully.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 2",
-        objective: "Conceptualization of business logics into Entity Relationship Diagrams including attributes and inheritance structures.",
-        tutorial: "Tutorial 2: Conceptual Design via ER Diagrams",
-        labTitle: "Lab 2: Conceptual Mapping Structures",
-        experiments: [
-          {
-            id: "dbms-w2-1",
-            title: "ER Schema Definitions",
-            desc: "Map an e-commerce platform using specialization, generalization, and structural cardinality annotations.",
-            expected: "ER model translation constraints validated.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 3",
-        objective: "Learn the foundational constructs of Data Definition Language (DDL), table mappings, data types, and domains.",
-        tutorial: "Tutorial 3: Relational Model Foundations & Core DDL",
-        labTitle: "Lab 3: Tables and Domain Schema Designs",
-        experiments: [
-          {
-            id: "dbms-w3-1",
-            title: "Table Structures",
-            desc: "Construct the standard University Database schema schema including custom primary domains using CREATE TABLE instructions.",
-            expected: "Table created matching system domain restrictions.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 4",
-        objective: "Implementation of column constraints such as Key Restrictions, integrity validations, and column variations.",
-        tutorial: "Tutorial 4: Key Assertions & Structural Mutators",
-        labTitle: "Lab 4: Column Modifications & Integrity Configurations",
-        experiments: [
-          {
-            id: "dbms-w4-1",
-            title: "Enforcing Key Constraints",
-            desc: "Alter existing table properties to inject multi-column Composite Primary Keys and customized operational constraints via ALTER TABLE queries.",
-            expected: "Query OK, 0 rows affected. Integrity rules applied.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 5",
-        objective: "Executing core Data Manipulation Language (DML) primitives: records injections, targeted evaluations, and data deletions.",
-        tutorial: "Tutorial 5: Mutation Engines (INSERT, UPDATE, DELETE)",
-        labTitle: "Lab 5: Data Modifications",
-        experiments: [
-          {
-            id: "dbms-w5-1",
-            title: "DML Transaction Population",
-            desc: "Populate relational records into tables using INSERT INTO statements, and update fields dynamically utilizing standard WHERE condition checks.",
-            expected: "Rows injected: 5, Row fields altered: 2.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 6",
-        objective: "Formulate simple relational projections and arithmetic logical operations via where filters.",
-        tutorial: "Tutorial 6: Projections, Selections & Filters",
-        labTitle: "Lab 6: Selection Filters & Operations",
-        experiments: [
-          {
-            id: "dbms-w6-1",
-            title: "Targeted Row Extraction",
-            desc: "Write a SQL query utilizing select, mathematical operations, and explicit string-matching wildcards to surface targeted data values.",
-            expected: "Displaying rows matching target pattern configurations.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 7",
-        objective: "Leverage standard SQL analytical operations: temporal mutations, string conversions, and scalar transformations.",
-        tutorial: "Tutorial 7: Core Date, Time & Built-in System Functions",
-        labTitle: "Lab 7: Scalar and Date Manipulations",
-        experiments: [
-          {
-            id: "dbms-w7-1",
-            title: "Temporal & String Transformations",
-            desc: "Extract age patterns using structural system Date functions, and format descriptive string text using built-in system keywords.",
-            expected: "Tabular conversion outputs mapping strict formats.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 8",
-        objective: "Build grouping metrics, multi-level mathematical aggregates, and ordered conditional selections.",
-        tutorial: "Tutorial 8: Data Aggregation & Sequence Control",
-        labTitle: "Lab 8: GROUP BY, HAVING, and ORDER BY Operations",
-        experiments: [
-          {
-            id: "dbms-w8-1",
-            title: "Hierarchical Aggregate Compilations",
-            desc: "Calculate dynamic totals grouped across matching conditions, keeping rows filtered down using HAVING logic structures.",
-            expected: "Aggregated sum rows compiled under explicit matching groupings.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 9",
-        objective: "Master core relational joins: Cross, Inner, Left Outer, Right Outer, and Full Multi-Table linkages.",
-        tutorial: "Tutorial 9: Cross-Table Relational Join Engines",
-        labTitle: "Lab 9: Multi-Table Joins & Operations",
-        experiments: [
-          {
-            id: "dbms-w9-1",
-            title: "Relational Set Combinations",
-            desc: "Combine related database collections together across shared indexing targets using implicit INNER and OUTER JOIN expressions.",
-            expected: "Multi-column projection compiled cleanly without Cartesian generation errors.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 10",
-        objective: "Implement compound nested queries, existential checks, and updatable subview structures.",
-        tutorial: "Tutorial 10: Advanced Subqueries & Security Views",
-        labTitle: "Lab 10: Subqueries and Virtual Relational Views",
-        experiments: [
-          {
-            id: "dbms-w10-1",
-            title: "Correlated Nested Query Configurations",
-            desc: "Write complex sub-queries leveraging IN, EXISTS, and ANY directives, and save the code execution pipeline inside a logical CREATE VIEW definition.",
-            expected: "Virtual compilation succeeded. View reference established.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 11",
-        objective: "Deconstruct anomalies using functional dependency refinement and core normalization standards (1NF, 2NF, 3NF, BCNF).",
-        tutorial: "Tutorial 11: Schema Refinement and Normal Forms",
-        labTitle: "Lab 11: Normalization Decomposition Paths",
-        experiments: [
-          {
-            id: "dbms-w11-1",
-            title: "Lossless Join Decompositions",
-            desc: "Deconstruct anomalous schemas mapping surrogate keys to clear 3NF parameters to guarantee dependency preservation.",
-            expected: "Normalization matrix split confirmed matching minimal dependency properties.",
-          }
-        ]
-      },
-      {
-        title: "WEEK 12",
-        objective: "Verify ACID properties, time-stamp isolation behaviors, and rollback configurations under concurrent lock schedules.",
-        tutorial: "Tutorial 12: ACID Processing, Recovery & Index Mappings",
-        labTitle: "Lab 12: Transactions & Index Controls",
-        experiments: [
-          {
-            id: "dbms-w12-1",
-            title: "Transactional Command Blocks",
-            desc: "Simulate banking operations by enforcing block safety limits using BEGIN TRANSACTION, SAVEPOINT offsets, and final COMMIT instructions.",
-            expected: "Commit successfully completed. Ledger transaction state persistent.",
-          }
-        ]
-      }
-    ]
-  },
+  "dbms": dbmsCourse,
   "machine-learning": {
     id: "machine-learning",
     title: "Machine Learning Lab",
