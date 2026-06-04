@@ -1972,7 +1972,173 @@ export const courses: Record<string, Course> = {
             id: "ml-w4-1",
             title: "Decision Tree Classification and Tuning",
             desc: "Demonstrate Decision Tree algorithm for a classification problem and perform parameter tuning for better results.",
-            expected: "Decision Tree classifier trained, visualized, and optimized using hyperparameter tuning (e.g., max_depth, min_samples_split)."
+            expected: "Decision Tree classifier trained, visualized, and optimized using hyperparameter tuning (e.g., max_depth, min_samples_split).",
+            content: {
+              aim: {
+                text: "To implement the Decision Tree algorithm for a classification problem using Python / R / Weka, to visualize the constructed tree, to evaluate the model performance using standard classification metrics, and to perform parameter tuning techniques such as controlling tree depth, minimum samples per split, and pruning to achieve better generalization results."
+              },
+              theory: [
+                {
+                  title: "1. Introduction to Decision Trees",
+                  body: [
+                    "A Decision Tree is a supervised machine learning algorithm that uses a tree-like model of decisions and their possible consequences to perform classification and regression tasks. It mimics human decision-making by splitting data into subsets based on the most significant features at each step.",
+                    "Decision Trees are one of the most interpretable and widely used machine learning models. They form the foundation for more powerful ensemble methods such as Random Forest, Gradient Boosting, and XGBoost.",
+                    "Key Terminology:",
+                    "• Root Node: The topmost node representing the entire dataset and the first split",
+                    "• Internal Node: A node that represents a feature test and splits into child nodes",
+                    "• Branch: A connection between nodes representing the outcome of a test",
+                    "• Leaf Node: A terminal node that holds the final predicted class label",
+                    "• Depth: The length of the longest path from the root node to a leaf node",
+                    "• Splitting: The process of dividing a node into two or more sub-nodes",
+                    "• Pruning: The process of removing branches that provide little predictive power"
+                  ]
+                },
+                {
+                  title: "2. How a Decision Tree Works",
+                  body: [
+                    "The algorithm recursively splits the dataset into subsets based on feature values. At each node, it selects the feature and threshold that best separates the data according to a chosen splitting criterion.",
+                    "General Steps:",
+                    "1. Start with the entire dataset at the Root Node",
+                    "2. Select the best feature to split the data using a splitting criterion",
+                    "3. Split the dataset into subsets based on the selected feature and threshold",
+                    "4. Repeat the process recursively for each subset",
+                    "5. Stop splitting when one of the stopping conditions is met: All instances in a node belong to the same class, Maximum tree depth is reached, Minimum number of samples per node is reached, or No further information gain is possible",
+                    "6. Assign the majority class of each leaf node as the prediction"
+                  ]
+                },
+                {
+                  title: "3. Splitting Criteria",
+                  body: [
+                    "The splitting criterion determines which feature and threshold to use at each node to divide the data most effectively.",
+                    "3.1 Entropy and Information Gain (ID3 Algorithm)",
+                    "Entropy measures the impurity or disorder in a dataset. A pure node (all instances of one class) has entropy = 0.",
+                    "Entropy Formula: H(S) = − Σ pᵢ × log₂(pᵢ)",
+                    "Information Gain Formula: IG(S, A) = H(S) − Σ (|Sᵥ| / |S|) × H(Sᵥ)",
+                    "3.2 Gini Impurity (CART Algorithm)",
+                    "Gini Impurity measures the probability of incorrectly classifying a randomly chosen instance if it were randomly labelled according to the class distribution in the node.",
+                    "Gini Impurity Formula: Gini(S) = 1 − Σ pᵢ²",
+                    "Gini Gain Formula: Gini Gain(S, A) = Gini(S) − Σ (|Sᵥ| / |S|) × Gini(Sᵥ)",
+                    "The feature with the lowest Gini Impurity (highest Gini Gain) is selected for splitting."
+                  ]
+                },
+                {
+                  title: "4. Popular Decision Tree Algorithms",
+                  body: [
+                    "• ID3: Information Gain (Entropy), Multi-way split, no handling of missing values",
+                    "• C4.5: Gain Ratio, Multi-way split, handles missing values",
+                    "• CART: Gini Impurity, Binary split, handles missing values",
+                    "• CHAID: Chi-Square Test, Multi-way split, handles missing values"
+                  ]
+                },
+                {
+                  title: "5. Overfitting in Decision Trees",
+                  body: [
+                    "A fully grown Decision Tree tends to overfit the training data by creating very specific rules that do not generalize to unseen data. This happens when the tree is too deep, leaf nodes contain very few samples, or the tree memorizes noise in the training data.",
+                    "Signs of Overfitting: Very high training accuracy but low testing accuracy, a very deep and complex tree structure, leaf nodes with only one or two training instances."
+                  ]
+                },
+                {
+                  title: "6. Parameter Tuning Techniques",
+                  body: [
+                    "Parameter tuning (also called Hyperparameter Tuning) is the process of adjusting the model's parameters to reduce overfitting and improve generalization.",
+                    "6.1 Pre-Pruning (Early Stopping)",
+                    "Pre-Pruning stops the tree from growing by imposing constraints during tree construction.",
+                    "• max_depth: Maximum depth of the tree (reduces overfitting)",
+                    "• min_samples_split: Minimum samples required to split a node (reduces overfitting)",
+                    "• min_samples_leaf: Minimum samples required at a leaf node (reduces overfitting)",
+                    "• max_features: Number of features to consider for each split (controls randomness)",
+                    "• max_leaf_nodes: Maximum number of leaf nodes allowed (limits tree complexity)",
+                    "6.2 Post-Pruning (Cost Complexity Pruning)",
+                    "Post-Pruning first grows the full tree and then removes branches that do not improve generalization on the validation set.",
+                    "Cost Complexity Pruning (CCP) uses a parameter alpha (α). Higher alpha → more aggressive pruning → simpler tree.",
+                    "Pruning Formula: Cost Complexity = Error Rate + α × Number of Leaf Nodes"
+                  ]
+                }
+              ],
+              procedure: [
+                "Step 1: Select the Tool. Choose your preferred programming environment.",
+                "Step 2: Load the Dataset. Select a dataset from the dropdown list.",
+                "Step 3: Explore and Preprocess the Dataset. Review the class distribution bar chart and handle any missing values.",
+                "Step 4: Set the Train-Test Split. Adjust the slider (default: 80% train, 20% test).",
+                "Step 5: Select the Splitting Criterion. Choose Gini Impurity or Entropy.",
+                "Step 6: Set Initial Parameters. Leave max_depth: None, min_samples_split: 2, min_samples_leaf: 1.",
+                "Step 7: Train the Decision Tree. Click the Train Decision Tree button and observe the fully grown tree visualization.",
+                "Step 8: Evaluate the Initial Model. View the Confusion Matrix, Accuracy, Precision, Recall, and F1-Score.",
+                "Step 9: Perform Parameter Tuning. Adjust max_depth, min_samples_split, min_samples_leaf, and ccp_alpha.",
+                "Step 10: View the Parameter Tuning Plots. Observe the Depth vs Accuracy plot and Alpha vs Accuracy plot.",
+                "Step 11: Compare Before and After Tuning. View the side-by-side comparison of tree structure and metrics.",
+                "Step 12: Visualize Feature Importance. View the Feature Importance bar chart.",
+                "Step 13: Record Observations.",
+                "Step 14: Attempt Post-Test."
+              ],
+              simulation: {
+                code: "from sklearn.tree import DecisionTreeClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score\nimport pandas as pd\n\n# Load Dataset\ndf = pd.DataFrame({'Feature1': [1,2,3,4,5], 'Target': [0,0,1,1,1]})\nX = df[['Feature1']]\ny = df['Target']\n\n# Train-Test Split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n# Decision Tree Initialization\ndt = DecisionTreeClassifier(criterion='gini', max_depth=2)\n\n# Train Model\ndt.fit(X_train, y_train)\n\n# Predict\ny_pred = dt.predict(X_test)\n\n# Evaluate\nprint(f\"Accuracy: {accuracy_score(y_test, y_pred) * 100}%\")",
+                steps: [
+                  { line: 1, annotation: "Import sklearn libraries", memory: [], output: "" },
+                  { line: 8, annotation: "Load Features (X)", memory: [{variable: "X", type: "DataFrame", value: "shape (5, 1)"}], output: "" },
+                  { line: 9, annotation: "Load Labels (y)", memory: [{variable: "y", type: "Series", value: "shape (5,)"}], output: "" },
+                  { line: 12, annotation: "Split data into training and test sets", memory: [{variable: "X_train", type: "DataFrame", value: "shape (4, 1)"}], output: "" },
+                  { line: 15, annotation: "Initialize Decision Tree Classifier", memory: [{variable: "dt", type: "DecisionTreeClassifier", value: "max_depth=2"}], output: "" },
+                  { line: 18, annotation: "Train the model", memory: [{variable: "dt", type: "DecisionTreeClassifier", value: "Fitted"}], output: "" },
+                  { line: 21, annotation: "Make predictions on test set", memory: [{variable: "y_pred", type: "ndarray", value: "[0]"}], output: "" },
+                  { line: 24, annotation: "Calculate and print accuracy", memory: [], output: "Accuracy: 100.0%" }
+                ]
+              },
+              pretest: [
+                {
+                  question: "A Decision Tree is which type of machine learning model?",
+                  options: ["Unsupervised — Clustering Model", "Supervised — Lazy Learner", "Supervised — Eager Learner", "Reinforcement Learning Model"],
+                  answerIndex: 2
+                },
+                {
+                  question: "Which of the following is used as a splitting criterion in Decision Trees?",
+                  options: ["Euclidean Distance", "Gini Impurity", "Pearson Correlation", "Z-Score"],
+                  answerIndex: 1
+                },
+                {
+                  question: "In a Decision Tree, a node that does not split further and holds the final predicted class is called:",
+                  options: ["Root Node", "Decision Node", "Internal Node", "Leaf Node"],
+                  answerIndex: 3
+                },
+                {
+                  question: "What does Information Gain measure in a Decision Tree?",
+                  options: ["The number of nodes in the tree", "The reduction in impurity achieved by splitting on a particular feature", "The depth of the tree after splitting", "The distance between data points"],
+                  answerIndex: 1
+                },
+                {
+                  question: "Which of the following problems is associated with a Decision Tree that is too deep and complex?",
+                  options: ["Underfitting", "High Bias", "Overfitting", "High Variance only in Regression"],
+                  answerIndex: 2
+                }
+              ],
+              posttest: [
+                {
+                  question: "For a node with 40 instances of Class A and 60 instances of Class B, what is the Gini Impurity?",
+                  options: ["0.50", "0.48", "0.24", "0.36"],
+                  answerIndex: 1
+                },
+                {
+                  question: "In the Depth vs Accuracy plot, if training accuracy keeps increasing with depth but testing accuracy peaks at depth 4 and then decreases, what is the best action?",
+                  options: ["Set max_depth to the maximum available value", "Set max_depth to 4 as it gives the best generalization", "Remove all depth constraints and grow the full tree", "Switch to a different algorithm entirely"],
+                  answerIndex: 1
+                },
+                {
+                  question: "Which of the following correctly describes Post-Pruning in a Decision Tree?",
+                  options: ["The tree is stopped from growing beyond a set depth during training", "The full tree is grown first and then branches are removed based on a complexity parameter", "Features are removed before training the Decision Tree", "The training data is reduced to simplify the tree structure"],
+                  answerIndex: 1
+                },
+                {
+                  question: "A Decision Tree model shows 99% training accuracy and 72% testing accuracy. Which of the following is the most appropriate solution?",
+                  options: ["Increase the max_depth parameter", "Decrease the min_samples_leaf parameter", "Apply pruning and reduce max_depth to control overfitting", "Use Entropy instead of Gini as the splitting criterion"],
+                  answerIndex: 2
+                },
+                {
+                  question: "In Feature Importance from a Decision Tree, a feature with a high importance score means:",
+                  options: ["The feature has the highest number of unique values", "The feature appears only at the leaf nodes of the tree", "The feature contributes the most to reducing impurity across all splits in the tree", "The feature has the highest correlation with all other features"],
+                  answerIndex: 2
+                }
+              ]
+            }
           }
         ]
       },
@@ -1986,7 +2152,149 @@ export const courses: Record<string, Course> = {
             id: "ml-w5-1",
             title: "Decision Tree for Regression",
             desc: "Demonstrate Decision Tree algorithm for a regression problem.",
-            expected: "Decision Tree regressor trained and evaluated using metrics such as Mean Squared Error (MSE)."
+            expected: "Decision Tree regressor trained and evaluated using metrics such as Mean Squared Error (MSE).",
+            content: {
+              aim: {
+                text: "To implement the Decision Tree Regressor algorithm for a regression problem using Python / R / Weka, to visualize the constructed regression tree, to evaluate model performance using standard regression metrics such as MAE, MSE, RMSE, and R² Score, and to understand how the tree structure captures non-linear relationships between input features and a continuous target variable."
+              },
+              theory: [
+                {
+                  title: "1. Introduction to Decision Tree Regression",
+                  body: [
+                    "A Decision Tree Regressor is a supervised machine learning model that predicts a continuous numerical output by recursively partitioning the input feature space into rectangular regions and assigning a constant predicted value (the mean of training instances) to each region.",
+                    "Unlike linear regression which assumes a linear relationship between features and output, a Decision Tree Regressor can naturally capture non-linear and complex relationships without requiring any transformation of the data.",
+                    "Decision Tree Regression forms the backbone of powerful ensemble regression methods such as Random Forest Regressor, Gradient Boosted Trees, and XGBoost."
+                  ]
+                },
+                {
+                  title: "2. How Decision Tree Regression Works",
+                  body: [
+                    "Core Idea: The algorithm divides the feature space into a set of non-overlapping rectangular regions. For a new input data point, the tree traverses from the root to a leaf node based on feature conditions, and the predicted output is the mean of all training instances that fall in that leaf node's region.",
+                    "Step-by-Step Process:",
+                    "1. Start with all training instances at the Root Node",
+                    "2. Select the feature and threshold that minimizes the splitting criterion (MSE or MAE)",
+                    "3. Split the dataset into two subsets",
+                    "4. Repeat the splitting process recursively for each child node",
+                    "5. Stop splitting when a stopping condition is met (maximum depth, minimum samples, etc.)",
+                    "6. At each leaf node, assign the mean of the target values of all training instances in that node as the predicted output"
+                  ]
+                },
+                {
+                  title: "3. Splitting Criterion for Regression",
+                  body: [
+                    "Unlike classification trees that use Gini Impurity or Entropy, regression trees use variance-based metrics to select the best split.",
+                    "3.1 Mean Squared Error (MSE) — Primary Criterion",
+                    "The algorithm selects the split that minimizes the weighted sum of MSE across the two child nodes.",
+                    "MSE at a Node Formula: MSE(node) = (1 / n) × Σ (yᵢ − ȳ)²",
+                    "Best Split = argmin [ (nₗ / n) × MSE(left) + (nᵣ / n) × MSE(right) ]",
+                    "3.2 Mean Absolute Error (MAE) — Alternative Criterion",
+                    "MAE is more robust to outliers than MSE and uses the median instead of the mean as the predicted value at each leaf."
+                  ]
+                },
+                {
+                  title: "4. Evaluation Metrics for Regression",
+                  body: [
+                    "• Mean Absolute Error (MAE): Measures the average absolute difference between actual and predicted values. Less sensitive to outliers.",
+                    "• Mean Squared Error (MSE): Measures the average squared difference between actual and predicted values. Penalizes large errors more heavily.",
+                    "• Root Mean Squared Error (RMSE): The square root of MSE. Expressed in the same units as the target variable making it more interpretable than MSE.",
+                    "• R² Score (Coefficient of Determination): Measures the proportion of variance in the target variable that is explained by the model."
+                  ]
+                },
+                {
+                  title: "5. Overfitting in Decision Tree Regression",
+                  body: [
+                    "A fully grown Decision Tree Regressor tends to memorize the training data by creating very specific leaf regions for individual instances, leading to poor generalization.",
+                    "Signs of Overfitting in Regression: Very low training MSE / RMSE but high testing MSE / RMSE, Very high training R² but significantly lower testing R², A very deep tree with leaf nodes containing very few instances, Extremely jagged and irregular predicted output curve.",
+                    "Controlling Overfitting involves parameters like max_depth, min_samples_split, min_samples_leaf, max_leaf_nodes, and ccp_alpha."
+                  ]
+                }
+              ],
+              procedure: [
+                "Step 1: Select the Tool. Choose your preferred programming environment.",
+                "Step 2: Load the Dataset. Select a dataset from the dropdown list.",
+                "Step 3: Explore the Dataset. Review the dataset summary and identify required preprocessing.",
+                "Step 4: Preprocess the Dataset. Handle any missing values or categorical encodings.",
+                "Step 5: Set the Train-Test Split. Adjust the Train-Test Split slider.",
+                "Step 6: Select the Splitting Criterion. Choose MSE, MAE, or Friedman MSE.",
+                "Step 7: Set Initial Parameters. Leave parameters at default values for the initial run.",
+                "Step 8: Train the Decision Tree Regressor. Click the Train Decision Tree Regressor button.",
+                "Step 9: Evaluate the Initial Model. View performance metrics (MAE, MSE, RMSE, R²).",
+                "Step 10: Observe the Predicted Output Curve. View the Step Function plot.",
+                "Step 11: Perform Parameter Tuning. Adjust max_depth, min_samples_split, min_samples_leaf, ccp_alpha.",
+                "Step 12: View the Tuning Plots. Observe Depth vs RMSE and Alpha vs R².",
+                "Step 13: Compare Before and After Tuning. View the side-by-side comparisons.",
+                "Step 14: Visualize Feature Importance.",
+                "Step 15: Record Observations.",
+                "Step 16: Attempt Post-Test."
+              ],
+              simulation: {
+                code: "from sklearn.tree import DecisionTreeRegressor\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import mean_squared_error\nimport pandas as pd\n\n# Load Dataset\ndf = pd.DataFrame({'Feature1': [1,2,3,4,5], 'Target': [10.5, 20.1, 30.5, 40.2, 50.8]})\nX = df[['Feature1']]\ny = df['Target']\n\n# Train-Test Split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n# Decision Tree Initialization\ndt = DecisionTreeRegressor(criterion='squared_error', max_depth=3)\n\n# Train Model\ndt.fit(X_train, y_train)\n\n# Predict\ny_pred = dt.predict(X_test)\n\n# Evaluate\nmse = mean_squared_error(y_test, y_pred)\nprint(f\"MSE: {mse}\")",
+                steps: [
+                  { line: 1, annotation: "Import sklearn libraries", memory: [], output: "" },
+                  { line: 8, annotation: "Load Features (X)", memory: [{variable: "X", type: "DataFrame", value: "shape (5, 1)"}], output: "" },
+                  { line: 9, annotation: "Load Labels (y)", memory: [{variable: "y", type: "Series", value: "shape (5,)"}], output: "" },
+                  { line: 12, annotation: "Split data into training and test sets", memory: [{variable: "X_train", type: "DataFrame", value: "shape (4, 1)"}], output: "" },
+                  { line: 15, annotation: "Initialize Decision Tree Regressor", memory: [{variable: "dt", type: "DecisionTreeRegressor", value: "max_depth=3"}], output: "" },
+                  { line: 18, annotation: "Train the model", memory: [{variable: "dt", type: "DecisionTreeRegressor", value: "Fitted"}], output: "" },
+                  { line: 21, annotation: "Make predictions on test set", memory: [{variable: "y_pred", type: "ndarray", value: "[20.1]"}], output: "" },
+                  { line: 24, annotation: "Calculate and print MSE", memory: [], output: "MSE: 0.0" }
+                ]
+              },
+              pretest: [
+                {
+                  question: "Which of the following tasks is a Decision Tree Regressor designed to perform?",
+                  options: ["Predict a discrete class label for a given input", "Cluster data points into groups based on similarity", "Predict a continuous numerical output value for a given input", "Reduce the dimensionality of a dataset"],
+                  answerIndex: 2
+                },
+                {
+                  question: "In a Decision Tree Regressor, the predicted output value at each leaf node is:",
+                  options: ["The majority class of all training instances in that node", "The median of the target values of all training instances in that node", "The mean of the target values of all training instances in that node", "The maximum target value of all training instances in that node"],
+                  answerIndex: 2
+                },
+                {
+                  question: "Which of the following is the most commonly used splitting criterion for a Decision Tree Regressor?",
+                  options: ["Gini Impurity", "Entropy", "Mean Squared Error (MSE)", "Euclidean Distance"],
+                  answerIndex: 2
+                },
+                {
+                  question: "Which metric measures the proportion of variance in the target variable explained by the regression model?",
+                  options: ["Mean Absolute Error (MAE)", "Root Mean Squared Error (RMSE)", "R² Score (Coefficient of Determination)", "F1-Score"],
+                  answerIndex: 2
+                },
+                {
+                  question: "What is the primary difference between a Decision Tree Classifier and a Decision Tree Regressor?",
+                  options: ["Classifiers use Euclidean distance for splitting while Regressors use Gini Impurity", "Classifiers predict continuous values while Regressors predict class labels", "Classifiers predict class labels using majority voting while Regressors predict continuous values using mean output", "There is no difference — both use the same splitting criterion and output method"],
+                  answerIndex: 2
+                }
+              ],
+              posttest: [
+                {
+                  question: "A Decision Tree Regressor with max_depth = 1 splits the data into exactly how many leaf regions?",
+                  options: ["1", "3", "2", "4"],
+                  answerIndex: 2
+                },
+                {
+                  question: "For a leaf node containing training instances with target values: 120, 130, 110, 140, 150 — what will be the predicted output for any new instance that falls into this leaf?",
+                  options: ["130", "120", "150", "110"],
+                  answerIndex: 0
+                },
+                {
+                  question: "In the Residual Plot of a Decision Tree Regressor, if residuals show a clear funnel-shaped pattern (increasing spread with increasing predicted values), this indicates:",
+                  options: ["The model is perfectly fitted", "The model has heteroscedasticity — variance of errors is not constant", "The model is underfitting the data", "The splitting criterion should be changed to MAE"],
+                  answerIndex: 1
+                },
+                {
+                  question: "A Decision Tree Regressor is trained on house prices ranging from ₹20 Lakhs to ₹150 Lakhs. When asked to predict the price of a house valued at ₹200 Lakhs (beyond the training range), the model will:",
+                  options: ["Extrapolate and predict a value near ₹200 Lakhs", "Return an error as the value is out of range", "Predict the mean of the entire training set", "Predict a constant value equal to the mean of the nearest leaf node — it cannot extrapolate beyond training range"],
+                  answerIndex: 3
+                },
+                {
+                  question: "A Decision Tree Regressor gives the following results: Training R² = 0.98, Testing R² = 0.65. Which combination of parameter changes is most appropriate to improve the model?",
+                  options: ["Increase max_depth and decrease min_samples_leaf", "Decrease max_depth and increase min_samples_leaf", "Increase max_depth and increase min_samples_split", "Decrease min_samples_split and set ccp_alpha to 0"],
+                  answerIndex: 1
+                }
+              ]
+            }
           }
         ]
       },
