@@ -5995,7 +5995,189 @@ export const courses: Record<string, Course> = {
             id: "ml-w8-1",
             title: "SVM Classification",
             desc: "Apply Support Vector Machine (SVM) algorithm for classification.",
-            expected: "SVM classifier successfully trained with different kernels (linear, RBF) and evaluated."
+            expected: "SVM classifier successfully trained with different kernels (linear, RBF) and evaluated.",
+            content: {
+              aim: {
+                text: "To implement the Support Vector Machine (SVM) algorithm for classification tasks on a given dataset using Python / R / Weka, to understand the concept of maximum margin hyperplane and support vectors, to apply and compare different kernel functions including Linear, Polynomial, and RBF kernels, to tune the regularization parameter C and kernel-specific parameters such as gamma and degree, to visualize the decision boundary and margin, and to evaluate model performance using standard classification metrics."
+              },
+              theory: [
+                {
+                  title: "1. Introduction to Support Vector Machines",
+                  body: [
+                    "Support Vector Machine (SVM) is a powerful supervised machine learning algorithm primarily used for classification tasks.",
+                    "The core idea is to find the optimal decision boundary (hyperplane) that separates data points of different classes with the maximum possible margin.",
+                    "Key Strengths: Works well with high-dimensional data, memory efficient as only support vectors are stored, versatile through different kernel functions, robust to overfitting."
+                  ]
+                },
+                {
+                  title: "2. Linear SVM — Hard Margin Classification",
+                  body: [
+                    "A hyperplane in n-dimensional space is defined as: w · x + b = 0.",
+                    "Decision Rule: If w · x + b ≥ +1 → Predict Class +1. If w · x + b ≤ −1 → Predict Class −1."
+                  ]
+                },
+                {
+                  title: "3. Margin and Support Vectors",
+                  body: [
+                    "Margin Width Formula: Margin = 2 / ||w||.",
+                    "SVM maximizes the margin by minimizing ||w||².",
+                    "Support Vectors: The training instances that lie exactly on the margin boundaries. They are the only data points that influence the position and orientation of the decision hyperplane."
+                  ]
+                },
+                {
+                  title: "4. Soft Margin SVM & The Regularization Parameter C",
+                  body: [
+                    "Soft Margin SVM introduces slack variables ξ_i that allow some data points to violate the margin or even be misclassified.",
+                    "Parameter C controls the balance between maximizing the margin and minimizing training errors.",
+                    "Small C: Wider margin, more misclassifications allowed (underfitting / generalized).",
+                    "Large C: Narrow margin, very few misclassifications (overfitting)."
+                  ]
+                },
+                {
+                  title: "5. The Kernel Trick & Kernel Functions",
+                  body: [
+                    "The Kernel Trick explicitly maps data into a higher-dimensional space where it becomes linearly separable, without computing the coordinates explicitly.",
+                    "Linear Kernel: K(x, z) = x · z (Best for linearly separable data).",
+                    "Polynomial Kernel: K(x, z) = (γ × x · z + r)^d (Creates polynomial boundaries).",
+                    "RBF (Gaussian) Kernel: K(x, z) = exp(−γ × ||x − z||²) (Most widely used, creates complex non-linear boundaries. Gamma controls the influence radius of each support vector)."
+                  ]
+                }
+              ],
+              procedure: [
+                "Step 1: Select the Tool.",
+                "Step 2: Load the Dataset.",
+                "Step 3: Explore the Dataset.",
+                "Step 4: Preprocess the Dataset (Mandatory Feature Scaling).",
+                "Step 5: Set the Train-Test Split.",
+                "Step 6: Select the Kernel Function.",
+                "Step 7: Configure Hyperparameters (C, gamma, degree).",
+                "Step 8: Train the SVM Classifier.",
+                "Step 9: Visualize the Decision Boundary.",
+                "Step 10: Evaluate Model Performance.",
+                "Step 11: Perform Hyperparameter Tuning.",
+                "Step 12: Compare Kernel Functions.",
+                "Step 13: Observe Support Vectors.",
+                "Step 14: Perform Grid Search (Optional).",
+                "Step 15: Record Observations.",
+                "Step 16: Attempt Post-Test."
+              ],
+              simulation: {
+                code: "from sklearn.svm import SVC\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import accuracy_score\nimport pandas as pd\n\n# Load Data\ndf = pd.read_csv('make_moons.csv')\nX = df[['Feature1', 'Feature2']]\ny = df['Target']\n\n# Train-Test Split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\n\n# Feature Scaling\nscaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.transform(X_test)\n\n# Initialize and Train SVM with RBF Kernel\nsvm = SVC(kernel='rbf', C=10.0, gamma=0.5)\nsvm.fit(X_train_scaled, y_train)\n\n# Predict & Evaluate\ny_pred = svm.predict(X_test_scaled)\nacc = accuracy_score(y_test, y_pred)\n\nprint(f\"Test Accuracy: {acc*100:.2f}%\")",
+                steps: [
+                  { line: 1, annotation: "Import SVC and utilities", memory: [], output: "" },
+                  { line: 9, annotation: "Load and split data", memory: [], output: "" },
+                  { line: 14, annotation: "Scale features (Standardization)", memory: [], output: "" },
+                  { line: 19, annotation: "Initialize SVC with RBF kernel", memory: [], output: "" },
+                  { line: 20, annotation: "Fit the model", memory: [], output: "" },
+                  { line: 23, annotation: "Predict on test set", memory: [], output: "" },
+                  { line: 26, annotation: "Print score", memory: [], output: "Test Accuracy: 98.50%" }
+                ]
+              },
+              pretest: [
+                {
+                  question: "The primary objective of a Support Vector Machine (SVM) classifier is to:",
+                  options: [
+                    "Minimize the number of support vectors in the training data",
+                    "Find the hyperplane that maximizes the margin between two classes",
+                    "Minimize the training error on all data points",
+                    "Find the centroid of each class and draw a boundary midway between them"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "Support Vectors in an SVM are defined as:",
+                  options: [
+                    "All data points in the training dataset",
+                    "The data points farthest from the decision boundary",
+                    "The data points closest to the decision boundary that define the margin",
+                    "The data points that are incorrectly classified by the model"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "The Kernel Trick in SVM is used to:",
+                  options: [
+                    "Reduce the number of support vectors required for classification",
+                    "Map data from a lower-dimensional space to a higher-dimensional space to make it linearly separable",
+                    "Normalize the feature values before training the SVM",
+                    "Select the most important features from the dataset automatically"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "The regularization parameter C in SVM controls:",
+                  options: [
+                    "The number of dimensions in the kernel feature space",
+                    "The width of the Gaussian RBF kernel",
+                    "The trade-off between maximizing the margin and minimizing classification errors",
+                    "The number of support vectors selected during training"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "Which of the following kernel functions is most suitable for non-linearly separable data where the decision boundary is circular or elliptical?",
+                  options: [
+                    "Linear Kernel",
+                    "Polynomial Kernel",
+                    "Radial Basis Function (RBF) Kernel",
+                    "Sigmoid Kernel"
+                  ],
+                  answerIndex: 2
+                }
+              ],
+              posttest: [
+                {
+                  question: "An SVM with a very large value of C (e.g. C = 10,000) is trained on a dataset. Which of the following best describes the expected behavior of this model?",
+                  options: [
+                    "The model will have a very wide margin with many misclassifications allowed",
+                    "The model will focus on maximizing the margin at the cost of some training errors",
+                    "The model will try to classify all training points correctly, resulting in a very narrow margin and risk of overfitting",
+                    "The model will reduce the number of support vectors to zero"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "For an SVM with RBF kernel, if gamma is set to a very large value (e.g. gamma = 1000), what will be the effect on the decision boundary?",
+                  options: [
+                    "The decision boundary will become a straight line",
+                    "The decision boundary will become very smooth and generalized",
+                    "Each support vector will have a very small influence radius, causing the boundary to be extremely wiggly and overfit to individual training points",
+                    "The model will automatically switch to a Linear kernel"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "A dataset has 500 training instances. After training an SVM with RBF kernel (C=1, gamma=scale), 420 support vectors are identified. What does this large number of support vectors indicate?",
+                  options: [
+                    "The model is performing very well with high accuracy",
+                    "The model has found a wide margin that perfectly separates the data",
+                    "The model may be overfitting or the kernel/parameters are not well suited to the data — almost the entire training set is acting as support vectors",
+                    "The dataset is linearly separable and a Linear kernel should be used instead"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "In a 4-class classification problem using SVM with the One-vs-One strategy, how many binary SVM classifiers will be trained?",
+                  options: [
+                    "4",
+                    "8",
+                    "6",
+                    "12"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "Feature scaling is applied before training SVM. After standardization, a feature that originally ranged from 0 to 10,000 now ranges approximately from −3 to +3. A second feature that originally ranged from 0 to 1 also now ranges from −3 to +3. Why is this transformation critical for SVM?",
+                  options: [
+                    "Scaling converts categorical features to numerical values required by SVM",
+                    "Without scaling, features with larger ranges dominate the distance calculations and margin computation, causing the SVM to be biased towards those features — scaling ensures all features contribute equally",
+                    "Scaling reduces the number of support vectors required by the model",
+                    "Scaling changes the kernel function from RBF to Linear, making the boundary more interpretable"
+                  ],
+                  answerIndex: 1
+                }
+              ]
+            }
           }
         ]
       },
@@ -6009,7 +6191,190 @@ export const courses: Record<string, Course> = {
             id: "ml-w9-1",
             title: "Simple Linear Regression",
             desc: "Demonstrate Simple Linear Regression algorithm for a regression problem.",
-            expected: "Linear Regression model trained, best-fit line plotted, and performance evaluated using R-squared."
+            expected: "Linear Regression model trained, best-fit line plotted, and performance evaluated using R-squared.",
+            content: {
+              aim: {
+                text: "To implement Simple Linear Regression on a given dataset using Python / R / Weka, to estimate the regression coefficients β₀ (intercept) and β₁ (slope) using the Ordinary Least Squares method, to visualize the regression line fitted to the data, to evaluate the model using standard regression metrics such as MAE, MSE, RMSE, and R² Score, to analyze residuals to validate regression assumptions, and to understand the linear relationship between a single independent variable and a continuous dependent variable."
+              },
+              theory: [
+                {
+                  title: "1. Introduction to Linear Regression",
+                  body: [
+                    "Linear Regression models the relationship between one or more independent variables (predictors) and a continuous dependent variable (target) by fitting a linear equation to the observed data.",
+                    "Simple Linear Regression involves one independent variable predicting one dependent variable."
+                  ]
+                },
+                {
+                  title: "2. Simple Linear Regression Model",
+                  body: [
+                    "The Regression Equation: ŷ = β₀ + β₁x",
+                    "Where: ŷ = predicted value of the dependent variable, x = independent variable, β₀ = intercept, β₁ = slope.",
+                    "Intercept β₀: The predicted value of y when x = 0.",
+                    "Slope β₁: For every one-unit increase in x, y changes by β₁ units."
+                  ]
+                },
+                {
+                  title: "3. Ordinary Least Squares (OLS) Estimation",
+                  body: [
+                    "OLS minimizes the Sum of Squared Residuals (SSR) — the sum of the squared differences between actual and predicted values.",
+                    "Residual: e_i = y_i − ŷ_i",
+                    "Closed-Form OLS Solution: β₁ = Σ (x_i − x̄)(y_i − ȳ) / Σ (x_i − x̄)² and β₀ = ȳ − β₁ × x̄."
+                  ]
+                },
+                {
+                  title: "4. Decomposition of Variance",
+                  body: [
+                    "Total Sum of Squares (SST): Total variation in the observed y values.",
+                    "Regression Sum of Squares (SSReg): Variation in y explained by the regression model.",
+                    "Residual Sum of Squares (SSRes): Variation in y NOT explained by the model.",
+                    "SST = SSReg + SSRes."
+                  ]
+                },
+                {
+                  title: "5. Evaluation Metrics & Assumptions",
+                  body: [
+                    "Metrics: MAE, MSE, RMSE, R² Score, Pearson Correlation Coefficient (r).",
+                    "Assumptions: Linearity, Independence (residuals), Homoscedasticity (constant variance of residuals), Normality of Residuals, No Outliers.",
+                    "Residual analysis involves viewing Residuals vs Fitted Values, Q-Q Plot, Histogram, and Residuals vs Index."
+                  ]
+                }
+              ],
+              procedure: [
+                "Step 1: Select the Tool.",
+                "Step 2: Load the Dataset.",
+                "Step 3: Explore the Dataset.",
+                "Step 4: Check the Linearity Assumption.",
+                "Step 5: Set the Train-Test Split.",
+                "Step 6: Compute OLS Coefficients Manually.",
+                "Step 7: Train the Simple Linear Regression Model.",
+                "Step 8: Visualize the Regression Line.",
+                "Step 9: Make Predictions.",
+                "Step 10: Evaluate Model Performance.",
+                "Step 11: Perform Residual Analysis.",
+                "Step 12: View the Variance Decomposition.",
+                "Step 13: Experiment with Different Datasets.",
+                "Step 14: Observe the Effect of Outliers.",
+                "Step 15: Record Observations.",
+                "Step 16: Attempt Post-Test."
+              ],
+              simulation: {
+                code: "import pandas as pd\nimport numpy as np\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import mean_squared_error, r2_score\n\n# Load Data\ndf = pd.DataFrame({'YearsExperience': [1,2,3,4,5], 'Salary': [40000, 45000, 50000, 60000, 65000]})\nX = df[['YearsExperience']]\ny = df['Salary']\n\n# Train-Test Split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n# Train Linear Regression\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\n\n# Predict & Evaluate\ny_pred = model.predict(X_test)\nrmse = np.sqrt(mean_squared_error(y_test, y_pred))\nr2 = r2_score(y_test, y_pred)\n\nprint(f\"Intercept: {model.intercept_:.2f}\")\nprint(f\"Slope: {model.coef_[0]:.2f}\")\nprint(f\"RMSE: {rmse:.2f}\")\nprint(f\"R2 Score: {r2:.2f}\")",
+                steps: [
+                  { line: 1, annotation: "Import libraries", memory: [], output: "" },
+                  { line: 8, annotation: "Load dataset", memory: [], output: "" },
+                  { line: 12, annotation: "Train-test split", memory: [], output: "" },
+                  { line: 15, annotation: "Initialize LinearRegression", memory: [], output: "" },
+                  { line: 16, annotation: "Fit the model", memory: [], output: "" },
+                  { line: 19, annotation: "Make predictions", memory: [], output: "" },
+                  { line: 20, annotation: "Calculate metrics", memory: [], output: "" },
+                  { line: 24, annotation: "Print coefficients and metrics", memory: [], output: "Intercept: 33500.00\nSlope: 6500.00\nRMSE: 2500.00\nR2 Score: 0.90" }
+                ]
+              },
+              pretest: [
+                {
+                  question: "Simple Linear Regression models the relationship between:",
+                  options: [
+                    "Two or more independent variables and one dependent variable",
+                    "One independent variable and one dependent variable",
+                    "One independent variable and two dependent variables",
+                    "Two independent variables and two dependent variables"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "In the Simple Linear Regression equation ŷ = β₀ + β₁x, the term β₁ represents:",
+                  options: [
+                    "The intercept — the value of ŷ when x = 0",
+                    "The residual error of the model",
+                    "The slope — the change in ŷ for a one-unit increase in x",
+                    "The coefficient of determination"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "The method used to estimate the coefficients β₀ and β₁ in Simple Linear Regression by minimizing the sum of squared residuals is called:",
+                  options: [
+                    "Maximum Likelihood Estimation",
+                    "Ordinary Least Squares (OLS)",
+                    "Gradient Boosting",
+                    "Lagrangian Optimization"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "The R² Score (Coefficient of Determination) value of 1.0 indicates:",
+                  options: [
+                    "The model explains none of the variance in the dependent variable",
+                    "The model has a perfect linear fit — it explains all the variance in the dependent variable",
+                    "The model is overfitting the training data severely",
+                    "The independent and dependent variables have zero correlation"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "In Simple Linear Regression, a residual is defined as:",
+                  options: [
+                    "The predicted value of the dependent variable",
+                    "The slope of the regression line",
+                    "The difference between the actual observed value and the predicted value",
+                    "The correlation coefficient between two variables"
+                  ],
+                  answerIndex: 2
+                }
+              ],
+              posttest: [
+                {
+                  question: "Which residual plot pattern indicates a violation of the homoscedasticity assumption in Simple Linear Regression?",
+                  options: [
+                    "Random scatter of points around the zero line in the Residuals vs Fitted plot",
+                    "A funnel shape (spreading out) in the Residuals vs Fitted plot",
+                    "Points closely following the diagonal line in the Q-Q plot",
+                    "A bell-shaped symmetric histogram of residuals"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "For a given Simple Linear Regression model predicting house price from area, the R² score is 0.85. What does this value mean?",
+                  options: [
+                    "The model accurately predicts the price of 85% of houses",
+                    "85% of the variance in house prices is explained by the area",
+                    "The predicted house price is 85% of the actual house price on average",
+                    "The regression line passes perfectly through 85% of the data points"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "Which of the following is true regarding the Ordinary Least Squares (OLS) regression line?",
+                  options: [
+                    "It always passes through the origin (0,0)",
+                    "It minimizes the sum of absolute errors",
+                    "It always passes through the point defined by the mean of x and the mean of y (x̄, ȳ)",
+                    "It is highly resistant to extreme outliers"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "If the Pearson correlation coefficient (r) between independent variable x and dependent variable y is -0.90, what is the expected slope (β₁) of the regression line?",
+                  options: [
+                    "The slope will be positive",
+                    "The slope will be negative",
+                    "The slope will be zero",
+                    "The slope cannot be determined without knowing R²"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "The variance decomposition in ANOVA for regression states that SST = SSReg + SSRes. If a model fits the data very poorly, which of the following is true?",
+                  options: [
+                    "SSReg will be very large compared to SSRes",
+                    "SSRes will be close to zero",
+                    "SSRes will be very large, approaching the value of SST",
+                    "SST will be negative"
+                  ],
+                  answerIndex: 2
+                }
+              ]
+            }
           }
         ]
       },
@@ -6023,7 +6388,188 @@ export const courses: Record<string, Course> = {
             id: "ml-w10-1",
             title: "Logistic Regression Classification",
             desc: "Apply Logistic Regression algorithm for a classification problem.",
-            expected: "Logistic Regression model successfully trained, decision boundary evaluated, and accuracy reported."
+            expected: "Logistic Regression model successfully trained, decision boundary evaluated, and accuracy reported.",
+            content: {
+              aim: {
+                text: "To implement the Logistic Regression algorithm for a binary classification task on a given dataset using Python / R / Weka, to understand the mathematical foundation of the Sigmoid function and the concept of log-odds, to train the model using gradient descent optimization, to evaluate model performance using standard classification metrics including the Confusion Matrix, Accuracy, Precision, Recall, F1-Score, ROC-AUC, and Log Loss, to interpret the model coefficients, to tune the decision threshold, and to apply regularization techniques to improve model generalization."
+              },
+              theory: [
+                {
+                  title: "1. Introduction to Logistic Regression",
+                  body: [
+                    "Logistic Regression is a supervised machine learning algorithm used for binary classification tasks.",
+                    "It extends the idea of Simple Linear Regression by applying a non-linear transformation (the Sigmoid function) to the linear combination of features, squashing the output into the range [0, 1], which can be interpreted as a class probability."
+                  ]
+                },
+                {
+                  title: "2. The Logistic Regression Model",
+                  body: [
+                    "Linear Combination: z = β₀ + β₁x₁ + ... + βₙxₙ",
+                    "Apply Sigmoid Function: σ(z) = 1 / (1 + e⁻ᶻ)",
+                    "Interpret as Probability: P(y = 1 | x) = σ(z)",
+                    "Apply Decision Threshold: ŷ = 1 if P(y = 1 | x) ≥ 0.5, else 0"
+                  ]
+                },
+                {
+                  title: "3. Log-Odds and the Logit Function",
+                  body: [
+                    "Logistic Regression models the log-odds (logit) of the probability of the positive class as a linear function of the features.",
+                    "Log-Odds (Logit): log[P(y = 1) / (1 − P(y = 1))] = z = β₀ + β₁x₁ + ... + βₙxₙ",
+                    "Odds Ratio: exp(βⱼ) gives the multiplicative change in the odds of Class 1 for a one-unit increase in feature xⱼ."
+                  ]
+                },
+                {
+                  title: "4. Cost Function — Binary Cross-Entropy Loss",
+                  body: [
+                    "Binary Cross-Entropy Loss (Log Loss) Formula: J(β) = −(1/n) × Σ [yᵢ × log(ŷᵢ) + (1 − yᵢ) × log(1 − ŷᵢ)]",
+                    "It heavily penalizes confident wrong predictions, encouraging well-calibrated probabilities."
+                  ]
+                },
+                {
+                  title: "5. Regularization in Logistic Regression",
+                  body: [
+                    "L2 Regularization (Ridge): Adds the sum of squared coefficients as a penalty. Shrinks coefficients toward zero.",
+                    "L1 Regularization (Lasso): Adds the sum of absolute values of coefficients. Performs automatic feature selection by shrinking some to zero.",
+                    "C Parameter: Inverse of regularization strength (smaller C means stronger regularization)."
+                  ]
+                }
+              ],
+              procedure: [
+                "Step 1: Select the Tool.",
+                "Step 2: Load the Dataset.",
+                "Step 3: Explore the Dataset.",
+                "Step 4: Preprocess the Dataset (Handle missing values, Scale features).",
+                "Step 5: Set the Train-Test Split.",
+                "Step 6: Configure Regularization (L1/L2 and C parameter).",
+                "Step 7: Configure Solver and Iterations.",
+                "Step 8: Train the Logistic Regression Model.",
+                "Step 9: View Model Coefficients.",
+                "Step 10: Evaluate Model Performance.",
+                "Step 11: Visualize the Decision Boundary.",
+                "Step 12: Tune the Decision Threshold.",
+                "Step 13: View the Sigmoid Function Plot.",
+                "Step 14: Compare Regularization Settings.",
+                "Step 15: View the Learning Curve.",
+                "Step 16: Record Observations.",
+                "Step 17: Attempt Post-Test."
+              ],
+              simulation: {
+                code: "from sklearn.linear_model import LogisticRegression\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import accuracy_score, log_loss\nimport pandas as pd\n\n# Load Data\ndf = pd.read_csv('diabetes.csv')\nX = df.drop('Outcome', axis=1)\ny = df['Outcome']\n\n# Train-Test Split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\n\n# Feature Scaling\nscaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.transform(X_test)\n\n# Initialize and Train Logistic Regression\nlog_reg = LogisticRegression(C=1.0, penalty='l2')\nlog_reg.fit(X_train_scaled, y_train)\n\n# Predict & Evaluate\ny_pred = log_reg.predict(X_test_scaled)\ny_prob = log_reg.predict_proba(X_test_scaled)[:, 1]\nacc = accuracy_score(y_test, y_pred)\nloss = log_loss(y_test, y_prob)\n\nprint(f\"Test Accuracy: {acc*100:.2f}%\")\nprint(f\"Log Loss: {loss:.4f}\")",
+                steps: [
+                  { line: 1, annotation: "Import LogisticRegression", memory: [], output: "" },
+                  { line: 9, annotation: "Load and split features and target", memory: [], output: "" },
+                  { line: 14, annotation: "Standardize features", memory: [], output: "" },
+                  { line: 19, annotation: "Initialize Logistic Regression", memory: [], output: "" },
+                  { line: 20, annotation: "Fit the model", memory: [], output: "" },
+                  { line: 23, annotation: "Predict classes and probabilities", memory: [], output: "" },
+                  { line: 28, annotation: "Print metrics", memory: [], output: "Test Accuracy: 77.92%\nLog Loss: 0.4983" }
+                ]
+              },
+              pretest: [
+                {
+                  question: "Logistic Regression is primarily used for which type of machine learning task?",
+                  options: [
+                    "Predicting a continuous numerical output value",
+                    "Clustering data points into groups based on similarity",
+                    "Classifying instances into discrete class categories",
+                    "Reducing the dimensionality of a dataset"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "The Sigmoid function used in Logistic Regression maps any real-valued input to an output in the range:",
+                  options: [
+                    "−∞ to +∞",
+                    "0 to 1",
+                    "−1 to +1",
+                    "0 to ∞"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "In Logistic Regression, the output of the Sigmoid function is interpreted as:",
+                  options: [
+                    "The predicted continuous value of the target variable",
+                    "The distance of the instance from the decision boundary",
+                    "The probability that the instance belongs to the positive class",
+                    "The weight assigned to each feature in the model"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "The default decision threshold in binary Logistic Regression is:",
+                  options: [
+                    "0.25",
+                    "0.75",
+                    "1.0",
+                    "0.5"
+                  ],
+                  answerIndex: 3
+                },
+                {
+                  question: "The cost function minimized during Logistic Regression training is:",
+                  options: [
+                    "Mean Squared Error (MSE)",
+                    "Binary Cross-Entropy Loss (Log Loss)",
+                    "Gini Impurity",
+                    "Hinge Loss"
+                  ],
+                  answerIndex: 1
+                }
+              ],
+              posttest: [
+                {
+                  question: "A Logistic Regression model outputs a predicted probability of P(y = 1 | x) = 0.73 for a test instance. With a decision threshold of 0.5, what is the predicted class? If the threshold is changed to 0.8, what is the predicted class?",
+                  options: [
+                    "Class 1 at threshold 0.5; Class 1 at threshold 0.8",
+                    "Class 1 at threshold 0.5; Class 0 at threshold 0.8",
+                    "Class 0 at threshold 0.5; Class 1 at threshold 0.8",
+                    "Class 0 at threshold 0.5; Class 0 at threshold 0.8"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "In a Logistic Regression model trained on a medical dataset, the coefficient for the feature 'Blood Glucose Level' is β = +1.45. What does the odds ratio exp(1.45) ≈ 4.26 tell us about this feature?",
+                  options: [
+                    "A one-unit increase in Blood Glucose Level decreases the odds of the disease by 4.26 times",
+                    "A one-unit increase in Blood Glucose Level multiplies the odds of the disease by 4.26 — meaning the disease becomes 4.26 times more likely for each unit increase in glucose level",
+                    "Blood Glucose Level is 4.26 times less important than all other features combined",
+                    "The model predicts the disease with 4.26% probability when glucose is at its mean value"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "A Logistic Regression classifier trained on an imbalanced dataset (95% Class 0, 5% Class 1) achieves 95% accuracy. Why is this accuracy score misleading in this context?",
+                  options: [
+                    "Logistic Regression cannot handle imbalanced datasets and always achieves exactly the majority class proportion as accuracy",
+                    "The model could achieve 95% accuracy simply by predicting Class 0 for every instance, completely ignoring Class 1 — making accuracy a poor metric here; Recall, F1-Score, and ROC-AUC are more informative",
+                    "The accuracy of 95% is correct and indicates the model is performing excellently on both classes",
+                    "The model has overfit the training data because the accuracy equals the class proportion"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "The Log Loss of Model A is 0.22 and the Log Loss of Model B is 0.58, both evaluated on the same test set. Which model is better and what does a lower Log Loss indicate?",
+                  options: [
+                    "Model B is better because a higher log loss indicates stronger confidence in predictions",
+                    "Both models are equally good as log loss only measures calibration not accuracy",
+                    "Model A is better because lower Log Loss indicates that the model's predicted probabilities are closer to the actual class labels — the model is both accurate and well-calibrated",
+                    "Model A is better only because it has a lower numerical value — Log Loss has no practical interpretation"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "A Logistic Regression model is trained with L1 regularization (Lasso) using a strong regularization setting (very small C). After training, several feature coefficients are exactly zero. What is the practical implication of this result?",
+                  options: [
+                    "The model has failed to converge and needs more training iterations",
+                    "The features with zero coefficients are the most important predictors and should be kept",
+                    "L1 regularization has performed automatic feature selection by driving irrelevant feature coefficients to exactly zero — the model uses only the features with non-zero coefficients for prediction",
+                    "Zero coefficients indicate that those features are perfectly correlated with the target variable"
+                  ],
+                  answerIndex: 2
+                }
+              ]
+            }
           }
         ]
       },
@@ -6037,7 +6583,188 @@ export const courses: Record<string, Course> = {
             id: "ml-w11-1",
             title: "MLP Classifier",
             desc: "Demonstrate Multi-layer Perceptron (MLP) algorithm for a classification problem.",
-            expected: "MLP neural network trained, loss curve plotted, and classification metrics evaluated."
+            expected: "MLP neural network trained, loss curve plotted, and classification metrics evaluated.",
+            content: {
+              aim: {
+                text: "To implement the Multi-layer Perceptron (MLP) algorithm for a classification task on a given dataset using Python / R / Weka, to understand the architecture of a feedforward neural network including input layers, hidden layers, and output layers, to study the role of activation functions, to understand the forward propagation and backpropagation mechanisms, to train the MLP using gradient descent optimization, to evaluate model performance using standard classification metrics, and to analyze the effect of key hyperparameters such as the number of hidden layers, number of neurons, learning rate, and activation function on model performance."
+              },
+              theory: [
+                {
+                  title: "1. Introduction to Artificial Neural Networks",
+                  body: [
+                    "Artificial Neural Networks (ANNs) are computational models inspired by biological neural networks.",
+                    "They consist of artificial neurons (nodes) organized in layers that process input data to produce an output.",
+                    "ANNs can model highly complex non-linear decision boundaries and form the foundation of deep learning architectures."
+                  ]
+                },
+                {
+                  title: "2. Multi-layer Perceptron (MLP) Architecture",
+                  body: [
+                    "Input Layer: Receives raw input features. Number of neurons = Number of input features.",
+                    "Hidden Layer(s): Intermediate layers. Each neuron receives inputs from all neurons in the previous layer (fully connected). Applies a weighted sum followed by a non-linear activation function.",
+                    "Output Layer: Produces final prediction. 1 neuron with Sigmoid for binary classification, or k neurons with Softmax for multi-class classification."
+                  ]
+                },
+                {
+                  title: "3. Activation Functions",
+                  body: [
+                    "Sigmoid: Smooth, squashes output between 0 and 1. Suffers from vanishing gradient. Best for output layer in binary classification.",
+                    "ReLU (Rectified Linear Unit): max(0, z). Computationally efficient, prevents vanishing gradient for positive values. Most widely used for hidden layers.",
+                    "Softmax: Converts raw output scores into a probability distribution over all classes. Used in the output layer for multi-class classification."
+                  ]
+                },
+                {
+                  title: "4. Forward Propagation & Backpropagation",
+                  body: [
+                    "Forward Propagation: Passing input data through the network layer by layer to compute predicted output and loss.",
+                    "Backpropagation (Backward Propagation of Errors): Computes the gradient of the loss function with respect to every weight in the network using the Chain Rule, propagating gradients backward from output to input.",
+                    "Optimization: Weights are updated iteratively using optimizers like Stochastic Gradient Descent (SGD) or Adam (Adaptive Moment Estimation)."
+                  ]
+                },
+                {
+                  title: "5. Key Hyperparameters & Regularization",
+                  body: [
+                    "Number of Hidden Layers / Neurons: Controls network depth and width (capacity).",
+                    "Learning Rate (α): Step size of weight updates.",
+                    "Dropout: Randomly deactivates a fraction of neurons during training to prevent overfitting.",
+                    "Early Stopping: Stops training when validation loss begins to increase, preventing overfitting."
+                  ]
+                }
+              ],
+              procedure: [
+                "Step 1: Select the Tool (Python, R, Weka).",
+                "Step 2: Load the Dataset.",
+                "Step 3: Explore the Dataset.",
+                "Step 4: Preprocess the Dataset (Mandatory Feature Scaling).",
+                "Step 5: Set the Train-Validation-Test Split.",
+                "Step 6: Design the MLP Architecture (Set number of hidden layers and neurons per layer).",
+                "Step 7: Configure Hyperparameters (Activation function, Optimizer, Learning Rate).",
+                "Step 8: Set Regularization (Dropout rate, Early Stopping).",
+                "Step 9: Train the MLP Classifier.",
+                "Step 10: View the Learning Curve (Training vs Validation Loss).",
+                "Step 11: Evaluate Model Performance (Accuracy, Precision, Recall, F1-Score).",
+                "Step 12: Visualize the Decision Boundary (for 2D data).",
+                "Step 13: Compare Different Architectures.",
+                "Step 14: Record Observations.",
+                "Step 15: Attempt Post-Test."
+              ],
+              simulation: {
+                code: "from sklearn.neural_network import MLPClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import accuracy_score\nimport pandas as pd\n\n# Load Data\ndf = pd.read_csv('data.csv')\nX = df.drop('Target', axis=1)\ny = df['Target']\n\n# Train-Test Split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\n\n# Feature Scaling\nscaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.transform(X_test)\n\n# Initialize and Train MLP\nmlp = MLPClassifier(hidden_layer_sizes=(64, 32), activation='relu', solver='adam', max_iter=500)\nmlp.fit(X_train_scaled, y_train)\n\n# Predict & Evaluate\ny_pred = mlp.predict(X_test_scaled)\nacc = accuracy_score(y_test, y_pred)\n\nprint(f\"Test Accuracy: {acc*100:.2f}%\")",
+                steps: [
+                  { line: 1, annotation: "Import MLPClassifier", memory: [], output: "" },
+                  { line: 9, annotation: "Load and split data", memory: [], output: "" },
+                  { line: 14, annotation: "Standardize features (Crucial for MLP)", memory: [], output: "" },
+                  { line: 19, annotation: "Initialize MLP with 2 hidden layers (64, 32 neurons)", memory: [], output: "" },
+                  { line: 20, annotation: "Fit the model (Backpropagation)", memory: [], output: "" },
+                  { line: 23, annotation: "Predict on test set", memory: [], output: "" },
+                  { line: 26, annotation: "Print accuracy", memory: [], output: "Test Accuracy: 92.50%" }
+                ]
+              },
+              pretest: [
+                {
+                  question: "A Multi-layer Perceptron (MLP) belongs to which category of machine learning models?",
+                  options: [
+                    "Instance-Based Learning",
+                    "Probabilistic Learning",
+                    "Artificial Neural Networks (ANN)",
+                    "Ensemble Learning"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "In an MLP, the layer that receives the raw input features and passes them into the network is called the:",
+                  options: [
+                    "Output Layer",
+                    "Hidden Layer",
+                    "Activation Layer",
+                    "Input Layer"
+                  ],
+                  answerIndex: 3
+                },
+                {
+                  question: "Which of the following activation functions is most commonly used in the hidden layers of a modern MLP?",
+                  options: [
+                    "Step Function",
+                    "Sigmoid Function",
+                    "ReLU (Rectified Linear Unit)",
+                    "Identity Function"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "Backpropagation in an MLP is used to:",
+                  options: [
+                    "Initialize the weights of the network before training",
+                    "Compute the gradient of the loss function with respect to each weight using the chain rule and update weights accordingly",
+                    "Select the optimal number of hidden layers in the network",
+                    "Normalize the input features before feeding them into the network"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "The Vanishing Gradient Problem in deep neural networks refers to:",
+                  options: [
+                    "The network weights becoming too large during training causing numerical overflow",
+                    "The gradients becoming extremely small as they are propagated backward through many layers causing early layers to learn very slowly or not at all",
+                    "The loss function failing to converge to a global minimum during training",
+                    "The output layer producing outputs close to zero for all inputs"
+                  ],
+                  answerIndex: 1
+                }
+              ],
+              posttest: [
+                {
+                  question: "If an MLP classifier is applied to a dataset without performing feature scaling (standardization or normalization), what is the most likely consequence?",
+                  options: [
+                    "The model will automatically scale the features internally",
+                    "Gradient descent will converge very slowly or may fail to converge entirely because features with larger magnitudes will dominate weight updates",
+                    "The network will perfectly classify the training data but fail on test data",
+                    "The model architecture will dynamically adjust to accommodate the unscaled features"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "What is the primary benefit of using the ReLU activation function over the Sigmoid activation function in deep hidden layers?",
+                  options: [
+                    "ReLU produces probabilities bounded between 0 and 1",
+                    "ReLU mitigates the vanishing gradient problem because its derivative is exactly 1 for all positive inputs",
+                    "ReLU ensures that no neuron ever outputs zero",
+                    "ReLU makes backpropagation unnecessary"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "In the context of training an MLP, what does 'Dropout' do?",
+                  options: [
+                    "It randomly discards a portion of the training dataset at each epoch",
+                    "It removes features that have low correlation with the target variable",
+                    "It randomly deactivates a fraction of neurons during each training step to prevent co-adaptation and reduce overfitting",
+                    "It stops the training process early when the loss stops decreasing"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "An MLP is being trained for a 5-class classification task. Which activation function should be used in the output layer and how many neurons should the output layer have?",
+                  options: [
+                    "Softmax activation, 5 neurons",
+                    "Sigmoid activation, 5 neurons",
+                    "ReLU activation, 1 neuron",
+                    "Softmax activation, 1 neuron"
+                  ],
+                  answerIndex: 0
+                },
+                {
+                  question: "During training, an MLP's training loss continues to decrease to near zero, but its validation loss starts to increase significantly after epoch 50. What does this indicate and what is a standard remedy?",
+                  options: [
+                    "Underfitting; increase the learning rate",
+                    "Overfitting; apply Early Stopping and halt training around epoch 50",
+                    "Vanishing gradients; switch to a Sigmoid activation function",
+                    "Perfect learning; let the network train until epoch 100"
+                  ],
+                  answerIndex: 1
+                }
+              ]
+            }
           }
         ]
       },
@@ -6051,7 +6778,189 @@ export const courses: Record<string, Course> = {
             id: "ml-w12-1",
             title: "K-Means and K-Parameter Tuning",
             desc: "Implement the K-Means algorithm and apply it to the selected dataset. Evaluate performance by measuring the sum of the Euclidean distance of each example from its class center. Test the performance of the algorithm as a function of the parameter K.",
-            expected: "K-Means clustering applied, Elbow method used to determine optimal K, and clusters visualized."
+            expected: "K-Means clustering applied, Elbow method used to determine optimal K, and clusters visualized.",
+            content: {
+              aim: {
+                text: "To implement the K-Means Clustering algorithm for an unsupervised learning task on a given dataset using Python, to understand the iterative centroid update process of K-Means, to visualize cluster formation and convergence step by step, to study the effect of the K parameter on clustering quality using the Elbow Method and Silhouette Score, to evaluate clustering performance using internal validation metrics, to understand the sensitivity of K-Means to initialization and explore K-Means++ initialization as a remedy, and to analyze the practical limitations of K-Means including sensitivity to outliers, assumption of spherical clusters, and the impact of feature scaling on clustering results."
+              },
+              theory: [
+                {
+                  title: "1. Introduction to Clustering",
+                  body: [
+                    "Clustering is a fundamental unsupervised learning technique that groups a set of data points into subsets called clusters such that points within the same cluster are more similar to each other than to points in other clusters. Unlike supervised learning, clustering operates without class labels — the algorithm discovers structure purely from the distribution of data.",
+                    "Clustering is used across a wide range of real-world applications including customer segmentation in retail, document grouping in natural language processing, image compression, anomaly detection in cybersecurity, gene expression analysis in bioinformatics, and city planning.",
+                    "Key Characteristics of Clustering:",
+                    "• No labeled training data required — purely data-driven structure discovery",
+                    "• Results depend heavily on the choice of distance metric and algorithm",
+                    "• Evaluation is inherently more difficult than supervised learning due to absence of ground truth",
+                    "• Multiple valid clusterings of the same data may exist depending on the objective"
+                  ]
+                },
+                {
+                  title: "2. Types of Clustering Algorithms",
+                  body: [
+                    "• Partition-Based (e.g. K-Means, K-Medoids): Divide data into K non-overlapping clusters",
+                    "• Hierarchical (e.g. Agglomerative, Divisive): Build a tree of nested clusters (dendrogram)",
+                    "• Density-Based (e.g. DBSCAN, OPTICS): Group points in dense regions, mark sparse points as noise",
+                    "• Model-Based (e.g. Gaussian Mixture Models): Assume data generated from mixture of probability distributions",
+                    "• Grid-Based (e.g. STING, CLIQUE): Partition feature space into grid cells"
+                  ]
+                },
+                {
+                  title: "3. K-Means Clustering Algorithm",
+                  body: [
+                    "K-Means partitions n data points into K non-overlapping clusters by iteratively assigning each point to its nearest centroid and updating centroids based on the mean of assigned points.",
+                    "3.1 Formal Objective Function",
+                    "K-Means minimizes the Within-Cluster Sum of Squares (WCSS) also called Inertia: WCSS = Σₖ Σ_{x ∈ Cₖ} ||x − μₖ||²",
+                    "3.2 Step-by-Step Algorithm",
+                    "Step 1 — Initialization: Choose K initial centroids.",
+                    "Step 2 — Assignment Step: Assign each data point to the nearest centroid based on Euclidean distance.",
+                    "Step 3 — Update Step: Recompute each centroid as the mean of all points assigned to that cluster.",
+                    "Step 4 — Convergence Check: Repeat Steps 2 and 3 until centroids do not change, max iterations reached, or WCSS change falls below threshold.",
+                    "3.3 Convergence Guarantee",
+                    "K-Means is guaranteed to converge because WCSS strictly decreases or stays the same, but it may converge to a local minimum depending on initialization."
+                  ]
+                },
+                {
+                  title: "4. Distance Metrics in K-Means",
+                  body: [
+                    "• Euclidean: √(Σ(xᵢ − yᵢ)²) - Best for continuous numerical features, isotropic clusters",
+                    "• Manhattan: Σ|xᵢ − yᵢ| - Best when features have outliers, city-block geometry",
+                    "• Cosine: 1 − (x·y / ||x||·||y||) - Best for text data, high-dimensional sparse data",
+                    "Standard K-Means uses Euclidean distance exclusively. K-Medoids (PAM) generalizes to other metrics."
+                  ]
+                },
+                {
+                  title: "5. K-Means++ Initialization",
+                  body: [
+                    "Standard random initialization can place multiple initial centroids in the same dense region causing poor convergence. K-Means++ addresses this by spreading initial centroids far apart.",
+                    "Effect of K-Means++:",
+                    "Produces better initial centroids that are spread across the data",
+                    "Converges faster and to better solutions on average",
+                    "Reduces the number of iterations required for convergence",
+                    "Default initialization in scikit-learn's KMeans (init='k-means++')"
+                  ]
+                },
+                {
+                  title: "6. Determining the Optimal K",
+                  body: [
+                    "6.1 Elbow Method",
+                    "Run K-Means for K = 1, 2, ..., 10 and compute WCSS. Plot WCSS against K. The optimal K is at the elbow point where the curve bends sharply.",
+                    "6.2 Silhouette Score",
+                    "Measures how well each point fits its assigned cluster compared to neighboring clusters. Range is −1 to +1. The optimal K maximizes the average Silhouette Score.",
+                    "6.3 Gap Statistic",
+                    "Compares WCSS to expected WCSS under a null reference distribution.",
+                    "6.4 Davies-Bouldin Index",
+                    "Measures the average similarity between each cluster and its most similar cluster. Lower is better."
+                  ]
+                },
+                {
+                  title: "7. Feature Scaling in K-Means",
+                  body: [
+                    "K-Means uses Euclidean distance which is extremely sensitive to the scale of features. A feature with large numeric range will dominate distance calculations.",
+                    "Mandatory preprocessing before K-Means:",
+                    "• Standardization (Z-Score Normalization)",
+                    "• Min-Max Normalization",
+                    "Rule: Always apply feature scaling before K-Means."
+                  ]
+                },
+                {
+                  title: "8. Limitations of K-Means",
+                  body: [
+                    "• Must Specify K in Advance: Wrong K produces meaningless clusters.",
+                    "• Sensitive to Initialization: Different random initializations can produce different final clusters.",
+                    "• Assumes Spherical Equal-Sized Clusters: Performs poorly on elongated clusters, ring-shaped clusters, or clusters of very different sizes and densities.",
+                    "• Sensitive to Outliers: Centroids are computed as means. A single extreme outlier can significantly shift a centroid.",
+                    "• Converges to Local Minimum: Not guaranteed to find the global minimum of WCSS."
+                  ]
+                }
+              ],
+              procedure: [
+                "Step 1: Select the Tool. Choose your preferred programming environment.",
+                "Step 2: Load the Dataset.",
+                "Step 3: Explore the Dataset.",
+                "Step 4: Preprocess the Dataset (Apply Feature Scaling).",
+                "Step 5: Select K-Means Parameters (Set K, Initialization method, n_init, max_iter).",
+                "Step 6: Run K-Means Clustering.",
+                "Step 7: Perform K-Parameter Tuning using Elbow Method.",
+                "Step 8: Perform K-Parameter Tuning using Silhouette Score.",
+                "Step 9: Compare Elbow and Silhouette Recommendations.",
+                "Step 10: Visualize Clusters.",
+                "Step 11: Step Through K-Means Iterations.",
+                "Step 12: Evaluate Clustering Quality.",
+                "Step 13: Analyze Sensitivity to Initialization.",
+                "Step 14: Demonstrate K-Means Limitations (e.g. Generated Moons dataset).",
+                "Step 15: Experiment with Different K Values.",
+                "Step 16: Record Observations.",
+                "Step 17: Attempt Post-Test."
+              ],
+              simulation: {
+                code: "from sklearn.cluster import KMeans\nfrom sklearn.metrics import silhouette_score\nimport pandas as pd\nimport numpy as np\n\n# Load Dataset\ndf = pd.DataFrame({'X': [1.2, 1.3, 5.1, 5.3, 9.1, 9.2], 'Y': [1.1, 1.2, 5.0, 5.2, 9.0, 9.3]})\n\n# Initialize and Train K-Means\nkmeans = KMeans(n_clusters=3, init='k-means++', n_init=10, random_state=42)\nkmeans.fit(df)\n\n# Evaluate\nlabels = kmeans.labels_\nsil_score = silhouette_score(df, labels)\nprint(f\"Silhouette Score: {sil_score:.3f}\")",
+                steps: [
+                  { line: 1, annotation: "Import KMeans and metrics", memory: [], output: "" },
+                  { line: 7, annotation: "Load Features", memory: [{variable: "df", type: "DataFrame", value: "shape (6, 2)"}], output: "" },
+                  { line: 10, annotation: "Initialize K-Means Classifier", memory: [{variable: "kmeans", type: "KMeans", value: "n_clusters=3"}], output: "" },
+                  { line: 11, annotation: "Train the model", memory: [{variable: "kmeans", type: "KMeans", value: "Fitted"}], output: "" },
+                  { line: 14, annotation: "Get cluster labels", memory: [{variable: "labels", type: "ndarray", value: "[1, 1, 0, 0, 2, 2]"}], output: "" },
+                  { line: 15, annotation: "Calculate Silhouette Score", memory: [], output: "" },
+                  { line: 16, annotation: "Print final evaluation", memory: [], output: "Silhouette Score: 0.966" }
+                ]
+              },
+              pretest: [
+                {
+                  question: "K-Means Clustering belongs to which category of machine learning?",
+                  options: ["Supervised Learning", "Reinforcement Learning", "Unsupervised Learning", "Semi-Supervised Learning"],
+                  answerIndex: 2
+                },
+                {
+                  question: "In K-Means Clustering, what does the value of K represent?",
+                  options: ["The number of features in the dataset", "The number of iterations the algorithm runs", "The number of clusters to partition the data into", "The number of training instances"],
+                  answerIndex: 2
+                },
+                {
+                  question: "Which distance metric is most commonly used in standard K-Means Clustering to measure similarity between a data point and a centroid?",
+                  options: ["Manhattan Distance", "Cosine Similarity", "Euclidean Distance", "Hamming Distance"],
+                  answerIndex: 2
+                },
+                {
+                  question: "What is the primary objective function that K-Means Clustering minimizes during training?",
+                  options: ["Cross-Entropy Loss between predicted and actual class labels", "Within-Cluster Sum of Squares (WCSS) — the sum of squared distances from each point to its assigned cluster centroid", "The total number of iterations required for convergence", "The silhouette score across all clusters"],
+                  answerIndex: 1
+                },
+                {
+                  question: "Which of the following is a known limitation of the K-Means Clustering algorithm?",
+                  options: ["It cannot handle numerical features", "It requires class labels for all training instances", "The number of clusters K must be specified in advance and the algorithm is sensitive to the initial centroid positions", "It always converges to the global minimum of the objective function"],
+                  answerIndex: 2
+                }
+              ],
+              posttest: [
+                {
+                  question: "A K-Means run on a dataset with 300 points, K=3, and 2 features produces the following final centroids after convergence: C1 = (2.1, 3.4), C2 = (7.8, 1.2), C3 = (5.0, 8.9). A new point P = (5.2, 8.5) arrives. Which cluster will it be assigned to?",
+                  options: ["Cluster 1, because its x-coordinate is closest to C1", "Cluster 2, because it has the lowest y-coordinate centroid", "Cluster 3, because Euclidean distance from P to C3 is the smallest distance to any centroid", "Cluster 1, because WCSS is minimized by adding P to the largest cluster"],
+                  answerIndex: 2
+                },
+                {
+                  question: "The Elbow Plot for a K-Means run shows the following WCSS values: K=1: 980, K=2: 520, K=3: 280, K=4: 240, K=5: 220, K=6: 205, K=7: 198. Which K does the Elbow Method recommend and why?",
+                  options: ["K=2, because it has the largest absolute drop in WCSS from K=1", "K=6, because WCSS is still decreasing at K=5 and K=6", "K=3, because the rate of WCSS decrease drops sharply after K=3", "K=7, because more clusters always gives better WCSS"],
+                  answerIndex: 2
+                },
+                {
+                  question: "After running K-Means with K=4 on a standardized dataset, the average Silhouette Score is 0.68. A student re-runs the experiment on the same dataset without feature scaling and gets an average Silhouette Score of 0.22 with the same K=4. What is the most likely explanation?",
+                  options: ["K=4 is the wrong number of clusters for this dataset", "The unscaled dataset has a different number of data points", "Without feature scaling, features with larger numeric ranges dominate the Euclidean distance calculation, causing K-Means to cluster based on high-magnitude features alone", "Silhouette Score cannot be compared between scaled and unscaled runs"],
+                  answerIndex: 2
+                },
+                {
+                  question: "A student runs K-Means with K=3 five times on the same dataset with different random seeds and gets the following WCSS values: 145.2, 145.2, 148.7, 145.2, 152.3. What should the student conclude and what is the best practice going forward?",
+                  options: ["The algorithm is broken because it gives different results each time", "The majority result of 145.2 is likely the global minimum or a good local minimum. Best practice is to use n_init=10 or higher and select the run with the lowest WCSS", "The average of all five WCSS values should be used as the final WCSS", "K=3 is the wrong K because the algorithm does not consistently converge"],
+                  answerIndex: 1
+                },
+                {
+                  question: "A data scientist applies K-Means with K=2 to a dataset containing two interleaved crescent-shaped clusters. The Silhouette Score is 0.18 and the resulting clusters clearly cut across both crescents along a straight line. Which of the following best explains why DBSCAN is more appropriate here?",
+                  options: ["DBSCAN is faster than K-Means and therefore always preferred for large datasets", "K-Means assumes clusters are spherical and isotropic. Crescent-shaped clusters are non-convex and cannot be separated by straight boundaries. DBSCAN groups points based on local density connectivity without any shape assumption.", "DBSCAN does not require feature scaling unlike K-Means", "The Silhouette Score of 0.18 means K=2 is wrong"],
+                  answerIndex: 1
+                }
+              ]
+            }
           }
         ]
       },
@@ -6065,7 +6974,268 @@ export const courses: Record<string, Course> = {
             id: "ml-w13-1",
             title: "Fuzzy C-Means Clustering",
             desc: "Demonstrate the use of Fuzzy C-Means Clustering.",
-            expected: "Fuzzy C-Means applied, membership matrix analyzed, and soft clusters visualized."
+            expected: "Fuzzy C-Means applied, membership matrix analyzed, and soft clusters visualized.",
+            content: {
+              aim: {
+                text: "To implement the Fuzzy C-Means (FCM) clustering algorithm for a soft unsupervised learning task on a given dataset using Python, to understand how FCM generalizes K-Means by assigning partial membership degrees to each data point across all clusters simultaneously, to study the role of the fuzziness parameter m on membership softness and cluster overlap, to visualize membership degree distributions and fuzzy cluster boundaries, to evaluate soft clustering quality using the Partition Coefficient and Partition Entropy metrics, to perform C-parameter tuning using adapted Elbow and Silhouette methods, to compare FCM results with hard K-Means clustering on the same dataset, and to understand the practical advantages of soft clustering for ambiguous and overlapping real-world data distributions."
+              },
+              theory: [
+                {
+                  title: "1. Introduction to Fuzzy Logic and Soft Clustering",
+                  body: [
+                    "Classical set theory assigns each element a binary membership — it either belongs to a set (1) or it does not (0). Fuzzy Set Theory introduced by Lotfi Zadeh in 1965 generalizes this by allowing partial membership — an element can belong to a set with any degree between 0 and 1. This mirrors the inherent ambiguity in real-world categories where boundaries are rarely sharp.",
+                    "In the context of clustering, hard clustering algorithms like K-Means enforce crisp exclusive assignments — every data point belongs to exactly one cluster. This is problematic when: Data points lie near cluster boundaries and could reasonably belong to multiple clusters, Clusters naturally overlap in feature space, The underlying data generating process is genuinely fuzzy or probabilistic, Forcing binary assignments discards important information about ambiguity.",
+                    "Soft clustering addresses these limitations by allowing each data point to simultaneously belong to multiple clusters with varying degrees of membership. Fuzzy C-Means is the most widely used soft clustering algorithm."
+                  ]
+                },
+                {
+                  title: "2. Fuzzy Set Theory Foundations",
+                  body: [
+                    "A fuzzy set A in universe U is characterized by a membership function: μ_A: U → [0, 1]. Where μ_A(x) represents the degree of membership of element x in set A.",
+                    "μ_A(x) = 1.0 : x fully belongs to A",
+                    "μ_A(x) = 0.5 : x has equal partial membership in A",
+                    "μ_A(x) = 0.0 : x does not belong to A",
+                    "0 < μ_A(x) < 1 : x partially belongs to A",
+                    "In Fuzzy C-Means each cluster is a fuzzy set and each data point has a membership degree to every cluster."
+                  ]
+                },
+                {
+                  title: "3. Fuzzy C-Means Algorithm",
+                  body: [
+                    "Fuzzy C-Means (FCM) was developed by Dunn (1973) and improved by Bezdek (1981). It generalizes K-Means by replacing binary cluster assignments with continuous membership degrees.",
+                    "3.1 Formal Objective Function",
+                    "FCM minimizes the weighted within-cluster sum of squared distances: J_m = Σᵢ₌₁ⁿ Σₖ₌₁ᶜ (uᵢₖ)ᵐ × ||xᵢ − vₖ||²",
+                    "Subject to the constraint: Σₖ₌₁ᶜ uᵢₖ = 1 for all i (memberships sum to 1 for each point).",
+                    "3.2 The Fuzziness Parameter m",
+                    "The parameter m controls how fuzzy the clustering is:",
+                    "• m = 1: Hard clustering — memberships become binary (0 or 1), equivalent to K-Means",
+                    "• m = 2: Standard fuzzy clustering — default and most commonly used value",
+                    "• m → ∞: Maximum fuzziness — all memberships converge to 1/C for every point",
+                    "Higher m causes the membership values to be more equal across clusters.",
+                    "3.3 Step-by-Step FCM Algorithm",
+                    "Step 1 — Initialize Membership Matrix U: Create an n × C membership matrix U where uᵢₖ is the membership of point i in cluster k.",
+                    "Step 2 — Compute Cluster Centroids: For each cluster k compute the fuzzy weighted centroid.",
+                    "Step 3 — Update Membership Matrix: Recompute memberships based on distance ratios.",
+                    "Step 4 — Check Convergence: Compute maximum change in membership matrix ΔU. If ΔU < ε stop. Otherwise go to Step 2.",
+                    "Step 5 — Defuzzification: Assign each point to the cluster with highest membership."
+                  ]
+                },
+                {
+                  title: "4. Membership Degree Interpretation",
+                  body: [
+                    "The membership matrix U provides rich information about data structure:",
+                    "• u = [0.95, 0.03, 0.02]: Point strongly belongs to Cluster 1 — unambiguous assignment",
+                    "• u = [0.51, 0.47, 0.02]: Point lies on the boundary between Clusters 1 and 2 — genuinely ambiguous",
+                    "• u = [0.34, 0.33, 0.33]: Point is equidistant from all centroids — maximum uncertainty",
+                    "Points with high maximum membership are core cluster members. Points with distributed membership are boundary or overlapping points."
+                  ]
+                },
+                {
+                  title: "5. FCM vs K-Means",
+                  body: [
+                    "• Assignment Type: K-Means uses crisp assignment, FCM uses fuzzy partial membership.",
+                    "• Objective Function: K-Means minimizes WCSS, FCM minimizes weighted distances J_m.",
+                    "• Membership Values: K-Means uses binary 0 or 1, FCM uses continuous [0, 1].",
+                    "• Overlapping Clusters: K-Means cannot represent overlap, FCM naturally handles overlap.",
+                    "• Parameters: K-Means needs K, FCM needs C, m, ε.",
+                    "• Computational Cost: FCM is O(n × C² × d × i), which is more expensive than K-Means."
+                  ]
+                },
+                {
+                  title: "6. Evaluation Metrics for Fuzzy Clustering",
+                  body: [
+                    "6.1 Partition Coefficient (PC)",
+                    "PC = (1/n) × Σᵢ Σₖ (uᵢₖ)². Range is 1/C to 1. Higher PC indicates crisper more well-defined clusters.",
+                    "6.2 Partition Entropy (PE)",
+                    "PE = −(1/n) × Σᵢ Σₖ uᵢₖ × log(uᵢₖ). Range is 0 to log(C). Lower PE indicates crisper clusters.",
+                    "6.3 Modified Partition Coefficient (MPC)",
+                    "MPC corrects for the monotonic bias of PC making it more reliable for comparing solutions with different C values.",
+                    "6.4 Xie-Beni Index (XB)",
+                    "XB = J_m / (n × min_{k≠j} ||vₖ−vⱼ||²). Lower XB indicates better clustering — compact clusters well separated from each other."
+                  ]
+                },
+                {
+                  title: "7. Choosing Optimal C in FCM",
+                  body: [
+                    "• Adapted Elbow Method: Plot J_m against C. Find elbow point.",
+                    "• PC and PE: Optimal C maximizes PC and minimizes PE.",
+                    "• MPC: Optimal C maximizes MPC.",
+                    "• Xie-Beni Index: Optimal C minimizes XB."
+                  ]
+                },
+                {
+                  title: "8. Effect of Fuzziness Parameter m",
+                  body: [
+                    "• m = 1.0: Hard clustering — identical to K-Means.",
+                    "• m = 2.0: Standard FCM — balanced fuzziness, recommended starting point.",
+                    "• m = 3.0: High fuzziness — memberships spread across clusters, for highly overlapping data.",
+                    "Practical recommendation: Start with m = 2.0. Increase m if data has significant cluster overlap."
+                  ]
+                },
+                {
+                  title: "9. Visualization of FCM Results",
+                  body: [
+                    "• Membership Heatmap: Matrix showing uᵢₖ for all n points across all C clusters.",
+                    "• Fuzzy Cluster Boundary Plot: Point color is blended from C cluster colors proportional to membership values.",
+                    "• Ternary Plot (C=3): Each point plotted at barycentric coordinates (u₁, u₂, u₃)."
+                  ]
+                },
+                {
+                  title: "10. Practical FCM in Python",
+                  body: [
+                    "FCM is available in the scikit-fuzzy library: skfuzzy.cluster.cmeans",
+                    "Key parameters: data (transposed), c (number of clusters), m (fuzzifier), error (tolerance), maxiter.",
+                    "Key outputs: cntr (centroids), u (membership matrix), jm (objective function history)."
+                  ]
+                },
+                {
+                  title: "11. Advantages and Disadvantages of FCM",
+                  body: [
+                    "Advantages:",
+                    "• Naturally handles overlapping clusters.",
+                    "• Provides richer output (full membership matrix).",
+                    "• Better suited for data with gradual transitions.",
+                    "Disadvantages:",
+                    "• Computationally more expensive than K-Means.",
+                    "• Requires specifying C and m in advance.",
+                    "• Sensitive to initialization and outliers.",
+                    "• Assumes clusters are roughly spherical like K-Means."
+                  ]
+                }
+              ],
+              procedure: [
+                "Step 1: Select the Tool (Python with scikit-fuzzy).",
+                "Step 2: Load the Dataset (e.g., Iris or Overlapping Blobs).",
+                "Step 3: Explore the Dataset.",
+                "Step 4: Preprocess the Dataset (Apply Feature Scaling).",
+                "Step 5: Set FCM Parameters (C, m, error, maxiter).",
+                "Step 6: Run Fuzzy C-Means and observe iteration animation.",
+                "Step 7: Explore the Membership Matrix Heatmap.",
+                "Step 8: Visualize Fuzzy Cluster Boundaries with blended colors.",
+                "Step 9: Tune the C Parameter using PC, PE, MPC, and XB.",
+                "Step 10: Explore Effect of Fuzziness Parameter m.",
+                "Step 11: Compare FCM with K-Means (soft vs hard assignments).",
+                "Step 12: View Ternary Plot (for C=3).",
+                "Step 13: Evaluate Clustering Quality metrics.",
+                "Step 14: Experiment with Overlapping Data.",
+                "Step 15: Record Observations.",
+                "Step 16: Attempt Post-Test."
+              ],
+              simulation: {
+                code: "import skfuzzy as fuzz\nimport numpy as np\nimport pandas as pd\n\n# Load Data\ndata = pd.DataFrame({'X': [1.0, 1.2, 5.0, 5.2], 'Y': [1.1, 1.3, 5.1, 5.4]}).T.values\n\n# Run Fuzzy C-Means\ncntr, u, u0, d, jm, p, fpc = fuzz.cluster.cmeans(data, c=2, m=2.0, error=0.005, maxiter=1000, init=None)\n\nprint(f\"Partition Coefficient: {fpc:.3f}\")\nprint(\"Membership Matrix:\\n\", u)",
+                steps: [
+                  { line: 1, annotation: "Import skfuzzy library", memory: [], output: "" },
+                  { line: 6, annotation: "Prepare data (transpose needed for skfuzzy)", memory: [], output: "" },
+                  { line: 9, annotation: "Run Fuzzy C-Means", memory: [{variable: "cntr", type: "ndarray", value: "centroids"}], output: "" },
+                  { line: 11, annotation: "Print Partition Coefficient", memory: [], output: "Partition Coefficient: 0.985" },
+                  { line: 12, annotation: "Print Membership Matrix", memory: [], output: "Membership Matrix:\n[[0.99 0.99 0.01 0.01]\n [0.01 0.01 0.99 0.99]]" }
+                ]
+              },
+              pretest: [
+                {
+                  question: "What is the fundamental difference between hard clustering and soft clustering?",
+                  options: [
+                    "Hard clustering uses Euclidean distance while soft clustering uses cosine similarity",
+                    "In hard clustering each data point belongs exclusively to one cluster, while in soft clustering each data point has a degree of membership to every cluster simultaneously",
+                    "Hard clustering requires labeled data while soft clustering does not",
+                    "Soft clustering always produces more clusters than hard clustering"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "In Fuzzy C-Means clustering, what must be true about the membership values of a single data point across all C clusters?",
+                  options: [
+                    "Each membership value must be exactly 0 or 1",
+                    "The maximum membership value across all clusters must equal 1",
+                    "The sum of all membership values for a single data point across all clusters must equal 1",
+                    "All membership values must be equal to 1/C"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "What is the role of the fuzziness parameter m (also called the fuzzifier) in Fuzzy C-Means?",
+                  options: [
+                    "It controls the number of clusters C",
+                    "It determines the maximum number of iterations",
+                    "It controls the degree of fuzziness — higher m produces softer more overlapping memberships while m approaching 1 makes FCM behave like hard K-Means",
+                    "It sets the convergence threshold for centroid movement"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "Which of the following best describes a data point that lies exactly on the boundary between two clusters in Fuzzy C-Means with C=2?",
+                  options: [
+                    "It is assigned entirely to the nearest cluster with membership 1.0",
+                    "It is discarded as an outlier",
+                    "It receives equal membership values of approximately 0.5 to each cluster reflecting genuine ambiguity in its cluster assignment",
+                    "It causes the algorithm to add a new cluster automatically"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "Fuzzy C-Means minimizes which objective function?",
+                  options: [
+                    "Within-Cluster Sum of Squares (WCSS) identical to K-Means",
+                    "The weighted sum of squared distances from each point to each centroid where weights are the membership values raised to the power m",
+                    "The entropy of the membership distribution across all clusters",
+                    "The silhouette score averaged across all data points"
+                  ],
+                  answerIndex: 1
+                }
+              ],
+              posttest: [
+                {
+                  question: "A Fuzzy C-Means run with C=3 produces the following membership values for three data points: A=[0.92, 0.05, 0.03], B=[0.48, 0.45, 0.07], C=[0.34, 0.33, 0.33]. Rank these points from most confidently assigned to most ambiguous.",
+                  options: [
+                    "A > B > C — Point A is a core member of Cluster 1, Point B lies on the boundary between Clusters 1 and 2, Point C is equidistant from all three centroids and maximally ambiguous",
+                    "C > B > A — Higher spread of membership indicates stronger cluster membership",
+                    "All three are equally confident since each sums to 1.0",
+                    "B > A > C — Points near two clusters are more informative than points near one cluster"
+                  ],
+                  answerIndex: 0
+                },
+                {
+                  question: "A student runs FCM with m=2 on a dataset and gets PC=0.412 with C=3. They run K-Means on the same data with K=3 and get Silhouette Score of 0.681. The student concludes K-Means is better. What is wrong?",
+                  options: [
+                    "Nothing — higher metric always means better clustering",
+                    "PC and Silhouette Score measure different properties and cannot be directly compared numerically. Also PC=0.412 indicates genuinely fuzzy overlapping clusters where soft assignment is more appropriate.",
+                    "The student should use the same metric for both algorithms before comparing",
+                    "FCM is always better than K-Means so the comparison is invalid"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "In FCM with C=2 and m=2, a data point x has distances to the two centroids of d1=2.0 and d2=6.0. Using the FCM membership update formula, which of the following is the correct membership u1 of point x in Cluster 1?",
+                  options: [
+                    "u1 = 0.500 — equal membership since both clusters exist",
+                    "u1 = 1.000 — closest centroid always gets full membership",
+                    "u1 = 0.900, u2 = 0.100 — point is 3 times closer to Cluster 1 so it receives high but not complete membership",
+                    "u1 = 0.750, u2 = 0.250 — membership proportional to inverse distance ratio"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "A researcher is segmenting patients into disease risk clusters. Patient records near cluster boundaries are particularly important. Which justifies using FCM over K-Means?",
+                  options: [
+                    "FCM is computationally faster making it better for large medical databases",
+                    "K-Means cannot handle medical data with continuous numerical features",
+                    "FCM explicitly quantifies diagnostic uncertainty through membership degrees — a boundary patient with memberships [0.52, 0.48] is flagged for further clinical investigation rather than being silently force-assigned.",
+                    "FCM always produces higher Silhouette Scores than K-Means on medical datasets"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "A FCM run with C=4 and m=2 produces MPC=0.698, XB=0.289, PE=0.387, Boundary Points=31 compared to C=3 (MPC=0.741, XB=0.241, PE=0.312, Boundary Points=18). Which C should be selected?",
+                  options: [
+                    "C=4 because more clusters always capture more data structure",
+                    "C=3 because it achieves higher MPC, lower XB, lower PE, and fewer boundary points, indicating more compact well-separated clusters.",
+                    "C=4 because lower boundary points indicate better clustering",
+                    "Neither — the metrics are too close to distinguish between C=3 and C=4"
+                  ],
+                  answerIndex: 1
+                }
+              ]
+            }
           }
         ]
       },
@@ -6079,7 +7249,245 @@ export const courses: Record<string, Course> = {
             id: "ml-w14-1",
             title: "Expectation Maximization (EM) Clustering",
             desc: "Demonstrate the use of Expectation Maximization (EM) based clustering algorithm.",
-            expected: "Gaussian Mixture Model (GMM) fit using EM algorithm, covariances analyzed, and probabilistic clusters visualized."
+            expected: "Gaussian Mixture Model (GMM) fit using EM algorithm, covariances analyzed, and probabilistic clusters visualized.",
+            content: {
+              aim: {
+                text: "To implement Expectation Maximization (EM) clustering using Gaussian Mixture Models (GMM) for a probabilistic unsupervised learning task on a given dataset using Python, to understand the two-step iterative EM procedure of computing responsibilities in the E-Step and updating model parameters in the M-Step, to study how GMM generalizes both K-Means and Fuzzy C-Means by modeling full covariance structure and mixing coefficients, to visualize Gaussian component ellipses and responsibility distributions, to perform model selection using the Bayesian Information Criterion (BIC) and Akaike Information Criterion (AIC) for choosing the optimal number of components K, to compare GMM-EM with K-Means and FCM on the same dataset, to understand the role of covariance type constraints on model complexity and cluster shape, and to analyze practical limitations including singularity, overfitting, and sensitivity to initialization in EM clustering."
+              },
+              theory: [
+                {
+                  title: "1. Introduction to Probabilistic Clustering",
+                  body: [
+                    "Both K-Means and Fuzzy C-Means are geometric clustering algorithms — they operate by minimizing distance-based objective functions without any underlying probabilistic model. While powerful and efficient they have fundamental limitations: K-Means assumes clusters are spherical and equal-sized, FCM softens assignments but still uses the same distance-based geometry, neither provides a principled statistical framework for model comparison, neither naturally handles clusters of different shapes, sizes, and orientations.",
+                    "Probabilistic clustering addresses all these limitations by modeling the data as arising from a generative statistical process. The most powerful and widely used probabilistic clustering framework is the Gaussian Mixture Model optimized using the Expectation Maximization algorithm."
+                  ]
+                },
+                {
+                  title: "2. The Generative Model Perspective",
+                  body: [
+                    "In the generative modeling framework we assume the observed data X was generated by the following probabilistic process:",
+                    "Step 1: For each data point, randomly select a component k from K components with probability πₖ (the mixing coefficient).",
+                    "Step 2: Generate the data point xᵢ by drawing from the Gaussian distribution of the selected component k: xᵢ ~ N(μₖ, Σₖ)",
+                    "The clustering task is to reverse-engineer this process — given observed data X, estimate the parameters for each component k and determine which component most likely generated each data point."
+                  ]
+                },
+                {
+                  title: "3. Gaussian Distribution Review",
+                  body: [
+                    "3.1 Univariate Gaussian",
+                    "A single-variable Gaussian distribution with mean μ and variance σ². Symmetric bell-shaped curve centered at μ. 68% of data falls within μ ± σ, 95% within μ ± 2σ, 99.7% within μ ± 3σ.",
+                    "3.2 Multivariate Gaussian",
+                    "For d-dimensional data, the multivariate Gaussian with mean vector μ (d×1) and covariance matrix Σ (d×d).",
+                    "3.3 Role of the Covariance Matrix",
+                    "The covariance matrix Σ determines the geometric shape of the Gaussian component:",
+                    "• Spherical: Same variance in all directions (Circle / Sphere)",
+                    "• Diagonal: Different variance per feature, no correlation (Axis-aligned Ellipse)",
+                    "• Full Σ: Captures correlations and arbitrary orientation (Arbitrary Ellipse)"
+                  ]
+                },
+                {
+                  title: "4. Gaussian Mixture Model (GMM)",
+                  body: [
+                    "A Gaussian Mixture Model with K components models the data distribution as a weighted sum of K Gaussian distributions: p(x) = Σₖ₌₁ᴷ πₖ × N(x; μₖ, Σₖ).",
+                    "4.1 GMM Parameters",
+                    "Total parameters for full covariance GMM: Mixing coefficients (K−1), Means (K×d), Covariance matrices (K×d(d+1)/2).",
+                    "4.2 Complete Data Log-Likelihood",
+                    "The log-likelihood of observed data X under the GMM: log L(θ; X) = Σᵢ₌₁ⁿ log[Σₖ₌₁ᴷ πₖ × N(xᵢ; μₖ, Σₖ)]. Direct maximization is intractable. EM algorithm provides an iterative solution."
+                  ]
+                },
+                {
+                  title: "5. The Expectation Maximization Algorithm",
+                  body: [
+                    "EM is a general algorithm for maximum likelihood estimation in models with latent (hidden) variables.",
+                    "5.1 Latent Variable Formulation: Introduce latent variable zᵢ for each point i where zᵢ = k if point i was generated by component k.",
+                    "5.2 E-Step (Compute Responsibilities): For each data point i and component k compute responsibility rᵢₖ — the posterior probability that component k generated point i.",
+                    "5.3 M-Step (Update Parameters): Using computed responsibilities update all GMM parameters to maximize the expected complete-data log-likelihood.",
+                    "5.4 Convergence Check: EM is guaranteed to increase or maintain the log-likelihood. Stop when log-likelihood change is below threshold ε.",
+                    "5.6 Convergence Properties: EM may converge to a local maximum rather than global. Multiple random restarts are essential."
+                  ]
+                },
+                {
+                  title: "6. GMM vs K-Means vs FCM",
+                  body: [
+                    "• Assignment: K-Means (Hard binary), FCM (Soft continuous), GMM-EM (Soft probabilistic responsibilities)",
+                    "• Cluster Shape: K-Means/FCM (Spherical), GMM (Arbitrary elliptical with full covariance)",
+                    "• Model Selection: K-Means (Elbow), FCM (PC/XB), GMM (BIC, AIC)",
+                    "• Density Estimation & Outlier Detection: GMM provides full density p(x) and can detect outliers."
+                  ]
+                },
+                {
+                  title: "7. Covariance Type Constraints",
+                  body: [
+                    "7.1 Full Covariance: Arbitrary ellipse with any orientation. Best for data with different shapes/orientations.",
+                    "7.2 Tied Covariance: All components share the same covariance matrix. Same elliptical shape but positioned differently.",
+                    "7.3 Diagonal Covariance: Axis-aligned ellipse. Best for high-dimensional data.",
+                    "7.4 Spherical Covariance: Circle/Sphere. Converges to K-Means as responsibilities become binary."
+                  ]
+                },
+                {
+                  title: "8. Model Selection — Choosing Optimal K",
+                  body: [
+                    "Unlike K-Means, GMM provides principled statistical model selection criteria.",
+                    "8.1 Bayesian Information Criterion (BIC): BIC = −2 × log L + p × log(n). Lower is better. Log(n) penalty is stronger for large n making BIC prefer simpler models.",
+                    "8.2 Akaike Information Criterion (AIC): AIC = −2 × log L + 2p. Weaker complexity penalty.",
+                    "When BIC and AIC disagree, BIC is generally preferred for clustering."
+                  ]
+                },
+                {
+                  title: "9. Responsibilities vs FCM Memberships",
+                  body: [
+                    "FCM memberships are derived from geometric distance ratios without statistical interpretation. GMM responsibilities are derived from Bayes theorem applied to the Gaussian model and have a direct probabilistic interpretation."
+                  ]
+                },
+                {
+                  title: "10. Singularity Problem in EM",
+                  body: [
+                    "If a Gaussian component collapses onto a single data point its covariance matrix becomes singular and likelihood → ∞.",
+                    "Solutions: reg_covar parameter adds a small regularization constant to the diagonal, multiple restarts (n_init), initialization with K-Means."
+                  ]
+                },
+                {
+                  title: "11. Advantages and Disadvantages of EM-GMM",
+                  body: [
+                    "Advantages: Models clusters of arbitrary elliptical shape and orientation, handles clusters of different sizes, provides probabilistic responsibilities, uses BIC/AIC for principled selection, can detect outliers.",
+                    "Disadvantages: Computationally expensive (O(d³)), susceptible to singularity, sensitive to initialization, may overfit with full covariance on small datasets."
+                  ]
+                }
+              ],
+              procedure: [
+                "Step 1: Select the Tool (Python with sklearn.mixture.GaussianMixture).",
+                "Step 2: Load the Dataset.",
+                "Step 3: Explore the Dataset.",
+                "Step 4: Preprocess the Dataset (Feature Scaling).",
+                "Step 5: Select GMM Parameters (K, covariance_type, n_init, max_iter).",
+                "Step 6: Run EM Algorithm and observe iteration animation.",
+                "Step 7: Analyze the Fitted GMM.",
+                "Step 8: Perform K Selection using BIC and AIC.",
+                "Step 9: Compare Covariance Types.",
+                "Step 10: Step Through EM Iterations.",
+                "Step 11: Compare with K-Means and FCM.",
+                "Step 12: Evaluate Model Performance.",
+                "Step 13: Outlier Detection using GMM.",
+                "Step 14: Record Observations.",
+                "Step 15: Attempt Post-Test."
+              ],
+              simulation: {
+                code: "from sklearn.mixture import GaussianMixture\nimport pandas as pd\nimport numpy as np\n\n# Load Data\ndf = pd.DataFrame({'X': [1.2, 1.3, 5.1, 5.3], 'Y': [1.1, 1.2, 5.0, 5.2]})\n\n# Train GMM\ngmm = GaussianMixture(n_components=2, covariance_type='full', random_state=42)\ngmm.fit(df)\n\n# Predict\nlabels = gmm.predict(df)\nprobs = gmm.predict_proba(df)\n\nprint(f\"BIC: {gmm.bic(df):.2f}\")\nprint(f\"Converged: {gmm.converged_}\")",
+                steps: [
+                  { line: 1, annotation: "Import GaussianMixture", memory: [], output: "" },
+                  { line: 6, annotation: "Load Features", memory: [{variable: "df", type: "DataFrame", value: "shape (4, 2)"}], output: "" },
+                  { line: 9, annotation: "Initialize GMM", memory: [{variable: "gmm", type: "GaussianMixture", value: "n_components=2"}], output: "" },
+                  { line: 10, annotation: "Fit the model using EM", memory: [{variable: "gmm", type: "GaussianMixture", value: "Fitted"}], output: "" },
+                  { line: 13, annotation: "Get hard assignments", memory: [{variable: "labels", type: "ndarray", value: "[1, 1, 0, 0]"}], output: "" },
+                  { line: 14, annotation: "Get soft responsibilities", memory: [{variable: "probs", type: "ndarray", value: "shape (4, 2)"}], output: "" },
+                  { line: 16, annotation: "Print BIC and Convergence status", memory: [], output: "BIC: -55.85\nConverged: True" }
+                ]
+              },
+              pretest: [
+                {
+                  question: "Expectation Maximization (EM) clustering is based on which probabilistic model?",
+                  options: [
+                    "K-Nearest Neighbor Density Estimation",
+                    "Gaussian Mixture Models (GMM) — assuming data is generated from a mixture of multiple Gaussian distributions",
+                    "Bernoulli Mixture Models assuming binary feature distributions",
+                    "Uniform Distribution Models assuming equal probability across all regions"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "In the Expectation Step (E-Step) of the EM algorithm, what is computed?",
+                  options: [
+                    "The mean and covariance of each Gaussian component are updated using the current data assignments",
+                    "The posterior probability (responsibility) that each data point was generated by each Gaussian component given the current model parameters",
+                    "The number of Gaussian components K is selected by maximizing the likelihood function",
+                    "The covariance matrices are reset to identity matrices before the next iteration"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "What is the key advantage of EM-based Gaussian Mixture Model clustering over K-Means clustering?",
+                  options: [
+                    "EM always converges faster than K-Means requiring fewer iterations",
+                    "EM does not require specifying the number of clusters in advance",
+                    "EM models cluster shape, size, and orientation through full covariance matrices allowing it to capture elliptical and arbitrarily oriented clusters unlike K-Means which assumes spherical equal-sized clusters",
+                    "EM is computationally less expensive than K-Means for large datasets"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "What does the mixing coefficient πₖ represent in a Gaussian Mixture Model?",
+                  options: [
+                    "The variance of the kth Gaussian component",
+                    "The prior probability that a randomly selected data point was generated by the kth Gaussian component — essentially the relative weight or size of that component",
+                    "The distance from the kth centroid to the nearest data point",
+                    "The number of data points assigned to the kth cluster"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "EM clustering maximizes which quantity during the M-Step?",
+                  options: [
+                    "Within-Cluster Sum of Squares (WCSS) identical to K-Means",
+                    "The Partition Coefficient of the soft assignment matrix",
+                    "The Expected Complete-Data Log-Likelihood — the weighted sum of log-probabilities of each data point under each Gaussian component using responsibilities as weights",
+                    "The Silhouette Score averaged across all data points and components"
+                  ],
+                  answerIndex: 2
+                }
+              ],
+              posttest: [
+                {
+                  question: "A GMM with K=3 full covariance components is fitted on 2D data (d=2). Calculate the total number of free parameters in this model.",
+                  options: [
+                    "9",
+                    "11",
+                    "17",
+                    "23"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "During EM fitting of a GMM the log-likelihood values across 5 iterations are: −823.4, −791.2, −774.6, −774.5, −774.5. What can be concluded from this convergence pattern?",
+                  options: [
+                    "The log-likelihood decreasing from −823.4 to −774.5 indicates the algorithm is diverging and should be restarted",
+                    "The log-likelihood increasing from −823.4 to −774.5 (becoming less negative) is the expected behavior — EM is guaranteed to monotonically increase the log-likelihood.",
+                    "The log-likelihood should reach 0 for a well-fitted model",
+                    "The rapid convergence indicates the model is underfitting"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "A GMM with K=3 full covariance is fitted on a dataset. The resulting mixing coefficients are π1=0.02, π2=0.49, π3=0.49. BIC for K=3 is 1243 and for K=2 is 1198. What does this suggest?",
+                  options: [
+                    "The model is correct — three components with unequal mixing coefficients is expected behavior",
+                    "The mixing coefficient π1=0.02 indicates Component 1 has collapsed. The lower BIC at K=2 confirms that K=2 is the statistically optimal number of components.",
+                    "Increase K to 4 because unequal mixing coefficients indicate the model needs more components",
+                    "The large difference in mixing coefficients is a sign of the singularity problem"
+                  ],
+                  answerIndex: 1
+                },
+                {
+                  question: "A student compares GMM-EM with full covariance versus K-Means on a dataset with two elongated clusters at 45 degrees. GMM-EM gets Silhouette 0.743, K-Means gets 0.521. Why?",
+                  options: [
+                    "Initialization differences explain the performance gap",
+                    "GMM-EM outperforms K-Means because it uses more iterations and complex mathematics",
+                    "K-Means assumes spherical clusters. GMM full covariance learns the actual covariance structure including orientation correctly separating elongated clusters.",
+                    "K-Means would match GMM-EM if the data were standardized before clustering"
+                  ],
+                  answerIndex: 2
+                },
+                {
+                  question: "A data scientist must choose between K-Means (K=4), FCM (C=4, m=2), and GMM-EM (K=4, full covariance) for clustering a medical imaging dataset where clusters have different sizes and shapes, and boundary cases need uncertainty quantification with statistically justified model selection. Which is best?",
+                  options: [
+                    "K-Means first because it is fastest",
+                    "GMM-EM first because full covariance handles different shapes, responsibilities provide probabilistic uncertainty, and BIC gives statistically rigorous model selection.",
+                    "FCM first because its membership values are easier to interpret",
+                    "All three are equally appropriate since standardization eliminates shape differences"
+                  ],
+                  answerIndex: 1
+                }
+              ]
+            }
           }
         ]
       }
