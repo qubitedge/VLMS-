@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Play, Save, RotateCcw, CheckCircle2, Terminal, ArrowLeft, Lightbulb, Beaker, HelpCircle, Database, Book } from "lucide-react";
+import { Play, Save, RotateCcw, CheckCircle2, Terminal, ArrowLeft, Lightbulb, Beaker, HelpCircle, Database, Book, Volume2, Square } from "lucide-react";
 import { courses } from "@/lib/course-data";
 import Editor from "@monaco-editor/react";
 import { toast } from "sonner";
@@ -217,6 +217,93 @@ function SimulationPlayer({ data }: { data: any }) {
           <button onClick={() => setStepIdx(s => s + 1)} disabled={stepIdx === data.steps.length - 1} className="px-4 py-1.5 bg-cyan text-cyan-foreground text-xs font-medium rounded hover:bg-cyan/90 disabled:opacity-50 transition-colors">Next</button>
         </div>
       </div>
+    </div>
+  );
+}
+
+// ── TTS Components ───────────────────────────────────────────────────────────
+function HighlightableText({ text, activeCharIndex }: { text: string, activeCharIndex: number }) {
+  const tokens = useMemo(() => {
+    const parts = text.split(/(\s+)/);
+    let currentIdx = 0;
+    return parts.map(part => {
+      const start = currentIdx;
+      const end = currentIdx + part.length;
+      currentIdx = end;
+      return { part, start, end, isWord: /\S/.test(part) };
+    });
+  }, [text]);
+
+  return (
+    <>
+      {tokens.map((t, i) => {
+        const isActive = activeCharIndex >= t.start && activeCharIndex < t.end && t.isWord;
+        return (
+          <span key={i} className={isActive ? "text-fuchsia-400 bg-fuchsia-400/20 rounded px-0.5 transition-colors duration-75" : ""}>
+            {t.part}
+          </span>
+        );
+      })}
+    </>
+  );
+}
+
+function TTSSection({ heading, textContent, renderContent }: { heading: string, textContent: string, renderContent: (activeCharIndex: number) => React.ReactNode }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [activeCharIndex, setActiveCharIndex] = useState(-1);
+
+  const getFemaleVoice = () => {
+    const voices = window.speechSynthesis.getVoices();
+    return voices.find(v => v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('girl') || v.name.toLowerCase().includes('samantha') || v.name.toLowerCase().includes('victoria') || v.name.toLowerCase().includes('zira')) || voices[0];
+  };
+
+  const toggleSpeak = () => {
+    if (isPlaying) {
+      window.speechSynthesis.cancel();
+      setIsPlaying(false);
+      setActiveCharIndex(-1);
+    } else {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(textContent);
+      const voice = getFemaleVoice();
+      if (voice) utterance.voice = voice;
+      
+      utterance.onstart = () => setIsPlaying(true);
+      utterance.onend = () => {
+        setIsPlaying(false);
+        setActiveCharIndex(-1);
+      };
+      utterance.onboundary = (e) => {
+        if (e.name === 'word') {
+          setActiveCharIndex(e.charIndex);
+        }
+      };
+      utterance.onerror = () => {
+        setIsPlaying(false);
+        setActiveCharIndex(-1);
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+  };
+
+  useEffect(() => {
+    return () => window.speechSynthesis.cancel();
+  }, [textContent]);
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center gap-4 mb-6">
+        <h2 className="text-3xl font-bold font-display">{heading}</h2>
+        <button 
+          onClick={toggleSpeak}
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-fuchsia-400/10 text-fuchsia-400 hover:bg-fuchsia-400/20 transition-colors border border-fuchsia-400/30 text-xs font-medium"
+        >
+          {isPlaying ? <Square className="size-3" /> : <Volume2 className="size-3" />}
+          {isPlaying ? "Stop" : "Speak"}
+        </button>
+      </div>
+      {renderContent(activeCharIndex)}
     </div>
   );
 }
@@ -736,45 +823,122 @@ ORDER  BY grade DESC;`,
                 }
 
                 if (step === "aim") {
+                  let textContent = content.aim.text + " ";
+                  if (content.aim.bullets) {
+                    content.aim.bullets.forEach((b: string) => textContent += b + " ");
+                  }
+                  
                   return (
-                    <div className="space-y-6">
-                      <h2 className="text-3xl font-bold font-display mb-6">Aim</h2>
-                      <p className="text-lg text-foreground/90 leading-relaxed">{content.aim.text}</p>
-                      {content.aim.bullets && (
-                        <ul className="list-disc list-inside space-y-3 mt-6 text-muted-foreground">
-                          {content.aim.bullets.map((b: string, i: number) => <li key={i} className="leading-relaxed">{b}</li>)}
-                        </ul>
-                      )}
-                    </div>
+                    <TTSSection 
+                      key="aim"
+                      heading="Aim"
+                      textContent={textContent}
+                      renderContent={(activeCharIndex) => {
+                        let offset = 0;
+                        
+                        const mainText = content.aim.text + " ";
+                        const mainStart = offset;
+                        offset += mainText.length;
+                        
+                        return (
+                          <div className="space-y-6">
+                            <p className="text-lg text-foreground/90 leading-relaxed">
+                              <HighlightableText text={mainText} activeCharIndex={activeCharIndex - mainStart} />
+                            </p>
+                            {content.aim.bullets && (
+                              <ul className="list-disc list-inside space-y-3 mt-6 text-muted-foreground">
+                                {content.aim.bullets.map((b: string, i: number) => {
+                                  const bText = b + " ";
+                                  const bStart = offset;
+                                  offset += bText.length;
+                                  return (
+                                    <li key={i} className="leading-relaxed">
+                                      <HighlightableText text={bText} activeCharIndex={activeCharIndex - bStart} />
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            )}
+                          </div>
+                        );
+                      }}
+                    />
                   );
                 }
                 
                 if (step === "theory") {
+                  let textContent = "";
+                  content.theory.forEach((section: any) => {
+                    textContent += section.title + ". ";
+                    section.body.forEach((p: string) => textContent += p + " ");
+                  });
+                  
                   return (
-                    <div className="space-y-10">
-                      <h2 className="text-3xl font-bold font-display mb-6">Theory</h2>
-                      {content.theory.map((section: any, i: number) => (
-                        <div key={i} className="space-y-3">
-                          <h3 className="text-xl font-semibold text-foreground">{section.title}</h3>
-                          {section.body.map((p: string, j: number) => (
-                            <p key={j} className="text-muted-foreground leading-relaxed">{p}</p>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
+                    <TTSSection
+                      key="theory"
+                      heading="Theory"
+                      textContent={textContent}
+                      renderContent={(activeCharIndex) => {
+                        let offset = 0;
+                        return (
+                          <div className="space-y-10">
+                            {content.theory.map((section: any, i: number) => {
+                              const titleText = section.title + ". ";
+                              const titleStart = offset;
+                              offset += titleText.length;
+                              
+                              return (
+                                <div key={i} className="space-y-3">
+                                  <h3 className="text-xl font-semibold text-foreground">
+                                    <HighlightableText text={titleText} activeCharIndex={activeCharIndex - titleStart} />
+                                  </h3>
+                                  {section.body.map((p: string, j: number) => {
+                                    const pText = p + " ";
+                                    const pStart = offset;
+                                    offset += pText.length;
+                                    return (
+                                      <p key={j} className="text-muted-foreground leading-relaxed">
+                                        <HighlightableText text={pText} activeCharIndex={activeCharIndex - pStart} />
+                                      </p>
+                                    );
+                                  })}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        );
+                      }}
+                    />
                   );
                 }
 
                 if (step === "procedure" || step === "references") {
+                  let textContent = "";
+                  content[step].forEach((item: string) => textContent += item + " ");
+                  
                   return (
-                    <div className="space-y-6">
-                      <h2 className="text-3xl font-bold font-display mb-6">{WORKSPACE_STEPS[activeStepIndex]}</h2>
-                      <ul className="list-decimal list-inside space-y-4 text-muted-foreground">
-                        {content[step].map((item: string, i: number) => (
-                          <li key={i} className="leading-relaxed pl-2">{item}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    <TTSSection
+                      key={`procedure-refs-${step}`}
+                      heading={WORKSPACE_STEPS[activeStepIndex]}
+                      textContent={textContent}
+                      renderContent={(activeCharIndex) => {
+                        let offset = 0;
+                        return (
+                          <ul className="list-decimal list-inside space-y-4 text-muted-foreground">
+                            {content[step].map((item: string, i: number) => {
+                              const itemText = item + " ";
+                              const itemStart = offset;
+                              offset += itemText.length;
+                              return (
+                                <li key={i} className="leading-relaxed pl-2">
+                                  <HighlightableText text={itemText} activeCharIndex={activeCharIndex - itemStart} />
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        );
+                      }}
+                    />
                   );
                 }
 

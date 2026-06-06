@@ -1,4 +1,5 @@
 import { dbmsCourse } from './dbms-data';
+import { dsCourse } from './ds-data';
 export type MCQ = {
   question: string;
   options: string[];
@@ -68,6 +69,7 @@ export type Course = {
 };
 
 export const courses: Record<string, Course> = {
+  "data-structures-using-c-programming": dsCourse,
   "c-programming": {
     id: "c-programming",
     title: "C Programming",

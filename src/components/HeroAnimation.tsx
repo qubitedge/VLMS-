@@ -1,4 +1,4 @@
-import { Terminal, Database, Server, Cpu, User } from "lucide-react";
+import { Terminal, Database, Server, Cpu, User, Activity } from "lucide-react";
 
 export function HeroAnimation() {
   return (
@@ -26,10 +26,10 @@ export function HeroAnimation() {
             </div>
           </div>
           <div className="flex-1 p-4 font-mono text-[11px] text-cyan flex flex-col gap-1.5 relative overflow-hidden">
-             <div className="typing-line-1 overflow-hidden whitespace-nowrap border-r-2 border-cyan/50 w-0">> Initializing virtual runtime...</div>
-             <div className="typing-line-2 overflow-hidden whitespace-nowrap border-r-2 border-transparent w-0 opacity-0">> Loading student modules [OK]</div>
-             <div className="typing-line-3 overflow-hidden whitespace-nowrap border-r-2 border-transparent w-0 opacity-0">> Executing user_script.py...</div>
-             <div className="typing-line-4 overflow-hidden whitespace-nowrap border-r-2 border-transparent w-0 opacity-0">> Processing datasets...</div>
+             <div className="typing-line-1 overflow-hidden whitespace-nowrap border-r-2 border-cyan/50 w-0">&gt; Initializing virtual runtime...</div>
+             <div className="typing-line-2 overflow-hidden whitespace-nowrap border-r-2 border-transparent w-0 opacity-0">&gt; Loading student modules [OK]</div>
+             <div className="typing-line-3 overflow-hidden whitespace-nowrap border-r-2 border-transparent w-0 opacity-0">&gt; Executing user_script.py...</div>
+             <div className="typing-line-4 overflow-hidden whitespace-nowrap border-r-2 border-transparent w-0 opacity-0">&gt; Processing datasets...</div>
              <div className="text-green-400 mt-2 opacity-0 animate-[fade-in_0.1s_4.5s_forwards]">Success: Simulation completed.</div>
              <div className="text-cyan/50 mt-1 opacity-0 animate-[fade-in_0.1s_5s_forwards] flex gap-1">
                <span>root@vlms:~#</span>
