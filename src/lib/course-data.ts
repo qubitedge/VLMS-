@@ -150,7 +150,7 @@ export const courses: Record<string, Course> = {
                     "Modern models like GPT-4 use a byte-level variation of BPE. Instead of starting with raw Unicode characters, they start with the 256 basic bytes, ensuring absolute structural robustness."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "Which tokenization artifact directly causes an LLM to encounter an 'Out-Of-Vocabulary' (OOV) error?",
@@ -185,7 +185,7 @@ export const courses: Record<string, Course> = {
                 "Merge Operation: Identify the specific token pair that appears most frequently. Merge them into a single, unified token, and append this new token to the vocabulary table.",
                 "Sequence Update: Replace all instances of the identified pair in the original training corpus with the newly created merged token.",
                 "Iterative Thresholding: Repeat the frequency analysis and merge operations in a loop until a strictly defined maximum vocabulary size (e.g., 50,000 tokens) is reached."
-              ]
+              ],
               posttest: [
                 {
                   question: "Given a fixed token limit, how does an inadequate BPE vocabulary size affect an LLM's context window efficiency?",
@@ -277,7 +277,7 @@ export const courses: Record<string, Course> = {
                 "Dot Product Execution: Compute the geometric dot product of a specific target vector against the entire normalized dataset array.",
                 "Similarity Ranking: Isolate the highest resulting scalar values to rank the top-K closest semantic neighbors.",
                 "Visual Compression: Apply a dimensionality reduction algorithm like PCA or t-SNE to squash the 1536 dimensions down to a 2D plane for visual graph rendering."
-              ]
+              ],
               posttest: [
                 {
                   question: "When dealing with high-dimensional embedding spaces, why does the 'curse of dimensionality' render standard Euclidean distance ($L_2$ norm) less effective than Cosine Similarity?",
@@ -340,7 +340,7 @@ export const courses: Record<string, Course> = {
                     "This approach allows the model to extrapolate relative positions for sequences longer than those encountered during training."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "Why do Vanilla Transformer blocks require positional encodings, whereas Recurrent Neural Networks (RNNs) do not?",
@@ -375,7 +375,7 @@ export const courses: Record<string, Course> = {
                 "Even-Index Injection: Apply a geometric sine function (np.sin) to all even-indexed columns in the empty positional matrix.",
                 "Odd-Index Injection: Apply an alternating geometric cosine function (np.cos) to all odd-indexed columns to complete the wave pattern.",
                 "Embedding Addition: Execute an element-wise addition, fusing this generated positional matrix directly into the raw semantic word embeddings before passing them into the Encoder layer."
-              ]
+              ],
               posttest: [
                 {
                   question: "Why is an additive positional wave layout preferred over simply appending an index integer (like 1, 2, 3...) to word vectors?",
@@ -527,7 +527,7 @@ export const courses: Record<string, Course> = {
                     "If a model hallucinates or refuses to follow a specific structural output in a zero-shot scenario, it often indicates a failure in the underlying instruction-tuning phase of the model's development."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "What architectural characteristic enables a modern LLM to perform zero-shot tasks that it was not explicitly fine-tuned to solve?",
@@ -562,7 +562,7 @@ export const courses: Record<string, Course> = {
                 "Submit API Request: Execute the payload to the LLM generation endpoint with a relatively low temperature parameter to enforce deterministic compliance.",
                 "Evaluate Output: Parse the generated response and evaluate it against zero-shot benchmarking standards to determine baseline intelligence.",
                 "Iterate Constraints: If the model fails structurally, adjust the explicit constraints in the system prompt rather than providing examples."
-              ]
+              ],
               posttest: [
                 {
                   question: "Under what technical conditions does zero-shot prompting completely break down, forcing a developer to switch to in-context learning regimes?",
@@ -618,7 +618,7 @@ export const courses: Record<string, Course> = {
                     "To prevent this, engineers must carefully balance their exemplars and intentionally randomize their order to prevent the model from blindly mimicking the structure of the last provided example."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "Does few-shot prompting update the structural network weights of an active LLM during inference? Explain your answer.",
@@ -653,7 +653,7 @@ export const courses: Record<string, Course> = {
                 "Construct Payload: Prepend the formatted examples directly below the system instructions, ensuring visual separation from the actual user query.",
                 "Execute Task: Submit the final query. The LLM will statistically mimic the pattern established by the prepended examples.",
                 "Analyze Token Overhead: Calculate the API token cost incurred by injecting the examples, as few-shot prompting linearly increases cost per query."
-              ]
+              ],
               posttest: [
                 {
                   question: "If the few-shot exemplars contain factually incorrect input-output mappings, how does the model process the task logic versus the formatting styles?",
@@ -709,7 +709,7 @@ export const courses: Record<string, Course> = {
                     "Techniques like Zero-Shot CoT simply append the phrase 'Let's think step by step', while Few-Shot CoT provides explicit examples of correct reasoning pathways."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "Why does generating intermediate reasoning tokens help an LLM solve symbolic logic tasks that it would fail using standard prompting?",
@@ -744,7 +744,7 @@ export const courses: Record<string, Course> = {
                 "Construct Few-Shot CoT: For advanced reliability, structure a few-shot prompt where the Assistant's example output contains the full reasoning chain before the final answer.",
                 "Execute and Trace: Run the generation pipeline and extract the intermediate reasoning tokens to verify the model's logical deduction process.",
                 "Extract Final Answer: Use regex or structured tags (e.g., <Final_Answer>) to isolate the actionable result from the verbose reasoning text."
-              ]
+              ],
               posttest: [
                 {
                   question: "Explain how the Self-Consistency paradigm extends standard Chain-of-Thought prompting to improve final answer accuracy.",
@@ -800,7 +800,7 @@ export const courses: Record<string, Course> = {
                     "This ensures 100% deterministic compliance when bridging the gap between non-deterministic AI generation and rigid traditional software."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "Why does parsing raw strings with regular expressions often fail when processing JSON responses generated by free-form LLMs?",
@@ -835,7 +835,7 @@ export const courses: Record<string, Course> = {
                 "Disable Markdown: explicitly instruct the model to avoid wrapping the output in markdown code blocks.",
                 "Execute Generation: Transmit the payload with a low temperature to ensure formatting stability.",
                 "Validation Pipeline: Catch the text output and run it through a programmatic validation script (like json.loads) to verify structural integrity before routing the data."
-              ]
+              ],
               posttest: [
                 {
                   question: "How do grammar constraints adjust logit probabilities during inference to prevent the model from generating malformed syntax?",
@@ -899,7 +899,7 @@ export const courses: Record<string, Course> = {
                     "To prevent exceeding the model's hard context window limit (and to manage token costs), engineers must implement truncation strategies like Sliding Windows (deleting the oldest messages) or Summary Buffers (using a smaller LLM to summarize the history)."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "Why must chat history strings be resubmitted to an LLM API endpoint with every new user message turn?",
@@ -934,7 +934,7 @@ export const courses: Record<string, Course> = {
                 "Capture Response: Extract the generated text from the API response object and immediately append it to the memory array under the 'assistant' role.",
                 "Render UI: Push the new assistant message to the frontend display layer.",
                 "Manage Context Window: Run a token-counting utility. If the array exceeds the maximum threshold, execute a sliding-window truncation to delete the oldest user-assistant pair before the next query."
-              ]
+              ],
               posttest: [
                 {
                   question: "How does Summarized Memory management optimize both long-term context retention and token costs compared to a simple Sliding Window strategy?",
@@ -989,7 +989,7 @@ export const courses: Record<string, Course> = {
                     "Alternatively, the Refine architecture generates a summary of the first chunk, then passes that summary alongside the second chunk to the LLM, asking it to update the ongoing summary. This process cascades sequentially through the entire document, preserving deep context but running slower due to its sequential nature."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "What are the core technical disadvantages of the Stuffing method when applied to a document near the context window limit?",
@@ -1024,7 +1024,7 @@ export const courses: Record<string, Course> = {
                 "Collect Intermediate Summaries: Store the generated localized summaries into a new list.",
                 "Reduce Phase Execution: Concatenate the localized summaries into a single master string and submit it to the LLM for a final, cohesive global summary.",
                 "Verify Context Constraints: Ensure that neither the individual chunks nor the concatenated intermediate summaries exceed the API's token limits at any step in the pipeline."
-              ]
+              ],
               posttest: [
                 {
                   question: "Why can the Map-Reduce strategy sometimes result in a loss of fine-grained contextual information compared to the Refine strategy?",
@@ -1080,7 +1080,7 @@ export const courses: Record<string, Course> = {
                     "This orchestration dramatically reduces hallucination rates and creates a verifiable audit trail for generated answers."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "How does extracting relevant text snippets to inject as context prevent an LLM from generating false statements (hallucinations)?",
@@ -1115,7 +1115,7 @@ export const courses: Record<string, Course> = {
                 "Execute Payload: Pass the fully assembled string to the LLM API endpoint.",
                 "Test Verification: Ask a query whose answer explicitly exists in the text, ensuring accurate extraction.",
                 "Test Refusal: Ask a query whose answer is entirely missing from the text, verifying that the strict system prompt prevents the model from hallucinating."
-              ]
+              ],
               posttest: [
                 {
                   question: "If the extracted document context contains contradictory or factually incorrect statements, how does the LLM typically resolve the conflict when generating an answer?",
@@ -1178,7 +1178,7 @@ export const courses: Record<string, Course> = {
                     "To optimize downstream search operations, these floating-point arrays undergo L2 Vector Normalization, ensuring every vector has an exact magnitude of 1.0. This normalizes the space, allowing lightning-fast similarity comparisons."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "What is the fundamental difference between an LLM generation model (like GPT-4) and a text embedding model in terms of output data structures?",
@@ -1213,7 +1213,7 @@ export const courses: Record<string, Course> = {
                 "Extract Floating-Point Tensors: Receive the generated high-dimensional arrays from the API response.",
                 "L2 Normalization: Verify or apply mathematical normalization so all vectors align to a unit sphere geometry.",
                 "Database Insertion: Package the normalized vectors alongside their original source text and metadata attributes, writing them to persistent storage."
-              ]
+              ],
               posttest: [
                 {
                   question: "Why does choice of chunk size (e.g., 200 tokens vs. 1000 tokens) during the embedding phase directly impact retrieval performance?",
@@ -1269,7 +1269,7 @@ export const courses: Record<string, Course> = {
                     "To solve this, databases use Approximate Nearest Neighbor (ANN) architectures, such as Hierarchical Navigable Small World (HNSW) graphs, which trade a tiny fraction of accuracy for massive, scalable lookup speeds."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "Why does a cosine similarity score of 1.0 indicate perfect semantic alignment between two text vectors?",
@@ -1304,7 +1304,7 @@ export const courses: Record<string, Course> = {
                 "Top-K Extraction: Isolate the top $K$ scoring vectors (typically the top 3 to 5 results).",
                 "Metadata Filtering: Apply pre-filtering rules (e.g., matching a specific date range or author ID) to dramatically reduce the vector search space before mathematical calculation.",
                 "Context Retrieval: Query the database using the top-K vector indices to retrieve the original, human-readable text chunks."
-              ]
+              ],
               posttest: [
                 {
                   question: "Why can short, single-word queries sometimes cause vector lookups to return low-quality matches compared to descriptive sentences?",
@@ -1360,7 +1360,7 @@ export const courses: Record<string, Course> = {
                     "This grounds the generation in verifiable reality. Advanced RAG pipelines improve upon this by utilizing Cross-Encoders (to logically rerank the retrieved chunks before injection) and Query Expansion (to rewrite poor user queries into optimized search strings)."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "Why does implementing a RAG framework reduce the frequency of factual hallucinations in LLM system deployments?",
@@ -1395,7 +1395,7 @@ export const courses: Record<string, Course> = {
                 "Prompt Compilation: Inject the context string and the original user query into a rigid system template that mandates strict adherence to the provided facts.",
                 "Generation Execution: Transmit the compiled RAG payload to the LLM generation endpoint.",
                 "Response Routing: Extract the final grounded answer and stream it back to the user interface, alongside the database citations used to generate it."
-              ]
+              ],
               posttest: [
                 {
                   question: "Explain the difference between Naive RAG (simple retrieve-then-read) and Advanced RAG pipelines that implement pre-retrieval query rewriting or post-retrieval reranking.",
@@ -1451,7 +1451,7 @@ export const courses: Record<string, Course> = {
                     "Modern parameter-efficient techniques like LoRA (Low-Rank Adaptation) have made fine-tuning accessible by freezing the massive base model and only training a tiny adapter layer, drastically reducing GPU requirements."
                   ]
                 }
-              ]
+              ],
               pretest: [
                 {
                   question: "Why does fine-tuning a model on static corporate manuals often fail to eliminate factual hallucinations when compared to a RAG pipeline?",
@@ -1486,7 +1486,7 @@ export const courses: Record<string, Course> = {
                 "Cost Architecture Calculation: Benchmark the lifetime token inference costs of running a massive context-window RAG pipeline versus the upfront GPU training costs of fine-tuning a smaller, faster model.",
                 "LoRA Initialization: If fine-tuning is selected, configure a PEFT (Parameter-Efficient Fine-Tuning) environment, isolating the attention weight matrices for updates.",
                 "Hybrid Deployment: For complex enterprise solutions, deploy a Hybrid Architecture: a lightly fine-tuned model optimized for specific formatting syntax, placed at the end of a robust RAG data-retrieval pipeline."
-              ]
+              ],
               posttest: [
                 {
                   question: "Why is a fine-tuned model less effective at handling real-time data updates (such as stock prices or live inventory levels) than a RAG pipeline?",
