@@ -89,6 +89,31 @@ function loadSqlJs(): Promise<any> {
   return sqlJsPromise;
 }
 
+// ── Pyodide execution via CDN ───────────────────────────────────────────────
+let pyodidePromise: Promise<any> | null = null;
+
+function loadPyodide(): Promise<any> {
+  if (pyodidePromise) return pyodidePromise;
+  pyodidePromise = new Promise((resolve, reject) => {
+    if ((window as any).loadPyodide) {
+      (window as any).loadPyodide({
+        indexURL: "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/",
+      }).then(resolve).catch(reject);
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js";
+    script.onload = () => {
+      (window as any).loadPyodide({
+        indexURL: "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/",
+      }).then(resolve).catch(reject);
+    };
+    script.onerror = () => reject(new Error("Failed to load Pyodide from CDN"));
+    document.head.appendChild(script);
+  });
+  return pyodidePromise;
+}
+
 interface SqlResultTable {
   columns: string[];
   rows: any[][];
@@ -393,6 +418,11 @@ function Workspace() {
   const sqlRef = useRef<any>(null);    // sql.js SQL instance
   const sqlDbRef = useRef<any>(null);  // current in-memory DB
 
+  // Pyodide-specific state
+  const [pyodideLoaded, setPyodideLoaded] = useState(false);
+  const [pyodideLoadError, setPyodideLoadError] = useState<string | null>(null);
+  const pyodideRef = useRef<any>(null); // pyodide instance
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -410,6 +440,20 @@ function Workspace() {
         });
     }
   }, [language, sqlLoaded]);
+
+  // Pre-load pyodide when python is active for the Python course
+  useEffect(() => {
+    if (language === "python" && details?.course.id === "python" && !pyodideLoaded) {
+      loadPyodide()
+        .then((pyodide) => {
+          pyodideRef.current = pyodide;
+          setPyodideLoaded(true);
+        })
+        .catch((err) => {
+          setPyodideLoadError(err.message || "Failed to load Python engine");
+        });
+    }
+  }, [language, pyodideLoaded, details]);
 
   const templates: Record<string, { file: string; code: string; version: string }> = {
     c: {
@@ -459,9 +503,13 @@ ORDER  BY grade DESC;`,
   useEffect(() => {
     if (details?.course.id === "dbms") {
       setLanguage("sql");
-    } else if (details?.course.id === "machine-learning" || details?.course.id === "llms") {
+    } else if (
+      details?.course.id === "machine-learning" ||
+      details?.course.id === "llms" ||
+      details?.course.id === "python"
+    ) {
       setLanguage("python");
-    } else if (details?.course.id === "advanced-data-structures") {
+    } else if (details?.course.id === "advanced-data-structures" || details?.course.id === "java") {
       setLanguage("java");
     } 
     else {
@@ -504,7 +552,77 @@ ORDER  BY grade DESC;`,
     }
   };
 
-  // ── C / Java / Python Run (Wandbox) ──────────────────────────────────────
+  // ── Pyodide Python execution in-browser ───────────────────────────────────
+  const handleRunPyodide = async () => {
+    if (!pyodideRef.current) {
+      setOutput(pyodideLoadError || "Python engine is loading, please wait…");
+      setIsError(true);
+      return;
+    }
+    setIsLoading(true);
+    setOutput("Executing locally in browser...");
+    setIsError(false);
+
+    try {
+      const pyodide = pyodideRef.current;
+      let stdoutBuffer = "";
+      let stderrBuffer = "";
+
+      pyodide.setStdout({
+        batched: (str: string) => {
+          stdoutBuffer += str + "\n";
+        },
+      });
+
+      pyodide.setStderr({
+        batched: (str: string) => {
+          stderrBuffer += str + "\n";
+        },
+      });
+
+      // Run user code directly — Pyodide captures print() output via the
+      // JS-level setStdout/setStderr callbacks registered above.
+      // Do NOT redirect sys.stdout inside Python; Pyodide bypasses it.
+      const runCode = `
+import sys, io, builtins, traceback
+
+sys.stdin = io.StringIO(${JSON.stringify(stdin || "")})
+
+def _custom_input(prompt=""):
+    if prompt:
+        print(prompt, end="")
+    line = sys.stdin.readline()
+    if not line:
+        raise EOFError("EOF when reading a line")
+    return line.rstrip('\\r\\n')
+
+builtins.input = _custom_input
+
+try:
+    exec(${JSON.stringify(code)}, {"__builtins__": builtins, "__name__": "__main__"})
+except SystemExit:
+    pass
+except BaseException:
+    traceback.print_exc()
+`;
+      await pyodide.runPythonAsync(runCode);
+
+      if (stderrBuffer) {
+        setIsError(true);
+        setOutput(stderrBuffer.replace(/\n$/, ""));
+      } else {
+        setIsError(false);
+        setOutput(stdoutBuffer.replace(/\n$/, "") || "Program exited with no output.");
+      }
+    } catch (err: any) {
+      setIsError(true);
+      setOutput(err.message || "An error occurred during local python execution.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // ── C / Java / Python Run (Wandbox + Paiza fallback) ─────────────────────
   const handleRunCode = async () => {
     setIsLoading(true);
     setOutput("Executing...");
@@ -521,14 +639,12 @@ ORDER  BY grade DESC;`,
   
       // Fix for Java compilation on Wandbox
       if (language === "java") {
-        // Strips the "public" keyword from "public class Main" or "public class AnyName"
-        // This allows it to compile successfully inside Wandbox's default 'prog.java' file!
         finalCode = code.replace(/public\s+class\s+/, "class ");
       }
   
       const bodyPayload: any = {
         compiler: compilerMap[language] || "gcc-head",
-        code: finalCode, // Send the treated code directly here
+        code: finalCode,
         stdin,
         options: language === "c" ? "warning" : "",
       };
@@ -536,19 +652,94 @@ ORDER  BY grade DESC;`,
       if (language === "c") {
         bodyPayload["compiler-option-raw"] = "-lm";
       }
-  
-      const response = await fetch("https://wandbox.org/api/compile.json", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bodyPayload),
-      });
-  
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Wandbox HTTP ${response.status}: ${errorText}`);
+
+      // --- Attempt Wandbox with 1 retry ---
+      let wandboxOk = false;
+      let data: any = null;
+
+      for (let attempt = 0; attempt < 2; attempt++) {
+        try {
+          const response = await fetch("https://wandbox.org/api/compile.json", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(bodyPayload),
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Wandbox HTTP ${response.status}: ${errorText}`);
+          }
+          data = await response.json();
+
+          // Check for OCI / container runtime errors in compiler_error or program_error
+          const combinedErr = (data.compiler_error || "") + (data.program_error || "");
+          if (combinedErr.includes("OCI runtime") || combinedErr.includes("crun:") || combinedErr.includes("Resource temporarily unavailable")) {
+            throw new Error("Wandbox container overloaded");
+          }
+
+          wandboxOk = true;
+          break;
+        } catch (e: any) {
+          if (attempt === 0) {
+            setOutput("Server busy, retrying...");
+            await new Promise(r => setTimeout(r, 1500));
+          }
+        }
       }
-      const data = await response.json();
-  
+
+      // --- If Wandbox failed, try Paiza.io as fallback for Java ---
+      if (!wandboxOk && language === "java") {
+        setOutput("Wandbox unavailable. Using backup compiler...");
+        try {
+          // Paiza.io create endpoint
+          const createRes = await fetch("https://api.paiza.io/runners/create", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              source_code: code, // Paiza supports public class
+              language: "java",
+              input: stdin || "",
+              api_key: "guest",
+            }),
+          });
+          const createData = await createRes.json();
+          const sessionId = createData.id;
+
+          // Poll for result
+          let result: any = null;
+          for (let i = 0; i < 20; i++) {
+            await new Promise(r => setTimeout(r, 1000));
+            const statusRes = await fetch(`https://api.paiza.io/runners/get_details?id=${sessionId}&api_key=guest`);
+            result = await statusRes.json();
+            if (result.status === "completed") break;
+          }
+
+          if (result && result.status === "completed") {
+            if (result.build_stderr) {
+              setIsError(true);
+              setOutput(result.build_stderr);
+            } else if (result.stderr) {
+              setIsError(true);
+              setOutput(result.stderr);
+            } else {
+              setIsError(false);
+              setOutput(result.stdout || "Program exited with no output.");
+            }
+            return;
+          } else {
+            throw new Error("Backup compiler timed out");
+          }
+        } catch (paizaErr: any) {
+          throw new Error(`Both compilers unavailable. Please try again in a moment.\n\n${paizaErr.message}`);
+        }
+      }
+
+      // --- If Wandbox still failed for non-Java, throw ---
+      if (!wandboxOk) {
+        throw new Error("Compiler server is temporarily overloaded. Please try again in a few seconds.");
+      }
+
+      // --- Process successful Wandbox response ---
       if (data.compiler_error) {
         setIsError(true);
         setOutput(data.compiler_error);
@@ -561,14 +752,20 @@ ORDER  BY grade DESC;`,
       }
     } catch (err: any) {
       setIsError(true);
-      setOutput(`Execution failed: ${err.message || "Wandbox server unavailable"}\n\nPlease try again.`);
+      setOutput(`Execution failed: ${err.message || "Compiler server unavailable"}\n\nPlease try again.`);
     } finally {
       setIsLoading(false);
     }
   };
+
   const handleRun = () => {
-    if (language === "sql") handleRunSql();
-    else handleRunCode();
+    if (language === "sql") {
+      handleRunSql();
+    } else if (language === "python" && details?.course.id === "python") {
+      handleRunPyodide();
+    } else {
+      handleRunCode();
+    }
   };
 
   const isSql = language === "sql";
@@ -717,7 +914,7 @@ ORDER  BY grade DESC;`,
           // SIMULATION VIEW (Existing Split Pane for Code Test) OR AI LAB SOLVE VIEW
           <div className="h-full grid lg:grid-cols-[1fr_1fr] divide-x divide-border">
             {/* ── Left Pane: Problem Description ─────────────────────────── */}
-            <div className="h-full flex flex-col overflow-y-auto bg-card relative pb-20">
+            <div className="h-full flex flex-col overflow-y-auto bg-card relative pb-24">
               <div className="p-6 border-b border-border bg-secondary/20 flex items-center gap-4">
                 {isAITools && getAILogoUrl(details?.experiment.id) && (
                   <div className="size-16 rounded-xl bg-white border border-border flex items-center justify-center p-2 shadow-sm overflow-hidden shrink-0">
@@ -749,10 +946,16 @@ ORDER  BY grade DESC;`,
                     </section>
                     <section>
                       <h2 className="font-semibold text-base mb-2 flex items-center gap-2"><HelpCircle className="size-4 text-primary" /> Mini Questions</h2>
-                      <ul className="list-disc list-inside space-y-1.5 text-muted-foreground">
-                        <li>What edge cases should you consider for this problem?</li>
-                        <li>Can you optimize the time complexity?</li>
-                        <li>How would this approach scale for 10^6 inputs?</li>
+                      <ul className="list-disc list-inside space-y-2 text-muted-foreground text-xs leading-relaxed">
+                        {details.experiment.content?.pretest?.slice(0, 3).map((q: any, i: number) => (
+                          <li key={i} className="pl-1">{q.question}</li>
+                        )) || (
+                          <>
+                            <li>What edge cases should you consider for this problem?</li>
+                            <li>Can you optimize the time complexity?</li>
+                            <li>How would this approach scale for large inputs?</li>
+                          </>
+                        )}
                       </ul>
                     </section>
                   </>
@@ -862,6 +1065,15 @@ ORDER  BY grade DESC;`,
                       </span>
                     </>
                   )}
+                  {language === "python" && details?.course.id === "python" && (
+                    <>
+                      <span className="ml-2 text-white/40">|</span>
+                      <span className="ml-2 flex items-center gap-1 text-cyan/70">
+                        <Terminal className="size-3" />
+                        {pyodideLoaded ? "Pyodide ready" : pyodideLoadError ? "Load failed" : "Loading…"}
+                      </span>
+                    </>
+                  )}
                 </div>
                 <div className="flex gap-2">
                   <button onClick={handleReset} className="inline-flex items-center gap-2 rounded-md border border-border/10 bg-white/5 px-3 py-1.5 text-xs text-white/70 hover:bg-white/10 hover:text-white transition-colors">
@@ -872,7 +1084,11 @@ ORDER  BY grade DESC;`,
                   </button>
                   <button
                     onClick={handleRun}
-                    disabled={isLoading || (isSql && !sqlLoaded && !sqlLoadError)}
+                    disabled={
+                      isLoading ||
+                      (isSql && !sqlLoaded && !sqlLoadError) ||
+                      (language === "python" && details?.course.id === "python" && !pyodideLoaded && !pyodideLoadError)
+                    }
                     className="inline-flex items-center gap-2 rounded-md bg-mint/20 text-mint border border-mint/20 px-4 py-1.5 text-xs font-medium hover:bg-mint/30 transition-colors disabled:opacity-50"
                   >
                     <Play className="size-3.5" /> {isLoading ? "Running…" : "Run Code"}
@@ -1015,7 +1231,7 @@ ORDER  BY grade DESC;`,
                               <HighlightableText text={mainText} activeCharIndex={activeCharIndex - mainStart} />
                             </p>
                             {content.aim.bullets && (
-                              <ul className="list-disc list-inside space-y-3 mt-6 text-muted-foreground">
+                              <ul className="list-disc list-outside pl-5 space-y-3 mt-6 text-muted-foreground">
                                 {content.aim.bullets.map((b: string, i: number) => {
                                   const bText = b + " ";
                                   const bStart = offset;
@@ -1093,13 +1309,13 @@ ORDER  BY grade DESC;`,
                       renderContent={(activeCharIndex) => {
                         let offset = 0;
                         return (
-                          <ul className="list-decimal list-inside space-y-4 text-muted-foreground">
+                          <ul className="list-decimal list-outside pl-5 space-y-4 text-muted-foreground">
                             {content[step].map((item: string, i: number) => {
                               const itemText = item + " ";
                               const itemStart = offset;
                               offset += itemText.length;
                               return (
-                                <li key={i} className="leading-relaxed pl-2">
+                                <li key={i} className="leading-relaxed pl-1">
                                   <HighlightableText text={itemText} activeCharIndex={activeCharIndex - itemStart} />
                                 </li>
                               );

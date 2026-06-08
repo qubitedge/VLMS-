@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Word Embeddings Visualizer</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #111; /* Dark background */
+            font-family: sans-serif;
+            color: #ccc;
+        }
+        #chart {
+            width: 100%;
+            height: calc(100vh - 120px); /* Adjust height to make room for the UI */
+        }
+        #ui-panel {
+            height: 120px;
+            width: 100%;
+            background-color: #1a1a1a;
+            border-top: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 20px;
+            margin: 0;
+            color: #ddd;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+        }
+        select, button {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            color: #ddd;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+        }
+        select:hover, button:hover {
+            border-color: #666;
+            background-color: #333;
+        }
+        button.active {
+            background-color: #4CAF50; /* Green highlight for active function */
+            border-color: #66BB6A;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chart"></div>
+
+    <div id="ui-panel">
+        <div class="control-group">
+            <h1>Word Embedding Space</h1>
+            <label>Dimensions: D300 (PCA Reduced to 3)</label>
+        </div>
+
+        <div class="control-group">
+            <label for="metric-select">Distance Metric</label>
+            <select id="metric-select">
+                <option value="cosine">Cosine Similarity</option>
+                <option value="euclidean">Euclidean Distance</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label>Analogy Function</label>
+            <button id="analogy-btn">King - Man + Woman = ?</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. DUMMY PRE-TRAINED EMBEDDING DATA (PCA REDUCED D300 -> 3D)
+        // Note: Real embeddings would be sourced from models like GloVe or Word2Vec.
+        // These are stylized representations for simulation.
+        const wordData = [
+            // Royalty Cluster
+            { word: 'king', x: 0.90, y: 0.12, z: 0.15, group: 'royalty', color: '#ffcc00' },
+            { word: 'queen', x: 0.25, y: 0.95, z: 0.10, group: 'royalty', color: '#ffcc00' },
+            { word: 'prince', x: 0.85, y: 0.18, z: 0.12, group: 'royalty', color: '#ffcc00' },
+            
+            // Gender Cluster
+            { word: 'man', x: 0.85, y: 0.08, z: 0.11, group: 'gender', color: '#00ccff' },
+            { word: 'woman', x: 0.20, y: 0.88, z: 0.09, group: 'gender', color: '#ff66ff' },
+            
+            // Fruit Cluster (Semantically distinct)
+            { word: 'apple', x: 0.05, y: 0.05, z: 0.90, group: 'fruit', color: '#ccff33' },
+            { word: 'banana', x: 0.08, y: 0.02, z: 0.85, group: 'fruit', color: '#ccff33' },
+            { word: 'fruit', x: 0.10, y: 0.10, z: 0.88, group: 'fruit', color: '#ccff33' },
+            
+            // Technology Cluster
+            { word: 'computer', x: 0.12, y: 0.05, z: 0.02, group: 'tech', color: '#cccccc' },
+            { word: 'code', x: 0.15, y: 0.08, z: 0.05, group: 'tech', color: '#cccccc' },
+            { word: 'ai', x: 0.18, y: 0.10, z: 0.08, group: 'tech', color: '#cccccc' }
+        ];
+
+        // Structure the data for Plotly
+        const traces = [];
+        // Group points by cluster to allow selective toggling in the legend
+        const groups = [...new Set(wordData.map(d => d.group))];
+
+        groups.forEach(groupName => {
+            const groupPoints = wordData.filter(d => d.group === groupName);
+            traces.push({
+                x: groupPoints.map(d => d.x),
+                y: groupPoints.map(d => d.y),
+                z: groupPoints.map(d => d.z),
+                text: groupPoints.map(d => d.word),
+                mode: 'markers+text', // Show both markers and word labels
+                name: groupName.charAt(0).toUpperCase() + groupName.slice(1),
+                type: 'scatter3d',
+                marker: {
+                    size: 8,
+                    color: groupPoints[0].color, // Use the assigned color for the group
+                    opacity: 0.8,
+                    line: { color: '#000', width: 0.5 }
+                },
+                textposition: 'top center',
+                textfont: {
+                    color: groupPoints[0].color,
+                    size: 11
+                },
+                hoverinfo: 'text+name' // Define what shows on hover
+            });
+        });
+
+        // Add a trace for the lines defining the coordinate axes
+        traces.push({
+            x: [0, 1], y: [0, 0], z: [0, 0], mode: 'lines', type: 'scatter3d',
+            line: { color: '#333', width: 2 }, showlegend: false, hoverinfo: 'none'
+        });
+        traces.push({
+            x: [0, 0], y: [0, 1], z: [0, 0], mode: 'lines', type: 'scatter3d',
+            line: { color: '#333', width: 2 }, showlegend: false, hoverinfo: 'none'
+        });
+        traces.push({
+            x: [0, 0], y: [0, 0], z: [0, 1], mode: 'lines', type: 'scatter3d',
+            line: { color: '#333', width: 2 }, showlegend: false, hoverinfo: 'none'
+        });
+
+        // 2. DEFINE THE 3D PLOT LAYOUT
+        const layout = {
+            scene: {
+                xaxis: { title: 'D1 (Semantic Axis)', color: '#666', gridcolor: '#222', zerolinecolor: '#444' },
+                yaxis: { title: 'D2 (Contextual Axis)', color: '#666', gridcolor: '#222', zerolinecolor: '#444' },
+                zaxis: { title: 'D3 (Relational Axis)', color: '#666', gridcolor: '#222', zerolinecolor: '#444' },
+                bgcolor: '#111', // Match body background
+                camera: {
+                    eye: { x: 1.5, y: 1.5, z: 1.5 } // Starting camera position
+                }
+            },
+            paper_bgcolor: '#111',
+            plot_bgcolor: '#111',
+            margin: { l: 0, r: 0, b: 0, t: 0 }, // Maximize space
+            legend: {
+                x: 0, y: 1,
+                font: { color: '#888', size: 12 },
+                bgcolor: 'rgba(26,26,26,0.8)' // Translucent dark legend background
+            }
+        };
+
+        // Initialize the plot
+        Plotly.newPlot('chart', traces, layout);
+
+        // 3. UI LOGIC & SIMULATION INTERACTIONS
+
+        const analogyBtn = document.getElementById('analogy-btn');
+        let analogyActive = false;
+
+        // Semantic Analogy Simulation: "King - Man + Woman = ?"
+        analogyBtn.addEventListener('click', function() {
+            analogyActive = !analogyActive;
+            
+            // Define the geometric vectors for the words involved
+            const king = wordData.find(d => d.word === 'king');
+            const man = wordData.find(d => d.word === 'man');
+            const woman = wordData.find(d => d.word === 'woman');
+            const queen = wordData.find(d => d.word === 'queen');
+
+            if (analogyActive) {
+                // ACTIVATE: Highlight the analogy relationship visually
+
+                this.classList.add('active'); // Change button appearance
+
+                // Calculate the path vectors
+                // Vector A: King to Man (defining the relationship: "King is to Man as...")
+                const vecKtoM = { x: [king.x, man.x], y: [king.y, man.y], z: [king.z, man.z] };
+                // Vector B: Woman to Queen (defining the projected relationship: "...projected from Woman is Queen")
+                const vecWtoQ = { x: [woman.x, queen.x], y: [woman.y, queen.y], z: [woman.z, queen.z] };
+
+                const newTraces = [
+                    // A solid line vector showing semantic translation (Man direction)
+                    {
+                        type: 'scatter3d', mode: 'lines', name: 'Semantic Translation (Man)',
+                        x: vecKtoM.x, y: vecKtoM.y, z: vecKtoM.z,
+                        line: { color: '#00ccff', width: 6 }, showlegend: false
+                    },
+                    // A dashed line vector projected from Woman (projecting to Queen)
+                    {
+                        type: 'scatter3d', mode: 'lines', name: 'Semantic Prediction (Queen)',
+                        x: vecWtoQ.x, y: vecWtoQ.y, z: vecWtoQ.z,
+                        line: { color: '#ff66ff', width: 6, dash: 'dash' }, showlegend: false
+                    }
+                ];
+
+                // Update the chart by adding these vectors
+                Plotly.addTraces('chart', newTraces);
+
+            } else {
+                // DEACTIVATE: Reset the plot view
+
+                this.classList.remove('active'); // Reset button
+
+                // Remove the special analogy traces (indices added after initialization)
+                Plotly.deleteTraces('chart', [-2, -1]);
+            }
+        });
+
+    </script>
+</body>
+</html>

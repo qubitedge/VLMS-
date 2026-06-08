@@ -2,6 +2,8 @@ import { dbmsCourse } from './dbms-data';
 import { adsCourse } from './ads-data';
 import { dsCourse } from './ds-data';
 import { aiCourse } from './ai-data';
+import { pythonCourse } from './python-data';
+import { javaCourse } from './java-data';
 export type MCQ = {
   question: string;
   options: string[];
@@ -74,6 +76,7 @@ export type Course = {
 export const courses: Record<string, Course> = {
   "ai-tools": aiCourse,
   "data-structures-using-c-programming": dsCourse,
+  "java": javaCourse,
   "llms": {
     id: "llms",
     title: "Large Language Models",
@@ -5759,6 +5762,7 @@ export const courses: Record<string, Course> = {
       },
     ],
   },
+  "python": pythonCourse,
   "dbms": dbmsCourse,
   "advanced-data-structures": adsCourse,
   "machine-learning": {

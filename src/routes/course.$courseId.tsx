@@ -215,6 +215,26 @@ function CoursePage() {
                 />
               </div>
             )}
+            
+            {course.id === "python" && (
+              <div className="mb-8 max-w-4xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
+                <img 
+                  src="/python-flowchart.png" 
+                  alt="Python Programming Curriculum Flowchart" 
+                  className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700" 
+                />
+              </div>
+            )}
+            
+            {course.id === "java" && (
+              <div className="mb-8 max-w-4xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
+                <img 
+                  src="/java-flowchart.png" 
+                  alt="Java Programming Curriculum Flowchart" 
+                  className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700" 
+                />
+              </div>
+            )}
 
             {Array.isArray(course.objectives) ? (
               <ul className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed">
