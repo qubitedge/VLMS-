@@ -1,10 +1,11 @@
 // lib/ads-data.ts
 
 import { Course } from './course-data';
-
+import { adsShortNotes } from './ads-short-notes';
 export const adsCourse: Course = {
   id: "advanced-data-structures",
   title: "Advanced Data Structures Lab",
+  shortNotes: adsShortNotes,
   objectives: [
     "To implement and analyze balanced binary search trees including AVL and Red-Black Trees",
     "To understand and implement B-Trees and B+ Trees for external memory indexing",
