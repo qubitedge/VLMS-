@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { 
   Network, HelpCircle, UserCheck, AlertTriangle, ShieldCheck, 
-  ArrowRight, CheckCircle2, Star, Target, GitMerge
+  ArrowRight, CheckCircle2, Star, Target, GitMerge,
+  SlidersHorizontal
 } from "lucide-react";
 
 export function DecisionLabCampaign() {

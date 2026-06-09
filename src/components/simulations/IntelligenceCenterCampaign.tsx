@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { 
   Building, ArrowRight, ArrowDown, ShieldAlert, Zap, Lock, Unlock,
-  Search, BrainCircuit, Activity, Eye, ScanLine, Key, Binary, Star
+  Search, BrainCircuit, Activity, Eye, ScanLine, Key, Binary, Star,
+  ArrowUp,
+  CheckCircle2
 } from "lucide-react";
 
 type IntelligenceProps = {

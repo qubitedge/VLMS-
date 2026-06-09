@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { 
   Trophy, ChevronRight, Gem, ArrowRightLeft, Shield, Clock, Search, RotateCcw, 
-  Crown, Star, Vault, Crosshair, Flag
+  Crown, Star, Vault, Crosshair, Flag,
+  Swords
 } from "lucide-react";
 
 export function SelectionSortSim() {

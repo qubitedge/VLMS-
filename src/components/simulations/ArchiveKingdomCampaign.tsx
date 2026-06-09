@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { 
   FolderOpen, FileText, ScrollText, Search, Binary, Database,
   TerminalSquare, AlertTriangle, ShieldCheck, DoorOpen, Save,
-  CheckCircle2, Star, Zap, PenTool, Hash, Download
+  CheckCircle2, Star, Zap, PenTool, Hash, Download,
+  ArrowRight,
+  ArrowLeft
 } from "lucide-react";
 
 type ArchiveKingdomProps = {

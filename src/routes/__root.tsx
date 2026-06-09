@@ -154,7 +154,7 @@ function ProfileNav() {
 
 function DynamicIsland() {
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(960px,calc(100vw-1.5rem))]">
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-40 w-[min(960px,calc(100vw-1.5rem))]">
       <div className="flex items-center gap-2 rounded-full border border-border/70 bg-background/70 backdrop-blur-xl px-2 py-2 shadow-[0_10px_40px_-12px_color-mix(in_oklab,var(--foreground)_35%,transparent)]">
         {/* Brand */}
         <Link to="/" className="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full">

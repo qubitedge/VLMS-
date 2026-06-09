@@ -1,45 +1,82 @@
+// src/components/AuthModal.tsx
 import React, { useState } from 'react';
+import { X, Loader2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import { X } from 'lucide-react';
-import { useNavigate } from '@tanstack/react-router';
 
-export function AuthModal({ isOpen, onClose, onAuthenticated, courseId }: { isOpen: boolean, onClose: () => void, onAuthenticated: () => void, courseId: string }) {
+const INTEREST_OPTIONS = [
+  "AI", "Web Development", "Data Structures",
+  "DBMS", "Machine Learning", "System Design"
+];
+
+type Props = {
+  isOpen: boolean;
+  onClose: () => void;
+  onAuthenticated: () => void;
+  courseId?: string;
+};
+
+export function AuthModal({ isOpen, onClose, onAuthenticated, courseId }: Props) {
   const [isLogin, setIsLogin] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail]       = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [college, setCollege] = useState('');
+  const [name, setName]         = useState('');
+  const [college, setCollege]   = useState('');
   const [interests, setInterests] = useState<string[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  
-  const INTEREST_OPTIONS = ["AI", "Web Development", "Data Structures", "DBMS", "Machine Learning", "System Design"];
+  const [loading, setLoading]   = useState(false);
+  const [error, setError]       = useState('');
+  const [success, setSuccess]   = useState('');
 
-  const toggleInterest = (i: string) => {
+  const toggleInterest = (i: string) =>
     setInterests(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i]);
+
+  const reset = () => {
+    setEmail(''); setPassword(''); setName('');
+    setCollege(''); setInterests([]); setError(''); setSuccess('');
   };
+
+  const switchMode = () => { reset(); setIsLogin(v => !v); };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
-    
+    setSuccess('');
+
     try {
       if (isLogin) {
+        // ── LOGIN ──────────────────────────────────────────────────────────
         const { error: authError } = await supabase.auth.signInWithPassword({ email, password });
-        if (authError) throw authError;
+        if (authError) throw new Error(authError.message);
+        onAuthenticated();
+
       } else {
-        const { data, error: authError } = await supabase.auth.signUp({ email, password });
-        if (authError) throw authError;
-        
-        // Save extra data to local storage for now
-        const profile = { name, college, interests };
-        localStorage.setItem(`profile_${email}`, JSON.stringify(profile));
-        localStorage.setItem('currentUserProfile', JSON.stringify(profile));
+        // ── SIGN UP ────────────────────────────────────────────────────────
+        if (!name.trim())    throw new Error('Please enter your full name.');
+        if (!college.trim()) throw new Error('Please enter your college name.');
+      
+        // Pass fields inside metadata options. The secure DB trigger handles
+        // creating the profile and awarding the 'early_adopter' badge automatically.
+        const { data, error: authError } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              name: name.trim(),
+              college: college.trim(),
+              interests: interests
+            }
+          }
+        });
+      
+        if (authError) throw new Error(authError.message);
+        if (!data.user)      throw new Error('Sign-up failed. Please try again.');
+      
+        setSuccess('Account created! You are now signed in.');
+        setTimeout(() => { onAuthenticated(); }, 1200);
       }
-      onAuthenticated();
+
     } catch (err: any) {
-      setError(err.message);
+      setError(err.message || 'Something went wrong.');
     } finally {
       setLoading(false);
     }
@@ -49,48 +86,81 @@ export function AuthModal({ isOpen, onClose, onAuthenticated, courseId }: { isOp
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-      <div className="bg-card w-full max-w-md rounded-2xl border border-border/50 shadow-2xl p-6 relative">
-        <button onClick={onClose} className="absolute right-4 top-4 text-muted-foreground hover:text-foreground">
+      
+      <div className="bg-card w-full max-w-md rounded-2xl border border-border/50 shadow-2xl p-6 relative max-h-[90vh] overflow-y-auto">
+
+        <button
+          onClick={() => { reset(); onClose(); }}
+          className="absolute right-4 top-4 text-muted-foreground hover:text-foreground"
+        >
           <X className="size-5" />
         </button>
-        <h2 className="text-2xl font-bold font-display mb-2">{isLogin ? 'Welcome Back!' : 'Claim Your Certificate'}</h2>
-        <p className="text-muted-foreground text-sm mb-6">{isLogin ? 'Sign in to download your certificate.' : 'Sign up to get your certificate and personalized recommendations.'}</p>
-        
-        {error && <div className="p-3 bg-destructive/10 text-destructive text-sm rounded-lg mb-4">{error}</div>}
-        
+
+        <h2 className="text-2xl font-bold font-display mb-1">
+          {isLogin ? 'Welcome Back!' : 'Create Account'}
+        </h2>
+        <p className="text-muted-foreground text-sm mb-6">
+          {isLogin
+            ? 'Sign in to access your profile and certificates.'
+            : 'Sign up to get certificates and personalized recommendations.'}
+        </p>
+
+        {error   && <div className="p-3 bg-destructive/10 text-destructive text-sm rounded-lg mb-4">{error}</div>}
+        {success && <div className="p-3 bg-green-500/10 text-green-400 text-sm rounded-lg mb-4">{success}</div>}
+
         <form onSubmit={handleSubmit} className="space-y-4">
+
+          {/* Sign-up only fields */}
           {!isLogin && (
             <>
-              <div className="space-y-1">
-                <label className="text-xs font-medium text-muted-foreground">Full Name</label>
-                <input required type="text" value={name} onChange={e => setName(e.target.value)} className="w-full p-2.5 rounded-lg bg-secondary/50 border border-border text-sm" placeholder="John Doe" />
-              </div>
-              <div className="space-y-1">
-                <label className="text-xs font-medium text-muted-foreground">College / University</label>
-                <input required type="text" value={college} onChange={e => setCollege(e.target.value)} className="w-full p-2.5 rounded-lg bg-secondary/50 border border-border text-sm" placeholder="JNTU GV" />
-              </div>
+              <Field label="Full Name">
+                <input
+                  required type="text" value={name}
+                  onChange={e => setName(e.target.value)}
+                  className="input-base" placeholder="Enter Your Name"
+                />
+              </Field>
+              <Field label="College / University">
+                <input
+                  required type="text" value={college}
+                  onChange={e => setCollege(e.target.value)}
+                  className="input-base" placeholder="JNTU GV"
+                />
+              </Field>
             </>
           )}
-          
-          <div className="space-y-1">
-            <label className="text-xs font-medium text-muted-foreground">Email</label>
-            <input required type="email" value={email} onChange={e => setEmail(e.target.value)} className="w-full p-2.5 rounded-lg bg-secondary/50 border border-border text-sm" placeholder="john@example.com" />
-          </div>
-          <div className="space-y-1">
-            <label className="text-xs font-medium text-muted-foreground">Password</label>
-            <input required type="password" value={password} onChange={e => setPassword(e.target.value)} className="w-full p-2.5 rounded-lg bg-secondary/50 border border-border text-sm" placeholder="••••••••" />
-          </div>
-          
+
+          <Field label="Email">
+            <input
+              required type="email" value={email}
+              onChange={e => setEmail(e.target.value)}
+              className="input-base" placeholder="example@gmail.com"
+            />
+          </Field>
+
+          <Field label="Password">
+            <input
+              required type="password" value={password} minLength={6}
+              onChange={e => setPassword(e.target.value)}
+              className="input-base" placeholder="••••••••"
+            />
+          </Field>
+
           {!isLogin && (
-            <div className="space-y-2 pt-2">
-              <label className="text-xs font-medium text-muted-foreground">Areas of Interest</label>
+            <div className="space-y-2 pt-1">
+              <label className="text-xs font-medium text-muted-foreground">
+                Areas of Interest <span className="text-muted-foreground/60">(optional)</span>
+              </label>
               <div className="flex flex-wrap gap-2">
                 {INTEREST_OPTIONS.map(interest => (
-                  <button 
-                    key={interest} 
-                    type="button"
+                  <button
+                    key={interest} type="button"
                     onClick={() => toggleInterest(interest)}
-                    className={`px-3 py-1.5 rounded-full text-xs transition-colors border ${interests.includes(interest) ? 'bg-cyan/20 border-cyan text-cyan' : 'bg-secondary border-border text-muted-foreground hover:bg-secondary/80'}`}
+                    className={`px-3 py-1.5 rounded-full text-xs transition-colors border ${
+                      interests.includes(interest)
+                        ? 'bg-cyan/20 border-cyan text-cyan'
+                        : 'bg-secondary border-border text-muted-foreground hover:bg-secondary/80'
+                    }`}
                   >
                     {interest}
                   </button>
@@ -98,19 +168,39 @@ export function AuthModal({ isOpen, onClose, onAuthenticated, courseId }: { isOp
               </div>
             </div>
           )}
-          
-          <button disabled={loading} type="submit" className="w-full py-3 rounded-xl bg-cyan text-cyan-foreground font-semibold mt-4 hover:bg-cyan/90 transition-colors">
-            {loading ? 'Processing...' : (isLogin ? 'Sign In' : 'Sign Up & Get Certificate')}
+
+          <button
+            disabled={loading} type="submit"
+            className="w-full py-3 rounded-xl bg-cyan text-cyan-foreground font-semibold mt-4
+                       hover:bg-cyan/90 transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+          >
+            {loading && <Loader2 className="size-4 animate-spin" />}
+            {loading ? 'Please wait…' : isLogin ? 'Sign In' : 'Sign Up & Get Certificate'}
           </button>
         </form>
-        
+
         <div className="mt-6 text-center text-sm text-muted-foreground">
           {isLogin ? "Don't have an account? " : "Already have an account? "}
-          <button type="button" onClick={() => setIsLogin(!isLogin)} className="text-cyan hover:underline font-medium">
+          <button type="button" onClick={switchMode} className="text-cyan hover:underline font-medium">
             {isLogin ? 'Sign up' : 'Sign in'}
           </button>
         </div>
       </div>
+
+      <style>{`.input-base { width: 100%; padding: 0.625rem; border-radius: 0.5rem;
+        background: hsl(var(--secondary) / 0.5); border: 1px solid hsl(var(--border));
+        font-size: 0.875rem; color: hsl(var(--foreground)); outline: none; }
+        .input-base:focus { border-color: hsl(var(--cyan)); }`}
+      </style>
+    </div>
+  );
+}
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="space-y-1">
+      <label className="text-xs font-medium text-muted-foreground">{label}</label>
+      {children}
     </div>
   );
 }

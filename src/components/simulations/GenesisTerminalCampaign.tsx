@@ -19,6 +19,11 @@ export function GenesisTerminalCampaign({ expId }: GenesisProps) {
     setTimeout(() => setSuccessMsg(""), 3000);
   };
 
+  const showError = (msg: string) => {
+    setErrorMsg(msg);
+    setTimeout(() => setErrorMsg(""), 3000);
+  };
+
   // ---------------------------------------------------------
   // MISSION 1: FIRST SIGNAL (Hello World) - c-w1-1
   // ---------------------------------------------------------

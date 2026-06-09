@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { 
   LineChart, TrendingUp, HelpCircle, Sliders, AlertTriangle, ShieldCheck, 
-  ArrowRight, CheckCircle2, Star, Plus
+  ArrowRight, CheckCircle2, Star, Plus,
+  Target
 } from "lucide-react";
 
 export function SimpleRegressionLabCampaign() {
@@ -189,7 +190,7 @@ export function SimpleRegressionLabCampaign() {
 
                    <div 
                      className="absolute w-[150%] h-1 bg-emerald-400 origin-bottom-left shadow-[0_0_15px_rgba(52,211,153,0.8)] transition-all duration-300"
-                     style={{ bottom: \`\${intercept}%\`, transform: \`rotate(-\${slope / 2}deg)\` }}
+                     style={{ bottom: `${intercept}%`, transform: `rotate(-${slope / 2}deg)` }}
                    />
                 </div>
 

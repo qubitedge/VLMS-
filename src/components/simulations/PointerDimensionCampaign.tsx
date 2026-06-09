@@ -3,7 +3,9 @@ import {
   Crosshair, ArrowLeftRight, ScrollText, ScanSearch, Ghost,
   Box, Zap, Search, ShieldAlert, Cpu, CheckCircle2,
   Play, Hexagon, ArrowRight, Server, Star, RotateCcw, ShieldX,
-  FileCode2, Home, Hash
+  FileCode2, Home, Hash,
+  ArrowDown,
+  Trash2
 } from "lucide-react";
 
 type PointerDimensionProps = {

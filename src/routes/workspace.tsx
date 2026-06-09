@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef, useMemo } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Play, Save, RotateCcw, CheckCircle2, Terminal, ArrowLeft, Lightbulb, Beaker, HelpCircle, Database, Book, Volume2, Square, Sparkles, ExternalLink, Cpu } from "lucide-react";
 import { courses } from "@/lib/course-data";
 import Editor from "@monaco-editor/react";
 import { toast } from "sonner";
-import { supabase } from "@/lib/supabase";
+import { supabase, awardBadge, markExperimentComplete } from "@/lib/supabase";
 import { MemoryManagerSim } from "@/components/simulations/MemoryManagerSim";
 import { MirrorPortalSim } from "@/components/simulations/MirrorPortalSim";
 import { LinearSearchSim } from "@/components/simulations/LinearSearchSim";
@@ -433,6 +433,7 @@ function HintTooltip({ hint }: { hint: string }) {
 
 function Workspace() {
   const { exp } = Route.useSearch();
+  const navigate = useNavigate();
   const details = getExperimentDetails(exp);
 
   const title = details?.experiment.title || "Experiment Workspace";
@@ -555,6 +556,7 @@ ORDER  BY grade DESC;`,
 
   // Reset code on language / experiment change
   useEffect(() => {
+    experimentStartTime.current = Date.now();
     let newCode = templates[language].code;
     if (language === "c" && details?.experiment.title === "Hello World") {
       newCode = `#include<stdio.h>\nint main(){\n  printf("Hello World");\n  return 0;\n}`;
@@ -813,6 +815,7 @@ except BaseException:
     : isIot
     ? ["Aim", "Theory", "Pretest", "Procedure", "Simulation", "Tinkercad", "Posttest", "References"]
     : ["Aim", "Theory", "Pretest", "Procedure", "Simulation", "Code Test", "Posttest", "References"];
+  const experimentStartTime = useRef<number>(Date.now());
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [maxStepReached, setMaxStepReached] = useState(0);
   
@@ -849,21 +852,96 @@ except BaseException:
   }
 
   const handleSubmit = async () => {
+    // ── Step 1: Get logged-in user ─────────────────────────────────────────
+    const { data: { user } } = await supabase.auth.getUser();
+  
+    // ── Step 2: Save completion to DATABASE (not localStorage) ────────────
+    if (user && details?.experiment?.id && details?.course?.id) {
+      const saved = await markExperimentComplete(
+        user.id,
+        details.experiment.id,
+        details.course.id
+      );
+      if (saved) {
+        console.log(`✅ Saved completion: ${details.experiment.id}`);
+      }
+    }
+  
+    // ── Step 3: Also keep localStorage for guests (not logged in) ─────────
+    // This is a fallback only — logged-in users use DB
     if (details?.experiment?.id) {
       const solved = JSON.parse(localStorage.getItem('solved_experiments') || '{}');
       solved[details.experiment.id] = true;
       localStorage.setItem('solved_experiments', JSON.stringify(solved));
     }
-    
-    toast.success("Experiment Completed Successfully!");
-
+  
+    // ── Step 4: Award badges using DATABASE completions ───────────────────
+    try {
+      if (user) {
+        const badgePromises: Promise<void>[] = [];
+  
+        // Fetch fresh completion count from DB
+        const { data: completions } = await supabase
+          .from('experiment_completions')
+          .select('experiment_id, course_id')
+          .eq('user_id', user.id);
+  
+        const totalSolved = completions?.length ?? 0;
+        const solvedIds = new Set(completions?.map((c: any) => c.experiment_id) ?? []);
+  
+        // 🧪 First Solve
+        if (totalSolved === 1) {
+          badgePromises.push(awardBadge(user.id, 'first_solve'));
+        }
+  
+        // ⚡ Speed Coder
+        const elapsedMs = Date.now() - experimentStartTime.current;
+        if (elapsedMs < 2 * 60 * 1000) {
+          badgePromises.push(awardBadge(user.id, 'speed_coder'));
+        }
+  
+        // 💯 Perfect Score
+        const posttest = (details?.experiment?.content as any)?.posttest;
+        if (posttest?.length > 0) {
+          const correct = posttest.filter(
+            (q: any, i: number) => posttestAnswers[i] === q.answerIndex
+          ).length;
+          if (correct === posttest.length) {
+            badgePromises.push(awardBadge(user.id, 'perfect_score'));
+          }
+        }
+  
+        // 🏆 All Courses Completed (checks DB, not localStorage)
+        if (details?.course) {
+          const allExpIds: string[] = details.course.weeks.flatMap(
+            (w: any) => w.experiments.map((e: any) => e.id)
+          );
+          if (allExpIds.every(id => solvedIds.has(id))) {
+            badgePromises.push(awardBadge(user.id, 'all_courses'));
+          }
+        }
+  
+        // 🔍 Curious Mind — 3+ different courses
+        const uniqueCourses = new Set(completions?.map((c: any) => c.course_id) ?? []);
+        if (uniqueCourses.size >= 3) {
+          badgePromises.push(awardBadge(user.id, 'curious_mind'));
+        }
+  
+        await Promise.all(badgePromises);
+      }
+    } catch (err) {
+      console.error('Badge error:', err);
+    }
+  
+    // ── Step 5: Navigate without page reload ──────────────────────────────
+    toast.success("Experiment Completed Successfully! 🎉");
+  
     if (details?.course?.id) {
-      window.location.href = `/course/${details.course.id}#experiments`;
+      navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
     } else {
-      window.location.href = "/courses";
+      navigate({ to: '/courses' });
     }
   };
-
   const handleNext = () => {
     if (!isNextEnabled) {
       toast.error(`Please answer all questions in the ${currentStepName} before proceeding.`);

@@ -142,4 +142,25 @@
     animation: typing 1s steps(30, end) 3.5s forwards;
     animation-fill-mode: both;
   }
+
+  /* Ensure these critical classes exist */
+.bg-card {
+  background-color: hsl(0 0% 100%);
+}
+
+.bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.z-50 {
+  z-index: 50;
+}
 }

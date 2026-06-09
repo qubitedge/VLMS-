@@ -326,7 +326,7 @@ export function EnsembleIntelligenceLabCampaign() {
                    <div className="text-center z-10">
                       <div className="text-xs font-bold text-slate-500 uppercase mb-2">Confidence Meter</div>
                       <div className="h-4 w-32 bg-slate-800 rounded-full overflow-hidden mt-3 mx-auto">
-                         <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: \`\${Math.min(100, (treeCount / 100) * 100)}%\` }} />
+                         <div className="h-full bg-emerald-500 transition-all duration-300" style={{ width: `${Math.min(100, (treeCount / 100) * 100)}%` }} />
                       </div>
                    </div>
                 </div>

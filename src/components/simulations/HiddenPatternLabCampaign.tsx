@@ -104,7 +104,7 @@ export function HiddenPatternLabCampaign() {
                 
                 {/* Random stars */}
                 {[...Array(40)].map((_,i) => (
-                  <div key={i} className="absolute size-1 bg-white/60 rounded-full" style={{ top: \`\${Math.random()*100}%\`, left: \`\${Math.random()*100}%\` }} />
+                  <div key={i} className="absolute size-1 bg-white/60 rounded-full" style={{ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%` }} />
                 ))}
              </div>
              <button onClick={nextStep} className="px-8 py-4 bg-violet-600 hover:bg-violet-700 text-white font-bold rounded-xl shadow-[0_0_20px_rgba(139,92,246,0.4)] flex items-center gap-2">
@@ -119,7 +119,7 @@ export function HiddenPatternLabCampaign() {
              
              <div className="bg-black w-full max-w-lg h-64 rounded-xl border-2 border-slate-800 mb-8 relative overflow-hidden flex items-center justify-center">
                 {[...Array(40)].map((_,i) => (
-                  <div key={i} className="absolute size-1 bg-white/60 rounded-full" style={{ top: \`\${Math.random()*100}%\`, left: \`\${Math.random()*100}%\` }} />
+                  <div key={i} className="absolute size-1 bg-white/60 rounded-full" style={{ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%` }} />
                 ))}
 
                 {animState === 0 && (
@@ -252,7 +252,7 @@ export function HiddenPatternLabCampaign() {
                 <div className="relative w-full h-48 border border-slate-800 rounded-xl flex items-center justify-center overflow-hidden">
                    {/* Background noise */}
                    {[...Array(60)].map((_,i) => (
-                     <div key={i} className="absolute size-1 bg-slate-500/30 rounded-full" style={{ top: \`\${Math.random()*100}%\`, left: \`\${Math.random()*100}%\` }} />
+                     <div key={i} className="absolute size-1 bg-slate-500/30 rounded-full" style={{ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%` }}/>
                    ))}
 
                    {/* The cluster we are trying to fit */}
@@ -262,8 +262,8 @@ export function HiddenPatternLabCampaign() {
                    <div 
                       className="absolute rounded-[100%] border-2 border-violet-500 bg-violet-500/20 transition-all duration-300 flex items-center justify-center"
                       style={{ 
-                         width: \`\${variance * 3}px\`, 
-                         height: \`\${variance * 1.2}px\`,
+                         width: `${variance * 3}px`,
+                         height: `${variance * 1.2}px`,
                          borderColor: variance === 80 ? "#10b981" : "#8b5cf6",
                          backgroundColor: variance === 80 ? "rgba(16,185,129,0.2)" : "rgba(139,92,246,0.2)"
                       }}

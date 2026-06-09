@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { 
-  Crown, MountainSnow, Zap, Portal, Calculator, CalendarClock,
+  Crown, MountainSnow, Zap, Calculator, CalendarClock,
   ArrowRight, Activity, ArrowDown, Search, CheckCircle2, Star, Shield
 } from "lucide-react";
 

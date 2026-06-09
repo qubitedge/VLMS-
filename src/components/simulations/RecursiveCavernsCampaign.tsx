@@ -31,14 +31,14 @@ export function RecursiveCavernsCampaign({ expId }: RecursiveCavernsProps) {
     const nodes: any[] = [];
     let idCounter = 0;
 
-    const buildTree = async (n: number, parentId: string|null, level: number) => {
+    const buildTree = async (n: number, parentId: string|null, level: number): Promise<number> => {
       const myId = `n${idCounter++}`;
       nodes.push({ id: myId, val: n, parent: parentId, level });
       setM1Nodes([...nodes]);
       await new Promise(r => setTimeout(r, 600));
-
+    
       if (n <= 1) return n;
-
+    
       const left = await buildTree(n - 1, myId, level + 1);
       const right = await buildTree(n - 2, myId, level + 1);
       return left + right;

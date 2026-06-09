@@ -3,7 +3,9 @@ import {
   Building2, Link2, BoxSelect, Columns, TrafficCone,
   Settings2, Activity, HardDrive, LayoutTemplate, Network,
   PlusCircle, Trash2, ArrowRight, Server, CheckCircle2, Star,
-  Hammer
+  Hammer,
+  ShieldAlert,
+  Zap
 } from "lucide-react";
 
 type DataArchitectDistrictProps = {

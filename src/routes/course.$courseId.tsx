@@ -7,8 +7,7 @@ import { ErrorGraphic } from "@/components/ErrorGraphic";
 import { CheckCircle2 } from "lucide-react";
 import { AuthModal } from "@/components/AuthModal";
 import { CertificateModal } from "@/components/Certificate";
-import { supabase } from "@/lib/supabase";
-
+import { supabase, awardBadge, getCompletedExperimentsForCourse } from "@/lib/supabase";
 export const Route = createFileRoute("/course/$courseId")({
   component: CoursePage,
 });
@@ -16,6 +15,44 @@ export const Route = createFileRoute("/course/$courseId")({
 function CoursePage() {
   const { courseId } = Route.useParams();
   const course = courses[courseId];
+
+  // 🏆 TRACK ACHIEVEMENT: CURIOUS MIND
+useEffect(() => {
+  const trackSubjectExploration = async () => {
+    try {
+      // 1. Check if we have an active user session
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      // 2. TYPE-SAFE CATEGORY IDENTIFICATION 
+      // We look at the unique course ID string (e.g., 'dbms', 'ml', 'ai-tools')
+      const currentSubject = course.id || courseId;
+      if (!currentSubject) return;
+
+      // 3. Fetch or initialize the local tracking storage
+      const storageKey = `explored_${user.id}`;
+      const explored = JSON.parse(localStorage.getItem(storageKey) || "[]");
+
+      // 4. Update storage if this is a brand new course path
+      if (!explored.includes(currentSubject)) {
+        const updatedExplored = [...explored, currentSubject];
+        localStorage.setItem(storageKey, JSON.stringify(updatedExplored));
+
+        // 5. Trigger the badge entry when they hit 3 unique courses
+        if (updatedExplored.length === 3) {
+          await awardBadge(user.id, "curious_mind");
+          toast.success("🧠 Polymath! Achievement Unlocked: Curious Mind (Explored 3 Dynamic Subjects)!");
+        }
+      }
+    } catch (err) {
+      console.error("Failed tracking subject exploration:", err);
+    }
+  };
+
+  if (course) {
+    trackSubjectExploration();
+  }
+}, [course, courseId]);
   
   if (!course) {
     return (
@@ -58,17 +95,43 @@ function CoursePage() {
     }
   }, []);
 
-  // Track solved status
-  const [solvedExps, setSolvedExps] = useState<Record<string, boolean>>({});
+// Track solved status — loaded from DB for logged-in users
+const [solvedExps, setSolvedExps] = useState<Set<string>>(new Set());
+const [completionsLoaded, setCompletionsLoaded] = useState(false);
 
-  useEffect(() => {
+useEffect(() => {
+  const loadCompletions = async () => {
     try {
-      setSolvedExps(JSON.parse(localStorage.getItem('solved_experiments') || '{}'));
-    } catch (e) {}
-  }, []);
+      const { data: { user } } = await supabase.auth.getUser();
+
+      if (user) {
+        // Logged-in user: fetch from database (per-user, device-independent)
+        const completed = await getCompletedExperimentsForCourse(user.id, courseId);
+        setSolvedExps(completed);
+      } else {
+        // Guest user: fall back to localStorage
+        const raw = JSON.parse(localStorage.getItem('solved_experiments') || '{}');
+        setSolvedExps(new Set(Object.keys(raw).filter(k => raw[k])));
+      }
+    } catch (e) {
+      console.error('Failed to load completions:', e);
+    } finally {
+      setCompletionsLoaded(true);
+    }
+  };
+
+  loadCompletions();
+
+  // Also re-sync when the tab regains focus (e.g. returning from workspace)
+  const handleFocus = () => loadCompletions();
+  window.addEventListener('focus', handleFocus);
+  return () => window.removeEventListener('focus', handleFocus);
+}, [courseId]);
 
   const allExperiments = course.weeks.flatMap(w => w.experiments);
-  const allSolved = allExperiments.length > 0 && allExperiments.every(exp => solvedExps[exp.id]);
+  const allSolved = completionsLoaded && 
+                  allExperiments.length > 0 && 
+                  allExperiments.every(exp => solvedExps.has(exp.id));
 
   // Auth / Cert State
   const [showAuth, setShowAuth] = useState(false);
@@ -78,12 +141,15 @@ function CoursePage() {
   const handleClaimCertificate = async () => {
     const { data } = await supabase.auth.getSession();
     if (data.session) {
-      const profileStr = localStorage.getItem('currentUserProfile');
-      if (profileStr) {
-        try {
-          const profile = JSON.parse(profileStr);
-          if (profile.name) setCertName(profile.name);
-        } catch (e) {}
+      // Get name from DB profile instead of localStorage
+      const { data: profileData } = await supabase
+        .from('profiles')
+        .select('name')
+        .eq('id', data.session.user.id)
+        .single();
+  
+      if (profileData?.name) {
+        setCertName(profileData.name);
       }
       setShowCert(true);
     } else {
@@ -91,14 +157,17 @@ function CoursePage() {
     }
   };
 
-  const handleAuthenticated = () => {
+  const handleAuthenticated = async () => {
     setShowAuth(false);
-    const profileStr = localStorage.getItem('currentUserProfile');
-    if (profileStr) {
-      try {
-        const profile = JSON.parse(profileStr);
-        if (profile.name) setCertName(profile.name);
-      } catch (e) {}
+    const { data } = await supabase.auth.getSession();
+    if (data.session) {
+      const { data: profileData } = await supabase
+        .from('profiles')
+        .select('name')
+        .eq('id', data.session.user.id)
+        .single();
+  
+      if (profileData?.name) setCertName(profileData.name);
     }
     setShowCert(true);
   };
@@ -593,7 +662,7 @@ function CoursePage() {
                               <div className="flex items-center gap-3">
                                 <span className="text-xs font-mono text-muted-foreground">{i + 1}.</span>
                                 <span className="text-sm font-medium">{exp.title}</span>
-                                {solvedExps[exp.id] && <CheckCircle2 className="size-4 text-mint" />}
+                                {solvedExps.has(exp.id) && <CheckCircle2 className="size-4 text-mint" />}
                               </div>
                               <Link 
                                 to="/workspace"

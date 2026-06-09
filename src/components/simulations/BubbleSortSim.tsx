@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { 
-  Trophy, ChevronRight, Swords, ArrowRightLeft, Shield, Clock, Search, RotateCcw, Medal, Crown, Star
+  Trophy, ChevronRight, Swords, ArrowRightLeft, Shield, Clock, Search, RotateCcw, Medal, Crown, Star,
+  CheckCircle2
 } from "lucide-react";
 
 export function BubbleSortSim() {

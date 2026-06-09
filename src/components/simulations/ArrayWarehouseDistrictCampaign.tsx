@@ -243,7 +243,7 @@ export function ArrayWarehouseDistrictCampaign({ expId }: ArrayWarehouseDistrict
   const runM4 = async () => {
     setM4Step(1);
     const arr = [...m4Arr];
-    const dups = [];
+    const dups: number[] = [];
     
     // Simple visual O(N^2) duplication check
     for(let i=0; i<arr.length; i++) {

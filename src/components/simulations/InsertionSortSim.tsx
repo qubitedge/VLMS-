@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { 
   Trophy, ChevronRight, PlaySquare, ArrowRight, Shield, Clock, Search, RotateCcw, 
-  Crown, Star, Vault, Wand2, Hexagon, Crosshair, ArrowDownToLine, MoveRight
+  Crown, Star, Vault, Wand2, Hexagon, Crosshair, ArrowDownToLine, MoveRight,
+  Gem
 } from "lucide-react";
 
 export function InsertionSortSim() {
