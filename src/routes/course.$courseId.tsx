@@ -58,7 +58,14 @@ function CoursePage() {
   }, []);
 
   // Track solved status
-  const solvedExps = JSON.parse(localStorage.getItem('solved_experiments') || '{}');
+  const [solvedExps, setSolvedExps] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    try {
+      setSolvedExps(JSON.parse(localStorage.getItem('solved_experiments') || '{}'));
+    } catch (e) {}
+  }, []);
+
   const allExperiments = course.weeks.flatMap(w => w.experiments);
   const allSolved = allExperiments.length > 0 && allExperiments.every(exp => solvedExps[exp.id]);
 

@@ -66,7 +66,7 @@ export function Chatbot() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          model: "llama3-8b-8192",
+          model: "llama-3.1-8b-instant",
           messages: apiMessages,
           temperature: 0.5,
           max_tokens: 1024
