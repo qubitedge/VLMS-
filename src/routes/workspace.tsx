@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Play, Save, RotateCcw, CheckCircle2, Terminal, ArrowLeft, Lightbulb, Beaker, HelpCircle, Database, Book, Volume2, Square, Sparkles, ExternalLink } from "lucide-react";
+import { Play, Save, RotateCcw, CheckCircle2, Terminal, ArrowLeft, Lightbulb, Beaker, HelpCircle, Database, Book, Volume2, Square, Sparkles, ExternalLink, Cpu } from "lucide-react";
 import { courses } from "@/lib/course-data";
 import Editor from "@monaco-editor/react";
 import { toast } from "sonner";
@@ -770,9 +770,12 @@ except BaseException:
 
   const isSql = language === "sql";
   const isAITools = details?.course.id === "ai-tools";
+  const isIot = details?.course.id === "iot";
 
   const WORKSPACE_STEPS = isAITools 
     ? ["Aim", "Theory", "Pretest", "Procedure", "Solve", "Posttest", "References"]
+    : isIot
+    ? ["Aim", "Theory", "Pretest", "Procedure", "Simulation", "Tinkercad", "Posttest", "References"]
     : ["Aim", "Theory", "Pretest", "Procedure", "Simulation", "Code Test", "Posttest", "References"];
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [maxStepReached, setMaxStepReached] = useState(0);
@@ -910,8 +913,8 @@ except BaseException:
       </div>
 
       <div className="flex-1 overflow-hidden">
-        {currentStepName === "code test" || currentStepName === "solve" ? (
-          // SIMULATION VIEW (Existing Split Pane for Code Test) OR AI LAB SOLVE VIEW
+        {currentStepName === "code test" || currentStepName === "solve" || currentStepName === "tinkercad" ? (
+          // SIMULATION VIEW (Existing Split Pane for Code Test) OR AI LAB SOLVE VIEW OR TINKERCAD
           <div className="h-full grid lg:grid-cols-[1fr_1fr] divide-x divide-border">
             {/* ── Left Pane: Problem Description ─────────────────────────── */}
             <div className="h-full flex flex-col overflow-y-auto bg-card relative pb-24">
@@ -1034,6 +1037,34 @@ except BaseException:
                     >
                       <ExternalLink className="size-4" /> Launch External Tool
                     </button>
+                  </div>
+                </div>
+              ) : isIot ? (
+                <div className="h-full flex flex-col items-center justify-center bg-[#0f111a] relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-fuchsia-400/5" />
+                  <div className="relative z-10 w-full h-full p-4 flex flex-col gap-4">
+                    <div className="flex items-center justify-between px-4 py-3 bg-secondary/80 border border-border rounded-xl">
+                      <div className="flex items-center gap-3">
+                        <Cpu className="size-5 text-cyan" />
+                        <div>
+                          <h3 className="font-semibold text-sm">Tinkercad Workspace</h3>
+                          <p className="text-xs text-muted-foreground">Complete your circuit and code inside Tinkercad</p>
+                        </div>
+                      </div>
+                      <button 
+                        onClick={() => window.open("https://www.tinkercad.com/dashboard", "_blank")}
+                        className="px-4 py-1.5 rounded-lg border border-border hover:bg-secondary/80 text-xs font-medium transition-colors flex items-center gap-2"
+                      >
+                        <ExternalLink className="size-3.5" /> Open in New Tab
+                      </button>
+                    </div>
+                    <div className="flex-1 rounded-xl border border-border overflow-hidden bg-white">
+                      <iframe 
+                        src="https://www.tinkercad.com/dashboard" 
+                        className="w-full h-full border-none" 
+                        title="Tinkercad Workspace" 
+                      />
+                    </div>
                   </div>
                 </div>
               ) : (

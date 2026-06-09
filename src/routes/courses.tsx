@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { branches } from "@/lib/lab-data";
-import { BookOpen, GitBranch, Code, Workflow, Monitor, Database, Brain, Sparkles, Bot, Star } from "lucide-react";
+import { BookOpen, GitBranch, Code, Workflow, Monitor, Database, Brain, Sparkles, Bot, Star, Network } from "lucide-react";
 
 function getTopicIcon(topic: string) {
   if (topic === "C Programming") return <Code className="size-5 shrink-0" />;
@@ -13,6 +13,7 @@ function getTopicIcon(topic: string) {
   if (topic === "Machine Learning") return <Brain className="size-5 shrink-0 text-cyan" />;
   if (topic === "AI Tools") return <Sparkles className="size-5 shrink-0 text-cyan" />;
   if (topic === "LLMs") return <Bot className="size-5 shrink-0 text-cyan" />;
+  if (topic === "IoT") return <Network className="size-5 shrink-0 text-cyan" />;
   if (topic === "Algorithms") return <Workflow className="size-5 shrink-0 text-cyan" />;
   return null;
 }
