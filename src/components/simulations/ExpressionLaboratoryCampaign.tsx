@@ -286,7 +286,7 @@ export function ExpressionLaboratoryCampaign({ expId }: ExpressionLabProps) {
       )}
 
       {/* Main Content Area */}
-      <div className="flex-1 min-h-0">
+      <div className="flex-1 min-h-0 overflow-y-auto">
         {expId === "c-w4-1" && renderMission1()}
         {expId === "c-w4-2" && renderMission2()}
         {expId === "c-w4-3" && renderMission3()}

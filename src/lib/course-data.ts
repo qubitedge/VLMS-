@@ -5,6 +5,9 @@ import { aiCourse } from './ai-data';
 import { pythonCourse } from './python-data';
 import { javaCourse } from './java-data';
 import { iotCourse } from './iot-data';
+import { cShortNotes } from './c-short-notes';
+import { mlShortNotes } from './ml-short-notes';
+
 export type MCQ = {
   question: string;
   options: string[];
@@ -1402,6 +1405,7 @@ export const courses: Record<string, Course> = {
       "The lab covers 14 weeks of structured experiments aligned with the JNTUGV C Programming syllabus — from basic I/O and arithmetic to pointers, data structures, recursion, and file handling. Each experiment includes a clear objective, problem statement, pre-loaded starter code, stdin support for interactive programs, and expected output for self-verification.",
       "Students can attempt all 47 lab problems directly in the browser using a professional code editor powered by a real GCC compiler via the Wandbox execution engine."
     ],
+    shortNotes: cShortNotes,
     targetAudience: {
       primary: "First-year B.Tech students of all branches at Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV) enrolled in the C Programming Lab course under the BS&HSS department (Course Code: refer JNTUGV curriculum).",
       prerequisites: [
@@ -5771,6 +5775,7 @@ export const courses: Record<string, Course> = {
   "machine-learning": {
     id: "machine-learning",
     title: "Machine Learning Lab",
+    shortNotes: mlShortNotes,
     objectives: [
       "To provide students with a practical understanding of core machine learning algorithms and their applications.",
       "To enable students to preprocess, clean, and prepare real-world datasets for machine learning tasks.",

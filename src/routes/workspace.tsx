@@ -22,6 +22,29 @@ import { GenesisTerminalCampaign } from "@/components/simulations/GenesisTermina
 import { AlgorithmForestCampaign } from "@/components/simulations/AlgorithmForestCampaign";
 import { ExpressionLaboratoryCampaign } from "@/components/simulations/ExpressionLaboratoryCampaign";
 import { DecisionKingdomCampaign } from "@/components/simulations/DecisionKingdomCampaign";
+import { TimeLoopValleyCampaign } from "@/components/simulations/TimeLoopValleyCampaign";
+import { ArrayWarehouseDistrictCampaign } from "@/components/simulations/ArrayWarehouseDistrictCampaign";
+import { MatrixCitadelCampaign } from "@/components/simulations/MatrixCitadelCampaign";
+import { MemoryNexusCampaign } from "@/components/simulations/MemoryNexusCampaign";
+import { DataArchitectDistrictCampaign } from "@/components/simulations/DataArchitectDistrictCampaign";
+import { FunctionTempleCampaign } from "@/components/simulations/FunctionTempleCampaign";
+import { RecursiveCavernsCampaign } from "@/components/simulations/RecursiveCavernsCampaign";
+import { PointerDimensionCampaign } from "@/components/simulations/PointerDimensionCampaign";
+import { ArchiveKingdomCampaign } from "@/components/simulations/ArchiveKingdomCampaign";
+import { DataDetectiveLabCampaign } from "@/components/simulations/DataDetectiveLabCampaign";
+import { DataCleaningLabCampaign } from "@/components/simulations/DataCleaningLabCampaign";
+import { SimilarityLabCampaign } from "@/components/simulations/SimilarityLabCampaign";
+import { DecisionLabCampaign } from "@/components/simulations/DecisionLabCampaign";
+import { PredictionLabCampaign } from "@/components/simulations/PredictionLabCampaign";
+import { EnsembleIntelligenceLabCampaign } from "@/components/simulations/EnsembleIntelligenceLabCampaign";
+import { ProbabilityLabCampaign } from "@/components/simulations/ProbabilityLabCampaign";
+import { BoundaryLabCampaign } from "@/components/simulations/BoundaryLabCampaign";
+import { SimpleRegressionLabCampaign } from "@/components/simulations/SimpleRegressionLabCampaign";
+import { ClassificationLabCampaign } from "@/components/simulations/ClassificationLabCampaign";
+import { NeuralNetworkLabCampaign } from "@/components/simulations/NeuralNetworkLabCampaign";
+import { CustomerSegmentationLabCampaign } from "@/components/simulations/CustomerSegmentationLabCampaign";
+import { MembershipIntelligenceLabCampaign } from "@/components/simulations/MembershipIntelligenceLabCampaign";
+import { HiddenPatternLabCampaign } from "@/components/simulations/HiddenPatternLabCampaign";
 type WorkspaceSearch = {
   exp?: string;
 };
@@ -1496,6 +1519,190 @@ except BaseException:
                     return (
                       <div className="h-full bg-background">
                         <DecisionKingdomCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("c-w6-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <TimeLoopValleyCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("c-w7-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <ArrayWarehouseDistrictCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("c-w8-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <MatrixCitadelCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("c-w9-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <MemoryNexusCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("c-w10-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <DataArchitectDistrictCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("c-w11-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <FunctionTempleCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("c-w12-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <RecursiveCavernsCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("c-w13-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PointerDimensionCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("c-w14-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <ArchiveKingdomCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w1-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <DataDetectiveLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w2-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <DataCleaningLabCampaign />
+                      </div>
+                    );
+                  }
+                  
+                  if (details?.experiment.id?.startsWith("ml-w3-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <SimilarityLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w4-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <DecisionLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w5-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PredictionLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w6-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <EnsembleIntelligenceLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w7-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <ProbabilityLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w8-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <BoundaryLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w9-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <SimpleRegressionLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w10-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <ClassificationLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w11-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <NeuralNetworkLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w12-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <CustomerSegmentationLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w13-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <MembershipIntelligenceLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("ml-w14-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <HiddenPatternLabCampaign />
                       </div>
                     );
                   }

@@ -359,14 +359,48 @@ function CoursePage() {
                         return <div key={i} className="animate-in fade-in slide-in-from-bottom-4 duration-500">{el}</div>;
                       }
 
+                      if (text.startsWith('UNIT I ') || text.startsWith('UNIT I —')) {
+                        return (
+                          <div key={i} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                            {el}
+                            {course.id === 'c-programming' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-cyan/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-cyan/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/c_unit1.png" alt="Unit 1 Computer Problem Solving" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'machine-learning' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-cyan/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-cyan/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/ml-unit1.png" alt="Unit 1 Introduction to ML" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                          </div>
+                        );
+                      }
+
                       if (text.startsWith('UNIT II')) {
                         return (
                           <div key={i} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                             {el}
-                            <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-indigo-400/40 flex justify-center group relative overflow-hidden">
-                              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                               <img src="/ds_unit2_linked_lists.png" alt="Unit 2 Linked Lists Diagram" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
-                            </div>
+                            {course.id === 'data-structures-using-c-programming' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-indigo-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/ds_unit2_linked_lists.png" alt="Unit 2 Linked Lists Diagram" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'c-programming' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-indigo-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/c_unit2.png" alt="Unit 2 Intro to C Programming" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'machine-learning' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-indigo-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/ml-unit2.png" alt="Unit 2 Tree Based and Ensemble Learning" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
                           </div>
                         );
                       }
@@ -375,10 +409,24 @@ function CoursePage() {
                         return (
                           <div key={i} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                             {el}
-                            <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-purple-400/40 flex justify-center group relative overflow-hidden">
-                              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                               <img src="/ds_unit3_stacks.png" alt="Unit 3 Stacks Diagram" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
-                            </div>
+                            {course.id === 'data-structures-using-c-programming' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-purple-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/ds_unit3_stacks.png" alt="Unit 3 Stacks Diagram" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'c-programming' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-purple-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/c_unit3.png" alt="Unit 3 Arrays and Pointers" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'machine-learning' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-purple-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/ml-unit3.png" alt="Unit 3 Linear Models and Probabilistic Learning" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
                           </div>
                         );
                       }
@@ -387,10 +435,24 @@ function CoursePage() {
                         return (
                           <div key={i} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                             {el}
-                            <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-emerald-400/40 flex justify-center group relative overflow-hidden">
-                              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                               <img src="/ds_unit4_queues.jpg" alt="Unit 4 Queues & Deques Diagram" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
-                            </div>
+                            {course.id === 'data-structures-using-c-programming' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-emerald-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/ds_unit4_queues.jpg" alt="Unit 4 Queues & Deques Diagram" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'c-programming' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-emerald-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/c_unit4.png" alt="Unit 4 Functions and Strings" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'machine-learning' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-emerald-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/ml-unit4.png" alt="Unit 4 Neural Networks" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
                           </div>
                         );
                       }
@@ -399,10 +461,24 @@ function CoursePage() {
                         return (
                           <div key={i} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                             {el}
-                            <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-rose-400/40 flex justify-center group relative overflow-hidden">
-                              <div className="absolute inset-0 bg-gradient-to-r from-rose-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                               <img src="/ds_unit5_trees.jpg" alt="Unit 5 Trees & Hashing Diagram" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
-                            </div>
+                            {course.id === 'data-structures-using-c-programming' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-rose-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-rose-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/ds_unit5_trees.jpg" alt="Unit 5 Trees & Hashing Diagram" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'c-programming' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-rose-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-rose-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/c_unit5.png" alt="Unit 5 Structures, Unions, and Files" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'machine-learning' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-rose-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-rose-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/ml-unit5.png" alt="Unit 5 Clustering Algorithms" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
                           </div>
                         );
                       }

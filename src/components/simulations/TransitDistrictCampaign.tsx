@@ -436,7 +436,7 @@ export function TransitDistrictCampaign({ expId }: TransitDistrictProps) {
       )}
 
       {/* Main Content Area */}
-      <div className="flex-1 min-h-0">
+      <div className="flex-1 min-h-0 overflow-y-auto">
         {expId === "ds-e6-1" && renderMission1()}
         {expId === "ds-e6-2" && renderMission2()}
         {expId === "ds-e6-3" && renderMission3()}

@@ -586,7 +586,7 @@ export function LinkedCityCampaign({ expId }: LinkedCityProps) {
       )}
 
       {/* Main Content Area */}
-      <div className="flex-1 min-h-0">
+      <div className="flex-1 min-h-0 overflow-y-auto">
         {expId === "ds-e2-1" && renderMission1()}
         {expId === "ds-e2-2" && renderMission2()}
         {expId === "ds-e2-3" && renderMission3()}

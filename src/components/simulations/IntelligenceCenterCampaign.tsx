@@ -461,7 +461,7 @@ export function IntelligenceCenterCampaign({ expId }: IntelligenceProps) {
       )}
 
       {/* Main Content Area */}
-      <div className="flex-1 min-h-0">
+      <div className="flex-1 min-h-0 overflow-y-auto">
         {expId === "ds-e7-1" && renderMission1()}
         {expId === "ds-e7-2" && renderMission2()}
         {expId === "ds-e7-3" && renderMission3()}

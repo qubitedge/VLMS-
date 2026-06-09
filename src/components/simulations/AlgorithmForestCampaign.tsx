@@ -277,7 +277,7 @@ export function AlgorithmForestCampaign({ expId }: AlgorithmForestProps) {
       )}
 
       {/* Main Content Area */}
-      <div className="flex-1 min-h-0">
+      <div className="flex-1 min-h-0 overflow-y-auto">
         {expId === "c-w2-1" && renderMission1()}
         {expId === "c-w2-2" && renderMission2()}
         {expId === "c-w2-3" && renderMission3()}

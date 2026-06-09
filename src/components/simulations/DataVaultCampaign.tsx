@@ -312,7 +312,7 @@ export function DataVaultCampaign({ expId }: DataVaultProps) {
       )}
 
       {/* Main Content Area */}
-      <div className="flex-1 min-h-0">
+      <div className="flex-1 min-h-0 overflow-y-auto">
         {expId === "ds-e9-1" && renderMission1()}
         {expId === "ds-e9-2" && renderMission2()}
       </div>
