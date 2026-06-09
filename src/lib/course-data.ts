@@ -4,6 +4,7 @@ import { dsCourse } from './ds-data';
 import { aiCourse } from './ai-data';
 import { pythonCourse } from './python-data';
 import { javaCourse } from './java-data';
+import { iotCourse } from './iot-data';
 export type MCQ = {
   question: string;
   options: string[];
@@ -77,6 +78,7 @@ export const courses: Record<string, Course> = {
   "ai-tools": aiCourse,
   "data-structures-using-c-programming": dsCourse,
   "java": javaCourse,
+  "iot": iotCourse,
   "llms": {
     id: "llms",
     title: "Large Language Models",

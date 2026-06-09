@@ -2,7 +2,7 @@ import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
 import { L as Lottie } from "../_libs/lottie-react.mjs";
 import { b as branches } from "./lab-data-YZIPiE89.mjs";
-import { S as Sparkles, m as ArrowUpRight, a as BookOpen, n as Target, o as ListChecks, P as Play, p as CodeXml, C as CircleCheck, j as Code, G as GitBranch, M as Monitor, D as Database, k as Brain, W as Workflow } from "../_libs/lucide-react.mjs";
+import { f as Sparkles, _ as ArrowUpRight, B as BookOpen, $ as Target, a0 as ListChecks, P as Play, a1 as CodeXml, C as CircleCheck, O as Code, Q as GitBranch, M as Monitor, D as Database, W as Brain, Y as Workflow } from "../_libs/lucide-react.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";

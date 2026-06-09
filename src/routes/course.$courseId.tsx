@@ -224,7 +224,7 @@ function CoursePage() {
             )}
             
             {course.id === "python" && (
-              <div className="mb-8 max-w-4xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
+              <div className="mb-8 max-w-2xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
                 <img 
                   src="/python-flowchart.png" 
                   alt="Python Programming Curriculum Flowchart" 
@@ -234,10 +234,30 @@ function CoursePage() {
             )}
             
             {course.id === "java" && (
-              <div className="mb-8 max-w-4xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
+              <div className="mb-8 max-w-2xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
                 <img 
                   src="/java-flowchart.png" 
                   alt="Java Programming Curriculum Flowchart" 
+                  className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700" 
+                />
+              </div>
+            )}
+
+            {course.id === "llms" && (
+              <div className="mb-8 max-w-lg mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
+                <img 
+                  src="/llm-flowchart.png" 
+                  alt="Large Language Models Curriculum Flowchart" 
+                  className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700" 
+                />
+              </div>
+            )}
+
+            {course.id === "iot" && (
+              <div className="mb-8 max-w-lg mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
+                <img 
+                  src="/iot-flowchart.png" 
+                  alt="Internet of Things (IoT) Ecosystem Flowchart" 
                   className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700" 
                 />
               </div>

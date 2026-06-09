@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { b as branches } from "./lab-data-YZIPiE89.mjs";
-import { a as BookOpen, g as FileText, h as Video, i as Download } from "../_libs/lucide-react.mjs";
+import { B as BookOpen, y as FileText, z as Video, G as Download } from "../_libs/lucide-react.mjs";
 const TYPES = [{
   type: "Manual",
   icon: BookOpen,
