@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Sparkles, Activity, Boxes, Send, Timer, ShieldCheck, GitBranch, FlaskConical, Code, Workflow, Monitor, Database, Brain } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Sparkles, Activity, Boxes, Send, Timer, ShieldCheck, GitBranch, FlaskConical, Code, Workflow, Monitor, Database, Brain } from "lucide-react";
 import { BranchCard } from "@/components/BranchCard";
 import { LearningJourney } from "@/components/LearningJourney";
 import { HeroAnimation } from "@/components/HeroAnimation";
@@ -90,18 +90,20 @@ function Dashboard() {
             View matrix <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
           </Link>
         </div>
-        <div className="mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-5">
           {branches.find(b => b.code === "IT")?.topics.map((t, idx) => (
             <Link to={`/course/${t.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} key={t} className={`block group opacity-0 animate-fade-in-up`} style={{ animationDelay: `${400 + idx * 100}ms` }}>
-              <div className="p-5 rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan/5 hover:border-cyan/30 relative overflow-hidden h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <h3 className="font-semibold text-lg relative z-10 flex items-center gap-2.5">
-                  {getTopicIcon(t)}
-                  <span>{t}</span>
+              <div className="p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:border-cyan/40 dark:hover:border-cyan/40 relative overflow-hidden h-full flex flex-col justify-between min-h-[150px]">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <h3 className="font-display text-[21px] font-bold relative z-10 flex items-start gap-2.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary">
+                  <div className="mt-1">{getTopicIcon(t)}</div>
+                  <span className="leading-tight">{t}</span>
                 </h3>
-                <span className="text-sm text-cyan mt-3 inline-flex items-center gap-1 relative z-10">
-                  Explore Course <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-                </span>
+                <div className="relative z-10 mt-6">
+                  <div className="inline-flex items-center justify-center gap-1.5 px-4 py-1.5 bg-transparent border border-slate-300 dark:border-slate-700 rounded-full text-[13px] font-medium text-slate-800 dark:text-slate-300 group-hover:bg-cyan/5 group-hover:text-cyan-700 dark:group-hover:text-cyan-400 group-hover:border-cyan/40 transition-all duration-300">
+                    Explore Course <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </div>
               </div>
             </Link>
           ))}

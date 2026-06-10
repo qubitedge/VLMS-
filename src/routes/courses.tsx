@@ -41,7 +41,7 @@ function getBgIcon(topic: string) {
 
   if (topic === "C Programming") {
     return (
-      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible">
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
         <svg className="w-64 h-64 translate-x-12 translate-y-12" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1">
           {/* Traces Group - Dark Blue */}
           <g className="text-blue-800/40 dark:text-blue-400/50">
@@ -111,7 +111,7 @@ function getBgIcon(topic: string) {
 
   if (topic === "Python") {
     return (
-      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible">
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
         {/* Concentric traces */}
         <svg className="absolute -right-6 -bottom-6 w-72 h-72 text-[#111F22]/20 dark:text-cyan-800/30" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1">
           <circle cx="100" cy="100" r="30" strokeDasharray="4 2" />
@@ -146,7 +146,7 @@ function getBgIcon(topic: string) {
 
   if (topic === "Java") {
     return (
-      <div className="absolute right-2 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible">
+      <div className="absolute right-2 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
         <div className="w-36 h-36 flex items-center justify-center drop-shadow-[0_8px_16px_rgba(15,23,42,0.4)] opacity-90">
           <i className="fab fa-java text-slate-700 dark:text-slate-400 text-[130px]"></i>
         </div>
@@ -156,7 +156,7 @@ function getBgIcon(topic: string) {
 
   if (topic === "DBMS") {
     return (
-      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible">
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
         <svg className="w-48 h-48 translate-x-8 translate-y-8 opacity-95 drop-shadow-[0_0_20px_rgba(45,212,191,0.25)]" viewBox="-20 -20 240 240" fill="none" stroke="currentColor">
           <defs>
              <linearGradient id="dbCyl" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -216,7 +216,7 @@ function getBgIcon(topic: string) {
 
   if (topic === "Machine Learning") {
     return (
-      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible">
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
         <svg className="w-48 h-48 translate-x-8 translate-y-2 opacity-95 drop-shadow-[0_0_20px_rgba(45,212,191,0.3)]" viewBox="0 0 200 200" fill="none" stroke="currentColor">
           <defs>
              <linearGradient id="mlGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -309,7 +309,7 @@ function getBgIcon(topic: string) {
     );
 
     return (
-      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible">
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
         <svg className="w-64 h-64 text-slate-400 translate-x-20 translate-y-8" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1">
           {/* Definition for arrowhead */}
           <defs>
@@ -362,7 +362,7 @@ function getBgIcon(topic: string) {
 
   if (topic === "AI Tools") {
     return (
-      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible">
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
         <svg className="w-56 h-48 translate-x-10 translate-y-6 opacity-95 drop-shadow-[0_0_15px_rgba(45,212,191,0.2)]" viewBox="0 0 300 220" fill="none" stroke="currentColor">
           <defs>
             <radialGradient id="nodeNormal" cx="30%" cy="30%" r="70%">
@@ -442,7 +442,7 @@ function getBgIcon(topic: string) {
 
   if (topic === "LLMs") {
     return (
-      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible">
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
         <svg className="w-56 h-56 translate-x-12 translate-y-8 opacity-95 drop-shadow-[0_0_15px_rgba(15,118,110,0.2)]" viewBox="0 0 200 200" fill="none" stroke="currentColor">
           <defs>
             <linearGradient id="llmGlass" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -511,7 +511,7 @@ function getBgIcon(topic: string) {
 
   if (topic === "IoT") {
     return (
-      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible">
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
         <svg className="w-56 h-56 translate-x-8 translate-y-12 opacity-95 drop-shadow-[0_10px_20px_rgba(45,212,191,0.2)]" viewBox="-40 -40 480 480" fill="none" stroke="currentColor">
           <defs>
              <linearGradient id="iotTopLayer" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -724,25 +724,15 @@ function CoursesPage() {
   const renderCard = (t: string, isRecommended: boolean = false) => {
     const slug = t.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
 
-    let cardBgClass = "bg-white dark:bg-slate-900";
-    let cardBorderClass = "border-[#111F22]/20 dark:border-slate-700";
-    let btnBorderClass = "border-[#111F22]/30 dark:border-slate-600";
-
-    if (t === "DBMS" || t === "Machine Learning" || t === "AI Tools" || t === "LLMs" || t === "IoT") {
-      cardBgClass = "bg-[#f0f9fa] dark:bg-cyan-950/30";
-      cardBorderClass = "border-[#14b8a6]/20 dark:border-slate-500";
-      btnBorderClass = "border-[#14b8a6]/40 dark:border-slate-500";
-    } else if (t.includes("Data Structures")) {
-      cardBgClass = "bg-gradient-to-br from-[#ebf5fb] to-[#f4f9fd] dark:from-slate-800 dark:to-slate-900";
-      cardBorderClass = "border-slate-200 dark:border-slate-700";
-      btnBorderClass = "border-slate-300 dark:border-slate-600";
-    }
+    let cardBgClass = "bg-[#f0f9fa] dark:bg-cyan-950/30";
+    let cardBorderClass = "border-[#14b8a6]/20 dark:border-slate-500";
+    let btnBorderClass = "border-[#14b8a6]/40 dark:border-slate-500";
 
     return (
       <Link
         key={t}
         to={`/course/${slug}`}
-        className={`group relative overflow-hidden flex flex-col justify-between p-6 rounded-xl border ${cardBorderClass} ${cardBgClass} transition-all min-h-[160px] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)]`}
+        className={`group relative overflow-hidden flex flex-col justify-between p-6 rounded-xl border ${cardBorderClass} ${cardBgClass} transition-all h-[190px] hover:shadow-[0_8px_30px_rgba(20,184,166,0.15)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:-translate-y-1`}
       >
         <div className="relative z-10 w-3/4">
           <h3 className="font-display text-[21px] font-bold mb-1 flex items-start gap-2.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary">
@@ -767,7 +757,7 @@ function CoursesPage() {
   };
 
   return (
-    <div className="px-6 lg:px-10 py-12 max-w-7xl mx-auto">
+    <div className="px-6 lg:px-10 py-12 max-w-[1150px] mx-auto">
       <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary w-fit block">Curriculum</div>
       <h1 className="mt-2 font-display text-4xl lg:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary pb-2 w-fit block">Courses</h1>
       {profile?.name && (
