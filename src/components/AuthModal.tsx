@@ -43,6 +43,8 @@ export function AuthModal({ isOpen, onClose, onAuthenticated, courseId }: Props)
     setSuccess('');
 
     try {
+      if (!email.trim() || !password.trim()) throw new Error('Please fill in your mail and password.');
+
       if (isLogin) {
         // ── LOGIN ──────────────────────────────────────────────────────────
         const { error: authError } = await supabase.auth.signInWithPassword({ email, password });
@@ -51,7 +53,7 @@ export function AuthModal({ isOpen, onClose, onAuthenticated, courseId }: Props)
 
       } else {
         // ── SIGN UP ────────────────────────────────────────────────────────
-        if (!name.trim())    throw new Error('Please enter your full name.');
+        if (!name.trim())    throw new Error('Please enter your candidate name.');
         if (!college.trim()) throw new Error('Please enter your college name.');
       
         // Pass fields inside metadata options. The secure DB trigger handles
@@ -85,9 +87,9 @@ export function AuthModal({ isOpen, onClose, onAuthenticated, courseId }: Props)
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-transparent p-4 pt-24">
       
-      <div className="bg-card w-full max-w-md rounded-2xl border border-border/50 shadow-2xl p-6 relative max-h-[90vh] overflow-y-auto">
+      <div className="bg-card w-full max-w-md rounded-2xl border border-border shadow-[0_0_50px_rgba(0,0,0,0.15)] p-6 relative max-h-[80vh] overflow-y-auto">
 
         <button
           onClick={() => { reset(); onClose(); }}
@@ -113,26 +115,26 @@ export function AuthModal({ isOpen, onClose, onAuthenticated, courseId }: Props)
           {/* Sign-up only fields */}
           {!isLogin && (
             <>
-              <Field label="Full Name">
+              <Field label="Candidate Name">
                 <input
-                  required type="text" value={name}
+                  type="text" value={name}
                   onChange={e => setName(e.target.value)}
-                  className="input-base" placeholder="Enter Your Name"
+                  className="input-base" placeholder="Enter Candidate Name"
                 />
               </Field>
-              <Field label="College / University">
+              <Field label="College Name">
                 <input
-                  required type="text" value={college}
+                  type="text" value={college}
                   onChange={e => setCollege(e.target.value)}
-                  className="input-base" placeholder="JNTU GV"
+                  className="input-base" placeholder="Enter College Name"
                 />
               </Field>
             </>
           )}
 
-          <Field label="Email">
+          <Field label="Mail">
             <input
-              required type="email" value={email}
+              type="email" value={email}
               onChange={e => setEmail(e.target.value)}
               className="input-base" placeholder="example@gmail.com"
             />
@@ -140,7 +142,7 @@ export function AuthModal({ isOpen, onClose, onAuthenticated, courseId }: Props)
 
           <Field label="Password">
             <input
-              required type="password" value={password} minLength={6}
+              type="password" value={password} minLength={6}
               onChange={e => setPassword(e.target.value)}
               className="input-base" placeholder="••••••••"
             />
@@ -149,7 +151,7 @@ export function AuthModal({ isOpen, onClose, onAuthenticated, courseId }: Props)
           {!isLogin && (
             <div className="space-y-2 pt-1">
               <label className="text-xs font-medium text-muted-foreground">
-                Areas of Interest <span className="text-muted-foreground/60">(optional)</span>
+                Interests <span className="text-muted-foreground/60">(optional)</span>
               </label>
               <div className="flex flex-wrap gap-2">
                 {INTEREST_OPTIONS.map(interest => (
