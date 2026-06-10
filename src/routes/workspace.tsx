@@ -45,6 +45,21 @@ import { NeuralNetworkLabCampaign } from "@/components/simulations/NeuralNetwork
 import { CustomerSegmentationLabCampaign } from "@/components/simulations/CustomerSegmentationLabCampaign";
 import { MembershipIntelligenceLabCampaign } from "@/components/simulations/MembershipIntelligenceLabCampaign";
 import { HiddenPatternLabCampaign } from "@/components/simulations/HiddenPatternLabCampaign";
+import { DBMSConstraintsSim } from "@/components/simulations/DBMSConstraintsSim";
+import { DBMSSubqueriesSim } from "@/components/simulations/DBMSSubqueriesSim";
+import { DBMSQueryquestSim } from "@/components/simulations/DBMSQueryquestSim";
+import { DBMSDatacitySim } from "@/components/simulations/DBMSDatacitySim";
+import { PLSQLQuestSim } from "@/components/simulations/PLSQLQuestSim";
+import { LogicKingdomSim } from "@/components/simulations/LogicKingdomSim";
+import { LoopVerseSim } from "@/components/simulations/LoopVerseSim";
+import { PLSQLCommandCenterSim } from "@/components/simulations/PLSQLCommandCenterSim";
+import { SQLKingdomSim } from "@/components/simulations/SQLKingdomSim";
+import { CursorQuestSim } from "@/components/simulations/CursorQuestSim";
+import { TriggerCitySim } from "@/components/simulations/TriggerCitySim";
+import { DataKingdomSim } from "@/components/simulations/DataKingdomSim";
+import { JDBCOdysseySim } from "@/components/simulations/JDBCOdysseySim";
+import { SQLDefenseAcademySim } from "@/components/simulations/SQLDefenseAcademySim";
+import { DatabaseAssassinSim } from "@/components/simulations/DatabaseAssassinSim";
 type WorkspaceSearch = {
   exp?: string;
 };
@@ -1781,6 +1796,126 @@ except BaseException:
                     return (
                       <div className="h-full bg-background">
                         <HiddenPatternLabCampaign />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id === "db-exp1") {
+                    return (
+                      <div className="h-full bg-background">
+                        <DBMSConstraintsSim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp2")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <DBMSSubqueriesSim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp3")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <DBMSQueryquestSim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp4")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <DBMSDatacitySim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp5")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PLSQLQuestSim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp6")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <LogicKingdomSim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp7")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <LoopVerseSim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp8")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PLSQLCommandCenterSim />
+                      </div>
+                    );
+                  }
+                  
+                  if (details?.experiment.id?.startsWith("db-exp9")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <SQLKingdomSim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp10")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <CursorQuestSim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp11")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <TriggerCitySim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp12")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <DataKingdomSim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp13")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <JDBCOdysseySim />
+                      </div>
+                    );
+                  }
+                  
+                  if (details?.experiment.id?.startsWith("db-exp14")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <SQLDefenseAcademySim />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("db-exp15")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <DatabaseAssassinSim />
                       </div>
                     );
                   }
