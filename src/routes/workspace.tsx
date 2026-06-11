@@ -71,6 +71,13 @@ import { HeapCitySim } from "@/components/simulations/HeapCitySim";
 import { UnionVerseSim } from "@/components/simulations/UnionVerseSim";
 import { HashCitySim } from "@/components/simulations/HashCitySim";
 import { CuckooKingdomSim } from "@/components/simulations/CuckooKingdomSim";
+import { TrieSim } from "@/components/simulations/TrieSim";
+import { PathfinderSim } from "@/components/simulations/PathfinderSim";
+import { BellmanFordSim } from "@/components/simulations/BellmanFordSim";
+import { KruskalSim } from "@/components/simulations/KruskalSim";
+import { PrimAlgorithmSim, PrimSim } from "@/components/simulations/PrimSim";
+import { GraphRaidersSim } from "@/components/simulations/GraphRaidersSim";
+
 type WorkspaceSearch = {
   exp?: string;
 };
@@ -2020,6 +2027,49 @@ except BaseException:
                       </div>
                     );
                   }
+                  if (details?.experiment.id === "ads-w9-1") {
+                    return (
+                      <div className="h-full bg-background">
+                        <TrieSim/>
+                      </div>
+                    );
+                  }
+                  if (details?.experiment.id === "ads-w10-1") {
+                    return (
+                      <div className="h-full bg-background">
+                        <PathfinderSim/>
+                      </div>
+                    );
+                  }
+                  if (details?.experiment.id === "ads-w10-2") {
+                    return (
+                      <div className="h-full bg-background">
+                        <BellmanFordSim/>
+                      </div>
+                    );
+                  }
+                  if (details?.experiment.id === "ads-w11-1") {
+                    return (
+                      <div className="h-full bg-background">
+                        <KruskalSim/>
+                      </div>
+                    );
+                  }
+                  if (details?.experiment.id === "ads-w11-2") {
+                    return (
+                      <div className="h-full bg-background">
+                        <PrimAlgorithmSim/>
+                      </div>
+                    );
+                  }
+                  if (details?.experiment.id === "ads-w12-1") {
+                    return (
+                      <div className="h-full bg-background">
+                        <GraphRaidersSim/>
+                      </div>
+                    );
+                  }
+                  
 
 
                   return (

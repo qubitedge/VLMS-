@@ -2,6 +2,7 @@
 
 import { Course } from './course-data';
 import { adsShortNotes } from './ads-short-notes';
+
 export const adsCourse: Course = {
   id: "advanced-data-structures",
   title: "Advanced Data Structures Lab",
@@ -81,38 +82,76 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "AVL Tree Properties",
+                title: "Introduction to AVL Trees",
                 body: [
-                  "An AVL tree is a self-balancing Binary Search Tree where the heights of the left and right subtrees of every node differ by at most 1.",
-                  "Balance factor = height(left subtree) - height(right subtree). Valid values: -1, 0, 1.",
-                  "If balance factor becomes +2 or -2 after insertion, rotations are performed to restore balance."
+                  "An AVL tree (named after its inventors Adelson-Velsky and Landis) is a self-balancing Binary Search Tree where the heights of the left and right subtrees of every node differ by at most 1. This property ensures that the tree remains balanced, providing O(log n) time complexity for search, insertion, and deletion operations.",
+                  "AVL trees were the first self-balancing BSTs to be invented. They maintain balance by performing rotations when the balance factor of any node becomes outside the range [-1, 1]. This strict balancing makes AVL trees more balanced than Red-Black trees but with potentially more rotations during insertions and deletions."
                 ]
               },
               {
-                title: "Rotations",
+                title: "Balance Factor and Height",
                 body: [
-                  "LL Rotation (Right Rotation): Occurs when left-left grandchild causes imbalance. Used when BF > 1 and key < left.key.",
-                  "RR Rotation (Left Rotation): Occurs when right-right grandchild causes imbalance. Used when BF < -1 and key > right.key.",
-                  "LR Rotation (Left-Right): First left rotation on left child, then right rotation on node. Used when BF > 1 and key > left.key.",
-                  "RL Rotation (Right-Left): First right rotation on right child, then left rotation on node. Used when BF < -1 and key < right.key."
+                  "The balance factor (BF) of a node is defined as: BF = height(left subtree) - height(right subtree).",
+                  "In an AVL tree, BF must be -1, 0, or +1 for every node.",
+                  "Height of a node is defined as the number of edges on the longest path from that node to a leaf. For a null node, height is -1 or 0 depending on convention (we use 0 for null in code).",
+                  "The height of an AVL tree with n nodes is approximately 1.44 log₂(n), making it slightly shorter than a Red-Black tree."
                 ]
               },
               {
-                title: "Time Complexity",
-                "body": [
-                  "AVL tree guarantees O(log n) height, where n is the number of nodes.",
-                  "Search: O(log n) — worst-case is tree height.",
-                  "Insertion: O(log n) for search + O(1) for rotations.",
-                  "Deletion: O(log n) for search + O(log n) for rebalancing up the tree."
+                title: "AVL Rotations — Detailed Explanation",
+                body: [
+                  "When insertion or deletion causes a node's balance factor to become +2 or -2, rotations are performed to restore balance. There are four rotation cases:",
+                  "",
+                  "1. LL (Left-Left) Rotation: Occurs when the imbalance is in the left subtree of the left child. The balance factor of the node is +2 and its left child has balance factor +1 or 0. Solution: Perform a single right rotation.",
+                  "",
+                  "2. RR (Right-Right) Rotation: Occurs when the imbalance is in the right subtree of the right child. The balance factor is -2 and the right child has balance factor -1 or 0. Solution: Perform a single left rotation.",
+                  "",
+                  "3. LR (Left-Right) Rotation: Occurs when the imbalance is in the right subtree of the left child. The balance factor is +2 and the left child has balance factor -1. Solution: First left rotate the left child, then right rotate the node.",
+                  "",
+                  "4. RL (Right-Left) Rotation: Occurs when the imbalance is in the left subtree of the right child. The balance factor is -2 and the right child has balance factor +1. Solution: First right rotate the right child, then left rotate the node.",
+                  "",
+                  "Each rotation operation takes O(1) time, making the rebalancing step very efficient."
+                ]
+              },
+              {
+                title: "AVL Insertion Algorithm",
+                body: [
+                  "The insertion algorithm for AVL trees follows these steps:",
+                  "Step 1: Perform standard BST insertion to add the new key at a leaf position.",
+                  "Step 2: After insertion, recursively update heights of all ancestors of the new node.",
+                  "Step 3: Starting from the inserted node and moving up, compute the balance factor for each ancestor.",
+                  "Step 4: If any node has balance factor +2 or -2, perform the appropriate rotation to rebalance.",
+                  "Step 5: After rotation, update heights of affected nodes.",
+                  "Step 6: Continue checking ancestors until the root is reached.",
+                  "The process ensures that the AVL property is maintained throughout the tree."
+                ]
+              },
+              {
+                title: "Time and Space Complexity",
+                body: [
+                  "Time Complexity:",
+                  "• Search: O(log n) — Since the height is guaranteed to be O(log n)",
+                  "• Insertion: O(log n) — O(log n) for search + O(1) for rotations",
+                  "• Deletion: O(log n) — O(log n) for search + O(log n) for rebalancing up the path",
+                  "",
+                  "Space Complexity:",
+                  "• O(n) for storing n nodes",
+                  "• Each node stores key, height, left and right pointers",
+                  "",
+                  "Comparison with other balanced trees:",
+                  "• AVL trees are more strictly balanced than Red-Black trees (height difference ≤ 1.44 log n vs ≤ 2 log n)",
+                  "• AVL trees require more rotations during insertion/deletion but provide faster lookups",
+                  "• Red-Black trees have faster insertion/deletion but slightly slower lookups",
+                  "• For lookup-intensive applications, AVL trees are preferred; for insertion-intensive, Red-Black trees are better"
                 ]
               }
             ],
             pretest: [
-              { question: "What is the balance factor of a node?", options: ["Left height + Right height", "Left height - Right height", "Right height - Left height", "Height of node"], answerIndex: 1, hint: "Balance factor is the difference between left and right subtree heights." },
+              { question: "What is the balance factor of a node in an AVL tree?", options: ["Left height + Right height", "Left height - Right height", "Right height - Left height", "Height of node"], answerIndex: 1, hint: "Balance factor is the difference between left and right subtree heights." },
               { question: "Which rotation is performed for LL imbalance?", options: ["Left rotation", "Right rotation", "Left-Right rotation", "Right-Left rotation"], answerIndex: 1, hint: "LL means left-left — a right rotation fixes it." },
               { question: "When does RL rotation occur?", options: ["Balance factor > 1 and key < left.key", "Balance factor < -1 and key > right.key", "Balance factor < -1 and key < right.key", "Balance factor > 1 and key > left.key"], answerIndex: 2, hint: "RL means right-left — the imbalance is on the right, but the insertion was on the left of that right child." },
-              { question: "AVL tree insertion time complexity is:", options: ["O(1)", "O(n)", "O(log n)", "O(n log n)"], answerIndex: 2, hint: "AVL trees maintain logarithmic height." },
-              { question: "What must be true about every node's balance factor in a valid AVL tree?", options: ["Exactly 0", "Between -1 and 1 inclusive", "Between -2 and 2", "Absolute value of 1"], answerIndex: 1, hint: "The AVL property requires balance factor to be -1, 0, or 1." }
+              { question: "AVL tree insertion time complexity is:", options: ["O(1)", "O(n)", "O(log n)", "O(n log n)"], answerIndex: 2, hint: "AVL trees maintain logarithmic height, so insertion takes O(log n) time." },
+              { question: "What must be true about every node's balance factor in a valid AVL tree?", options: ["Exactly 0", "Between -1 and 1 inclusive", "Between -2 and 2", "Absolute value of 1"], answerIndex: 1, hint: "The AVL property requires balance factor to be -1, 0, or 1." },
             ],
             procedure: [
               "Open the Code Test tab with the AVL tree starter code",
@@ -120,8 +159,8 @@ export const adsCourse: Course = {
               "Implement getBalanceFactor() to compute BF for a node",
               "Implement rightRotate() and leftRotate() functions",
               "Complete insert() with rebalancing logic for all four rotation cases",
-              "Test insertions: 10, 20, 30 (triggers LL → right rotation)",
-              "Test insertions: 30, 20, 10 (triggers RR → left rotation)",
+              "Test insertions: 10, 20, 30 (triggers RR → left rotation)",
+              "Test insertions: 30, 20, 10 (triggers LL → right rotation)",
               "Test LR case: 30, 10, 20",
               "Test RL case: 10, 30, 20",
               "Proceed to Posttest"
@@ -142,8 +181,8 @@ export const adsCourse: Course = {
               { question: "What is the height of an AVL tree with 7 nodes in worst case?", options: ["2", "3", "4", "5"], answerIndex: 1, hint: "Minimum nodes in AVL tree of height h: N(h)=N(h-1)+N(h-2)+1. For h=2: 4 nodes; h=3: 7 nodes." },
               { question: "After inserting 50, 30, 20 into an empty AVL tree, what is the root?", options: ["50", "30", "20", "40"], answerIndex: 1, hint: "30 is the middle element — AVL tree will balance with 30 as root." },
               { question: "Which rotation sequence corrects LR imbalance?", options: ["Left then Right", "Right then Left", "Two Right rotations", "Two Left rotations"], answerIndex: 0, hint: "LR means first rotate left on left child, then right on the node." },
-              { question: "For an AVL tree of n nodes, the maximum height is approximately:", options: ["1.44 log2 n", "log2 n", "n", "n log n"], answerIndex: 0, hint: "AVL trees are more strictly balanced than Red-Black trees. Height ≤ 1.44 log₂(n)." },
-              { question: "What value must be updated after every rotation?", options: ["Key", "Parent pointer", "Height", "Balance factor directly"], answerIndex: 2, hint: "Heights need to be recomputed after structural changes." }
+              { question: "For an AVL tree of n nodes, the maximum height is approximately:", options: ["1.44 log₂ n", "log₂ n", "n", "n log n"], answerIndex: 0, hint: "AVL trees are more strictly balanced than Red-Black trees. Height ≤ 1.44 log₂(n)." },
+              { question: "What value must be updated after every rotation?", options: ["Key", "Parent pointer", "Height", "Balance factor directly"], answerIndex: 2, hint: "Heights need to be recomputed after structural changes because rotations change subtree heights." }
             ],
             references: [
               "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 13 on AVL Trees",
@@ -170,29 +209,87 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "AVL Deletion Algorithm",
+                title: "AVL Deletion — Detailed Algorithm",
                 body: [
+                  "Deletion in an AVL tree is more complex than insertion because the imbalance can propagate up multiple levels. The algorithm follows these steps:",
+                  "",
                   "Step 1: Perform standard BST deletion for the target key.",
+                  "  - Case 1: Node with no children — simply remove (set parent pointer to null).",
+                  "  - Case 2: Node with one child — replace node with its child.",
+                  "  - Case 3: Node with two children — find inorder successor (or predecessor), replace node's key with successor's key, then recursively delete the successor from the right subtree.",
+                  "",
                   "Step 2: After deletion, update the height of the current node.",
+                  "",
                   "Step 3: Compute the balance factor of the current node.",
-                  "Step 4: If balance factor is +2 or -2, perform the appropriate rotation.",
+                  "",
+                  "Step 4: If balance factor is +2 or -2, perform rebalancing:",
+                  "  - If BF = +2 and left child's BF >= 0: Right rotation (LL case)",
+                  "  - If BF = +2 and left child's BF < 0: Left-Right rotation (LR case)",
+                  "  - If BF = -2 and right child's BF <= 0: Left rotation (RR case)",
+                  "  - If BF = -2 and right child's BF > 0: Right-Left rotation (RL case)",
+                  "",
                   "Step 5: Recursively rebalance ancestors up to the root."
                 ]
               },
               {
-                title: "Deletion Cases",
+                title: "Deletion Rebalancing Cases",
                 body: [
-                  "Case 1: Node with no children — simply remove (set parent pointer to null).",
-                  "Case 2: Node with one child — replace node with its child.",
-                  "Case 3: Node with two children — find inorder successor, replace node's key with successor's key, then delete successor.",
-                  "After deletion, the path to the deleted node may require rebalancing at multiple ancestors."
+                  "The four rotation cases during deletion are similar to insertion but with important differences:",
+                  "",
+                  "1. R0 Case: BF = -2 and right child's BF = 0 — Perform single left rotation. The tree height decreases by 1, which may cause imbalance at parent.",
+                  "",
+                  "2. R1 Case: BF = -2 and right child's BF = -1 — Perform single left rotation. The tree height remains same, no propagation needed.",
+                  "",
+                  "3. R-1 Case: BF = -2 and right child's BF = +1 — Perform right-left double rotation (first right rotate right child, then left rotate node).",
+                  "",
+                  "4. L0, L1, L-1 Cases: Mirror images for left imbalances (BF = +2).",
+                  "",
+                  "The key difference from insertion is that deletions may require rebalancing at multiple ancestors, potentially up to the root."
+                ]
+              },
+              {
+                title: "Inorder Successor and Predecessor",
+                body: [
+                  "When deleting a node with two children, we need to find a replacement:",
+                  "",
+                  "Inorder Successor: The smallest node in the right subtree (leftmost node in right subtree).",
+                  "  - Always has at most one child (no left child)",
+                  "  - Found by traversing left from right child until null",
+                  "",
+                  "Inorder Predecessor: The largest node in the left subtree (rightmost node in left subtree).",
+                  "  - Always has at most one child (no right child)",
+                  "  - Found by traversing right from left child until null",
+                  "",
+                  "Either can be used; using successor is more common. After copying the successor's value, we delete the successor node recursively, which will be a simpler case (0 or 1 child)."
+                ]
+              },
+              {
+                title: "Example Deletion Scenarios",
+                body: [
+                  "Example 1: Delete leaf node 20 from AVL tree {20, 10, 30}",
+                  "  - After deletion, check parent (root 20 removed, new root 10 or 30 based on BST)",
+                  "  - No imbalance created",
+                  "",
+                  "Example 2: Delete node with one child 30 from {30, 20}",
+                  "  - Replace 30 with 20, check balance",
+                  "  - No rotation needed if balanced",
+                  "",
+                  "Example 3: Delete node with two children from balanced tree",
+                  "  - Find successor, replace value, delete successor",
+                  "  - Rebalance may propagate upward",
+                  "",
+                  "Example 4: Delete causing cascade rebalancing",
+                  "  - Delete from a leaf at bottom of a tall tree",
+                  "  - Rotations may be needed at multiple levels up to root"
                 ]
               }
             ],
             pretest: [
-              { question: "When deleting a node with two children, we replace it with:", options: ["Left child", "Right child", "Inorder predecessor or successor", "Parent node"], answerIndex: 2, hint: "The inorder successor is the smallest node in the right subtree." },
-              { question: "After deletion, rebalancing may need to propagate:", options: ["Downwards only", "Upwards only", "Both directions", "No propagation needed"], answerIndex: 1, hint: "Only ancestors of the deleted node can become unbalanced." },
-              { question: "What is the time complexity of deletion in AVL tree?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 1, hint: "AVL tree operations maintain logarithmic complexity." }
+              { question: "When deleting a node with two children, we replace it with:", options: ["Left child", "Right child", "Inorder predecessor or successor", "Parent node"], answerIndex: 2, hint: "The inorder successor is the smallest node in the right subtree, or we can use inorder predecessor." },
+              { question: "After deletion, rebalancing may need to propagate:", options: ["Downwards only", "Upwards only", "Both directions", "No propagation needed"], answerIndex: 1, hint: "Only ancestors of the deleted node can become unbalanced, so we rebalance from bottom up." },
+              { question: "What is the time complexity of deletion in AVL tree?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 1, hint: "AVL tree operations maintain logarithmic complexity even for deletion with rebalancing." },
+              { question: "When a node has balance factor -2 and right child has balance factor 0, what rotation is performed?", options: ["Left rotation", "Right rotation", "Left-Right rotation", "Right-Left rotation"], answerIndex: 0, hint: "This is the R0 case — a single left rotation is sufficient." },
+              { question: "What is the inorder successor of a node with value 15 in the tree {10, 15, 20, 25}?", options: ["10", "20", "25", "None"], answerIndex: 1, hint: "The inorder successor is the smallest value greater than the node, which is 20." }
             ],
             procedure: [
               "Open the Code Test tab with the AVL deletion starter code",
@@ -204,7 +301,7 @@ export const adsCourse: Course = {
               "Proceed to Posttest"
             ],
             simulation: {
-              code: "function findMin(node) {\n    while (node.left) node = node.left;\n    return node;\n}\n\nfunction deleteNode(node, key) {\n    if (!node) return null;\n\n    if (key < node.key) {\n        node.left = deleteNode(node.left, key);\n    } else if (key > node.key) {\n        node.right = deleteNode(node.right, key);\n    } else {\n        // Node to delete found\n        if (!node.left || !node.right) {\n            // 0 or 1 child\n            node = node.left || node.right;\n        } else {\n            // 2 children\n            const temp = findMin(node.right);\n            node.key = temp.key;\n            node.right = deleteNode(node.right, temp.key);\n        }\n    }\n\n    if (!node) return null;\n\n    updateHeight(node);\n    const balance = getBalanceFactor(node);\n\n    // Rebalancing cases (same as insert)\n    if (balance > 1 && getBalanceFactor(node.left) >= 0)\n        return rightRotate(node);\n    if (balance > 1 && getBalanceFactor(node.left) < 0) {\n        node.left = leftRotate(node.left);\n        return rightRotate(node);\n    }\n    if (balance < -1 && getBalanceFactor(node.right) <= 0)\n        return leftRotate(node);\n    if (balance < -1 && getBalanceFactor(node.right) > 0) {\n        node.right = rightRotate(node.right);\n        return leftRotate(node);\n    }\n    return node;\n}",
+              code: "function findMin(node) {\n    while (node.left) node = node.left;\n    return node;\n}\n\nfunction deleteNode(node, key) {\n    if (!node) return null;\n\n    if (key < node.key) {\n        node.left = deleteNode(node.left, key);\n    } else if (key > node.key) {\n        node.right = deleteNode(node.right, key);\n    } else {\n        // Node to delete found\n        if (!node.left || !node.right) {\n            // 0 or 1 child\n            node = node.left || node.right;\n        } else {\n            // 2 children\n            const temp = findMin(node.right);\n            node.key = temp.key;\n            node.right = deleteNode(node.right, temp.key);\n        }\n    }\n\n    if (!node) return null;\n\n    updateHeight(node);\n    const balance = getBalanceFactor(node);\n\n    // Rebalancing cases (similar to insert but with deleted node considerations)\n    if (balance > 1 && getBalanceFactor(node.left) >= 0)\n        return rightRotate(node);\n    if (balance > 1 && getBalanceFactor(node.left) < 0) {\n        node.left = leftRotate(node.left);\n        return rightRotate(node);\n    }\n    if (balance < -1 && getBalanceFactor(node.right) <= 0)\n        return leftRotate(node);\n    if (balance < -1 && getBalanceFactor(node.right) > 0) {\n        node.right = rightRotate(node.right);\n        return leftRotate(node);\n    }\n    return node;\n}",
               steps: [
                 { line: 1, annotation: "findMin traverses left children to find smallest key", memory: [], output: "Helper for deletion with 2 children" },
                 { line: 2, annotation: "deleteNode follows BST delete, then rebalances", memory: [], output: "Deletion with rebalancing implemented" },
@@ -214,8 +311,11 @@ export const adsCourse: Course = {
               ]
             },
             posttest: [
-              { question: "When deleting a node with two children, the inorder successor is always:", options: ["The largest in left subtree", "The smallest in right subtree", "The parent of the node", "The leftmost leaf"], answerIndex: 1, hint: "Inorder successor is the next larger element — found in the right subtree." },
-              { question: "Which case requires a double rotation after deletion?", options: ["Balance > 1 and left child BF >= 0", "Balance > 1 and left child BF < 0", "Balance < -1 and right child BF <= 0", "Balance < -1 and right child BF = 0"], answerIndex: 1, hint: "Left child BF < 0 indicates LR case — requires left then right rotation." }
+              { question: "When deleting a node with two children, the inorder successor is always:", options: ["The largest in left subtree", "The smallest in right subtree", "The parent of the node", "The leftmost leaf"], answerIndex: 1, hint: "Inorder successor is the next larger element — found in the right subtree by going left until no more." },
+              { question: "Which case requires a double rotation after deletion?", options: ["Balance > 1 and left child BF >= 0", "Balance > 1 and left child BF < 0", "Balance < -1 and right child BF <= 0", "Balance < -1 and right child BF = 0"], answerIndex: 1, hint: "Left child BF < 0 indicates LR case — requires left then right rotation." },
+              { question: "What happens if after deletion, a node has balance factor +2 and its left child has balance factor 0?", options: ["Single right rotation", "Double rotation", "No rotation needed", "Left rotation"], answerIndex: 0, hint: "This is the L0 case — a single right rotation is performed." },
+              { question: "Why might deletion require rebalancing at multiple levels when insertion usually doesn't?", options: ["Deletion changes tree height more dramatically", "Insertion always adds at leaf", "Deletion can reduce height of subtrees, causing imbalance at ancestors", "All of the above"], answerIndex: 3, hint: "Deletion can shorten a subtree, which may cause imbalance at any ancestor level." },
+              { question: "What is the worst-case number of rotations for a single deletion in an AVL tree?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 1, hint: "In the worst case, rebalancing may propagate up to the root, requiring O(log n) rotations." }
             ],
             references: [
               "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 13 on AVL Deletion",
@@ -249,29 +349,104 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "Red-Black Tree Properties",
+                title: "Red-Black Tree Properties and Invariants",
                 body: [
-                  "1. Every node is either RED or BLACK.",
-                  "2. The root is always BLACK.",
-                  "3. Every leaf (NIL) is BLACK.",
-                  "4. If a node is RED, then both its children are BLACK (no two consecutive REDs).",
-                  "5. For each node, all paths from the node to descendant leaves contain the same number of BLACK nodes (black-height)."
+                  "A Red-Black Tree is a self-balancing Binary Search Tree that uses a color attribute (red or black) to maintain balance. It satisfies five properties:",
+                  "",
+                  "Property 1: Every node is either RED or BLACK.",
+                  "",
+                  "Property 2: The root is always BLACK.",
+                  "",
+                  "Property 3: Every leaf (NIL) is BLACK. In practice, we use a sentinel NIL node to represent all leaves.",
+                  "",
+                  "Property 4: If a node is RED, then both its children are BLACK. This means no two consecutive RED nodes on any path.",
+                  "",
+                  "Property 5: For each node, all paths from the node to descendant leaves contain the same number of BLACK nodes (black-height).",
+                  "",
+                  "These properties ensure that the tree is balanced. The most important consequence is that the longest path from root to leaf is at most twice the shortest path, giving O(log n) height guarantee."
                 ]
               },
               {
-                title: "Insertion Fixup Cases",
+                title: "Black-Height and Tree Height Guarantee",
                 body: [
-                  "Case 1: Uncle is RED — recolor parent, grandparent, and uncle.",
-                  "Case 2: Uncle is BLACK and node is an inner grandchild — rotate towards uncle.",
-                  "Case 3: Uncle is BLACK and node is an outer grandchild — rotate and recolor.",
-                  "After fixup, ensure root remains BLACK."
+                  "Definition: Black-height bh(x) is the number of black nodes on any path from node x to a leaf (excluding x if x is black).",
+                  "",
+                  "Key theorem: A Red-Black tree with n internal nodes has height at most 2 log₂(n+1).",
+                  "",
+                  "Proof sketch: For any node x, the subtree rooted at x has at least 2^(bh(x)) - 1 internal nodes. Since bh(root) ≥ h/2 (because at most half the nodes on any path can be red due to property 4), we have n ≥ 2^(h/2) - 1, so h ≤ 2 log₂(n+1).",
+                  "",
+                  "This guarantee makes Red-Black trees suitable for applications requiring reliable performance bounds."
+                ]
+              },
+              {
+                title: "Red-Black Tree Rotations",
+                body: [
+                  "Rotations are fundamental operations that maintain the BST property while changing tree structure. In Red-Black trees, rotations also preserve the black-height property.",
+                  "",
+                  "Left Rotation:",
+                  "  - Performed on a node x that has a right child y",
+                  "  - Makes y the new root of the subtree",
+                  "  - x becomes left child of y",
+                  "  - The former left subtree of y becomes right subtree of x",
+                  "  - Updates parent pointers accordingly",
+                  "",
+                  "Right Rotation:",
+                  "  - Performed on a node y that has a left child x",
+                  "  - Makes x the new root of the subtree",
+                  "  - y becomes right child of x",
+                  "  - The former right subtree of x becomes left subtree of y",
+                  "",
+                  "Both rotations take O(1) time and maintain the BST ordering property."
+                ]
+              },
+              {
+                title: "Insertion Fixup Cases — Detailed Analysis",
+                body: [
+                  "When inserting a new node, we initially color it RED. This may violate property 4 (no consecutive reds). The fixup algorithm handles three cases, with symmetric cases for when the parent is a left or right child:",
+                  "",
+                  "Case 1: Uncle is RED",
+                  "  - Recolor: parent becomes BLACK, uncle becomes BLACK, grandparent becomes RED",
+                  "  - Move violation up to grandparent",
+                  "  - Continue checking from grandparent",
+                  "",
+                  "Case 2: Uncle is BLACK and node is an inner grandchild (node is opposite side of parent)",
+                  "  - Perform rotation to convert to Case 3",
+                  "  - For example, if parent is left child and node is right child: perform left rotation on parent",
+                  "  - After rotation, we have Case 3 situation",
+                  "",
+                  "Case 3: Uncle is BLACK and node is an outer grandchild (node and parent on same side)",
+                  "  - Recolor: parent becomes BLACK, grandparent becomes RED",
+                  "  - Perform rotation on grandparent away from the node",
+                  "  - This restores all properties and terminates",
+                  "",
+                  "After fixup completes, we ensure the root is BLACK (property 2)."
+                ]
+              },
+              {
+                title: "Comparison with AVL Trees",
+                body: [
+                  "Red-Black trees and AVL trees are both self-balancing BSTs, but have different trade-offs:",
+                  "",
+                  "Balance: AVL trees are more strictly balanced (height difference ≤ 1.44 log n vs ≤ 2 log n for RB trees)",
+                  "",
+                  "Lookup speed: AVL trees are slightly faster due to better balance",
+                  "",
+                  "Insertion/Deletion speed: RB trees require fewer rotations (at most 2 rotations for insertion, 3 for deletion vs potentially O(log n) for AVL)",
+                  "",
+                  "Implementation complexity: RB trees are more complex due to color management and multiple cases",
+                  "",
+                  "Use cases: AVL for lookup-intensive applications (databases), RB for insertion/deletion-intensive (operating system kernels, Java TreeMap, C++ STL map)",
+                  "",
+                  "Memory overhead: Both require O(n) space; RB needs 1 extra bit per node for color"
                 ]
               }
             ],
             pretest: [
               { question: "What is the black-height of a Red-Black tree?", options: ["Number of black nodes from root to leaf", "Number of red nodes from root to leaf", "Total nodes in tree", "Height of tree"], answerIndex: 0, hint: "Property 5 defines black-height — all root-to-leaf paths have same number of black nodes." },
               { question: "When a red node has a black sibling, what operation is performed?", options: ["Recoloring only", "Rotation then recoloring", "Deletion", "No operation"], answerIndex: 1, hint: "Black uncle cases require rotation to maintain properties." },
-              { question: "The root of a Red-Black tree must be:", options: ["RED", "BLACK", "Either color", "Determined by insertion"], answerIndex: 1, hint: "Property 2 explicitly states the root is BLACK." }
+              { question: "The root of a Red-Black tree must be:", options: ["RED", "BLACK", "Either color", "Determined by insertion"], answerIndex: 1, hint: "Property 2 explicitly states the root is BLACK." },
+              { question: "What is the maximum height of a Red-Black tree with n nodes?", options: ["log₂ n", "2 log₂ n", "2 log₂(n+1)", "1.44 log₂ n"], answerIndex: 2, hint: "The height is at most 2 log₂(n+1) due to the black-height property." },
+              { question: "What color is a newly inserted node in a Red-Black tree?", options: ["Always BLACK", "Always RED", "Either RED or BLACK", "Determined by parent"], answerIndex: 1, hint: "New nodes are inserted as RED to minimize property violations (only property 4 can be violated, not property 5)." }
             ],
             procedure: [
               "Open the Code Test tab with RB tree starter code",
@@ -294,9 +469,11 @@ export const adsCourse: Course = {
               ]
             },
             posttest: [
-              { question: "In a Red-Black tree, what is the maximum height in terms of black-height?", options: ["2 * black-height", "black-height", "log2 n", "2 log2 n"], answerIndex: 0, hint: "Red nodes can't be adjacent, so the longest path alternates red-black." },
+              { question: "In a Red-Black tree, what is the maximum height in terms of black-height?", options: ["2 × black-height", "black-height", "log₂ n", "2 log₂ n"], answerIndex: 0, hint: "Red nodes can't be adjacent, so the longest path alternates red-black, making it at most 2bh." },
               { question: "What color is a newly inserted node in Red-Black tree?", options: ["Always BLACK", "Always RED", "Either RED or BLACK", "Determined by parent"], answerIndex: 1, hint: "New nodes are inserted as RED to minimize property violations." },
-              { question: "Case 1 in insertion fixup involves:", options: ["Rotation only", "Recoloring only", "Rotation then recolor", "Recolor then rotation"], answerIndex: 1, hint: "When uncle is RED, only recoloring is needed." }
+              { question: "Case 1 in insertion fixup involves:", options: ["Rotation only", "Recoloring only", "Rotation then recolor", "Recolor then rotation"], answerIndex: 1, hint: "When uncle is RED, only recoloring is needed without rotations." },
+              { question: "After fixing a red-black tree insertion, how many rotations are performed in the worst case?", options: ["O(log n)", "O(1) — at most 2 rotations", "O(n)", "None"], answerIndex: 1, hint: "Red-black tree insertion requires at most 2 rotations total, regardless of tree size." },
+              { question: "What is the primary advantage of Red-Black trees over AVL trees?", options: ["Faster lookups", "Fewer rotations during insertions/deletions", "Simpler implementation", "Better memory usage"], answerIndex: 1, hint: "RB trees require at most 2 rotations for insertion and 3 for deletion, while AVL may require O(log n) rotations." }
             ],
             references: [
               "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 13 on Red-Black Trees",
@@ -330,31 +507,119 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "B-Tree Properties",
+                title: "B-Tree Fundamentals and Motivation",
                 body: [
-                  "A B-Tree of minimum degree t (order = 2t) satisfies:",
-                  "1. Every node has at most 2t-1 keys and 2t children.",
-                  "2. Every node except root has at least t-1 keys and t children.",
-                  "3. Root has at least 1 key (unless empty).",
-                  "4. All leaves are at the same depth.",
-                  "5. A node with k keys has k+1 children."
+                  "B-Trees are self-balancing tree data structures designed specifically for systems that read and write large blocks of data, such as databases and file systems. Unlike binary search trees that store one key per node, B-Trees store many keys in a single node, making them optimal for disk-based storage.",
+                  "",
+                  "The key motivation: When data is too large to fit in memory, it must be stored on disk. Disk I/O is extremely slow compared to memory access. By storing many keys in each node, B-Trees minimize the number of disk reads required to find a record.",
+                  "",
+                  "A typical disk block might be 4KB, and a B-Tree node is designed to fit exactly within one disk block. This allows each node to be read with a single disk operation."
                 ]
               },
               {
-                title: "Insertion Algorithm",
+                title: "B-Tree Properties and Definitions",
                 body: [
-                  "Step 1: Start at root; if root is full, split it first.",
-                  "Step 2: Traverse down to find the appropriate leaf.",
-                  "Step 3: If the leaf is not full, insert key in sorted order.",
-                  "Step 4: If the leaf is full, split it: median key moves up to parent.",
-                  "Step 5: Splits may propagate up if parent becomes full."
+                  "Let t be the minimum degree of a B-Tree (t ≥ 2). Then:",
+                  "",
+                  "• Every node except the root must have at least t-1 keys.",
+                  "• Every node can have at most 2t-1 keys.",
+                  "• If a node has k keys, it must have exactly k+1 children (unless it's a leaf).",
+                  "• All leaves are at the same depth (perfectly balanced).",
+                  "• The order of a B-Tree is 2t (maximum children per node).",
+                  "",
+                  "For example, with t=2 (order 3, also called 2-3-4 tree):",
+                  "• Nodes can have 1-3 keys",
+                  "• Internal nodes can have 2-4 children",
+                  "• Root can have as few as 1 key",
+                  "",
+                  "With t=3 (order 5):",
+                  "• Nodes can have 2-5 keys",
+                  "• Internal nodes can have 3-6 children"
+                ]
+              },
+              {
+                title: "B-Tree Insertion Algorithm",
+                body: [
+                  "Insertion in a B-Tree is more complex than binary trees due to the node size constraints:",
+                  "",
+                  "Step 1 — Find insertion leaf: Start at root and traverse down to find the appropriate leaf node where the key should be inserted.",
+                  "",
+                  "Step 2 — Split full root: Before descending, if the root is full (has 2t-1 keys), split it and create a new root. This is the only way the tree height increases.",
+                  "",
+                  "Step 3 — Insert into leaf: Once at the leaf, insert the key in sorted order.",
+                  "",
+                  "Step 4 — Handle leaf overflow: If the leaf now has 2t keys (overfull), split it:",
+                  "  - Keep the smallest t-1 keys in the left node",
+                  "  - Move the median key up to the parent",
+                  "  - Put the largest t-1 keys in a new right node",
+                  "  - Adjust child pointers accordingly",
+                  "",
+                  "Step 5 — Propagate splits: If the parent becomes full after receiving the median key, split it similarly. Splits can propagate up to the root."
+                ]
+              },
+              {
+                title: "Node Split Operation — Detailed Example",
+                body: [
+                  "Consider a B-Tree with t=2 (max 3 keys per node). Inserting into a full node [10, 20, 30]:",
+                  "",
+                  "Before split: Node contains [10, 20, 30]",
+                  "Inserting 25 would cause overflow",
+                  "",
+                  "Split process:",
+                  "1. Create new right node",
+                  "2. Keep [10, 20] in left node (t-1 = 1 keys? Wait, careful)",
+                  "   For t=2, keep 1 key? Actually we keep t-1 = 1 or 2?",
+                  "   Standard split: keep first t-1 keys, move median up, keep last t-1 keys",
+                  "   t=2: t-1 = 1, so keep 1 key on each side",
+                  "3. Median key (20) moves up to parent",
+                  "4. Left node: [10], Right node: [30]",
+                  "5. New key 25 would go into appropriate node",
+                  "",
+                  "If the parent was full, the median from the parent would move up further."
+                ]
+              },
+              {
+                title: "Complexity Analysis",
+                body: [
+                  "Height: For a B-Tree of minimum degree t containing n keys, height h satisfies:",
+                  "  h ≤ log_t((n+1)/2) + 1",
+                  "",
+                  "This is much smaller than binary trees! For example, with t=100, a B-Tree of height 3 can store over 1 million keys.",
+                  "",
+                  "Operation complexities (number of disk accesses):",
+                  "• Search: O(log_t n) node accesses",
+                  "• Insertion: O(log_t n) node accesses",
+                  "• Deletion: O(log_t n) node accesses",
+                  "",
+                  "Each node access corresponds to one disk read/write, making B-Trees extremely efficient for external storage."
+                ]
+              },
+              {
+                title: "B-Tree vs Binary Search Trees",
+                body: [
+                  "Advantages of B-Trees for disk-based storage:",
+                  "• High branching factor → very low height → fewer disk accesses",
+                  "• Nodes sized to match disk blocks → efficient I/O",
+                  "• All leaves at same depth → predictable performance",
+                  "",
+                  "When to use B-Trees:",
+                  "• Database indexing (MySQL, PostgreSQL, MongoDB use B-Trees)",
+                  "• File systems (NTFS, ext4 use B-Trees)",
+                  "• Any application where data is stored on disk",
+                  "",
+                  "When to use BST/AVL/RB Trees:",
+                  "• In-memory data structures",
+                  "• When frequent insertions/deletions are needed",
+                  "• When simplicity is more important than I/O optimization"
                 ]
               }
             ],
             pretest: [
-              { question: "For a B-Tree of minimum degree t=2 (order 3), the maximum number of keys per node is:", options: ["2", "3", "4", "5"], answerIndex: 1, hint: "Max keys = 2t-1 = 3." },
-              { question: "When a leaf node splits, what happens to the median key?", options: ["It is discarded", "It moves up to the parent", "It stays in left leaf", "It stays in right leaf"], answerIndex: 1, hint: "The median key is promoted to the parent node." },
-              { question: "All leaves in a B-Tree are at:", options: ["Different depths", "Same depth", "Depends on insertion order", "Maximum depth possible"], answerIndex: 1, hint: "B-Trees are perfectly balanced — all leaves at same height." }
+              { question: "For a B-Tree of minimum degree t=2 (order 3), the maximum number of keys per node is:", options: ["2", "3", "4", "5"], answerIndex: 1, hint: "Max keys = 2t-1 = 3 for t=2." },
+              { question: "When a leaf node splits, what happens to the median key?", options: ["It is discarded", "It moves up to the parent", "It stays in left leaf", "It stays in right leaf"], answerIndex: 1, hint: "The median key is promoted to the parent node to maintain the tree structure." },
+              { question: "All leaves in a B-Tree are at:", options: ["Different depths", "Same depth", "Depends on insertion order", "Maximum depth possible"], answerIndex: 1, hint: "B-Trees are perfectly balanced — all leaves at same height." },
+              { question: "What is the minimum number of keys a non-root node can have in a B-Tree with t=3?", options: ["1", "2", "3", "4"], answerIndex: 1, hint: "Minimum keys per node (except root) = t-1 = 2 for t=3." },
+              { question: "When does a B-Tree increase in height?", options: ["Every insertion", "When a leaf splits", "When the root splits", "When any node splits"], answerIndex: 2, hint: "Only root split increases tree height by creating a new root above the old one." }
             ],
             procedure: [
               "Open the Code Test tab with B-Tree starter code",
@@ -377,7 +642,10 @@ export const adsCourse: Course = {
             },
             posttest: [
               { question: "A B-Tree of minimum degree t=2 has node capacity of:", options: ["Max 3 keys, min 1 key", "Max 4 keys, min 2 keys", "Max 2 keys, min 0 keys", "Max 5 keys, min 3 keys"], answerIndex: 0, hint: "t=2 → max = 3 keys, min = 1 key (except root)." },
-              { question: "When does a B-Tree increase in height?", options: ["Every insertion", "When a leaf splits", "When the root splits", "When any node splits"], answerIndex: 2, hint: "Only root split increases tree height." }
+              { question: "When does a B-Tree increase in height?", options: ["Every insertion", "When a leaf splits", "When the root splits", "When any node splits"], answerIndex: 2, hint: "Only root split increases tree height." },
+              { question: "What is the maximum number of children for a node in a B-Tree of order 5?", options: ["3", "4", "5", "6"], answerIndex: 2, hint: "Order = maximum children, so order 5 means max 5 children." },
+              { question: "Why are B-Trees preferred over binary search trees for database indexing?", options: ["They are easier to implement", "They require less memory", "They reduce disk I/O by storing multiple keys per node", "They support faster insertions"], answerIndex: 2, hint: "The high branching factor minimizes disk reads." },
+              { question: "What is the minimum degree t if a node can have at most 7 keys?", options: ["t=3", "t=4", "t=5", "t=7"], answerIndex: 1, hint: "Max keys = 2t-1 = 7 → 2t = 8 → t = 4." }
             ],
             references: [
               "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 18 on B-Trees",
@@ -411,30 +679,129 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "B+ Tree vs B-Tree",
+                title: "B+ Tree Architecture — Key Differences from B-Tree",
                 body: [
-                  "In B+ Tree, all data records are stored only at leaf nodes.",
-                  "Internal nodes store only keys (and child pointers) — no data.",
-                  "Leaf nodes contain keys and pointers to actual data records.",
-                  "Leaf nodes are linked together in sorted order.",
-                  "Advantage: More keys per internal node (no data pointers) → shorter tree, better range queries."
+                  "The B+ Tree is a variation of the B-Tree specifically optimized for database indexing and file systems. The key differences are:",
+                  "",
+                  "1. Data Storage: In B+ Trees, only leaf nodes contain actual data records or pointers to data. Internal nodes store only keys for routing.",
+                  "",
+                  "2. Leaf Links: Leaf nodes are connected in a linked list, enabling efficient range queries and sequential access.",
+                  "",
+                  "3. Key Duplication: Keys in internal nodes may also appear in leaf nodes (as the first key of the right subtree).",
+                  "",
+                  "4. Higher Fanout: Since internal nodes don't store data pointers, they can hold more keys, resulting in a shorter tree.",
+                  "",
+                  "5. Range Queries: B+ Trees can traverse all keys in order by following leaf links without needing to navigate back up the tree."
                 ]
               },
               {
-                title: "Insertion in B+ Tree",
+                title: "B+ Tree Node Structure",
                 body: [
-                  "Step 1: Find the correct leaf node for the key.",
-                  "Step 2: Insert into leaf. If leaf has space, done.",
-                  "Step 3: If leaf overflows, split leaf into two leaves. Copy median key up to parent.",
-                  "Step 4: If parent (internal node) overflows, split internal node. Push median key up to its parent.",
-                  "Step 5: If root splits, create new root with single key and two children."
+                  "Leaf Node:",
+                  "• Contains keys in sorted order",
+                  "• Contains data pointers or actual data records",
+                  "• Has a pointer to the next leaf node for range scans",
+                  "• For a leaf node with L keys, it contains L key-pointer pairs",
+                  "",
+                  "Internal Node:",
+                  "• Contains only keys for routing (no data pointers)",
+                  "• Contains child pointers (one more than number of keys)",
+                  "• For an internal node with K keys, it has K+1 child pointers",
+                  "• Keys act as separators between child subtrees",
+                  "",
+                  "This separation of data and routing information is what gives B+ Trees their efficiency for sequential access patterns."
+                ]
+              },
+              {
+                title: "B+ Tree Insertion Algorithm",
+                body: [
+                  "Insertion in B+ Trees differs from B-Trees in how keys are propagated upward:",
+                  "",
+                  "Step 1 — Find insertion leaf: Traverse from root to find the appropriate leaf node.",
+                  "",
+                  "Step 2 — Insert into leaf: Add the key in sorted order with its data pointer.",
+                  "",
+                  "Step 3 — Handle leaf overflow: If leaf exceeds capacity (has 2t keys):",
+                  "  - Split leaf into two leaves (left and right)",
+                  "  - Keep first t keys in left leaf",
+                  "  - Keep remaining t keys in right leaf",
+                  "  - COPY the median key (first key of right leaf) up to parent",
+                  "  - Link the new right leaf to the original leaf's next pointer",
+                  "  - Update the original leaf's next pointer to point to new leaf",
+                  "",
+                  "Step 4 — Handle internal node overflow: When a parent receives a promoted key and becomes full (has 2t keys):",
+                  "  - Split internal node",
+                  "  - Keep first t keys in left node",
+                  "  - MOVE the median key up to parent (not copy)",
+                  "  - Keep remaining t-1 keys in right node",
+                  "  - Distribute child pointers appropriately",
+                  "",
+                  "Step 5 — Root split: If root splits, create new root with the median key and two children."
+                ]
+              },
+              {
+                title: "Copy-Up vs Push-Up",
+                body: [
+                  "A crucial distinction in B+ Tree operations:",
+                  "",
+                  "Copy-Up (Leaf Split):",
+                  "• When a leaf splits, the median key is COPIED to the parent",
+                  "• The median key remains in the right leaf as the smallest key",
+                  "• This ensures that all keys exist in leaves for complete data access",
+                  "",
+                  "Push-Up (Internal Node Split):",
+                  "• When an internal node splits, the median key is MOVED (pushed up) to the parent",
+                  "• The median key is removed from the internal node",
+                  "• This ensures no key duplication at multiple levels",
+                  "",
+                  "Why this asymmetry? Leaves must contain all keys for data access, while internal nodes only need routing keys."
+                ]
+              },
+              {
+                title: "B+ Tree Range Query Optimization",
+                body: [
+                  "Range queries are where B+ Trees excel:",
+                  "",
+                  "Algorithm for range query [L, R]:",
+                  "1. Find the leaf containing L (by standard search)",
+                  "2. Traverse leaf nodes via next pointers until exceeding R",
+                  "3. Collect all keys in the range",
+                  "",
+                  "Time complexity: O(log_t n + k) where k is the number of results returned.",
+                  "",
+                  "This is optimal because:",
+                  "• Finding the starting leaf takes O(log_t n) I/O operations",
+                  "• Each result typically requires one I/O operation",
+                  "• No need to backtrack up the tree",
+                  "",
+                  "In contrast, B-Trees would require traversing up and down for each key in the range, making range queries much slower."
+                ]
+              },
+              {
+                title: "Applications and Real-World Use",
+                body: [
+                  "B+ Trees are the most widely used indexing structure in database systems:",
+                  "",
+                  "• MySQL/InnoDB: Uses B+ Trees for primary and secondary indexes",
+                  "• PostgreSQL: Uses B+ Trees as default index type",
+                  "• SQLite: B+ Tree-based storage engine",
+                  "• MongoDB: Uses B+ Trees for indexed fields",
+                  "• File systems: Many file systems use B+ Trees for directory indexing",
+                  "",
+                  "Why B+ Trees for databases?",
+                  "• Excellent for both equality and range queries",
+                  "• Sequential access via leaf links",
+                  "• High fanout reduces disk I/O",
+                  "• Data locality improves cache performance"
                 ]
               }
             ],
             pretest: [
               { question: "In a B+ Tree, where are the actual data records stored?", options: ["Internal nodes", "Root node", "Leaf nodes only", "All nodes"], answerIndex: 2, hint: "B+ tree stores data only in leaves." },
               { question: "When a leaf node splits, the median key is:", options: ["Removed from both leaves", "Copied up to parent", "Pushed up and removed from leaf", "Discarded"], answerIndex: 1, hint: "Leaf split copies median up; internal node split pushes up." },
-              { question: "How are B+ Trees optimized for range queries?", options: ["Internal node array", "Leaf node linked list", "Recursive search", "Hash indexing"], answerIndex: 1, hint: "Leaves are linked for sequential access." }
+              { question: "How are B+ Trees optimized for range queries?", options: ["Internal node array", "Leaf node linked list", "Recursive search", "Hash indexing"], answerIndex: 1, hint: "Leaves are linked for sequential access." },
+              { question: "What is a key advantage of B+ Tree over B-Tree for database systems?", options: ["Faster single-key lookups", "Better range query performance", "Less memory usage", "Simpler implementation"], answerIndex: 1, hint: "Leaf node linking enables efficient range scans." },
+              { question: "In a B+ Tree, internal nodes store:", options: ["Both keys and data", "Only keys for routing", "Only data pointers", "Child pointers only"], answerIndex: 1, hint: "Internal nodes contain only keys to guide searching, not actual data." }
             ],
             procedure: [
               "Open the Code Test tab with B+ Tree starter code",
@@ -457,7 +824,10 @@ export const adsCourse: Course = {
             },
             posttest: [
               { question: "What is the advantage of B+ Tree over B-Tree for database indexing?", options: ["Less memory", "Faster search", "Better range queries due to leaf linked list", "Simpler implementation"], answerIndex: 2, hint: "Leaf linkage enables efficient sequential access." },
-              { question: "In a B+ Tree leaf split, what is the relationship between the median key in leaf and internal node?", options: ["Key removed from leaf", "Key copied to internal node", "Key moved and removed from leaf", "Key ignored"], answerIndex: 1, hint: "Leaf splits copy median up; internal node splits move median up." }
+              { question: "In a B+ Tree leaf split, what is the relationship between the median key in leaf and internal node?", options: ["Key removed from leaf", "Key copied to internal node", "Key moved and removed from leaf", "Key ignored"], answerIndex: 1, hint: "Leaf splits copy median up; internal node splits move median up." },
+              { question: "What happens during an internal node split in a B+ Tree?", options: ["Median key is copied up", "Median key is pushed up and removed", "Node is not split", "All keys are redistributed"], answerIndex: 1, hint: "Internal node splits move the median key to the parent." },
+              { question: "Why do B+ Trees have higher fanout than B-Trees?", options: ["Larger node size", "No data pointers in internal nodes", "Better compression", "Smaller keys"], answerIndex: 1, hint: "Internal nodes store only keys, not data pointers, so they can hold more keys." },
+              { question: "What is the time complexity of a range query in a B+ Tree returning k results?", options: ["O(log n + k)", "O(k log n)", "O(n)", "O(log n * k)"], answerIndex: 0, hint: "Finding start leaf takes O(log n), then traversing k leaf nodes takes O(k)." }
             ],
             references: [
               "Silberschatz, A., Korth, H.F. and Sudarshan, S. - 'Database System Concepts', 5th Edition, TMH, Chapter 11 on B+ Trees",
@@ -491,29 +861,112 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "Segment Tree Structure",
+                title: "Segment Tree Fundamentals",
                 body: [
-                  "A segment tree is a binary tree where each node represents a segment (range) of the array.",
-                  "Root represents the entire array [0, n-1].",
-                  "Leaf nodes represent single array elements.",
-                  "Internal nodes store aggregate information (sum, min, max, etc.) of their segment.",
-                  "Space: O(4n) for array representation."
+                  "A Segment Tree is a versatile binary tree data structure used for answering range queries and performing point updates on an array in O(log n) time. It can answer queries like 'what is the sum of elements from index i to j?' or 'what is the minimum value between indices i and j?' efficiently.",
+                  "",
+                  "The key idea is to precompute and store aggregate information (sum, min, max, gcd, etc.) for various segments of the array. The tree is built recursively, where each node represents a segment [L, R] of the original array."
                 ]
               },
               {
-                title: "Operations",
+                title: "Segment Tree Structure and Representation",
                 body: [
-                  "Build: Recursively build tree from leaves to root — O(n).",
-                  "Query: Recursively traverse nodes that intersect the query range — O(log n).",
-                  "Update: Update leaf value and propagate changes up to root — O(log n).",
-                  "Lazy Propagation: For range updates (add value to range), use lazy propagation to achieve O(log n) updates."
+                  "For an array of size n, we build a complete binary tree:",
+                  "",
+                  "• Root node represents the entire array segment [0, n-1]",
+                  "• Each node's left child represents [L, mid]",
+                  "• Each node's right child represents [mid+1, R]",
+                  "• Leaf nodes represent single elements [i, i]",
+                  "",
+                  "Array Representation:",
+                  "We can store the segment tree in a 1D array of size 4n (safe upper bound):",
+                  "• tree[1] — root",
+                  "• tree[2*i] — left child",
+                  "• tree[2*i+1] — right child",
+                  "",
+                  "For node covering range [L, R]:",
+                  "• mid = (L + R) / 2",
+                  "• Left child covers [L, mid]",
+                  "• Right child covers [mid+1, R]"
+                ]
+              },
+              {
+                title: "Segment Tree Operations — Detailed",
+                body: [
+                  "Build Operation (O(n)):",
+                  "• Recursively build left and right subtrees",
+                  "• For leaf nodes, store the array value",
+                  "• For internal nodes, combine child values (sum = left.sum + right.sum)",
+                  "",
+                  "Range Query (O(log n)):",
+                  "• Start at root with query range [qL, qR]",
+                  "• If node's segment is completely inside [qL, qR], return node's value",
+                  "• If node's segment has no overlap with query, return neutral element (0 for sum, INF for min)",
+                  "• Otherwise, recursively query both children and combine results",
+                  "",
+                  "Point Update (O(log n)):",
+                  "• Update the leaf node at position 'index' with new value",
+                  "• Recursively update all ancestors up to the root",
+                  "• Each node's value = left.value + right.value",
+                  "",
+                  "Lazy Propagation (for range updates):",
+                  "• When updating a range of values (e.g., add 5 to all indices from 2 to 7), we can't update each leaf",
+                  "• Lazy propagation stores pending updates at nodes",
+                  "• When visiting a node, apply pending updates before recursing",
+                  "• Enables O(log n) range updates"
+                ]
+              },
+              {
+                title: "Range Minimum Query (RMQ) Implementation",
+                body: [
+                  "The same segment tree can answer minimum queries:",
+                  "",
+                  "• Leaf nodes store the array value",
+                  "• Internal nodes store min(left.min, right.min)",
+                  "• Query: return minimum of all overlapping segments",
+                  "• Update: update leaf, propagate new min up",
+                  "",
+                  "Other aggregates possible:",
+                  "• Maximum (max)",
+                  "• Sum (addition)",
+                  "• GCD (greatest common divisor)",
+                  "• XOR (bitwise XOR)",
+                  "• Multiplication (mod M)",
+                  "",
+                  "The key is that the combine operation must be associative for correctness."
+                ]
+              },
+              {
+                title: "Segment Tree vs Fenwick Tree vs Sparse Table",
+                body: [
+                  "Comparison of range query data structures:",
+                  "",
+                  "Segment Tree:",
+                  "• Build: O(n), Query: O(log n), Update: O(log n)",
+                  "• Supports any associative operation",
+                  "• More memory (4n)",
+                  "• More flexible (range updates with lazy propagation)",
+                  "",
+                  "Fenwick Tree (Binary Indexed Tree):",
+                  "• Build: O(n) or O(n log n), Query: O(log n), Update: O(log n)",
+                  "• Only supports invertible operations (sum, XOR, but not min/max)",
+                  "• Less memory (n+1)",
+                  "• Simpler to implement",
+                  "",
+                  "Sparse Table:",
+                  "• Build: O(n log n), Query: O(1), Update: Impossible (static)",
+                  "• Supports idempotent operations (min, max, gcd)",
+                  "• Memory: O(n log n)",
+                  "• Best for static data with many queries"
                 ]
               }
             ],
             pretest: [
               { question: "Segment tree query time complexity is:", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 1, hint: "The tree depth is O(log n)." },
               { question: "How many nodes does a segment tree on an array of size n require?", options: ["n", "2n", "4n", "n^2"], answerIndex: 2, hint: "4n is a safe upper bound for array implementation." },
-              { question: "To update a single element, how many nodes need to be updated?", options: ["1", "log n", "n", "n/2"], answerIndex: 1, hint: "Path from leaf to root has O(log n) nodes." }
+              { question: "To update a single element, how many nodes need to be updated?", options: ["1", "log n", "n", "n/2"], answerIndex: 1, hint: "Path from leaf to root has O(log n) nodes." },
+              { question: "What is the neutral element for range sum query in segment tree?", options: ["0", "1", "-1", "Infinity"], answerIndex: 0, hint: "Adding 0 to any value leaves it unchanged." },
+              { question: "Which operation cannot be supported efficiently by a Fenwick tree but can by a segment tree?", options: ["Sum", "XOR", "Minimum", "Product"], answerIndex: 2, hint: "Min operation is not invertible, so Fenwick tree cannot support it." }
             ],
             procedure: [
               "Open the Code Test tab with segment tree starter code",
@@ -536,7 +989,10 @@ export const adsCourse: Course = {
             },
             posttest: [
               { question: "What is the space complexity of a segment tree array representation?", options: ["O(n)", "O(2n)", "O(4n)", "O(n^2)"], answerIndex: 2, hint: "4n is standard to avoid index errors." },
-              { question: "Segment tree is most useful for:", options: ["Static array queries", "Dynamic array with updates and range queries", "Sorted array operations", "Graph traversals"], answerIndex: 1, hint: "Segment tree excels at both queries and updates." }
+              { question: "Segment tree is most useful for:", options: ["Static array queries", "Dynamic array with updates and range queries", "Sorted array operations", "Graph traversals"], answerIndex: 1, hint: "Segment tree excels at both queries and updates." },
+              { question: "For a segment tree with range sum queries, what is the time complexity of building the tree?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 2, hint: "Building touches each element once, so O(n)." },
+              { question: "What is the purpose of lazy propagation in segment trees?", options: ["Reduce memory usage", "Enable O(log n) range updates", "Faster point updates", "Simplify implementation"], answerIndex: 1, hint: "Lazy propagation defers updates to avoid updating all leaves in a range." },
+              { question: "Which of the following can be computed using a segment tree?", options: ["Sum", "Minimum", "GCD", "All of the above"], answerIndex: 3, hint: "Segment tree supports any associative operation." }
             ],
             references: [
               "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter on Range Queries",
@@ -562,27 +1018,106 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "Fenwick Tree (Binary Indexed Tree)",
+                title: "Fenwick Tree (Binary Indexed Tree) — The Magic of LSB",
                 body: [
-                  "A Fenwick tree provides efficient prefix sum queries and point updates using O(n) space.",
-                  "Each index i stores sum of a range based on i's least significant bit (LSB).",
-                  "index i stores sum of (i - LSB(i) + 1) through i.",
-                  "Space: O(n), Time for query/update: O(log n).",
-                  "Fenwick tree is simpler and uses less memory than segment tree, but supports only prefix queries (not arbitrary range aggregates without inversion)."
+                  "The Fenwick Tree, also known as Binary Indexed Tree (BIT), is an elegant data structure that provides efficient prefix sum queries and point updates. What makes it beautiful is how it cleverly uses the binary representation of indices to distribute responsibility for array elements.",
+                  "",
+                  "The key insight: Each index i in the BIT stores the sum of a range of the original array. The length of this range is determined by the least significant bit (LSB) of i, also written as i & (-i)."
                 ]
               },
               {
-                title: "Operations",
+                title: "Understanding the BIT Structure",
                 body: [
-                  "update(i, delta): Add delta to index i, then i += LSB(i) until i <= n.",
-                  "query(i): Sum from 1 to i, subtract LSB until i == 0.",
-                  "rangeSum(l, r): query(r) - query(l-1)."
+                  "For an array arr[1..n] (1-indexed for convenience), the BIT array bit[1..n] is defined such that:",
+                  "",
+                  "bit[i] = sum of arr[i - LSB(i) + 1] through arr[i]",
+                  "",
+                  "This means each bit[i] is responsible for a range of size equal to the lowest set bit of i.",
+                  "",
+                  "Examples:",
+                  "• i=1 (binary 1): LSB=1 → bit[1] = arr[1]",
+                  "• i=2 (binary 10): LSB=2 → bit[2] = arr[1] + arr[2]",
+                  "• i=3 (binary 11): LSB=1 → bit[3] = arr[3]",
+                  "• i=4 (binary 100): LSB=4 → bit[4] = arr[1] + arr[2] + arr[3] + arr[4]",
+                  "• i=5 (binary 101): LSB=1 → bit[5] = arr[5]",
+                  "• i=6 (binary 110): LSB=2 → bit[6] = arr[5] + arr[6]",
+                  "",
+                  "This distribution ensures that every prefix sum can be computed by adding O(log n) BIT entries."
+                ]
+              },
+              {
+                title: "Prefix Sum Query Algorithm",
+                body: [
+                  "To compute prefix sum from 1 to i:",
+                  "",
+                  "Initialize sum = 0",
+                  "While i > 0:",
+                  "    sum += bit[i]",
+                  "    i -= LSB(i)  // Remove the lowest set bit",
+                  "",
+                  "Example: prefix sum up to 7 (binary 111):",
+                  "• Add bit[7], then i = 7-1 = 6",
+                  "• Add bit[6], then i = 6-2 = 4",
+                  "• Add bit[4], then i = 4-4 = 0",
+                  "",
+                  "So bit[7] + bit[6] + bit[4] = arr[7] + (arr[5]+arr[6]) + (arr[1]+arr[2]+arr[3]+arr[4]) = complete sum up to 7."
+                ]
+              },
+              {
+                title: "Point Update Algorithm",
+                body: [
+                  "To add delta to arr[i]:",
+                  "",
+                  "While i <= n:",
+                  "    bit[i] += delta",
+                  "    i += LSB(i)  // Add LSB to move to next responsible index",
+                  "",
+                  "Example: Update arr[3] by +5:",
+                  "• Update bit[3], then i = 3+1 = 4",
+                  "• Update bit[4], then i = 4+4 = 8 (if n ≥ 8)",
+                  "",
+                  "This works because any bit[j] that includes arr[3] will be found by repeatedly adding LSB starting from 3."
+                ]
+              },
+              {
+                title: "Building a Fenwick Tree",
+                body: [
+                  "Method 1 — O(n log n):",
+                  "• Initialize bit with zeros",
+                  "• For i from 1 to n, call update(i, arr[i])",
+                  "",
+                  "Method 2 — O(n):",
+                  "• Initialize bit as a copy of arr (1-indexed)",
+                  "• For i from 1 to n:",
+                  "    j = i + LSB(i)",
+                  "    if j ≤ n: bit[j] += bit[i]",
+                  "",
+                  "This works because each bit[i] is added to the BIT entries that contain it in their range."
+                ]
+              },
+              {
+                title: "Fenwick Tree Applications",
+                body: [
+                  "Besides prefix sums, Fenwick trees can support:",
+                  "",
+                  "• Range Sum Queries: sum(l, r) = prefix(r) - prefix(l-1)",
+                  "• Frequency Tables: Count frequencies and find kth smallest element",
+                  "• Inversion Count: Count inversions in an array (i < j and arr[i] > arr[j])",
+                  "• Order Statistics: Find the smallest index with prefix sum ≥ k (binary search on BIT)",
+                  "",
+                  "Limitations:",
+                  "• Only supports invertible operations (can compute prefix(r) - prefix(l-1))",
+                  "• Cannot support range minimum queries or other non-invertible operations",
+                  "• All operations are prefix-based"
                 ]
               }
             ],
             pretest: [
               { question: "What does LSB stand for in Fenwick Tree?", options: ["Last Significant Byte", "Least Significant Bit", "Lowest Start Bit", "Left Shift Bit"], answerIndex: 1, hint: "LSB is the lowest set bit in binary representation." },
-              { question: "Fenwick tree is used for:", options: ["Range minimum queries", "Range sum queries (prefix)", "Graph shortest paths", "String matching"], answerIndex: 1, hint: "BIT is optimized for prefix sum queries." }
+              { question: "Fenwick tree is used for:", options: ["Range minimum queries", "Range sum queries (prefix)", "Graph shortest paths", "String matching"], answerIndex: 1, hint: "BIT is optimized for prefix sum queries." },
+              { question: "What is the time complexity of a Fenwick tree update operation?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 1, hint: "The update traverses O(log n) indices by adding LSB." },
+              { question: "What is bit[6] responsible for if arr is 1-indexed?", options: ["arr[6] only", "arr[5]+arr[6]", "arr[1]+arr[2]+arr[3]+arr[4]+arr[5]+arr[6]", "arr[3]+arr[4]+arr[5]+arr[6]"], answerIndex: 1, hint: "LSB(6) = 2 (binary 110), so bit[6] = arr[5] + arr[6]." },
+              { question: "Can a Fenwick tree support range minimum queries?", options: ["Yes", "No, only invertible operations", "Yes, with modifications", "Only for static data"], answerIndex: 1, hint: "Min operation is not invertible, so BIT cannot support it." }
             ],
             procedure: [
               "Open the Code Test tab with Fenwick tree starter code",
@@ -606,7 +1141,10 @@ export const adsCourse: Course = {
             },
             posttest: [
               { question: "Fenwick tree vs Segment Tree: Fenwick tree is:", options: ["More memory", "Less memory and simpler for prefix sums", "Slower for point updates", "Supports only range min"], answerIndex: 1, hint: "BIT uses O(n) space and is simpler for prefix sums." },
-              { question: "What is LSB(i) for i=6 (binary 110)?", options: ["1", "2", "3", "6"], answerIndex: 1, hint: "LSB of 110 is 2 (binary 10)." }
+              { question: "What is LSB(i) for i=6 (binary 110)?", options: ["1", "2", "3", "6"], answerIndex: 1, hint: "LSB of 110 is 2 (binary 10)." },
+              { question: "What is the prefix sum query [1,7] using BIT if bit[4]=10, bit[6]=7, bit[7]=3?", options: ["3", "10", "17", "20"], answerIndex: 3, hint: "Sum = bit[7] + bit[6] + bit[4] = 3 + 7 + 10 = 20." },
+              { question: "Which of the following problems CANNOT be solved efficiently with a Fenwick tree?", options: ["Counting inversions", "Finding median of running stream", "Range minimum queries", "Order statistics"], answerIndex: 2, hint: "RMQ requires non-invertible min operation." },
+              { question: "What is the time complexity of building a Fenwick tree in O(n) using the efficient method?", options: ["O(n)", "O(n log n)", "O(log n)", "O(1)"], answerIndex: 0, hint: "The efficient build method fills parent nodes in O(n) time." }
             ],
             references: [
               "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter on Fenwick Trees",
@@ -640,28 +1178,103 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "Binary Heap Properties",
+                title: "Binary Heap — The Priority Queue Workhorse",
                 body: [
-                  "A binary heap is a complete binary tree stored in an array.",
-                  "For node at index i: left child at 2i+1, right child at 2i+2, parent at floor((i-1)/2).",
-                  "Min-heap property: parent.key <= child.key (for all nodes).",
-                  "Max-heap property: parent.key >= child.key."
+                  "A binary heap is a complete binary tree that satisfies the heap property. It's the most common implementation of a priority queue, providing O(log n) insert and extract-min operations, with O(1) peek.",
+                  "",
+                  "Complete Binary Tree Property: All levels are completely filled except possibly the last level, which is filled from left to right. This allows efficient array representation without explicit pointers."
                 ]
               },
               {
-                title: "Operations Complexity",
+                title: "Array Representation of Binary Heap",
                 body: [
-                  "insert(key): Add at end, bubble up — O(log n).",
-                  "extractMin(): Remove root, replace with last element, bubble down — O(log n).",
-                  "buildHeap(arr): Heapify non-leaf nodes from last parent up — O(n).",
-                  "peek(): Return root — O(1)."
+                  "For a heap stored in array `heap` (0-indexed):",
+                  "",
+                  "• Parent of node at index i: floor((i-1)/2)",
+                  "• Left child of node at index i: 2*i + 1",
+                  "• Right child of node at index i: 2*i + 2",
+                  "",
+                  "This mapping is possible because the heap is a complete binary tree. There are no gaps in the array representation.",
+                  "",
+                  "For 1-indexed representation (common in some implementations):",
+                  "• Parent: floor(i/2)",
+                  "• Left child: 2*i",
+                  "• Right child: 2*i + 1"
+                ]
+              },
+              {
+                title: "Heap Property",
+                body: [
+                  "Min-Heap Property: For every node i, heap[i] ≤ heap[left child] AND heap[i] ≤ heap[right child]",
+                  "",
+                  "Max-Heap Property: For every node i, heap[i] ≥ heap[left child] AND heap[i] ≥ heap[right child]",
+                  "",
+                  "This property ensures that the minimum (or maximum) element is always at the root, enabling O(1) access."
+                ]
+              },
+              {
+                title: "Core Operations — Detailed",
+                body: [
+                  "Insert Operation (O(log n)):",
+                  "1. Add new element at the end of the array (as a new leaf)",
+                  "2. While the new element is smaller than its parent (for min-heap), swap with parent",
+                  "3. This process is called \"bubble up\" or \"percolate up\"",
+                  "",
+                  "Extract-Min Operation (O(log n)):",
+                  "1. Store root value (the minimum) to return later",
+                  "2. Replace root with the last element in the heap",
+                  "3. Remove the last element",
+                  "4. While the new root is larger than either child, swap with the smaller child",
+                  "5. This process is called \"bubble down\" or \"heapify\"",
+                  "",
+                  "Build Heap from Array (O(n)):",
+                  "1. Start with the unsorted array",
+                  "2. For i from last non-leaf node down to 0:",
+                  "   - Call bubbleDown(i)",
+                  "3. The algorithm is O(n) because only O(n) nodes are at non-leaf levels, and each bubbleDown takes O(log n) but the tighter analysis shows O(n)"
+                ]
+              },
+              {
+                title: "Heap Sort Algorithm",
+                body: [
+                  "Heap Sort uses a max-heap to sort an array in O(n log n):",
+                  "",
+                  "Phase 1 — Build Max-Heap: O(n)",
+                  "• Rearrange array to satisfy max-heap property",
+                  "",
+                  "Phase 2 — Extract Max Repeatedly: O(n log n)",
+                  "• For i from n-1 down to 1:",
+                  "   - Swap heap[0] (max) with heap[i]",
+                  "   - Reduce heap size by 1",
+                  "   - Bubble down from root to restore heap property",
+                  "",
+                  "The result is a sorted array in increasing order. Heap sort is in-place and has O(n log n) worst-case time complexity."
+                ]
+              },
+              {
+                title: "Priority Queue Applications",
+                body: [
+                  "Binary heaps are used extensively for priority queue implementations:",
+                  "",
+                  "• Dijkstra's Shortest Path Algorithm: Extract minimum distance vertex",
+                  "• Prim's Minimum Spanning Tree: Extract minimum edge weight",
+                  "• Huffman Coding: Always merge two smallest frequencies",
+                  "• Event-Driven Simulation: Process events in chronological order",
+                  "• Operating Systems: Process scheduling (highest priority first)",
+                  "• A* Pathfinding: Extract node with minimum f(n) score",
+                  "",
+                  "C++: `priority_queue` uses max-heap by default",
+                  "Java: `PriorityQueue` implements min-heap",
+                  "Python: `heapq` provides heap operations on lists"
                 ]
               }
             ],
             pretest: [
               { question: "In array representation of a binary heap, where is the right child of node at index i?", options: ["2i", "2i+1", "2i+2", "i/2"], answerIndex: 2, hint: "For 0-indexed array, left=2i+1, right=2i+2." },
               { question: "What is the time complexity of building a heap from an array?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 2, hint: "Floyd's algorithm builds heap in O(n) by heapifying from last parent." },
-              { question: "In a min-heap, the smallest element is at:", options: ["Any leaf", "Root", "Last position", "Middle"], answerIndex: 1, hint: "Min-heap property ensures root is smallest." }
+              { question: "In a min-heap, the smallest element is at:", options: ["Any leaf", "Root", "Last position", "Middle"], answerIndex: 1, hint: "Min-heap property ensures root is smallest." },
+              { question: "What is the time complexity of inserting an element into a binary heap?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 1, hint: "Insertion requires bubbling up, which takes O(log n) time." },
+              { question: "Which data structure uses a binary heap as its underlying implementation?", options: ["Stack", "Queue", "Priority Queue", "Deque"], answerIndex: 2, hint: "Priority queue is typically implemented using a binary heap." }
             ],
             procedure: [
               "Open the Code Test tab with heap starter code",
@@ -682,8 +1295,11 @@ export const adsCourse: Course = {
               ]
             },
             posttest: [
-              { question: "What is the height of a binary heap with n nodes?", options: ["log2 n", "n", "n/2", "2^n"], answerIndex: 0, hint: "Complete binary tree height is floor(log2 n)." },
-              { question: "Which operation is O(1) in a binary heap?", options: ["Insert", "ExtractMin", "Peek (getMin)", "Delete any element"], answerIndex: 2, hint: "Minimum element is always at root." }
+              { question: "What is the height of a binary heap with n nodes?", options: ["log₂ n", "n", "n/2", "2ⁿ"], answerIndex: 0, hint: "Complete binary tree height is floor(log₂ n)." },
+              { question: "Which operation is O(1) in a binary heap?", options: ["Insert", "ExtractMin", "Peek (getMin)", "Delete any element"], answerIndex: 2, hint: "Minimum element is always at root." },
+              { question: "What is the space complexity of a binary heap?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 2, hint: "The heap uses O(n) space to store n elements." },
+              { question: "In Heap Sort, what is the time complexity of building the initial heap?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 2, hint: "Building heap from array using Floyd's algorithm is O(n)." },
+              { question: "Which of the following is NOT a valid application of a priority queue?", options: ["Dijkstra's algorithm", "Huffman coding", "Binary search", "Event-driven simulation"], answerIndex: 2, hint: "Binary search does not require priority queue operations." }
             ],
             references: [
               "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 6 on Heapsort",
@@ -717,27 +1333,108 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "Disjoint Set Union (DSU)",
+                title: "Disjoint Set Union — The Connectivity Powerhouse",
                 body: [
-                  "DSU maintains a collection of disjoint sets with operations:",
-                  "find(x): Returns the representative (root) of the set containing x.",
-                  "union(x, y): Merges the sets containing x and y into one set.",
-                  "Path compression: During find, make every node on path point directly to root.",
-                  "Union by rank: Attach smaller tree under larger tree by tracking tree height."
+                  "The Disjoint Set Union (DSU), also known as Union-Find, is a data structure that keeps track of a partition of a set into disjoint (non-overlapping) subsets. It provides near-constant-time operations to merge sets and check whether elements are in the same set.",
+                  "",
+                  "The two main operations are:",
+                  "• find(x): Returns the representative (root) of the set containing x",
+                  "• union(x, y): Merges the sets containing x and y into one set"
                 ]
               },
               {
-                title: "Time Complexity",
+                title: "Basic Implementation — Parent Array",
                 body: [
-                  "With both optimizations, amortized time per operation is nearly O(1) — inverse Ackermann function α(n).",
-                  "For all practical n, α(n) ≤ 4.",
-                  "Applications: Kruskal's MST, connected components in graph, dynamic connectivity."
+                  "The simplest implementation uses an array parent[] where parent[i] stores the parent of element i.",
+                  "",
+                  "Initially, each element is its own parent (represents a set of size 1):",
+                  "  parent[i] = i",
+                  "",
+                  "Find operation without optimization:",
+                  "  while parent[x] != x: x = parent[x]",
+                  "  return x",
+                  "",
+                  "Union operation without optimization:",
+                  "  rootX = find(x), rootY = find(y)",
+                  "  if rootX != rootY: parent[rootX] = rootY",
+                  "",
+                  "This basic implementation can lead to tall trees, making find O(n) in worst case."
+                ]
+              },
+              {
+                title: "Union by Rank Optimization",
+                body: [
+                  "Union by rank keeps trees shallow by always attaching the smaller tree under the larger tree.",
+                  "",
+                  "We maintain a rank array (approximate height) for each root:",
+                  "• Initially, rank[i] = 0 for all elements",
+                  "",
+                  "Union algorithm:",
+                  "  rootX = find(x), rootY = find(y)",
+                  "  if rootX == rootY: return",
+                  "  if rank[rootX] < rank[rootY]: parent[rootX] = rootY",
+                  "  else if rank[rootX] > rank[rootY]: parent[rootY] = rootX",
+                  "  else: parent[rootY] = rootX, rank[rootX]++",
+                  "",
+                  "With union by rank alone, the tree height is at most O(log n)."
+                ]
+              },
+              {
+                title: "Path Compression Optimization",
+                body: [
+                  "Path compression flattens the tree by making every node point directly to the root during find operations.",
+                  "",
+                  "Find with path compression (recursive):",
+                  "  if parent[x] != x: parent[x] = find(parent[x])",
+                  "  return parent[x]",
+                  "",
+                  "Find with path compression (iterative):",
+                  "  root = x",
+                  "  while parent[root] != root: root = parent[root]",
+                  "  while x != root:",
+                  "    next = parent[x]",
+                  "    parent[x] = root",
+                  "    x = next",
+                  "  return root",
+                  "",
+                  "Path compression ensures that subsequent find operations on the same path are extremely fast."
+                ]
+              },
+              {
+                title: "Time Complexity — The Inverse Ackermann Function",
+                body: [
+                  "With both union by rank and path compression, the amortized time per operation is O(α(n)), where α(n) is the inverse Ackermann function.",
+                  "",
+                  "The Ackermann function grows extremely fast: A(4) is already 2^65536. Therefore, α(n) ≤ 4 for any practical input size (n ≤ 10^80).",
+                  "",
+                  "This means operations are effectively O(1) for all real-world applications.",
+                  "",
+                  "Why inverse Ackermann? The analysis involves the concept of \"iterated logarithm\" and Ackermann's function, showing that the number of times a node's parent can change is extremely small."
+                ]
+              },
+              {
+                title: "Applications of Union-Find",
+                body: [
+                  "DSU is used in numerous algorithms and problems:",
+                  "",
+                  "• Kruskal's Minimum Spanning Tree: Union edges and detect cycles",
+                  "• Connected Components in Graphs: Find number of connected components",
+                  "• Dynamic Connectivity: Maintain connectivity under edge additions",
+                  "• Image Processing: Connected component labeling in images",
+                  "• Network Connectivity: Check if two computers are connected",
+                  "• Percolation Problem: Model flow through porous materials",
+                  "• Maze Generation: Generate random mazes using randomized Kruskal's",
+                  "",
+                  "Limitations: DSU typically only supports union operations (adding connections), not splitting sets (removing connections)."
                 ]
               }
             ],
             pretest: [
               { question: "What is path compression in DSU?", options: ["Making all nodes point to root during find", "Compressing the array size", "Union by size", "Deleting nodes"], answerIndex: 0, hint: "Path compression flattens the tree structure." },
-              { question: "Union by rank optimizes by:", options: ["Attaching smaller depth tree under larger depth", "Always attaching to left", "Random attachment", "Attaching to smaller size"], answerIndex: 0, hint: "Rank approximation of tree height." }
+              { question: "Union by rank optimizes by:", options: ["Attaching smaller depth tree under larger depth", "Always attaching to left", "Random attachment", "Attaching to smaller size"], answerIndex: 0, hint: "Rank approximation of tree height." },
+              { question: "What is the amortized time complexity of find operation with both optimizations?", options: ["O(1)", "O(log n)", "O(α(n))", "O(n)"], answerIndex: 2, hint: "Inverse Ackermann function is nearly constant." },
+              { question: "What does the parent array represent in DSU?", options: ["The child of each node", "The representative of the set", "The parent pointer for tree structure", "The size of the set"], answerIndex: 2, hint: "Parent array stores the parent relationship in the DSU tree." },
+              { question: "In Kruskal's algorithm, DSU is used to:", options: ["Sort edges", "Find MST edges without cycles", "Compute shortest path", "Find negative cycles"], answerIndex: 1, hint: "DSU detects cycles by checking if two vertices are already connected." }
             ],
             procedure: [
               "Open the Code Test tab with DSU starter code",
@@ -761,7 +1458,10 @@ export const adsCourse: Course = {
             },
             posttest: [
               { question: "What is the amortized time complexity of find with both optimizations?", options: ["O(1)", "O(log n)", "O(α(n))", "O(n)"], answerIndex: 2, hint: "Inverse Ackermann function is nearly constant." },
-              { question: "Union by rank prevents:", options: ["Path compression", "Tall trees", "Cycles", "Duplicates"], answerIndex: 1, hint: "It keeps trees shallow." }
+              { question: "Union by rank prevents:", options: ["Path compression", "Tall trees", "Cycles", "Duplicates"], answerIndex: 1, hint: "It keeps trees shallow." },
+              { question: "What is the value of α(n) for n ≤ 10⁸⁰?", options: ["1", "2", "3", "4"], answerIndex: 3, hint: "Ackermann function grows so fast that α(n) ≤ 4 for any practical n." },
+              { question: "Which of the following is NOT an application of DSU?", options: ["Kruskal's algorithm", "Connected components", "Shortest path in weighted graph", "Percolation problem"], answerIndex: 2, hint: "Dijkstra's or Bellman-Ford, not DSU, are used for shortest paths." },
+              { question: "What happens during path compression?", options: ["Tree becomes taller", "Tree becomes flatter", "Rank increases", "Parent pointers become null"], answerIndex: 1, hint: "Path compression makes nodes point directly to root, flattening the tree." }
             ],
             references: [
               "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 21 on Disjoint Sets",
@@ -795,27 +1495,102 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "Open Addressing",
+                title: "Hash Tables and Collision Resolution",
                 body: [
-                  "In open addressing, all elements are stored directly in the hash table array (no chaining).",
-                  "When collision occurs, a probe sequence finds the next empty slot.",
-                  "Linear Probing: probe(i) = (h(k) + i) mod M.",
-                  "Quadratic Probing: probe(i) = (h(k) + c1*i + c2*i^2) mod M.",
-                  "Double Hashing: probe(i) = (h1(k) + i*h2(k)) mod M."
+                  "A hash table is a data structure that maps keys to values using a hash function. The hash function computes an index into an array where the key-value pair is stored.",
+                  "",
+                  "Collisions occur when two different keys hash to the same index. There are two main strategies to handle collisions:",
+                  "",
+                  "1. Chaining: Each array position contains a linked list (or other structure) of colliding keys",
+                  "2. Open Addressing: All elements are stored in the array itself; collisions are resolved by probing (searching) for alternative slots",
+                  "",
+                  "Open addressing has the advantage of better cache performance and no memory overhead for pointers, but it requires careful handling of deletions and has a maximum load factor less than 1."
                 ]
               },
               {
-                title: "Load Factor",
+                title: "Linear Probing — Mechanism and Analysis",
                 body: [
-                  "Load factor α = n/M (number of elements / table size).",
-                  "For open addressing, α should be < 0.7 for good performance.",
-                  "Dynamic resizing: When α exceeds threshold, create larger table and rehash all elements."
+                  "Linear probing is the simplest open addressing strategy. When a collision occurs at index h(k), the algorithm checks h(k)+1, h(k)+2, etc. (wrapping around modulo table size).",
+                  "",
+                  "Probe sequence: h(k, i) = (h(k) + i) mod M, where i = 0, 1, 2, ...",
+                  "",
+                  "Characteristics:",
+                  "• Simple to implement",
+                  "• Good cache performance due to sequential probe locations",
+                  "• Suffers from primary clustering: long runs of occupied slots form, causing longer probes",
+                  "",
+                  "Performance degrades significantly as load factor increases. With load factor α = n/M:",
+                  "• Successful search: ~(1/2)(1 + 1/(1-α))",
+                  "• Unsuccessful search: ~(1/2)(1 + 1/(1-α)²)",
+                  "• When α > 0.7, performance drops rapidly",
+                  "",
+                  "For good performance, keep α < 0.7 and resize when exceeded."
+                ]
+              },
+              {
+                title: "Quadratic Probing and Double Hashing",
+                body: [
+                  "To reduce clustering, other probing strategies can be used:",
+                  "",
+                  "Quadratic Probing:",
+                  "  h(k, i) = (h(k) + c₁i + c₂i²) mod M",
+                  "  • Reduces primary clustering (secondary clustering still occurs)",
+                  "  • May not probe all slots (M should be prime and c₁, c₂ chosen carefully)",
+                  "",
+                  "Double Hashing:",
+                  "  h(k, i) = (h₁(k) + i·h₂(k)) mod M",
+                  "  • Uses two independent hash functions",
+                  "  • Eliminates clustering",
+                  "  • Requires that h₂(k) and M be relatively prime",
+                  "  • Typically M is prime and h₂(k) = 1 + (k mod (M-1))",
+                  "",
+                  "Double hashing provides the best distribution but is slightly more computationally expensive."
+                ]
+              },
+              {
+                title: "Deletion in Open Addressing — Tombstones",
+                body: [
+                  "Deleting an element from an open addressing hash table is not straightforward. Simply setting the slot to empty would break the probe sequence for subsequent elements that may have been placed after the deleted element.",
+                  "",
+                  "Solution: Lazy deletion using tombstones",
+                  "",
+                  "A tombstone is a special marker indicating that a slot was previously occupied but is now empty. During search and insertion, tombstones are treated as empty slots for insertion but as occupied for search continuation.",
+                  "",
+                  "Insertion algorithm:",
+                  "  • Probe until finding an empty slot or tombstone",
+                  "  • If tombstone, remember position",
+                  "  • If key already exists, update value",
+                  "  • Otherwise, insert at first tombstone or empty slot",
+                  "",
+                  "Search algorithm:",
+                  "  • Probe until finding the key or an empty slot",
+                  "  • Skip over tombstones (they indicate occupied during search)",
+                  "",
+                  "Tombstones accumulate over time, degrading performance. Periodic rehashing can clean them up."
+                ]
+              },
+              {
+                title: "Dynamic Resizing",
+                body: [
+                  "To maintain good performance, hash tables need to resize when the load factor exceeds a threshold (typically 0.7 for open addressing).",
+                  "",
+                  "Resizing process:",
+                  "1. Create a new table with size approximately double (or a prime larger than 2×)",
+                  "2. Rehash all keys from the old table into the new table (tombstones are skipped)",
+                  "3. Replace the old table with the new table",
+                  "",
+                  "Time complexity: O(n) to rehash all elements. Amortized cost over many insertions is O(1) per insertion because resizing occurs infrequently (exponential growth).",
+                  "",
+                  "Choosing new table size: Often choose a prime number approximately 2× the current size to improve distribution with modulo hashing."
                 ]
               }
             ],
             pretest: [
               { question: "What is linear probing?", options: ["Hash then linear search", "Probing slots sequentially from collision point", "Binary search in table", "Chaining"], answerIndex: 1, hint: "Linear probing checks i+1, i+2, etc." },
-              { question: "How is deletion handled in linear probing?", options: ["Remove and shift", "Tombstone (special marker)", "Rehash all", "Compaction"], answerIndex: 1, hint: "Tombstones prevent search breakage." }
+              { question: "How is deletion handled in linear probing?", options: ["Remove and shift", "Tombstone (special marker)", "Rehash all", "Compaction"], answerIndex: 1, hint: "Tombstones prevent search breakage." },
+              { question: "What is primary clustering in linear probing?", options: ["Keys cluster near table start", "Long runs of occupied slots", "All keys in one bucket", "No collisions"], answerIndex: 1, hint: "Primary clustering causes consecutive occupied slots." },
+              { question: "What is a typical load factor threshold for resizing an open addressing hash table?", options: ["0.5", "0.7", "0.9", "1.0"], answerIndex: 1, hint: "Performance degrades rapidly after α > 0.7." },
+              { question: "Which probing method best eliminates clustering?", options: ["Linear probing", "Quadratic probing", "Double hashing", "Chaining"], answerIndex: 2, hint: "Double hashing uses two independent hash functions, virtually eliminating clustering." }
             ],
             procedure: [
               "Open the Code Test tab with open addressing starter code",
@@ -837,7 +1612,10 @@ export const adsCourse: Course = {
             },
             posttest: [
               { question: "What is a tombstone in open addressing?", options: ["Marker for deleted element", "Marker for empty slot", "Marker for end of table", "Marker for duplicate"], answerIndex: 0, hint: "Tombstone indicates a formerly occupied slot." },
-              { question: "Linear probing can cause:", options: ["Secondary clustering", "Primary clustering", "No clustering", "Perfect hashing"], answerIndex: 1, hint: "Linear probing leads to long runs of occupied slots." }
+              { question: "Linear probing can cause:", options: ["Secondary clustering", "Primary clustering", "No clustering", "Perfect hashing"], answerIndex: 1, hint: "Linear probing leads to long runs of occupied slots." },
+              { question: "What is the primary disadvantage of using tombstones?", options: ["Cannot delete elements", "Tombstones accumulate and degrade performance", "Search becomes slower", "Insertion becomes impossible"], answerIndex: 1, hint: "Tombstones occupy space and require periodic rehashing to clean up." },
+              { question: "For linear probing with load factor α, the expected number of probes for an unsuccessful search is approximately:", options: ["1/(1-α)", "1/2(1 + 1/(1-α)²)", "1/2(1 + 1/(1-α))", "1/α"], answerIndex: 1, hint: "Unsuccessful search requires more probes as load factor increases." },
+              { question: "Why is it important to choose a prime table size for linear probing?", options: ["Easier to compute", "Reduces clustering", "Ensures all slots are probed when using certain strategies", "Faster modulo operation"], answerIndex: 2, hint: "Prime size helps ensure that the probe sequence covers all slots." }
             ],
             references: [
               "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 11 on Hash Tables",
@@ -863,20 +1641,96 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "Cuckoo Hashing",
+                title: "Cuckoo Hashing — The Elegant Alternative",
                 body: [
-                  "Uses two hash tables T1 and T2 (or single table with two hash functions).",
-                  "Each key is stored at either T1[h1(k)] or T2[h2(k)], never both.",
-                  "Lookup: check both positions — O(1).",
-                  "Insert: Place at T1[h1(k)]. If occupied, kick the existing key to its alternate location.",
-                  "Continue kicking until empty spot found or cycle detected (max iterations).",
-                  "If cycle, rehash with new hash functions and larger table."
+                  "Cuckoo hashing is a powerful open addressing technique that achieves O(1) worst-case lookup by using two (or more) hash tables and a \"kicking\" strategy during insertion.",
+                  "",
+                  "The name comes from the cuckoo bird, which pushes other eggs out of the nest — similarly, a new key may \"kick out\" an existing key to its alternative location.",
+                  "",
+                  "Standard cuckoo hashing uses two hash functions h1 and h2, and two tables T1 and T2 (or a single table with two hash functions mapping to different ranges)."
+                ]
+              },
+              {
+                title: "Cuckoo Hashing Operations",
+                body: [
+                  "Lookup (O(1) worst-case):",
+                  "  • Check T1[h1(key)] — if match, return value",
+                  "  • Check T2[h2(key)] — if match, return value",
+                  "  • Otherwise, key not present",
+                  "  • This is constant time regardless of load factor!",
+                  "",
+                  "Insertion (amortized O(1)):",
+                  "  • Start with key x at position h1(x) in T1",
+                  "  • For up to maxLoop iterations:",
+                  "     - If T1[h1(x)] is empty, place x there and return",
+                  "     - Otherwise, swap x with the key y currently at T1[h1(x)]",
+                  "     - Move to T2 with key y at position h2(y)",
+                  "     - Continue the same process",
+                  "  • If maxLoop is reached, a cycle is detected → rehash",
+                  "",
+                  "Deletion: Similar to lookup, set the appropriate slot to empty."
+                ]
+              },
+              {
+                title: "Cycle Detection and Rehashing",
+                body: [
+                  "Cuckoo hashing insertions can sometimes enter an infinite loop where keys keep kicking each other in a cycle.",
+                  "",
+                  "Cycle detection: If the number of steps exceeds a threshold (e.g., log n or a constant like 100 times), we assume a cycle exists.",
+                  "",
+                  "When a cycle is detected, rehashing is necessary:",
+                  "1. Choose new hash functions (or new table sizes)",
+                  "2. Create new tables of larger size (typically 2×)",
+                  "3. Reinsert all keys using the new hash functions",
+                  "4. The probability of another cycle is extremely low",
+                  "",
+                  "Expected rehash frequency: O(1/n) per insertion, so amortized cost remains O(1)."
+                ]
+              },
+              {
+                title: "Analysis of Cuckoo Hashing",
+                body: [
+                  "Load factor: For successful operation, cuckoo hashing requires load factor α < 0.5 for two tables. Higher load factors increase the probability of cycles.",
+                  "",
+                  "Space: 2n cells for n elements (twice the space of chaining, but still O(n)).",
+                  "",
+                  "Time:",
+                  "• Lookup: O(1) worst-case (only two checks)",
+                  "• Insertion: O(1) amortized expected (average number of kicks is small)",
+                  "• Deletion: O(1)",
+                  "",
+                  "Variants:",
+                  "• d-ary cuckoo hashing: Use d > 2 hash functions for higher load factors",
+                  "• Cuckoo filter: Space-efficient probabilistic data structure for set membership"
+                ]
+              },
+              {
+                title: "Comparison with Other Hashing Techniques",
+                body: [
+                  "Cuckoo hashing vs Chaining:",
+                  "• Lookup: Cuckoo O(1) worst-case vs chaining O(1) average",
+                  "• Memory: Cuckoo less efficient (need empty slots)",
+                  "• Deletion: Cuckoo simple vs chaining requiring list deletion",
+                  "",
+                  "Cuckoo vs Linear Probing:",
+                  "• Lookup: Cuckoo O(1) worst-case vs linear O(1) average",
+                  "• Cache performance: Linear probing has better locality",
+                  "• Implementation: Cuckoo more complex",
+                  "",
+                  "When to use Cuckoo hashing:",
+                  "• Applications requiring guaranteed constant-time lookups",
+                  "• Real-time systems where worst-case matters",
+                  "• Hardware implementations (network routers, etc.)",
+                  "• When memory is sufficient for lower load factors"
                 ]
               }
             ],
             pretest: [
-              { question: "Cuckoo hashing guarantees which complexity for lookup?", options: ["O(1) worst-case", "O(1) average", "O(log n)", "O(n)"], answerIndex: 0, hint: "Only two positions are checked." },
-              { question: "What happens if a kick cycle is detected?", options: ["Insert fails", "Rehash with new hash functions", "Use chaining", "Delete the key"], answerIndex: 1, hint: "Rehashing resolves cycles." }
+              { question: "Cuckoo hashing guarantees which complexity for lookup?", options: ["O(1) worst-case", "O(1) average", "O(log n)", "O(n)"], answerIndex: 0, hint: "Only two positions are checked, regardless of table size." },
+              { question: "What happens if a kick cycle is detected?", options: ["Insert fails", "Rehash with new hash functions", "Use chaining", "Delete the key"], answerIndex: 1, hint: "Rehashing resolves cycles." },
+              { question: "What is the maximum load factor for standard cuckoo hashing with two tables to work well?", options: ["0.3", "0.5", "0.7", "0.9"], answerIndex: 1, hint: "Load factor > 0.5 increases probability of cycles significantly." },
+              { question: "How many positions are checked in a cuckoo hashing lookup?", options: ["1", "2", "log n", "n"], answerIndex: 1, hint: "Only T1[h1] and T2[h2] are checked." },
+              { question: "Why is cuckoo hashing named after the cuckoo bird?", options: ["Fast like a bird", "Kicks out existing keys like the bird pushes eggs", "Migrates between tables", "Sings while hashing"], answerIndex: 1, hint: "The kicking behavior resembles the cuckoo bird's nesting habits." }
             ],
             procedure: [
               "Open the Code Test tab with cuckoo hashing starter code",
@@ -898,7 +1752,10 @@ export const adsCourse: Course = {
             },
             posttest: [
               { question: "What is the worst-case lookup time in cuckoo hashing?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 0, hint: "Only two positions need to be checked." },
-              { question: "When does a rehash occur in cuckoo hashing?", options: ["Every insert", "When load factor > 0.5", "When a kick cycle is detected", "Never"], answerIndex: 2, hint: "Cycles require rehashing." }
+              { question: "When does a rehash occur in cuckoo hashing?", options: ["Every insert", "When load factor > 0.5", "When a kick cycle is detected", "Never"], answerIndex: 2, hint: "Cycles require rehashing." },
+              { question: "How does d-ary cuckoo hashing (using d > 2 hash functions) improve performance?", options: ["Allows higher load factor", "Reduces memory usage", "Simplifies implementation", "Eliminates need for rehashing"], answerIndex: 0, hint: "More hash functions mean more possible positions, allowing higher load factors." },
+              { question: "What is the amortized time complexity of insertion in cuckoo hashing?", options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"], answerIndex: 0, hint: "Despite occasional rehashes, amortized insertion is O(1)." },
+              { question: "Which of the following is a disadvantage of cuckoo hashing compared to linear probing?", options: ["Worse worst-case lookup", "Better cache performance", "Worse memory efficiency (lower max load factor)", "Slower insertions"], answerIndex: 2, hint: "Cuckoo hashing requires α < 0.5 for good performance, wasting more space." }
             ],
             references: [
               "Pagh, R. and Rodler, F.F. - 'Cuckoo Hashing', Journal of Algorithms, 2004",
@@ -932,28 +1789,133 @@ export const adsCourse: Course = {
             },
             theory: [
               {
-                title: "Trie Properties",
+                title: "Trie — The Prefix Tree",
                 body: [
-                  "A Trie (prefix tree) is a tree data structure for storing strings.",
-                  "Each node represents a character, and paths from root represent prefixes.",
-                  "Root represents empty string.",
-                  "Search time O(m) where m is the string length, independent of number of strings.",
-                  "Space: O(total characters across all strings)."
+                  "A Trie (also called digital tree or prefix tree) is a tree data structure used for efficient string storage and retrieval, especially when dealing with strings that share common prefixes.",
+                  "",
+                  "The name 'Trie' comes from the word 'retrieval', indicating its primary purpose. Unlike binary search trees that compare whole keys, tries compare character by character."
                 ]
               },
               {
-                title: "Applications",
+                title: "Trie Node Structure",
                 body: [
-                  "Autocomplete and predictive text",
-                  "Spell checking and dictionary",
-                  "IP routing (Longest prefix match)",
-                  "String matching algorithms"
+                  "Each node in a Trie typically contains:",
+                  "",
+                  "• Children: An array (or map) of references to child nodes, one for each possible character",
+                  "• isEndOfWord: A boolean flag indicating whether this node marks the end of a valid word",
+                  "• (Optional) Value: For associative tries (like a dictionary)",
+                  "• (Optional) Frequency: Count how many times a word was inserted",
+                  "",
+                  "For lowercase English letters, an array of size 26 is efficient. For Unicode or larger alphabets, a hash map is more appropriate."
+                ]
+              },
+              {
+                title: "Trie Operations — Detailed",
+                body: [
+                  "Insert(word):",
+                  "  node = root",
+                  "  for each character c in word:",
+                  "    if node.children[c] doesn't exist: create it",
+                  "    node = node.children[c]",
+                  "  node.isEndOfWord = true",
+                  "",
+                  "Search(word):",
+                  "  node = root",
+                  "  for each character c in word:",
+                  "    if node.children[c] doesn't exist: return false",
+                  "    node = node.children[c]",
+                  "  return node.isEndOfWord",
+                  "",
+                  "StartsWith(prefix):",
+                  "  node = root",
+                  "  for each character c in prefix:",
+                  "    if node.children[c] doesn't exist: return false",
+                  "    node = node.children[c]",
+                  "  return true  // Prefix exists, not necessarily a word",
+                  "",
+                  "Delete(word) — Recursive:",
+                  "  function delete(node, word, depth):",
+                  "    if depth == word.length:",
+                  "      if not node.isEndOfWord: return false",
+                  "      node.isEndOfWord = false",
+                  "      return node has no children",
+                  "    c = word[depth]",
+                  "    if node.children[c] doesn't exist: return false",
+                  "    shouldDelete = delete(node.children[c], word, depth+1)",
+                  "    if shouldDelete:",
+                  "      delete node.children[c]",
+                  "      return node.isEndOfWord == false and node has no children",
+                  "    return false"
+                ]
+              },
+              {
+                title: "Time and Space Complexity",
+                body: [
+                  "Time Complexity (m = length of string, n = number of strings):",
+                  "• Insert: O(m)",
+                  "• Search: O(m)",
+                  "• StartsWith: O(m)",
+                  "• Delete: O(m)",
+                  "",
+                  "This is independent of the number of strings! Very efficient for prefix-based queries.",
+                  "",
+                  "Space Complexity:",
+                  "• Worst case: O(total characters × alphabet size) if each character creates new nodes at each level",
+                  "• In practice: O(total characters) with shared prefixes",
+                  "",
+                  "Example: Inserting 'cat', 'car', 'dog' uses:",
+                  "• Root → c → a → t (end) and also a → r (end)",
+                  "• Root → d → o → g (end)",
+                  "• Total nodes = 7 (vs 12 characters if no sharing)"
+                ]
+              },
+              {
+                title: "Trie Applications",
+                body: [
+                  "Tries excel in string processing applications:",
+                  "",
+                  "• Autocomplete/Predictive Text: Given a prefix, find all words with that prefix",
+                  "• Spell Checking: Check if a word is in dictionary, suggest corrections",
+                  "• IP Routing (Longest Prefix Match): Find the most specific route for an IP address",
+                  "• Word Games: Boggle, Scrabble word validation",
+                  "• Text Search: Aho-Corasick algorithm uses a Trie variant",
+                  "• DNA Sequence Matching: Storing genetic sequences",
+                  "",
+                  "Variants:",
+                  "• Compressed Trie (Radix Tree): Merges single-child nodes",
+                  "• Ternary Search Tree: Memory-efficient alternative",
+                  "• Suffix Trie/Tree: Stores all suffixes for pattern matching",
+                  "• Patricia Trie: Practical algorithm for radix tree"
+                ]
+              },
+              {
+                title: "Trie vs Hash Table vs BST",
+                body: [
+                  "Trie vs Hash Table:",
+                  "• Trie can find all words with a prefix (hash table cannot)",
+                  "• Trie has O(m) time vs hash table O(1) average",
+                  "• Trie can be memory-intensive for sparse data",
+                  "• Hash table has no ordering, Trie maintains lexicographic order",
+                  "",
+                  "Trie vs BST:",
+                  "• BST has O(log n) time vs Trie O(m)",
+                  "• BST is better when m is large (long strings)",
+                  "• Trie is better for prefix queries",
+                  "",
+                  "When to use Trie:",
+                  "• Many strings share common prefixes",
+                  "• Need prefix search or autocomplete",
+                  "• Alphabet size is small and fixed",
+                  "• String lengths are short to moderate"
                 ]
               }
             ],
             pretest: [
               { question: "What is the time complexity of searching for a word of length m in a Trie?", options: ["O(1)", "O(log n)", "O(m)", "O(n)"], answerIndex: 2, hint: "Trie traverses each character." },
-              { question: "What does the isEndOfWord flag indicate?", options: ["Node has children", "A word ends at this node", "Node is leaf", "Node is root"], answerIndex: 1, hint: "Indicates complete word, not just prefix." }
+              { question: "What does the isEndOfWord flag indicate?", options: ["Node has children", "A word ends at this node", "Node is leaf", "Node is root"], answerIndex: 1, hint: "Indicates complete word, not just prefix." },
+              { question: "What is the space complexity of a Trie storing k words of average length m?", options: ["O(k)", "O(m)", "O(k×m)", "O(log k)"], answerIndex: 2, hint: "Total nodes = total characters across all words." },
+              { question: "Which operation is supported by Trie but not by hash table?", options: ["Insert", "Search", "StartsWith (prefix query)", "Delete"], answerIndex: 2, hint: "Hash tables cannot efficiently find all keys with a given prefix." },
+              { question: "Why is a Trie efficient for autocomplete systems?", options: ["Fast prefix-based lookups", "Compact storage", "Easy to implement", "Low memory usage"], answerIndex: 0, hint: "Tries can quickly find all words sharing a prefix." }
             ],
             procedure: [
               "Open the Code Test tab with Trie starter code",
@@ -978,409 +1940,15 @@ export const adsCourse: Course = {
               ]
             },
             posttest: [
-              { question: "What is the space complexity of a Trie storing k words of average length m?", options: ["O(k)", "O(m)", "O(k*m)", "O(log k)"], answerIndex: 2, hint: "Total nodes = total characters across all words." },
-              { question: "Which operation is not supported efficiently by Trie?", options: ["Insert", "Search", "Deletion of a word", "Finding all words with a prefix (requires traversal)"], answerIndex: 3, hint: "Prefix enumeration requires traversing subtree." }
+              { question: "What is the space complexity of a Trie storing k words of average length m?", options: ["O(k)", "O(m)", "O(k×m)", "O(log k)"], answerIndex: 2, hint: "Total nodes = total characters across all words." },
+              { question: "Which operation is not supported efficiently by Trie?", options: ["Insert", "Search", "Deletion of a word", "Finding all words with a prefix (requires traversal)"], answerIndex: 3, hint: "Prefix enumeration requires traversing subtree." },
+              { question: "What is the primary advantage of a Trie over a binary search tree for string storage?", options: ["Faster insertions", "Better cache locality", "O(m) search independent of number of strings", "Lower memory usage"], answerIndex: 2, hint: "Trie search time depends on string length, not number of strings." },
+              { question: "What is a compressed Trie or Radix Tree?", options: ["Trie with fewer nodes by merging single-child nodes", "Trie with compression algorithm", "Trie stored in compressed format", "Binary tree variation"], answerIndex: 0, hint: "Radix trees compress chains of single-child nodes." },
+              { question: "What is a limitation of the array-based children representation (size 26) in a Trie?", options: ["Too slow", "Wastes memory for sparse alphabets", "Cannot handle uppercase letters", "Only works for numbers"], answerIndex: 1, hint: "For sparse data, most child pointers are null, wasting memory." }
             ],
             references: [
               "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter on String Matching",
               "Sedgewick, R. and Wayne, K. - 'Algorithms', 4th Edition, Section 5.2 on Tries"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      title: "WEEK 10",
-      objective: "Dijkstra's and Bellman-Ford Shortest Path Algorithms",
-      tutorial: "Tutorial 10: Shortest Path Algorithms",
-      labTitle: "Lab 10: Shortest Path",
-      experiments: [
-        {
-          id: "ads-w10-1",
-          title: "Dijkstra's Algorithm using Priority Queue",
-          desc: "Implement Dijkstra's shortest path algorithm using a min-heap as priority queue for weighted graphs with non-negative edges.",
-          expected: "Correct shortest distances from source to all vertices; O((V+E) log V) complexity",
-          content: {
-            aim: {
-              text: "In this experiment, the student will implement Dijkstra's algorithm. The student will:",
-              bullets: [
-                "Represent graph using adjacency list with (neighbor, weight)",
-                "Use a min-heap (priority queue) for efficient extraction of min distance node",
-                "Initialize distances to Infinity, distance[source] = 0",
-                "Relax edges: if dist[u] + w < dist[v], update and push to heap",
-                "Compute shortest paths from source to all vertices"
-              ]
-            },
-            theory: [
-              {
-                title: "Dijkstra's Algorithm",
-                body: [
-                  "Finds shortest paths from source to all vertices in weighted graph with non-negative edge weights.",
-                  "Greedy algorithm: always picks the unvisited vertex with smallest distance.",
-                  "Uses priority queue to get min distance vertex in O(log V).",
-                  "Time complexity: O((V+E) log V) with binary heap.",
-                  "Cannot handle negative edge weights."
-                ]
-              }
-            ],
-            pretest: [
-              { question: "Dijkstra's algorithm requires which property of edge weights?", options: ["Positive only", "Negative allowed", "Zero only", "Integer only"], answerIndex: 0, hint: "Negative edges can cause incorrect results." },
-              { question: "What data structure is used to efficiently extract the minimum distance vertex?", options: ["Stack", "Queue", "Priority Queue (Min-Heap)", "Array"], answerIndex: 2, hint: "Need efficient extraction of min." }
-            ],
-            procedure: [
-              "Open the Code Test tab with Dijkstra starter code",
-              "Implement graph using adjacency list",
-              "Implement min-heap for priority queue or use built-in",
-              "Run Dijkstra from source vertex 0",
-              "Print shortest distances to all vertices",
-              "Test on graph with vertices 0-4 and edges with weights",
-              "Proceed to Posttest"
-            ],
-            simulation: {
-              code: "class MinHeap {\n    constructor() {\n        this.heap = [];\n    }\n    push(node) {\n        this.heap.push(node);\n        this.bubbleUp(this.heap.length - 1);\n    }\n    pop() {\n        const min = this.heap[0];\n        const last = this.heap.pop();\n        if (this.heap.length > 0) {\n            this.heap[0] = last;\n            this.bubbleDown(0);\n        }\n        return min;\n    }\n    bubbleUp(i) {\n        while (i > 0) {\n            const p = Math.floor((i - 1) / 2);\n            if (this.heap[p].dist > this.heap[i].dist) {\n                [this.heap[p], this.heap[i]] = [this.heap[i], this.heap[p]];\n                i = p;\n            } else break;\n        }\n    }\n    bubbleDown(i) {\n        const n = this.heap.length;\n        while (true) {\n            let smallest = i;\n            const l = 2*i+1, r = 2*i+2;\n            if (l < n && this.heap[l].dist < this.heap[smallest].dist) smallest = l;\n            if (r < n && this.heap[r].dist < this.heap[smallest].dist) smallest = r;\n            if (smallest !== i) {\n                [this.heap[i], this.heap[smallest]] = [this.heap[smallest], this.heap[i]];\n                i = smallest;\n            } else break;\n        }\n    }\n    isEmpty() { return this.heap.length === 0; }\n}\n\nfunction dijkstra(graph, src, V) {\n    const dist = new Array(V).fill(Infinity);\n    dist[src] = 0;\n    const pq = new MinHeap();\n    pq.push({ node: src, dist: 0 });\n    \n    while (!pq.isEmpty()) {\n        const { node: u, dist: d } = pq.pop();\n        if (d > dist[u]) continue;\n        \n        for (const [v, weight] of graph[u]) {\n            if (dist[u] + weight < dist[v]) {\n                dist[v] = dist[u] + weight;\n                pq.push({ node: v, dist: dist[v] });\n            }\n        }\n    }\n    return dist;\n}\n\n// Test\nconst V = 5;\nconst graph = [\n    [[1, 4], [2, 1]],   // 0 → 1(4), 2(1)\n    [[3, 1]],           // 1 → 3(1)\n    [[1, 2], [3, 5]],   // 2 → 1(2), 3(5)\n    [[4, 3]],           // 3 → 4(3)\n    []                  // 4\n];\nconst distances = dijkstra(graph, 0, V);\nconsole.log(distances); // [0, 3, 1, 4, 7]",
-              steps: [
-                { line: 1, annotation: "Min-heap for priority queue", memory: [], output: "Heap operations defined" },
-                { line: 2, annotation: "Dijkstra: relax edges from min distance node", memory: [], output: "Distances computed" },
-                { line: 3, annotation: "Test graph", memory: [], output: "[0,3,1,4,7]" }
-              ]
-            },
-            posttest: [
-              { question: "Dijkstra's algorithm on a graph with V vertices and E edges using binary heap has complexity:", options: ["O(V^2)", "O(E log V)", "O(V+E)", "O(V log V)"], answerIndex: 1, hint: "V extract-min operations O(log V), E decrease-key operations O(log V)." },
-              { question: "What happens if Dijkstra's algorithm runs on a graph with negative edge weights?", options: ["Works correctly", "May produce incorrect results", "Runs faster", "Always fails"], answerIndex: 1, hint: "Negative edges violate greedy property." }
-            ],
-            references: [
-              "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 24 on Single-Source Shortest Paths",
-              "Sedgewick, R. and Wayne, K. - 'Algorithms', 4th Edition, Section 4.4 on Shortest Paths"
-            ]
-          }
-        },
-        {
-          id: "ads-w10-2",
-          title: "Bellman-Ford Algorithm",
-          desc: "Implement Bellman-Ford algorithm for shortest path in graphs that may have negative edge weights. Detect negative weight cycles.",
-          expected: "Correct shortest distances; detect and report negative cycles",
-          content: {
-            aim: {
-              text: "In this experiment, the student will implement Bellman-Ford algorithm. The student will:",
-              bullets: [
-                "Represent edges as list of (u, v, weight)",
-                "Run V-1 relaxation passes over all edges",
-                "Perform an extra pass to detect negative cycles",
-                "Output shortest distances or report negative cycle"
-              ]
-            },
-            theory: [
-              {
-                title: "Bellman-Ford Algorithm",
-                body: [
-                  "Finds shortest paths from source in graphs with negative edge weights.",
-                  "Performs relaxation of all edges V-1 times — each pass guarantees shortest paths with up to k edges.",
-                  "Time complexity: O(V*E).",
-                  "After V-1 passes, if any edge can still be relaxed, a negative cycle exists."
-                ]
-              }
-            ],
-            pretest: [
-              { question: "How many relaxation passes does Bellman-Ford perform?", options: ["1", "V", "V-1", "E-1"], answerIndex: 2, hint: "Each pass propagates distances one more edge." },
-              { question: "What does a successful relaxation in the V-th pass indicate?", options: ["Success", "Negative cycle detected", "Graph is disconnected", "All distances final"], answerIndex: 1, hint: "No more relaxations should be possible after V-1 passes." }
-            ],
-            procedure: [
-              "Open the Code Test tab with Bellman-Ford starter code",
-              "Store edges in array format (from, to, weight)",
-              "Initialize distances array with Infinity, source = 0",
-              "Run V-1 passes: for each edge, if dist[u] + w < dist[v], update dist[v]",
-              "Run one more pass: if any edge can be relaxed, report negative cycle",
-              "Test on graph with negative edge (no cycle) and graph with negative cycle",
-              "Proceed to Posttest"
-            ],
-            simulation: {
-              code: "function bellmanFord(edges, V, src) {\n    const dist = new Array(V).fill(Infinity);\n    dist[src] = 0;\n\n    // Relax V-1 times\n    for (let i = 1; i <= V - 1; i++) {\n        let relaxed = false;\n        for (const [u, v, w] of edges) {\n            if (dist[u] !== Infinity && dist[u] + w < dist[v]) {\n                dist[v] = dist[u] + w;\n                relaxed = true;\n            }\n        }\n        if (!relaxed) break;\n    }\n\n    // Check for negative cycle\n    for (const [u, v, w] of edges) {\n        if (dist[u] !== Infinity && dist[u] + w < dist[v]) {\n            return { hasNegativeCycle: true, distances: null };\n        }\n    }\n    return { hasNegativeCycle: false, distances: dist };\n}\n\n// Test 1: No negative cycle\nconst edges1 = [\n    [0, 1, 4], [0, 2, 1],\n    [1, 3, 1], [2, 1, 2],\n    [2, 3, 5], [3, 4, 3]\n];\nconsole.log(bellmanFord(edges1, 5, 0)); // distances: [0,3,1,4,7]\n\n// Test 2: With negative cycle\nconst edges2 = [\n    [0, 1, 1], [1, 2, 1],\n    [2, 0, -3]  // cycle 0→1→2→0: total -1\n];\nconsole.log(bellmanFord(edges2, 3, 0)); // hasNegativeCycle: true",
-              steps: [
-                { line: 1, annotation: "V-1 relaxation passes", memory: [], output: "distances propagated" },
-                { line: 2, annotation: "Extra pass for negative cycle detection", memory: [], output: "Cycle detected if any edge relaxes" },
-                { line: 3, annotation: "Test with negative cycle", memory: [], output: "Cycle detected: true" }
-              ]
-            },
-            posttest: [
-              { question: "Bellman-Ford time complexity is:", options: ["O(V+E)", "O(V log V)", "O(V*E)", "O(E log V)"], answerIndex: 2, hint: "V-1 passes, each over E edges." },
-              { question: "What does Bellman-Ford return for a graph with a negative cycle reachable from source?", options: ["Shortest path", "Error/negative cycle report", "Infinite loop", "Zero distances"], answerIndex: 1, hint: "Negative cycles mean no finite shortest path." }
-            ],
-            references: [
-              "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 24.1 on Bellman-Ford",
-              "Sedgewick, R. and Wayne, K. - 'Algorithms', 4th Edition, Section 4.4 on Bellman-Ford"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      title: "WEEK 11",
-      objective: "Kruskal's and Prim's Minimum Spanning Tree Algorithms",
-      tutorial: "Tutorial 11: Minimum Spanning Tree",
-      labTitle: "Lab 11: MST",
-      experiments: [
-        {
-          id: "ads-w11-1",
-          title: "Kruskal's Algorithm using Union-Find",
-          desc: "Implement Kruskal's algorithm to find Minimum Spanning Tree (MST) using Union-Find (DSU) for cycle detection.",
-          expected: "MST with total minimum weight; edges sorted by weight",
-          content: {
-            aim: {
-              text: "In this experiment, the student will implement Kruskal's algorithm. The student will:",
-              bullets: [
-                "Sort graph edges by weight in ascending order",
-                "Initialize DSU with V vertices",
-                "Iterate through edges: if find(u) != find(v), add edge to MST and union(u,v)",
-                "Stop when V-1 edges are selected",
-                "Compute total MST weight"
-              ]
-            },
-            theory: [
-              {
-                title: "Kruskal's Algorithm",
-                body: [
-                  "Greedy algorithm for MST.",
-                  "Sort all edges by weight.",
-                  "Add edges in increasing weight order if they don't create a cycle.",
-                  "Cycle detection using Union-Find (DSU).",
-                  "Time complexity: O(E log E) for sorting + O(E α(V)) for DSU operations."
-                ]
-              }
-            ],
-            pretest: [
-              { question: "How many edges are in a spanning tree of V vertices?", options: ["V", "V-1", "V+1", "2V-2"], answerIndex: 1, hint: "Tree has V-1 edges." },
-              { question: "What data structure detects cycles in Kruskal's algorithm?", options: ["Stack", "Queue", "Union-Find (DSU)", "Heap"], answerIndex: 2, hint: "DSU checks connectivity efficiently." }
-            ],
-            procedure: [
-              "Open the Code Test tab with Kruskal starter code",
-              "Define edges list with (u, v, weight)",
-              "Sort edges by weight",
-              "Implement DSU (Union-Find) with path compression",
-              "Iterate edges: if not connected, add to MST and union",
-              "Stop when MST has V-1 edges",
-              "Compute total MST weight",
-              "Proceed to Posttest"
-            ],
-            simulation: {
-              code: "class DSU {\n    constructor(n) {\n        this.parent = Array(n).fill().map((_, i) => i);\n        this.rank = Array(n).fill(0);\n    }\n    find(x) {\n        if (this.parent[x] !== x) this.parent[x] = this.find(this.parent[x]);\n        return this.parent[x];\n    }\n    union(x, y) {\n        const rx = this.find(x), ry = this.find(y);\n        if (rx === ry) return false;\n        if (this.rank[rx] < this.rank[ry]) this.parent[rx] = ry;\n        else if (this.rank[rx] > this.rank[ry]) this.parent[ry] = rx;\n        else { this.parent[ry] = rx; this.rank[rx]++; }\n        return true;\n    }\n}\n\nfunction kruskal(edges, V) {\n    edges.sort((a, b) => a[2] - b[2]);\n    const dsu = new DSU(V);\n    const mst = [];\n    let totalWeight = 0;\n    \n    for (const [u, v, w] of edges) {\n        if (dsu.union(u, v)) {\n            mst.push([u, v, w]);\n            totalWeight += w;\n            if (mst.length === V - 1) break;\n        }\n    }\n    return { mst, totalWeight };\n}\n\n// Test\nconst edges = [\n    [0, 1, 4], [0, 2, 1], [1, 2, 2],\n    [1, 3, 5], [2, 3, 8], [2, 4, 10],\n    [3, 4, 2], [3, 5, 6], [4, 5, 3]\n];\nconst result = kruskal(edges, 6);\nconsole.log('MST edges:', result.mst);\nconsole.log('Total weight:', result.totalWeight);",
-              steps: [
-                { line: 1, annotation: "DSU for cycle detection", memory: [], output: "Union-Find ready" },
-                { line: 2, annotation: "Sort edges by weight", memory: [], output: "Edges sorted" },
-                { line: 3, annotation: "Add edge if it connects different components", memory: [], output: "MST built" }
-              ]
-            },
-            posttest: [
-              { question: "Kruskal's algorithm time complexity dominated by:", options: ["DSU operations", "Sorting edges", "Traversing vertices", "Union operations"], answerIndex: 1, hint: "Sorting O(E log E) is dominant." },
-              { question: "A graph has multiple MSTs when:", options: ["All edges unique", "Equal weight edges exist", "Graph is disconnected", "Graph is complete"], answerIndex: 1, hint: "Equal weights allow alternative choices." }
-            ],
-            references: [
-              "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 23 on MST",
-              "Sedgewick, R. and Wayne, K. - 'Algorithms', 4th Edition, Section 4.3 on Minimum Spanning Trees"
-            ]
-          }
-        },
-        {
-          id: "ads-w11-2",
-          title: "Prim's Algorithm using Priority Queue",
-          desc: "Implement Prim's algorithm for MST using a min-heap (priority queue) for efficient extraction of minimum weight edge.",
-          expected: "MST with total minimum weight; O((V+E) log V) complexity",
-          content: {
-            aim: {
-              text: "In this experiment, the student will implement Prim's algorithm. The student will:",
-              bullets: [
-                "Initialize MST set and key[] array with Infinity, key[0]=0",
-                "Use min-heap to extract vertex with minimum key",
-                "Update neighbors: if weight < neighbor's key, update and push to heap",
-                "Accumulate total MST weight"
-              ]
-            },
-            theory: [
-              {
-                title: "Prim's Algorithm",
-                body: [
-                  "Greedy algorithm for MST that builds tree incrementally.",
-                  "Start from an arbitrary root vertex.",
-                  "At each step, add the smallest weight edge connecting the tree to a vertex not yet in the tree.",
-                  "Using binary heap: O((V+E) log V) or O(V^2) with adjacency matrix for dense graphs."
-                ]
-              }
-            ],
-            pretest: [
-              { question: "Prim's algorithm starts from:", options: ["Smallest weight edge", "Any vertex", "Highest degree vertex", "Random edge"], answerIndex: 1, hint: "MST independent of starting vertex." },
-              { question: "Prim's algorithm is similar to:", options: ["Dijkstra's algorithm", "Bellman-Ford", "Kruskal's", "Floyd-Warshall"], answerIndex: 0, hint: "Both use priority queue and grow frontier." }
-            ],
-            procedure: [
-              "Open the Code Test tab with Prim starter code",
-              "Build adjacency list representation",
-              "Initialize key array with Infinity, key[0]=0, parent array",
-              "Use min-heap to extract min key vertex",
-              "Relax neighbors: if weight < key[neighbor], update key and parent",
-              "Add weight to MST total when vertex is extracted (except first)",
-              "Proceed to Posttest"
-            ],
-            simulation: {
-              code: "class MinHeap {\n    constructor() { this.heap = []; }\n    push(node) { this.heap.push(node); this._bubbleUp(this.heap.length-1); }\n    pop() { const min = this.heap[0]; const last = this.heap.pop(); if (this.heap.length) { this.heap[0] = last; this._bubbleDown(0); } return min; }\n    isEmpty() { return this.heap.length === 0; }\n    _bubbleUp(i) { while(i>0) { const p = Math.floor((i-1)/2); if(this.heap[p].key > this.heap[i].key) { [this.heap[p], this.heap[i]] = [this.heap[i], this.heap[p]]; i=p; } else break; } }\n    _bubbleDown(i) { const n = this.heap.length; while(true) { let smallest = i; const l=2*i+1, r=2*i+2; if(l<n && this.heap[l].key<this.heap[smallest].key) smallest=l; if(r<n && this.heap[r].key<this.heap[smallest].key) smallest=r; if(smallest!==i) { [this.heap[i], this.heap[smallest]] = [this.heap[smallest], this.heap[i]]; i=smallest; } else break; } }\n}\n\nfunction prim(graph, V) {\n    const key = new Array(V).fill(Infinity);\n    const inMST = new Array(V).fill(false);\n    const parent = new Array(V).fill(-1);\n    key[0] = 0;\n    const pq = new MinHeap();\n    pq.push({ vertex: 0, key: 0 });\n    let totalWeight = 0;\n\n    while (!pq.isEmpty()) {\n        const { vertex: u } = pq.pop();\n        if (inMST[u]) continue;\n        inMST[u] = true;\n        totalWeight += key[u];\n\n        for (const [v, weight] of graph[u]) {\n            if (!inMST[v] && weight < key[v]) {\n                key[v] = weight;\n                parent[v] = u;\n                pq.push({ vertex: v, key: weight });\n            }\n        }\n    }\n    return { totalWeight, parent };\n}\n\n// Test\nconst V = 5;\nconst graph = [\n    [[1, 2], [3, 6]],\n    [[0, 2], [2, 3], [3, 8], [4, 5]],\n    [[1, 3], [4, 7]],\n    [[0, 6], [1, 8], [4, 9]],\n    [[1, 5], [2, 7], [3, 9]]\n];\nconst result = prim(graph, V);\nconsole.log('MST total weight:', result.totalWeight);\nconsole.log('Parent array:', result.parent);",
-              steps: [
-                { line: 1, annotation: "Min-heap for extracting min key vertex", memory: [], output: "Heap ready" },
-                { line: 2, annotation: "Prim: add min key vertex to MST", memory: [], output: "MST built" },
-                { line: 3, annotation: "Update keys of adjacent vertices", memory: [], output: "Optimistic update" }
-              ]
-            },
-            posttest: [
-              { question: "Prim's algorithm with binary heap has complexity:", options: ["O(V^2)", "O(E log V)", "O(V log V)", "O(V+E)"], answerIndex: 1, hint: "Extract-min and decrease-key operations." },
-              { question: "For dense graphs, which MST algorithm is better?", options: ["Kruskal's", "Prim's with adjacency matrix O(V^2)", "Both same", "Bellman-Ford"], answerIndex: 1, hint: "Adjacency matrix Prim is O(V^2), good for dense." }
-            ],
-            references: [
-              "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 23 on MST",
-              "Sedgewick, R. and Wayne, K. - 'Algorithms', 4th Edition, Section 4.3 on Prim's Algorithm"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      title: "WEEK 12",
-      objective: "BFS and DFS Traversal of Graphs",
-      tutorial: "Tutorial 12: Graph Traversals",
-      labTitle: "Lab 12: BFS and DFS",
-      experiments: [
-        {
-          id: "ads-w12-1",
-          title: "BFS and DFS Implementation",
-          desc: "Implement Breadth-First Search (BFS) and Depth-First Search (DFS) for graph traversal. For DFS, implement both recursive and iterative versions.",
-          expected: "Correct order of visited vertices; detect connected components; compute shortest path in unweighted graph using BFS",
-          content: {
-            aim: {
-              text: "In this experiment, the student will implement BFS and DFS traversals. The student will:",
-              bullets: [
-                "Build adjacency list representation of a graph",
-                "Implement BFS using a queue",
-                "Implement DFS recursive and iterative (using stack)",
-                "Track visited nodes to avoid cycles",
-                "Find number of connected components",
-                "Use BFS to compute shortest path in unweighted graph"
-              ]
-            },
-            theory: [
-              {
-                title: "Breadth-First Search (BFS)",
-                body: [
-                  "Traverses graph level by level.",
-                  "Uses a queue to process vertices.",
-                  "Finds shortest path in unweighted graphs.",
-                  "Time complexity: O(V+E)."
-                ]
-              },
-              {
-                title: "Depth-First Search (DFS)",
-                body: [
-                  "Traverses as far as possible before backtracking.",
-                  "Recursive implementation uses call stack; iterative uses explicit stack.",
-                  "Used for topological sorting, cycle detection, strongly connected components.",
-                  "Time complexity: O(V+E)."
-                ]
-              }
-            ],
-            pretest: [
-              { question: "Which data structure is used for BFS?", options: ["Stack", "Queue", "Priority Queue", "Array"], answerIndex: 1, hint: "FIFO gives level order." },
-              { question: "Which traversal guarantees shortest path in unweighted graph?", options: ["DFS", "BFS", "Both", "Neither"], answerIndex: 1, hint: "BFS explores level by level." }
-            ],
-            procedure: [
-              "Open the Code Test tab with graph starter code",
-              "Define graph as adjacency list",
-              "Implement BFS using queue (visited array)",
-              "Implement DFS recursive (function calls itself)",
-              "Implement DFS iterative (explicit stack)",
-              "Test on sample graph with 6 vertices",
-              "Compute connected components count",
-              "Use BFS to find shortest path from source to target",
-              "Proceed to Posttest"
-            ],
-            simulation: {
-              code: "class Graph {\n    constructor(V) {\n        this.V = V;\n        this.adj = new Array(V).fill().map(() => []);\n    }\n    addEdge(u, v) {\n        this.adj[u].push(v);\n        this.adj[v].push(u); // undirected\n    }\n    bfs(start) {\n        const visited = new Array(this.V).fill(false);\n        const queue = [];\n        const order = [];\n        visited[start] = true;\n        queue.push(start);\n        while (queue.length) {\n            const u = queue.shift();\n            order.push(u);\n            for (const v of this.adj[u]) {\n                if (!visited[v]) {\n                    visited[v] = true;\n                    queue.push(v);\n                }\n            }\n        }\n        return order;\n    }\n    dfsRecursive(start, visited = new Array(this.V).fill(false), order = []) {\n        visited[start] = true;\n        order.push(start);\n        for (const v of this.adj[start]) {\n            if (!visited[v]) this.dfsRecursive(v, visited, order);\n        }\n        return order;\n    }\n    dfsIterative(start) {\n        const visited = new Array(this.V).fill(false);\n        const stack = [];\n        const order = [];\n        stack.push(start);\n        while (stack.length) {\n            const u = stack.pop();\n            if (!visited[u]) {\n                visited[u] = true;\n                order.push(u);\n                for (const v of this.adj[u]) {\n                    if (!visited[v]) stack.push(v);\n                }\n            }\n        }\n        return order;\n    }\n    shortestPathBFS(start, target) {\n        const visited = new Array(this.V).fill(false);\n        const dist = new Array(this.V).fill(Infinity);\n        const parent = new Array(this.V).fill(-1);\n        const queue = [];\n        visited[start] = true;\n        dist[start] = 0;\n        queue.push(start);\n        while (queue.length) {\n            const u = queue.shift();\n            if (u === target) break;\n            for (const v of this.adj[u]) {\n                if (!visited[v]) {\n                    visited[v] = true;\n                    dist[v] = dist[u] + 1;\n                    parent[v] = u;\n                    queue.push(v);\n                }\n            }\n        }\n        return dist[target] !== Infinity ? dist[target] : -1;\n    }\n}\n\n// Test\nconst g = new Graph(6);\ng.addEdge(0, 1);\ng.addEdge(0, 2);\ng.addEdge(1, 3);\ng.addEdge(2, 4);\ng.addEdge(3, 4);\ng.addEdge(3, 5);\n\nconsole.log('BFS from 0:', g.bfs(0));\nconsole.log('DFS recursive from 0:', g.dfsRecursive(0));\nconsole.log('DFS iterative from 0:', g.dfsIterative(0));\nconsole.log('Shortest path 0→5:', g.shortestPathBFS(0, 5));",
-              steps: [
-                { line: 1, annotation: "BFS using queue — level order", memory: [], output: "[0,1,2,3,4,5]" },
-                { line: 2, annotation: "DFS recursive — deep traversal", memory: [], output: "[0,1,3,4,2,5]" },
-                { line: 3, annotation: "DFS iterative with stack", memory: [], output: "Different order but valid DFS" },
-                { line: 4, annotation: "BFS for shortest path in unweighted graph", memory: [], output: "Distance 0→5 = 3" }
-              ]
-            },
-            posttest: [
-              { question: "BFS on a graph with V vertices and E edges has complexity:", options: ["O(V)", "O(E)", "O(V+E)", "O(V*E)"], answerIndex: 2, hint: "Each vertex and edge processed once." },
-              { question: "Which traversal can be used to detect cycles in a graph?", options: ["BFS only", "DFS only", "Both BFS and DFS", "Neither"], answerIndex: 2, hint: "Back edges in DFS indicate cycles." }
-            ],
-            references: [
-              "Cormen, T.H. et al. - 'Introduction to Algorithms', 3rd Edition, MIT Press, Chapter 22 on Graph Traversals",
-              "Sedgewick, R. and Wayne, K. - 'Algorithms', 4th Edition, Section 4.1 on BFS and DFS"
-            ]
-          }
-        }
-      ]
-    },
-    {
-      title: "WEEK 13-14",
-      objective: "Mini-Project — Autocomplete Search System",
-      tutorial: "Project: Integrated Application",
-      labTitle: "Project: Autocomplete Search using Trie and Ranking",
-      experiments: [
-        {
-          id: "ads-w13-1",
-          title: "Project — Autocomplete Search with Trie and Frequency Ranking",
-          desc: "Design and implement a mini-application for autocomplete search. Use Trie to store words and a priority system to rank suggestions by frequency or recency.",
-          expected: "Working autocomplete system with O(m) prefix search and ranked suggestions",
-          content: {
-            aim: {
-              text: "In this project, the student will integrate multiple data structures into a complete application. The student will:",
-              bullets: [
-                "Build a Trie of words from a corpus/dictionary",
-                "Store frequency/weight at each node",
-                "Implement autocomplete(prefix) returning top-k suggestions",
-                "Implement ranking (by frequency, alphabetical, or custom)",
-                "Create a simple UI (or console) for user interaction",
-                "Load dictionary from a file (or predefined word list)"
-              ]
-            },
-            theory: [
-              {
-                title: "Autocomplete System Design",
-                body: [
-                  "Trie provides O(m) prefix search.",
-                  "Each node stores top k suggestions for that prefix (optimization).",
-                  "Alternative: Store all words in node's subtree, then sort by weight.",
-                  "Ranking factors: frequency, recency, alphabetical, user history."
-                ]
-              }
-            ],
-            pretest: [
-              { question: "What data structure is best for prefix-based search?", options: ["Hash Table", "Trie", "Binary Search Tree", "Array"], answerIndex: 1, hint: "Trie excels at prefix operations." },
-              { question: "How can we make autocomplete suggestions faster for frequent queries?", options: ["Store top K suggestions at each node", "Use more memory", "Compress the trie", "All of the above"], answerIndex: 3, hint: "Multiple optimizations possible." }
-            ],
-            procedure: [
-              "Plan the project architecture: data loading, trie construction, query processing, ranking",
-              "Implement TrieNode with children, isEnd, frequency, and topSuggestions array",
-              "During insertion, update frequencies at each node",
-              "Implement getSuggestions(prefix) that returns top-k ranked words",
-              "Test with sample dictionary of 100+ words",
-              "(Optional) Build a simple web UI using HTML/CSS/JS",
-              "Demonstrate autocomplete as user types",
-              "Proceed to Project Submission"
-            ],
-            simulation: {
-              code: "class AutocompleteNode {\n    constructor() {\n        this.children = new Array(26).fill(null);\n        this.isEnd = false;\n        this.frequency = 0;\n        this.topSuggestions = []; // store top k suggestions at this node\n    }\n}\n\nclass AutocompleteSystem {\n    constructor(topK = 5) {\n        this.root = new AutocompleteNode();\n        this.topK = topK;\n    }\n\n    charToIndex(ch) {\n        return ch.charCodeAt(0) - 'a'.charCodeAt(0);\n    }\n\n    insert(word, freq = 1) {\n        let node = this.root;\n        for (let i = 0; i < word.length; i++) {\n            const idx = this.charToIndex(word[i]);\n            if (!node.children[idx]) node.children[idx] = new AutocompleteNode();\n            node = node.children[idx];\n            // Update top suggestions at each node\n            if (!node.topSuggestions.includes(word)) {\n                node.topSuggestions.push(word);\n                node.topSuggestions.sort((a, b) => this.getFrequency(b) - this.getFrequency(a));\n                if (node.topSuggestions.length > this.topK) node.topSuggestions.pop();\n            }\n        }\n        node.isEnd = true;\n        node.frequency += freq;\n        // Propagate frequency update for ranking\n        node = this.root;\n        for (let i = 0; i < word.length; i++) {\n            const idx = this.charToIndex(word[i]);\n            node = node.children[idx];\n            node.topSuggestions.sort((a, b) => this.getFrequency(b) - this.getFrequency(a));\n        }\n    }\n\n    getFrequency(word) {\n        let node = this.root;\n        for (let i = 0; i < word.length; i++) {\n            const idx = this.charToIndex(word[i]);\n            if (!node.children[idx]) return 0;\n            node = node.children[idx];\n        }\n        return node.isEnd ? node.frequency : 0;\n    }\n\n    autocomplete(prefix) {\n        let node = this.root;\n        for (let i = 0; i < prefix.length; i++) {\n            const idx = this.charToIndex(prefix[i]);\n            if (!node.children[idx]) return [];\n            node = node.children[idx];\n        }\n        return node.topSuggestions.slice();\n    }\n\n    // Bulk insert from corpus\n    buildFromCorpus(words) {\n        for (const word of words) {\n            this.insert(word);\n        }\n    }\n}\n\n// Test\nconst corpus = ['cat', 'car', 'cart', 'catalog', 'catapult', 'category', 'cater', 'cattle', 'ca', 'c'];\nconst autocomplete = new AutocompleteSystem(3);\nautocomplete.buildFromCorpus(corpus);\n\nconsole.log('Suggestions for \"ca\":', autocomplete.autocomplete('ca'));\nconsole.log('Suggestions for \"cat\":', autocomplete.autocomplete('cat'));\nconsole.log('Suggestions for \"cata\":', autocomplete.autocomplete('cata'));\n\n// Simulate user selecting a word — increase frequency\nautocomplete.insert('catapult', 1); // increase frequency of 'catapult'\nconsole.log('After boosting \"catapult\":', autocomplete.autocomplete('cat'));",
-              steps: [
-                { line: 1, annotation: "Trie node with topK suggestions cache", memory: [], output: "Node structure for autocomplete" },
-                { line: 2, annotation: "Insert updates top suggestions at each prefix node", memory: [], output: "Ranked suggestions stored" },
-                { line: 3, annotation: "autocomplete returns topK suggestions", memory: [], output: "O(m) prefix lookup" },
-                { line: 4, annotation: "Frequency tracking for ranking", memory: [], output: "Dynamic ranking based on usage" }
-              ]
-            },
-            posttest: [
-              { question: "What is the space-time tradeoff in storing topK suggestions at each node?", options: ["More memory, faster queries", "Less memory, slower queries", "No tradeoff", "Only time affected"], answerIndex: 0, hint: "Cache precomputes results." },
-              { question: "How can we handle non-English characters (Unicode) in Trie?", options: ["Use array of size 128/256", "Use Map instead of array", "Use Unicode normalization", "All of the above"], answerIndex: 3, hint: "Multiple approaches exist." }
-            ],
-            references: [
-              "Sedgewick, R. and Wayne, K. - 'Algorithms', 4th Edition, Section 5.2 on Tries and String Algorithms",
-              "Manning, C.D. et al. - 'Introduction to Information Retrieval', Cambridge UP, Chapter on Indexing"
             ]
           }
         }
