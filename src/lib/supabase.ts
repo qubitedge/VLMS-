@@ -25,6 +25,12 @@ export type Profile = {
   name: string;
   college: string;
   interests: string[];
+  skills: string[] | null;
+  degree: string | null;
+  branch: string | null;
+  year_of_study: string | null;
+  graduation_year: number | null;
+  bio: string | null;
   created_at: string;
   updated_at: string;
 };
