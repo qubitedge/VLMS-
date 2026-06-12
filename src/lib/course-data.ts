@@ -32,7 +32,7 @@ export type ExperimentContent = {
   theory?: { title: string; body: string[] }[];
   pretest?: MCQ[];
   procedure?: string[];
-  simulation?: SimulationData;
+  simulation?: SimulationData | string;
   posttest?: MCQ[];
   references?: string[];
 };
@@ -41,9 +41,11 @@ export type Experiment = {
   id: string;
   title: string;
   desc: string;
-  expected: string;
+  expected?: string;
+  code?: string;
   content?: ExperimentContent;
 };
+
 
 export type Week = {
   title: string;

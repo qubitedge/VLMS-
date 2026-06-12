@@ -458,6 +458,12 @@ useEffect(() => {
                                  <img src="/ml-unit1.png" alt="Unit 1 Introduction to ML" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
                               </div>
                             )}
+                            {course.id === 'python' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-cyan/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-cyan/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/python_unit1.png" alt="Unit 1 Introduction to Python Programming" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
                           </div>
                         );
                       }
@@ -482,6 +488,12 @@ useEffect(() => {
                               <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-indigo-400/40 flex justify-center group relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                  <img src="/ml-unit2.png" alt="Unit 2 Tree Based and Ensemble Learning" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'python' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-indigo-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/python_unit2.png" alt="Unit 2 Functions, Strings, and Lists" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
                               </div>
                             )}
                           </div>
@@ -510,6 +522,12 @@ useEffect(() => {
                                  <img src="/ml-unit3.png" alt="Unit 3 Linear Models and Probabilistic Learning" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
                               </div>
                             )}
+                            {course.id === 'python' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-purple-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/python_unit3.svg" alt="Unit 3 Dictionaries, Tuples, and Sets" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
                           </div>
                         );
                       }
@@ -536,6 +554,12 @@ useEffect(() => {
                                  <img src="/ml-unit4.png" alt="Unit 4 Neural Networks" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
                               </div>
                             )}
+                            {course.id === 'python' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-emerald-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/python_unit4.png" alt="Unit 4 Files and Object-Oriented Programming" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
                           </div>
                         );
                       }
@@ -560,6 +584,12 @@ useEffect(() => {
                               <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-rose-400/40 flex justify-center group relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-r from-rose-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                  <img src="/ml-unit5.png" alt="Unit 5 Clustering Algorithms" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
+                              </div>
+                            )}
+                            {course.id === 'python' && (
+                              <div className="my-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-rose-400/40 flex justify-center group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-rose-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 <img src="/python_unit5.png" alt="Unit 5 Introduction to Data Science" className="max-w-full rounded-xl hover:scale-105 transition-transform duration-500 shadow-sm relative z-10" />
                               </div>
                             )}
                           </div>

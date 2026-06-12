@@ -64,6 +64,7 @@ import { AVLTreeSim } from "@/components/simulations/AVLTreeSim";
 import { AVLDeletionSim } from "@/components/simulations/AVLDeletionSim";
 import { RedBlackSim } from "@/components/simulations/RedBlackSim";
 import { BTreeSim } from "@/components/simulations/BTreeSim";
+import { PythonInterpreterCampaign } from "@/components/simulations/PythonInterpreterCampaign";
 import { BPlusTreeSim } from "@/components/simulations/BPlusTreeSim";
 import { SegmentTreeSim } from "@/components/simulations/SegmentTreeSim";
 import { FenwickCitySim } from "@/components/simulations/FenwickCitySim";
@@ -75,7 +76,7 @@ import { TrieSim } from "@/components/simulations/TrieSim";
 import { PathfinderSim } from "@/components/simulations/PathfinderSim";
 import { BellmanFordSim } from "@/components/simulations/BellmanFordSim";
 import { KruskalSim } from "@/components/simulations/KruskalSim";
-import { PrimAlgorithmSim, PrimSim } from "@/components/simulations/PrimSim";
+import { PrimAlgorithmSim } from "@/components/simulations/PrimSim";
 import { GraphRaidersSim } from "@/components/simulations/GraphRaidersSim";
 
 type WorkspaceSearch = {
@@ -1000,7 +1001,7 @@ except BaseException:
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 text-sm text-muted-foreground">
               {details ? (
-                <Link to={`/course/${details.course.id}`} hash="experiments" className="hover:text-foreground flex items-center gap-1">
+                <Link to={`/course/${details.course.id}` as any} hash="experiments" className="hover:text-foreground flex items-center gap-1">
                   <ArrowLeft className="size-3.5" /> Back to {courseTitle}
                 </Link>
               ) : (
@@ -1379,7 +1380,7 @@ except BaseException:
                 // @ts-ignore - content is dynamically added
                 const content = details?.experiment?.content;
                 
-                if (!content || !content[step]) {
+                if (!content || !(content as any)[step]) {
                   return (
                     <div className="h-full flex flex-col items-center justify-center text-center">
                       <h2 className="text-4xl font-display font-bold mb-4">{WORKSPACE_STEPS[activeStepIndex]}</h2>
@@ -1394,8 +1395,8 @@ except BaseException:
                 }
 
                 if (step === "aim") {
-                  let textContent = content.aim.text + " ";
-                  if (content.aim.bullets) {
+                  let textContent = (content.aim?.text ?? "") + " ";
+                  if (content.aim?.bullets) {
                     content.aim.bullets.forEach((b: string) => textContent += b + " ");
                   }
                   
@@ -1407,7 +1408,7 @@ except BaseException:
                       renderContent={(activeCharIndex) => {
                         let offset = 0;
                         
-                        const mainText = content.aim.text + " ";
+                        const mainText = (content.aim?.text ?? "") + " ";
                         const mainStart = offset;
                         offset += mainText.length;
                         
@@ -1416,7 +1417,7 @@ except BaseException:
                             <p className="text-lg text-foreground/90 leading-relaxed">
                               <HighlightableText text={mainText} activeCharIndex={activeCharIndex - mainStart} />
                             </p>
-                            {content.aim.bullets && (
+                            {content.aim?.bullets && (
                               <ul className="list-disc list-outside pl-5 space-y-3 mt-6 text-muted-foreground">
                                 {content.aim.bullets.map((b: string, i: number) => {
                                   const bText = b + " ";
@@ -1439,7 +1440,7 @@ except BaseException:
                 
                 if (step === "theory") {
                   let textContent = "";
-                  content.theory.forEach((section: any) => {
+                  (content.theory ?? []).forEach((section: any) => {
                     textContent += section.title + ". ";
                     section.body.forEach((p: string) => textContent += p + " ");
                   });
@@ -1453,7 +1454,7 @@ except BaseException:
                         let offset = 0;
                         return (
                           <div className="space-y-10">
-                            {content.theory.map((section: any, i: number) => {
+                            {(content.theory ?? []).map((section: any, i: number) => {
                               const titleText = section.title + ". ";
                               const titleStart = offset;
                               offset += titleText.length;
@@ -1485,7 +1486,7 @@ except BaseException:
 
                 if (step === "procedure" || step === "references") {
                   let textContent = "";
-                  content[step].forEach((item: string) => textContent += item + " ");
+                  ((content as any)[step] as string[] ?? []).forEach((item: string) => textContent += item + " ");
                   
                   return (
                     <TTSSection
@@ -1496,7 +1497,7 @@ except BaseException:
                         let offset = 0;
                         return (
                           <ul className="list-decimal list-outside pl-5 space-y-4 text-muted-foreground">
-                            {content[step].map((item: string, i: number) => {
+                            {(content[step as keyof typeof content] as string[] ?? []).map((item: string, i: number) => {
                               const itemText = item + " ";
                               const itemStart = offset;
                               offset += itemText.length;
@@ -1610,6 +1611,14 @@ except BaseException:
                     );
                   }
                   
+                  if (details?.experiment.id?.startsWith("py-e1-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PythonInterpreterCampaign expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
                   if (details?.experiment.id?.startsWith("c-w1-")) {
                     return (
                       <div className="h-full bg-background">
@@ -2086,7 +2095,7 @@ except BaseException:
                   return (
                     <div className="space-y-10">
                       <h2 className="text-3xl font-bold font-display mb-6">{WORKSPACE_STEPS[activeStepIndex]}</h2>
-                      {content[step].map((mcq: any, i: number) => (
+                      {((content as any)[step] as any[] ?? []).map((mcq: any, i: number) => (
                         <div key={i} className="p-6 rounded-xl border border-border bg-card space-y-4">
                           <div className="font-medium text-foreground flex items-start justify-between gap-3">
   <div>
@@ -2125,7 +2134,7 @@ except BaseException:
                                       if (isReviewed) return;
                                       const newState = { ...state, [i]: j };
                                       setState(newState);
-                                      if (Object.keys(newState).length === content[step].length) {
+                                      if (Object.keys(newState).length === ((content as any)[step] as any[])?.length) {
                                         if (step === "pretest") setPretestReviewed(true);
                                         else setPosttestReviewed(true);
                                       }

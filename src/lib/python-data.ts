@@ -1,4 +1,5 @@
 import type { Course } from "./course-data";
+import { pythonShortNotes } from "./python-short-notes";
 import { pythonExercise1 } from "./python-e1";
 import { pythonExercise2 } from "./python-e2";
 import { pythonExercise3 } from "./python-e3";
@@ -18,6 +19,7 @@ import { pythonExercise15 } from "./python-e15";
 export const pythonCourse: Course = {
   id: "python",
   title: "Python Programming",
+  shortNotes: pythonShortNotes,
   objectives: [
     "To introduce students to Python programming syntax, standard coding practices, and interpreter modes.",
     "To master fundamental concepts like variables, dynamic data types, operators, and control flow structures (selection and iteration).",

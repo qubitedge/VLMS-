@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import { Download, X } from 'lucide-react';
-import { getExperimentDetails } from '../lib/lab-data';
+
 
 export function CertificateModal({ isOpen, onClose, courseId, userName: initialName }: { isOpen: boolean, onClose: () => void, courseId: string, userName?: string }) {
   const certificateRef = useRef<HTMLDivElement>(null);

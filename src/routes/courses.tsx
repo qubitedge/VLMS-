@@ -731,7 +731,7 @@ function CoursesPage() {
     return (
       <Link
         key={t}
-        to={`/course/${slug}`}
+        to={`/course/${slug}` as any}
         className={`group relative overflow-hidden flex flex-col justify-between p-6 rounded-xl border ${cardBorderClass} ${cardBgClass} transition-all h-[190px] hover:shadow-[0_8px_30px_rgba(20,184,166,0.15)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:-translate-y-1`}
       >
         <div className="relative z-10 w-3/4">

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  
+  <text x="400" y="60" font-family="sans-serif" font-size="36" font-weight="bold" fill="#38bdf8" text-anchor="middle">UNIT III</text>
+  <text x="400" y="100" font-family="sans-serif" font-size="24" font-weight="bold" fill="#f8fafc" text-anchor="middle">Dictionaries, Tuples, and Sets</text>
+  
+  <!-- Dictionaries Card -->
+  <rect x="50" y="140" width="200" height="200" fill="url(#cardBg)" rx="10" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="150" y="180" font-family="sans-serif" font-size="20" font-weight="bold" fill="#f8fafc" text-anchor="middle">Dictionaries</text>
+  <text x="150" y="220" font-family="monospace" font-size="16" fill="#fbbf24" text-anchor="middle">{"key": "value"}</text>
+  <text x="150" y="260" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Key-Value Pairs</text>
+  <text x="150" y="280" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Mutable</text>
+
+  <!-- Tuples Card -->
+  <rect x="300" y="140" width="200" height="200" fill="url(#cardBg)" rx="10" stroke="#a855f7" stroke-width="2"/>
+  <text x="400" y="180" font-family="sans-serif" font-size="20" font-weight="bold" fill="#f8fafc" text-anchor="middle">Tuples</text>
+  <text x="400" y="220" font-family="monospace" font-size="16" fill="#fbbf24" text-anchor="middle">(1, "apple", 3.14)</text>
+  <text x="400" y="260" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Ordered Sequence</text>
+  <text x="400" y="280" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Immutable</text>
+
+  <!-- Sets Card -->
+  <rect x="550" y="140" width="200" height="200" fill="url(#cardBg)" rx="10" stroke="#10b981" stroke-width="2"/>
+  <text x="650" y="180" font-family="sans-serif" font-size="20" font-weight="bold" fill="#f8fafc" text-anchor="middle">Sets</text>
+  <text x="650" y="220" font-family="monospace" font-size="16" fill="#fbbf24" text-anchor="middle">{1, 2, 3}</text>
+  <text x="650" y="260" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Unordered</text>
+  <text x="650" y="280" font-family="sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Unique Elements</text>
+</svg>
