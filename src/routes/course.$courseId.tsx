@@ -15,6 +15,8 @@ export const Route = createFileRoute("/course/$courseId")({
 function CoursePage() {
   const { courseId } = Route.useParams();
   const course = courses[courseId];
+  let inCodeBlock = false;
+  let codeLines: string[] = [];
 
   // 🏆 TRACK ACHIEVEMENT: CURIOUS MIND
 useEffect(() => {
@@ -400,6 +402,53 @@ useEffect(() => {
                     {course.shortNotes.split(/\r?\n/).map((line, i) => {
                       const text = line.trim();
                       if (!text) return null;
+                      if (text === '[START_SQL_CODE]') {
+                        inCodeBlock = true;
+                        codeLines = [];
+                        return null;
+                      }
+                      
+                      // Detect the end of a code block
+                      if (text === '[END_SQL_CODE]') {
+                        inCodeBlock = false;
+                        return (
+                          <div key={i} className="my-6 rounded-xl border border-cyan/20 bg-black/80 dark:bg-black/40 font-mono text-sm shadow-md overflow-hidden text-left">
+                            <div className="flex items-center justify-between px-4 py-2 bg-gradient-to-r from-cyan/20 to-blue-500/10 border-b border-cyan/20 text-cyan font-semibold text-xs tracking-wider uppercase">
+                              SQL Code Snippet
+                            </div>
+                            <pre className="p-4 overflow-x-auto text-emerald-400 leading-relaxed m-0">
+                              <code>{codeLines.join('\n')}</code>
+                            </pre>
+                          </div>
+                        );
+                      }
+                      // Add this to your render component alongside the SQL handler:
+
+if (text === '[START_CODE_SNIPPET]') {
+  inCodeBlock = true;
+  codeLines = [];
+  return null;
+}
+
+if (text === '[END_CODE_SNIPPET]') {
+  inCodeBlock = false;
+  return (
+      <div key={i} className="my-6 rounded-xl border border-cyan/20 bg-black/80 dark:bg-black/40 font-mono text-sm shadow-md overflow-hidden text-left">
+          <div className="flex items-center justify-between px-4 py-2 bg-gradient-to-r from-cyan/20 to-blue-500/10 border-b border-cyan/20 text-cyan font-semibold text-xs tracking-wider uppercase">
+              C++ / Java / Python Code Snippet
+          </div>
+          <pre className="p-4 overflow-x-auto text-emerald-400 leading-relaxed m-0">
+              <code>{codeLines.join('\n')}</code>
+          </pre>
+      </div>
+  );
+}
+                      
+                      // If we are currently inside a code block, collect the raw lines instead of parsing them
+                      if (inCodeBlock) {
+                        codeLines.push(line); // Use raw 'line' instead of trimmed 'text' to preserve indentation
+                        return null;
+                      }
 
                       let el = null;
                       if (text.startsWith('UNIT ')) {
@@ -427,7 +476,16 @@ useEffect(() => {
                             </div>
                           );
                         }
-                      } else {
+                      } else if (text.startsWith('[TABLE]:')) {
+                        const tableHtml = text.replace('[TABLE]:', '');
+                        el = (
+                          <div 
+                            className="my-6 overflow-x-auto rounded-xl border border-cyan/20 p-2 bg-card/30" 
+                            dangerouslySetInnerHTML={{ __html: tableHtml }} 
+                          />
+                        );
+                      }
+                      else {
                         // Regular text items as bullet points
                         el = (
                           <div className="flex gap-3 items-start ml-2 md:ml-6 group">
@@ -436,6 +494,60 @@ useEffect(() => {
                           </div>
                         );
                       }
+if (text.startsWith('[ER_DIAGRAM_EXAMPLE]')) {
+  return (
+    <div key={i} className="my-10 p-6 bg-white/50 dark:bg-black/20 rounded-2xl border border-cyan/20 shadow-md animate-in fade-in duration-500">
+      <h4 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan to-blue-500 mb-4">
+        Comprehensive ER Diagram Scenario: University Database System
+      </h4>
+      
+      <p className="text-foreground/80 leading-relaxed text-base mb-6">
+        This scenario maps a University management system containing standard entities, complex tracking variables, a multi-tier staffing hierarchy, and dependent child units.
+      </p>
+
+      <div className="space-y-6">
+        <div className="bg-secondary/40 border-l-4 border-cyan p-4 rounded-r-xl">
+          <span className="font-bold text-cyan text-lg block mb-1">1. Strong Entities & Complex Attributes</span>
+          <p className="text-foreground/90 text-sm md:text-base leading-relaxed">
+            <strong className="text-foreground font-semibold">Student (Strong Entity):</strong> Identified uniquely by <span className="underline">RollNo</span> (Key Attribute). Features a composite <span className="italic">Name (FirstName + LastName)</span>, a multi-valued <span className="italic">Phone_No</span> (double oval), and a derived <span className="italic">Age</span> calculated straight from their stored <span className="italic">DOB</span> field (dashed oval).
+          </p>
+        </div>
+
+        <div className="bg-secondary/40 border-l-4 border-orange-400 p-4 rounded-r-xl">
+          <span className="font-bold text-orange-400 text-lg block mb-1">2. Relationships & Cardinality Constraints</span>
+          <p className="text-foreground/90 text-sm md:text-base leading-relaxed">
+            <strong className="text-foreground font-semibold">Enrolls_In (M:N Relationship):</strong> Connects <span className="italic">Student</span> and <span className="italic">Course</span>. Multiple students enroll in multiple courses simultaneously.
+            <br />
+            <strong className="text-foreground font-semibold">Manages (1:1 Relationship):</strong> Connects <span className="italic">Faculty</span> to <span className="italic">Department</span>. One professor manages at most one department, displaying <span className="font-semibold text-cyan">Total Participation</span> (double line) from the Department side—every department must have a manager.
+          </p>
+        </div>
+
+        <div className="bg-secondary/40 border-l-4 border-purple-400 p-4 rounded-r-xl">
+          <span className="font-bold text-purple-400 text-lg block mb-1">3. Enhanced ER (EER) Hierarchy</span>
+          <p className="text-foreground/90 text-sm md:text-base leading-relaxed">
+            <strong className="text-foreground font-semibold">Person (Superclass):</strong> Contains general elements like ID, Email, and Location. Through <span className="font-semibold text-cyan">Specialization</span>, it breaks down into specialized <strong className="text-foreground font-semibold">Student</strong> and <strong className="text-foreground font-semibold">Faculty</strong> subclasses, inheriting all primary roots.
+          </p>
+        </div>
+
+        <div className="bg-secondary/40 border-l-4 border-rose-400 p-4 rounded-r-xl">
+          <span className="font-bold text-rose-400 text-lg block mb-1">4. Weak Entity Architecture</span>
+          <p className="text-foreground/90 text-sm md:text-base leading-relaxed">
+            <strong className="text-foreground font-semibold">Dependent (Weak Entity):</strong> Tracks faculty family members for health insurance benefits. It has no independent primary identifier; it utilizes a partial key field <span className="border-b border-dashed border-foreground">Dep_Name</span> alongside a double-diamond <span className="font-semibold text-cyan">Identifying Relationship</span> linked back to its strong parent entity (<span className="italic">Faculty</span>).
+          </p>
+        </div>
+      </div>
+      
+      {/* Injected Schematic Diagram Asset mapping the text block rules exactly */}
+      <div className="mt-8 p-4 bg-white/80 dark:bg-black/40 rounded-xl border border-cyan/10 flex justify-center">
+        <img 
+          src="/dbms_university_er_example.png" 
+          alt="Complete University Database System ER Diagram Model" 
+          className="max-h-96 object-contain rounded-lg shadow-sm"
+        />
+      </div>
+    </div>
+  );
+}
                       
                       // Skip image injection if it's already at top
                       if (text.includes('Types of Data Structures:')) {
