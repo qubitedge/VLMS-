@@ -3,7 +3,7 @@ export const llmsShortNotes = `LARGE LANGUAGE MODELS - SHORT NOTES
 INTRODUCTION TO LARGE LANGUAGE MODELS
 Large Language Models (LLMs) are advanced Artificial Intelligence systems designed to understand, generate, and interact with human language. They are built on the Transformer architecture and trained on massive amounts of text data using deep learning. Examples include OpenAI's GPT-4, Google's Gemini, and Meta's LLaMA.
 
-![Introduction to Large Language Models](/llm-flowchart.png)
+![Introduction to Large Language Models](/llm-intro.png)
 
 Why Learn LLMs?
 * They are revolutionizing industries by automating text generation, coding, translation, and analysis.
@@ -29,6 +29,8 @@ The core innovation of the Transformer. Self-attention allows the model to look 
 * It calculates attention scores (Query, Key, Value vectors) to determine how much "focus" one word should place on every other word in the sequence.
 
 UNIT II — PROMPT ENGINEERING
+![Unit II - Prompt Engineering](/llm-unit2.png)
+
 Interacting with LLMs:
 Prompt engineering is the art and science of structuring text inputs (prompts) to get the best possible output from an LLM. Since LLMs are next-token predictors, the way a question is framed drastically changes the response.
 
