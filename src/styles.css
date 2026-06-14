@@ -81,42 +81,12 @@
 @layer utilities {
   .grid-bg {
     background-image:
-      linear-gradient(to right, color-mix(in oklab, var(--cyan) 20%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklab, var(--cyan) 20%, transparent) 1px, transparent 1px);
-    background-size: 40px 40px;
-    transform: perspective(1000px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-    transform-origin: top;
-    animation: grid-scroll 20s linear infinite;
+      linear-gradient(to right, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
-  
-  @keyframes grid-scroll {
-    0% { transform: perspective(1000px) rotateX(60deg) translateY(0) translateZ(-200px); }
-    100% { transform: perspective(1000px) rotateX(60deg) translateY(40px) translateZ(-200px); }
-  }
-
-  .laser-beam {
-    position: absolute;
-    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-    height: 2px;
-    width: 200%;
-    left: -50%;
-    opacity: 0.5;
-    animation: laser-sweep 8s ease-in-out infinite alternate;
-  }
-
-  @keyframes laser-sweep {
-    0% { transform: translateY(-100px) rotate(-5deg); opacity: 0; }
-    50% { opacity: 0.8; }
-    100% { transform: translateY(800px) rotate(5deg); opacity: 0; }
-  }
-
-  @keyframes glint {
-    0% { transform: translateX(-150%) skewX(-30deg); }
-    100% { transform: translateX(250%) skewX(-30deg); }
-  }
-
   .hero-fade {
-    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
+    mask-image: radial-gradient(ellipse 80% 60% at 30% 40%, black 40%, transparent 100%);
   }
   
   @keyframes fade-in-up {
@@ -173,24 +143,26 @@
     animation-fill-mode: both;
   }
 
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-gradient {
+    animation: gradient 8s ease infinite;
+  }
+  .bg-300\% {
+    background-size: 300% 300%;
+  }
+
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
+  }
+
   /* Ensure these critical classes exist */
-.bg-card {
-  background-color: hsl(0 0% 100%);
-}
-
-.bg-black\/60 {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.backdrop-blur-sm {
-  backdrop-filter: blur(4px);
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
-}
-
-.z-50 {
-  z-index: 50;
-}
+  .bg-card { background-color: hsl(0 0% 100%); }
+  .bg-black\/60 { background-color: rgba(0, 0, 0, 0.6); }
+  .backdrop-blur-sm { backdrop-filter: blur(4px); }
+  .rounded-2xl { border-radius: 1rem; }
+  .z-50 { z-index: 50; }
 }
