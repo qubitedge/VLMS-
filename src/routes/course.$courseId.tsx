@@ -470,9 +470,9 @@ if (text === '[END_CODE_SNIPPET]') {
                           const alt = altMatch[1];
                           const src = srcMatch[1];
                           el = (
-                            <div className="my-8 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-cyan/40 flex justify-center group relative overflow-hidden max-w-lg mx-auto">
+                            <div className="my-8 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-cyan/40 flex justify-center group relative overflow-hidden max-w-4xl mx-auto">
                               <div className="absolute inset-0 bg-gradient-to-r from-cyan/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                              <img src={src} alt={alt} className="max-h-64 object-contain max-w-full rounded-xl hover:scale-[1.02] transition-transform duration-500 shadow-sm relative z-10" />
+                              <img src={src} alt={alt} className="w-full h-auto object-contain max-w-full rounded-xl hover:scale-[1.02] transition-transform duration-500 shadow-sm relative z-10" />
                             </div>
                           );
                         }

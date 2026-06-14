@@ -56,6 +56,8 @@ Instructing the model to format its output in a specific machine-readable format
 * Example: "Extract the names and ages from the text and output as a JSON array of objects with keys 'name' and 'age'."
 
 UNIT III — BUILDING AI APPLICATIONS
+![Unit III - Building AI Applications](/unit%203%20llm.png)
+
 LLM API Integration:
 Modern LLMs are primarily accessed via APIs (Application Programming Interfaces). Developers send HTTP requests containing the prompt, and the API returns the generated response.
 * Key parameters include:
@@ -73,6 +75,8 @@ Document Question Answering:
 Building systems that can answer questions based on a provided document. Since LLMs have context windows (a limit on how much text they can read at once), very large documents require advanced techniques like RAG to fetch only the relevant parts of the document before asking the question.
 
 UNIT IV — ADVANCED LLM SYSTEMS
+![Unit IV - Advanced LLM Systems](/unit%204%20llm.png)
+
 Retrieval-Augmented Generation (RAG):
 RAG is an architecture that connects an LLM to external knowledge bases. Instead of relying solely on the LLM's internal pre-trained memory (which might be outdated or hallucinate), RAG retrieves relevant facts from a database and provides them to the LLM as context to answer the question accurately.
 
