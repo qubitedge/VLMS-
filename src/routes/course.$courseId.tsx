@@ -182,13 +182,96 @@ useEffect(() => {
   return (
     <div className="px-6 lg:px-10 py-12 max-w-7xl mx-auto">
       <div>
-        <Link to="/courses" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors">
+        <Link to="/courses" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors relative z-10">
           <ArrowLeft className="size-4" /> Back to Courses
         </Link>
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-secondary/50 text-xs font-medium text-muted-foreground mb-4 block w-fit">
-          <Book className="size-3.5" /> Syllabus Overview
+
+        {/* Course Hero & Progress Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 mb-12 relative">
+          
+          {/* Subtle animated background for quantum */}
+          {course.id === 'quantum-computing' && (
+            <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-2xl z-0">
+               <div className="absolute top-1/4 left-1/4 size-2 bg-cyan/40 rounded-full blur-[1px] animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
+               <div className="absolute top-3/4 left-1/2 size-3 bg-primary/40 rounded-full blur-[2px] animate-[ping_5s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
+               <div className="absolute top-1/2 right-1/4 size-1.5 bg-mint/50 rounded-full blur-[1px] animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
+               <div className="absolute bottom-1/4 right-1/3 size-2 bg-cyan/30 rounded-full blur-[2px] animate-[ping_6s_cubic-bezier(0,0,0.2,1)_infinite_3s]" />
+            </div>
+          )}
+
+          {/* Hero Card */}
+          <div className="relative z-10 p-8 rounded-2xl border border-border/50 bg-secondary/20 shadow-sm overflow-hidden flex flex-col justify-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-background/50 text-xs font-medium text-muted-foreground mb-4 w-fit">
+              <Book className="size-3.5" /> Syllabus Overview
+            </div>
+            <h1 className="font-display text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary pb-1">
+              {course.title}
+            </h1>
+            <p className="text-muted-foreground max-w-2xl text-lg mb-8 leading-relaxed">
+              {course.id === 'quantum-computing' 
+                ? "Learn the principles of quantum mechanics, qubits, superposition, entanglement and quantum algorithms."
+                : course.objective || "Explore the fundamentals and advanced concepts of this interactive course."}
+            </p>
+            
+            <div className="flex flex-wrap gap-4 text-sm font-medium">
+              <div className="flex items-center gap-2 bg-background/50 px-3 py-2 rounded-lg border border-border/50">
+                📚 <span>{course.weeks.length} Modules</span>
+              </div>
+              <div className="flex items-center gap-2 bg-background/50 px-3 py-2 rounded-lg border border-border/50">
+                🧪 <span>{allExperiments.length} Experiments</span>
+              </div>
+              <div className="flex items-center gap-2 bg-background/50 px-3 py-2 rounded-lg border border-border/50">
+                ⏱️ <span>{Math.ceil(allExperiments.length * 0.6)} Hours</span>
+              </div>
+              <div className="flex items-center gap-2 bg-background/50 px-3 py-2 rounded-lg border border-border/50">
+                🏆 <span>Certificate Available</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Progress Card */}
+          <div className="relative z-10 p-6 rounded-2xl border border-border/50 bg-secondary/20 shadow-sm flex flex-col items-center justify-center text-center">
+            <h3 className="font-semibold text-lg mb-6">Course Progress</h3>
+            
+            {/* Circular Progress */}
+            <div className="relative size-32 mb-4">
+              <svg className="size-full transform -rotate-90 drop-shadow-sm" viewBox="0 0 100 100">
+                {/* Background circle */}
+                <circle
+                  className="text-border"
+                  strokeWidth="8"
+                  stroke="currentColor"
+                  fill="transparent"
+                  r="40"
+                  cx="50"
+                  cy="50"
+                />
+                {/* Progress circle */}
+                <circle
+                  className="text-cyan transition-all duration-1000 ease-out"
+                  strokeWidth="8"
+                  strokeDasharray={251.2}
+                  strokeDashoffset={251.2 - (251.2 * (allExperiments.length > 0 ? (solvedExps.size / allExperiments.length) : 0))}
+                  strokeLinecap="round"
+                  stroke="currentColor"
+                  fill="transparent"
+                  r="40"
+                  cx="50"
+                  cy="50"
+                />
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center flex-col">
+                <span className="text-2xl font-bold font-display text-foreground">
+                  {Math.round(allExperiments.length > 0 ? (solvedExps.size / allExperiments.length * 100) : 0)}%
+                </span>
+              </div>
+            </div>
+            
+            <p className="text-sm text-muted-foreground font-medium">
+              <span className="text-foreground">{solvedExps.size}</span> / {allExperiments.length} Experiments Completed
+            </p>
+          </div>
         </div>
-        <h1 className="font-display text-4xl lg:text-5xl font-bold tracking-tight mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary pb-2 w-fit block">{course.title}</h1>
       </div>
 
       {allSolved && (
