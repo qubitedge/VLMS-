@@ -189,18 +189,19 @@ useEffect(() => {
         {/* Course Hero & Progress Section */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 mb-12 relative">
           
-          {/* Subtle animated background for quantum */}
-          {course.id === 'quantum-computing' && (
-            <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-2xl z-0">
-               <div className="absolute top-1/4 left-1/4 size-2 bg-cyan/40 rounded-full blur-[1px] animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite]" />
-               <div className="absolute top-3/4 left-1/2 size-3 bg-primary/40 rounded-full blur-[2px] animate-[ping_5s_cubic-bezier(0,0,0.2,1)_infinite_1s]" />
-               <div className="absolute top-1/2 right-1/4 size-1.5 bg-mint/50 rounded-full blur-[1px] animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite_2s]" />
-               <div className="absolute bottom-1/4 right-1/3 size-2 bg-cyan/30 rounded-full blur-[2px] animate-[ping_6s_cubic-bezier(0,0,0.2,1)_infinite_3s]" />
-            </div>
-          )}
-
           {/* Hero Card */}
-          <div className="relative z-10 p-8 rounded-2xl border border-border/50 bg-secondary/20 shadow-sm overflow-hidden flex flex-col justify-center">
+          <div 
+            className={`relative z-10 p-8 rounded-2xl border shadow-sm overflow-hidden flex flex-col justify-center ${course.id === 'quantum-computing' ? 'border-none' : 'border-border/50 bg-secondary/20'}`}
+            style={course.id === 'quantum-computing' ? { background: 'linear-gradient(135deg, #f8fbff 0%, #eef6ff 50%, #ffffff 100%)' } : {}}
+          >
+            {/* Premium animated blur blobs for quantum */}
+            {course.id === 'quantum-computing' && (
+              <div className="absolute inset-0 pointer-events-none z-0">
+                 <div className="absolute -top-[100px] -left-[100px] bg-cyan/80" style={{ width: '400px', height: '400px', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.15 }} />
+                 <div className="absolute -bottom-[150px] -right-[50px] bg-primary/80" style={{ width: '400px', height: '400px', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.15 }} />
+                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-mint/80" style={{ width: '400px', height: '400px', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.1 }} />
+              </div>
+            )}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-background/50 text-xs font-medium text-muted-foreground mb-4 w-fit">
               <Book className="size-3.5" /> Syllabus Overview
             </div>
