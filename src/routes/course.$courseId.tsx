@@ -178,17 +178,144 @@ useEffect(() => {
   const currentTab = tabs[currentTabIndex] ? activeTab : tabs[0].id;
   const prevTab = currentTabIndex > 0 ? tabs[currentTabIndex - 1] : null;
   const nextTab = currentTabIndex < tabs.length - 1 ? tabs[currentTabIndex + 1] : null;
+  const hasCustomBg = course.id === 'quantum-computing' || course.id === 'dbms';
 
   return (
-    <div className="px-6 lg:px-10 py-12 max-w-7xl mx-auto">
+    <>
+      {course.id === 'quantum-computing' && (
+        <div 
+          className="fixed inset-0 z-0 pointer-events-none"
+          style={{ 
+            backgroundImage: 'url(/quantum-bg.png)', 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center center',
+            backgroundAttachment: 'fixed',
+            opacity: 0.7
+          }} 
+        />
+      )}
+      {course.id === 'dbms' && (
+        <div 
+          className="fixed inset-0 z-0 pointer-events-none"
+          style={{ 
+            backgroundImage: 'url(/dbms-bg.png)', 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center center',
+            backgroundAttachment: 'fixed',
+            opacity: 0.7
+          }} 
+        />
+      )}
+      <div className="px-6 lg:px-10 py-12 max-w-7xl mx-auto relative z-10">
       <div>
-        <Link to="/courses" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors">
+        <Link to="/courses" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors relative z-10">
           <ArrowLeft className="size-4" /> Back to Courses
         </Link>
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-secondary/50 text-xs font-medium text-muted-foreground mb-4 block w-fit">
-          <Book className="size-3.5" /> Syllabus Overview
+
+        {/* Course Hero & Progress Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 mb-12 relative">
+          
+          {/* Hero Card */}
+          <div 
+            className={`relative z-10 p-8 rounded-3xl border shadow-[0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col justify-center ${hasCustomBg ? 'border-white/40 dark:border-white/10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl text-slate-900 dark:text-white' : 'border-border/50 bg-secondary/20'}`}
+          >
+            {/* Premium animated blur blobs & illustrations for quantum */}
+            {course.id === 'quantum-computing' && (
+              <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                 {/* Atom Illustration Top Left */}
+                 <svg className="absolute -top-12 -left-12 w-64 h-64 text-blue-500 opacity-[0.03] animate-[spin_60s_linear_infinite]" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="10" fill="currentColor" />
+                    <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="currentColor" strokeWidth="2" transform="rotate(30 50 50)" />
+                    <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="currentColor" strokeWidth="2" transform="rotate(90 50 50)" />
+                    <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="currentColor" strokeWidth="2" transform="rotate(150 50 50)" />
+                 </svg>
+                 {/* Wave Pattern Bottom Right */}
+                 <svg className="absolute -bottom-8 -right-8 w-72 h-72 text-cyan-600 opacity-[0.04]" viewBox="0 0 100 100">
+                    <path d="M0,50 Q25,20 50,50 T100,50" fill="none" stroke="currentColor" strokeWidth="3" />
+                    <path d="M0,60 Q25,30 50,60 T100,60" fill="none" stroke="currentColor" strokeWidth="3" />
+                    <path d="M0,70 Q25,40 50,70 T100,70" fill="none" stroke="currentColor" strokeWidth="3" />
+                 </svg>
+                 {/* Floating Particles */}
+                 <div className="absolute top-1/4 left-1/3 w-1.5 h-1.5 bg-blue-500 rounded-full opacity-20 animate-[ping_3s_ease-in-out_infinite]" />
+                 <div className="absolute top-2/3 right-1/4 w-2 h-2 bg-purple-500 rounded-full opacity-20 animate-[ping_4s_ease-in-out_infinite_1s]" />
+                 
+                 {/* Blur Blobs */}
+                 <div className="absolute -top-[100px] -left-[100px] bg-cyan/80" style={{ width: '400px', height: '400px', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.15 }} />
+                 <div className="absolute -bottom-[150px] -right-[50px] bg-primary/80" style={{ width: '400px', height: '400px', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.15 }} />
+                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-mint/80" style={{ width: '400px', height: '400px', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.1 }} />
+              </div>
+            )}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-background/50 text-xs font-medium text-muted-foreground mb-4 w-fit">
+              <Book className="size-3.5" /> Syllabus Overview
+            </div>
+            <h1 className="font-display text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary pb-1">
+              {course.title}
+            </h1>
+            <p className="text-muted-foreground max-w-2xl text-lg mb-8 leading-relaxed">
+              {course.id === 'quantum-computing' 
+                ? "Learn the principles of quantum mechanics, qubits, superposition, entanglement and quantum algorithms."
+                : "Explore the fundamentals and advanced concepts of this interactive course."}
+            </p>
+            
+            <div className="flex flex-wrap gap-4 text-sm font-medium">
+              <div className="flex items-center gap-2 bg-background/50 px-3 py-2 rounded-lg border border-border/50">
+                📚 <span>{course.weeks.length} Modules</span>
+              </div>
+              <div className="flex items-center gap-2 bg-background/50 px-3 py-2 rounded-lg border border-border/50">
+                🧪 <span>{allExperiments.length} Experiments</span>
+              </div>
+              <div className="flex items-center gap-2 bg-background/50 px-3 py-2 rounded-lg border border-border/50">
+                ⏱️ <span>{Math.ceil(allExperiments.length * 0.6)} Hours</span>
+              </div>
+              <div className="flex items-center gap-2 bg-background/50 px-3 py-2 rounded-lg border border-border/50">
+                🏆 <span>Certificate Available</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Progress Card */}
+          <div className="relative z-10 p-6 rounded-2xl border border-border/50 bg-secondary/20 shadow-sm flex flex-col items-center justify-center text-center">
+            <h3 className="font-semibold text-lg mb-6">Course Progress</h3>
+            
+            {/* Circular Progress */}
+            <div className="relative size-32 mb-4">
+              <svg className="size-full transform -rotate-90 drop-shadow-sm" viewBox="0 0 100 100">
+                {/* Background circle */}
+                <circle
+                  className="text-border"
+                  strokeWidth="8"
+                  stroke="currentColor"
+                  fill="transparent"
+                  r="40"
+                  cx="50"
+                  cy="50"
+                />
+                {/* Progress circle */}
+                <circle
+                  className={`${hasCustomBg ? 'text-blue-600 dark:text-blue-400' : 'text-cyan'} transition-all duration-1000 ease-out`}
+                  strokeWidth="8"
+                  strokeDasharray={251.2}
+                  strokeDashoffset={251.2 - (251.2 * (allExperiments.length > 0 ? (solvedExps.size / allExperiments.length) : 0))}
+                  strokeLinecap="round"
+                  stroke="currentColor"
+                  fill="transparent"
+                  r="40"
+                  cx="50"
+                  cy="50"
+                />
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center flex-col">
+                <span className="text-2xl font-bold font-display text-foreground">
+                  {Math.round(allExperiments.length > 0 ? (solvedExps.size / allExperiments.length * 100) : 0)}%
+                </span>
+              </div>
+            </div>
+            
+            <p className="text-sm text-muted-foreground font-medium">
+              <span className="text-foreground">{solvedExps.size}</span> / {allExperiments.length} Experiments Completed
+            </p>
+          </div>
         </div>
-        <h1 className="font-display text-4xl lg:text-5xl font-bold tracking-tight mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary pb-2 w-fit block">{course.title}</h1>
       </div>
 
       {allSolved && (
@@ -208,20 +335,29 @@ useEffect(() => {
         </div>
       )}
 
-      <div className="grid lg:grid-cols-[250px_1fr] gap-10 items-start">
+      <div className="grid lg:grid-cols-[280px_1fr] gap-8 items-start relative z-10">
         {/* Sidebar */}
-        <div className="sticky top-24 flex flex-col gap-1 border-r border-border/50 pr-4 h-fit">
+        <div className={`sticky top-28 flex flex-col gap-1.5 p-3 md:p-4 rounded-2xl h-fit z-10 transition-all duration-500 border ${hasCustomBg ? 'bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl border-white/40 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)]' : 'bg-transparent border-transparent border-r-border/50'}`}>
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
+            
+            const activeClass = hasCustomBg 
+              ? "bg-gradient-to-r from-blue-500/10 to-cyan-500/5 dark:from-blue-500/20 dark:to-cyan-500/10 border-l-4 border-blue-500 shadow-sm translate-x-1 text-blue-700 dark:text-blue-300"
+              : "bg-secondary shadow-sm translate-x-1 text-foreground";
+              
+            const inactiveClass = hasCustomBg
+              ? "text-slate-500 dark:text-slate-400 hover:bg-blue-500/5 hover:text-blue-700 dark:hover:text-blue-300 hover:translate-x-1 border-l-4 border-transparent"
+              : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground hover:translate-x-1 border-l-4 border-transparent";
+
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg transition-all text-left ${isActive ? "bg-secondary shadow-sm translate-x-1" : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground hover:translate-x-1"}`}
+                className={`flex items-center gap-3 px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-300 text-left ${isActive ? activeClass : inactiveClass}`}
               >
-                <Icon className={`size-4 shrink-0 ${isActive ? "text-cyan" : ""}`} />
-                <span className={isActive ? "text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary font-bold inline-block" : ""}>
+                <Icon className={`size-4 shrink-0 ${isActive ? (hasCustomBg ? "text-blue-600 dark:text-blue-400" : "text-cyan") : ""}`} />
+                <span className={isActive && !hasCustomBg ? "text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary font-bold inline-block" : (isActive ? "font-bold" : "")}>
                   {tab.id}
                 </span>
               </button>
@@ -230,12 +366,14 @@ useEffect(() => {
         </div>
 
         {/* Main Content */}
-        <div className="min-h-[500px] flex flex-col justify-between pb-16">
+        <div className={`min-h-[500px] flex flex-col justify-between pb-16 rounded-3xl p-4 md:p-10 relative z-10 transition-all duration-500 border ${hasCustomBg ? 'bg-white/60 dark:bg-slate-900/60 backdrop-blur-2xl border-white/50 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)]' : 'border-transparent'}`}>
           <div key={currentTab} className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-forwards">
             {currentTab === "Introduction" && course.introduction && (
-              <section>
-                <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary w-fit block">Introduction</h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+                  Introduction
+                </h2>
+                <div className={`space-y-6 leading-relaxed ${hasCustomBg ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>
                   {course.introduction.map((p, i) => (
                     <p key={i}>{p}</p>
                   ))}
@@ -244,8 +382,10 @@ useEffect(() => {
             )}
 
             {currentTab === "Objective" && (
-              <section>
-            <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary w-fit block">Objective</h2>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+                  Objective
+                </h2>
             
             {course.id === "ai-tools" && (
               <div className="mb-8 max-w-2xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
@@ -338,21 +478,23 @@ useEffect(() => {
             )}
 
             {Array.isArray(course.objectives) ? (
-              <ul className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed">
+              <ul className={`list-disc list-inside space-y-3 leading-relaxed ${hasCustomBg ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>
                 {course.objectives.map((obj, i) => (
                   <li key={i}>{obj}</li>
                 ))}
               </ul>
             ) : (
-              <p className="text-muted-foreground leading-relaxed">{course.objectives}</p>
+              <p className={`leading-relaxed ${hasCustomBg ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>{course.objectives}</p>
             )}
               </section>
             )}
 
             {currentTab === "Short Notes" && (
-              <section>
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary w-fit block">Short Notes</h2>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <div className="flex items-center justify-between mb-8">
+                  <h2 className={`text-2xl md:text-3xl font-bold w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+                    Short Notes
+                  </h2>
                   {course.shortNotes && (
                     <div className="flex items-center gap-2">
                       <button 
@@ -724,74 +866,80 @@ if (text.startsWith('[ER_DIAGRAM_EXAMPLE]')) {
             )}
 
             {currentTab === "Target Audience" && course.targetAudience && (
-              <section>
-              <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary w-fit block">Target Audience</h2>
-              <div className="space-y-8 text-muted-foreground leading-relaxed">
-                <div>
-                  <h3 className="font-semibold text-foreground mb-3">Primary Audience</h3>
-                  <p>{course.targetAudience.primary}</p>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+                  Target Audience
+                </h2>
+                <div className={`space-y-8 ${hasCustomBg ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-3 text-lg">Primary Audience</h3>
+                    <p>{course.targetAudience.primary}</p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-3 text-lg">Pre-requisites</h3>
+                    <ul className="list-disc list-inside space-y-1.5">
+                      {course.targetAudience.prerequisites.map((p, i) => <li key={i}>{p}</li>)}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-3 text-lg">Also Useful For</h3>
+                    <ul className="list-disc list-inside space-y-1.5">
+                      {course.targetAudience.usefulFor.map((p, i) => <li key={i}>{p}</li>)}
+                    </ul>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-3">Pre-requisites</h3>
-                  <ul className="list-disc list-inside space-y-1.5">
-                    {course.targetAudience.prerequisites.map((p, i) => <li key={i}>{p}</li>)}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-3">Also Useful For</h3>
-                  <ul className="list-disc list-inside space-y-1.5">
-                    {course.targetAudience.usefulFor.map((p, i) => <li key={i}>{p}</li>)}
-                  </ul>
-                </div>
-              </div>
-            </section>
+              </section>
             )}
 
             {currentTab === "Course Alignment" && course.alignment && (
-              <section>
-              <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary w-fit block">Course Alignment</h2>
-              <div className="overflow-hidden rounded-xl border border-border">
-                <table className="w-full text-left text-sm text-muted-foreground">
-                  <tbody className="divide-y divide-border/50">
-                    <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground w-48 bg-secondary/20">University</th><td className="py-3 px-4">{course.alignment.university}</td></tr>
-                    <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Department</th><td className="py-3 px-4">{course.alignment.department}</td></tr>
-                    <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Course</th><td className="py-3 px-4">{course.alignment.course}</td></tr>
-                    <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Credits</th><td className="py-3 px-4">{course.alignment.credits}</td></tr>
-                    <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Year / Semester</th><td className="py-3 px-4">{course.alignment.yearSem}</td></tr>
-                    <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Applicable Branches</th><td className="py-3 px-4">{course.alignment.branches}</td></tr>
-                    <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Total Experiments</th><td className="py-3 px-4">{course.alignment.totalExperiments}</td></tr>
-                    <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Compiler Used</th><td className="py-3 px-4">{course.alignment.compiler}</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              {course.alignment.units && (
-                <div className="mt-8 overflow-x-auto rounded-xl border border-border">
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+                  Course Alignment
+                </h2>
+                <div className="overflow-hidden rounded-xl border border-border bg-card">
                   <table className="w-full text-left text-sm text-muted-foreground">
-                    <thead className="bg-secondary/50 text-foreground">
-                      <tr>
-                        <th className="px-4 py-3 font-semibold">Unit</th>
-                        <th className="px-4 py-3 font-semibold">Topics Covered</th>
-                        <th className="px-4 py-3 font-semibold">Weeks</th>
-                      </tr>
-                    </thead>
                     <tbody className="divide-y divide-border/50">
-                      {course.alignment.units.map((u, i) => (
-                        <tr key={i} className="hover:bg-secondary/20 transition-colors">
-                          <td className="px-4 py-3 font-medium text-foreground">{u.unit}</td>
-                          <td className="px-4 py-3">{u.topics}</td>
-                          <td className="px-4 py-3">{u.weeks}</td>
-                        </tr>
-                      ))}
+                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground w-48 bg-secondary/20">University</th><td className="py-3 px-4">{course.alignment.university}</td></tr>
+                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Department</th><td className="py-3 px-4">{course.alignment.department}</td></tr>
+                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Course</th><td className="py-3 px-4">{course.alignment.course}</td></tr>
+                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Credits</th><td className="py-3 px-4">{course.alignment.credits}</td></tr>
+                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Year / Semester</th><td className="py-3 px-4">{course.alignment.yearSem}</td></tr>
+                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Applicable Branches</th><td className="py-3 px-4">{course.alignment.branches}</td></tr>
+                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Total Experiments</th><td className="py-3 px-4">{course.alignment.totalExperiments}</td></tr>
+                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Compiler Used</th><td className="py-3 px-4">{course.alignment.compiler}</td></tr>
                     </tbody>
                   </table>
                 </div>
-              )}
-            </section>
+                {course.alignment.units && (
+                  <div className="mt-8 overflow-x-auto rounded-xl border border-border bg-card">
+                    <table className="w-full text-left text-sm text-muted-foreground">
+                      <thead className="bg-secondary/50 text-foreground">
+                        <tr>
+                          <th className="px-4 py-3 font-semibold">Unit</th>
+                          <th className="px-4 py-3 font-semibold">Topics Covered</th>
+                          <th className="px-4 py-3 font-semibold">Weeks</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-border/50">
+                        {course.alignment.units.map((u, i) => (
+                          <tr key={i} className="hover:bg-secondary/20 transition-colors">
+                            <td className="px-4 py-3 font-medium text-foreground">{u.unit}</td>
+                            <td className="px-4 py-3">{u.topics}</td>
+                            <td className="px-4 py-3">{u.weeks}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </section>
             )}
 
             {currentTab === "List of Experiments" && (
-              <section>
-                <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary w-fit block">List of Experiments</h2>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+                  List of Experiments
+                </h2>
                  <div className="space-y-8">
                   {course.weeks.map((week, index) => (
                     <div key={index} className="rounded-2xl border border-border/60 bg-card overflow-hidden shadow-sm hover:shadow-xl hover:border-cyan/30 transition-all duration-500 group">
@@ -878,8 +1026,10 @@ if (text.startsWith('[ER_DIAGRAM_EXAMPLE]')) {
             )}
 
             {currentTab === "Feedback" && (
-              <section>
-            <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary w-fit block">Feedback</h2>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+                  Feedback & Analytics
+                </h2>
               <div className="bg-card border border-border rounded-xl p-8 max-w-3xl">
                 <p className="text-muted-foreground mb-8">We value your feedback. Please take a few minutes to share your experience using this virtual laboratory. Your responses will help us improve the quality, usability, and content of the experiments.</p>
                 
@@ -1052,5 +1202,6 @@ if (text.startsWith('[ER_DIAGRAM_EXAMPLE]')) {
         userName={certName}
       />
     </div>
+    </>
   );
 }

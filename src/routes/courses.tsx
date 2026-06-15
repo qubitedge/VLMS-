@@ -19,6 +19,7 @@ function getTopicIcon(topic: string) {
   if (topic === "AI Tools") return null;
   if (topic === "LLMs") return null;
   if (topic === "IoT") return null;
+  if (topic === "Quantum Computing") return <Hexagon className={iconClass} />;
   if (topic === "Algorithms") return <Workflow className={iconClass} />;
   return null;
 }
@@ -33,6 +34,7 @@ function getSubtitle(topic: string) {
   if (topic === "AI Tools") return "From basics to advanced pattertons";
   if (topic === "LLMs") return "Learn an text document";
   if (topic === "IoT") return "Circuit-ourot map map sensors";
+  if (topic === "Quantum Computing") return "Foundations of quantum mechanics and algorithms";
   return "Comprehensive learning module";
 }
 
@@ -675,6 +677,24 @@ function getBgIcon(topic: string) {
               </g>
             ))}
           </g>
+        </svg>
+      </div>
+    );
+  }
+
+  if (topic === "Quantum Computing") {
+    return (
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
+        <svg className="w-56 h-56 translate-x-12 translate-y-8 opacity-95 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]" viewBox="0 0 200 200" fill="none" stroke="currentColor">
+          <g stroke="#d8b4fe" strokeWidth="0.5" opacity="0.4">
+            <ellipse cx="100" cy="100" rx="80" ry="20" transform="rotate(0 100 100)" />
+            <ellipse cx="100" cy="100" rx="80" ry="20" transform="rotate(60 100 100)" />
+            <ellipse cx="100" cy="100" rx="80" ry="20" transform="rotate(120 100 100)" />
+          </g>
+          <circle cx="100" cy="100" r="10" fill="#a855f7" />
+          <circle cx="178" cy="100" r="4" fill="#d8b4fe" />
+          <circle cx="60" cy="169" r="4" fill="#d8b4fe" />
+          <circle cx="60" cy="31" r="4" fill="#d8b4fe" />
         </svg>
       </div>
     );

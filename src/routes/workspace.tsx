@@ -881,11 +881,14 @@ except BaseException:
   const isSql = language === "sql";
   const isAITools = details?.course.id === "ai-tools";
   const isIot = details?.course.id === "iot";
+  const isQuantum = details?.course.id === "quantum-computing";
 
   const WORKSPACE_STEPS = isAITools 
     ? ["Aim", "Theory", "Pretest", "Procedure", "Solve", "Posttest", "References"]
     : isIot
     ? ["Aim", "Theory", "Pretest", "Procedure", "Tinkercad", "Posttest", "References"]
+    : isQuantum
+    ? ["Aim", "Theory", "Visualization", "Interactive Experiment", "Quiz"]
     : ["Aim", "Theory", "Pretest", "Procedure", "Simulation", "Code Test", "Posttest", "References"];
   const experimentStartTime = useRef<number>(Date.now());
   const [activeStepIndex, setActiveStepIndex] = useState(0);
@@ -900,8 +903,9 @@ except BaseException:
   const currentContent = details?.experiment?.content as any;
   let isNextEnabled = true;
 
-  const calculateScore = (stepName: "pretest" | "posttest") => {
-    const test = currentContent?.[stepName];
+  const calculateScore = (stepName: "pretest" | "posttest" | "quiz") => {
+    const dataKey = stepName === "quiz" ? "posttest" : stepName;
+    const test = currentContent?.[dataKey];
     if (!test) return 0;
     const answers = stepName === "pretest" ? pretestAnswers : posttestAnswers;
     let score = 0;
@@ -916,7 +920,7 @@ except BaseException:
       if (Object.keys(pretestAnswers).length < currentContent.pretest.length) {
         isNextEnabled = false;
       }
-    } else if (currentStepName === "posttest" && currentContent.posttest) {
+    } else if ((currentStepName === "posttest" || currentStepName === "quiz") && currentContent.posttest) {
       if (Object.keys(posttestAnswers).length < currentContent.posttest.length) {
         isNextEnabled = false;
       }
@@ -1134,7 +1138,7 @@ const handlePostSolveAuthenticated = async (userId: string) => {
       </div>
 
       <div className="flex-1 overflow-hidden">
-        {currentStepName === "code test" || currentStepName === "solve" || currentStepName === "tinkercad" ? (
+        {currentStepName === "code test" || currentStepName === "solve" || currentStepName === "tinkercad" || currentStepName === "interactive experiment" ? (
           // SIMULATION VIEW (Existing Split Pane for Code Test) OR AI LAB SOLVE VIEW OR TINKERCAD
           <div className="h-full grid lg:grid-cols-[1fr_1fr] divide-x divide-border">
             {/* ── Left Pane: Problem Description ─────────────────────────── */}
@@ -1453,7 +1457,8 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                 // @ts-ignore - content is dynamically added
                 const content = details?.experiment?.content;
                 
-                if (!content || !(content as any)[step]) {
+                const dataKey = step === "quiz" ? "posttest" : step === "visualization" ? "theory" : step;
+                if (!content || !(content as any)[dataKey]) {
                   return (
                     <div className="h-full flex flex-col items-center justify-center text-center">
                       <h2 className="text-4xl font-display font-bold mb-4">{WORKSPACE_STEPS[activeStepIndex]}</h2>
@@ -1548,6 +1553,14 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                                     if (imgMatch && imgMatch.index !== undefined) {
                                       const textBefore = pText.substring(0, imgMatch.index);
                                       const textAfter = pText.substring(imgMatch.index + imgMatch[0].length);
+                                      if (isQuantum) {
+                                        return (
+                                          <div key={j} className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                                            {textBefore && <HighlightableText text={textBefore} activeCharIndex={activeCharIndex - pStart} />}
+                                            {textAfter && <HighlightableText text={textAfter} activeCharIndex={activeCharIndex - pStart - imgMatch.index - imgMatch[0].length} />}
+                                          </div>
+                                        );
+                                      }
                                       return (
                                         <div key={j} className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
                                           {textBefore && <HighlightableText text={textBefore} activeCharIndex={activeCharIndex - pStart} />}
@@ -2296,14 +2309,54 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                   );
                 }
 
-                if (step === "pretest" || step === "posttest") {
+                if (step === "visualization") {
+                  const visuals: { alt: string, url: string }[] = [];
+                  (content.theory ?? []).forEach((section: any) => {
+                    section.body.forEach((p: string) => {
+                      const imgMatch = p.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+                      if (imgMatch) visuals.push({ alt: imgMatch[1], url: imgMatch[2] });
+                    });
+                  });
+
+                  if (visuals.length === 0) {
+                     return (
+                      <div className="h-full flex flex-col items-center justify-center text-center">
+                        <h2 className="text-4xl font-display font-bold mb-4">Visualization</h2>
+                        <p className="text-muted-foreground text-lg max-w-lg mb-8">
+                          No visualization available for this experiment.
+                        </p>
+                      </div>
+                     );
+                  }
+
+                  return (
+                    <div className="space-y-8 animate-in fade-in zoom-in-95 duration-500 pb-12">
+                      {visuals.map((v, i) => {
+                         const isVideo = v.url.endsWith('.mp4') || v.url.includes('video/upload');
+                         return (
+                           <div key={i} className="flex flex-col items-center justify-center p-6 bg-secondary/20 rounded-2xl border border-border shadow-sm">
+                             <h3 className="text-xl font-display font-semibold mb-6 text-foreground/90">{v.alt}</h3>
+                             {isVideo ? (
+                               <video src={v.url} controls autoPlay loop muted className="w-full max-w-4xl rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-border" />
+                             ) : (
+                               <img src={v.url} alt={v.alt} className="w-full max-w-4xl rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-border" />
+                             )}
+                           </div>
+                         );
+                      })}
+                    </div>
+                  );
+                }
+
+                if (step === "pretest" || step === "posttest" || step === "quiz") {
                   const state = step === "pretest" ? pretestAnswers : posttestAnswers;
                   const setState = step === "pretest" ? setPretestAnswers : setPosttestAnswers;
                   const isReviewed = step === "pretest" ? pretestReviewed : posttestReviewed;
+                  const dataKey = step === "quiz" ? "posttest" : step;
                   return (
                     <div className="space-y-10">
                       <h2 className="text-3xl font-bold font-display mb-6">{WORKSPACE_STEPS[activeStepIndex]}</h2>
-                      {((content as any)[step] as any[] ?? []).map((mcq: any, i: number) => (
+                      {((content as any)[dataKey] as any[] ?? []).map((mcq: any, i: number) => (
                         <div key={i} className="p-6 rounded-xl border border-border bg-card space-y-4">
                           <div className="font-medium text-foreground flex items-start justify-between gap-3">
   <div>
@@ -2342,7 +2395,7 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                                       if (isReviewed) return;
                                       const newState = { ...state, [i]: j };
                                       setState(newState);
-                                      if (Object.keys(newState).length === ((content as any)[step] as any[])?.length) {
+                                      if (Object.keys(newState).length === ((content as any)[dataKey] as any[])?.length) {
                                         if (step === "pretest") setPretestReviewed(true);
                                         else setPosttestReviewed(true);
                                       }
@@ -2375,10 +2428,10 @@ const handlePostSolveAuthenticated = async (userId: string) => {
               </button>
               
               <div className="flex items-center gap-4">
-                {(currentStepName === "pretest" || currentStepName === "posttest") && isNextEnabled && currentContent[currentStepName] && (
+                {(currentStepName === "pretest" || currentStepName === "posttest" || currentStepName === "quiz") && isNextEnabled && currentContent[currentStepName === "quiz" ? "posttest" : currentStepName] && (
                   <div className="flex items-center gap-2 text-sm font-medium px-4 py-2 bg-secondary/50 rounded-md border border-border">
                     <span className="text-muted-foreground">Score:</span>
-                    <span className="text-mint text-base">{calculateScore(currentStepName)} / {currentContent[currentStepName]?.length || 0}</span>
+                    <span className="text-mint text-base">{calculateScore(currentStepName as any)} / {currentContent[currentStepName === "quiz" ? "posttest" : currentStepName]?.length || 0}</span>
                   </div>
                 )}
                 

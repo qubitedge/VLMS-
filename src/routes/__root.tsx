@@ -192,7 +192,7 @@ function ProfileNav() {
 function DynamicIsland() {
   return (
     <div className="fixed top-4 left-1/2 -translate-x-1/2 z-40 w-[min(1200px,calc(100vw-2rem))]">
-      <div className="flex items-center gap-4 rounded-full border border-border/70 bg-background/70 backdrop-blur-xl px-4 py-3 shadow-[0_10px_40px_-12px_color-mix(in_oklab,var(--foreground)_35%,transparent)]">
+      <div className="flex items-center gap-4 rounded-[2rem] border border-white/20 bg-white/40 dark:bg-black/40 backdrop-blur-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
         {/* Brand */}
         <Link to="/" className="flex items-center gap-3 pl-3 pr-4 py-2 rounded-full">
           <div className="grid place-items-center size-10 rounded-full bg-white overflow-hidden shadow-sm">
@@ -238,11 +238,14 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const location = useLocation();
   const hideBot = location.pathname.startsWith('/course') || location.pathname.startsWith('/workspace');
+  const isQuantumCourse = location.pathname.includes('/course/quantum-computing') || location.pathname.includes('/workspace?exp=qc-');
+  const isDbmsCourse = location.pathname.includes('/course/dbms');
+  const hasCustomBg = isQuantumCourse || isDbmsCourse;
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen relative">
-        <TileGridBackground />
+      <div className={`min-h-screen relative transition-colors duration-1000 ${hasCustomBg ? 'bg-[#F8FAFF] dark:bg-[#0F172A]' : ''}`}>
+        {!hasCustomBg && <TileGridBackground />}
         <DynamicIsland />
         <main className="pt-24 relative z-10">
           <Outlet />
