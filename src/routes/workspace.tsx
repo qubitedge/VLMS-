@@ -70,6 +70,14 @@ import { PythonInputOutputPlayground } from "@/components/simulations/PythonInpu
 import { PythonConditionalsPlayground } from "@/components/simulations/PythonConditionalsPlayground";
 import { PythonLoopsPlayground } from "@/components/simulations/PythonLoopsPlayground";
 import { PythonFunctionsPlayground } from "@/components/simulations/PythonFunctionsPlayground";
+import { PythonStringsPlayground } from "@/components/simulations/PythonStringsPlayground";
+import { PythonCollectionsPlayground } from "@/components/simulations/PythonCollectionsPlayground";
+import { PythonFileHandlingPlayground } from "@/components/simulations/PythonFileHandlingPlayground";
+import { PythonExceptionHandlingPlayground } from "@/components/simulations/PythonExceptionHandlingPlayground";
+import { PythonModulesPlayground } from "@/components/simulations/PythonModulesPlayground";
+import { PythonOOPPlayground } from "@/components/simulations/PythonOOPPlayground";
+import { PythonInheritancePlayground } from "@/components/simulations/PythonInheritancePlayground";
+import { PythonDataAnalysisPlayground } from "@/components/simulations/PythonDataAnalysisPlayground";
 import { BurgerOrderCampaign } from "@/components/simulations/BurgerOrderCampaign";
 import { TrafficSignalCampaign } from "@/components/simulations/TrafficSignalCampaign";
 import { BPlusTreeSim } from "@/components/simulations/BPlusTreeSim";
@@ -1845,6 +1853,70 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                     return (
                       <div className="h-full bg-background">
                         <PythonFunctionsPlayground expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("py-e7-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PythonStringsPlayground expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("py-e8-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PythonCollectionsPlayground expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("py-e9-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PythonFileHandlingPlayground expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("py-e10-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PythonExceptionHandlingPlayground expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("py-e11-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PythonModulesPlayground expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("py-e12-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PythonOOPPlayground expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("py-e13-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PythonInheritancePlayground expId={details.experiment.id} />
+                      </div>
+                    );
+                  }
+
+                  if (details?.experiment.id?.startsWith("py-e14-")) {
+                    return (
+                      <div className="h-full bg-background">
+                        <PythonDataAnalysisPlayground expId={details.experiment.id} />
                       </div>
                     );
                   }
