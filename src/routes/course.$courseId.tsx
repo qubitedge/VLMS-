@@ -177,7 +177,7 @@ useEffect(() => {
   const currentTabIndex = tabs.findIndex(t => t.id === activeTab);
   const currentTab = tabs[currentTabIndex] ? activeTab : tabs[0].id;
   const prevTab = currentTabIndex > 0 ? tabs[currentTabIndex - 1] : null;
-  const nextTab = currentTabIndex < tabs.length - 1 ? tabs[currentTabIndex + 1] : null;
+  const hasCustomBg = course.id === 'quantum-computing' || course.id === 'dbms';
 
   return (
     <>
@@ -186,6 +186,18 @@ useEffect(() => {
           className="fixed inset-0 z-0 pointer-events-none"
           style={{ 
             backgroundImage: 'url(/quantum-bg.png)', 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center center',
+            backgroundAttachment: 'fixed',
+            opacity: 0.7
+          }} 
+        />
+      )}
+      {course.id === 'dbms' && (
+        <div 
+          className="fixed inset-0 z-0 pointer-events-none"
+          style={{ 
+            backgroundImage: 'url(/dbms-bg.png)', 
             backgroundSize: 'cover', 
             backgroundPosition: 'center center',
             backgroundAttachment: 'fixed',
@@ -204,7 +216,7 @@ useEffect(() => {
           
           {/* Hero Card */}
           <div 
-            className={`relative z-10 p-8 rounded-3xl border shadow-[0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col justify-center ${course.id === 'quantum-computing' ? 'border-white/40 dark:border-white/10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl text-slate-900 dark:text-white' : 'border-border/50 bg-secondary/20'}`}
+            className={`relative z-10 p-8 rounded-3xl border shadow-[0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col justify-center ${hasCustomBg ? 'border-white/40 dark:border-white/10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl text-slate-900 dark:text-white' : 'border-border/50 bg-secondary/20'}`}
           >
             {/* Premium animated blur blobs & illustrations for quantum */}
             {course.id === 'quantum-computing' && (
@@ -279,7 +291,7 @@ useEffect(() => {
                 />
                 {/* Progress circle */}
                 <circle
-                  className={`${course.id === 'quantum-computing' ? 'text-blue-600 dark:text-blue-400' : 'text-cyan'} transition-all duration-1000 ease-out`}
+                  className={`${hasCustomBg ? 'text-blue-600 dark:text-blue-400' : 'text-cyan'} transition-all duration-1000 ease-out`}
                   strokeWidth="8"
                   strokeDasharray={251.2}
                   strokeDashoffset={251.2 - (251.2 * (allExperiments.length > 0 ? (solvedExps.size / allExperiments.length) : 0))}
@@ -324,16 +336,16 @@ useEffect(() => {
 
       <div className="grid lg:grid-cols-[280px_1fr] gap-8 items-start relative z-10">
         {/* Sidebar */}
-        <div className={`sticky top-28 flex flex-col gap-1.5 p-3 md:p-4 rounded-2xl h-fit z-10 transition-all duration-500 border ${course.id === 'quantum-computing' ? 'bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl border-white/40 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)]' : 'bg-transparent border-transparent border-r-border/50'}`}>
+        <div className={`sticky top-28 flex flex-col gap-1.5 p-3 md:p-4 rounded-2xl h-fit z-10 transition-all duration-500 border ${hasCustomBg ? 'bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl border-white/40 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)]' : 'bg-transparent border-transparent border-r-border/50'}`}>
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             
-            const activeClass = course.id === 'quantum-computing' 
+            const activeClass = hasCustomBg 
               ? "bg-gradient-to-r from-blue-500/10 to-cyan-500/5 dark:from-blue-500/20 dark:to-cyan-500/10 border-l-4 border-blue-500 shadow-sm translate-x-1 text-blue-700 dark:text-blue-300"
               : "bg-secondary shadow-sm translate-x-1 text-foreground";
               
-            const inactiveClass = course.id === 'quantum-computing'
+            const inactiveClass = hasCustomBg
               ? "text-slate-500 dark:text-slate-400 hover:bg-blue-500/5 hover:text-blue-700 dark:hover:text-blue-300 hover:translate-x-1 border-l-4 border-transparent"
               : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground hover:translate-x-1 border-l-4 border-transparent";
 
@@ -343,8 +355,8 @@ useEffect(() => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-3 px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-300 text-left ${isActive ? activeClass : inactiveClass}`}
               >
-                <Icon className={`size-4 shrink-0 ${isActive ? (course.id === 'quantum-computing' ? "text-blue-600 dark:text-blue-400" : "text-cyan") : ""}`} />
-                <span className={isActive && course.id !== 'quantum-computing' ? "text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary font-bold inline-block" : (isActive ? "font-bold" : "")}>
+                <Icon className={`size-4 shrink-0 ${isActive ? (hasCustomBg ? "text-blue-600 dark:text-blue-400" : "text-cyan") : ""}`} />
+                <span className={isActive && !hasCustomBg ? "text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary font-bold inline-block" : (isActive ? "font-bold" : "")}>
                   {tab.id}
                 </span>
               </button>
@@ -353,14 +365,14 @@ useEffect(() => {
         </div>
 
         {/* Main Content */}
-        <div className={`min-h-[500px] flex flex-col justify-between pb-16 rounded-3xl p-4 md:p-10 relative z-10 transition-all duration-500 border ${course.id === 'quantum-computing' ? 'bg-white/60 dark:bg-slate-900/60 backdrop-blur-2xl border-white/50 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)]' : 'border-transparent'}`}>
+        <div className={`min-h-[500px] flex flex-col justify-between pb-16 rounded-3xl p-4 md:p-10 relative z-10 transition-all duration-500 border ${hasCustomBg ? 'bg-white/60 dark:bg-slate-900/60 backdrop-blur-2xl border-white/50 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)]' : 'border-transparent'}`}>
           <div key={currentTab} className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-forwards">
             {currentTab === "Introduction" && course.introduction && (
-              <section className={course.id === 'quantum-computing' ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
-                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${course.id === 'quantum-computing' ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
                   Introduction
                 </h2>
-                <div className={`space-y-6 leading-relaxed ${course.id === 'quantum-computing' ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>
+                <div className={`space-y-6 leading-relaxed ${hasCustomBg ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>
                   {course.introduction.map((p, i) => (
                     <p key={i}>{p}</p>
                   ))}
@@ -369,8 +381,8 @@ useEffect(() => {
             )}
 
             {currentTab === "Objective" && (
-              <section className={course.id === 'quantum-computing' ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
-                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${course.id === 'quantum-computing' ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
                   Objective
                 </h2>
             
@@ -465,21 +477,21 @@ useEffect(() => {
             )}
 
             {Array.isArray(course.objectives) ? (
-              <ul className={`list-disc list-inside space-y-3 leading-relaxed ${course.id === 'quantum-computing' ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>
+              <ul className={`list-disc list-inside space-y-3 leading-relaxed ${hasCustomBg ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>
                 {course.objectives.map((obj, i) => (
                   <li key={i}>{obj}</li>
                 ))}
               </ul>
             ) : (
-              <p className={`leading-relaxed ${course.id === 'quantum-computing' ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>{course.objectives}</p>
+              <p className={`leading-relaxed ${hasCustomBg ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>{course.objectives}</p>
             )}
               </section>
             )}
 
             {currentTab === "Short Notes" && (
-              <section className={course.id === 'quantum-computing' ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
                 <div className="flex items-center justify-between mb-8">
-                  <h2 className={`text-2xl md:text-3xl font-bold w-fit block ${course.id === 'quantum-computing' ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+                  <h2 className={`text-2xl md:text-3xl font-bold w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
                     Short Notes
                   </h2>
                   {course.shortNotes && (
@@ -853,11 +865,11 @@ if (text.startsWith('[ER_DIAGRAM_EXAMPLE]')) {
             )}
 
             {currentTab === "Target Audience" && course.targetAudience && (
-              <section className={course.id === 'quantum-computing' ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
-                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${course.id === 'quantum-computing' ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
                   Target Audience
                 </h2>
-                <div className={`space-y-8 ${course.id === 'quantum-computing' ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>
+                <div className={`space-y-8 ${hasCustomBg ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>
                   <div>
                     <h3 className="font-semibold text-foreground mb-3 text-lg">Primary Audience</h3>
                     <p>{course.targetAudience.primary}</p>
@@ -879,8 +891,8 @@ if (text.startsWith('[ER_DIAGRAM_EXAMPLE]')) {
             )}
 
             {currentTab === "Course Alignment" && course.alignment && (
-              <section className={course.id === 'quantum-computing' ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
-                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${course.id === 'quantum-computing' ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
                   Course Alignment
                 </h2>
                 <div className="overflow-hidden rounded-xl border border-border bg-card">
@@ -923,8 +935,8 @@ if (text.startsWith('[ER_DIAGRAM_EXAMPLE]')) {
             )}
 
             {currentTab === "List of Experiments" && (
-              <section className={course.id === 'quantum-computing' ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
-                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${course.id === 'quantum-computing' ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
                   List of Experiments
                 </h2>
                  <div className="space-y-8">
@@ -1013,8 +1025,8 @@ if (text.startsWith('[ER_DIAGRAM_EXAMPLE]')) {
             )}
 
             {currentTab === "Feedback" && (
-              <section className={course.id === 'quantum-computing' ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
-                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${course.id === 'quantum-computing' ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
+              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
+                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
                   Feedback & Analytics
                 </h2>
               <div className="bg-card border border-border rounded-xl p-8 max-w-3xl">

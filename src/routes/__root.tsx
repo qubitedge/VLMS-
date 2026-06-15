@@ -239,11 +239,13 @@ function RootComponent() {
   const location = useLocation();
   const hideBot = location.pathname.startsWith('/course') || location.pathname.startsWith('/workspace');
   const isQuantumCourse = location.pathname.includes('/course/quantum-computing') || location.pathname.includes('/workspace?exp=qc-');
+  const isDbmsCourse = location.pathname.includes('/course/dbms');
+  const hasCustomBg = isQuantumCourse || isDbmsCourse;
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className={`min-h-screen relative transition-colors duration-1000 ${isQuantumCourse ? 'bg-[#F8FAFF] dark:bg-[#0F172A]' : ''}`}>
-        {!isQuantumCourse && <TileGridBackground />}
+      <div className={`min-h-screen relative transition-colors duration-1000 ${hasCustomBg ? 'bg-[#F8FAFF] dark:bg-[#0F172A]' : ''}`}>
+        {!hasCustomBg && <TileGridBackground />}
         <DynamicIsland />
         <main className="pt-24 relative z-10">
           <Outlet />
