@@ -9,7 +9,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import { LayoutDashboard, Database, FlaskConical, BookOpen, Beaker } from "lucide-react";
+import { LayoutDashboard, Database, FlaskConical, BookOpen, Beaker, Users } from "lucide-react";
 import { Loader } from "@/components/Loader";
 import { ErrorGraphic } from "@/components/ErrorGraphic";
 
@@ -98,6 +98,7 @@ const navItems = [
   { to: "/courses", label: "Courses", icon: Database },
   { to: "/workspace", label: "Workspace", icon: FlaskConical },
   { to: "/resources", label: "Resources", icon: BookOpen },
+  { to: "/about", label: "About", icon: Users },
 ] as const;
 
 import { useState } from "react";
@@ -231,6 +232,7 @@ function DynamicIsland() {
 }
 
 import { Chatbot } from "@/components/Chatbot";
+import { TileGridBackground } from "@/components/TileGridBackground";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -240,8 +242,9 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen relative">
+        <TileGridBackground />
         <DynamicIsland />
-        <main className="pt-24">
+        <main className="pt-24 relative z-10">
           <Outlet />
         </main>
         {!hideBot && <Chatbot />}

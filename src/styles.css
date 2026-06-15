@@ -143,24 +143,26 @@
     animation-fill-mode: both;
   }
 
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-gradient {
+    animation: gradient 8s ease infinite;
+  }
+  .bg-300\% {
+    background-size: 300% 300%;
+  }
+
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
+  }
+
   /* Ensure these critical classes exist */
-.bg-card {
-  background-color: hsl(0 0% 100%);
-}
-
-.bg-black\/60 {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.backdrop-blur-sm {
-  backdrop-filter: blur(4px);
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
-}
-
-.z-50 {
-  z-index: 50;
-}
+  .bg-card { background-color: hsl(0 0% 100%); }
+  .bg-black\/60 { background-color: rgba(0, 0, 0, 0.6); }
+  .backdrop-blur-sm { backdrop-filter: blur(4px); }
+  .rounded-2xl { border-radius: 1rem; }
+  .z-50 { z-index: 50; }
 }

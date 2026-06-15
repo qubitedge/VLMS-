@@ -1538,10 +1538,26 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                                     const pText = p + " ";
                                     const pStart = offset;
                                     offset += pText.length;
+                                    
+                                    // Check for a markdown image ![alt](url)
+                                    const imgMatch = pText.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+                                    
+                                    if (imgMatch && imgMatch.index !== undefined) {
+                                      const textBefore = pText.substring(0, imgMatch.index);
+                                      const textAfter = pText.substring(imgMatch.index + imgMatch[0].length);
+                                      return (
+                                        <div key={j} className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                                          {textBefore && <HighlightableText text={textBefore} activeCharIndex={activeCharIndex - pStart} />}
+                                          <img src={imgMatch[2]} alt={imgMatch[1]} className="rounded-xl shadow-md my-4 max-h-72 object-contain bg-white/5 border border-slate-200/20" />
+                                          {textAfter && <HighlightableText text={textAfter} activeCharIndex={activeCharIndex - pStart - imgMatch.index - imgMatch[0].length} />}
+                                        </div>
+                                      );
+                                    }
+
                                     return (
-                                      <p key={j} className="text-muted-foreground leading-relaxed">
+                                      <div key={j} className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
                                         <HighlightableText text={pText} activeCharIndex={activeCharIndex - pStart} />
-                                      </p>
+                                      </div>
                                     );
                                   })}
                                 </div>

@@ -1,183 +1,99 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, ArrowRight, Sparkles, Activity, Boxes, Send, Timer, ShieldCheck, GitBranch, FlaskConical, Code, Workflow, Monitor, Database, Brain } from "lucide-react";
-import { BranchCard } from "@/components/BranchCard";
-import { LearningJourney } from "@/components/LearningJourney";
-import { HeroAnimation } from "@/components/HeroAnimation";
-import { branches, metrics, runtimes } from "@/lib/lab-data";
+import { ArrowRight, TerminalSquare, LayoutTemplate, FlaskConical, Code2, Globe } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dashboard — VLMS Virtual Lab" },
-      { name: "description", content: "Production-grade academic sandbox for computer science curricula." },
+      { title: "Welcome — VLMS Virtual Lab" },
+      { name: "description", content: "The Next-Generation Virtual Computing Laboratory." },
     ],
   }),
-  component: Dashboard,
+  component: LandingPage,
 });
 
-function getTopicIcon(topic: string) {
-  if (topic === "C Programming") return <Code className="size-5 shrink-0 text-cyan" />;
-  if (topic === "Python") return <i className="fab fa-python text-[1.25rem] shrink-0 text-cyan"></i>;
-  if (topic === "Java") return <i className="fab fa-java text-[1.25rem] shrink-0 text-cyan"></i>;
-  if (topic.includes("Data Structures")) return <GitBranch className="size-5 shrink-0 text-cyan" />;
-  if (topic === "OS" || topic === "Operating Systems") return <Monitor className="size-5 shrink-0 text-cyan" />;
-  if (topic === "DBMS") return <Database className="size-5 shrink-0 text-cyan" />;
-  if (topic === "Machine Learning") return <Brain className="size-5 shrink-0 text-cyan" />;
-  if (topic === "AI Tools") return <Sparkles className="size-5 shrink-0 text-cyan" />;
-  if (topic === "Algorithms") return <Workflow className="size-5 shrink-0 text-cyan" />;
-  return null;
-}
-
-
-function Dashboard() {
+function LandingPage() {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col relative overflow-hidden bg-white text-slate-900">
+      {/* Full Screen Background Image (User should upload 'bg-landing.jpg' to public folder) */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90"
+        style={{ backgroundImage: "url('/bg-landing.jpg'), linear-gradient(to bottom, #f8fafc, #e2e8f0)" }}
+      />
+      
+      {/* Light Overlay for readability */}
+      <div className="absolute inset-0 z-0 bg-white/40 backdrop-blur-[2px]" />
+      
+      {/* Top Navigation Bar */}
+      <header className="relative z-20 w-full px-6 lg:px-12 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="size-10 rounded-xl bg-gradient-to-br from-[#0f172a] to-[#334155] flex items-center justify-center shadow-lg">
+            <FlaskConical className="size-5 text-white" />
+          </div>
+          <span className="font-display font-bold text-xl tracking-tight text-slate-900">
+            VLMS<span className="text-purple-600">.</span>
+          </span>
+        </div>
+        <div className="hidden sm:flex items-center gap-6 text-sm font-semibold text-slate-600">
+          <span className="hover:text-purple-600 transition-colors cursor-default flex items-center gap-2"><Code2 className="size-4" /> Next-Gen Environments</span>
+          <span className="hover:text-purple-600 transition-colors cursor-default flex items-center gap-2"><Globe className="size-4" /> Zero Setup</span>
+        </div>
+        <Link
+          to="/dashboard"
+          className="text-sm font-bold text-purple-600 hover:text-purple-800 transition-colors"
+        >
+          Skip to Dashboard
+        </Link>
+      </header>
 
-
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border">
-        <div className="absolute inset-0 grid-bg hero-fade" />
+      {/* Main Hero Content */}
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 lg:px-10 text-center pb-20">
         
-        {/* Animated Background Orbs */}
-        <div className="absolute top-10 left-10 lg:top-1/4 lg:left-1/4 w-72 h-72 lg:w-96 lg:h-96 bg-cyan/20 rounded-full mix-blend-screen filter blur-[80px] lg:blur-[100px] opacity-50 animate-pulse" style={{ animationDuration: '5s' }} />
-        <div className="absolute top-20 right-10 lg:top-1/3 lg:right-1/4 w-80 h-80 lg:w-[30rem] lg:h-[30rem] bg-primary/20 rounded-full mix-blend-screen filter blur-[100px] lg:blur-[120px] opacity-50 animate-pulse" style={{ animationDuration: '8s' }} />
-
-        <div className="relative px-6 lg:px-10 py-16 lg:py-24 grid lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_500px] gap-10 items-center">
-          <div className="max-w-2xl relative z-10">
-
-            <h1 className="mt-6 font-display text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tight opacity-0 animate-fade-in-up">
-              Virtual Lab <br />
-              Management <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary">System</span>
-            </h1>
-            <p className="mt-6 text-base lg:text-lg text-muted-foreground max-w-xl opacity-0 animate-fade-in-up delay-100">
-              An isolated, authoritative laboratory framework for computer science curricula. Instant runtimes, automated evaluation, and zero-friction student access — no registration required.
-            </p>
-
-          </div>
-
-          <div className="hidden lg:block relative opacity-0 animate-fade-in-up delay-300 z-10 -translate-x-32 scale-125">
-            <HeroAnimation />
-          </div>
-        </div>
-      </section>
-
-
-
-      <LearningJourney />
-
-
-
-      {/* Trust Badges Row */}
-      <section className="border-y border-border bg-secondary/30 px-6 lg:px-10 py-10 opacity-0 animate-fade-in-up delay-300">
-
-        <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
-          {/* Python */}
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-background/60 hover:border-cyan/40 hover:bg-cyan/5 transition-all duration-300 group">
-            <i className="fab fa-python text-[1.4rem] text-[#3b82f6] group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Python</span>
-          </div>
-          {/* Java */}
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-background/60 hover:border-cyan/40 hover:bg-cyan/5 transition-all duration-300 group">
-            <i className="fab fa-java text-[1.4rem] text-[#f59e0b] group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Java</span>
-          </div>
-          {/* C */}
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-background/60 hover:border-cyan/40 hover:bg-cyan/5 transition-all duration-300 group">
-            <span className="text-[1.1rem] font-bold text-[#0ea5e9] group-hover:scale-110 transition-transform duration-300 font-mono">C</span>
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">C Language</span>
-          </div>
-          {/* SQL */}
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-background/60 hover:border-cyan/40 hover:bg-cyan/5 transition-all duration-300 group">
-            <Database className="size-5 text-[#8b5cf6] group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">SQL / DBMS</span>
-          </div>
-          {/* ML */}
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-background/60 hover:border-cyan/40 hover:bg-cyan/5 transition-all duration-300 group">
-            <Brain className="size-5 text-[#10b981] group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Machine Learning</span>
-          </div>
-          {/* IoT */}
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-background/60 hover:border-cyan/40 hover:bg-cyan/5 transition-all duration-300 group">
-            <Activity className="size-5 text-[#f43f5e] group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">IoT</span>
-          </div>
-          {/* AI */}
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-background/60 hover:border-cyan/40 hover:bg-cyan/5 transition-all duration-300 group">
-            <Sparkles className="size-5 text-[#a78bfa] group-hover:scale-110 transition-transform duration-300" />
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">AI Tools</span>
-          </div>
+        {/* Eyebrow Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan/10 text-xs font-bold text-cyan mb-8 opacity-0 animate-fade-in-up backdrop-blur-md border border-cyan/20 shadow-sm">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan"></span>
+          </span>
+          System Online • v2.0
         </div>
 
-      </section>
+        {/* Hero Title - Solid Purple like Mockup */}
+        <h1 className="font-display text-5xl sm:text-6xl lg:text-[5.5rem] font-black leading-[1.1] tracking-tight opacity-0 animate-fade-in-up delay-100 max-w-5xl mx-auto text-[#7c3aed] drop-shadow-sm">
+          The Future of <br className="hidden sm:block" />
+          Computer Science <br className="hidden sm:block" /> Labs.
+        </h1>
+        
+        {/* Hero Subtitle */}
+        <p className="mt-8 text-lg sm:text-xl text-slate-800 max-w-3xl mx-auto opacity-0 animate-fade-in-up delay-200 font-medium leading-relaxed drop-shadow-sm">
+          Experience an authoritative, zero-friction virtual laboratory framework. <br className="hidden md:block" /> Launch instant runtimes, execute complex data structures, and train <br className="hidden md:block" /> ML models directly in your browser.
+        </p>
 
-      {/* CTA Bottom Banner */}
-      <section className="relative overflow-hidden px-6 lg:px-10 py-16 opacity-0 animate-fade-in-up delay-300">
-        {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan/10 via-primary/10 to-cyan/10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/0 to-background/50" />
-        {/* Glowing orbs */}
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-cyan/20 rounded-full filter blur-[80px] opacity-60 animate-pulse" style={{ animationDuration: '4s' }} />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-primary/20 rounded-full filter blur-[80px] opacity-60 animate-pulse" style={{ animationDuration: '6s' }} />
-        {/* Border top/bottom */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan/40 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        {/* Primary CTA */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 opacity-0 animate-fade-in-up delay-300">
+          <Link
+            to="/dashboard"
+            className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-[#7c3aed] px-10 font-medium text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl hover:shadow-purple-500/30"
+          >
+            <span className="mr-2 text-base font-bold tracking-wide">Enter Platform</span>
+            <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
+            <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          </Link>
+        </div>
+      </main>
 
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 max-w-5xl mx-auto">
-          <div>
-            <div className="text-[11px] font-mono uppercase tracking-[0.25em] text-cyan mb-3">Get Started Today</div>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold leading-tight">
-              Ready to start?{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary">Launch your workspace</span>
-            </h2>
-            <p className="mt-3 text-muted-foreground max-w-md">
-              No registration required. Jump straight into experiments, run code, and get instant results in your browser.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-            <Link
-              to="/workspace"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-cyan to-primary text-white px-7 py-3 text-sm font-semibold hover:opacity-90 transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-cyan/30 group"
-            >
-              Launch Workspace
-              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-            <Link
-              to="/courses"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-cyan/30 bg-background/60 backdrop-blur px-7 py-3 text-sm font-semibold text-cyan hover:bg-cyan/10 transition-all duration-300 hover:scale-105 active:scale-95"
-            >
-              Browse Courses
-            </Link>
-          </div>
+      {/* Floating Robot Icon (Bottom Right) */}
+      <div className="absolute bottom-8 right-8 z-50 opacity-0 animate-fade-in-up delay-500 animate-float">
+        <div className="size-16 rounded-full bg-blue-500/10 backdrop-blur-md border border-blue-200/50 flex items-center justify-center shadow-lg cursor-pointer hover:bg-blue-500/20 transition-colors">
+           <img src="/robot-icon.png" alt="Bot" className="size-12 object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
         </div>
-      </section>
+      </div>
 
-      <footer className="border-t border-border px-6 lg:px-10 py-10 flex flex-col items-center justify-center gap-2 text-sm text-center">
-        <div className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary">
-          In the guidance
-        </div>
-        <div className="font-semibold text-base text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary mb-4">
-          <a href="https://www.linkedin.com/in/dr-g-jaya-suma/" target="_blank" rel="noreferrer" className="hover:underline">Professor Dr.G.Jayasuma</a>
-        </div>
-        <div className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary">
-          Designed by
-        </div>
-        <div className="font-medium leading-relaxed text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary flex flex-wrap justify-center gap-5">
-          <a href="https://www.linkedin.com/in/sairupini-chitikesi" target="_blank" rel="noreferrer" className="hover:underline">Ch.Sai Rupini</a>
-          <a href="https://www.linkedin.com/in/shaik-asma-216564330" target="_blank" rel="noreferrer" className="hover:underline">Sk.Asma</a>
-          <a href="https://www.linkedin.com/in/kundum-pravallika-4a1249296" target="_blank" rel="noreferrer" className="hover:underline">K.Pravallika</a>
-          <a href="https://www.linkedin.com/in/likhithmankala/" target="_blank" rel="noreferrer" className="hover:underline">M.Likhith Kumar</a>
-        </div>
+
+
+      {/* Footer */}
+      <footer className="relative z-10 w-full py-4 text-center text-xs font-medium text-slate-500">
+        &copy; {new Date().getFullYear()} VLMS Virtual Lab. Designed for Next-Gen Education.
       </footer>
-    </div>
-  );
-}
-
-function SectionHeader({ eyebrow, title, caption }: { eyebrow: string; title: string; caption: string }) {
-  return (
-    <div>
-      <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-cyan">{eyebrow}</div>
-      <h2 className="mt-2 font-display text-3xl lg:text-4xl font-bold tracking-tight">{title}</h2>
-      <p className="mt-1.5 text-sm text-muted-foreground">{caption}</p>
     </div>
   );
 }

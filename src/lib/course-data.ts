@@ -7,6 +7,7 @@ import { javaCourse } from './java-data';
 import { iotCourse } from './iot-data';
 import { cShortNotes } from './c-short-notes';
 import { mlShortNotes } from './ml-short-notes';
+import { llmsShortNotes } from './llms-short-notes';
 
 export type MCQ = {
   question: string;
@@ -102,6 +103,7 @@ export const courses: Record<string, Course> = {
       "The LLM Laboratory is designed to provide students with practical exposure to the concepts and applications of Generative AI. Through a series of hands-on experiments, learners explore tokenization, embeddings, prompt engineering, API integration, Retrieval-Augmented Generation (RAG), and the development of AI-powered applications.",
       "Rather than focusing solely on theory, this course emphasizes experiential learning, allowing students to interact with state-of-the-art models and build intelligent systems that solve real-world problems. The laboratory serves as a gateway to advanced domains such as Agentic AI, Multimodal AI, AI Assistants, and Enterprise AI Solutions."
     ],
+    shortNotes: llmsShortNotes,
     targetAudience: {
       primary: "Undergraduate and postgraduate engineering students, Computer Science, Artificial Intelligence, and Data Science learners.",
       prerequisites: [

@@ -2,6 +2,7 @@ export const javaShortNotes = `JAVA PROGRAMMING — SHORT NOTES
 (As per JNTUGV / CEV IT R23 Syllabus)
 
 INTRODUCTION TO JAVA
+![Introduction](/in%20java.png)
 Java is a high-level, object-oriented, platform-independent programming language developed by James Gosling at Sun Microsystems in 1995. Java follows the principle "Write Once, Run Anywhere" (WORA) — compiled Java code runs on any platform that has a Java Virtual Machine (JVM).
 Why Java?
 
@@ -14,6 +15,7 @@ Widely used in web backends, Android apps, enterprise systems, and IoT.
 
 
 UNIT I — OOP, DATA TYPES, AND CONTROL STATEMENTS
+![Unit 1](/unit%201%20java.png)
 Object Oriented Programming (OOP) — Basic Concepts:
 OOP is a programming paradigm that organizes software around objects — entities that combine data (attributes) and behavior (methods).
 
@@ -157,6 +159,7 @@ Break Statement: Exits the nearest enclosing loop or switch immediately.
 Continue Statement: Skips the rest of the current iteration, moves to next iteration.
 
 UNIT II — CLASSES, OBJECTS, AND METHODS
+![Unit 2](/unit%202%20java.png)
 Class Declaration:
 A class is the blueprint. Syntax:
 [modifier] class ClassName {
@@ -253,6 +256,7 @@ a.sound(); // calls Dog's sound() method — decided at runtime
 Static methods are resolved at compile time (no dynamic dispatch).
 
 UNIT III — ARRAYS AND INHERITANCE
+![Unit 3](/unit%203%20java.png)
 Arrays:
 Declaration and Initialization:
 int[] arr = new int[5]; // creates array of 5 zeros
@@ -368,6 +372,7 @@ Built-in: @Override (check overriding), @Deprecated (marks old API), @SuppressWa
 Custom annotations can be defined using @interface.
 
 UNIT IV — PACKAGES, EXCEPTION HANDLING, AND I/O
+![Unit 4](/unit%204%20java.png)
 Packages:
 Defining a Package:
 package com.mycompany.myapp;
@@ -510,6 +515,7 @@ List<String> lines = Files.readAllLines(path);
 Files.write(path, content.getBytes());
 
 UNIT V — STRINGS, MULTITHREADING, AND JAVAFX
+![Unit 5](/unit%205%20java.png)
 String Handling in Java:
 Interface CharSequence:
 An interface implemented by String, StringBuilder, and StringBuffer. Defines methods: charAt(index), length(), subSequence(start,end), toString().

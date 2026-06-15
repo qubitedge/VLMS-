@@ -4,6 +4,7 @@ import { aiM2Experiments } from "./ai-m2-data";
 import { aiM3Experiments } from "./ai-m3-data";
 import { aiM4Experiments } from "./ai-m4-data";
 import { aiM5Experiments } from "./ai-m5-data";
+import { aiToolsShortNotes } from "./ai-tools-short-notes";
 
 export const aiCourse: Course = {
   id: "ai-tools",
@@ -29,6 +30,7 @@ export const aiCourse: Course = {
     "9. **Ethical Observation:** Note any ethical considerations raised by the tool's output — including issues of originality, attribution, bias, or misuse potential.",
     "10. **Overall Rating:** A single overall rating (1–5 stars) with a one-line justification."
   ],
+  shortNotes: aiToolsShortNotes,
   targetAudience: {
     primary: "This lab is intended for undergraduate and postgraduate students across disciplines including Computer Science, Information Technology, Design, Mass Communication, Business, and any program where digital literacy and AI fluency are relevant.",
     prerequisites: [
