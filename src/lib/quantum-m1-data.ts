@@ -36,17 +36,17 @@ plt.show()
 print("Interference pattern generated! The peaks represent high probability of detecting a particle (constructive interference).")`,
       content: {
         aim: {
-          text: "To understand the dual nature of matter and light, demonstrating how particles can exhibit interference patterns similar to waves.",
+          text: "To understand how tiny particles like electrons and light can behave both like a ball (a particle) and like a ripple in water (a wave) — and to see this strange behavior through the famous double-slit experiment.",
           bullets: []
         },
         theory: [
           {
             title: "Wave-Particle Duality",
             body: [
-              "Wave-particle duality is the concept in quantum mechanics that every particle or quantum entity may be described as either a particle or a wave.",
+              "Imagine throwing a tennis ball at a wall with two holes in it. The ball goes through one hole and leaves one mark on the wall behind it. Simple, right? Now imagine doing the same thing with a tiny particle like an electron. Something weird happens — instead of leaving just one mark, it creates a striped pattern on the wall, just like waves in water would when they overlap and either boost or cancel each other out. This is called an interference pattern, and it shows that the electron was behaving like a wave, not a ball.",
               "![Double-slit animation](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781507208/Wave-particle_duality_animation___202606151224_bnn1ey.mp4)",
-              "In the classic double-slit experiment, when photons or electrons are fired at a barrier with two slits, they form an interference pattern on the screen behind the barrier. This happens even if they are fired one at a time, indicating that a single particle interferes with itself as a wave.",
-              "However, if detectors are placed at the slits to observe which slit the particle passes through, the interference pattern disappears, and a clumped particle pattern emerges. This illustrates the observer effect."
+              "But here's where it gets even stranger: what if we place a tiny camera or detector at the two holes to watch which hole the electron goes through? The moment we try to \"spy\" on the electron, the stripe pattern completely disappears! Instead, we get just two plain clumps — exactly what you'd expect from a normal ball. The act of watching changed the result.",
+              "This is called the Observer Effect — in the quantum world, simply observing a particle changes how it behaves. This mind-bending behavior is called wave-particle duality, meaning every tiny particle has a split personality: it can act like a wave or like a particle depending on whether we're watching it or not."
             ]
           }
         ],
@@ -97,17 +97,18 @@ print(f"Probability of measuring |1>: {probability_1:.3f}")
 print(f"Total Probability: {total_probability:.3f} (Must be exactly 1.0)")`,
       content: {
         aim: {
-          text: "To mathematically represent quantum systems using state vectors and understand the normalization condition.",
+          text: "To learn how scientists use simple math to describe what a quantum particle is \"doing\" at any given moment, and to understand why probabilities are so important in the quantum world.",
           bullets: []
         },
         theory: [
           {
-            title: "State Vectors",
+            title: "Quantum States",
             body: [
-              "In quantum mechanics, the state of a system is represented by a state vector (often denoted by the Greek letter psi, |ψ⟩) living in a complex vector space known as a Hilbert space.",
+              "In everyday life, if you want to describe where something is or what it's doing, you just say it — \"the ball is on the table\" or \"the switch is OFF.\" But in the quantum world, things are far more uncertain. Scientists use something called a state vector, written as |ψ⟩ (pronounced \"psi\"), to describe a quantum particle. Think of it like a recipe card that tells you all the possible things a particle could be doing and how likely each one is.",
+              "The simplest quantum object is called a qubit (like a quantum version of a computer's 0 or 1 bit). A qubit's state is written as: |ψ⟩ = α|0⟩ + β|1⟩",
               "![State vector visualization](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781507208/Quantum_superposition_animation___202606151234_vnxpzx.mp4)",
-              "A single qubit state can be written as |ψ⟩ = α|0⟩ + β|1⟩, where α and β are complex numbers called probability amplitudes.",
-              "The absolute square of these amplitudes (|α|² and |β|²) gives the probability of finding the system in state |0⟩ or |1⟩ upon measurement. For the system to be physically valid, the total probability must sum to 1 (|α|² + |β|² = 1). This is known as normalization."
+              "Don't be scared by the symbols! Here's what it simply means: |0⟩ and |1⟩ are the two possible results you can get when you measure the qubit (like heads or tails on a coin). α and β are just numbers that tell you \"how much\" the qubit leans toward being a 0 or a 1. When you square those numbers (|α|² and |β|²), you get the actual probability — the chance — of getting each result.",
+              "There's one golden rule though: the probabilities must always add up to 100% (or 1 in math terms). This makes sense — when you measure the qubit, it has to be something! This rule is called normalization, and it keeps our math connected to reality."
             ]
           }
         ],
@@ -172,17 +173,18 @@ except ImportError:
     print("Notice it's roughly a 50/50 split!")`,
       content: {
         aim: {
-          text: "To create and measure a quantum state in superposition using quantum gates.",
+          text: "To understand how a quantum particle can be in multiple states at the same time, and to see how a simple quantum tool (the Hadamard gate) puts a particle into this \"both at once\" condition.",
           bullets: []
         },
         theory: [
           {
             title: "Quantum Superposition",
             body: [
-              "Superposition is a fundamental principle of quantum mechanics that states a physical system exists in a combination of all its possible configurations until it is measured.",
+              "Imagine a coin spinning in the air. While it's spinning, it's not really \"heads\" or \"tails\" — it's kind of both at the same time. The moment it lands and you look at it, it becomes one or the other. Quantum superposition works in exactly the same way, but it's not just a trick of not knowing — the particle genuinely exists in multiple states at once until you look at it.",
               "![Superposition animation](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781507210/Quantum_particle_in_scientific_lab_202606151226_ovqcsu.mp4)",
-              "For a qubit, this means it can be in state |0⟩, state |1⟩, or any combination of the two simultaneously.",
-              "When we apply a Hadamard gate (H-gate) to a qubit initially in state |0⟩, it enters a state of perfect superposition, represented as |+⟩. If measured, it has exactly a 50% chance of collapsing into |0⟩ and a 50% chance of collapsing into |1⟩."
+              "A qubit (a quantum particle used like a computer bit) can be in state |0⟩, state |1⟩, or a magical mix of both at the same time. This mixed state is superposition.",
+              "To actually put a qubit into superposition, scientists use something called a Hadamard gate (or H-gate). Think of it like a \"quantum coin flipper.\" When you apply the H-gate to a qubit that starts as a definite |0⟩, it instantly enters a perfect 50/50 superposition called |+⟩. This means: if you measure it, there's exactly a 50% chance you'll get |0⟩ and exactly a 50% chance you'll get |1⟩.",
+              "Nobody — not even the laws of physics — can tell you in advance which one you'll get. It's truly random. But the moment you measure it, the superposition instantly vanishes and the qubit \"picks a side.\""
             ]
           }
         ],
@@ -236,18 +238,18 @@ plt.ylabel('Number of Occurrences')
 plt.show()`,
       content: {
         aim: {
-          text: "To understand the irreversible nature of quantum measurement and the Born rule for probability.",
+          text: "To understand how measuring a quantum system permanently changes it, and to learn the simple rule (the Born Rule) that tells us the probability of each possible outcome.",
           bullets: []
         },
         theory: [
           {
             title: "Measurement and Wave Function Collapse",
             body: [
-              "Measurement in quantum mechanics is not a passive observation; it is an active physical process that alters the state of the system.",
-              "![Measurement collapse animation](/videos/quantum_measurement.mp4)",
-              "When a quantum system in superposition is measured, its wave function 'collapses' into one of the definite eigenstates of the observable being measured.",
-              "The probability of collapsing into a specific state is given by the Born rule: the square of the absolute value of the state's probability amplitude.",
-              "Once measured, the qubit is completely classical. If you measure it again immediately, it will return the exact same value 100% of the time. The pre-measurement superposition is permanently lost."
+              "In everyday life, measuring something is harmless. You can check the temperature of a room without changing the temperature. But in the quantum world, measurement is violent — it completely and permanently changes the thing you're measuring.",
+              "![Measurement collapse animation](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781508332/Quantum_measurement_qubit_collapse_202606151244_g4ea6x.mp4)",
+              "Here's why: before you measure a quantum particle, it exists in superposition — a ghostly mix of multiple possible states all at once. The moment you measure it, this superposition instantly \"pops\" and the particle is forced to choose one definite state. This sudden change is called wave function collapse. It's like asking a spinning coin \"heads or tails?\" — the very act of asking forces it to pick one and stop spinning.",
+              "How do we know which state it will collapse to? We use the Born Rule, named after physicist Max Born. It's simple: The probability of getting a particular result = the square of that state's probability amplitude. In plain English: take the number (α or β) attached to each possible state, square it, and you get the percentage chance of getting that result when you measure.",
+              "The really important — and strange — thing is what happens after measurement. Once the particle has collapsed into a definite state, it stays there. Measure it again immediately and you'll get the exact same answer every time. The superposition is gone forever. There's no going back. This is what makes quantum measurement fundamentally different from anything in classical physics."
             ]
           }
         ],
@@ -307,17 +309,18 @@ print("The blue curve has low Δx (certain position), meaning its momentum Δp M
 print("The red curve has high Δx (uncertain position), allowing for a more certain momentum Δp.")`,
       content: {
         aim: {
-          text: "To visualize and understand the fundamental limits of precision defined by Heisenberg's Uncertainty Principle.",
+          text: "To understand why it is physically impossible — not just technically difficult, but impossible — to know both the exact position and exact speed of a particle at the same time.",
           bullets: []
         },
         theory: [
           {
             title: "Heisenberg's Uncertainty Principle",
             body: [
-              "Formulated by Werner Heisenberg, the Uncertainty Principle states that there is a fundamental limit to the precision with which certain pairs of physical properties, such as position (x) and momentum (p), can be known simultaneously.",
-              "![Uncertainty visualization](/videos/quantum_uncertainty.mp4)",
-              "The mathematical formulation is Δx * Δp ≥ ℏ/2.",
-              "This is not a limitation of our measuring instruments, but an intrinsic property of nature stemming from wave-particle duality. If a particle's position is highly localized (a sharp wave pulse), it requires the superposition of many different wavelengths (high momentum uncertainty) to construct that shape."
+              "Imagine trying to take a photo of a fast-moving car at night. If you use a very fast shutter speed, you get a sharp, clear image of where the car is — but you can't tell how fast it was moving. If you use a slow shutter speed, the car appears as a blur — which actually tells you about its motion, but now you can't pin down exactly where it is. You can't get both perfectly at the same time.",
+              "![Uncertainty visualization](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781508331/Heisenberg_Uncertainty_Principle__202606151255_mwpalx.mp4)",
+              "Werner Heisenberg discovered that nature has exactly this kind of built-in trade-off for tiny particles, and it's not because our cameras (or instruments) aren't good enough — it's a fundamental law of the universe. This is called the Heisenberg Uncertainty Principle, and it says: The more precisely you know a particle's position, the less precisely you can know its momentum (speed × mass) — and vice versa.",
+              "The math behind it is: Δx × Δp ≥ ℏ/2, where Δx = the uncertainty in position (how fuzzy the location is), Δp = the uncertainty in momentum (how fuzzy the speed is), and ℏ = a tiny constant of nature (Planck's constant ÷ 2π).",
+              "The reason this happens goes back to wave-particle duality. A particle behaves like a wave, and a wave that is very tightly squeezed into one location (so you know where it is) must be made up of many many different wavelengths mixed together — and each wavelength corresponds to a different speed. So the more you pin down the location, the more scrambled the speed becomes. It's not a flaw in our tools. It's how the universe is built."
             ]
           }
         ],
