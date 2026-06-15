@@ -366,4 +366,4 @@ Here is how everything in these notes connects:
 •	Entanglement (Module 4) links qubits in ways that have no classical counterpart, enabling quantum communication protocols that are secure by the laws of physics.
 •	Quantum algorithms (Module 5) cleverly exploit superposition, entanglement, and interference to solve specific problems (search, factoring, simulation) exponentially faster than classical methods.
 
-The field is still young. Large-scale fault-tolerant quantum computers do not exist yet. But the theoretical foundations are solid, and the first demonstrations of quantum advantage on specific tasks have already appeared. This is one of the most active and exciting areas of science and engineering today.\`;
+The field is still young. Large-scale fault-tolerant quantum computers do not exist yet. But the theoretical foundations are solid, and the first demonstrations of quantum advantage on specific tasks have already appeared. This is one of the most active and exciting areas of science and engineering today. it is the short notes for the quantum`;
