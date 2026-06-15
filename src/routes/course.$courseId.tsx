@@ -191,8 +191,8 @@ useEffect(() => {
           
           {/* Hero Card */}
           <div 
-            className={`relative z-10 p-8 rounded-2xl border shadow-sm overflow-hidden flex flex-col justify-center ${course.id === 'quantum-computing' ? 'border-none' : 'border-border/50 bg-secondary/20'}`}
-            style={course.id === 'quantum-computing' ? { background: 'linear-gradient(135deg, #f8fbff 0%, #eef6ff 50%, #ffffff 100%)' } : {}}
+            className={`relative z-10 p-8 rounded-2xl border shadow-sm overflow-hidden flex flex-col justify-center ${course.id === 'quantum-computing' ? 'border-none text-slate-800' : 'border-border/50 bg-secondary/20'}`}
+            style={course.id === 'quantum-computing' ? { backgroundImage: 'url(/quantum-bg.png)', backgroundSize: 'cover', backgroundPosition: 'center right' } : {}}
           >
             {/* Premium animated blur blobs & illustrations for quantum */}
             {course.id === 'quantum-computing' && (
