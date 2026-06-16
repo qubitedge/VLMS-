@@ -243,7 +243,7 @@ print("Therefore, the linear laws of quantum mechanics forbid cloning!")`,
             title: "The No-Cloning Theorem",
             body: [
               "In classical computing, copying data is trivial. You just read the bits and write them somewhere else.",
-              "![Communication flow animation](/videos/quantum_no_cloning.mp4)",
+              "![Communication flow animation](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781614282/Network_diagram_quantum_communic__202606161820_f0w1ez.mp4)",
               "In quantum computing, it is strictly physically impossible to make a perfect copy of an unknown quantum state. This is known as the No-Cloning Theorem.",
               "If you try to measure the state to copy it, you collapse it, destroying the original superposition.",
               "If you try to use a physical quantum gate (which must be a linear matrix) to clone it, the mathematics of linearity fail to replicate the cross-terms of a superposition, as shown in the simulator output.",
@@ -310,7 +310,7 @@ print(f"Generated a {len(sifted_key)}-bit perfectly secure cryptographic key!")`
             title: "BB84 Quantum Key Distribution",
             body: [
               "Proposed by Bennett and Brassard in 1984, BB84 is the first quantum cryptography protocol. It provides a way for two parties (Alice and Bob) to securely share a cryptographic key.",
-              "![BB84 visualization](/videos/quantum_bb84.mp4)",
+              "![BB84 visualization](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781614117/Alice_sends_qubits_to_Bob_202606161818_zpo3uv.mp4)",
               "Alice sends a stream of photons to Bob. She randomly encodes each photon's bit (0 or 1) into one of two bases (e.g., standard horizontal/vertical, or diagonal +45/-45 degrees).",
               "Bob doesn't know which basis Alice used, so he guesses randomly for each photon.",
               "If Bob guesses correctly, he reads the exact bit Alice sent. If he guesses wrong, he gets a random result due to the uncertainty principle.",
