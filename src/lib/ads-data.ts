@@ -91,6 +91,7 @@ export const adsCourse: Course = {
               {
                 title: "Balance Factor and Height",
                 body: [
+                  "![AVL Tree Balance Factors](/avl_balance_factors.png)",
                   "The balance factor (BF) of a node is defined as: BF = height(left subtree) - height(right subtree).",
                   "In an AVL tree, BF must be -1, 0, or +1 for every node.",
                   "Height of a node is defined as the number of edges on the longest path from that node to a leaf. For a null node, height is -1 or 0 depending on convention (we use 0 for null in code).",
@@ -100,6 +101,7 @@ export const adsCourse: Course = {
               {
                 title: "AVL Rotations — Detailed Explanation",
                 body: [
+                  "![AVL Tree Rotations Visualization](/avl_rotations.png)",
                   "When insertion or deletion causes a node's balance factor to become +2 or -2, rotations are performed to restore balance. There are four rotation cases:",
                   "",
                   "1. LL (Left-Left) Rotation: Occurs when the imbalance is in the left subtree of the left child. The balance factor of the node is +2 and its left child has balance factor +1 or 0. Solution: Perform a single right rotation.",
@@ -201,6 +203,7 @@ export const adsCourse: Course = {
                 body: [
                   "Deletion in an AVL tree is more complex than insertion because the imbalance can propagate up multiple levels. The algorithm follows these steps:",
                   "",
+                  "![AVL Tree Deletion](/avl_deletion.png)",
                   "Step 1: Perform standard BST deletion for the target key.",
                   "  - Case 1: Node with no children — simply remove (set parent pointer to null).",
                   "  - Case 2: Node with one child — replace node with its child.",
@@ -339,7 +342,10 @@ export const adsCourse: Course = {
                   "",
                   "Property 5: For each node, all paths from the node to descendant leaves contain the same number of BLACK nodes (black-height).",
                   "",
-                  "These properties ensure that the tree is balanced. The most important consequence is that the longest path from root to leaf is at most twice the shortest path, giving O(log n) height guarantee."
+                  "These properties ensure that the tree is balanced. The most important consequence is that the longest path from root to leaf is at most twice the shortest path, giving O(log n) height guarantee.",
+                  "An example of red black tree is:",
+                  "![Red-Black Tree Example](/red_black_tree.png)"
+
                 ]
               },
               {
@@ -474,7 +480,7 @@ export const adsCourse: Course = {
                 title: "B-Tree Fundamentals and Motivation",
                 body: [
                   "B-Trees are self-balancing tree data structures designed specifically for systems that read and write large blocks of data, such as databases and file systems. Unlike binary search trees that store one key per node, B-Trees store many keys in a single node, making them optimal for disk-based storage.",
-                  "",
+                  "![B-Tree Example](/b-tree.png)",
                   "The key motivation: When data is too large to fit in memory, it must be stored on disk. Disk I/O is extremely slow compared to memory access. By storing many keys in each node, B-Trees minimize the number of disk reads required to find a record.",
                   "",
                   "A typical disk block might be 4KB, and a B-Tree node is designed to fit exactly within one disk block. This allows each node to be read with a single disk operation."
@@ -634,7 +640,7 @@ export const adsCourse: Course = {
                 title: "B+ Tree Architecture — Key Differences from B-Tree",
                 body: [
                   "The B+ Tree is a variation of the B-Tree specifically optimized for database indexing and file systems. The key differences are:",
-                  "",
+                  "![B+ Tree Structure Detailed](/bplus_tree_detailed.jpg)",
                   "1. Data Storage: In B+ Trees, only leaf nodes contain actual data records or pointers to data. Internal nodes store only keys for routing.",
                   "",
                   "2. Leaf Links: Leaf nodes are connected in a linked list, enabling efficient range queries and sequential access.",
@@ -827,7 +833,9 @@ export const adsCourse: Course = {
                   "For node covering range [L, R]:",
                   "• mid = (L + R) / 2",
                   "• Left child covers [L, mid]",
-                  "• Right child covers [mid+1, R]"
+                  "• Right child covers [mid+1, R]",
+                  "![Segment Tree](/segment-tree.png)"
+
                 ]
               },
               {
@@ -949,7 +957,7 @@ export const adsCourse: Course = {
                 title: "Fenwick Tree (Binary Indexed Tree) — The Magic of LSB",
                 body: [
                   "The Fenwick Tree, also known as Binary Indexed Tree (BIT), is an elegant data structure that provides efficient prefix sum queries and point updates. What makes it beautiful is how it cleverly uses the binary representation of indices to distribute responsibility for array elements.",
-                  "",
+                  "![Fenwick Tree Structure](/fenwick-tree.png)",
                   "The key insight: Each index i in the BIT stores the sum of a range of the original array. The length of this range is determined by the least significant bit (LSB) of i, also written as i & (-i)."
                 ]
               },
@@ -961,7 +969,7 @@ export const adsCourse: Course = {
                   "bit[i] = sum of arr[i - LSB(i) + 1] through arr[i]",
                   "",
                   "This means each bit[i] is responsible for a range of size equal to the lowest set bit of i.",
-                  "",
+                  "![Fenwick tree array structure](/fenwick_tree_2.png)",
                   "Examples:",
                   "• i=1 (binary 1): LSB=1 → bit[1] = arr[1]",
                   "• i=2 (binary 10): LSB=2 → bit[2] = arr[1] + arr[2]",
@@ -1097,7 +1105,7 @@ export const adsCourse: Course = {
                 title: "Binary Heap — The Priority Queue Workhorse",
                 body: [
                   "A binary heap is a complete binary tree that satisfies the heap property. It's the most common implementation of a priority queue, providing O(log n) insert and extract-min operations, with O(1) peek.",
-                  "",
+                  "![Binary Heap Structure](/binary_priority.png)",
                   "Complete Binary Tree Property: All levels are completely filled except possibly the last level, which is filled from left to right. This allows efficient array representation without explicit pointers."
                 ]
               },
@@ -1243,7 +1251,9 @@ export const adsCourse: Course = {
                   "",
                   "The two main operations are:",
                   "• find(x): Returns the representative (root) of the set containing x",
-                  "• union(x, y): Merges the sets containing x and y into one set"
+                  "• union(x, y): Merges the sets containing x and y into one set",
+                  "Simulation representing disjoint set union:",
+                  "![DSU](/union_find.png)"
                 ]
               },
               {
@@ -1395,7 +1405,6 @@ export const adsCourse: Course = {
                   "",
                   "1. Chaining: Each array position contains a linked list (or other structure) of colliding keys",
                   "2. Open Addressing: All elements are stored in the array itself; collisions are resolved by probing (searching) for alternative slots",
-                  "",
                   "Open addressing has the advantage of better cache performance and no memory overhead for pointers, but it requires careful handling of deletions and has a maximum load factor less than 1."
                 ]
               },
@@ -1405,7 +1414,9 @@ export const adsCourse: Course = {
                   "Linear probing is the simplest open addressing strategy. When a collision occurs at index h(k), the algorithm checks h(k)+1, h(k)+2, etc. (wrapping around modulo table size).",
                   "",
                   "Probe sequence: h(k, i) = (h(k) + i) mod M, where i = 0, 1, 2, ...",
-                  "",
+                  "An Example includes: ",
+                  "Let us assume the hash funtion is key%7 i.e, h(k)=(k mod7)",
+                  "![Linear Probing Example](/linear_probing.jpg)",
                   "Characteristics:",
                   "• Simple to implement",
                   "• Good cache performance due to sequential probe locations",
@@ -1428,7 +1439,7 @@ export const adsCourse: Course = {
                   "  h(k, i) = (h(k) + c₁i + c₂i²) mod M",
                   "  • Reduces primary clustering (secondary clustering still occurs)",
                   "  • May not probe all slots (M should be prime and c₁, c₂ chosen carefully)",
-                  "",
+                  "![Quadratic Probing](/quadratic_probing.png)",
                   "Double Hashing:",
                   "  h(k, i) = (h₁(k) + i·h₂(k)) mod M",
                   "  • Uses two independent hash functions",
@@ -1524,7 +1535,7 @@ export const adsCourse: Course = {
                 title: "Cuckoo Hashing — The Elegant Alternative",
                 body: [
                   "Cuckoo hashing is a powerful open addressing technique that achieves O(1) worst-case lookup by using two (or more) hash tables and a \"kicking\" strategy during insertion.",
-                  "",
+                  "![Cuckoo Hashing](/cuckoo_hashing.png)",
                   "The name comes from the cuckoo bird, which pushes other eggs out of the nest — similarly, a new key may \"kick out\" an existing key to its alternative location.",
                   "",
                   "Standard cuckoo hashing uses two hash functions h1 and h2, and two tables T1 and T2 (or a single table with two hash functions mapping to different ranges)."
@@ -1667,6 +1678,7 @@ export const adsCourse: Course = {
               {
                 title: "Trie Node Structure",
                 body: [
+                  "![Trie Structure](/trie_structure.png)",
                   "Each node in a Trie typically contains:",
                   "",
                   "• Children: An array (or map) of references to child nodes, one for each possible character",
@@ -1700,7 +1712,8 @@ export const adsCourse: Course = {
                   "    if node.children[c] doesn't exist: return false",
                   "    node = node.children[c]",
                   "  return true  // Prefix exists, not necessarily a word",
-                  "",
+                  "Example is as follows:",
+                  "![Trie example](/trie.png)",
                   "Delete(word) — Recursive:",
                   "  function delete(node, word, depth):",
                   "    if depth == word.length:",
