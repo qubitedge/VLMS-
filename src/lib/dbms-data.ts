@@ -94,10 +94,65 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "CREATE TABLE with Constraints", body: ["PRIMARY KEY: Uniquely identifies each row. Implies NOT NULL.", "FOREIGN KEY: References PRIMARY KEY of another table, enforces referential integrity.", "NOT NULL: Column cannot contain NULL values.", "UNIQUE: All values in column must be distinct (allows one NULL).", "CHECK: Values must satisfy a condition (e.g., Age >= 18)."] },
-              { title: "ALTER TABLE", body: ["ALTER TABLE table_name ADD column_name datatype;", "ALTER TABLE table_name RENAME COLUMN old TO new;", "ALTER TABLE table_name DROP COLUMN column_name;", "ALTER TABLE table_name ADD CONSTRAINT constraint_name CHECK (condition);"] },
-              { title: "DROP TABLE", body: ["DROP TABLE table_name; — removes table structure and data", "DROP TABLE table_name CASCADE CONSTRAINTS; — also drops dependent constraints"] },
-              { title: "INSERT and SELECT", body: ["INSERT INTO table (col1, col2) VALUES (val1, val2);", "SELECT * FROM table WHERE condition; — filters rows based on condition"] }
+              {
+                title: "Databases, Tables, and Why We Need Constraints",
+                body: [
+                  "Storing every student's record in a plain spreadsheet makes it easy for problems to creep in — duplicate roll numbers, unrealistic ages, or students linked to a department that doesn't exist. A relational database prevents this by organizing data into tables and attaching rules called constraints that the data must always satisfy.",
+                  "A table is a grid of rows and columns, much like a spreadsheet:",
+                  "• Each column has a fixed data type (INT, VARCHAR, DATE) decided when the table is created",
+                  "• Each row represents one complete record, such as one student or one department",
+                  "![Table Structure with Rows and Columns](/Relational_Model.png)",
+                  "Constraints are rules checked automatically by the database:",
+                  "• If an INSERT or UPDATE would break a constraint, the database refuses the operation",
+                  "• This guarantees data integrity — the data stored is always accurate and trustworthy"
+                ]
+              },
+              {
+                title: "PRIMARY KEY and FOREIGN KEY — Linking Tables Together",
+                body: [
+                  "A PRIMARY KEY constraint uniquely identifies every row in a table:",
+                  "• No two rows can ever share the same primary key value",
+                  "• A primary key column can never be NULL (empty)",
+                  "• In the STUDENT table, Roll_No is a natural choice since every student already has a unique roll number",
+                  "![Primary Key and Foreign Key Relationship](/constraints.png)",
+                  "A FOREIGN KEY is what makes a database 'relational' — it lets one table point to a row in another table:",
+                  "• STUDENT's Dept_ID column is a foreign key referencing DEPARTMENT's Dept_ID primary key",
+                  "• This guarantees a student can never be linked to a department that doesn't actually exist",
+                  "Together, primary and foreign keys let large, repetitive information be split into smaller, connected tables instead of repeating the department name in every student's row."
+                ]
+              },
+              {
+                title: "NOT NULL, UNIQUE, and CHECK — Everyday Data Rules",
+                body: [
+                  "Three common column-level constraints handle everyday data rules:",
+                  "• NOT NULL — the column must always contain a value and can never be left blank (e.g., every student needs a Name)",
+                  "• UNIQUE — no two rows can share the same value in that column, though one NULL is still allowed (e.g., a student's Email)",
+                  "• CHECK — every value placed in the column must satisfy a condition (e.g., CHECK (Age >= 17 AND Age <= 30) stops unrealistic ages)",
+                  "All of these work silently in the background: the moment an INSERT or UPDATE runs, the database checks every relevant constraint before the change is allowed to take effect."
+                ]
+              },
+              {
+                title: "Changing Table Structure with ALTER TABLE",
+                body: [
+                  "Once a table already has data, requirements often change — for example, a Phone column wasn't planned originally but is now needed. ALTER TABLE modifies an existing table's structure without recreating it and losing existing data.",
+                  "Common ALTER operations:",
+                  "• ADD — add a new column",
+                  "• RENAME COLUMN — rename an existing column",
+                  "• DROP COLUMN — remove a column",
+                  "• ADD CONSTRAINT — attach a new constraint to an existing column",
+                  "Because ALTER TABLE changes the schema rather than the data inside it, it belongs to the same family of commands as CREATE and DROP — Data Definition Language (DDL)."
+                ]
+              },
+              {
+                title: "DROP TABLE, INSERT, and SELECT",
+                body: [
+                  "DROP TABLE permanently removes a table along with all its data and constraints:",
+                  "• There is no undo — it should always be used carefully",
+                  "• If other tables have foreign keys referencing it, the CASCADE CONSTRAINTS option removes those dependent constraints too, so the DROP can succeed",
+                  "INSERT INTO adds new rows of data to a table — the values listed must match, in order, the data types of the columns defined at creation.",
+                  "SELECT reads data back out of a table. Adding a WHERE clause filters the results down to only the rows that satisfy a particular condition — for instance, only students who belong to a specific department."
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -152,11 +207,61 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "IN Operator", body: ["WHERE column IN (SELECT column FROM table) — returns true if value matches any value in subquery result.", "Example: SELECT Name FROM STUDENT WHERE Dept_ID IN (SELECT Dept_ID FROM DEPARTMENT WHERE Location='Hyderabad');"] },
-              { title: "EXISTS / NOT EXISTS", body: ["EXISTS returns true if subquery returns at least one row. NOT EXISTS returns true if subquery returns zero rows.", "Example: SELECT Name FROM STUDENT S WHERE EXISTS (SELECT 1 FROM MARKS M WHERE M.Roll_No = S.Roll_No);"] },
-              { title: "ANY / ALL", body: ["ANY: compares value to ANY value in the set (like OR). ALL: compares value to ALL values in the set (like AND).", "Example: SELECT Name FROM STUDENT WHERE Age > ANY (SELECT Age FROM STUDENT WHERE Dept_ID=2);"] },
-              { title: "UNION / INTERSECT", body: ["UNION combines results of two queries and removes duplicates.", "INTERSECT returns rows common to both queries.", "Both require union-compatible queries (same number and type of columns)."] },
-              { title: "Finding nth Rank", body: ["SELECT Roll_No, Name FROM (SELECT Roll_No, Name, Marks, ROW_NUMBER() OVER (ORDER BY Marks DESC) AS rnk FROM MARKS) WHERE rnk = 4;", "Alternative using correlated subquery: COUNT of students with higher marks + 1 = rank."] }
+              {
+                title: "What Is a Subquery?",
+                body: [
+                  "A subquery is a SELECT statement nested inside another SQL statement:",
+                  "• It runs first, and its result is used by the outer query — like asking one small question first to help answer a bigger question",
+                  "• Example: to find students from departments in 'Hyderabad', first find which Dept_IDs are in Hyderabad, then look up students belonging to those IDs",
+                  "![How a Subquery Feeds the Outer Query](/subqueries.png)",
+                  "Subqueries can appear almost anywhere a normal value or table could appear in SQL — most commonly inside a WHERE clause, but also inside a SELECT list or in place of a table in the FROM clause."
+                ]
+              },
+              {
+                title: "The IN Operator — Matching Against a List",
+                body: [
+                  "IN checks whether a value matches any value in a list, including a list produced by a subquery:",
+                  "• WHERE Dept_ID IN (SELECT Dept_ID FROM DEPARTMENT WHERE Location='Hyderabad') reads as 'where the department ID is one of the department IDs located in Hyderabad'",
+                  "It is one of the most readable ways to filter rows based on data in a related table, without manually typing out the matching ID values."
+                ]
+              },
+              {
+                title: "EXISTS and NOT EXISTS — Testing for Presence",
+                body: [
+                  "EXISTS checks only whether a subquery produces at least one row — not what values it returns:",
+                  "• The database can stop searching the moment it finds a single matching row, which often makes EXISTS efficient",
+                  "![EXISTS Checking for at Least One Match](sql-exists.png)",
+                  "NOT EXISTS is the opposite — true only when the subquery returns zero rows:",
+                  "• A typical use is finding students who have never appeared in the MARKS table at all, meaning they haven't taken any exam yet"
+                ]
+              },
+              {
+                title: "ANY and ALL — Comparing Against a Set of Values",
+                body: [
+                  "ANY and ALL compare a single value against every value produced by a subquery:",
+                  "• ANY is true as soon as the condition is satisfied for at least one value — like an OR spread across the list",
+                  "• ALL requires the condition to be true for every value — like an AND across the list",
+                  "Example: Marks > ANY (subquery) means the student beats at least one value from the subquery, while Marks > ALL (subquery) means the student beats every value in it — effectively better than the entire comparison group."
+                ]
+              },
+              {
+                title: "UNION and INTERSECT — Combining Results of Two Queries",
+                body: [
+                  "UNION and INTERSECT combine the results of two SELECT statements:",
+                  "• UNION stacks the rows from both queries into one result and automatically removes duplicates",
+                  "• INTERSECT keeps only the rows that appear in both result sets",
+                  "![UNION and INTERSECT as Set Operations](/sql-union.png)",
+                  "Both operators require the two queries to be 'union-compatible' — same number of columns, matching order, compatible data types. These operations come directly from the set theory the relational model is built on."
+                ]
+              },
+              {
+                title: "Finding the nth Highest Value",
+                body: [
+                  "A common requirement is finding the student with the 4th highest marks, or the 2nd highest salary in a company.",
+                  "• Modern approach: ROW_NUMBER() assigns a unique rank to every row after sorting, then keep the row where rank = 4",
+                  "• Older approach (no window functions): for each student, count how many others scored strictly higher; if exactly three scored higher, that student is in 4th rank"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -212,10 +317,49 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "Aggregate Functions", body: ["COUNT(*): number of rows; COUNT(col): number of non-NULL values", "SUM(col): sum of numeric values; AVG(col): average", "MAX(col), MIN(col): largest/smallest value", "Aggregates ignore NULL values except COUNT(*)"] },
-              { title: "GROUP BY", body: ["Groups rows with same values in specified columns", "Columns in SELECT must either be in GROUP BY or be aggregates", "Example: SELECT Dept_ID, AVG(Age) FROM STUDENT GROUP BY Dept_ID;"] },
-              { title: "HAVING", body: ["Filters groups after aggregation (WHERE filters rows before grouping)", "Can use aggregate functions in condition", "Example: GROUP BY Dept_ID HAVING AVG(Age) > 20;"] },
-              { title: "Views", body: ["CREATE VIEW view_name AS SELECT ...; — stores a query as a virtual table", "DROP VIEW view_name; — removes the view", "Views provide security and simplify complex queries"] }
+              {
+                title: "Aggregate Functions — Summarizing Many Rows into One Value",
+                body: [
+                  "Aggregate functions condense many rows of data into a single summary value:",
+                  "• COUNT(*) — how many rows exist",
+                  "• SUM — adds up a numeric column",
+                  "• AVG — computes the average",
+                  "• MAX / MIN — finds the largest / smallest value",
+                  "A detail beginners often miss: aggregate functions ignore NULL values while calculating (except COUNT(*), which counts every row regardless of its contents)."
+                ]
+              },
+              {
+                title: "GROUP BY — Aggregating Within Categories",
+                body: [
+                  "GROUP BY produces one summary per category instead of one overall summary for the whole table — for example, average age per department instead of average age of the whole college.",
+                  "• It splits the table into groups based on the values in a chosen column",
+                  "• The aggregate function is then applied separately within each group",
+                  "![Rows Split into Groups Before Aggregation](/sql-groupby.png)",
+                  "Important rule: every column in the SELECT clause must either appear in the GROUP BY clause or be wrapped inside an aggregate function — otherwise the database wouldn't know which single value to display for a column that isn't grouped or summarized."
+                ]
+              },
+              {
+                title: "HAVING — Filtering Groups, Not Rows",
+                body: [
+                  "WHERE and HAVING filter at different stages:",
+                  "• WHERE filters individual rows before any grouping happens",
+                  "• HAVING filters the groups themselves, after aggregation — e.g., show only departments with more than one student",
+                  "• HAVING runs after GROUP BY and can use aggregate functions in its condition, something WHERE cannot do",
+                  "![HAVING](/sql-having.png)",
+                  "Simple rule of thumb: WHERE works on raw, individual rows; HAVING works on already-grouped, summarized results."
+                ]
+              },
+              {
+                title: "Views — Saving a Query as a Virtual Table",
+                body: [
+                  "A view is a saved SELECT query that behaves like a table when queried, but stores no data of its own — its underlying query runs fresh every time the view is used.",
+                  "![A View Acting as a Virtual Table](/sql-views.png)",
+                  "Views are useful for:",
+                  "• Hiding complexity — query SELECT * FROM Student_Summary instead of repeating a complicated query every time",
+                  "• Limiting access — exposing only a controlled subset of the underlying data",
+                  "CREATE VIEW defines a new view; DROP VIEW removes only the view's definition — the real base tables and their data are completely unaffected."
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -269,9 +413,46 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "Conversion Functions", body: ["TO_CHAR(value, format): converts number/date to string", "TO_NUMBER(string): converts string to number", "TO_DATE(string, format): converts string to date"] },
-              { title: "String Functions", body: ["CONCAT(s1,s2) or || — concatenation", "LPAD(s, n, p), RPAD(s, n, p) — pad left/right", "LTRIM(s), RTRIM(s), TRIM(s) — remove spaces", "LOWER(s), UPPER(s), INITCAP(s) — case conversion", "LENGTH(s) — string length", "SUBSTR(s, start, len) — extract substring", "INSTR(s, substr) — find position of substring"] },
-              { title: "Date Functions (Oracle style — SQLite equivalents)", body: ["DATE('now') — current date", "STRFTIME('%Y-%m-%d', date) — format date", "JULIANDAY(date1) - JULIANDAY(date2) — days between", "DATE(date, '+n months') — add months", "To simulate LEAST/GREATEST: MIN(date1,date2), MAX(date1,date2)"] }
+              {
+                title: "Why We Need Built-in Functions in SQL",
+                body: [
+                  "Raw data stored in a database is rarely already in the exact shape needed for display or comparison — a date might be stored as a day count, a name might be all lowercase, or a number might need leading zeros.",
+                  "SQL ships with a large library of built-in functions that reshape data on the fly, without ever changing what is actually stored inside the table."
+                ]
+              },
+              {
+                title: "Conversion Functions — Moving Between Data Types",
+                body: [
+                  "Three core conversion functions:",
+                  "• TO_CHAR — converts a number or date into a readable text string, often with a format like 'DD-MON-YYYY'",
+                  "• TO_NUMBER — converts a text string into a real numeric value so it can take part in calculations",
+                  "• TO_DATE — converts a text string into a proper date value the database understands",
+                  "These matter because SQL is strict about data types — a date stored as plain text generally cannot be compared directly to a real DATE column without first converting one side."
+                ]
+              },
+              {
+                title: "String Functions — Reshaping Text",
+                body: [
+                  "• CONCAT (or ||) — joins two pieces of text together, e.g., combining first and last name",
+                  "• UPPER, LOWER, INITCAP — change the lettering case of text, useful for standardizing inconsistently typed data",
+                  "• LENGTH — counts how many characters are in a string",
+                  "• SUBSTR — pulls out a portion of a string starting at a given position",
+                  "• INSTR — searches for the position of one piece of text inside another",
+                  "• SUBSTR and INSTR together are exactly how a domain name can be extracted out of an email address",
+                  "• LPAD and RPAD — add padding characters to the left/right of a string until it reaches a chosen length, e.g., formatting a roll number to display as '00101' instead of '101'"
+                ]
+              },
+              {
+                title: "Date Functions — Working with Calendar Values",
+                body: [
+                  "• SYSDATE (or DATE('now') in SQLite) — returns the current system date and time, usually the starting point for date calculations",
+                  "• MONTHS_BETWEEN — calculates the difference between two dates, e.g., computing age from date of birth",
+                  "• ADD_MONTHS — shifts a date forward or backward by a chosen number of months",
+                  "• LAST_DAY — finds the final day of the month for a given date",
+                  "• ADD_MONTHS and LAST_DAY come up often when calculating due dates, billing cycles, or membership expiry",
+                  "• TRUNC and ROUND — adjust a date or number down to a desired level of precision, e.g., trimming a timestamp down to just its date portion"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -324,10 +505,49 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "PL/SQL Block Structure", body: ["DECLARE — variable declarations", "BEGIN — executable statements", "EXCEPTION — error handling (optional)", "END; — block terminator"] },
-              { title: "Variables and Cursors", body: ["v_name VARCHAR2(50);", "CURSOR c1 IS SELECT * FROM STUDENT;", "OPEN, FETCH, CLOSE for explicit cursors"] },
-              { title: "Exception Handling", body: ["WHEN NO_DATA_FOUND THEN — no rows returned", "WHEN TOO_MANY_ROWS THEN — multiple rows", "WHEN OTHERS THEN — any other error", "SQLERRM — error message"] },
-              { title: "Transaction Control", body: ["COMMIT — makes changes permanent", "ROLLBACK — undoes all changes since last commit", "SAVEPOINT name — creates a rollback point", "ROLLBACK TO SAVEPOINT name — undo to savepoint"] }
+              {
+                title: "The Anatomy of a PL/SQL Block",
+                body: [
+                  "PL/SQL extends plain SQL with programming constructs — variables, loops, conditional logic — tightly woven into the database itself.",
+                  "![The Three Sections of a PL/SQL Block](/plsql_block_structure.png)",
+                  "Every PL/SQL block is organized into up to three sections:",
+                  "• DECLARE (optional) — defines the variables and cursors used later",
+                  "• BEGIN (mandatory) — holds the actual executable statements",
+                  "• EXCEPTION (optional) — catches and handles any errors that occur while BEGIN was running",
+                  "• END (mandatory): The END keyword marks the termination of the PL/SQL block. A slash (/) is often used to execute the block in SQL*Plus or Oracle environments."
+                ]
+              },
+              {
+                title: "Variables and Cursors — Holding and Stepping Through Data",
+                body: [
+                  "• A variable holds a single value and is declared with a name and data type, e.g., v_name VARCHAR2(50)",
+                  "• A cursor represents an entire set of rows returned by a SELECT query and lets the program step through those rows one at a time",
+                  "The typical lifecycle of an explicit cursor:",
+                  "• OPEN — start running the query",
+                  "• FETCH — pull the next row into variables (repeated)",
+                  "• CLOSE — release the resources it was using"
+                ]
+              },
+              {
+                title: "Handling Errors with EXCEPTION",
+                body: [
+                  "Things can go wrong while a block runs — a query might return no rows, or unexpectedly return more rows than expected.",
+                  "PL/SQL provides predefined exceptions for common situations:",
+                  "• NO_DATA_FOUND — no rows were found",
+                  "• TOO_MANY_ROWS — more rows came back than expected",
+                  "• WHEN OTHERS — a catch-all for any error not specifically handled elsewhere",
+                  "• SQLERRM — a built-in function returning a readable description of whatever error just occurred, useful while debugging"
+                ]
+              },
+              {
+                title: "COMMIT, ROLLBACK, and SAVEPOINT — Controlling Transactions",
+                body: [
+                  "A transaction is a group of database changes that should either all succeed together or all fail together.",
+                  "• COMMIT — makes every change made so far in the current transaction permanent and visible to other users",
+                  "• ROLLBACK — undoes every change made since the last commit, as though those statements never ran",
+                  "• SAVEPOINT — marks a specific point inside a longer transaction, so a later error can roll back only to that point instead of undoing the entire transaction"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -382,10 +602,40 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "IF-THEN-ELSE", body: ["IF condition THEN statements;", "ELSIF condition THEN statements;", "ELSE statements;", "END IF;"] },
-              { title: "Nested IF", body: ["IF condition1 THEN", "  IF condition2 THEN statements;", "  END IF;", "END IF;"] },
-              { title: "CASE Expression", body: ["CASE grade", "  WHEN 'A' THEN 'Excellent'", "  WHEN 'B' THEN 'Good'", "  ELSE 'Average'", "END;"] },
-              { title: "NULLIF and COALESCE", body: ["NULLIF(a,b) returns NULL if a equals b, else returns a", "COALESCE(a,b,c) returns first non-NULL value", "Useful for handling missing data"] }
+              {
+                title: "IF-THEN-ELSE — Making Decisions in Code",
+                body: [
+                  "IF-THEN-ELSE lets a PL/SQL block choose between different actions depending on whether a condition is true or false:",
+                  "• IF — checks a condition and runs its statements only when true",
+                  "• ELSIF — checks additional conditions one after another",
+                  "• ELSE — catches everything that didn't match any earlier condition"
+                ]
+              },
+              {
+                title: "Nested IF — Checking Multiple Conditions in Layers",
+                body: [
+                  "![Decision Tree for a Nested IF](/nested_if_decision.png)",
+                  "A nested IF places one IF statement inside another — useful whenever a decision depends on more than one independent question.",
+                  "• Assigning a letter grade from marks is a classic example: check whether marks are 90+ first, and only if that fails, move to the next threshold, and so on",
+                  "• Like walking down a staircase of conditions until exactly one matches"
+                ]
+              },
+              {
+                title: "CASE Expressions — A Cleaner Alternative to Long IF Chains",
+                body: [
+                  "A CASE expression achieves the same multi-branch logic as a chain of nested IF statements, but in a far more compact and readable form — similar to a switch statement in other languages.",
+                  "• It evaluates one expression against several possible values (or conditions) and returns whichever result matches",
+                  "• CASE is also handy directly inside an ordinary SQL query — e.g., converting a single-letter grade column into a full word description right inside a SELECT, with no separate PL/SQL block needed"
+                ]
+              },
+              {
+                title: "NULLIF and COALESCE — Gracefully Handling Missing Data",
+                body: [
+                  "NULL represents missing or unknown data and behaves differently from zero or an empty string — dividing by NULL, or comparing anything to NULL, never produces a normal true or false result.",
+                  "• NULLIF(a, b) — returns NULL whenever the two values are equal; commonly used to avoid a 'division by zero' error by turning a zero denominator into NULL",
+                  "• COALESCE(a, b, c, ...) — scans its arguments left to right and returns the first one that isn't NULL; perfect for supplying a sensible default, e.g., showing 0 instead of a blank when a student hasn't taken any exam"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -440,11 +690,50 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "WHILE Loop", body: ["WHILE condition LOOP statements; END LOOP;", "Condition evaluated before each iteration", "Use EXIT WHEN to break early"] },
-              { title: "Numeric FOR Loop", body: ["FOR counter IN 1..10 LOOP statements; END LOOP;", "Counter automatically incremented", "REVERSE keyword for descending order"] },
-              { title: "Nested Loops", body: ["One loop inside another", "Outer loop controls major iteration, inner loop for dependent iteration"] },
-              { title: "User-defined Exceptions", body: ["DECLARE e_custom EXCEPTION;", "PRAGMA EXCEPTION_INIT(e_custom, -20001);", "RAISE e_custom;"] },
-              { title: "RAISE_APPLICATION_ERROR", body: ["RAISE_APPLICATION_ERROR(-20001, 'Custom error message');", "Range: -20000 to -20999"] }
+              {
+                title: "WHILE Loop — Repeating While a Condition Holds",
+                body: [
+                  "![WHILE Loop](/sql-while.png)",
+                  "A WHILE loop checks its condition before every iteration and keeps repeating its body for as long as that condition stays true:",
+                  "• The moment the condition becomes false, the loop stops immediately",
+                  "• Right choice whenever the exact number of repetitions isn't known in advance"
+                ]
+              },
+              {
+                title: "Numeric FOR Loop — Repeating a Known Number of Times",
+                body: [
+                  "![FOR Loop](/sql-for.png)",
+                  "A numeric FOR loop is the right tool when the exact range to repeat over is already known, such as counting from 1 to 10.",
+                  "• PL/SQL automatically creates and increments the loop counter — no need to remember to manually increase it, a common bug with WHILE loops",
+                  "• Adding REVERSE walks the same range backward"
+                ]
+              },
+              {
+                title: "Nested Loops — Loops Inside Loops",
+                body: [
+                  "A nested loop places one loop entirely inside the body of another:",
+                  "• The outer loop controls the bigger, slower-moving iteration (e.g., once per student)",
+                  "• The inner loop handles a smaller, faster-moving iteration that depends on the outer one (e.g., once per course that student took)",
+                  "• For every pass of the outer loop, the entire inner loop runs from start to finish before the outer loop moves on"
+                ]
+              },
+              {
+                title: "Built-in Exceptions — Errors the Database Already Knows About",
+                body: [
+                  "PL/SQL ships with predefined exceptions for common, predictable problems:",
+                  "• ZERO_DIVIDE — fires automatically when code attempts to divide a number by zero",
+                  "• INVALID_NUMBER — fires when non-numeric text is used somewhere a number was expected",
+                  "• PL/SQL raises these automatically — no need to manually detect the situation"
+                ]
+              },
+              {
+                title: "User-Defined Exceptions and RAISE_APPLICATION_ERROR",
+                body: [
+                  "Sometimes a situation is invalid purely from a business standpoint, even though it's valid SQL — negative marks, for instance.",
+                  "• A named exception can be declared, optionally tied to a specific error number using PRAGMA EXCEPTION_INIT, and RAISE'd the moment that business rule is broken",
+                  "• RAISE_APPLICATION_ERROR immediately stops execution and returns a custom, human-readable error message with an error number — reserved range -20000 to -20999 — back to the caller"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -499,9 +788,31 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "Procedure Syntax", body: ["CREATE OR REPLACE PROCEDURE name(param1 IN type, param2 OUT type, param3 IN OUT type) IS", "  -- variable declarations", "BEGIN", "  -- executable statements", "END;"] },
-              { title: "Parameter Modes", body: ["IN: Read-only parameter (default). Cannot be modified.", "OUT: Write-only parameter. Value returned to caller.", "IN OUT: Both readable and writable. Can be modified."] },
-              { title: "Calling Procedures", body: ["EXEC proc_name(10, :out_var); — in SQL*Plus", "BEGIN proc_name(10, v_out); END; — in PL/SQL block"] }
+              {
+                title: "What Is a Stored Procedure?",
+                body: [
+                  "![Calling a Stored Procedure](/procedure_call_flow.png)",
+                  "A stored procedure is a named, reusable block of PL/SQL code saved inside the database itself, rather than rewritten every time the same task is needed.",
+                  "• Once created, it can be called by name from any other PL/SQL block or application — similar to calling a function in an ordinary programming language"
+                ]
+              },
+              {
+                title: "Parameter Modes — IN, OUT, and IN OUT",
+                body: [
+                  "Parameters let data pass into and out of a procedure:",
+                  "• IN (the default) — only carries a value into the procedure; the procedure may read it but cannot change what the caller sees afterward",
+                  "• OUT — starts out empty; the procedure uses it purely to send a computed result back to the caller",
+                  "• IN OUT — combines both: the procedure receives an initial value and may modify it, with the new value reflected back to the caller"
+                ]
+              },
+              {
+                title: "Calling a Procedure",
+                body: [
+                  "Inside a PL/SQL block, a procedure is invoked by writing its name followed by arguments in parentheses, matching the order of the parameter list it was created with.",
+                  "• Any variable passed into an OUT parameter slot automatically receives whatever value the procedure assigns to it",
+                  "• Splitting logic into well-named procedures (e.g., GetStudentMarks, UpdateStudentAge) makes large applications easier to read, test, and reuse, since logic never needs to be duplicated"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -554,9 +865,38 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "Function Syntax", body: ["CREATE OR REPLACE FUNCTION name(param1 IN type, ...) RETURN return_type IS", "  -- declarations", "BEGIN", "  -- statements", "  RETURN value;", "END;"] },
-              { title: "Function vs Procedure", body: ["Function: Must return a value; can be called in SQL statements; usually for computation.", "Procedure: Does not return a value; called as standalone statement; usually for actions (UPDATE, INSERT)."] },
-              { title: "Invoking Functions in SQL", body: ["SELECT GetGrade(marks) FROM STUDENT;", "SELECT Name, GetAverageMarks(Roll_No) FROM STUDENT;", "Functions called in SQL must be deterministic and have no OUT parameters."] }
+              {
+                title: "What Is a Stored Function?",
+                body: [
+                  "![Function Returns a Value, Procedure Performs an Action](/function_vs_procedure.png)",
+                  "A stored function is similar to a stored procedure — both are named, reusable blocks of PL/SQL code — but a function is specifically designed to compute and RETURN a single value back to its caller.",
+                  "• This RETURN value is exactly what makes a function usable directly inside ordinary SQL statements, not just inside PL/SQL blocks"
+                ]
+              },
+              {
+                title: "Function vs Procedure — Knowing Which One to Use",
+                body: [
+                  "The clearest distinction:",
+                  "• A function must always RETURN a value and is meant for computing something, like an average or a grade",
+                  "• A procedure is meant for performing an action, like updating a row, and does not have to return anything",
+                  "• Because of this, functions can be used inside a SELECT list or WHERE clause, while procedures generally cannot"
+                ]
+              },
+              {
+                title: "Calling Functions Inside SQL Statements",
+                body: [
+                  "Once a function like GetGrade(marks) is created, it can be used exactly like a built-in SQL function — e.g., SELECT Name, GetGrade(Marks) FROM ... computes the grade for every row directly inside the query.",
+                  "• This pushes reusable business logic into the database itself, instead of repeating the same calculation in every application that queries the data",
+                  "• To be safely called from SQL, a function generally needs to be deterministic (same input → same output) and should not contain OUT parameters, since SQL expects a single returned value per call"
+                ]
+              },
+              {
+                title: "Writing More Complex Functions",
+                body: [
+                  "Functions aren't limited to a single, simple calculation — they can contain their own variables, IF statements, loops, and even queries against other tables, exactly like a procedure can.",
+                  "• Example: a function computing a student's class rank might query the MARKS table, count how many students scored higher, and return that count plus one as the final rank"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -611,10 +951,37 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "Parameterized Cursor", body: ["CURSOR c_name(p_param TYPE) IS SELECT ... WHERE col = p_param;", "OPEN c_name(value); — pass parameter at open time"] },
-              { title: "FOR UPDATE Cursor", body: ["CURSOR c_name IS SELECT ... FROM table FOR UPDATE;", "Locks rows selected; prevents other transactions from updating them"] },
-              { title: "WHERE CURRENT OF", body: ["UPDATE table SET col = value WHERE CURRENT OF cursor_name;", "Updates the row currently fetched by the cursor"] },
-              { title: "Cursor Variables (REF CURSOR)", body: ["TYPE ref_cursor_type IS REF CURSOR;", "v_cursor ref_cursor_type;", "OPEN v_cursor FOR 'SELECT ...'; — dynamic SQL"] }
+              {
+                title: "Recap — What Is a Cursor?",
+                body: [
+                  "![The OPEN, FETCH, CLOSE Lifecycle of a Cursor](/cursor_lifecycle.png)",
+                  "A cursor is a pointer to the result set of a SELECT query, letting a PL/SQL program process its rows one at a time instead of all at once.",
+                  "• A basic cursor is permanently fixed to one specific query the moment it's declared — fine for simple cases, but limiting for more flexible programs"
+                ]
+              },
+              {
+                title: "Parameterized Cursors — Reusing the Same Cursor with Different Values",
+                body: [
+                  "A parameterized cursor accepts one or more parameters at declaration time, much like a procedure accepts its own parameters.",
+                  "• The actual value is supplied only when the cursor is OPENed",
+                  "• The same cursor definition can be reused — first to fetch students from Department 1, then reopened for Department 2 — without ever writing the underlying query twice"
+                ]
+              },
+              {
+                title: "FOR UPDATE and WHERE CURRENT OF — Safely Modifying What You Just Fetched",
+                body: [
+                  "• FOR UPDATE — locks the rows a cursor's SELECT retrieves, preventing other transactions from changing those same rows until the current transaction finishes, avoiding two processes updating the same row at once",
+                  "• WHERE CURRENT OF — lets an UPDATE or DELETE target exactly the row the cursor most recently fetched, without repeating the WHERE condition or relying on a primary key — the cursor already remembers which row it's positioned on"
+                ]
+              },
+              {
+                title: "Cursor Variables (REF CURSOR) — Cursors That Aren't Tied to One Query",
+                body: [
+                  "A normal cursor is permanently associated with one fixed SELECT statement written at declaration time.",
+                  "• A cursor variable, declared with the REF CURSOR type, behaves like a flexible pointer that can be opened against any query decided only at runtime",
+                  "• Useful when the exact query to run depends on a condition only known while the program is executing — e.g., deciding which of two SELECT statements to open based on a department ID known only at runtime"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -668,9 +1035,45 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "Trigger Types", body: ["BEFORE/AFTER — when the trigger fires relative to the DML operation", "ROW/STATEMENT — how many times the trigger fires (per row or per statement)", "INSTEAD OF — on views; replaces the DML operation entirely"] },
-              { title: ":OLD and :NEW Pseudorecords", body: [":OLD — values before the operation (UPDATE/DELETE; NULL for INSERT)", ":NEW — values after the operation (INSERT/UPDATE; NULL for DELETE)"] },
-              { title: "Trigger Use Cases", body: ["Audit logging: AFTER ROW inserts into audit table", "Data validation: BEFORE ROW checks business rules", "Auto-computation: BEFORE ROW sets derived columns", "View update: INSTEAD OF performs DML on underlying tables"] }
+              {
+                title: "What Is a Trigger?",
+                body: [
+                  "![Different Kinds of Triggers Around a DML Statement](/trigger_types.png)",
+                  "A trigger is a special block of PL/SQL code the database runs automatically in response to a specific event — typically an INSERT, UPDATE, or DELETE on a table — without anyone explicitly calling it.",
+                  "• Useful for enforcing rules, automatically logging changes, or keeping related data in sync without relying on every application to remember to do it manually"
+                ]
+              },
+              {
+                title: "BEFORE vs AFTER — Timing of a Trigger",
+                body: [
+                  "• BEFORE trigger — runs just before the triggering DML statement changes the data; the right place to validate or modify incoming data, e.g., rejecting an INSERT if age is out of range",
+                  "• AFTER trigger — runs once the change has already been made; the natural place for tasks like writing an audit log entry, since by then the change is known to have succeeded"
+                ]
+              },
+              {
+                title: "ROW vs STATEMENT — How Many Times a Trigger Fires",
+                body: [
+                  "• ROW-level trigger (FOR EACH ROW) — fires once for every individual row affected; an UPDATE changing 50 rows runs it 50 separate times",
+                  "• STATEMENT-level trigger — fires exactly once for the entire statement, regardless of rows touched; appropriate for tasks like recording that 'a bulk update happened' without caring about each row"
+                ]
+              },
+              {
+                title: ":OLD and :NEW — Looking at Data Before and After the Change",
+                body: [
+                  "Inside a row-level trigger, the pseudo-records :OLD and :NEW give access to column values before and after the change:",
+                  "• INSERT — :OLD is empty (no previous row); :NEW holds the values being inserted",
+                  "• DELETE — :NEW is empty; :OLD holds the values about to be removed",
+                  "• UPDATE — both are available at once, letting a trigger compare exactly what changed"
+                ]
+              },
+              {
+                title: "INSTEAD OF Triggers — Making Views Updatable",
+                body: [
+                  "Normally, a view built from a JOIN of multiple tables cannot be directly inserted into, updated, or deleted from, because the database can't tell which underlying table each column belongs to.",
+                  "• An INSTEAD OF trigger replaces the DML operation on the view with custom logic specified by the trigger's author",
+                  "• Typically performs the equivalent inserts or updates on the real, underlying base tables instead"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -724,10 +1127,48 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "Full Table Scan (Non-indexed)", body: ["Database reads every row in the table to find matches", "Time complexity: O(n) where n is number of rows", "Acceptable for small tables, expensive for large tables"] },
-              { title: "Indexed Search", body: ["B-tree index provides logarithmic search time O(log n)", "Database traverses index tree to locate rows directly", "Much faster for point queries and range queries"] },
-              { title: "EXPLAIN QUERY PLAN", body: ["Shows how SQLite will execute a query", "'SCAN TABLE' means full table scan (no index used)", "'SEARCH TABLE USING INDEX' means index was used"] },
-              { title: "When to Use Indexes", body: ["Columns used frequently in WHERE clauses", "Columns used in JOIN conditions", "Columns used in ORDER BY", "Not beneficial for small tables or columns with low cardinality (e.g., gender)"] }
+              {
+                title: "Searching Without an Index — The Full Table Scan",
+                body: [
+                  "When a table has no index on the searched column, the database has no shortcut — it must check every single row one after another.",
+                  "• This is called a full table scan",
+                  "• Its cost grows directly with the number of rows — doubling the table size roughly doubles search time"
+                ]
+              },
+              {
+                title: "What Is an Index?",
+                body: [
+                  "An index is an extra, separate data structure the database maintains alongside a table, built specifically to make searching a particular column much faster.",
+                  "• Conceptually similar to the index at the back of a textbook — jump straight to the right page instead of reading the entire book",
+                  "![A B-Tree Index Sitting Alongside a Table](/btree_index_structure.png)",
+                  "• Most database indexes are built using a B-Tree (or a close variant) — the same balanced tree structure from data structures courses — which keeps tree height small even for very large tables, guaranteeing fast lookups"
+                ]
+              },
+              {
+                title: "How an Indexed Search Works",
+                body: [
+                  "With an index in place, the database no longer checks every row:",
+                  "• It walks down the index's tree structure, making only a small number of comparisons at each level",
+                  "• It arrives directly at the matching row(s)",
+                  "• This brings search time from being proportional to the total row count down to being proportional to the logarithm of the row count — a dramatic improvement on large tables"
+                ]
+              },
+              {
+                title: "Reading an Execution Plan",
+                body: [
+                  "EXPLAIN QUERY PLAN shows exactly how the database intends to execute a query, without actually running it:",
+                  "• 'SCAN TABLE' — the database will read every row (a full table scan)",
+                  "• 'SEARCH TABLE ... USING INDEX' — the database found and used an index, avoiding a full scan"
+                ]
+              },
+              {
+                title: "When (and When Not) to Create an Index",
+                body: [
+                  "Indexes are most valuable on columns frequently used in WHERE clauses, JOIN conditions, or ORDER BY, especially on large tables.",
+                  "• Indexes aren't free — every index must be updated on every INSERT, UPDATE, or DELETE, adding overhead and using extra disk space",
+                  "• Indexing a column with very few distinct values (e.g., 'Gender' with only two values) usually doesn't help much, since the index still points to a large fraction of the table for any given value"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -784,10 +1225,39 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "JDBC Architecture", body: ["Java application → JDBC API → JDBC Driver Manager → JDBC Driver → Database", "Type 4 driver (thin driver) is pure Java, no native libraries"] },
-              { title: "Connection URL Formats", body: ["MySQL: jdbc:mysql://host:port/database", "Oracle: jdbc:oracle:thin:@host:port:SID", "SQLite: jdbc:sqlite:database.db"] },
-              { title: "JDBC Steps", body: ["1. Load driver (Class.forName())", "2. Get connection (DriverManager.getConnection())", "3. Execute queries (Statement/PreparedStatement)", "4. Process results (ResultSet)", "5. Close resources (connection, statement, resultset)"] },
-              { title: "DatabaseMetaData", body: ["Connection.getMetaData() returns DatabaseMetaData", "Methods: getDatabaseProductName(), getDriverVersion(), getURL()"] }
+              {
+                title: "What Is JDBC?",
+                body: [
+                  "![How JDBC Sits Between Java and the Database](/jdbc_architecture.jpg)",
+                  "JDBC (Java Database Connectivity) is a standard Java API that lets a Java program talk to a relational database, regardless of which specific database product is used.",
+                  "• A program can usually switch from one database (e.g., SQLite) to a different one (e.g., MySQL) just by changing the driver and connection details, without rewriting query logic"
+                ]
+              },
+              {
+                title: "JDBC Drivers — The Translator Between Java and the Database",
+                body: [
+                  "A JDBC driver is the software that knows how to communicate with a specific database's native protocol.",
+                  "• Modern drivers are almost always 'Type 4' — written entirely in Java, talking directly to the database over the network with no extra native libraries needed",
+                  "• Every database has its own connection URL format, e.g., jdbc:sqlite:test.db for local SQLite, or jdbc:mysql://host:port/database for a remote MySQL server"
+                ]
+              },
+              {
+                title: "The Five Steps of a Typical JDBC Program",
+                body: [
+                  "• Step 1 — Load the driver class using Class.forName(), registering it with the JDBC DriverManager",
+                  "• Step 2 — Open a connection using DriverManager.getConnection(url), returning a Connection object",
+                  "• Step 3 — Run queries through a Statement or PreparedStatement",
+                  "• Step 4 — Process results, typically through a ResultSet object",
+                  "• Step 5 — Always close the connection (and any statements/result sets) once finished, to release resources"
+                ]
+              },
+              {
+                title: "Database Metadata — Asking the Database About Itself",
+                body: [
+                  "Calling getMetaData() on the Connection object returns a DatabaseMetaData object, which answers questions about the database itself rather than any particular table — product name, version number, driver version, connection URL.",
+                  "• Particularly useful for diagnostic code or tools that need to behave slightly differently depending on which database they're connected to"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -841,9 +1311,31 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "Statement vs PreparedStatement", body: ["Statement: Used for static SQL queries. Concatenates values into query string. Vulnerable to SQL injection.", "PreparedStatement: Precompiled SQL with placeholders (?). Values set using setXXX() methods. Prevents SQL injection."] },
-              { title: "executeUpdate() Method", body: ["Returns int: number of rows affected", "Used for INSERT, UPDATE, DELETE", "Example: int rows = stmt.executeUpdate(\"INSERT INTO STUDENT VALUES...\");"] },
-              { title: "SQL Injection", body: ["Attacker inputs malicious SQL: ' OR '1'='1", "Can cause unintended queries or data breaches", "PreparedStatement escapes input automatically"] }
+              {
+                title: "Statement vs PreparedStatement",
+                body: [
+                  "A plain Statement executes a fixed, complete SQL string exactly as written. If part of that string is built by directly concatenating user input, an attacker could craft input that changes the query's meaning entirely — the basis of a SQL injection attack.",
+                  "![Values Flowing Safely into a Parameterized Query](/preparedstatement_flow.png)",
+                  "A PreparedStatement instead uses a SQL template with placeholder question marks (?) wherever a value will go:",
+                  "• Actual values are supplied afterward using methods like setInt() and setString()",
+                  "• The database driver ensures these values are always treated strictly as data, never as part of the SQL command itself"
+                ]
+              },
+              {
+                title: "Why PreparedStatement Prevents SQL Injection",
+                body: [
+                  "Because the SQL text and the actual values are sent to the database separately when using a PreparedStatement, there's no way for a crafted value (e.g., a name containing extra SQL syntax) to alter the query's structure.",
+                  "• This is exactly why PreparedStatement is the standard, safe way to handle any value originating from outside the program, such as user input"
+                ]
+              },
+              {
+                title: "Performing an INSERT with executeUpdate()",
+                body: [
+                  "executeUpdate() is the JDBC method used for any SQL statement that changes data rather than retrieving it — covers INSERT, UPDATE, DELETE.",
+                  "• It returns an integer telling exactly how many rows were affected, which a program can check to confirm the operation worked as expected",
+                  "• Good practice: query the table again immediately after an INSERT to verify the data was stored correctly"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
@@ -900,9 +1392,27 @@ export const dbmsCourse: Course = {
               ]
             },
             theory: [
-              { title: "DELETE with PreparedStatement", body: ["PreparedStatement pstmt = conn.prepareStatement(\"DELETE FROM STUDENT WHERE Roll_No = ?\");", "pstmt.setInt(1, rollNo);", "int rows = pstmt.executeUpdate();"] },
-              { title: "Checking Deletion Success", body: ["rows == 0: No matching row found", "rows > 0: rows number of rows deleted"] },
-              { title: "Transaction Considerations", body: ["DELETE operations can be rolled back if autoCommit is false", "Default autoCommit = true means each DELETE is committed immediately"] }
+              {
+                title: "Deleting Rows Safely with PreparedStatement",
+                body: [
+                  "Deleting data follows the same safe pattern used for inserting it: write the DELETE statement with a placeholder for the value identifying which row to remove (typically a primary key like Roll_No), then bind the actual value before executing.",
+                ]
+              },
+              {
+                title: "Checking Whether a Row Actually Existed",
+                body: [
+                  "A DELETE statement running without error doesn't necessarily mean it removed anything — if the WHERE condition matches no row, the statement still succeeds but affects zero rows.",
+                  "• Check the integer returned by executeUpdate(): 0 means no matching row was found; any positive number tells exactly how many rows were removed",
+                  "• Some programs run a SELECT check before the DELETE, purely to show a clearer message such as 'No student found with that roll number' instead of a generic zero-rows-affected result"
+                ]
+              },
+              {
+                title: "Transactions and DELETE",
+                body: [
+                  "By default, most JDBC connections operate in auto-commit mode — every individual statement, including a DELETE, is committed immediately after it runs, with no way to undo it afterward.",
+                  "• For a delete that should remain reversible until a whole sequence of operations succeeds, a program can turn off auto-commit, perform several related changes, and call commit() only once everything succeeds (or rollback() if something fails partway through)"
+                ]
+              }
             ],
             pretest: [],
             procedure: [
