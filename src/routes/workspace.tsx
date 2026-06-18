@@ -1596,9 +1596,30 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                                       }
                                       return (
                                         <div key={j} className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
-                                          {textBefore && <HighlightableText text={textBefore} activeCharIndex={activeCharIndex - pStart} />}
-                                          <img src={imgMatch[2]} alt={imgMatch[1]} className="rounded-xl shadow-md my-4 max-h-72 object-contain bg-white/5 border border-slate-200/20" />
-                                          {textAfter && <HighlightableText text={textAfter} activeCharIndex={activeCharIndex - pStart - imgMatch.index - imgMatch[0].length} />}
+                                          {textBefore && (
+                                            <span className="block mb-3">
+                                              <HighlightableText text={textBefore} activeCharIndex={activeCharIndex - pStart} />
+                                            </span>
+                                          )}
+                                          <figure className="my-6 flex flex-col items-center gap-2">
+                                            <div className="w-full bg-white rounded-xl border border-slate-200/30 shadow-md overflow-hidden flex items-center justify-center p-4">
+                                              <img
+                                                src={imgMatch[2]}
+                                                alt={imgMatch[1]}
+                                                className="max-h-64 w-auto object-contain"
+                                              />
+                                            </div>
+                                            {imgMatch[1] && (
+                                              <figcaption className="text-xs text-muted-foreground/60 italic text-center">
+                                                {imgMatch[1]}
+                                              </figcaption>
+                                            )}
+                                          </figure>
+                                          {textAfter && textAfter.trim() && (
+                                            <span className="block mt-3">
+                                              <HighlightableText text={textAfter} activeCharIndex={activeCharIndex - pStart - imgMatch.index! - imgMatch[0].length} />
+                                            </span>
+                                          )}
                                         </div>
                                       );
                                     }

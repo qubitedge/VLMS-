@@ -7,12 +7,15 @@ import {
   Pencil, X, Check, KeyRound, Loader2, Trophy,
   Sparkles, Award, Calendar, Building2, Shield, Zap,
   BookOpen, Brain, Code2, Database, Globe, Server,
-  Palette, TrendingUp, Flame
+  Palette, TrendingUp, Flame,
+  ArrowRight,
+  Search
 } from "lucide-react";
 import {
   supabase, getProfile, updateProfile, getUserBadges,
   type Profile, type UserBadge
 } from "@/lib/supabase";
+import { getCompletedCourses, type CompletedCourse } from "@/lib/course-utils";
 
 export const Route = createFileRoute("/profile")({
   head: () => ({ meta: [{ title: "Profile — VLMS" }] }),
@@ -38,7 +41,7 @@ const COMPLETION_FIELDS: (keyof Profile)[] = [
 
 function calculateCompletion(profile: Profile): number {
   let filled = 0;
-  let total = COMPLETION_FIELDS.length + 2; // +2 for interests & skills arrays
+  const total = COMPLETION_FIELDS.length + 2;
 
   COMPLETION_FIELDS.forEach(key => {
     const val = profile[key];
@@ -47,8 +50,7 @@ function calculateCompletion(profile: Profile): number {
 
   if (profile.interests?.length > 0) filled++;
   if ((profile.skills?.length ?? 0) > 0) filled++;
-
-  return Math.round((filled / total) * 100);
+  return Math.round((filled / total) * 80);
 }
 
 // Interest icon mapping
@@ -73,6 +75,8 @@ function ProfilePage() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [badges, setBadges] = useState<UserBadge[]>([]);
   const [loading, setLoading] = useState(true);
+  const [courseBonus, setCourseBonus] = useState(0);
+  const [completedCourses, setCompletedCourses] = useState<CompletedCourse[]>([]);
 
   // Edit-profile state
   const [editing, setEditing] = useState(false);
@@ -104,9 +108,14 @@ function ProfilePage() {
       setUserId(data.user.id);
       setEmail(data.user.email ?? '');
 
-      const [profileData, badgeData] = await Promise.all([
+      const [profileData, badgeData, completionsData, completedCoursesData] = await Promise.all([
         getProfile(),
         getUserBadges(data.user.id),
+        supabase
+        .from('experiment_completions')
+        .select('course_id')
+        .eq('user_id', data.user.id),
+        getCompletedCourses(data.user.id),
       ]);
 
       if (!isComponentMounted) return;
@@ -114,6 +123,27 @@ function ProfilePage() {
 
       setProfile(profileData);
       setBadges(badgeData);
+      setCompletedCourses(completedCoursesData); 
+      // Check if any course is fully completed
+const completedCourseCounts: Record<string, number> = {};
+(completionsData.data ?? []).forEach((row: any) => {
+  completedCourseCounts[row.course_id] = (completedCourseCounts[row.course_id] ?? 0) + 1;
+});
+
+// Count total experiments per course from local course data
+const { courses } = await import('@/lib/course-data');
+let hasCompletedCourse = false;
+for (const [courseId, course] of Object.entries(courses)) {
+  const totalExps = course.weeks.reduce(
+    (sum: number, w: any) => sum + w.experiments.length, 0
+  );
+  if ((completedCourseCounts[courseId] ?? 0) >= totalExps) {
+    hasCompletedCourse = true;
+    break;
+  }
+}
+
+setCourseBonus(hasCompletedCourse ? 20 : 0);
       setLoading(false);
     };
 
@@ -781,7 +811,7 @@ function ProfilePage() {
         {/* Profile Card */}
         <div className="profile-card">
           <div className="p-6 md:p-8">
-            <ProfileCompletionBar profile={profile} />
+            <ProfileCompletionBar profile={profile} courseBonus={courseBonus} />
             <div className="flex flex-col md:flex-row gap-6 md:gap-8">
               {/* Avatar */}
               <div className="flex-shrink-0">
@@ -1034,6 +1064,9 @@ function ProfilePage() {
 
         {/* Badges Section */}
         <BadgesSection badges={badges} />
+        <CompletedCoursesSection courses={completedCourses} />
+        <div className="mt-4 text-center">
+</div>
       </div>
     </div>
   );
@@ -1041,8 +1074,9 @@ function ProfilePage() {
 
 // ── Profile Completion Bar Component ────────────────────────────────────────
 
-function ProfileCompletionBar({ profile }: { profile: Profile }) {
-  const completion = calculateCompletion(profile);
+function ProfileCompletionBar({ profile, courseBonus }: { profile: Profile, courseBonus: number }) {
+  const profileCompletion = calculateCompletion(profile);
+  const completion = Math.min(100, profileCompletion + courseBonus);
   const isComplete = completion >= 100;
 
   return (
@@ -1064,8 +1098,8 @@ function ProfileCompletionBar({ profile }: { profile: Profile }) {
         </p>
       ) : (
         <p className="text-xs text-slate-400 mt-2">
-          Complete your profile to unlock the full experience.
-        </p>
+  Fill all profile details for 80% · Complete any full course to reach 100%.
+</p>
       )}
     </div>
   );
@@ -1077,7 +1111,7 @@ function BadgesSection({ badges }: { badges: UserBadge[] }) {
   const ALL_BADGES = [
     { id: 'first_solve',   label: 'First Solve',           description: 'Completed your first lab experiment',     icon: '🧪' },
     { id: 'speed_coder',   label: 'Speed Coder',            description: 'Solved an experiment in under 2 minutes', icon: '⚡' },
-    { id: 'all_courses',   label: 'All Courses Completed',  description: 'Finished every available course',         icon: '🏆' },
+    { id: 'all_courses',   label: 'Learning Legend',        description: 'You finished your first course!',         icon: '🏆' },
     { id: 'perfect_score', label: 'Perfect Score',          description: 'Got 100% on a posttest',                  icon: '💯' },
     { id: 'curious_mind',  label: 'Curious Mind',           description: 'Explored 3 different subjects',           icon: '🔍' },
     { id: 'early_adopter', label: 'Early Adopter',          description: 'Joined during the beta phase',            icon: '🚀' },
@@ -1121,6 +1155,294 @@ function BadgesSection({ badges }: { badges: UserBadge[] }) {
             </div>
           );
         })}
+      </div>
+    </div>
+  );
+}
+
+// ── Completed Courses Section ────────────────────────────────────────────────────
+function CompletedCoursesSection({ courses }: { courses: CompletedCourse[] }) {
+  const [filter, setFilter] = useState<'all' | 'completed' | 'in-progress'>('all');
+  const [sortBy, setSortBy] = useState<'progress' | 'recent' | 'title'>('progress');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Filter courses
+  const filteredCourses = courses.filter(course => {
+    if (filter === 'completed' && course.completionPercentage < 100) return false;
+    if (filter === 'in-progress' && course.completionPercentage === 100) return false;
+    if (searchQuery && !course.courseTitle.toLowerCase().includes(searchQuery.toLowerCase())) {
+      return false;
+    }
+    return true;
+  });
+
+  // Sort courses
+  const sortedCourses = [...filteredCourses].sort((a, b) => {
+    switch (sortBy) {
+      case 'progress':
+        return b.completionPercentage - a.completionPercentage;
+      case 'recent':
+        return new Date(b.lastCompletedAt).getTime() - new Date(a.lastCompletedAt).getTime();
+      case 'title':
+        return a.courseTitle.localeCompare(b.courseTitle);
+      default:
+        return 0;
+    }
+  });
+
+  const completedCount = courses.filter(c => c.completionPercentage === 100).length;
+  const inProgressCount = courses.filter(c => c.completionPercentage < 100).length;
+
+  if (courses.length === 0) {
+    return (
+      <div className="badges-section">
+        <div className="flex items-center gap-3 mb-5">
+          <div className="p-2 rounded-xl bg-gradient-to-br from-blue-100 to-cyan-50 border border-blue-100">
+            <BookOpen className="size-5 text-blue-600" />
+          </div>
+          <div>
+            <h2 className="text-lg font-bold text-slate-800">Courses You've Started</h2>
+            <p className="text-xs text-slate-400">Track your learning progress</p>
+          </div>
+        </div>
+        <div className="text-center py-12">
+          <div className="text-5xl mb-4 opacity-50">📚</div>
+          <p className="text-slate-500 text-sm font-medium">You haven't started any courses yet.</p>
+          <p className="text-slate-400 text-xs mt-1">Complete experiments to track your progress here.</p>
+          <Link
+            to="/courses"
+            className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-cyan-50 text-cyan-600 rounded-full text-sm font-medium hover:bg-cyan-100 transition-colors"
+          >
+            Browse Courses <ArrowRight className="size-3.5" />
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="badges-section">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-xl bg-gradient-to-br from-blue-100 to-cyan-50 border border-blue-100">
+            <BookOpen className="size-5 text-blue-600" />
+          </div>
+          <div>
+            <h2 className="text-lg font-bold text-slate-800">Your Courses</h2>
+            <p className="text-xs text-slate-400">{courses.length} courses in your learning path</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 bg-white/80 px-3 py-1.5 rounded-full shadow-sm border border-slate-100">
+          <div className="flex items-center gap-1.5">
+            <span className="inline-block size-2 rounded-full bg-emerald-400" />
+            <span className="text-xs font-medium text-slate-700">{completedCount} completed</span>
+          </div>
+          <div className="w-px h-4 bg-slate-200" />
+          <div className="flex items-center gap-1.5">
+            <span className="inline-block size-2 rounded-full bg-amber-400" />
+            <span className="text-xs font-medium text-slate-700">{inProgressCount} in progress</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Controls Bar */}
+      <div className="flex flex-col lg:flex-row gap-3 mb-6 p-3 bg-slate-50/80 rounded-2xl border border-slate-100">
+        {/* Search */}
+        <div className="flex-1 min-w-[200px]">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Search courses..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 bg-white text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
+            />
+          </div>
+        </div>
+
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap gap-1.5">
+          <button
+            onClick={() => setFilter('all')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${
+              filter === 'all'
+                ? 'bg-gradient-to-r from-cyan-500 to-cyan-600 text-white shadow-md shadow-cyan-500/25'
+                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+            }`}
+          >
+            All <span className="ml-1 opacity-70">{courses.length}</span>
+          </button>
+          <button
+            onClick={() => setFilter('completed')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${
+              filter === 'completed'
+                ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-md shadow-emerald-500/25'
+                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+            }`}
+          >
+            ✅ Completed <span className="ml-1 opacity-70">{completedCount}</span>
+          </button>
+          <button
+            onClick={() => setFilter('in-progress')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${
+              filter === 'in-progress'
+                ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md shadow-amber-500/25'
+                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+            }`}
+          >
+            🔄 In Progress <span className="ml-1 opacity-70">{inProgressCount}</span>
+          </button>
+        </div>
+
+        {/* Sort Dropdown */}
+        <div className="flex items-center gap-2">
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as 'progress' | 'recent' | 'title')}
+            className="px-3 py-2 rounded-xl border border-slate-200 bg-white text-sm text-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all cursor-pointer hover:border-slate-300"
+          >
+            <option value="progress">📊 By Progress</option>
+            <option value="recent">🕐 By Recent</option>
+            <option value="title">🔤 By Title</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Results */}
+      {sortedCourses.length === 0 ? (
+        <div className="text-center py-12">
+          <div className="text-5xl mb-4 opacity-50">
+            {filter === 'completed' ? '🎯' : filter === 'in-progress' ? '🚀' : '🔍'}
+          </div>
+          <p className="text-slate-500 text-sm font-medium">
+            {filter === 'completed' 
+              ? "You haven't completed any courses yet." 
+              : filter === 'in-progress' 
+              ? "All your courses are completed! 🎉"
+              : searchQuery 
+              ? `No courses found matching "${searchQuery}"`
+              : "No courses found."}
+          </p>
+          {(filter === 'completed' || filter === 'in-progress') && (
+            <p className="text-slate-400 text-xs mt-1">
+              {filter === 'completed' ? 'Keep learning and you\'ll get there!' : 'Great job! You\'ve mastered all your courses!'}
+            </p>
+          )}
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="mt-3 text-sm text-cyan-600 hover:text-cyan-700 font-medium transition-colors"
+            >
+              Clear search
+            </button>
+          )}
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {sortedCourses.map((course, idx) => {
+            const isComplete = course.completionPercentage === 100;
+            const progressColor = isComplete 
+              ? 'from-emerald-400 to-emerald-600' 
+              : course.completionPercentage > 50 
+              ? 'from-cyan-400 to-blue-500'
+              : 'from-cyan-400 to-cyan-600';
+            
+            return (
+              <div
+                key={course.courseId}
+                className={`group relative p-5 rounded-2xl border transition-all duration-300 ${
+                  isComplete
+                    ? 'bg-gradient-to-br from-emerald-50/80 to-white border-emerald-200 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-100/50'
+                    : 'bg-white border-slate-200 hover:border-cyan-200 hover:shadow-lg hover:shadow-cyan-100/50'
+                }`}
+                style={{ animationDelay: `${idx * 0.05}s` }}
+              >
+                {/* Decorative gradient bar */}
+                <div className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r ${progressColor}`} />
+                
+                <div className="flex items-start justify-between mb-3 pt-1">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-sm text-slate-800 line-clamp-2 group-hover:text-cyan-700 transition-colors">
+                      {course.courseTitle}
+                    </h3>
+                    <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                      <span className="text-xs text-slate-500 bg-slate-50 px-2 py-0.5 rounded-full">
+                        {course.experimentsCompleted}/{course.totalExperiments} experiments
+                      </span>
+                      {isComplete && (
+                        <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                          <Check className="size-3" /> Completed
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  {isComplete && (
+                    <div className="flex-shrink-0 ml-3">
+                      <div className="p-1.5 rounded-full bg-amber-100/50 border border-amber-200">
+                        <Trophy className="size-4 text-amber-500" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-3">
+                  <div className="flex items-center justify-between text-xs text-slate-500 mb-1.5">
+                    <span className="font-medium">Progress</span>
+                    <span className={`font-bold ${isComplete ? 'text-emerald-600' : 'text-cyan-600'}`}>
+                      {course.completionPercentage}%
+                    </span>
+                  </div>
+                  <div className="profile-progress-track h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                    <div
+                      className={`h-full rounded-full transition-all duration-1000 bg-gradient-to-r ${progressColor}`}
+                      style={{ 
+                        width: `${course.completionPercentage}%`,
+                        boxShadow: isComplete ? '0 0 10px rgba(52, 211, 153, 0.3)' : 'none'
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between text-xs text-slate-400">
+                  <span className="flex items-center gap-1.5">
+                    <Calendar className="size-3.5" />
+                    <span>Last active {new Date(course.lastCompletedAt).toLocaleDateString('en-IN', {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric'
+                    })}</span>
+                  </span>
+                  <Link
+                    to="/course/$courseId"
+                    params={{ courseId: course.courseId }}
+                    className={`flex items-center gap-1.5 font-medium transition-all ${
+                      isComplete 
+                        ? 'text-emerald-600 hover:text-emerald-700 hover:gap-2' 
+                        : 'text-cyan-600 hover:text-cyan-700 hover:gap-2'
+                    }`}
+                  >
+                    {isComplete ? 'Review Course' : 'Continue Learning'}
+                    <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      
+      {/* Browse All Courses Link */}
+      <div className="mt-6 pt-4 border-t border-slate-100 flex justify-center">
+        <Link
+          to="/courses"
+          className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-cyan-50 to-blue-50 text-cyan-600 rounded-full text-sm font-medium hover:from-cyan-100 hover:to-blue-100 transition-all shadow-sm hover:shadow-md"
+        >
+          <BookOpen className="size-4" />
+          Browse All Courses
+          <ArrowRight className="size-4" />
+        </Link>
       </div>
     </div>
   );
