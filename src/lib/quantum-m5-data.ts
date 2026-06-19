@@ -61,7 +61,7 @@ except ImportError:
             title: "Deutsch–Jozsa Algorithm",
             body: [
               "Proposed in 1992, the Deutsch-Jozsa algorithm solves a specific 'black box' problem.",
-              "![Algorithm flow visualization](/videos/quantum_deutsch_jozsa.mp4)",
+              "![Algorithm flow visualization](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781864212/Classical_vs_Quantum_function_query_202606191521_xr9oci.mp4)",
               "Imagine a hidden function that takes a binary string as input and outputs a single 0 or 1. You are guaranteed that this function is either completely 'Constant' (outputs the same thing for every input) or perfectly 'Balanced' (outputs 0 for half the inputs and 1 for the other half).",
               "Classically, if you have N bits of input, you might have to query the function (2^N)/2 + 1 times in the worst case to be 100% sure if it's constant or balanced.",
               "By putting all input bits into a superposition and utilizing quantum interference, the Deutsch-Jozsa algorithm determines the answer with 100% certainty in exactly ONE query, proving an exponential quantum speedup."
@@ -108,7 +108,7 @@ print("While not exponential like Shor's, quadratic speedup is massive for big d
             title: "Grover's Search Algorithm",
             body: [
               "Invented by Lov Grover in 1996, this algorithm searches an unsorted database of N items for a specific target.",
-              "![Search amplification animation](/videos/quantum_grover.mp4)",
+              "![Search amplification animation](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781864197/Classical_vs_Quantum_Search_202606191524_etkb8t.mp4)",
               "Classically, searching an unsorted list requires checking each item one by one, taking O(N) time.",
               "Grover's algorithm initializes a superposition of all possible items. It then iteratively applies an oracle that 'tags' the correct item with a negative phase.",
               "Following the oracle, a 'diffusion operator' performs 'amplitude amplification', which shrinks the probability of the wrong items and grows the probability of the correct item.",
@@ -173,7 +173,7 @@ else:
             title: "Shor's Algorithm",
             body: [
               "Formulated by Peter Shor in 1994, this algorithm finds the prime factors of an integer N in polynomial time, representing an exponential speedup over the best known classical algorithms.",
-              "![Factorization visualization](/videos/quantum_shors.mp4)",
+              "![Factorization visualization](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781864197/RSA_encryption_factoring_with_Sh__202606191528_grtrm9.mp4)",
               "Modern cryptography (like RSA used in secure web browsing) relies entirely on the assumption that factoring very large numbers (e.g., 2048-bit numbers) is practically impossible for classical computers, taking millions of years.",
               "Shor's algorithm breaks the factoring problem down into a 'period finding' problem. It uses the Quantum Fourier Transform (QFT) to find this period almost instantly.",
               "Once the period is found quantumly, simple classical mathematics (Greatest Common Divisor) extracts the prime factors, breaking the encryption."
@@ -218,7 +218,7 @@ print("Data input/output is slow. Getting huge classical datasets IN and OUT of 
             title: "Quantum Machine Learning",
             body: [
               "Quantum Machine Learning (QML) aims to utilize quantum computers to improve the speed or capability of AI and machine learning tasks.",
-              "![QML workflow visualization](/videos/quantum_qml.mp4)",
+              "![QML workflow visualization](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781864212/Classical_vs_quantum_neural_netw__202606191544_pyijkd.mp4)",
               "One major approach is the Quantum Support Vector Machine (QSVM). Classical SVMs map data to higher dimensions using the 'kernel trick'. Quantum feature maps use quantum entanglement to map data into an exponentially large Hilbert space, potentially uncovering patterns completely invisible to classical computers.",
               "Another approach is Hybrid Quantum-Classical algorithms like VQE or QAOA. In these, a parameterized quantum circuit evaluates a complex function, and a classical CPU uses gradient descent to adjust the circuit's parameters, combining the strengths of both architectures."
             ]
@@ -268,7 +268,7 @@ print("- Solution: Creating unhackable networks using Quantum Key Distribution (
             title: "Real-World Applications",
             body: [
               "Quantum computers are not designed to replace classical computers for everyday tasks like sending emails or playing video games. They are specialized coprocessors designed to solve specific problems that are intractable for classical machines.",
-              "![Industry case-study animations](/videos/quantum_applications.mp4)",
+              "![Industry case-study animations](https://res.cloudinary.com/den4nmmwx/video/upload/q_auto/f_auto/v1781864210/Quantum_Computing_branches_diagram_202606191546_ddcvpc.mp4)",
               "As Richard Feynman noted, nature is quantum mechanical. Therefore, to simulate nature accurately (like molecular chemistry and drug interactions), we need a quantum computer. This is expected to be the first major commercial breakthrough.",
               "Other major areas include optimization (finance, logistics, traffic routing), where evaluating a massive number of permutations simultaneously provides an enormous advantage."
             ]
