@@ -20,16 +20,16 @@ export const dsCourse: Course = {
     "To impart a foundational understanding of non-linear data structures particularly Binary Search Trees including insertion, deletion, and all standard traversal techniques — inorder, preorder, and postorder.",
     "To explore fundamental hashing concepts including hash functions, collision resolution techniques, and practical applications such as implementing a simple cache using hash tables for fast data retrieval.",
     "To develop the ability to analyze the advantages and trade-offs of different data structures and select the most appropriate structure for a given computational problem.",
-    "To bridge the gap between theoretical understanding and practical implementation by writing, compiling, and running complete C programs for each data structure concept covered in the JNTUGV syllabus."
+    "To bridge the gap between theoretical understanding and practical implementation by writing, compiling, and running complete C programs for each core data structure concept."
   ],
   introduction: [
     "Data structures form the backbone of efficient software engineering. Every algorithm that powers modern technology — from search engines and social networks to operating systems and databases — depends fundamentally on how data is organized, stored, and accessed in memory. A strong understanding of data structures is not merely an academic requirement but an essential skill for every practicing software engineer and computer scientist.",
-    "This Virtual Data Structures Lab is developed for B.Tech students of Computer Science Engineering, Information Technology, and allied branches at Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV). The lab provides a structured, browser-based programming environment where students can implement, visualize, and experiment with fundamental data structures in C without requiring any local software installation or setup.",
-    "The lab covers 9 exercises spanning the complete JNTUGV Data Structures Lab syllabus — from array manipulation and searching techniques to linked lists, stacks, queues, binary search trees, and hashing. Each exercise includes a clearly stated objective, theoretical background, step-by-step procedure, an interactive simulation showing data structure state changes visually, a live C code editor powered by a real GCC compiler, and pre-test and post-test assessments for self-evaluation.",
+    "The Virtual Data Structures Lab provides a structured, browser-based programming environment where students can implement, visualize, and experiment with fundamental data structures in C without requiring any local software installation or setup.",
+    "The lab covers structured exercises spanning linear and non-linear data structures — from array manipulation and searching techniques to linked lists, stacks, queues, binary search trees, and hashing. Each exercise includes a clearly stated objective, theoretical background, step-by-step procedure, an interactive simulation showing data structure state changes visually, a live C code editor powered by a real GCC compiler, and pre-test and post-test assessments for self-evaluation.",
     "Data structures are not just programming constructs — they are problem-solving tools. This lab trains students to think algorithmically, analyze time and space complexity, choose the right data structure for a given problem, and implement clean, efficient C programs that work correctly on real inputs."
   ],
   targetAudience: {
-    primary: "B.Tech students of Computer Science Engineering, Information Technology, and all allied branches of Engineering at Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV) enrolled in the Data Structures Lab course (Course Code: refer JNTUGV curriculum, Credits: L:0 T:0 P:3 C:1.5).",
+    primary: "Students of Computer Science, Information Technology, and allied engineering disciplines enrolled in Data Structures and Algorithms courses.",
     prerequisites: [
       "Students should have completed the C Programming Lab or equivalent course before attempting this lab. Specifically students are expected to be comfortable with the following C concepts before starting:",
       "Pointers and pointer arithmetic",
@@ -43,7 +43,7 @@ export const dsCourse: Course = {
       "Second-year students who want to strengthen their data structures foundation before advanced courses in algorithms, database systems, or operating systems.",
       "Students preparing for technical placements and competitive programming where data structures questions are extensively tested.",
       "Students preparing for GATE examinations where data structures carries significant weightage.",
-      "Faculty members looking for ready-made experiment references aligned to the JNTUGV Data Structures Lab syllabus.",
+      "Faculty members looking for ready-made experiment references aligned to standard data structures curricula.",
       "Self-learners who want a structured compiler-ready environment to practice data structures in C."
     ]
   },
@@ -80,7 +80,7 @@ export const dsCourse: Course = {
     dsExercise9
   ],
   shortNotes: `DATA STRUCTURES - SHORT NOTES
-(As per JNTUGV Syllabus)
+(Standard Curriculum)
 
 INTRODUCTION TO DATA STRUCTURES
 Data Structures is the study of organizing, managing, and storing data in a computer so that it can be accessed and modified efficiently. Just like we arrange books in a library systematically to find them quickly, data structures help arrange data in memory for fast processing.

@@ -25,12 +25,12 @@ export const dbmsCourse: Course = {
   ],
   introduction: [
     "A Database Management System (DBMS) is software that enables users to define, create, maintain, and control access to databases. Unlike traditional file systems, a DBMS provides data independence, integrity enforcement, concurrent access control, and recovery mechanisms that are essential for modern enterprise applications.",
-    "This Virtual DBMS Lab is developed for B.Tech students of Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV). The lab provides a browser-based environment where students can write and execute SQL queries, visualize ER diagrams, trace relational algebra expressions, and simulate transaction schedules without requiring any local database installation.",
-    "The lab covers 15 experiments aligned with the JNTUGV DBMS Lab syllabus — from DDL/DML commands and advanced SQL queries to PL/SQL programming (blocks, loops, cursors, procedures, functions, triggers), indexing, and JDBC database connectivity. Each experiment includes a clear objective, problem statement, theory, pre-loaded SQL starter code, expected output, and self-assessment tests.",
+    "The Database Management Systems (DBMS) Lab provides a hands-on, browser-based environment where students can write and execute SQL queries, visualize ER diagrams, trace relational algebra expressions, and simulate transaction schedules without requiring any local database installation.",
+    "The lab covers structured experiments spanning key database concepts — from basic DDL/DML commands and advanced SQL queries to PL/SQL programming (blocks, loops, cursors, procedures, functions, triggers), indexing, and JDBC database connectivity. Each experiment includes a clear objective, problem statement, theory, pre-loaded SQL starter code, expected output, and self-assessment tests.",
     "Students can attempt all lab problems directly in the browser using a professional SQL editor powered by an in-browser SQLite engine, making the experience identical to working with a full relational database system."
   ],
   targetAudience: {
-    primary: "Second-year B.Tech students of CSE and IT at Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV) enrolled in the Database Management Systems Lab course.",
+    primary: "Students of Computer Science and Information Technology enrolled in Database Management Systems (DBMS) lab courses.",
     prerequisites: [
       "Basic knowledge of C or any programming language (loops, conditionals, functions)",
       "Familiarity with basic set theory and mathematical relations",
@@ -39,7 +39,7 @@ export const dbmsCourse: Course = {
     usefulFor: [
       "Students preparing for placements where SQL is a mandatory skill",
       "Students preparing for GATE, where DBMS is a high-weightage subject",
-      "Faculty members looking for ready-made experiment references aligned to JNTUGV syllabus",
+      "Faculty members looking for ready-made experiment references aligned to standard database curricula",
       "Self-learners who want a structured, browser-based SQL and database design environment"
     ]
   },

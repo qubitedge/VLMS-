@@ -125,7 +125,7 @@ Below are 200 key facts and FAQs about the Virtual Lab to use as your knowledge 
 104. The Chatbot is accessible via a floating button in the bottom right corner of the screen.
 105. Students can leave Feedback for a course from the "Feedback" tab on the course page.
 106. The Feedback form asks for rating, usefulness, and suggestions for improvement.
-107. The Syllabus Alignment tab shows how the virtual lab maps to the actual university curriculum.
+107. The Short Notes tab shows summaries and key concepts for each week.
 108. The Target Audience tab defines who should take the course and prerequisites.
 109. Prerequisites for Data Structures: Basic knowledge of C Programming.
 110. Prerequisites for Machine Learning: AI Tools, Basic Python, Statistics.

@@ -26,7 +26,7 @@ export const adsCourse: Course = {
     "Students can write algorithms in JavaScript/Python directly in the browser, visualize how data structures change with each operation, and debug step-by-step. The lab is designed for B.Tech Computer Science students to bridge the gap between theoretical data structure concepts and practical, efficient implementations."
   ],
   targetAudience: {
-    primary: "Third-year B.Tech students of Computer Science and Engineering studying Advanced Data Structures and Algorithms.",
+    primary: "Undergraduate students of Computer Science and Engineering studying Advanced Data Structures and Algorithms.",
     prerequisites: [
       "Proficiency in a programming language (C/C++/Java/Python)",
       "Basic understanding of pointers, recursion, and dynamic memory allocation",

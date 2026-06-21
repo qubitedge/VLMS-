@@ -16,12 +16,12 @@ export const javaCourse: Course = {
   ],
   introduction: [
     "Java is a versatile, high-level, object-oriented, concurrent programming language developed by Sun Microsystems (now Oracle) in 1995. Designed around the paradigm of 'Write Once, Run Anywhere' (WORA), Java compile outputs are intermediate bytecode files (.class) executed in a virtual machine (JVM) environment, making programs highly portable across diverse operating systems.",
-    "This Virtual Java Programming Lab is designed for B.Tech students of Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV) under the College of Engineering, Vizianagaram (IT-R23 curriculum). The lab provides an interactive playground for exploring Java code, running live tests, and visualizing execution states directly inside a modern WebAssembly/Wandbox compiler runtime.",
+    "The Virtual Java Programming Lab provides an interactive playground for exploring Java code, running live tests, and visualizing execution states directly inside a modern WebAssembly/Wandbox compiler runtime.",
     "The course is structured into 9 core Exercises covering primitive types, quadratic equations, searching and sorting algorithms, StringBuffers, class designs, inheritance, interfaces, exception frameworks, multithreading, packages, JavaFX graphical components, and database access using JDBC.",
     "Each experiment in this workspace contains an Aim, Theory, Pre-test questionnaire, interactive Procedure, Simulation view showing the program's live memory state, a Code Test editor running a real JDK compiler, and a Post-test review to verify understanding."
   ],
   targetAudience: {
-    primary: "Second-year B.Tech students at Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV) enrolled in the Java Programming Lab.",
+    primary: "Students learning Java programming, object-oriented concepts, and application development.",
     prerequisites: [
       "Basic understanding of structural programming concepts (like C language control flow).",
       "Familiarity with algorithm design concepts (such as binary search and bubble sort)."

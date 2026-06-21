@@ -1,5 +1,5 @@
 export const iotShortNotes = `IoT LAB — SHORT NOTES
-(As per JNTUGV / CEV R23 Syllabus)
+(Standard Curriculum)
 
 INTRODUCTION TO IoT
 The Internet of Things (IoT) refers to the network of physical devices embedded with sensors, software, and connectivity that enables them to collect and exchange data over the internet. IoT bridges the physical world and the digital world — allowing machines, appliances, vehicles, and environments to be monitored and controlled remotely.

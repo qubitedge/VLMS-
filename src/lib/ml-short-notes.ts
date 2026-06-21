@@ -1,5 +1,5 @@
 export const mlShortNotes = `MACHINE LEARNING - SHORT NOTES
-(As per JNTUGV / CEV R23 Syllabus)
+(Standard Curriculum)
 
 INTRODUCTION TO MACHINE LEARNING
 Machine Learning (ML) is a branch of Artificial Intelligence that enables computers to learn from data and improve their performance on tasks without being explicitly programmed for every scenario. Instead of writing rules manually, the machine discovers patterns from examples.

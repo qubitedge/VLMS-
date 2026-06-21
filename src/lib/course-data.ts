@@ -776,14 +776,14 @@ export const courses: Record<string, Course> = {
       "To build problem-solving skills by converting real-world problems into algorithmic solutions"
     ],
     introduction: [
-      "C is one of the most fundamental and widely-used programming languages in the history of computing. Developed at Bell Labs in the early 1970s, C has stood the test of time as the foundation for operating systems, embedded systems, compilers, and system-level software. Almost every modern programming language — including Python, Java, and C++ — draws concepts from C.",
-      "This Virtual C Programming Lab is developed for first-year B.Tech students of Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV) under the BS&HSS department. The lab provides a hands-on, browser-based environment where students can write, compile, and execute C programs without requiring any local software installation.",
-      "The lab covers 14 weeks of structured experiments aligned with the JNTUGV C Programming syllabus — from basic I/O and arithmetic to pointers, data structures, recursion, and file handling. Each experiment includes a clear objective, problem statement, pre-loaded starter code, stdin support for interactive programs, and expected output for self-verification.",
-      "Students can attempt all 47 lab problems directly in the browser using a professional code editor powered by a real GCC compiler via the Wandbox execution engine."
+      "C is one of the most fundamental and widely-used programming languages in the history of computing. Developed by Dennis Ritchie at Bell Laboratories in 1972, C has stood the test of time as the foundation for operating systems, embedded systems, compilers, and system-level software. Almost every modern programming language — including Python, Java, and C++ — draws concepts from C.",
+      "The Virtual C Programming Lab provides a hands-on, browser-based environment where students can write, compile, and execute C programs without requiring any local software installation.",
+      "The lab covers structured experiments across key C Programming concepts — from basic I/O and arithmetic to pointers, data structures, recursion, and file handling. Each experiment includes a clear objective, problem statement, pre-loaded starter code, stdin support for interactive programs, and expected output for self-verification.",
+      "Students can attempt all lab problems directly in the browser using a professional code editor powered by a real GCC compiler via the Wandbox execution engine."
     ],
     shortNotes: cShortNotes,
     targetAudience: {
-      primary: "First-year B.Tech students of all branches at Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV) enrolled in the C Programming Lab course under the BS&HSS department (Course Code: refer JNTUGV curriculum).",
+      primary: "Students of engineering and computer science enrolled in introductory C programming courses.",
       prerequisites: [
         "No prior programming experience required",
         "Basic computer operation skills (typing, using a browser)",
@@ -792,7 +792,7 @@ export const courses: Record<string, Course> = {
       usefulFor: [
         "Diploma students transitioning to B.Tech who want to strengthen fundamentals",
         "Students preparing for competitive exams like GATE where C concepts are tested",
-        "Faculty members looking for ready-made experiment references aligned to JNTUGV syllabus",
+        "Faculty members looking for ready-made experiment references aligned to standard programming curricula",
         "Self-learners who want a structured, compiler-ready C programming environment"
       ]
     },

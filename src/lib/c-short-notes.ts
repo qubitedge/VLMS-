@@ -1,5 +1,5 @@
 export const cShortNotes = `C PROGRAMMING - SHORT NOTES
-(As per JNTUGV Syllabus)
+(Standard Curriculum)
 
 INTRODUCTION
 C is a general-purpose, procedural programming language developed by Dennis Ritchie at Bell Labs in 1972. It is one of the most widely used programming languages even today, serving as the foundation for languages like C++, Java, and Python.

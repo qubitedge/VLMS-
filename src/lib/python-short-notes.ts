@@ -1,5 +1,5 @@
 export const pythonShortNotes = `PYTHON PROGRAMMING - SHORT NOTES
-(As per JNTUGV / CEV IT R23 Syllabus)
+(Standard Curriculum)
 
 INTRODUCTION
 Python is a dynamically typed, interpreted, high-level programming language widely used for artificial intelligence, web development, data science, and automation. Its elegant syntax and readability make it an excellent language for both beginners and professionals.

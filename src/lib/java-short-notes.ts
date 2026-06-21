@@ -1,5 +1,5 @@
 export const javaShortNotes = `JAVA PROGRAMMING — SHORT NOTES
-(As per JNTUGV / CEV IT R23 Syllabus)
+(Standard Curriculum)
 
 INTRODUCTION TO JAVA
 ![Introduction](/in%20java.webp)

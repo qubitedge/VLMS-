@@ -31,12 +31,12 @@ export const pythonCourse: Course = {
   ],
   introduction: [
     "Python is one of the most popular and versatile programming languages in the world. Known for its simplicity, readability, and extensive library support, Python is widely used in software development, web applications, automation, artificial intelligence, machine learning, data science, and scientific computing. Its beginner-friendly syntax makes it an ideal first programming language while its powerful features make it suitable for complex real-world applications.",
-    "This Virtual Python Programming Lab is developed for first-year B.Tech students of Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV) under the BS&HSS department. The lab provides a hands-on, browser-based environment where students can write, execute, and test Python programs without requiring any local software installation.",
-    "The lab covers a comprehensive set of experiments aligned with the JNTUGV Python Programming syllabus. Students begin with Python fundamentals such as variables, data types, operators, control statements, and functions, and gradually progress to advanced topics including strings, lists, dictionaries, tuples, sets, file handling, object-oriented programming, and introductory data science concepts using NumPy and Pandas.",
+    "The Virtual Python Programming Lab provides a hands-on, browser-based environment where students can write, execute, and test Python programs without requiring any local software installation.",
+    "The lab covers a comprehensive set of experiments aligned with standard programming curricula. Students begin with Python fundamentals such as variables, data types, operators, control statements, and functions, and gradually progress to advanced topics including strings, lists, dictionaries, tuples, sets, file handling, object-oriented programming, and introductory data science concepts using NumPy and Pandas.",
     "Each experiment is designed with a clear objective, problem statement, executable code environment, input support for interactive programs, and expected output for self-assessment. The structured approach enables quality-level laboratory courses, skill development programs, and foundational coding modules."
   ],
   targetAudience: {
-    primary: "First-year B.Tech students enrolled in the Python Programming Lab course at Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV).",
+    primary: "Students enrolled in Python Programming or introductory computer science courses.",
     prerequisites: [
       "Basic mathematical and logical thinking",
       "Familiarity with basic computer operations and file systems"

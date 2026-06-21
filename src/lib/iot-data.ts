@@ -17,14 +17,14 @@ export const iotCourse: Course = {
   ],
   introduction: [
     "The Internet of Things (IoT) is one of the most transformative technologies of the 21st century. By connecting physical devices, sensors, and actuators to the internet, IoT enables machines to collect, share, and act on real-world data without human intervention. From smart homes and precision agriculture to industrial automation and healthcare monitoring, IoT systems are reshaping how the world works at every level.",
-    "This Virtual IoT Lab is developed for B.Tech students at Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV) as a browser-based, hands-on learning environment that requires no physical hardware, no microcontroller boards, and no electronic components to get started. Using industry-standard simulation tools including Tinkercad Circuits, Wokwi Online Simulator, and Node-RED, students can design circuits, write firmware, test sensor behavior, and visualize real-time data — all within a browser window.",
+    "The Virtual IoT Lab provides a browser-based, hands-on learning environment that requires no physical hardware, no microcontroller boards, and no electronic components to get started. Using industry-standard simulation tools including Tinkercad Circuits, Wokwi Online Simulator, and Node-RED, students can design circuits, write firmware, test sensor behavior, and visualize real-time data — all within a browser window.",
     "The lab covers 5 comprehensive modules spanning the complete IoT development lifecycle — from sensor interfacing and microcontroller programming to Wi-Fi communication, cloud-based monitoring, and smart agriculture automation. Each experiment includes a clear objective, theoretical background, circuit schematic, simulation setup, step-by-step procedure, and a post-experiment assessment.",
     "Students will work with industry-relevant technologies including Arduino and ESP8266/ESP32 microcontrollers, DHT11/DHT22 temperature and humidity sensors, PIR motion sensors, LDR light sensors, relay modules, MQTT protocol, HTTP-based APIs, WebSocket communication, and cloud IoT platforms such as ThingSpeak and Adafruit IO. All circuit simulations are performed on Tinkercad and Wokwi, both of which are free, browser-based, and require only a free account to use.",
     "By the end of this lab students will have hands-on experience building complete IoT systems from the sensor layer through the communication layer to the cloud visualization layer — the full IoT stack.",
-    "Feedback: We value your feedback to improve this virtual lab experience continuously. Your responses help us improve experiment quality, simulation accuracy, and the overall learning experience for future students. Submit feedback to your department email. This IoT Virtual Lab is developed and maintained by the Yukta Dev Squad, JNTUGV under the guidance of the Department of Electronics and Communication Engineering and Computer Science Engineering. We acknowledge the Tinkercad, Wokwi, ThingSpeak, Adafruit IO, and Node-RED platforms for providing free, high-quality tools that make browser-based IoT education possible."
+    "Feedback: We value your feedback to improve this virtual lab experience continuously. Your responses help us improve experiment quality, simulation accuracy, and the overall learning experience for future students. We acknowledge the Tinkercad, Wokwi, ThingSpeak, Adafruit IO, and Node-RED platforms for providing free, high-quality tools that make browser-based IoT education possible."
   ],
   targetAudience: {
-    primary: "B.Tech students of Electronics and Communication Engineering (ECE), Computer Science Engineering (CSE), Information Technology (IT), Electrical and Electronics Engineering (EEE), and allied branches at Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV) enrolled in IoT, Embedded Systems, or related elective/core lab courses.",
+    primary: "Students of Electronics, Computer Science, Information Technology, and allied engineering disciplines learning IoT and embedded systems.",
     prerequisites: [
       "Knowledge of basic electronics — voltage, current, resistance, and Ohm's law.",
       "Familiarity with C/C++ programming fundamentals for Arduino firmware.",
@@ -35,7 +35,7 @@ export const iotCourse: Course = {
     usefulFor: [
       "Final year students doing IoT-based projects who need to prototype and test systems before hardware procurement.",
       "Diploma-to-B.Tech lateral entry students wanting to build IoT skills from scratch.",
-      "Faculty members designing IoT lab curricula aligned to JNTUGV syllabus.",
+      "Faculty members designing IoT lab curricula aligned to standard engineering syllabi.",
       "Hobbyists and self-learners interested in smart home and agriculture automation.",
       "Students preparing for IoT-related internships at companies like Qubitedge Technologies, TCS iON, and Infosys where IoT skills are actively required."
     ]

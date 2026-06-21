@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { courses } from "@/lib/course-data";
-import { ArrowLeft, Book, Code, List, Info, Target, LayoutTemplate, Beaker, MessageSquare, Star, FileText, Download } from "lucide-react";
+import { ArrowLeft, Book, Code, List, Info, Target, LayoutTemplate, Beaker, MessageSquare, Star, FileText, Download, Lock } from "lucide-react";
 import { toast } from "sonner";
 import { ErrorGraphic } from "@/components/ErrorGraphic";
 import { CheckCircle2 } from "lucide-react";
@@ -75,7 +75,6 @@ useEffect(() => {
     t.push({ id: "Objective", icon: Target });
     t.push({ id: "Short Notes", icon: FileText });
     if (course.targetAudience) t.push({ id: "Target Audience", icon: List });
-    if (course.alignment) t.push({ id: "Course Alignment", icon: LayoutTemplate });
     t.push({ id: "List of Experiments", icon: Beaker });
     t.push({ id: "Feedback", icon: MessageSquare });
     return t;
@@ -99,6 +98,7 @@ useEffect(() => {
 
 // Track solved status — loaded from DB for logged-in users
 const [solvedExps, setSolvedExps] = useState<Set<string>>(new Set());
+const [learnedExps, setLearnedExps] = useState<Set<string>>(new Set());
 const [completionsLoaded, setCompletionsLoaded] = useState(false);
 
 useEffect(() => {
@@ -115,6 +115,10 @@ useEffect(() => {
         const raw = JSON.parse(localStorage.getItem('solved_experiments') || '{}');
         setSolvedExps(new Set(Object.keys(raw).filter(k => raw[k])));
       }
+
+      // Load learned experiments (client-side lock tracking)
+      const rawLearned = JSON.parse(localStorage.getItem('learned_experiments') || '{}');
+      setLearnedExps(new Set(Object.keys(rawLearned).filter(k => rawLearned[k])));
     } catch (e) {
       console.error('Failed to load completions:', e);
     } finally {
@@ -217,7 +221,7 @@ useEffect(() => {
           
           {/* Hero Card */}
           <div 
-            className={`relative z-10 p-8 rounded-3xl border shadow-[0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col justify-center ${hasCustomBg ? 'border-white/40 dark:border-white/10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl text-slate-900 dark:text-white' : 'border-border/50 bg-secondary/20'}`}
+            className="relative z-10 p-8 rounded-3xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col justify-center"
           >
             {/* Premium animated blur blobs & illustrations for quantum */}
             {course.id === 'quantum-computing' && (
@@ -274,7 +278,7 @@ useEffect(() => {
           </div>
 
           {/* Progress Card */}
-          <div className="relative z-10 p-6 rounded-2xl border border-border/50 bg-secondary/20 shadow-sm flex flex-col items-center justify-center text-center">
+          <div className="relative z-10 p-6 rounded-2xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl shadow-sm flex flex-col items-center justify-center text-center">
             <h3 className="font-semibold text-lg mb-6">Course Progress</h3>
             
             {/* Circular Progress */}
@@ -337,7 +341,7 @@ useEffect(() => {
 
       <div className="grid lg:grid-cols-[280px_1fr] gap-8 items-start relative z-10">
         {/* Sidebar */}
-        <div className={`sticky top-28 flex flex-col gap-1.5 p-3 md:p-4 rounded-2xl h-fit z-10 transition-all duration-500 border ${hasCustomBg ? 'bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl border-white/40 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)]' : 'bg-transparent border-transparent border-r-border/50'}`}>
+        <div className="sticky top-28 flex flex-col gap-1.5 p-3 md:p-4 rounded-2xl h-fit z-10 transition-all duration-500 border border-white/20 dark:border-white/10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.04)]">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -366,7 +370,7 @@ useEffect(() => {
         </div>
 
         {/* Main Content */}
-        <div className={`min-h-[500px] flex flex-col justify-between pb-16 rounded-3xl p-4 md:p-10 relative z-10 transition-all duration-500 border ${hasCustomBg ? 'bg-white/60 dark:bg-slate-900/60 backdrop-blur-2xl border-white/50 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.04)]' : 'border-transparent'}`}>
+        <div className="min-h-[500px] flex flex-col justify-between pb-16 rounded-3xl p-4 md:p-10 relative z-10 transition-all duration-500 border border-white/20 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
           <div key={currentTab} className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-forwards">
             {currentTab === "Introduction" && course.introduction && (
               <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
@@ -891,49 +895,6 @@ if (text.startsWith('[ER_DIAGRAM_EXAMPLE]')) {
               </section>
             )}
 
-            {currentTab === "Course Alignment" && course.alignment && (
-              <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
-                <h2 className={`text-2xl md:text-3xl font-bold mb-8 w-fit block ${hasCustomBg ? 'text-slate-900 dark:text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary'}`}>
-                  Course Alignment
-                </h2>
-                <div className="overflow-hidden rounded-xl border border-border bg-card">
-                  <table className="w-full text-left text-sm text-muted-foreground">
-                    <tbody className="divide-y divide-border/50">
-                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground w-48 bg-secondary/20">University</th><td className="py-3 px-4">{course.alignment.university}</td></tr>
-                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Department</th><td className="py-3 px-4">{course.alignment.department}</td></tr>
-                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Course</th><td className="py-3 px-4">{course.alignment.course}</td></tr>
-                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Credits</th><td className="py-3 px-4">{course.alignment.credits}</td></tr>
-                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Year / Semester</th><td className="py-3 px-4">{course.alignment.yearSem}</td></tr>
-                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Applicable Branches</th><td className="py-3 px-4">{course.alignment.branches}</td></tr>
-                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Total Experiments</th><td className="py-3 px-4">{course.alignment.totalExperiments}</td></tr>
-                      <tr className="hover:bg-secondary/10"><th className="py-3 px-4 font-semibold text-foreground bg-secondary/20">Compiler Used</th><td className="py-3 px-4">{course.alignment.compiler}</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                {course.alignment.units && (
-                  <div className="mt-8 overflow-x-auto rounded-xl border border-border bg-card">
-                    <table className="w-full text-left text-sm text-muted-foreground">
-                      <thead className="bg-secondary/50 text-foreground">
-                        <tr>
-                          <th className="px-4 py-3 font-semibold">Unit</th>
-                          <th className="px-4 py-3 font-semibold">Topics Covered</th>
-                          <th className="px-4 py-3 font-semibold">Weeks</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-border/50">
-                        {course.alignment.units.map((u, i) => (
-                          <tr key={i} className="hover:bg-secondary/20 transition-colors">
-                            <td className="px-4 py-3 font-medium text-foreground">{u.unit}</td>
-                            <td className="px-4 py-3">{u.topics}</td>
-                            <td className="px-4 py-3">{u.weeks}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-              </section>
-            )}
 
             {currentTab === "List of Experiments" && (
               <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
@@ -982,13 +943,32 @@ if (text.startsWith('[ER_DIAGRAM_EXAMPLE]')) {
                                   )}
                                 </div>
                               </div>
-                              <Link 
-                                to="/workspace"
-                                search={{ exp: exp.id }}
-                                className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2 rounded-lg bg-gradient-to-r from-cyan to-primary text-white text-sm font-semibold shadow-md hover:shadow-lg hover:shadow-cyan/20 hover:scale-[1.02] active:scale-95 transition-all w-full sm:w-auto"
-                              >
-                                <Code className="size-4" /> Solve Lab
-                              </Link>
+                              <div className="flex flex-wrap gap-2 shrink-0 w-full sm:w-auto">
+                                <Link 
+                                  to="/workspace"
+                                  search={{ exp: exp.id, mode: "learn" }}
+                                  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-cyan/30 hover:bg-cyan/10 text-cyan text-sm font-semibold transition-all flex-1 sm:flex-initial"
+                                >
+                                  <Book className="size-4" /> Learn
+                                </Link>
+                                {learnedExps.has(exp.id) ? (
+                                  <Link 
+                                    to="/workspace"
+                                    search={{ exp: exp.id, mode: "solve" }}
+                                    className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan to-primary text-white text-sm font-semibold shadow-md hover:shadow-lg hover:shadow-cyan/20 hover:scale-[1.02] active:scale-95 transition-all flex-1 sm:flex-initial"
+                                  >
+                                    <Code className="size-4" /> Solve
+                                  </Link>
+                                ) : (
+                                  <button 
+                                    disabled
+                                    className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-200/10 text-muted-foreground border border-border/40 text-sm font-semibold cursor-not-allowed opacity-50 flex-1 sm:flex-initial"
+                                    title="Complete the Learn section first to unlock"
+                                  >
+                                    <Lock className="size-4" /> Solve (Locked)
+                                  </button>
+                                )}
+                              </div>
                             </div>
                           ))}
                         </div>

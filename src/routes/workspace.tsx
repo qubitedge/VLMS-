@@ -128,12 +128,14 @@ import { markGuestSolved, hasGuestSolved } from '@/lib/guestProgress';
 import { QuantumWorkspace } from "@/components/QuantumWorkspace";
 type WorkspaceSearch = {
   exp?: string;
+  mode?: "learn" | "solve";
 };
 
 export const Route = createFileRoute("/workspace")({
   validateSearch: (search: Record<string, unknown>): WorkspaceSearch => {
     return {
       exp: search.exp as string | undefined,
+      mode: search.mode as "learn" | "solve" | undefined,
     };
   },
   head: () => ({ meta: [{ title: "Workspace — VLMS" }, { name: "description", content: "Isolated runtime workspace for student experiments." }] }),
@@ -527,7 +529,7 @@ function HintTooltip({ hint }: { hint: string }) {
 }
 
 function Workspace() {
-  const { exp } = Route.useSearch();
+  const { exp, mode } = Route.useSearch();
   const navigate = useNavigate();
   const details = getExperimentDetails(exp);
 
@@ -932,13 +934,26 @@ useEffect(() => {
   }
 }, [isQuantum, quantumPyodideLoaded]);
 
-  const WORKSPACE_STEPS = isAITools 
-    ? ["Aim", "Theory", "Pretest", "Procedure", "Solve", "Posttest", "References"]
-    : isIot
-    ? ["Aim", "Theory", "Pretest", "Procedure", "Tinkercad", "Posttest", "References"]
-    : isQuantum
-    ? ["Aim", "Theory", "Visualization", "Interactive Experiment", "Quiz"]
-    : ["Aim", "Theory", "Pretest", "Procedure", "Simulation", "Code Test", "Posttest", "References"];
+  const WORKSPACE_STEPS = useMemo(() => {
+    const baseSteps = isAITools 
+      ? ["Aim", "Theory", "Pretest", "Procedure", "Solve", "Posttest", "References"]
+      : isIot
+      ? ["Aim", "Theory", "Pretest", "Procedure", "Tinkercad", "Posttest", "References"]
+      : isQuantum
+      ? ["Aim", "Theory", "Visualization", "Interactive Experiment", "Quiz"]
+      : ["Aim", "Theory", "Pretest", "Procedure", "Simulation", "Code Test", "Posttest", "References"];
+
+    if (mode === "learn") {
+      return baseSteps.filter(step => 
+        ["aim", "theory", "pretest", "procedure", "visualization"].includes(step.toLowerCase())
+      );
+    } else if (mode === "solve") {
+      return baseSteps.filter(step => 
+        ["simulation", "code test", "solve", "tinkercad", "interactive experiment", "posttest", "quiz", "references"].includes(step.toLowerCase())
+      );
+    }
+    return baseSteps;
+  }, [mode, isAITools, isIot, isQuantum]);
   const experimentStartTime = useRef<number>(Date.now());
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [maxStepReached, setMaxStepReached] = useState(0);
@@ -1128,6 +1143,23 @@ const handlePostSolveAuthenticated = async (userId: string) => {
 };
 
 
+  const handleLearnComplete = () => {
+    if (details?.experiment?.id) {
+      const learned = JSON.parse(localStorage.getItem('learned_experiments') || '{}');
+      learned[details.experiment.id] = true;
+      localStorage.setItem('learned_experiments', JSON.stringify(learned));
+      
+      toast.success("Learn phase completed! Solve mode unlocked. 🎉");
+      
+      navigate({
+        to: "/workspace",
+        search: { exp: details.experiment.id, mode: "solve" }
+      });
+      setActiveStepIndex(0);
+      setMaxStepReached(0);
+    }
+  };
+
   const handleNext = () => {
     if (!isNextEnabled) {
       toast.error(`Please answer all questions in the ${currentStepName} before proceeding.`);
@@ -1280,11 +1312,18 @@ const handlePostSolveAuthenticated = async (userId: string) => {
 
               {/* Next/Prev Buttons for Simulation Pane */}
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-card border-t border-border flex items-center justify-between">
-                <button onClick={handlePrev} className="px-4 py-2 rounded-md border border-border bg-secondary hover:bg-secondary/80 text-sm font-medium transition-colors">
-                  Previous: Procedure
+                <button 
+                  onClick={handlePrev} 
+                  disabled={activeStepIndex === 0}
+                  className="px-4 py-2 rounded-md border border-border bg-secondary hover:bg-secondary/80 text-sm font-medium transition-colors disabled:opacity-50"
+                >
+                  Previous{activeStepIndex > 0 ? `: ${WORKSPACE_STEPS[activeStepIndex - 1]}` : ""}
                 </button>
-                <button onClick={handleNext} className="px-4 py-2 rounded-md bg-cyan text-cyan-foreground font-medium text-sm hover:bg-cyan/90 transition-colors">
-                  Next: Posttest
+                <button 
+                  onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? handleLearnComplete : handleSubmit) : handleNext} 
+                  className="px-4 py-2 rounded-md bg-cyan text-cyan-foreground font-medium text-sm hover:bg-cyan/90 transition-colors"
+                >
+                  {activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? "Proceed to Solve" : "Submit") : `Next: ${WORKSPACE_STEPS[activeStepIndex + 1]}`}
                 </button>
               </div>
             </div>
@@ -2634,10 +2673,10 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                 )}
                 
                 <button 
-                  onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? handleSubmit : handleNext} 
+                  onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? handleLearnComplete : handleSubmit) : handleNext} 
                   className="px-5 py-2.5 rounded-md bg-cyan text-cyan-foreground font-medium text-sm hover:bg-cyan/90 transition-colors"
                 >
-                  {activeStepIndex === WORKSPACE_STEPS.length - 1 ? "Submit" : "Next"}
+                  {activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? "Proceed to Solve" : "Submit") : "Next"}
                 </button>
               </div>
             </div>

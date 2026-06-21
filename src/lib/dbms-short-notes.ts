@@ -1,5 +1,5 @@
 export const dbmsShortNotes = `DATABASE MANAGEMENT SYSTEMS - SHORT NOTES
-(As per JNTUGV / CEV R23 Syllabus)
+(Standard Curriculum)
 
 INTRODUCTION TO DBMS
 
