@@ -972,8 +972,43 @@ useEffect(() => {
     async function loadQuestions() {
       if (details?.experiment?.id && details?.course?.id) {
         setIsLoadingQuestions(true);
-        const pretest = await getQuestionsForExperiment(details.course.id, details.experiment.id, 'pretest');
-        const posttest = await getQuestionsForExperiment(details.course.id, details.experiment.id, 'posttest');
+        let pretest = await getQuestionsForExperiment(details.course.id, details.experiment.id, 'pretest');
+        let posttest = await getQuestionsForExperiment(details.course.id, details.experiment.id, 'posttest');
+
+        if (!pretest || pretest.length === 0) {
+          const localPre = details.experiment.content?.pretest || [];
+          if (localPre.length > 0) {
+            const shuffled = [...localPre].sort(() => 0.5 - Math.random());
+            pretest = shuffled.slice(0, 5).map((q: any, idx: number) => ({
+              id: q.id || `local-pre-${idx}-${Math.random()}`,
+              course_id: details.course.id,
+              experiment_id: details.experiment.id,
+              type: 'pretest' as const,
+              question: q.question,
+              options: q.options,
+              answer_index: q.answerIndex !== undefined ? q.answerIndex : q.answer_index,
+              hint: q.hint
+            }));
+          }
+        }
+
+        if (!posttest || posttest.length === 0) {
+          const localPost = details.experiment.content?.posttest || [];
+          if (localPost.length > 0) {
+            const shuffled = [...localPost].sort(() => 0.5 - Math.random());
+            posttest = shuffled.slice(0, 5).map((q: any, idx: number) => ({
+              id: q.id || `local-post-${idx}-${Math.random()}`,
+              course_id: details.course.id,
+              experiment_id: details.experiment.id,
+              type: 'posttest' as const,
+              question: q.question,
+              options: q.options,
+              answer_index: q.answerIndex !== undefined ? q.answerIndex : q.answer_index,
+              hint: q.hint
+            }));
+          }
+        }
+
         setSampledPretest(pretest);
         setSampledPosttest(posttest);
         setPretestAnswers({});
@@ -1708,6 +1743,32 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                                           {textAfter && textAfter.trim() && (
                                             <span className="block mt-3">
                                               <HighlightableText text={textAfter} activeCharIndex={activeCharIndex - pStart - imgMatch.index! - imgMatch[0].length} />
+                                            </span>
+                                          )}
+                                        </div>
+                                      );
+                                    }
+
+                                    // Check for a table string [TABLE]:<table...>
+                                    const tableMatch = pText.match(/\[TABLE\]:(<table[\s\S]*?<\/table>)/);
+                                    if (tableMatch && tableMatch.index !== undefined) {
+                                      const textBefore = pText.substring(0, tableMatch.index);
+                                      const textAfter = pText.substring(tableMatch.index + tableMatch[0].length);
+                                      
+                                      return (
+                                        <div key={j} className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
+                                          {textBefore && (
+                                            <span className="block mb-3">
+                                              <HighlightableText text={textBefore} activeCharIndex={activeCharIndex - pStart} />
+                                            </span>
+                                          )}
+                                          <div 
+                                            className="my-4 overflow-x-auto w-full" 
+                                            dangerouslySetInnerHTML={{ __html: tableMatch[1] }} 
+                                          />
+                                          {textAfter && textAfter.trim() && (
+                                            <span className="block mt-3">
+                                              <HighlightableText text={textAfter} activeCharIndex={activeCharIndex - pStart - tableMatch.index! - tableMatch[0].length} />
                                             </span>
                                           )}
                                         </div>

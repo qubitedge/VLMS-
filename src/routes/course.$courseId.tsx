@@ -182,7 +182,7 @@ useEffect(() => {
   const currentTab = tabs[currentTabIndex] ? activeTab : tabs[0].id;
   const prevTab = currentTabIndex > 0 ? tabs[currentTabIndex - 1] : null;
   const nextTab = currentTabIndex < tabs.length - 1 ? tabs[currentTabIndex + 1] : null;
-  const hasCustomBg = course.id === 'quantum-computing' || course.id === 'dbms';
+  const hasCustomBg = course.id === 'quantum-computing' || course.id === 'dbms' || course.id === 'llms';
 
   return (
     <>
@@ -205,6 +205,18 @@ useEffect(() => {
             backgroundImage: 'url(/dbms-bg.webp)', 
             backgroundSize: 'cover', 
             backgroundPosition: 'center center',
+            backgroundAttachment: 'fixed',
+            opacity: 0.7
+          }} 
+        />
+      )}
+      {course.id === 'llms' && (
+        <div 
+          className="fixed inset-0 z-0 pointer-events-none"
+          style={{ 
+            backgroundImage: 'url(/llms-bg.webp)', 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'left center',
             backgroundAttachment: 'fixed',
             opacity: 0.7
           }} 
@@ -249,6 +261,36 @@ useEffect(() => {
                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-mint/80" style={{ width: '400px', height: '400px', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.1 }} />
               </div>
             )}
+            
+            {course.id === 'llms' && (
+              <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                 {/* Neural Network Nodes Top Left */}
+                 <svg className="absolute -top-12 -left-12 w-64 h-64 text-blue-500 opacity-[0.05] animate-[pulse_10s_ease-in-out_infinite]" viewBox="0 0 100 100">
+                    <circle cx="20" cy="50" r="3" fill="currentColor" />
+                    <circle cx="50" cy="30" r="3" fill="currentColor" />
+                    <circle cx="50" cy="70" r="3" fill="currentColor" />
+                    <circle cx="80" cy="50" r="3" fill="currentColor" />
+                    <line x1="20" y1="50" x2="50" y2="30" stroke="currentColor" strokeWidth="1" />
+                    <line x1="20" y1="50" x2="50" y2="70" stroke="currentColor" strokeWidth="1" />
+                    <line x1="50" y1="30" x2="80" y2="50" stroke="currentColor" strokeWidth="1" />
+                    <line x1="50" y1="70" x2="80" y2="50" stroke="currentColor" strokeWidth="1" />
+                    <line x1="50" y1="30" x2="50" y2="70" stroke="currentColor" strokeWidth="1" />
+                 </svg>
+                 {/* Brain Waves Bottom Right */}
+                 <svg className="absolute -bottom-8 -right-8 w-72 h-72 text-purple-600 opacity-[0.04]" viewBox="0 0 100 100">
+                    <path d="M0,50 Q25,10 50,50 T100,50" fill="none" stroke="currentColor" strokeWidth="2" />
+                    <path d="M0,50 Q25,90 50,50 T100,50" fill="none" stroke="currentColor" strokeWidth="2" />
+                 </svg>
+                 {/* Data Stream Particles */}
+                 <div className="absolute top-1/4 left-1/4 w-1 h-10 bg-gradient-to-b from-transparent via-cyan-500 to-transparent opacity-20 animate-[bounce_2s_infinite]" />
+                 <div className="absolute top-1/2 right-1/3 w-1 h-8 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-20 animate-[bounce_3s_infinite_0.5s]" />
+                 
+                 {/* Blur Blobs */}
+                 <div className="absolute -top-[100px] -left-[100px] bg-blue-600/80" style={{ width: '400px', height: '400px', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.15 }} />
+                 <div className="absolute -bottom-[150px] -right-[50px] bg-purple-600/80" style={{ width: '400px', height: '400px', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.15 }} />
+                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-cyan-600/80" style={{ width: '400px', height: '400px', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.1 }} />
+              </div>
+            )}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-background/50 text-xs font-medium text-muted-foreground mb-4 w-fit">
               <Book className="size-3.5" /> Syllabus Overview
             </div>
@@ -258,6 +300,8 @@ useEffect(() => {
             <p className="text-muted-foreground max-w-2xl text-lg mb-8 leading-relaxed">
               {course.id === 'quantum-computing' 
                 ? "Learn the principles of quantum mechanics, qubits, superposition, entanglement and quantum algorithms."
+                : course.id === 'llms'
+                ? "Master Large Language Models, prompt engineering, generative AI, and advanced AI application building."
                 : "Explore the fundamentals and advanced concepts of this interactive course."}
             </p>
             
