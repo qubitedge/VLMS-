@@ -242,6 +242,10 @@ function RootComponent() {
   const isDbmsCourse = location.pathname.includes('/course/dbms');
   const hasCustomBg = isQuantumCourse || isDbmsCourse;
 
+  useEffect(() => {
+    console.log("🚀 Developed with ❤️ by Team SAPL | Sai Rupini• Asma • Pravallika • Likhith 👾");
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <div className={`min-h-screen relative transition-colors duration-1000 ${hasCustomBg ? 'bg-[#F8FAFF] dark:bg-[#0F172A]' : ''}`}>
