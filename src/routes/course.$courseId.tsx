@@ -423,7 +423,9 @@ useEffect(() => {
                 </h2>
                 <div className={`space-y-6 leading-relaxed ${hasCustomBg ? 'text-slate-700 dark:text-slate-300' : 'text-muted-foreground'}`}>
                   {course.introduction.map((p, i) => (
-                    <p key={i}>{p}</p>
+                    p.startsWith('[HTML]:') 
+                      ? <div key={i} dangerouslySetInnerHTML={{ __html: p.replace('[HTML]:', '') }} />
+                      : <p key={i}>{p}</p>
                   ))}
                 </div>
               </section>
