@@ -182,7 +182,7 @@ useEffect(() => {
   const currentTab = tabs[currentTabIndex] ? activeTab : tabs[0].id;
   const prevTab = currentTabIndex > 0 ? tabs[currentTabIndex - 1] : null;
   const nextTab = currentTabIndex < tabs.length - 1 ? tabs[currentTabIndex + 1] : null;
-  const hasCustomBg = course.id === 'quantum-computing' || course.id === 'dbms' || course.id === 'llms';
+  const hasCustomBg = course.id === 'quantum-computing' || course.id === 'dbms' || course.id === 'llms' || course.id === 'ai-tools';
 
   return (
     <>
@@ -217,6 +217,18 @@ useEffect(() => {
             backgroundImage: 'url(/llms-bg.webp)', 
             backgroundSize: 'cover', 
             backgroundPosition: 'left center',
+            backgroundAttachment: 'fixed',
+            opacity: 0.7
+          }} 
+        />
+      )}
+      {course.id === 'ai-tools' && (
+        <div 
+          className="fixed inset-0 z-0 pointer-events-none"
+          style={{ 
+            backgroundImage: 'url(/AITOOLSBG.webp)', 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center center',
             backgroundAttachment: 'fixed',
             opacity: 0.7
           }} 
