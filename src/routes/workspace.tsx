@@ -1244,24 +1244,24 @@ const handlePostSolveAuthenticated = async (userId: string) => {
   };
 
   return (
-    <div className="h-screen flex flex-col pt-[4.5rem] bg-background">
+    <div className="h-screen flex flex-col bg-background module-container">
       {/* Top Bar / Stepper */}
       <div className="border-b border-border bg-card">
         <div className="px-6 py-4 flex flex-col gap-4">
           {/* Back button and title */}
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 text-sm text-muted-foreground">
+            <div className="flex items-center gap-3 text-sm text-muted-foreground glass-breadcrumb">
               {details ? (
-                <Link to={`/course/${details.course.id}` as any} hash="experiments" className="hover:text-foreground flex items-center gap-1">
-                  <ArrowLeft className="size-3.5" /> Back to {courseTitle}
+                <Link to={`/course/${details.course.id}` as any} hash="experiments" className="hover:text-foreground flex items-center gap-1 font-medium">
+                  <ArrowLeft className="size-3.5" /> {courseTitle}
                 </Link>
               ) : (
-                <Link to="/courses" className="hover:text-foreground flex items-center gap-1">
+                <Link to="/courses" className="hover:text-foreground flex items-center gap-1 font-medium">
                   <ArrowLeft className="size-3.5" /> Back
                 </Link>
               )}
-              {details && <span>/</span>}
-              {details && <span>{weekTitle}</span>}
+              {details && <span className="text-white/20">/</span>}
+              {details && <span className="font-semibold text-foreground/90">{weekTitle}</span>}
             </div>
             <div className="font-semibold">{title}</div>
             <div className="text-sm font-mono text-muted-foreground">
@@ -1269,44 +1269,40 @@ const handlePostSolveAuthenticated = async (userId: string) => {
             </div>
           </div>
 
-          {/* Stepper Navigation */}
-          <div className="flex items-center justify-between gap-2 overflow-x-auto">
+          {/* Glass Stepper Navigation */}
+          <div className="flex items-center gap-2 overflow-x-auto py-2">
             {WORKSPACE_STEPS.map((step, idx) => {
               const isCompleted = idx < activeStepIndex;
               const isActive = idx === activeStepIndex;
               const isLocked = idx > maxStepReached && idx !== activeStepIndex;
               
               return (
-                <button
-                  key={step}
-                  onClick={() => {
-                    if (idx <= maxStepReached) {
-                      setActiveStepIndex(idx);
-                    } else if (idx === activeStepIndex + 1) {
-                      handleNext();
-                    } else {
-                      toast.error(`Please complete the ${WORKSPACE_STEPS[activeStepIndex]} step first.`);
-                    }
-                  }}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
-                    isActive ? "bg-cyan/20 text-cyan border border-cyan/30" : 
-                    isCompleted ? "bg-secondary text-foreground border border-border" : 
-                    "text-muted-foreground hover:bg-secondary/50 border border-transparent"
-                  } ${isLocked ? "opacity-50 cursor-not-allowed" : ""}`}
-                >
-                  {isCompleted && <CheckCircle2 className="size-3.5 text-mint" />}
-                  <span className={isActive || isCompleted ? "" : "opacity-70"}>{step}</span>
-                </button>
+                <div key={step} className="flex items-center">
+                  <button
+                    onClick={() => {
+                      if (idx <= maxStepReached) {
+                        setActiveStepIndex(idx);
+                      } else if (idx === activeStepIndex + 1) {
+                        handleNext();
+                      } else {
+                        toast.error(`Please complete the ${WORKSPACE_STEPS[activeStepIndex]} step first.`);
+                      }
+                    }}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-xs font-medium whitespace-nowrap transition-all ${
+                      isActive ? "bg-gradient-to-r from-[#00e5ff] to-[#7c3aed] text-white shadow-lg border-transparent" : 
+                      isCompleted ? "glass-card !p-2 !rounded-2xl text-foreground" : 
+                      "glass-card !p-2 !rounded-2xl text-muted-foreground opacity-60"
+                    } ${isLocked ? "cursor-not-allowed" : "hover:scale-105"}`}
+                  >
+                    {isCompleted ? <CheckCircle2 className="size-3.5 text-white" /> : <div className="w-1.5 h-1.5 rounded-full bg-current opacity-50" />}
+                    <span>{step}</span>
+                  </button>
+                  {idx < WORKSPACE_STEPS.length - 1 && (
+                    <div className="w-8 h-px bg-white/20 mx-2" />
+                  )}
+                </div>
               );
             })}
-          </div>
-
-          {/* Progress Bar */}
-          <div className="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
-            <div 
-              className="h-full bg-cyan transition-all duration-300" 
-              style={{ width: `${((activeStepIndex + 1) / WORKSPACE_STEPS.length) * 100}%` }} 
-            />
           </div>
         </div>
       </div>
@@ -1335,18 +1331,18 @@ const handlePostSolveAuthenticated = async (userId: string) => {
               <div className="p-6 flex-1 text-sm text-foreground/90 space-y-6">
                 {details ? (
                   <>
-                    <section>
+                    <section className="glass-card !p-6 mb-4">
                       <h2 className="font-semibold text-base mb-2 flex items-center gap-2"><Beaker className="size-4 text-cyan" /> Problem Statement</h2>
                       <p className="leading-relaxed">{details.experiment.desc}</p>
                       <p className="mt-3 text-muted-foreground leading-relaxed">{details.week.objective}</p>
                     </section>
-                    <section>
+                    <section className="glass-card !p-6 mb-4">
                       <h2 className="font-semibold text-base mb-2 flex items-center gap-2"><Lightbulb className="size-4 text-mint" /> Expected Output</h2>
                       <div className="bg-secondary/30 border border-border rounded-lg p-4 font-mono text-xs space-y-3">
                         <div className="text-[#3fb950] font-medium">{details.experiment.expected}</div>
                       </div>
                     </section>
-                    <section>
+                    <section className="glass-card !p-6">
                       <h2 className="font-semibold text-base mb-2 flex items-center gap-2"><HelpCircle className="size-4 text-primary" /> Mini Questions</h2>
                       <ul className="list-disc list-inside space-y-2 text-muted-foreground text-xs leading-relaxed">
                         {details.experiment.content?.pretest?.slice(0, 3).map((q: any, i: number) => (
