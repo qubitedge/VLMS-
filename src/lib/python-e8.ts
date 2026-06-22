@@ -55,7 +55,23 @@ export const pythonExercise8: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "What is a list in Python?", options: ["An unordered collection of unique items", "An ordered, mutable sequence of items", "An immutable sequence", "A collection of key-value pairs"], answerIndex: 1 },
+            { question: "Which syntax is used to create a list?", options: ["(1, 2, 3)", "{1, 2, 3}", "[1, 2, 3]", "<1, 2, 3>"], answerIndex: 2 },
+            { question: "Which property of lists allows items to be changed after creation?", options: ["Ordered", "Mutable", "Immutable", "Unique"], answerIndex: 1 },
+            { question: "Can a list contain elements of different data types?", options: ["No", "Only numbers", "Only strings", "Yes"], answerIndex: 3 },
+            { question: "Which method adds an element to the end of a list?", options: ["add()", "append()", "insert()", "push()"], answerIndex: 1 },
+            { question: "Which method removes and returns the last element by default?", options: ["remove()", "delete()", "pop()", "clear()"], answerIndex: 2 },
+            { question: "Which method inserts an element at a specified position?", options: ["append()", "extend()", "add()", "insert()"], answerIndex: 3 },
+            { question: "What is the output?", options: ["[1, 2, 3]", "[1, 2, 3, 4]", "[4, 1, 2, 3]", "Error"], answerIndex: 1 },
+            { question: "What is the output?", options: ["10", "20", "30", "Error"], answerIndex: 1 },
+            { question: "Lists allow:", options: ["Only unique elements", "Duplicate elements", "Only integers", "Only strings"], answerIndex: 1 },
+            { question: "What is a tuple?", options: ["Ordered and mutable collection", "Unordered collection", "Ordered and immutable collection", "Key-value collection"], answerIndex: 2 },
+            { question: "Which syntax creates a tuple?", options: ["[1, 2, 3]", "{1, 2, 3}", "(1, 2, 3)", "<1, 2, 3>"], answerIndex: 2 },
+            { question: "Why are tuples considered safer than lists?", options: ["They are smaller", "They are immutable", "They are faster to type", "They use loops"], answerIndex: 1 },
+            { question: "Which statement about tuples is TRUE?", options: ["Tuples are mutable", "Tuples allow duplicates", "Tuples cannot store strings", "Tuples are unordered"], answerIndex: 1 },
+            { question: "Which collection type can be used as a dictionary key?", options: ["List", "Set", "Tuple", "Dictionary"], answerIndex: 2 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand the differences between Lists, Tuples, Sets, and Dictionaries",
           "Note which collections are ordered, mutable, and allow duplicates",
@@ -86,7 +102,23 @@ export const pythonExercise8: Week = {
             { line: 15, annotation: "print('Dict:', my_dict) displays dictionary key-value pairs", memory: [], output: "List: [1, 2, 3, 4]\nTuple: (10, 20)\nSet: {1, 2, 3}\nDict: {'name': 'Alice', 'role': 'Admin'}\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "What is the output?", options: ["0", "1", "2", "3"], answerIndex: 1 },
+            { question: "What happens when you try to modify a tuple element?", options: ["It works normally", "ValueError", "TypeError", "IndexError"], answerIndex: 2 },
+            { question: "Which collection does NOT allow duplicate values?", options: ["List", "Tuple", "Dictionary", "Set"], answerIndex: 3 },
+            { question: "Which syntax creates a set?", options: ["[1, 2, 3]", "(1, 2, 3)", "{1, 2, 3}", "<1, 2, 3>"], answerIndex: 2 },
+            { question: "What is a set?", options: ["Ordered collection", "Immutable collection", "Unordered collection of unique items", "Key-value collection"], answerIndex: 2 },
+            { question: "Which set operation finds common elements?", options: ["Union (|)", "Difference (-)", "Intersection (&)", "Append (+)"], answerIndex: 2 },
+            { question: "Which set operation combines all unique elements?", options: ["Union (|)", "Intersection (&)", "Difference (-)", "Join()"], answerIndex: 0 },
+            { question: "What is the result of?", options: ["{1, 4}", "{2, 3}", "{1, 2, 3, 4}", "{}"], answerIndex: 1 },
+            { question: "What is a dictionary?", options: ["Sequence of numbers", "Collection of key-value pairs", "Collection of unique values", "Immutable collection"], answerIndex: 1 },
+            { question: "Which syntax creates a dictionary?", options: ["[ ]", "( )", "{key:value}", "< >"], answerIndex: 2 },
+            { question: "In a dictionary, keys must be:", options: ["Mutable and unique", "Immutable and unique", "Strings only", "Integers only"], answerIndex: 1 },
+            { question: "What is the output?", options: ["name", "Alice", "Error", "None"], answerIndex: 1 },
+            { question: "Which method returns all dictionary keys?", options: ["values()", "items()", "keys()", "get()"], answerIndex: 2 },
+            { question: "Which method returns all dictionary values?", options: ["values()", "keys()", "items()", "pop()"], answerIndex: 0 },
+            { question: "From Python 3.7 onwards, dictionaries:", options: ["Are unordered", "Preserve insertion order", "Allow duplicate keys", "Are immutable"], answerIndex: 1 },
+          ],
         references: [
           "Python Tutorial — Data Structures: https://docs.python.org/3/tutorial/datastructures.html",
           "W3Schools Python Collections: https://www.w3schools.com/python/python_lists.asp",

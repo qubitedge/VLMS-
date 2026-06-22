@@ -55,7 +55,23 @@ export const pythonExercise11: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "What is a module in Python?", options: ["A loop structure", "A file containing Python definitions and statements", "A database table", "A package manager"], answerIndex: 1 },
+            { question: "What is the extension of a Python module file?", options: [".txt", ".java", ".py", ".exe"], answerIndex: 2 },
+            { question: "Why are modules used in Python?", options: ["To increase code duplication", "To organize and reuse code", "To replace functions", "To create loops"], answerIndex: 1 },
+            { question: "Which statement is used to use a module in another script?", options: ["include", "require", "import", "using"], answerIndex: 2 },
+            { question: "Which statement imports an entire module?", options: ["include math", "import math", "using math", "load math"], answerIndex: 1 },
+            { question: "After executing import math, how is the square root function accessed?", options: ["sqrt()", "math.sqrt()", "math->sqrt()", "sqrt.math()"], answerIndex: 1 },
+            { question: "Which statement imports only a specific function?", options: ["import module.function", "include function", "from module import function", "using function"], answerIndex: 2 },
+            { question: "What is the advantage of from module import func?", options: ["No need to use module prefix", "Faster internet connection", "Creates a package", "Makes code immutable"], answerIndex: 0 },
+            { question: "Which statement creates an alias for a module?", options: ["import math rename m", "import math as m", "alias math m", "from math as m"], answerIndex: 1 },
+            { question: "Why are aliases useful?", options: ["They shorten long module names", "They increase memory usage", "They create packages", "They prevent imports"], answerIndex: 0 },
+            { question: "What does the statement import numpy as np do?", options: ["Imports NumPy with alias np", "Creates a new package", "Renames Python", "Deletes NumPy"], answerIndex: 0 },
+            { question: "Which import style is discouraged?", options: ["import math", "import math as m", "from math import sqrt", "from math import *"], answerIndex: 3 },
+            { question: "Why is from module import * discouraged?", options: ["It causes namespace pollution", "It makes code faster", "It prevents function usage", "It deletes variables"], answerIndex: 0 },
+            { question: "What is namespace pollution?", options: ["Creating files in wrong folders", "Too many names imported into current namespace", "Deleting modules accidentally", "Importing syntax errors"], answerIndex: 1 },
+            { question: "Which standard library module provides mathematical functions?", options: ["random", "string", "math", "os"], answerIndex: 2 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand module imports, namespaces, aliases, and packages",
           "Note the functions in the math and random standard libraries",
@@ -84,7 +100,23 @@ export const pythonExercise11: Week = {
             { line: 13, annotation: "print('Chosen:', chosen) displays Chosen: Apple", memory: [], output: "Sqrt: 5.0\nFactorial: 120\nChosen: Apple\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "Which constant belongs to the math module?", options: ["math.rand", "math.pi", "math.float", "math.value"], answerIndex: 1 },
+            { question: "Which function calculates a square root?", options: ["math.square()", "math.root()", "math.sqrt()", "math.power()"], answerIndex: 2 },
+            { question: "Which function calculates factorials?", options: ["math.fact()", "math.factorial()", "math.multiply()", "math.product()"], answerIndex: 1 },
+            { question: "Which module is used to generate pseudo-random numbers?", options: ["math", "random", "statistics", "string"], answerIndex: 1 },
+            { question: "What does random.random() return?", options: ["Integer between 1 and 100", "Random string", "Float between 0.0 and 1.0", "Boolean value"], answerIndex: 2 },
+            { question: "What does random.randint(1,10) return?", options: ["Float from 0 to 1", "Integer between 1 and 10", "List of numbers", "String value"], answerIndex: 1 },
+            { question: "Which function selects a random item from a sequence?", options: ["random.pick()", "random.select()", "random.choice()", "random.choose()"], answerIndex: 2 },
+            { question: "What is a package in Python?", options: ["A collection of modules organized in directories", "A loop structure", "A single function", "A database file"], answerIndex: 0 },
+            { question: "Which file is traditionally required for Python to recognize a directory as a package?", options: ["package.py", "main.py", "init.py", "start.py"], answerIndex: 2 },
+            { question: "What is the purpose of packages?", options: ["Increase code complexity", "Organize modules hierarchically", "Remove functions", "Replace classes"], answerIndex: 1 },
+            { question: "Which statement correctly imports a module inside a package?", options: ["import package.module", "package.import module", "import module.package", "package.module.import"], answerIndex: 0 },
+            { question: "What is the output?", options: ["Error", "Mathematical constant \u03c0", "0", "Random value"], answerIndex: 1 },
+            { question: "What is the output?", options: ["25", "125", "5.0", "Error"], answerIndex: 2 },
+            { question: "What is the output?", options: ["int", "float", "str", "list"], answerIndex: 1 },
+            { question: "Which statement best describes modules and packages?", options: ["They help organize, reuse, and manage code efficiently", "They replace loops and conditions", "They are used only for mathematics", "They prevent function creation"], answerIndex: 0 },
+          ],
         references: [
           "Python Standard Library — Modules: https://docs.python.org/3/tutorial/modules.html",
           "W3Schools Python Modules: https://www.w3schools.com/python/python_modules.asp",

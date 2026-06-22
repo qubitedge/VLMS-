@@ -59,7 +59,23 @@ export const pythonExercise5: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "Which loop executes as long as a condition remains True?", options: ["for", "while", "if", "switch"], answerIndex: 1 },
+            { question: "What is the correct syntax of a while loop?", options: ["while(condition) {}", "while condition:", "while condition then", "while: condition"], answerIndex: 1 },
+            { question: "What can happen if the loop control variable is never updated in a while loop?", options: ["Syntax Error", "Infinite Loop", "ValueError", "Program Ends"], answerIndex: 1 },
+            { question: "Which loop is commonly used to iterate over a sequence?", options: ["while", "if", "for", "else"], answerIndex: 2 },
+            { question: "What does range(5) generate?", options: ["1,2,3,4,5", "0,1,2,3,4", "0,1,2,3,4,5", "1,2,3,4"], answerIndex: 1 },
+            { question: "Which function is used to generate a sequence of numbers?", options: ["numbers()", "list()", "range()", "sequence()"], answerIndex: 2 },
+            { question: "What is the output of list(range(3))?", options: ["[1,2,3]", "[0,1,2]", "[0,1,2,3]", "[1,2]"], answerIndex: 1 },
+            { question: "What does range(1,10,2) generate?", options: ["Even numbers from 1 to 10", "Odd numbers from 1 to 9", "Odd numbers from 1 to 10", "Numbers from 2 to 10"], answerIndex: 1 },
+            { question: "Which statement immediately terminates a loop?", options: ["continue", "stop", "pass", "break"], answerIndex: 3 },
+            { question: "Which statement skips the current iteration and moves to the next?", options: ["break", "pass", "continue", "exit"], answerIndex: 2 },
+            { question: "What is the purpose of the pass statement?", options: ["Exit the loop", "Skip the iteration", "Do nothing", "Restart the loop"], answerIndex: 2 },
+            { question: "What is printed?", options: ["1 2 3", "0 1 2", "0 1 2 3", "1 2"], answerIndex: 1 },
+            { question: "What is the output?", options: ["1 2 3", "0 1 2", "1 2", "Infinite Loop"], answerIndex: 0 },
+            { question: "Which keyword is associated with loop termination?", options: ["stop", "continue", "break", "pass"], answerIndex: 2 },
+            { question: "Which loop is best when the number of iterations is known?", options: ["while", "for", "if", "else"], answerIndex: 1 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand looping structures and control statements",
           "Note the start, stop, and step arguments of the range() function",
@@ -100,7 +116,23 @@ export const pythonExercise5: Week = {
             { line: 10, annotation: "print('Sum:', sum_val) displays the final sum", memory: [], output: "Sum: 15\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "What does the stop value in range() represent?", options: ["Included final value", "Excluded final value", "Step value", "Starting value"], answerIndex: 1 },
+            { question: "What is the output?", options: ["2 3 4", "2 3 4 5", "1 2 3 4", "3 4 5"], answerIndex: 0 },
+            { question: "Which loop can run indefinitely?", options: ["for", "while", "if", "else"], answerIndex: 1 },
+            { question: "What is the result of range(0,5,2)?", options: ["0,2,4", "1,3,5", "0,1,2,3,4", "2,4,6"], answerIndex: 0 },
+            { question: "Which statement is true about continue?", options: ["Ends loop execution", "Skips remaining statements in current iteration", "Stops the program", "Raises an exception"], answerIndex: 1 },
+            { question: "What is printed?", options: ["0 1 2", "0 1 2 3", "1 2 3", "0 1"], answerIndex: 0 },
+            { question: "What is printed?", options: ["0 1 2 3 4", "0 1 3 4", "2 3 4", "0 1 2 4"], answerIndex: 1 },
+            { question: "Which block executes when a loop ends naturally?", options: ["finally", "except", "else", "pass"], answerIndex: 2 },
+            { question: "When is a loop's else block skipped?", options: ["Normal completion", "Condition becomes False", "Sequence exhausted", "break statement used"], answerIndex: 3 },
+            { question: "What is the output?", options: ["0 1 2 Done", "Done", "1 2 3 Done", "Error"], answerIndex: 0 },
+            { question: "What is the output?", options: ["Done", "Error", "Nothing from else block", "0 1 2 Done"], answerIndex: 2 },
+            { question: "Which statement is often used as a placeholder in loops?", options: ["continue", "break", "pass", "else"], answerIndex: 2 },
+            { question: "What is the output?", options: ["PY", "P Y", "Error", "Y P"], answerIndex: 1 },
+            { question: "Which data type can a for loop iterate through?", options: ["String", "List", "Tuple", "All of the above"], answerIndex: 3 },
+            { question: "Which loop is generally preferred for iterating through a collection?", options: ["while", "for", "if", "else"], answerIndex: 1 },
+          ],
         references: [
           "Python Tutorial — More Control Flow Tools: https://docs.python.org/3/tutorial/controlflow.html",
           "W3Schools Python Loops: https://www.w3schools.com/python/python_for_loops.asp",

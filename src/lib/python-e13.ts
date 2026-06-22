@@ -49,7 +49,23 @@ export const pythonExercise13: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "What is inheritance in Python?", options: ["Creating variables inside functions", "A mechanism where a class acquires properties of another class", "A type of loop", "A file handling technique"], answerIndex: 1 },
+            { question: "What is the class being inherited from called?", options: ["Child Class", "Subclass", "Parent Class", "Object Class"], answerIndex: 2 },
+            { question: "What is the class that inherits called?", options: ["Parent Class", "Base Class", "Superclass", "Child Class"], answerIndex: 3 },
+            { question: "Which syntax correctly represents inheritance?", options: ["Correct", "Syntax Error", "Runtime Error", "Logical Error"], answerIndex: 0 },
+            { question: "What is the primary benefit of inheritance?", options: ["Faster execution", "Code reusability", "Less memory usage", "Automatic debugging"], answerIndex: 1 },
+            { question: "How many parent classes are involved in Single Inheritance?", options: ["0", "1", "2", "Multiple"], answerIndex: 1 },
+            { question: "Which inheritance type follows Parent \u2192 Child \u2192 Grandchild?", options: ["Multiple Inheritance", "Hybrid Inheritance", "Multilevel Inheritance", "Single Inheritance"], answerIndex: 2 },
+            { question: "Which inheritance type allows a child class to inherit from more than one parent?", options: ["Single Inheritance", "Multilevel Inheritance", "Multiple Inheritance", "Hierarchical Inheritance"], answerIndex: 2 },
+            { question: "What is a superclass?", options: ["Another name for parent class", "A module", "A package", "A variable"], answerIndex: 0 },
+            { question: "What is a subclass?", options: ["A loop", "A child class", "A package", "A function"], answerIndex: 1 },
+            { question: "What is method overriding?", options: ["Creating a new variable", "Redefining a parent class method in the child class", "Deleting a parent method", "Importing a module"], answerIndex: 1 },
+            { question: "For method overriding to occur, the child method must have:", options: ["Same name and signature as parent method", "Different name", "No parameters", "Only one parameter"], answerIndex: 0 },
+            { question: "Which method is executed when an overridden method is called on a child object?", options: ["Parent method always", "Child method", "Both methods automatically", "None"], answerIndex: 1 },
+            { question: "What is polymorphism?", options: ["Multiple loops in a program", "Many variables in a class", "Ability of different classes to respond differently to the same method call", "Multiple inheritance only"], answerIndex: 2 },
+            { question: "The word \"Polymorphism\" means:", options: ["Single Form", "Many Forms", "Multiple Variables", "Multiple Classes"], answerIndex: 1 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand inheritance structures, method overriding, polymorphism, and super()",
           "Note the syntax for defining subclass hierarchies: class Child(Parent):",
@@ -77,7 +93,23 @@ export const pythonExercise13: Week = {
             { line: 14, annotation: "sound = d.speak() — calls overridden Dog.speak() method", memory: [{ variable: "sound", type: "str", value: "'Woof!'" }], output: "" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "Which OOP concept allows different objects to use the same method name?", options: ["Encapsulation", "Abstraction", "Polymorphism", "Slicing"], answerIndex: 2 },
+            { question: "What is the purpose of the super() function?", options: ["Create an object", "Access parent class methods and constructors", "Import packages", "Create loops"], answerIndex: 1 },
+            { question: "What does super() return?", options: ["A child object", "A temporary parent class object", "A module", "A package"], answerIndex: 1 },
+            { question: "In which situation is super() commonly used?", options: ["File handling", "Loop control", "Calling parent constructor from child class", "Exception handling"], answerIndex: 2 },
+            { question: "Which statement correctly calls a parent constructor?", options: ["Correct", "Syntax Error", "Runtime Error", "Logical Error"], answerIndex: 0 },
+            { question: "What is the output?", options: ["Child", "Parent", "Error", "None"], answerIndex: 1 },
+            { question: "What is the output?", options: ["Parent", "Child", "Parent Child", "Error"], answerIndex: 1 },
+            { question: "Which concept is demonstrated in Q22?", options: ["Encapsulation", "Inheritance", "Method Overriding", "Abstraction"], answerIndex: 2 },
+            { question: "What is the output?", options: ["Animal Sound", "Bark", "Error", "None"], answerIndex: 1 },
+            { question: "The Dog and Animal example mainly demonstrates:", options: ["Polymorphism", "File Handling", "Slicing", "Dictionaries"], answerIndex: 0 },
+            { question: "Which inheritance type involves only one parent and one child?", options: ["Single Inheritance", "Multiple Inheritance", "Multilevel Inheritance", "Hybrid Inheritance"], answerIndex: 0 },
+            { question: "Which statement about inheritance is TRUE?", options: ["Child classes cannot access parent methods", "Parent classes inherit from child classes", "Child classes can reuse parent methods and attributes", "Inheritance is only for variables"], answerIndex: 2 },
+            { question: "What happens if a child class does not override a parent method?", options: ["Error occurs", "Parent method is used", "Method is ignored", "Program terminates"], answerIndex: 1 },
+            { question: "Which OOP principle reduces code duplication?", options: ["Looping", "Inheritance", "Slicing", "Indexing"], answerIndex: 1 },
+            { question: "Which statement best describes inheritance and polymorphism?", options: ["They help create reusable and flexible object-oriented programs", "They are used only for mathematical calculations", "They replace functions entirely", "They are file management techniques"], answerIndex: 0 },
+          ],
         references: [
           "Python Tutorial — Inheritance: https://docs.python.org/3/tutorial/classes.html#inheritance",
           "W3Schools Python Inheritance: https://www.w3schools.com/python/python_inheritance.asp",

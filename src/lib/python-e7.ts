@@ -54,7 +54,23 @@ export const pythonExercise7: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "What is a string in Python?", options: ["A collection of numbers only", "A sequence of characters", "A type of loop", "A function"], answerIndex: 1 },
+            { question: "Which indexing starts from 0 in Python strings?", options: ["Negative indexing", "Reverse indexing", "Positive indexing", "Step indexing"], answerIndex: 2 },
+            { question: "What is the index of the first character in a string?", options: ["1", "-1", "0", "2"], answerIndex: 2 },
+            { question: "Which index represents the last character of a string?", options: ["0", "-1", "1", "-2"], answerIndex: 1 },
+            { question: "What does slicing allow you to do?", options: ["Delete a string", "Extract a substring", "Convert a string to a list", "Reverse a list"], answerIndex: 1 },
+            { question: "What is the general syntax for string slicing?", options: ["string(start,stop,step)", "string[start:stop:step]", "string[start-stop-step]", "slice(string)"], answerIndex: 1 },
+            { question: "In slicing, the start index is:", options: ["Exclusive", "Inclusive", "Ignored", "Optional only"], answerIndex: 1 },
+            { question: "In slicing, the stop index is:", options: ["Inclusive", "Mandatory", "Exclusive", "Negative only"], answerIndex: 2 },
+            { question: "What is the default value of step in slicing?", options: ["0", "2", "-1", "1"], answerIndex: 3 },
+            { question: "Which slice reverses a string?", options: ["s[:1]", "s[::-1]", "s[1:]", "s[::2]"], answerIndex: 1 },
+            { question: "What is the output?", options: ["P", "y", "n", "Error"], answerIndex: 0 },
+            { question: "What is the output?", options: ["P", "y", "n", "h"], answerIndex: 2 },
+            { question: "What is the output?", options: ["Pyt", "yth", "ytho", "tho"], answerIndex: 1 },
+            { question: "What is the output?", options: ["Pyt", "yth", "Python", "tho"], answerIndex: 0 },
+            { question: "What is the output?", options: ["Pyt", "hon", "tho", "yth"], answerIndex: 1 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand string indexing, slicing syntax, and immutability",
           "Note the differences between positive indices (0 to len-1) and negative indices (-1 to -len)",
@@ -83,7 +99,23 @@ export const pythonExercise7: Week = {
             { line: 12, annotation: "print('Reversed:', s_rev) displays Reversed: nohtyP ,olleH", memory: [], output: "Part 1: Hello\nReversed: nohtyP ,olleH\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "What does string immutability mean?", options: ["Strings can be resized", "Strings can be modified directly", "Strings cannot be changed after creation", "Strings are always uppercase"], answerIndex: 2 },
+            { question: "What happens when executing?", options: ["Output: Jello", "TypeError", "ValueError", "SyntaxError"], answerIndex: 1 },
+            { question: "To modify a string, you must:", options: ["Use append()", "Create a new string", "Use replace() on characters directly", "Convert it to an integer"], answerIndex: 1 },
+            { question: "Which method converts a string to uppercase?", options: ["capitalize()", "upper()", "large()", "case()"], answerIndex: 1 },
+            { question: "Which method converts a string to lowercase?", options: ["lower()", "down()", "small()", "case()"], answerIndex: 0 },
+            { question: "What does strip() do?", options: ["Removes all spaces in a string", "Removes leading and trailing whitespace", "Deletes the string", "Splits the string"], answerIndex: 1 },
+            { question: "Which method replaces occurrences of a substring?", options: ["remove()", "replace()", "change()", "modify()"], answerIndex: 1 },
+            { question: "What is the output?", options: ["hello world", "Python world", "hello Python", "world hello"], answerIndex: 2 },
+            { question: "Which method splits a string into a list?", options: ["join()", "divide()", "break()", "split()"], answerIndex: 3 },
+            { question: "What is the output?", options: ["['a','b','c']", "abc", "a,b,c", "Error"], answerIndex: 0 },
+            { question: "Which method joins elements of an iterable into a string?", options: ["merge()", "connect()", "join()", "append()"], answerIndex: 2 },
+            { question: "What is the output?", options: ["ILovePython", "I Love Python", "['I','Love','Python']", "Error"], answerIndex: 1 },
+            { question: "What is the result of:", options: ["python", "PYTHON", "Python", "pYTHON"], answerIndex: 1 },
+            { question: "What is the output?", options: ["\" Python \"", "Python", "\"Python \"", "\" Python\""], answerIndex: 1 },
+            { question: "Which statement about strings is TRUE?", options: ["Strings are mutable", "Strings cannot be indexed", "Strings support slicing and indexing", "Strings only store numbers"], answerIndex: 2 },
+          ],
         references: [
           "Python String Documentation: https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str",
           "W3Schools Python Strings: https://www.w3schools.com/python/python_strings.asp",

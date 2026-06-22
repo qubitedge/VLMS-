@@ -47,7 +47,23 @@ export const pythonExercise12: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "What does OOP stand for?", options: ["Object-Oriented Programming", "Object Operating Program", "Operating Object Process", "Object Output Programming"], answerIndex: 0 },
+            { question: "What is OOP primarily based on?", options: ["Functions", "Objects and Classes", "Loops", "Modules"], answerIndex: 1 },
+            { question: "What is a class in Python?", options: ["An instance of an object", "A blueprint for creating objects", "A variable type", "A loop structure"], answerIndex: 1 },
+            { question: "What is an object?", options: ["A package", "A module", "An instance of a class", "A function"], answerIndex: 2 },
+            { question: "Which of the following is a key concept of OOP?", options: ["Encapsulation", "Inheritance", "Polymorphism", "All of the above"], answerIndex: 3 },
+            { question: "Which method acts as a constructor in Python?", options: ["main()", "start()", "init()", "create()"], answerIndex: 2 },
+            { question: "When is the init() method called?", options: ["When the program starts", "When a class is defined", "When an object is created", "When a function is called"], answerIndex: 2 },
+            { question: "What is the purpose of a constructor?", options: ["Delete objects", "Initialize object attributes", "Import modules", "Create loops"], answerIndex: 1 },
+            { question: "Which parameter must be the first parameter of an instance method?", options: ["this", "obj", "self", "cls"], answerIndex: 2 },
+            { question: "What does self represent?", options: ["The class itself", "The current instance of the class", "A global variable", "A package"], answerIndex: 1 },
+            { question: "Which keyword is used to create a class?", options: ["object", "define", "class", "new"], answerIndex: 2 },
+            { question: "What is the correct syntax to define a class?", options: ["Correct", "Syntax Error", "Runtime Error", "Logical Error"], answerIndex: 0 },
+            { question: "Which statement creates an object of class Student?", options: ["Student = obj()", "obj.Student()", "obj = Student()", "create Student()"], answerIndex: 2 },
+            { question: "What are attributes in OOP?", options: ["Methods of a class", "Data associated with an object", "Loops inside a class", "Imported modules"], answerIndex: 1 },
+            { question: "What are methods in OOP?", options: ["Variables", "Data types", "Functions defined inside a class", "Packages"], answerIndex: 2 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand OOP concepts, class declarations, constructors, and instance methods",
           "Differentiate between class variables and instance variables",
@@ -75,7 +91,23 @@ export const pythonExercise12: Week = {
             { line: 13, annotation: "details = s1.get_details() — calls method. self refers to s1.", memory: [{ variable: "details", type: "str", value: "'Alice is 20 years old.'" }], output: "" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "Which code correctly defines an instance variable?", options: ["self.name = name", "name.self = name", "name = self.name", "self = name"], answerIndex: 0 },
+            { question: "Instance variables are:", options: ["Shared among all objects", "Specific to each object", "Global variables", "Constants"], answerIndex: 1 },
+            { question: "Where are instance variables usually defined?", options: ["Outside the class", "In the constructor (init)", "In a package", "In a loop"], answerIndex: 1 },
+            { question: "What is a class variable?", options: ["Variable shared by all instances", "Variable inside a function", "Variable inside a loop", "Local variable"], answerIndex: 0 },
+            { question: "Where is a class variable defined?", options: ["Inside init()", "Inside a method", "Directly inside the class body", "Inside a package"], answerIndex: 2 },
+            { question: "What is the output?", options: ["ABC School", "school", "Error", "None"], answerIndex: 0 },
+            { question: "Which statement about class variables is TRUE?", options: ["Each object gets a separate copy", "Shared among all objects", "Cannot store strings", "Must use self"], answerIndex: 1 },
+            { question: "What is the output?", options: ["Student", "name", "John", "Error"], answerIndex: 2 },
+            { question: "Which statement accesses an instance variable?", options: ["self.name", "Student.name", "class.name", "instance.self"], answerIndex: 0 },
+            { question: "What is encapsulation?", options: ["Wrapping data and methods together in a class", "Creating loops", "Importing packages", "Handling exceptions"], answerIndex: 0 },
+            { question: "Which OOP feature allows code reuse through parent-child relationships?", options: ["Abstraction", "Encapsulation", "Inheritance", "Iteration"], answerIndex: 2 },
+            { question: "Which OOP feature means \"many forms\"?", options: ["Encapsulation", "Abstraction", "Polymorphism", "Inheritance"], answerIndex: 2 },
+            { question: "Which OOP feature hides implementation details?", options: ["Inheritance", "Abstraction", "Looping", "Slicing"], answerIndex: 1 },
+            { question: "What is the state of an object?", options: ["Its imported modules", "Its attributes/data", "Its loops", "Its package structure"], answerIndex: 1 },
+            { question: "What is the behavior of an object?", options: ["Its methods/functions", "Its variables", "Its modules", "Its files"], answerIndex: 0 },
+          ],
         references: [
           "Python Tutorial — Classes: https://docs.python.org/3/tutorial/classes.html",
           "W3Schools Python Classes: https://www.w3schools.com/python/python_classes.asp",

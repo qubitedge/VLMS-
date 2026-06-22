@@ -1,0 +1,3703 @@
+Exercise 1: What is Python? — 30 MCQs
+1. Python is a ______ programming language.
+A. low-level only
+B. high-level, interpreted, general-purpose
+C. hardware-specific
+D. markup
+Correct Answer: B
+
+2. Who created Python?
+A. Dennis Ritchie
+B. James Gosling
+C. Guido van Rossum
+D. Bjarne Stroustrup
+Correct Answer: C
+
+3. Python was first released in:
+A. 1985
+B. 1991
+C. 2000
+D. 1998
+Correct Answer: B
+
+4. Python emphasizes:
+A. hardware design
+B. code readability
+C. manual memory allocation only
+D. use of semicolons
+Correct Answer: B
+
+5. Python uses ______ to define code blocks.
+A. curly braces
+B. semicolons
+C. indentation
+D. keywords only
+Correct Answer: C
+
+6. Python supports which programming paradigms?
+A. only procedural
+B. only object-oriented
+C. only functional
+D. procedural, object-oriented, and functional
+Correct Answer: D
+
+7. Python has a large ecosystem of third-party packages available via:
+A. JVM
+B. PyPI
+C. HTML
+D. BIOS
+Correct Answer: B
+
+8. Python does not require a separate ______ step like C or Java.
+A. execution
+B. interpretation
+C. compilation
+D. storage
+Correct Answer: C
+
+9. The Python interpreter converts source code internally into:
+A. machine BIOS
+B. bytecode
+C. HTML
+D. assembly comments
+Correct Answer: B
+
+10. Python can be tested quickly because:
+A. it has no syntax
+B. it runs only online
+C. code can be written and executed immediately
+D. it uses only binaries
+Correct Answer: C
+
+11. Typing commands directly into the Python shell is called:
+A. script mode
+B. module mode
+C. interactive mode
+D. package mode
+Correct Answer: C
+
+12. Writing code in a .py file and running it is called:
+A. interactive mode
+B. script mode
+C. shell mode
+D. compiler mode
+Correct Answer: B
+
+13. The most basic output function in Python is:
+A. scanf()
+B. println()
+C. print()
+D. echo()
+Correct Answer: C
+
+14. The print() function writes output to:
+A. BIOS
+B. standard output
+C. compiler memory
+D. header file
+Correct Answer: B
+
+15. By default, print() separates multiple values using:
+A. comma
+B. colon
+C. space
+D. tab
+Correct Answer: C
+
+16. By default, print() ends output with:
+A. a space
+B. newline
+C. comma
+D. colon
+Correct Answer: B
+
+17. Which argument of print() changes the separator between values?
+A. stop
+B. next
+C. sep
+D. line
+Correct Answer: C
+
+18. Which argument of print() changes the ending character?
+A. sep
+B. end
+C. final
+D. close
+Correct Answer: B
+
+19. In C, output is commonly printed using:
+A. print()
+B. write()
+C. printf()
+D. putsln()
+Correct Answer: C
+
+20. In Python, a main() function is:
+A. always mandatory
+B. not required for simple execution
+C. required in every file
+D. compiled automatically
+Correct Answer: B
+
+21. Python uses dynamic typing, which means:
+A. types must be declared manually
+B. variable types are fixed forever
+C. type is determined at runtime
+D. types are not allowed
+Correct Answer: C
+
+22. Python uses automatic memory management through:
+A. manual free()
+B. garbage collection
+C. BIOS cleanup
+D. pointer deletion only
+Correct Answer: B
+
+23. Which language commonly uses #include <stdio.h>?
+A. Python
+B. SQL
+C. C
+D. HTML
+Correct Answer: C
+
+24. Which of the following prints Hello World in Python?
+A. printf("Hello World");
+B. print('Hello World')
+C. echo Hello World
+D. Console.WriteLine("Hello World")
+Correct Answer: B
+
+25. Python block structure is based on:
+A. brackets
+B. semicolons
+C. indentation
+D. labels
+Correct Answer: C
+
+26. Which of the following is true about Python?
+A. It is only for web design
+B. It is interpreted
+C. It cannot use packages
+D. It requires header files
+Correct Answer: B
+
+27. Python standard library is:
+A. very limited
+B. unavailable
+C. comprehensive
+D. only for mathematics
+Correct Answer: C
+
+28. Which mode gives immediate results after each command?
+A. script mode
+B. compile mode
+C. interactive mode
+D. debug mode only
+Correct Answer: C
+
+29. Compared to C, Python generally allows development to be:
+A. slower
+B. impossible
+C. faster for testing and iteration
+D. dependent on header files
+Correct Answer: C
+
+30. Which statement is correct?
+A. Python requires curly braces for blocks
+B. Python requires type declarations for every variable
+C. Python is a high-level interpreted language
+D. Python cannot be used for general-purpose programming
+Correct Answer: C
+
+Exercise 2: Variables in Python — 30 MCQs
+1. A variable in Python is:
+A. a fixed hardware unit
+B. a name that refers to a value
+C. always an integer
+D. a keyword only
+Correct Answer: B
+
+2. Python variable types are:
+A. manually declared before assignment
+B. determined automatically from assigned values
+C. always string
+D. always integer
+Correct Answer: B
+
+3. A Python variable name must start with:
+A. a digit only
+B. a special symbol only
+C. a letter or underscore
+D. a space
+Correct Answer: C
+
+4. Which is a valid variable name?
+A. 2name
+B. my-var
+C. _count
+D. class
+Correct Answer: C
+
+5. Variable names in Python are:
+A. not case-sensitive
+B. case-sensitive
+C. always uppercase
+D. always lowercase
+Correct Answer: B
+
+6. age and Age are:
+A. syntax errors
+B. same variables
+C. different variables
+D. keywords
+Correct Answer: C
+
+7. Which data type represents whole numbers?
+A. float
+B. str
+C. int
+D. bool
+Correct Answer: C
+
+8. Which data type represents decimal numbers?
+A. str
+B. float
+C. bool
+D. tuple
+Correct Answer: B
+
+9. Which data type represents text?
+A. int
+B. float
+C. str
+D. bool
+Correct Answer: C
+
+10. Which data type represents True or False values?
+A. bool
+B. str
+C. list
+D. set
+Correct Answer: A
+
+11. The type of 42 is:
+A. float
+B. str
+C. int
+D. bool
+Correct Answer: C
+
+12. The type() function is used to:
+A. delete variables
+B. check the type of a value
+C. print only strings
+D. rename variables
+Correct Answer: B
+
+13. Which operator performs addition?
+A. -
+B. *
+C. +
+D. //
+Correct Answer: C
+
+14. Which operator performs floor division?
+A. /
+B. //
+C. %
+D. **
+Correct Answer: B
+
+15. What is the result of 10 / 5 in Python?
+A. 2
+B. 2.0
+C. 3
+D. 5.0
+Correct Answer: B
+
+16. What is the result of 10 // 3?
+A. 3
+B. 3.33
+C. 1
+D. 4
+Correct Answer: A
+
+17. What does the modulus operator % return?
+A. quotient
+B. remainder
+C. product
+D. power
+Correct Answer: B
+
+18. Which operator is used for exponentiation?
+A. ^
+B. **
+C. //
+D. %%
+Correct Answer: B
+
+19. int('42') returns:
+A. '42'
+B. 42.0
+C. 42
+D. True
+Correct Answer: C
+
+20. float(42) returns:
+A. '42'
+B. 42
+C. 42.0
+D. False
+Correct Answer: C
+
+21. str(42) returns:
+A. 42
+B. '42'
+C. 42.0
+D. True
+Correct Answer: B
+
+22. bool(0) returns:
+A. True
+B. False
+C. 0
+D. None
+Correct Answer: B
+
+23. bool('hello') returns:
+A. False
+B. 0
+C. True
+D. error
+Correct Answer: C
+
+24. int('hello') raises:
+A. TypeError
+B. NameError
+C. ValueError
+D. ZeroDivisionError
+Correct Answer: C
+
+25. Python is dynamically typed, meaning:
+A. a variable cannot change type
+B. types are fixed at compile time
+C. a variable can refer to values of different types during execution
+D. only strings are allowed
+Correct Answer: C
+
+26. After x = 10 and then x = 'hello', x becomes:
+A. still int
+B. str
+C. bool
+D. invalid
+Correct Answer: B
+
+27. Which is NOT a valid fundamental data type from the lesson?
+A. int
+B. float
+C. str
+D. header
+Correct Answer: D
+
+28. Which operator gives the remainder of division?
+A. /
+B. *
+C. %
+D. +
+Correct Answer: C
+
+29. Which statement is correct?
+A. Python variables require explicit type declaration
+B. Python variable names can be keywords
+C. Python variables are case-sensitive
+D. Variables must start with numbers
+Correct Answer: C
+
+30. Which conversion returns a string?
+A. str(42)
+B. int('42')
+C. float(42)
+D. bool(1)
+Correct Answer: A
+
+Exercise 3: Reading Input in Python — 30 MCQs
+1. Which function is used to read user input in Python?
+A. read()
+B. get()
+C. input()
+D. scanf()
+Correct Answer: C
+
+2. The input() function reads data from:
+A. RAM only
+B. standard input
+C. compiler cache
+D. output stream
+Correct Answer: B
+
+3. input() always returns data as:
+A. int
+B. float
+C. bool
+D. str
+Correct Answer: D
+
+4. If a user enters 45 through input(), Python initially stores it as:
+A. integer 45
+B. string '45'
+C. float 45.0
+D. boolean True
+Correct Answer: B
+
+5. To convert user age input into an integer, use:
+A. str(input())
+B. bool(input())
+C. int(input())
+D. list(input())
+Correct Answer: C
+
+6. To convert height input into decimal form, use:
+A. float(input())
+B. int(input())
+C. str(input())
+D. tuple(input())
+Correct Answer: A
+
+7. If int() receives non-numeric text like 'twenty', it raises:
+A. NameError
+B. ValueError
+C. ZeroDivisionError
+D. SyntaxError
+Correct Answer: B
+
+8. The syntax of input is:
+A. input[value]
+B. input{prompt}
+C. input(prompt)
+D. read(prompt)
+Correct Answer: C
+
+9. A prompt in input() is:
+A. mandatory in all cases
+B. optional
+C. forbidden
+D. only numeric
+Correct Answer: B
+
+10. F-strings were introduced in Python:
+A. 2.7
+B. 3.0
+C. 3.6
+D. 4.0
+Correct Answer: C
+
+11. To create an f-string, prefix the string with:
+A. p
+B. x
+C. f
+D. s
+Correct Answer: C
+
+12. In an f-string, expressions are placed inside:
+A. square brackets
+B. parentheses
+C. angle brackets
+D. curly braces
+Correct Answer: D
+
+13. Which is an example of an f-string?
+A. 'Hello, {}'.name
+B. f'Hello, {name}!'
+C. Hello(name)
+D. format('Hello')
+Correct Answer: B
+
+14. F-strings are evaluated:
+A. before installation
+B. at runtime
+C. only by compiler
+D. never
+Correct Answer: B
+
+15. Compared to older formatting methods, f-strings are generally:
+A. slower and harder to read
+B. faster and more readable
+C. invalid in Python 3
+D. only for integers
+Correct Answer: B
+
+16. Before f-strings, a common formatting method was:
+A. split()
+B. append()
+C. format()
+D. replace()
+Correct Answer: C
+
+17. 'Hello, {}!'.format('Bob') outputs:
+A. Hello, format!
+B. Hello, Bob!
+C. {} Bob
+D. Error
+Correct Answer: B
+
+18. Placeholders in format() are written as:
+A. []
+B. ()
+C. {}
+D. <>
+Correct Answer: C
+
+19. Which is valid named or numbered formatting?
+A. 'I like {0} and {1}'.format('apples', 'bananas')
+B. 'I like []'.format('apples')
+C. 'I like <>'.format('apples')
+D. 'I like ()'.format('apples')
+Correct Answer: A
+
+20. To use user input in arithmetic, you usually need:
+A. indentation
+B. type casting
+C. slicing
+D. inheritance
+Correct Answer: B
+
+21. What is the type of the result of input('Enter: ')?
+A. always str
+B. always int
+C. always float
+D. always bool
+Correct Answer: A
+
+22. Which statement is correct?
+A. input() automatically detects integers
+B. input() always returns string data
+C. input() returns bytes
+D. input() returns float by default
+Correct Answer: B
+
+23. Which code correctly reads an integer age?
+A. age = input(int('Enter age'))
+B. age = int(input('Enter age: '))
+C. age = float('Enter age: ')
+D. age = str(input(int))
+Correct Answer: B
+
+24. Which code correctly reads a decimal number?
+A. x = bool(input())
+B. x = str(input())
+C. x = float(input())
+D. x = list(input())
+Correct Answer: C
+
+25. Which formatting style directly embeds expressions inside the string?
+A. comments
+B. f-strings
+C. readlines
+D. import
+Correct Answer: B
+
+26. In f'Hello, {name}!', name is:
+A. a keyword
+B. a comment
+C. an embedded expression/variable
+D. a module
+Correct Answer: C
+
+27. Which statement about format() is true?
+A. It cannot use placeholders
+B. It is older than f-strings
+C. It only works for numbers
+D. It is invalid in Python 3
+Correct Answer: B
+
+28. Which of the following is a possible problem with int(input())?
+A. It always returns bool
+B. It may raise ValueError
+C. It deletes user input
+D. It creates a file
+Correct Answer: B
+
+29. The purpose of type casting input is to:
+A. reverse strings
+B. convert string data into needed numeric types
+C. import modules
+D. close files
+Correct Answer: B
+
+30. Which output is correct for name = 'Bob'; print(f'Hello, {name}!')?
+A. Hello, {name}!
+B. Hello, Bob!
+C. name = Bob
+D. {Bob}
+Correct Answer: B
+
+Exercise 4: Conditional Statements in Python (30 MCQs)
+Q1. Which keyword is used to test a condition in Python?
+A. for
+B. if
+C. while
+D. switch
+Answer: B
+
+Q2. What happens if the condition in an if statement is True?
+A. The program stops
+B. The code block under if executes
+C. The else block executes
+D. An error occurs
+Answer: B
+
+Q3. Which keyword is used to check an additional condition after if?
+A. repeat
+B. elif
+C. next
+D. case
+Answer: B
+
+Q4. Which keyword executes when all previous conditions are False?
+A. otherwise
+B. default
+C. else
+D. finally
+Answer: C
+
+Q5. Python uses ______ to define code blocks.
+A. Curly braces
+B. Semicolons
+C. Parentheses
+D. Indentation
+Answer: D
+
+Q6. What is the correct syntax?
+A. if x > 5 {}
+B. if (x > 5)
+C. if x > 5:
+D. if x > 5 then
+Answer: C
+
+Q7. Which operator returns True only when both conditions are True?
+A. or
+B. not
+C. and
+D. xor
+Answer: C
+
+Q8. Which operator returns True when at least one condition is True?
+A. and
+B. or
+C. not
+D. ==
+Answer: B
+
+Q9. What does the not operator do?
+A. Adds values
+B. Compares values
+C. Reverses a Boolean value
+D. Multiplies values
+Answer: C
+
+Q10. Which statement about elif is correct?
+A. It means "else if"
+B. It ends the program
+C. It creates a loop
+D. It imports a module
+Answer: A
+
+Q11. In an if-elif-else chain, how many blocks execute?
+A. All True blocks
+B. First True block only
+C. Last block only
+D. None
+Answer: B
+
+Q12. What will be printed?
+
+x = 10
+if x > 5:
+    print("Yes")
+
+A. No
+B. Error
+C. Yes
+D. Nothing
+Answer: C
+
+Q13. Which condition checks whether age is at least 18?
+A. age > 18
+B. age >= 18
+C. age <= 18
+D. age != 18
+Answer: B
+
+Q14. Which logical operator would you use to check two conditions together?
+A. +
+B. *
+C. and
+D. %
+Answer: C
+
+Q15. What is nesting in Python?
+A. Loop inside loop
+B. Function inside function
+C. Conditional inside conditional
+D. Module inside package
+Answer: C
+
+Q16. What is the output?
+
+x = 3
+if x > 5:
+    print("A")
+else:
+    print("B")
+
+A. A
+B. B
+C. Error
+D. Nothing
+Answer: B
+
+Q17. Which of the following is a Boolean value?
+A. 10
+B. "True"
+C. True
+D. "10"
+Answer: C
+
+Q18. Which symbol checks equality?
+A. =
+B. ==
+C. ===
+D. !=
+Answer: B
+
+Q19. What is the output?
+
+x = 5
+if x == 5:
+    print("Correct")
+
+A. Correct
+B. Wrong
+C. Error
+D. None
+Answer: A
+
+Q20. What happens when all if and elif conditions are False?
+A. Program crashes
+B. else block executes
+C. First block executes
+D. Loop starts
+Answer: B
+
+Q21. Which statement is valid?
+A. else x > 5:
+B. elif x > 5:
+C. if x > 5 then
+D. else if x > 5
+Answer: B
+
+Q22. What is the result of:
+
+not True
+
+A. True
+B. False
+C. None
+D. Error
+Answer: B
+
+Q23. Which operator would check if a student passed both Math and Science?
+A. or
+B. not
+C. and
+D. =
+Answer: C
+
+Q24. What is printed?
+
+x = 7
+if x > 10:
+    print("A")
+elif x > 5:
+    print("B")
+
+A. A
+B. B
+C. Error
+D. Nothing
+Answer: B
+
+Q25. Which condition is evaluated first?
+A. else
+B. elif
+C. if
+D. random
+Answer: C
+
+Q26. What is the purpose of conditional statements?
+A. Repetition
+B. Decision making
+C. File handling
+D. Importing modules
+Answer: B
+
+Q27. What will be printed?
+
+x = -2
+if x > 0:
+    print("Positive")
+else:
+    print("Not Positive")
+
+A. Positive
+B. Negative
+C. Not Positive
+D. Error
+Answer: C
+
+Q28. Which is an example of nested conditional?
+A. if inside if
+B. loop inside loop
+C. function inside class
+D. module inside package
+Answer: A
+
+Q29. Which of these is NOT a logical operator?
+A. and
+B. or
+C. not
+D. elif
+Answer: D
+
+Q30. Why is indentation important in Python conditionals?
+A. For comments
+B. To define code blocks
+C. To create variables
+D. To import modules
+Answer: B
+Exercise 5: Loops in Python (30 MCQs)
+Q1. Which loop executes as long as a condition remains True?
+
+A. for
+B. while
+C. if
+D. switch
+Answer: B
+
+Q2. What is the correct syntax of a while loop?
+
+A. while(condition) {}
+B. while condition:
+C. while condition then
+D. while: condition
+Answer: B
+
+Q3. What can happen if the loop control variable is never updated in a while loop?
+
+A. Syntax Error
+B. Infinite Loop
+C. ValueError
+D. Program Ends
+Answer: B
+
+Q4. Which loop is commonly used to iterate over a sequence?
+
+A. while
+B. if
+C. for
+D. else
+Answer: C
+
+Q5. What does range(5) generate?
+
+A. 1,2,3,4,5
+B. 0,1,2,3,4
+C. 0,1,2,3,4,5
+D. 1,2,3,4
+Answer: B
+
+Q6. Which function is used to generate a sequence of numbers?
+
+A. numbers()
+B. list()
+C. range()
+D. sequence()
+Answer: C
+
+Q7. What is the output of list(range(3))?
+
+A. [1,2,3]
+B. [0,1,2]
+C. [0,1,2,3]
+D. [1,2]
+Answer: B
+
+Q8. What does range(1,10,2) generate?
+
+A. Even numbers from 1 to 10
+B. Odd numbers from 1 to 9
+C. Odd numbers from 1 to 10
+D. Numbers from 2 to 10
+Answer: B
+
+Q9. Which statement immediately terminates a loop?
+
+A. continue
+B. stop
+C. pass
+D. break
+Answer: D
+
+Q10. Which statement skips the current iteration and moves to the next?
+
+A. break
+B. pass
+C. continue
+D. exit
+Answer: C
+
+Q11. What is the purpose of the pass statement?
+
+A. Exit the loop
+B. Skip the iteration
+C. Do nothing
+D. Restart the loop
+Answer: C
+
+Q12. What is printed?
+for i in range(3):
+    print(i)
+
+A. 1 2 3
+B. 0 1 2
+C. 0 1 2 3
+D. 1 2
+Answer: B
+
+Q13. What is the output?
+i = 1
+while i <= 3:
+    print(i)
+    i += 1
+
+A. 1 2 3
+B. 0 1 2
+C. 1 2
+D. Infinite Loop
+Answer: A
+
+Q14. Which keyword is associated with loop termination?
+
+A. stop
+B. continue
+C. break
+D. pass
+Answer: C
+
+Q15. Which loop is best when the number of iterations is known?
+
+A. while
+B. for
+C. if
+D. else
+Answer: B
+
+Q16. What does the stop value in range() represent?
+
+A. Included final value
+B. Excluded final value
+C. Step value
+D. Starting value
+Answer: B
+
+Q17. What is the output?
+for i in range(2,5):
+    print(i)
+
+A. 2 3 4
+B. 2 3 4 5
+C. 1 2 3 4
+D. 3 4 5
+Answer: A
+
+Q18. Which loop can run indefinitely?
+
+A. for
+B. while
+C. if
+D. else
+Answer: B
+
+Q19. What is the result of range(0,5,2)?
+
+A. 0,2,4
+B. 1,3,5
+C. 0,1,2,3,4
+D. 2,4,6
+Answer: A
+
+Q20. Which statement is true about continue?
+
+A. Ends loop execution
+B. Skips remaining statements in current iteration
+C. Stops the program
+D. Raises an exception
+Answer: B
+
+Q21. What is printed?
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+
+A. 0 1 2
+B. 0 1 2 3
+C. 1 2 3
+D. 0 1
+Answer: A
+
+Q22. What is printed?
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)
+
+A. 0 1 2 3 4
+B. 0 1 3 4
+C. 2 3 4
+D. 0 1 2 4
+Answer: B
+
+Q23. Which block executes when a loop ends naturally?
+
+A. finally
+B. except
+C. else
+D. pass
+Answer: C
+
+Q24. When is a loop's else block skipped?
+
+A. Normal completion
+B. Condition becomes False
+C. Sequence exhausted
+D. break statement used
+Answer: D
+
+Q25. What is the output?
+for i in range(3):
+    print(i)
+else:
+    print("Done")
+
+A. 0 1 2 Done
+B. Done
+C. 1 2 3 Done
+D. Error
+Answer: A
+
+Q26. What is the output?
+for i in range(3):
+    if i == 1:
+        break
+else:
+    print("Done")
+
+A. Done
+B. Error
+C. Nothing from else block
+D. 0 1 2 Done
+Answer: C
+
+Q27. Which statement is often used as a placeholder in loops?
+
+A. continue
+B. break
+C. pass
+D. else
+Answer: C
+
+Q28. What is the output?
+for ch in "PY":
+    print(ch)
+
+A. PY
+B. P Y
+C. Error
+D. Y P
+Answer: B
+
+Q29. Which data type can a for loop iterate through?
+
+A. String
+B. List
+C. Tuple
+D. All of the above
+Answer: D
+
+Q30. Which loop is generally preferred for iterating through a collection?
+
+A. while
+B. for
+C. if
+D. else
+Answer: B
+Exercise 6: Functions in Python (30 MCQs)
+Q1. What is a function in Python?
+
+A. A loop
+B. A reusable block of code
+C. A variable
+D. A module
+Answer: B
+
+Q2. Which keyword is used to define a function?
+
+A. function
+B. define
+C. def
+D. func
+Answer: C
+
+Q3. What is the correct syntax for defining a function?
+
+A. function myFunc()
+B. def myFunc():
+C. define myFunc():
+D. func myFunc():
+Answer: B
+
+Q4. What is the purpose of a function?
+
+A. Increase code repetition
+B. Reduce readability
+C. Reuse code and improve maintainability
+D. Create loops only
+Answer: C
+
+Q5. What does a function return if no return statement is specified?
+
+A. 0
+B. False
+C. Empty String
+D. None
+Answer: D
+
+Q6. What is the name of the text that describes a function?
+
+A. Comment
+B. Annotation
+C. Docstring
+D. Metadata
+Answer: C
+
+Q7. Which statement is used to send a value back from a function?
+
+A. send
+B. yield
+C. return
+D. output
+Answer: C
+
+Q8. What are parameters?
+
+A. Values returned by a function
+B. Variables listed in function definition
+C. Variables outside the function
+D. Modules used by the function
+Answer: B
+
+Q9. What are arguments?
+
+A. Values passed to a function
+B. Function names
+C. Return values
+D. Global variables
+Answer: A
+
+Q10. What is the output?
+def greet():
+    print("Hello")
+
+greet()
+
+A. greet
+B. Hello
+C. Error
+D. None
+Answer: B
+
+Q11. What are default arguments?
+
+A. Required arguments
+B. Arguments with predefined values
+C. Global arguments
+D. Hidden arguments
+Answer: B
+
+Q12. Which function definition uses a default argument?
+
+A. def add(a,b):
+B. def add(a=5,b):
+C. def add(a,b=5):
+D. def add(=5,b):
+Answer: C
+
+Q13. Which rule applies to default parameters?
+
+A. Must come before non-default parameters
+B. Must follow non-default parameters
+C. Can appear anywhere
+D. Are not allowed in Python
+Answer: B
+
+Q14. What are keyword arguments?
+
+A. Arguments passed by parameter name
+B. Reserved words
+C. Function names
+D. Global variables
+Answer: A
+
+Q15. Which is a valid keyword argument call?
+
+A. add(5,10)
+B. add(a=5,b=10)
+C. add(=5,=10)
+D. add(a,b)
+Answer: B
+
+Q16. What is the benefit of keyword arguments?
+
+A. Faster execution
+B. Less memory usage
+C. Arguments can be passed in any order
+D. Prevent function calls
+Answer: C
+
+Q17. What does *args allow?
+
+A. Multiple keyword arguments
+B. Multiple return values
+C. Any number of positional arguments
+D. Only integer arguments
+Answer: C
+
+Q18. Inside a function, *args is stored as a:
+
+A. List
+B. Tuple
+C. Dictionary
+D. Set
+Answer: B
+
+Q19. What does **kwargs allow?
+
+A. Positional arguments only
+B. Any number of keyword arguments
+C. Multiple loops
+D. Multiple returns
+Answer: B
+
+Q20. Inside a function, **kwargs is stored as a:
+
+A. Tuple
+B. List
+C. Dictionary
+D. String
+Answer: C
+
+Q21. What is local scope?
+
+A. Variables available everywhere
+B. Variables created inside a function
+C. Variables inside modules only
+D. Class variables
+Answer: B
+
+Q22. Can a local variable be accessed outside its function?
+
+A. Always
+B. Sometimes
+C. No
+D. Only with return
+Answer: C
+
+Q23. What is global scope?
+
+A. Variables defined in the main body of a script
+B. Variables inside loops
+C. Variables inside classes only
+D. Variables inside functions only
+Answer: A
+
+Q24. Which keyword is used to modify a global variable inside a function?
+
+A. public
+B. extern
+C. global
+D. static
+Answer: C
+
+Q25. What is the output?
+def add(a,b):
+    return a+b
+
+print(add(2,3))
+
+A. 5
+B. 23
+C. add
+D. Error
+Answer: A
+
+Q26. What is the output?
+def show():
+    pass
+
+print(show())
+
+A. 0
+B. False
+C. None
+D. Error
+Answer: C
+
+Q27. What is printed?
+x = 10
+
+def test():
+    print(x)
+
+test()
+
+A. 10
+B. Error
+C. None
+D. test
+Answer: A
+
+Q28. Which statement about global variables is true?
+
+A. They can be read inside functions
+B. They cannot be accessed inside functions
+C. They are local variables
+D. They must use return
+Answer: A
+
+Q29. What will happen without the global keyword when modifying a global variable inside a function?
+
+A. Global variable is updated
+B. Python creates a new local variable
+C. Program crashes
+D. Function is ignored
+Answer: B
+
+Q30. Which feature makes functions useful in large programs?
+
+A. Reusability
+B. Increased repetition
+C. More syntax errors
+D. Less organization
+Answer: A
+Exercise 7: Strings in Python (30 MCQs)
+Q1. What is a string in Python?
+
+A. A collection of numbers only
+B. A sequence of characters
+C. A type of loop
+D. A function
+Answer: B
+
+Q2. Which indexing starts from 0 in Python strings?
+
+A. Negative indexing
+B. Reverse indexing
+C. Positive indexing
+D. Step indexing
+Answer: C
+
+Q3. What is the index of the first character in a string?
+
+A. 1
+B. -1
+C. 0
+D. 2
+Answer: C
+
+Q4. Which index represents the last character of a string?
+
+A. 0
+B. -1
+C. 1
+D. -2
+Answer: B
+
+Q5. What does slicing allow you to do?
+
+A. Delete a string
+B. Extract a substring
+C. Convert a string to a list
+D. Reverse a list
+Answer: B
+
+Q6. What is the general syntax for string slicing?
+
+A. string(start,stop,step)
+B. string[start:stop:step]
+C. string[start-stop-step]
+D. slice(string)
+Answer: B
+
+Q7. In slicing, the start index is:
+
+A. Exclusive
+B. Inclusive
+C. Ignored
+D. Optional only
+Answer: B
+
+Q8. In slicing, the stop index is:
+
+A. Inclusive
+B. Mandatory
+C. Exclusive
+D. Negative only
+Answer: C
+
+Q9. What is the default value of step in slicing?
+
+A. 0
+B. 2
+C. -1
+D. 1
+Answer: D
+
+Q10. Which slice reverses a string?
+
+A. s[:1]
+B. s[::-1]
+C. s[1:]
+D. s[::2]
+Answer: B
+
+Q11. What is the output?
+s = "Python"
+print(s[0])
+
+A. P
+B. y
+C. n
+D. Error
+Answer: A
+
+Q12. What is the output?
+s = "Python"
+print(s[-1])
+
+A. P
+B. y
+C. n
+D. h
+Answer: C
+
+Q13. What is the output?
+s = "Python"
+print(s[1:4])
+
+A. Pyt
+B. yth
+C. ytho
+D. tho
+Answer: B
+
+Q14. What is the output?
+s = "Python"
+print(s[:3])
+
+A. Pyt
+B. yth
+C. Python
+D. tho
+Answer: A
+
+Q15. What is the output?
+s = "Python"
+print(s[3:])
+
+A. Pyt
+B. hon
+C. tho
+D. yth
+Answer: B
+
+Q16. What does string immutability mean?
+
+A. Strings can be resized
+B. Strings can be modified directly
+C. Strings cannot be changed after creation
+D. Strings are always uppercase
+Answer: C
+
+Q17. What happens when executing?
+s = "Hello"
+s[0] = "J"
+
+A. Output: Jello
+B. TypeError
+C. ValueError
+D. SyntaxError
+Answer: B
+
+Q18. To modify a string, you must:
+
+A. Use append()
+B. Create a new string
+C. Use replace() on characters directly
+D. Convert it to an integer
+Answer: B
+
+Q19. Which method converts a string to uppercase?
+
+A. capitalize()
+B. upper()
+C. large()
+D. case()
+Answer: B
+
+Q20. Which method converts a string to lowercase?
+
+A. lower()
+B. down()
+C. small()
+D. case()
+Answer: A
+
+Q21. What does strip() do?
+
+A. Removes all spaces in a string
+B. Removes leading and trailing whitespace
+C. Deletes the string
+D. Splits the string
+Answer: B
+
+Q22. Which method replaces occurrences of a substring?
+
+A. remove()
+B. replace()
+C. change()
+D. modify()
+Answer: B
+
+Q23. What is the output?
+s = "hello world"
+print(s.replace("world","Python"))
+
+A. hello world
+B. Python world
+C. hello Python
+D. world hello
+Answer: C
+
+Q24. Which method splits a string into a list?
+
+A. join()
+B. divide()
+C. break()
+D. split()
+Answer: D
+
+Q25. What is the output?
+s = "a,b,c"
+print(s.split(","))
+
+A. ['a','b','c']
+B. abc
+C. a,b,c
+D. Error
+Answer: A
+
+Q26. Which method joins elements of an iterable into a string?
+
+A. merge()
+B. connect()
+C. join()
+D. append()
+Answer: C
+
+Q27. What is the output?
+words = ["I","Love","Python"]
+print(" ".join(words))
+
+A. ILovePython
+B. I Love Python
+C. ['I','Love','Python']
+D. Error
+Answer: B
+
+Q28. What is the result of:
+"python".upper()
+
+A. python
+B. PYTHON
+C. Python
+D. pYTHON
+Answer: B
+
+Q29. What is the output?
+s = "  Python  "
+print(s.strip())
+
+A. " Python "
+B. Python
+C. "Python "
+D. " Python"
+Answer: B
+
+Q30. Which statement about strings is TRUE?
+
+A. Strings are mutable
+B. Strings cannot be indexed
+C. Strings support slicing and indexing
+D. Strings only store numbers
+Answer: C
+Exercise 8: Lists, Tuples, Sets, and Dictionaries (30 MCQs)
+Q1. What is a list in Python?
+
+A. An unordered collection of unique items
+B. An ordered, mutable sequence of items
+C. An immutable sequence
+D. A collection of key-value pairs
+Answer: B
+
+Q2. Which syntax is used to create a list?
+
+A. (1, 2, 3)
+B. {1, 2, 3}
+C. [1, 2, 3]
+D. <1, 2, 3>
+Answer: C
+
+Q3. Which property of lists allows items to be changed after creation?
+
+A. Ordered
+B. Mutable
+C. Immutable
+D. Unique
+Answer: B
+
+Q4. Can a list contain elements of different data types?
+
+A. No
+B. Only numbers
+C. Only strings
+D. Yes
+Answer: D
+
+Q5. Which method adds an element to the end of a list?
+
+A. add()
+B. append()
+C. insert()
+D. push()
+Answer: B
+
+Q6. Which method removes and returns the last element by default?
+
+A. remove()
+B. delete()
+C. pop()
+D. clear()
+Answer: C
+
+Q7. Which method inserts an element at a specified position?
+
+A. append()
+B. extend()
+C. add()
+D. insert()
+Answer: D
+
+Q8. What is the output?
+lst = [1, 2, 3]
+lst.append(4)
+print(lst)
+
+A. [1, 2, 3]
+B. [1, 2, 3, 4]
+C. [4, 1, 2, 3]
+D. Error
+Answer: B
+
+Q9. What is the output?
+lst = [10, 20, 30]
+print(lst[1])
+
+A. 10
+B. 20
+C. 30
+D. Error
+Answer: B
+
+Q10. Lists allow:
+
+A. Only unique elements
+B. Duplicate elements
+C. Only integers
+D. Only strings
+Answer: B
+
+Q11. What is a tuple?
+
+A. Ordered and mutable collection
+B. Unordered collection
+C. Ordered and immutable collection
+D. Key-value collection
+Answer: C
+
+Q12. Which syntax creates a tuple?
+
+A. [1, 2, 3]
+B. {1, 2, 3}
+C. (1, 2, 3)
+D. <1, 2, 3>
+Answer: C
+
+Q13. Why are tuples considered safer than lists?
+
+A. They are smaller
+B. They are immutable
+C. They are faster to type
+D. They use loops
+Answer: B
+
+Q14. Which statement about tuples is TRUE?
+
+A. Tuples are mutable
+B. Tuples allow duplicates
+C. Tuples cannot store strings
+D. Tuples are unordered
+Answer: B
+
+Q15. Which collection type can be used as a dictionary key?
+
+A. List
+B. Set
+C. Tuple
+D. Dictionary
+Answer: C
+
+Q16. What is the output?
+t = (1, 2, 3)
+print(t[0])
+
+A. 0
+B. 1
+C. 2
+D. 3
+Answer: B
+
+Q17. What happens when you try to modify a tuple element?
+
+A. It works normally
+B. ValueError
+C. TypeError
+D. IndexError
+Answer: C
+
+Q18. Which collection does NOT allow duplicate values?
+
+A. List
+B. Tuple
+C. Dictionary
+D. Set
+Answer: D
+
+Q19. Which syntax creates a set?
+
+A. [1, 2, 3]
+B. (1, 2, 3)
+C. {1, 2, 3}
+D. <1, 2, 3>
+Answer: C
+
+Q20. What is a set?
+
+A. Ordered collection
+B. Immutable collection
+C. Unordered collection of unique items
+D. Key-value collection
+Answer: C
+
+Q21. Which set operation finds common elements?
+
+A. Union (|)
+B. Difference (-)
+C. Intersection (&)
+D. Append (+)
+Answer: C
+
+Q22. Which set operation combines all unique elements?
+
+A. Union (|)
+B. Intersection (&)
+C. Difference (-)
+D. Join()
+Answer: A
+
+Q23. What is the result of?
+{1, 2, 3} & {2, 3, 4}
+
+A. {1, 4}
+B. {2, 3}
+C. {1, 2, 3, 4}
+D. {}
+Answer: B
+
+Q24. What is a dictionary?
+
+A. Sequence of numbers
+B. Collection of key-value pairs
+C. Collection of unique values
+D. Immutable collection
+Answer: B
+
+Q25. Which syntax creates a dictionary?
+
+A. [ ]
+B. ( )
+C. {key:value}
+D. < >
+Answer: C
+
+Q26. In a dictionary, keys must be:
+
+A. Mutable and unique
+B. Immutable and unique
+C. Strings only
+D. Integers only
+Answer: B
+
+Q27. What is the output?
+d = {"name":"Alice"}
+print(d["name"])
+
+A. name
+B. Alice
+C. Error
+D. None
+Answer: B
+
+Q28. Which method returns all dictionary keys?
+
+A. values()
+B. items()
+C. keys()
+D. get()
+Answer: C
+
+Q29. Which method returns all dictionary values?
+
+A. values()
+B. keys()
+C. items()
+D. pop()
+Answer: A
+
+Q30. From Python 3.7 onwards, dictionaries:
+
+A. Are unordered
+B. Preserve insertion order
+C. Allow duplicate keys
+D. Are immutable
+Answer: B
+Exercise 9: File Handling in Python (30 MCQs)
+Q1. What is the basic workflow of file handling in Python?
+
+A. Read → Open → Close
+B. Open → Read/Write → Close
+C. Close → Open → Read
+D. Open → Close → Read
+Answer: B
+
+Q2. Which function is used to open a file in Python?
+
+A. file()
+B. open()
+C. fopen()
+D. create()
+Answer: B
+
+Q3. What does the open() function return?
+
+A. String
+B. Integer
+C. File object
+D. List
+Answer: C
+
+Q4. Which mode is the default mode for open()?
+
+A. 'w'
+B. 'a'
+C. 'r'
+D. 'r+'
+Answer: C
+
+Q5. What does 'r' mode do?
+
+A. Writes data
+B. Appends data
+C. Reads data
+D. Deletes data
+Answer: C
+
+Q6. What happens if a file does not exist and is opened in 'r' mode?
+
+A. Empty file is created
+B. FileNotFoundError occurs
+C. Program stops silently
+D. File is appended
+Answer: B
+
+Q7. Which mode creates a file if it does not exist and overwrites existing content?
+
+A. 'r'
+B. 'a'
+C. 'w'
+D. 'r+'
+Answer: C
+
+Q8. Which mode adds data to the end of a file?
+
+A. 'w'
+B. 'r'
+C. 'r+'
+D. 'a'
+Answer: D
+
+Q9. Which mode allows both reading and writing?
+
+A. 'a'
+B. 'r+'
+C. 'w'
+D. 'readwrite'
+Answer: B
+
+Q10. Why is it important to close a file?
+
+A. To speed up the CPU
+B. To avoid memory leaks and locked files
+C. To delete file contents
+D. To create backups
+Answer: B
+
+Q11. Which method is used to close a file?
+
+A. stop()
+B. end()
+C. close()
+D. shutdown()
+Answer: C
+
+Q12. What is the recommended way to handle files in Python?
+
+A. open() only
+B. close() only
+C. with statement
+D. delete() statement
+Answer: C
+
+Q13. What is the advantage of using the with statement?
+
+A. File remains open forever
+B. File closes automatically
+C. File becomes read-only
+D. File is encrypted
+Answer: B
+
+Q14. Which keyword is used in a context manager?
+
+A. using
+B. with
+C. manage
+D. open
+Answer: B
+
+Q15. What is the output type of f.readlines()?
+
+A. String
+B. Integer
+C. Dictionary
+D. List
+Answer: D
+
+Q16. Which method reads the entire file?
+
+A. read()
+B. readline()
+C. readall()
+D. lines()
+Answer: A
+
+Q17. Which method reads one line at a time?
+
+A. read()
+B. readline()
+C. readlines()
+D. getline()
+Answer: B
+
+Q18. Which method returns all lines as a list?
+
+A. readline()
+B. read()
+C. readlines()
+D. getlines()
+Answer: C
+
+Q19. What does f.read(5) do?
+
+A. Reads 5 lines
+B. Reads 5 bytes/characters
+C. Reads entire file
+D. Reads 5 files
+Answer: B
+
+Q20. What is the output type of f.read()?
+
+A. String
+B. List
+C. Tuple
+D. Dictionary
+Answer: A
+
+Q21. What happens when opening a file in append mode ('a')?
+
+A. Existing content is erased
+B. New data is added at the end
+C. File becomes read-only
+D. File is deleted
+Answer: B
+
+Q22. Which statement correctly opens a file for reading?
+
+A. open("data.txt","r")
+B. open("data.txt","read")
+C. file("data.txt")
+D. read("data.txt")
+Answer: A
+
+Q23. Which statement correctly opens a file for writing?
+
+A. open("data.txt","append")
+B. open("data.txt","w")
+C. open("data.txt","write")
+D. open("data.txt","r")
+Answer: B
+
+Q24. What is the output?
+with open("sample.txt","r") as f:
+    content = f.read()
+
+A. File automatically closes after block execution
+B. File remains open forever
+C. Syntax Error
+D. File gets deleted
+Answer: A
+
+Q25. Which mode does NOT overwrite existing content?
+
+A. 'w'
+B. 'r+'
+C. 'a'
+D. 'r'
+Answer: C
+
+Q26. What kind of files can Python handle?
+
+A. Text files only
+B. Binary files only
+C. Both text and binary files
+D. Database files only
+Answer: C
+
+Q27. Which of the following is a context manager example?
+
+A.
+
+open("a.txt")
+
+B.
+
+with open("a.txt","r") as f:
+
+C.
+
+read("a.txt")
+
+D.
+
+file("a.txt")
+
+Answer: B
+
+Q28. What is a potential issue if close() is not called?
+
+A. Faster execution
+B. Memory leaks
+C. More storage space
+D. Better security
+Answer: B
+
+Q29. Which statement about readlines() is TRUE?
+
+A. Returns a string
+B. Returns a tuple
+C. Returns a list of lines
+D. Returns a dictionary
+Answer: C
+
+Q30. Which file handling practice is considered best?
+
+A. Never close files
+B. Always use global variables
+C. Use the with statement whenever possible
+D. Open the same file repeatedly without closing
+Answer: C
+Exercise 10: Exceptions in Python (30 MCQs)
+Q1. What is an exception in Python?
+
+A. A comment in code
+B. An error detected during execution
+C. A loop statement
+D. A function call
+Answer: B
+
+Q2. Which exception occurs when dividing by zero?
+
+A. ValueError
+B. TypeError
+C. ZeroDivisionError
+D. FileNotFoundError
+Answer: C
+
+Q3. What exception is raised by int("hello")?
+
+A. TypeError
+B. ValueError
+C. NameError
+D. IndexError
+Answer: B
+
+Q4. Which exception occurs when an operation is applied to an inappropriate type?
+
+A. FileNotFoundError
+B. TypeError
+C. ValueError
+D. KeyError
+Answer: B
+
+Q5. What exception is raised when a file cannot be found?
+
+A. FileNotFoundError
+B. IOError
+C. ValueError
+D. TypeError
+Answer: A
+
+Q6. Which block contains code that may raise an exception?
+
+A. except
+B. finally
+C. try
+D. else
+Answer: C
+
+Q7. Which keyword is used to handle exceptions?
+
+A. catch
+B. except
+C. handle
+D. error
+Answer: B
+
+Q8. What happens when an exception occurs inside a try block?
+
+A. Program immediately stops
+B. Execution moves to a matching except block
+C. finally block is skipped
+D. The exception is ignored
+Answer: B
+
+Q9. What is the correct structure?
+
+A. try-catch
+B. try-except
+C. catch-finally
+D. try-handle
+Answer: B
+
+Q10. Which block handles a ZeroDivisionError?
+try:
+    x = 10/0
+except ______:
+    print("Error")
+
+A. ValueError
+B. TypeError
+C. ZeroDivisionError
+D. NameError
+Answer: C
+
+Q11. What is printed?
+try:
+    print(10/2)
+except ZeroDivisionError:
+    print("Error")
+
+A. Error
+B. 5.0
+C. 10
+D. Nothing
+Answer: B
+
+Q12. Which keyword allows access to the exception object?
+
+A. as
+B. in
+C. with
+D. from
+Answer: A
+
+Q13. What does except ValueError as e: do?
+
+A. Creates a variable
+B. Stores the exception object in e
+C. Ignores exceptions
+D. Raises an exception
+Answer: B
+
+Q14. Which block executes if no exception occurs?
+
+A. except
+B. finally
+C. else
+D. raise
+Answer: C
+
+Q15. Which block always executes?
+
+A. try
+B. else
+C. except
+D. finally
+Answer: D
+
+Q16. What is the primary use of the finally block?
+
+A. Creating variables
+B. Releasing resources
+C. Importing modules
+D. Declaring functions
+Answer: B
+
+Q17. Which statement about finally is TRUE?
+
+A. Runs only if an exception occurs
+B. Runs only if no exception occurs
+C. Always executes
+D. Is optional but never used
+Answer: C
+
+Q18. What is printed?
+try:
+    print("Hello")
+except:
+    print("Error")
+else:
+    print("Done")
+
+A. Hello
+B. Done
+C. Hello Done
+D. Error
+Answer: C
+
+Q19. What is printed?
+try:
+    x = 10/0
+except ZeroDivisionError:
+    print("Division Error")
+
+A. 10
+B. Division Error
+C. Error
+D. Nothing
+Answer: B
+
+Q20. Which keyword is used to deliberately generate an exception?
+
+A. except
+B. try
+C. raise
+D. finally
+Answer: C
+
+Q21. What is the purpose of the raise statement?
+
+A. Ignore errors
+B. Create loops
+C. Force an exception to occur
+D. Close files
+Answer: C
+
+Q22. Which statement raises a ValueError?
+
+A. throw ValueError()
+B. raise ValueError("Invalid input")
+C. error ValueError()
+D. exception ValueError()
+Answer: B
+
+Q23. What happens if no matching except block exists?
+
+A. The exception is ignored
+B. Program terminates with an error
+C. else block handles it
+D. finally block fixes it
+Answer: B
+
+Q24. Which exception is likely from this code?
+"5" + 5
+
+A. ValueError
+B. ZeroDivisionError
+C. TypeError
+D. NameError
+Answer: C
+
+Q25. What exception is raised?
+int("abc")
+
+A. TypeError
+B. ValueError
+C. KeyError
+D. IndexError
+Answer: B
+
+Q26. What is printed?
+try:
+    print("A")
+finally:
+    print("B")
+
+A. A
+B. B
+C. A B
+D. Error
+Answer: C
+
+Q27. Which exception is associated with missing files?
+
+A. FileNotFoundError
+B. ImportError
+C. ValueError
+D. TypeError
+Answer: A
+
+Q28. What is the output?
+try:
+    print(5)
+except:
+    print("Error")
+else:
+    print("Success")
+
+A. 5
+B. Success
+C. 5 Success
+D. Error
+Answer: C
+
+Q29. Why is exception handling important?
+
+A. Makes code longer
+B. Prevents program crashes and handles errors gracefully
+C. Removes variables
+D. Speeds up loops
+Answer: B
+
+Q30. Which order is correct?
+
+A. try → finally → except
+B. try → except → else → finally
+C. except → try → finally
+D. try → else → except
+Answer: B
+Exercise 11: Modules and Packages in Python (30 MCQs)
+Q1. What is a module in Python?
+
+A. A loop structure
+B. A file containing Python definitions and statements
+C. A database table
+D. A package manager
+Answer: B
+
+Q2. What is the extension of a Python module file?
+
+A. .txt
+B. .java
+C. .py
+D. .exe
+Answer: C
+
+Q3. Why are modules used in Python?
+
+A. To increase code duplication
+B. To organize and reuse code
+C. To replace functions
+D. To create loops
+Answer: B
+
+Q4. Which statement is used to use a module in another script?
+
+A. include
+B. require
+C. import
+D. using
+Answer: C
+
+Q5. Which statement imports an entire module?
+
+A. include math
+B. import math
+C. using math
+D. load math
+Answer: B
+
+Q6. After executing import math, how is the square root function accessed?
+
+A. sqrt()
+B. math.sqrt()
+C. math->sqrt()
+D. sqrt.math()
+Answer: B
+
+Q7. Which statement imports only a specific function?
+
+A. import module.function
+B. include function
+C. from module import function
+D. using function
+Answer: C
+
+Q8. What is the advantage of from module import func?
+
+A. No need to use module prefix
+B. Faster internet connection
+C. Creates a package
+D. Makes code immutable
+Answer: A
+
+Q9. Which statement creates an alias for a module?
+
+A. import math rename m
+B. import math as m
+C. alias math m
+D. from math as m
+Answer: B
+
+Q10. Why are aliases useful?
+
+A. They shorten long module names
+B. They increase memory usage
+C. They create packages
+D. They prevent imports
+Answer: A
+
+Q11. What does the statement import numpy as np do?
+
+A. Imports NumPy with alias np
+B. Creates a new package
+C. Renames Python
+D. Deletes NumPy
+Answer: A
+
+Q12. Which import style is discouraged?
+
+A. import math
+B. import math as m
+C. from math import sqrt
+D. from math import *
+Answer: D
+
+Q13. Why is from module import * discouraged?
+
+A. It causes namespace pollution
+B. It makes code faster
+C. It prevents function usage
+D. It deletes variables
+Answer: A
+
+Q14. What is namespace pollution?
+
+A. Creating files in wrong folders
+B. Too many names imported into current namespace
+C. Deleting modules accidentally
+D. Importing syntax errors
+Answer: B
+
+Q15. Which standard library module provides mathematical functions?
+
+A. random
+B. string
+C. math
+D. os
+Answer: C
+
+Q16. Which constant belongs to the math module?
+
+A. math.rand
+B. math.pi
+C. math.float
+D. math.value
+Answer: B
+
+Q17. Which function calculates a square root?
+
+A. math.square()
+B. math.root()
+C. math.sqrt()
+D. math.power()
+Answer: C
+
+Q18. Which function calculates factorials?
+
+A. math.fact()
+B. math.factorial()
+C. math.multiply()
+D. math.product()
+Answer: B
+
+Q19. Which module is used to generate pseudo-random numbers?
+
+A. math
+B. random
+C. statistics
+D. string
+Answer: B
+
+Q20. What does random.random() return?
+
+A. Integer between 1 and 100
+B. Random string
+C. Float between 0.0 and 1.0
+D. Boolean value
+Answer: C
+
+Q21. What does random.randint(1,10) return?
+
+A. Float from 0 to 1
+B. Integer between 1 and 10
+C. List of numbers
+D. String value
+Answer: B
+
+Q22. Which function selects a random item from a sequence?
+
+A. random.pick()
+B. random.select()
+C. random.choice()
+D. random.choose()
+Answer: C
+
+Q23. What is a package in Python?
+
+A. A collection of modules organized in directories
+B. A loop structure
+C. A single function
+D. A database file
+Answer: A
+
+Q24. Which file is traditionally required for Python to recognize a directory as a package?
+
+A. package.py
+B. main.py
+C. init.py
+D. start.py
+Answer: C
+
+Q25. What is the purpose of packages?
+
+A. Increase code complexity
+B. Organize modules hierarchically
+C. Remove functions
+D. Replace classes
+Answer: B
+
+Q26. Which statement correctly imports a module inside a package?
+
+A. import package.module
+B. package.import module
+C. import module.package
+D. package.module.import
+Answer: A
+
+Q27. What is the output?
+import math
+print(math.pi)
+
+A. Error
+B. Mathematical constant π
+C. 0
+D. Random value
+Answer: B
+
+Q28. What is the output?
+from math import sqrt
+print(sqrt(25))
+
+A. 25
+B. 125
+C. 5.0
+D. Error
+Answer: C
+
+Q29. What is the output?
+import random
+print(type(random.random()))
+
+A. int
+B. float
+C. str
+D. list
+Answer: B
+
+Q30. Which statement best describes modules and packages?
+
+A. They help organize, reuse, and manage code efficiently
+B. They replace loops and conditions
+C. They are used only for mathematics
+D. They prevent function creation
+Answer: A
+Exercise 12: Introduction to Object-Oriented Programming (OOP) in Python (30 MCQs)
+Q1. What does OOP stand for?
+
+A. Object-Oriented Programming
+B. Object Operating Program
+C. Operating Object Process
+D. Object Output Programming
+Answer: A
+
+Q2. What is OOP primarily based on?
+
+A. Functions
+B. Objects and Classes
+C. Loops
+D. Modules
+Answer: B
+
+Q3. What is a class in Python?
+
+A. An instance of an object
+B. A blueprint for creating objects
+C. A variable type
+D. A loop structure
+Answer: B
+
+Q4. What is an object?
+
+A. A package
+B. A module
+C. An instance of a class
+D. A function
+Answer: C
+
+Q5. Which of the following is a key concept of OOP?
+
+A. Encapsulation
+B. Inheritance
+C. Polymorphism
+D. All of the above
+Answer: D
+
+Q6. Which method acts as a constructor in Python?
+
+A. main()
+B. start()
+C. init()
+D. create()
+Answer: C
+
+Q7. When is the init() method called?
+
+A. When the program starts
+B. When a class is defined
+C. When an object is created
+D. When a function is called
+Answer: C
+
+Q8. What is the purpose of a constructor?
+
+A. Delete objects
+B. Initialize object attributes
+C. Import modules
+D. Create loops
+Answer: B
+
+Q9. Which parameter must be the first parameter of an instance method?
+
+A. this
+B. obj
+C. self
+D. cls
+Answer: C
+
+Q10. What does self represent?
+
+A. The class itself
+B. The current instance of the class
+C. A global variable
+D. A package
+Answer: B
+
+Q11. Which keyword is used to create a class?
+
+A. object
+B. define
+C. class
+D. new
+Answer: C
+
+Q12. What is the correct syntax to define a class?
+class Student:
+    pass
+
+A. Correct
+B. Syntax Error
+C. Runtime Error
+D. Logical Error
+Answer: A
+
+Q13. Which statement creates an object of class Student?
+
+A. Student = obj()
+B. obj.Student()
+C. obj = Student()
+D. create Student()
+Answer: C
+
+Q14. What are attributes in OOP?
+
+A. Methods of a class
+B. Data associated with an object
+C. Loops inside a class
+D. Imported modules
+Answer: B
+
+Q15. What are methods in OOP?
+
+A. Variables
+B. Data types
+C. Functions defined inside a class
+D. Packages
+Answer: C
+
+Q16. Which code correctly defines an instance variable?
+class Student:
+    def __init__(self,name):
+        self.name = name
+
+A. self.name = name
+B. name.self = name
+C. name = self.name
+D. self = name
+Answer: A
+
+Q17. Instance variables are:
+
+A. Shared among all objects
+B. Specific to each object
+C. Global variables
+D. Constants
+Answer: B
+
+Q18. Where are instance variables usually defined?
+
+A. Outside the class
+B. In the constructor (init)
+C. In a package
+D. In a loop
+Answer: B
+
+Q19. What is a class variable?
+
+A. Variable shared by all instances
+B. Variable inside a function
+C. Variable inside a loop
+D. Local variable
+Answer: A
+
+Q20. Where is a class variable defined?
+
+A. Inside init()
+B. Inside a method
+C. Directly inside the class body
+D. Inside a package
+Answer: C
+
+Q21. What is the output?
+class Student:
+    school = "ABC School"
+
+print(Student.school)
+
+A. ABC School
+B. school
+C. Error
+D. None
+Answer: A
+
+Q22. Which statement about class variables is TRUE?
+
+A. Each object gets a separate copy
+B. Shared among all objects
+C. Cannot store strings
+D. Must use self
+Answer: B
+
+Q23. What is the output?
+class Student:
+    def __init__(self,name):
+        self.name = name
+
+s = Student("John")
+print(s.name)
+
+A. Student
+B. name
+C. John
+D. Error
+Answer: C
+
+Q24. Which statement accesses an instance variable?
+
+A. self.name
+B. Student.name
+C. class.name
+D. instance.self
+Answer: A
+
+Q25. What is encapsulation?
+
+A. Wrapping data and methods together in a class
+B. Creating loops
+C. Importing packages
+D. Handling exceptions
+Answer: A
+
+Q26. Which OOP feature allows code reuse through parent-child relationships?
+
+A. Abstraction
+B. Encapsulation
+C. Inheritance
+D. Iteration
+Answer: C
+
+Q27. Which OOP feature means "many forms"?
+
+A. Encapsulation
+B. Abstraction
+C. Polymorphism
+D. Inheritance
+Answer: C
+
+Q28. Which OOP feature hides implementation details?
+
+A. Inheritance
+B. Abstraction
+C. Looping
+D. Slicing
+Answer: B
+
+Q29. What is the state of an object?
+
+A. Its imported modules
+B. Its attributes/data
+C. Its loops
+D. Its package structure
+Answer: B
+
+Q30. What is the behavior of an object?
+
+A. Its methods/functions
+B. Its variables
+C. Its modules
+D. Its files
+Answer: A
+Exercise 13: Inheritance and Polymorphism in Python (30 MCQs)
+Q1. What is inheritance in Python?
+
+A. Creating variables inside functions
+B. A mechanism where a class acquires properties of another class
+C. A type of loop
+D. A file handling technique
+Answer: B
+
+Q2. What is the class being inherited from called?
+
+A. Child Class
+B. Subclass
+C. Parent Class
+D. Object Class
+Answer: C
+
+Q3. What is the class that inherits called?
+
+A. Parent Class
+B. Base Class
+C. Superclass
+D. Child Class
+Answer: D
+
+Q4. Which syntax correctly represents inheritance?
+class Child(Parent):
+    pass
+
+A. Correct
+B. Syntax Error
+C. Runtime Error
+D. Logical Error
+Answer: A
+
+Q5. What is the primary benefit of inheritance?
+
+A. Faster execution
+B. Code reusability
+C. Less memory usage
+D. Automatic debugging
+Answer: B
+
+Q6. How many parent classes are involved in Single Inheritance?
+
+A. 0
+B. 1
+C. 2
+D. Multiple
+Answer: B
+
+Q7. Which inheritance type follows Parent → Child → Grandchild?
+
+A. Multiple Inheritance
+B. Hybrid Inheritance
+C. Multilevel Inheritance
+D. Single Inheritance
+Answer: C
+
+Q8. Which inheritance type allows a child class to inherit from more than one parent?
+
+A. Single Inheritance
+B. Multilevel Inheritance
+C. Multiple Inheritance
+D. Hierarchical Inheritance
+Answer: C
+
+Q9. What is a superclass?
+
+A. Another name for parent class
+B. A module
+C. A package
+D. A variable
+Answer: A
+
+Q10. What is a subclass?
+
+A. A loop
+B. A child class
+C. A package
+D. A function
+Answer: B
+
+Q11. What is method overriding?
+
+A. Creating a new variable
+B. Redefining a parent class method in the child class
+C. Deleting a parent method
+D. Importing a module
+Answer: B
+
+Q12. For method overriding to occur, the child method must have:
+
+A. Same name and signature as parent method
+B. Different name
+C. No parameters
+D. Only one parameter
+Answer: A
+
+Q13. Which method is executed when an overridden method is called on a child object?
+
+A. Parent method always
+B. Child method
+C. Both methods automatically
+D. None
+Answer: B
+
+Q14. What is polymorphism?
+
+A. Multiple loops in a program
+B. Many variables in a class
+C. Ability of different classes to respond differently to the same method call
+D. Multiple inheritance only
+Answer: C
+
+Q15. The word "Polymorphism" means:
+
+A. Single Form
+B. Many Forms
+C. Multiple Variables
+D. Multiple Classes
+Answer: B
+
+Q16. Which OOP concept allows different objects to use the same method name?
+
+A. Encapsulation
+B. Abstraction
+C. Polymorphism
+D. Slicing
+Answer: C
+
+Q17. What is the purpose of the super() function?
+
+A. Create an object
+B. Access parent class methods and constructors
+C. Import packages
+D. Create loops
+Answer: B
+
+Q18. What does super() return?
+
+A. A child object
+B. A temporary parent class object
+C. A module
+D. A package
+Answer: B
+
+Q19. In which situation is super() commonly used?
+
+A. File handling
+B. Loop control
+C. Calling parent constructor from child class
+D. Exception handling
+Answer: C
+
+Q20. Which statement correctly calls a parent constructor?
+super().__init__(name)
+
+A. Correct
+B. Syntax Error
+C. Runtime Error
+D. Logical Error
+Answer: A
+
+Q21. What is the output?
+class Parent:
+    def show(self):
+        print("Parent")
+
+class Child(Parent):
+    pass
+
+obj = Child()
+obj.show()
+
+A. Child
+B. Parent
+C. Error
+D. None
+Answer: B
+
+Q22. What is the output?
+class Parent:
+    def show(self):
+        print("Parent")
+
+class Child(Parent):
+    def show(self):
+        print("Child")
+
+obj = Child()
+obj.show()
+
+A. Parent
+B. Child
+C. Parent Child
+D. Error
+Answer: B
+
+Q23. Which concept is demonstrated in Q22?
+
+A. Encapsulation
+B. Inheritance
+C. Method Overriding
+D. Abstraction
+Answer: C
+
+Q24. What is the output?
+class Animal:
+    def sound(self):
+        print("Animal Sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("Bark")
+
+Dog().sound()
+
+A. Animal Sound
+B. Bark
+C. Error
+D. None
+Answer: B
+
+Q25. The Dog and Animal example mainly demonstrates:
+
+A. Polymorphism
+B. File Handling
+C. Slicing
+D. Dictionaries
+Answer: A
+
+Q26. Which inheritance type involves only one parent and one child?
+
+A. Single Inheritance
+B. Multiple Inheritance
+C. Multilevel Inheritance
+D. Hybrid Inheritance
+Answer: A
+
+Q27. Which statement about inheritance is TRUE?
+
+A. Child classes cannot access parent methods
+B. Parent classes inherit from child classes
+C. Child classes can reuse parent methods and attributes
+D. Inheritance is only for variables
+Answer: C
+
+Q28. What happens if a child class does not override a parent method?
+
+A. Error occurs
+B. Parent method is used
+C. Method is ignored
+D. Program terminates
+Answer: B
+
+Q29. Which OOP principle reduces code duplication?
+
+A. Looping
+B. Inheritance
+C. Slicing
+D. Indexing
+Answer: B
+
+Q30. Which statement best describes inheritance and polymorphism?
+
+A. They help create reusable and flexible object-oriented programs
+B. They are used only for mathematical calculations
+C. They replace functions entirely
+D. They are file management techniques
+Answer: A
+Exercise 14: NumPy and Pandas (30 MCQs)
+Q1. What does NumPy stand for?
+
+A. Numerical Python
+B. Number Programming
+C. Numeric Package
+D. New Python
+Answer: A
+
+Q2. What is the primary purpose of NumPy?
+
+A. Web development
+B. Scientific computing and numerical operations
+C. File handling
+D. Game development
+Answer: B
+
+Q3. Which object is the core data structure in NumPy?
+
+A. DataFrame
+B. Series
+C. ndarray
+D. Dictionary
+Answer: C
+
+Q4. Which statement creates a NumPy array?
+import numpy as np
+arr = np.array([1,2,3])
+
+A. Correct
+B. Syntax Error
+C. Runtime Error
+D. Logical Error
+Answer: A
+
+Q5. Compared to Python lists, NumPy arrays are:
+
+A. Slower
+B. Less memory efficient
+C. Faster and more memory efficient
+D. Identical
+Answer: C
+
+Q6. NumPy arrays usually contain:
+
+A. Elements of the same type
+B. Only strings
+C. Mixed data types only
+D. Dictionaries
+Answer: A
+
+Q7. Which function calculates the mean of array elements?
+
+A. np.avg()
+B. np.mean()
+C. np.average_value()
+D. np.mid()
+Answer: B
+
+Q8. Which function calculates the sum of array elements?
+
+A. np.total()
+B. np.addall()
+C. np.sum()
+D. np.count()
+Answer: C
+
+Q9. What is vectorized addition?
+arr + 10
+
+A. Adds 10 to every element
+B. Appends 10 to array
+C. Multiplies elements by 10
+D. Causes an error
+Answer: A
+
+Q10. What is the output?
+import numpy as np
+arr = np.array([1,2,3])
+print(arr + 2)
+
+A. [1,2,3,2]
+B. [3,4,5]
+C. [2,4,6]
+D. Error
+Answer: B
+
+Q11. Which library is commonly used for data analysis in Python?
+
+A. random
+B. math
+C. pandas
+D. os
+Answer: C
+
+Q12. What is the primary purpose of Pandas?
+
+A. Graphics design
+B. Data analysis and manipulation
+C. Web hosting
+D. Networking
+Answer: B
+
+Q13. Which are the two primary data structures in Pandas?
+
+A. Array and List
+B. Series and DataFrame
+C. Set and Dictionary
+D. Queue and Stack
+Answer: B
+
+Q14. What is a Series in Pandas?
+
+A. Two-dimensional table
+B. One-dimensional labeled array
+C. NumPy array only
+D. Collection of modules
+Answer: B
+
+Q15. What is a DataFrame?
+
+A. One-dimensional array
+B. Dictionary
+C. Two-dimensional labeled data structure
+D. Set of functions
+Answer: C
+
+Q16. Which statement creates a DataFrame?
+df = pd.DataFrame(data_dict)
+
+A. Correct
+B. Syntax Error
+C. Runtime Error
+D. Logical Error
+Answer: A
+
+Q17. A DataFrame is similar to:
+
+A. A text file
+B. A spreadsheet or SQL table
+C. A loop
+D. A package
+Answer: B
+
+Q18. Which Pandas structure can contain columns of different data types?
+
+A. List
+B. Series
+C. DataFrame
+D. Tuple
+Answer: C
+
+Q19. What does the following filter do?
+df[df['Age'] > 20]
+
+A. Deletes rows
+B. Selects rows where Age > 20
+C. Sorts rows
+D. Counts rows
+Answer: B
+
+Q20. Which column is being filtered in the previous example?
+
+A. Name
+B. Marks
+C. Age
+D. Salary
+Answer: C
+
+Q21. What does df.describe() provide?
+
+A. File information
+B. Summary statistics
+C. Column deletion
+D. Data sorting
+Answer: B
+
+Q22. Which statistics may be included in df.describe()?
+
+A. Mean
+B. Count
+C. Min and Max
+D. All of the above
+Answer: D
+
+Q23. What is the output of:
+import numpy as np
+arr = np.array([2,4,6])
+print(np.sum(arr))
+
+A. 6
+B. 8
+C. 12
+D. 24
+Answer: C
+
+Q24. What is the output of:
+import numpy as np
+arr = np.array([10,20,30])
+print(np.mean(arr))
+
+A. 20.0
+B. 30.0
+C. 10.0
+D. 60.0
+Answer: A
+
+Q25. Which statement about NumPy arrays is TRUE?
+
+A. They are slower than Python lists
+B. They support efficient numerical operations
+C. They cannot store numbers
+D. They are always two-dimensional
+Answer: B
+
+Q26. Which statement about Pandas is TRUE?
+
+A. It is mainly used for machine hardware control
+B. It provides tools for structured data analysis
+C. It replaces Python completely
+D. It cannot work with NumPy
+Answer: B
+
+Q27. Which library is commonly imported as np?
+
+A. Pandas
+B. NumPy
+C. Random
+D. Math
+Answer: B
+
+Q28. Which library is commonly imported as pd?
+
+A. NumPy
+B. Random
+C. Pandas
+D. Math
+Answer: C
+
+Q29. Which combination is correct?
+
+A. NumPy → Numerical Computing, Pandas → Data Analysis
+B. NumPy → Web Development, Pandas → Networking
+C. NumPy → File Handling, Pandas → Loops
+D. NumPy → Packages, Pandas → Modules
+Answer: A
+
+Q30. Why are NumPy and Pandas widely used together?
+
+A. They provide efficient numerical computation and powerful data analysis tools
+B. They replace Python syntax
+C. They are used only for file operations
+D. They prevent object-oriented programming
+Answer: A
+Exercise 15: Application Architecture and System Integration (30 MCQs)
+Q1. What does real-world software development typically involve?
+
+A. Only user interfaces
+B. Only databases
+C. Integration of multiple components
+D. Only file handling
+Answer: C
+
+Q2. Which component represents data entities in an application?
+
+A. Interface
+B. Model
+C. Storage
+D. Controller
+Answer: B
+
+Q3. In the Student Grade Management System, what does the Student class represent?
+
+A. File storage
+B. User interface
+C. Individual student details
+D. Database connection
+Answer: C
+
+Q4. Which component is responsible for storing data permanently?
+
+A. Logic Layer
+B. Interface Layer
+C. Storage Layer
+D. Model Layer
+Answer: C
+
+Q5. In this application, which file acts as a flat-file database?
+
+A. students.py
+B. grades.txt
+C. database.db
+D. records.csv
+Answer: B
+
+Q6. What is the purpose of the Logic component?
+
+A. Store files
+B. Calculate grades and process data
+C. Display UI only
+D. Create packages
+Answer: B
+
+Q7. Which component handles user inputs and outputs?
+
+A. Interface
+B. Model
+C. Storage
+D. Package
+Answer: A
+
+Q8. What is system integration?
+
+A. Deleting duplicate files
+B. Combining separate software components into a working system
+C. Creating loops
+D. Installing Python packages
+Answer: B
+
+Q9. Which of the following is NOT mentioned as an application component?
+
+A. Model
+B. Storage
+C. Logic
+D. Compiler
+Answer: D
+
+Q10. What is the primary role of a Student object?
+
+A. Perform file operations
+B. Represent student information
+C. Create exceptions
+D. Manage packages
+Answer: B
+
+Q11. What is serialization?
+
+A. Converting stored data into objects
+B. Converting objects into storable/transmittable format
+C. Encrypting files
+D. Executing functions
+Answer: B
+
+Q12. What is de-serialization?
+
+A. Deleting stored data
+B. Parsing stored data and reconstructing objects/variables
+C. Compressing files
+D. Creating modules
+Answer: B
+
+Q13. Which of the following is an example of serialized data?
+
+A. Student(name="Alice")
+B. Alice,85,95,90
+C. {"name":"Alice"}
+D. print("Alice")
+Answer: B
+
+Q14. Why is serialization important?
+
+A. Makes code slower
+B. Allows storage and transmission of data
+C. Prevents file handling
+D. Removes objects from memory
+Answer: B
+
+Q15. What is being reconstructed during de-serialization?
+
+A. Loops
+B. Packages
+C. Variables or objects
+D. Modules
+Answer: C
+
+Q16. Which operation converts an object into a string format for storage?
+
+A. Deserialization
+B. Serialization
+C. Compilation
+D. Iteration
+Answer: B
+
+Q17. What does the line "Alice,85,95,90" typically represent?
+
+A. A function definition
+B. Serialized student data
+C. Exception message
+D. Package structure
+Answer: B
+
+Q18. What is a flat-file database?
+
+A. A relational database server
+B. A text file used for data storage
+C. A Python package
+D. A NumPy array
+Answer: B
+
+Q19. Which file format is used in the example application?
+
+A. grades.txt
+B. grades.sql
+C. grades.json
+D. grades.xml
+Answer: A
+
+Q20. Which process occurs when reading stored student records into memory?
+
+A. Serialization
+B. Compilation
+C. De-serialization
+D. Encapsulation
+Answer: C
+
+Q21. What is a clean coding principle?
+
+A. Using random variable names
+B. Writing readable and maintainable code
+C. Avoiding comments
+D. Ignoring errors
+Answer: B
+
+Q22. Which variable name is more descriptive?
+
+A. x
+B. y1
+C. student_marks
+D. a
+Answer: C
+
+Q23. Why should descriptive method names be used?
+
+A. Increase code complexity
+B. Improve readability and maintenance
+C. Reduce storage space
+D. Prevent inheritance
+Answer: B
+
+Q24. What is encapsulation in application design?
+
+A. Wrapping related data and methods together
+B. Deleting variables
+C. Creating files
+D. Handling loops
+Answer: A
+
+Q25. Why should exceptions be handled?
+
+A. To make code longer
+B. To avoid program crashes and manage errors gracefully
+C. To reduce readability
+D. To prevent functions from running
+Answer: B
+
+Q26. Which structure is commonly used for exception handling?
+
+A. if-else
+B. for loop
+C. try-except
+D. while loop
+Answer: C
+
+Q27. What is the purpose of a docstring?
+
+A. Store database records
+B. Document methods and functions
+C. Create packages
+D. Execute code
+Answer: B
+
+Q28. Which principle improves code organization by separating responsibilities?
+
+A. Modularity
+B. Duplication
+C. Nesting
+D. Indexing
+Answer: A
+
+Q29. Which statement best describes a well-designed application?
+
+A. All code in one function
+B. Separate model, logic, storage, and interface components
+C. No exception handling
+D. No documentation
+Answer: B
+
+Q30. What is the main goal of Application Architecture and System Integration?
+
+A. Create larger files
+B. Combine components into a reliable, maintainable software system
+C. Avoid object-oriented programming
+D. Eliminate data storage
+Answer: B

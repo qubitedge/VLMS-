@@ -63,7 +63,23 @@ export const pythonExercise10: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "What is an exception in Python?", options: ["A comment in code", "An error detected during execution", "A loop statement", "A function call"], answerIndex: 1 },
+            { question: "Which exception occurs when dividing by zero?", options: ["ValueError", "TypeError", "ZeroDivisionError", "FileNotFoundError"], answerIndex: 2 },
+            { question: "What exception is raised by int(\"hello\")?", options: ["TypeError", "ValueError", "NameError", "IndexError"], answerIndex: 1 },
+            { question: "Which exception occurs when an operation is applied to an inappropriate type?", options: ["FileNotFoundError", "TypeError", "ValueError", "KeyError"], answerIndex: 1 },
+            { question: "What exception is raised when a file cannot be found?", options: ["FileNotFoundError", "IOError", "ValueError", "TypeError"], answerIndex: 0 },
+            { question: "Which block contains code that may raise an exception?", options: ["except", "finally", "try", "else"], answerIndex: 2 },
+            { question: "Which keyword is used to handle exceptions?", options: ["catch", "except", "handle", "error"], answerIndex: 1 },
+            { question: "What happens when an exception occurs inside a try block?", options: ["Program immediately stops", "Execution moves to a matching except block", "finally block is skipped", "The exception is ignored"], answerIndex: 1 },
+            { question: "What is the correct structure?", options: ["try-catch", "try-except", "catch-finally", "try-handle"], answerIndex: 1 },
+            { question: "Which block handles a ZeroDivisionError?", options: ["ValueError", "TypeError", "ZeroDivisionError", "NameError"], answerIndex: 2 },
+            { question: "What is printed?", options: ["Error", "5.0", "10", "Nothing"], answerIndex: 1 },
+            { question: "Which keyword allows access to the exception object?", options: ["as", "in", "with", "from"], answerIndex: 0 },
+            { question: "What does except ValueError as e: do?", options: ["Creates a variable", "Stores the exception object in e", "Ignores exceptions", "Raises an exception"], answerIndex: 1 },
+            { question: "Which block executes if no exception occurs?", options: ["except", "finally", "else", "raise"], answerIndex: 2 },
+            { question: "Which block always executes?", options: ["try", "else", "except", "finally"], answerIndex: 3 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand exceptions, built-in exception types, and try-except control flow",
           "Note the functions of the else and finally blocks",
@@ -90,7 +106,23 @@ export const pythonExercise10: Week = {
             { line: 12, annotation: "finally block executes always", memory: [], output: "Result: 5.0\nExecution completed.\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "What is the primary use of the finally block?", options: ["Creating variables", "Releasing resources", "Importing modules", "Declaring functions"], answerIndex: 1 },
+            { question: "Which statement about finally is TRUE?", options: ["Runs only if an exception occurs", "Runs only if no exception occurs", "Always executes", "Is optional but never used"], answerIndex: 2 },
+            { question: "What is printed?", options: ["Hello", "Done", "Hello Done", "Error"], answerIndex: 2 },
+            { question: "What is printed?", options: ["10", "Division Error", "Error", "Nothing"], answerIndex: 1 },
+            { question: "Which keyword is used to deliberately generate an exception?", options: ["except", "try", "raise", "finally"], answerIndex: 2 },
+            { question: "What is the purpose of the raise statement?", options: ["Ignore errors", "Create loops", "Force an exception to occur", "Close files"], answerIndex: 2 },
+            { question: "Which statement raises a ValueError?", options: ["throw ValueError()", "raise ValueError(\"Invalid input\")", "error ValueError()", "exception ValueError()"], answerIndex: 1 },
+            { question: "What happens if no matching except block exists?", options: ["The exception is ignored", "Program terminates with an error", "else block handles it", "finally block fixes it"], answerIndex: 1 },
+            { question: "Which exception is likely from this code?", options: ["ValueError", "ZeroDivisionError", "TypeError", "NameError"], answerIndex: 2 },
+            { question: "What exception is raised?", options: ["TypeError", "ValueError", "KeyError", "IndexError"], answerIndex: 1 },
+            { question: "What is printed?", options: ["A", "B", "A B", "Error"], answerIndex: 2 },
+            { question: "Which exception is associated with missing files?", options: ["FileNotFoundError", "ImportError", "ValueError", "TypeError"], answerIndex: 0 },
+            { question: "What is the output?", options: ["5", "Success", "5 Success", "Error"], answerIndex: 2 },
+            { question: "Why is exception handling important?", options: ["Makes code longer", "Prevents program crashes and handles errors gracefully", "Removes variables", "Speeds up loops"], answerIndex: 1 },
+            { question: "Which order is correct?", options: ["try \u2192 finally \u2192 except", "try \u2192 except \u2192 else \u2192 finally", "except \u2192 try \u2192 finally", "try \u2192 else \u2192 except"], answerIndex: 1 },
+          ],
         references: [
           "Python Tutorial — Errors and Exceptions: https://docs.python.org/3/tutorial/errors.html",
           "W3Schools Python Try Except: https://www.w3schools.com/python/python_try_except.asp",

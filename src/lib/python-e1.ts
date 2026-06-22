@@ -53,7 +53,23 @@ export const pythonExercise1: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "Python is a ______ programming language.", options: ["low-level only", "high-level, interpreted, general-purpose", "hardware-specific", "markup"], answerIndex: 1 },
+            { question: "Who created Python?", options: ["Dennis Ritchie", "James Gosling", "Guido van Rossum", "Bjarne Stroustrup"], answerIndex: 2 },
+            { question: "Python was first released in:", options: ["1985", "1991", "2000", "1998"], answerIndex: 1 },
+            { question: "Python emphasizes:", options: ["hardware design", "code readability", "manual memory allocation only", "use of semicolons"], answerIndex: 1 },
+            { question: "Python uses ______ to define code blocks.", options: ["curly braces", "semicolons", "indentation", "keywords only"], answerIndex: 2 },
+            { question: "Python supports which programming paradigms?", options: ["only procedural", "only object-oriented", "only functional", "procedural, object-oriented, and functional"], answerIndex: 3 },
+            { question: "Python has a large ecosystem of third-party packages available via:", options: ["JVM", "PyPI", "HTML", "BIOS"], answerIndex: 1 },
+            { question: "Python does not require a separate ______ step like C or Java.", options: ["execution", "interpretation", "compilation", "storage"], answerIndex: 2 },
+            { question: "The Python interpreter converts source code internally into:", options: ["machine BIOS", "bytecode", "HTML", "assembly comments"], answerIndex: 1 },
+            { question: "Python can be tested quickly because:", options: ["it has no syntax", "it runs only online", "code can be written and executed immediately", "it uses only binaries"], answerIndex: 2 },
+            { question: "Typing commands directly into the Python shell is called:", options: ["script mode", "module mode", "interactive mode", "package mode"], answerIndex: 2 },
+            { question: "Writing code in a .py file and running it is called:", options: ["interactive mode", "script mode", "shell mode", "compiler mode"], answerIndex: 1 },
+            { question: "The most basic output function in Python is:", options: ["scanf()", "println()", "print()", "echo()"], answerIndex: 2 },
+            { question: "The print() function writes output to:", options: ["BIOS", "standard output", "compiler memory", "header file"], answerIndex: 1 },
+            { question: "By default, print() separates multiple values using:", options: ["comma", "colon", "space", "tab"], answerIndex: 2 },
+          ],
         procedure: [
           "Read the Aim and Theory sections carefully to understand what Python is and how the print() function works",
           "Note the key differences between Python and C: no #include, no main(), no semicolons, no compilation",
@@ -80,7 +96,23 @@ export const pythonExercise1: Week = {
             { line: 9, annotation: "print('2025', '06', '07', sep='-') — prints three strings separated by hyphen", memory: [], output: "Hello World\nPython is fun\n2025-06-07\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "By default, print() ends output with:", options: ["a space", "newline", "comma", "colon"], answerIndex: 1 },
+            { question: "Which argument of print() changes the separator between values?", options: ["stop", "next", "sep", "line"], answerIndex: 2 },
+            { question: "Which argument of print() changes the ending character?", options: ["sep", "end", "final", "close"], answerIndex: 1 },
+            { question: "In C, output is commonly printed using:", options: ["print()", "write()", "printf()", "putsln()"], answerIndex: 2 },
+            { question: "In Python, a main() function is:", options: ["always mandatory", "not required for simple execution", "required in every file", "compiled automatically"], answerIndex: 1 },
+            { question: "Python uses dynamic typing, which means:", options: ["types must be declared manually", "variable types are fixed forever", "type is determined at runtime", "types are not allowed"], answerIndex: 2 },
+            { question: "Python uses automatic memory management through:", options: ["manual free()", "garbage collection", "BIOS cleanup", "pointer deletion only"], answerIndex: 1 },
+            { question: "Which language commonly uses #include <stdio.h>?", options: ["Python", "SQL", "C", "HTML"], answerIndex: 2 },
+            { question: "Which of the following prints Hello World in Python?", options: ["printf(\"Hello World\");", "print('Hello World')", "echo Hello World", "Console.WriteLine(\"Hello World\")"], answerIndex: 1 },
+            { question: "Python block structure is based on:", options: ["brackets", "semicolons", "indentation", "labels"], answerIndex: 2 },
+            { question: "Which of the following is true about Python?", options: ["It is only for web design", "It is interpreted", "It cannot use packages", "It requires header files"], answerIndex: 1 },
+            { question: "Python standard library is:", options: ["very limited", "unavailable", "comprehensive", "only for mathematics"], answerIndex: 2 },
+            { question: "Which mode gives immediate results after each command?", options: ["script mode", "compile mode", "interactive mode", "debug mode only"], answerIndex: 2 },
+            { question: "Compared to C, Python generally allows development to be:", options: ["slower", "impossible", "faster for testing and iteration", "dependent on header files"], answerIndex: 2 },
+            { question: "Which statement is correct?", options: ["Python requires curly braces for blocks", "Python requires type declarations for every variable", "Python is a high-level interpreted language", "Python cannot be used for general-purpose programming"], answerIndex: 2 },
+          ],
         references: [
           "Python Official Documentation: https://docs.python.org/3/tutorial/",
           "Lutz M., Learning Python, 5th Edition, O'Reilly Media, 2013",

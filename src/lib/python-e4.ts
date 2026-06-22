@@ -60,7 +60,23 @@ export const pythonExercise4: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "Which keyword is used to test a condition in Python?", options: ["for", "if", "while", "switch"], answerIndex: 1 },
+            { question: "What happens if the condition in an if statement is True?", options: ["The program stops", "The code block under if executes", "The else block executes", "An error occurs"], answerIndex: 1 },
+            { question: "Which keyword is used to check an additional condition after if?", options: ["repeat", "elif", "next", "case"], answerIndex: 1 },
+            { question: "Which keyword executes when all previous conditions are False?", options: ["otherwise", "default", "else", "finally"], answerIndex: 2 },
+            { question: "Python uses ______ to define code blocks.", options: ["Curly braces", "Semicolons", "Parentheses", "Indentation"], answerIndex: 3 },
+            { question: "What is the correct syntax?", options: ["if x > 5 {}", "if (x > 5)", "if x > 5:", "if x > 5 then"], answerIndex: 2 },
+            { question: "Which operator returns True only when both conditions are True?", options: ["or", "not", "and", "xor"], answerIndex: 2 },
+            { question: "Which operator returns True when at least one condition is True?", options: ["and", "or", "not", "=="], answerIndex: 1 },
+            { question: "What does the not operator do?", options: ["Adds values", "Compares values", "Reverses a Boolean value", "Multiplies values"], answerIndex: 2 },
+            { question: "Which statement about elif is correct?", options: ["It means \"else if\"", "It ends the program", "It creates a loop", "It imports a module"], answerIndex: 0 },
+            { question: "In an if-elif-else chain, how many blocks execute?", options: ["All True blocks", "First True block only", "Last block only", "None"], answerIndex: 1 },
+            { question: "What will be printed?", options: ["No", "Error", "Yes", "Nothing"], answerIndex: 2 },
+            { question: "Which condition checks whether age is at least 18?", options: ["age > 18", "age >= 18", "age <= 18", "age != 18"], answerIndex: 1 },
+            { question: "Which logical operator would you use to check two conditions together?", options: ["+", "*", "and", "%"], answerIndex: 2 },
+            { question: "What is nesting in Python?", options: ["Loop inside loop", "Function inside function", "Conditional inside conditional", "Module inside package"], answerIndex: 2 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand conditional statement structure and indentation requirements",
           "Note how comparison operators (==, !=, <, >, <=, >=) return booleans",
@@ -87,7 +103,23 @@ export const pythonExercise4: Week = {
             { line: 11, annotation: "print(num, 'is', result) displays: 10 is Positive", memory: [], output: "10 is Positive\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "What is the output?", options: ["A", "B", "Error", "Nothing"], answerIndex: 1 },
+            { question: "Which of the following is a Boolean value?", options: ["10", "\"True\"", "True", "\"10\""], answerIndex: 2 },
+            { question: "Which symbol checks equality?", options: ["=", "==", "===", "!="], answerIndex: 1 },
+            { question: "What is the output?", options: ["Correct", "Wrong", "Error", "None"], answerIndex: 0 },
+            { question: "What happens when all if and elif conditions are False?", options: ["Program crashes", "else block executes", "First block executes", "Loop starts"], answerIndex: 1 },
+            { question: "Which statement is valid?", options: ["else x > 5:", "elif x > 5:", "if x > 5 then", "else if x > 5"], answerIndex: 1 },
+            { question: "What is the result of:", options: ["True", "False", "None", "Error"], answerIndex: 1 },
+            { question: "Which operator would check if a student passed both Math and Science?", options: ["or", "not", "and", "="], answerIndex: 2 },
+            { question: "What is printed?", options: ["A", "B", "Error", "Nothing"], answerIndex: 1 },
+            { question: "Which condition is evaluated first?", options: ["else", "elif", "if", "random"], answerIndex: 2 },
+            { question: "What is the purpose of conditional statements?", options: ["Repetition", "Decision making", "File handling", "Importing modules"], answerIndex: 1 },
+            { question: "What will be printed?", options: ["Positive", "Negative", "Not Positive", "Error"], answerIndex: 2 },
+            { question: "Which is an example of nested conditional?", options: ["if inside if", "loop inside loop", "function inside class", "module inside package"], answerIndex: 0 },
+            { question: "Which of these is NOT a logical operator?", options: ["and", "or", "not", "elif"], answerIndex: 3 },
+            { question: "Why is indentation important in Python conditionals?", options: ["For comments", "To define code blocks", "To create variables", "To import modules"], answerIndex: 1 },
+          ],
         references: [
           "Python Control Flow Documentation: https://docs.python.org/3/tutorial/controlflow.html",
           "W3Schools Python Conditions: https://www.w3schools.com/python/python_conditions.asp",

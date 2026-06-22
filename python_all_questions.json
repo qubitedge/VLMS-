@@ -1,0 +1,4532 @@
+{
+  "1": [
+    {
+      "question": "Python is a ______ programming language.",
+      "options": [
+        "low-level only",
+        "high-level, interpreted, general-purpose",
+        "hardware-specific",
+        "markup"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Who created Python?",
+      "options": [
+        "Dennis Ritchie",
+        "James Gosling",
+        "Guido van Rossum",
+        "Bjarne Stroustrup"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Python was first released in:",
+      "options": [
+        "1985",
+        "1991",
+        "2000",
+        "1998"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Python emphasizes:",
+      "options": [
+        "hardware design",
+        "code readability",
+        "manual memory allocation only",
+        "use of semicolons"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Python uses ______ to define code blocks.",
+      "options": [
+        "curly braces",
+        "semicolons",
+        "indentation",
+        "keywords only"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Python supports which programming paradigms?",
+      "options": [
+        "only procedural",
+        "only object-oriented",
+        "only functional",
+        "procedural, object-oriented, and functional"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Python has a large ecosystem of third-party packages available via:",
+      "options": [
+        "JVM",
+        "PyPI",
+        "HTML",
+        "BIOS"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Python does not require a separate ______ step like C or Java.",
+      "options": [
+        "execution",
+        "interpretation",
+        "compilation",
+        "storage"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "The Python interpreter converts source code internally into:",
+      "options": [
+        "machine BIOS",
+        "bytecode",
+        "HTML",
+        "assembly comments"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Python can be tested quickly because:",
+      "options": [
+        "it has no syntax",
+        "it runs only online",
+        "code can be written and executed immediately",
+        "it uses only binaries"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Typing commands directly into the Python shell is called:",
+      "options": [
+        "script mode",
+        "module mode",
+        "interactive mode",
+        "package mode"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Writing code in a .py file and running it is called:",
+      "options": [
+        "interactive mode",
+        "script mode",
+        "shell mode",
+        "compiler mode"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "The most basic output function in Python is:",
+      "options": [
+        "scanf()",
+        "println()",
+        "print()",
+        "echo()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "The print() function writes output to:",
+      "options": [
+        "BIOS",
+        "standard output",
+        "compiler memory",
+        "header file"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "By default, print() separates multiple values using:",
+      "options": [
+        "comma",
+        "colon",
+        "space",
+        "tab"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "By default, print() ends output with:",
+      "options": [
+        "a space",
+        "newline",
+        "comma",
+        "colon"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which argument of print() changes the separator between values?",
+      "options": [
+        "stop",
+        "next",
+        "sep",
+        "line"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which argument of print() changes the ending character?",
+      "options": [
+        "sep",
+        "end",
+        "final",
+        "close"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "In C, output is commonly printed using:",
+      "options": [
+        "print()",
+        "write()",
+        "printf()",
+        "putsln()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "In Python, a main() function is:",
+      "options": [
+        "always mandatory",
+        "not required for simple execution",
+        "required in every file",
+        "compiled automatically"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Python uses dynamic typing, which means:",
+      "options": [
+        "types must be declared manually",
+        "variable types are fixed forever",
+        "type is determined at runtime",
+        "types are not allowed"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Python uses automatic memory management through:",
+      "options": [
+        "manual free()",
+        "garbage collection",
+        "BIOS cleanup",
+        "pointer deletion only"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which language commonly uses #include <stdio.h>?",
+      "options": [
+        "Python",
+        "SQL",
+        "C",
+        "HTML"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which of the following prints Hello World in Python?",
+      "options": [
+        "printf(\"Hello World\");",
+        "print('Hello World')",
+        "echo Hello World",
+        "Console.WriteLine(\"Hello World\")"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Python block structure is based on:",
+      "options": [
+        "brackets",
+        "semicolons",
+        "indentation",
+        "labels"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which of the following is true about Python?",
+      "options": [
+        "It is only for web design",
+        "It is interpreted",
+        "It cannot use packages",
+        "It requires header files"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Python standard library is:",
+      "options": [
+        "very limited",
+        "unavailable",
+        "comprehensive",
+        "only for mathematics"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which mode gives immediate results after each command?",
+      "options": [
+        "script mode",
+        "compile mode",
+        "interactive mode",
+        "debug mode only"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Compared to C, Python generally allows development to be:",
+      "options": [
+        "slower",
+        "impossible",
+        "faster for testing and iteration",
+        "dependent on header files"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement is correct?",
+      "options": [
+        "Python requires curly braces for blocks",
+        "Python requires type declarations for every variable",
+        "Python is a high-level interpreted language",
+        "Python cannot be used for general-purpose programming"
+      ],
+      "answerIndex": 2
+    }
+  ],
+  "2": [
+    {
+      "question": "A variable in Python is:",
+      "options": [
+        "a fixed hardware unit",
+        "a name that refers to a value",
+        "always an integer",
+        "a keyword only"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Python variable types are:",
+      "options": [
+        "manually declared before assignment",
+        "determined automatically from assigned values",
+        "always string",
+        "always integer"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "A Python variable name must start with:",
+      "options": [
+        "a digit only",
+        "a special symbol only",
+        "a letter or underscore",
+        "a space"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which is a valid variable name?",
+      "options": [
+        "2name",
+        "my-var",
+        "_count",
+        "class"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Variable names in Python are:",
+      "options": [
+        "not case-sensitive",
+        "case-sensitive",
+        "always uppercase",
+        "always lowercase"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "age and Age are:",
+      "options": [
+        "syntax errors",
+        "same variables",
+        "different variables",
+        "keywords"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which data type represents whole numbers?",
+      "options": [
+        "float",
+        "str",
+        "int",
+        "bool"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which data type represents decimal numbers?",
+      "options": [
+        "str",
+        "float",
+        "bool",
+        "tuple"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which data type represents text?",
+      "options": [
+        "int",
+        "float",
+        "str",
+        "bool"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which data type represents True or False values?",
+      "options": [
+        "bool",
+        "str",
+        "list",
+        "set"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "The type of 42 is:",
+      "options": [
+        "float",
+        "str",
+        "int",
+        "bool"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "The type() function is used to:",
+      "options": [
+        "delete variables",
+        "check the type of a value",
+        "print only strings",
+        "rename variables"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which operator performs addition?",
+      "options": [
+        "-",
+        "*",
+        "+",
+        "//"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which operator performs floor division?",
+      "options": [
+        "/",
+        "//",
+        "%",
+        "**"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the result of 10 / 5 in Python?",
+      "options": [
+        "2",
+        "2.0",
+        "3",
+        "5.0"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the result of 10 // 3?",
+      "options": [
+        "3",
+        "3.33",
+        "1",
+        "4"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What does the modulus operator % return?",
+      "options": [
+        "quotient",
+        "remainder",
+        "product",
+        "power"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which operator is used for exponentiation?",
+      "options": [
+        "^",
+        "**",
+        "//",
+        "%%"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "int('42') returns:",
+      "options": [
+        "'42'",
+        "42.0",
+        "42",
+        "True"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "float(42) returns:",
+      "options": [
+        "'42'",
+        "42",
+        "42.0",
+        "False"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "str(42) returns:",
+      "options": [
+        "42",
+        "'42'",
+        "42.0",
+        "True"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "bool(0) returns:",
+      "options": [
+        "True",
+        "False",
+        "0",
+        "None"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "bool('hello') returns:",
+      "options": [
+        "False",
+        "0",
+        "True",
+        "error"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "int('hello') raises:",
+      "options": [
+        "TypeError",
+        "NameError",
+        "ValueError",
+        "ZeroDivisionError"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Python is dynamically typed, meaning:",
+      "options": [
+        "a variable cannot change type",
+        "types are fixed at compile time",
+        "a variable can refer to values of different types during execution",
+        "only strings are allowed"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "After x = 10 and then x = 'hello', x becomes:",
+      "options": [
+        "still int",
+        "str",
+        "bool",
+        "invalid"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which is NOT a valid fundamental data type from the lesson?",
+      "options": [
+        "int",
+        "float",
+        "str",
+        "header"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which operator gives the remainder of division?",
+      "options": [
+        "/",
+        "*",
+        "%",
+        "+"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement is correct?",
+      "options": [
+        "Python variables require explicit type declaration",
+        "Python variable names can be keywords",
+        "Python variables are case-sensitive",
+        "Variables must start with numbers"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which conversion returns a string?",
+      "options": [
+        "str(42)",
+        "int('42')",
+        "float(42)",
+        "bool(1)"
+      ],
+      "answerIndex": 0
+    }
+  ],
+  "3": [
+    {
+      "question": "Which function is used to read user input in Python?",
+      "options": [
+        "read()",
+        "get()",
+        "input()",
+        "scanf()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "The input() function reads data from:",
+      "options": [
+        "RAM only",
+        "standard input",
+        "compiler cache",
+        "output stream"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "input() always returns data as:",
+      "options": [
+        "int",
+        "float",
+        "bool",
+        "str"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "If a user enters 45 through input(), Python initially stores it as:",
+      "options": [
+        "integer 45",
+        "string '45'",
+        "float 45.0",
+        "boolean True"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "To convert user age input into an integer, use:",
+      "options": [
+        "str(input())",
+        "bool(input())",
+        "int(input())",
+        "list(input())"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "To convert height input into decimal form, use:",
+      "options": [
+        "float(input())",
+        "int(input())",
+        "str(input())",
+        "tuple(input())"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "If int() receives non-numeric text like 'twenty', it raises:",
+      "options": [
+        "NameError",
+        "ValueError",
+        "ZeroDivisionError",
+        "SyntaxError"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "The syntax of input is:",
+      "options": [
+        "input[value]",
+        "input{prompt}",
+        "input(prompt)",
+        "read(prompt)"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "A prompt in input() is:",
+      "options": [
+        "mandatory in all cases",
+        "optional",
+        "forbidden",
+        "only numeric"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "F-strings were introduced in Python:",
+      "options": [
+        "2.7",
+        "3.0",
+        "3.6",
+        "4.0"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "To create an f-string, prefix the string with:",
+      "options": [
+        "p",
+        "x",
+        "f",
+        "s"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "In an f-string, expressions are placed inside:",
+      "options": [
+        "square brackets",
+        "parentheses",
+        "angle brackets",
+        "curly braces"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which is an example of an f-string?",
+      "options": [
+        "'Hello, {}'.name",
+        "f'Hello, {name}!'",
+        "Hello(name)",
+        "format('Hello')"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "F-strings are evaluated:",
+      "options": [
+        "before installation",
+        "at runtime",
+        "only by compiler",
+        "never"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Compared to older formatting methods, f-strings are generally:",
+      "options": [
+        "slower and harder to read",
+        "faster and more readable",
+        "invalid in Python 3",
+        "only for integers"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Before f-strings, a common formatting method was:",
+      "options": [
+        "split()",
+        "append()",
+        "format()",
+        "replace()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "'Hello, {}!'.format('Bob') outputs:",
+      "options": [
+        "Hello, format!",
+        "Hello, Bob!",
+        "{} Bob",
+        "Error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Placeholders in format() are written as:",
+      "options": [
+        "[]",
+        "()",
+        "{}",
+        "<>"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which is valid named or numbered formatting?",
+      "options": [
+        "'I like {0} and {1}'.format('apples', 'bananas')",
+        "'I like []'.format('apples')",
+        "'I like <>'.format('apples')",
+        "'I like ()'.format('apples')"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "To use user input in arithmetic, you usually need:",
+      "options": [
+        "indentation",
+        "type casting",
+        "slicing",
+        "inheritance"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the type of the result of input('Enter: ')?",
+      "options": [
+        "always str",
+        "always int",
+        "always float",
+        "always bool"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement is correct?",
+      "options": [
+        "input() automatically detects integers",
+        "input() always returns string data",
+        "input() returns bytes",
+        "input() returns float by default"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which code correctly reads an integer age?",
+      "options": [
+        "age = input(int('Enter age'))",
+        "age = int(input('Enter age: '))",
+        "age = float('Enter age: ')",
+        "age = str(input(int))"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which code correctly reads a decimal number?",
+      "options": [
+        "x = bool(input())",
+        "x = str(input())",
+        "x = float(input())",
+        "x = list(input())"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which formatting style directly embeds expressions inside the string?",
+      "options": [
+        "comments",
+        "f-strings",
+        "readlines",
+        "import"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "In f'Hello, {name}!', name is:",
+      "options": [
+        "a keyword",
+        "a comment",
+        "an embedded expression/variable",
+        "a module"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement about format() is true?",
+      "options": [
+        "It cannot use placeholders",
+        "It is older than f-strings",
+        "It only works for numbers",
+        "It is invalid in Python 3"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which of the following is a possible problem with int(input())?",
+      "options": [
+        "It always returns bool",
+        "It may raise ValueError",
+        "It deletes user input",
+        "It creates a file"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "The purpose of type casting input is to:",
+      "options": [
+        "reverse strings",
+        "convert string data into needed numeric types",
+        "import modules",
+        "close files"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which output is correct for name = 'Bob'; print(f'Hello, {name}!')?",
+      "options": [
+        "Hello, {name}!",
+        "Hello, Bob!",
+        "name = Bob",
+        "{Bob}"
+      ],
+      "answerIndex": 1
+    }
+  ],
+  "4": [
+    {
+      "question": "Which keyword is used to test a condition in Python?",
+      "options": [
+        "for",
+        "if",
+        "while",
+        "switch"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What happens if the condition in an if statement is True?",
+      "options": [
+        "The program stops",
+        "The code block under if executes",
+        "The else block executes",
+        "An error occurs"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword is used to check an additional condition after if?",
+      "options": [
+        "repeat",
+        "elif",
+        "next",
+        "case"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword executes when all previous conditions are False?",
+      "options": [
+        "otherwise",
+        "default",
+        "else",
+        "finally"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Python uses ______ to define code blocks.",
+      "options": [
+        "Curly braces",
+        "Semicolons",
+        "Parentheses",
+        "Indentation"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "What is the correct syntax?",
+      "options": [
+        "if x > 5 {}",
+        "if (x > 5)",
+        "if x > 5:",
+        "if x > 5 then"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which operator returns True only when both conditions are True?",
+      "options": [
+        "or",
+        "not",
+        "and",
+        "xor"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which operator returns True when at least one condition is True?",
+      "options": [
+        "and",
+        "or",
+        "not",
+        "=="
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does the not operator do?",
+      "options": [
+        "Adds values",
+        "Compares values",
+        "Reverses a Boolean value",
+        "Multiplies values"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement about elif is correct?",
+      "options": [
+        "It means \"else if\"",
+        "It ends the program",
+        "It creates a loop",
+        "It imports a module"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "In an if-elif-else chain, how many blocks execute?",
+      "options": [
+        "All True blocks",
+        "First True block only",
+        "Last block only",
+        "None"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What will be printed?",
+      "options": [
+        "No",
+        "Error",
+        "Yes",
+        "Nothing"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which condition checks whether age is at least 18?",
+      "options": [
+        "age > 18",
+        "age >= 18",
+        "age <= 18",
+        "age != 18"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which logical operator would you use to check two conditions together?",
+      "options": [
+        "+",
+        "*",
+        "and",
+        "%"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is nesting in Python?",
+      "options": [
+        "Loop inside loop",
+        "Function inside function",
+        "Conditional inside conditional",
+        "Module inside package"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "A",
+        "B",
+        "Error",
+        "Nothing"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which of the following is a Boolean value?",
+      "options": [
+        "10",
+        "\"True\"",
+        "True",
+        "\"10\""
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which symbol checks equality?",
+      "options": [
+        "=",
+        "==",
+        "===",
+        "!="
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "Correct",
+        "Wrong",
+        "Error",
+        "None"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What happens when all if and elif conditions are False?",
+      "options": [
+        "Program crashes",
+        "else block executes",
+        "First block executes",
+        "Loop starts"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement is valid?",
+      "options": [
+        "else x > 5:",
+        "elif x > 5:",
+        "if x > 5 then",
+        "else if x > 5"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the result of:",
+      "options": [
+        "True",
+        "False",
+        "None",
+        "Error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which operator would check if a student passed both Math and Science?",
+      "options": [
+        "or",
+        "not",
+        "and",
+        "="
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is printed?",
+      "options": [
+        "A",
+        "B",
+        "Error",
+        "Nothing"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which condition is evaluated first?",
+      "options": [
+        "else",
+        "elif",
+        "if",
+        "random"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the purpose of conditional statements?",
+      "options": [
+        "Repetition",
+        "Decision making",
+        "File handling",
+        "Importing modules"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What will be printed?",
+      "options": [
+        "Positive",
+        "Negative",
+        "Not Positive",
+        "Error"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which is an example of nested conditional?",
+      "options": [
+        "if inside if",
+        "loop inside loop",
+        "function inside class",
+        "module inside package"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which of these is NOT a logical operator?",
+      "options": [
+        "and",
+        "or",
+        "not",
+        "elif"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Why is indentation important in Python conditionals?",
+      "options": [
+        "For comments",
+        "To define code blocks",
+        "To create variables",
+        "To import modules"
+      ],
+      "answerIndex": 1
+    }
+  ],
+  "5": [
+    {
+      "question": "Which loop executes as long as a condition remains True?",
+      "options": [
+        "for",
+        "while",
+        "if",
+        "switch"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the correct syntax of a while loop?",
+      "options": [
+        "while(condition) {}",
+        "while condition:",
+        "while condition then",
+        "while: condition"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What can happen if the loop control variable is never updated in a while loop?",
+      "options": [
+        "Syntax Error",
+        "Infinite Loop",
+        "ValueError",
+        "Program Ends"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which loop is commonly used to iterate over a sequence?",
+      "options": [
+        "while",
+        "if",
+        "for",
+        "else"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What does range(5) generate?",
+      "options": [
+        "1,2,3,4,5",
+        "0,1,2,3,4",
+        "0,1,2,3,4,5",
+        "1,2,3,4"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which function is used to generate a sequence of numbers?",
+      "options": [
+        "numbers()",
+        "list()",
+        "range()",
+        "sequence()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output of list(range(3))?",
+      "options": [
+        "[1,2,3]",
+        "[0,1,2]",
+        "[0,1,2,3]",
+        "[1,2]"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does range(1,10,2) generate?",
+      "options": [
+        "Even numbers from 1 to 10",
+        "Odd numbers from 1 to 9",
+        "Odd numbers from 1 to 10",
+        "Numbers from 2 to 10"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement immediately terminates a loop?",
+      "options": [
+        "continue",
+        "stop",
+        "pass",
+        "break"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which statement skips the current iteration and moves to the next?",
+      "options": [
+        "break",
+        "pass",
+        "continue",
+        "exit"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the purpose of the pass statement?",
+      "options": [
+        "Exit the loop",
+        "Skip the iteration",
+        "Do nothing",
+        "Restart the loop"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is printed?",
+      "options": [
+        "1 2 3",
+        "0 1 2",
+        "0 1 2 3",
+        "1 2"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "1 2 3",
+        "0 1 2",
+        "1 2",
+        "Infinite Loop"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which keyword is associated with loop termination?",
+      "options": [
+        "stop",
+        "continue",
+        "break",
+        "pass"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which loop is best when the number of iterations is known?",
+      "options": [
+        "while",
+        "for",
+        "if",
+        "else"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does the stop value in range() represent?",
+      "options": [
+        "Included final value",
+        "Excluded final value",
+        "Step value",
+        "Starting value"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "2 3 4",
+        "2 3 4 5",
+        "1 2 3 4",
+        "3 4 5"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which loop can run indefinitely?",
+      "options": [
+        "for",
+        "while",
+        "if",
+        "else"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the result of range(0,5,2)?",
+      "options": [
+        "0,2,4",
+        "1,3,5",
+        "0,1,2,3,4",
+        "2,4,6"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement is true about continue?",
+      "options": [
+        "Ends loop execution",
+        "Skips remaining statements in current iteration",
+        "Stops the program",
+        "Raises an exception"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is printed?",
+      "options": [
+        "0 1 2",
+        "0 1 2 3",
+        "1 2 3",
+        "0 1"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is printed?",
+      "options": [
+        "0 1 2 3 4",
+        "0 1 3 4",
+        "2 3 4",
+        "0 1 2 4"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which block executes when a loop ends naturally?",
+      "options": [
+        "finally",
+        "except",
+        "else",
+        "pass"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "When is a loop's else block skipped?",
+      "options": [
+        "Normal completion",
+        "Condition becomes False",
+        "Sequence exhausted",
+        "break statement used"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "0 1 2 Done",
+        "Done",
+        "1 2 3 Done",
+        "Error"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "Done",
+        "Error",
+        "Nothing from else block",
+        "0 1 2 Done"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement is often used as a placeholder in loops?",
+      "options": [
+        "continue",
+        "break",
+        "pass",
+        "else"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "PY",
+        "P Y",
+        "Error",
+        "Y P"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which data type can a for loop iterate through?",
+      "options": [
+        "String",
+        "List",
+        "Tuple",
+        "All of the above"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which loop is generally preferred for iterating through a collection?",
+      "options": [
+        "while",
+        "for",
+        "if",
+        "else"
+      ],
+      "answerIndex": 1
+    }
+  ],
+  "6": [
+    {
+      "question": "What is a function in Python?",
+      "options": [
+        "A loop",
+        "A reusable block of code",
+        "A variable",
+        "A module"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword is used to define a function?",
+      "options": [
+        "function",
+        "define",
+        "def",
+        "func"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the correct syntax for defining a function?",
+      "options": [
+        "function myFunc()",
+        "def myFunc():",
+        "define myFunc():",
+        "func myFunc():"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the purpose of a function?",
+      "options": [
+        "Increase code repetition",
+        "Reduce readability",
+        "Reuse code and improve maintainability",
+        "Create loops only"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What does a function return if no return statement is specified?",
+      "options": [
+        "0",
+        "False",
+        "Empty String",
+        "None"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "What is the name of the text that describes a function?",
+      "options": [
+        "Comment",
+        "Annotation",
+        "Docstring",
+        "Metadata"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement is used to send a value back from a function?",
+      "options": [
+        "send",
+        "yield",
+        "return",
+        "output"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What are parameters?",
+      "options": [
+        "Values returned by a function",
+        "Variables listed in function definition",
+        "Variables outside the function",
+        "Modules used by the function"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What are arguments?",
+      "options": [
+        "Values passed to a function",
+        "Function names",
+        "Return values",
+        "Global variables"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "greet",
+        "Hello",
+        "Error",
+        "None"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What are default arguments?",
+      "options": [
+        "Required arguments",
+        "Arguments with predefined values",
+        "Global arguments",
+        "Hidden arguments"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which function definition uses a default argument?",
+      "options": [
+        "def add(a,b):",
+        "def add(a=5,b):",
+        "def add(a,b=5):",
+        "def add(=5,b):"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which rule applies to default parameters?",
+      "options": [
+        "Must come before non-default parameters",
+        "Must follow non-default parameters",
+        "Can appear anywhere",
+        "Are not allowed in Python"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What are keyword arguments?",
+      "options": [
+        "Arguments passed by parameter name",
+        "Reserved words",
+        "Function names",
+        "Global variables"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which is a valid keyword argument call?",
+      "options": [
+        "add(5,10)",
+        "add(a=5,b=10)",
+        "add(=5,=10)",
+        "add(a,b)"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the benefit of keyword arguments?",
+      "options": [
+        "Faster execution",
+        "Less memory usage",
+        "Arguments can be passed in any order",
+        "Prevent function calls"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What does *args allow?",
+      "options": [
+        "Multiple keyword arguments",
+        "Multiple return values",
+        "Any number of positional arguments",
+        "Only integer arguments"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Inside a function, *args is stored as a:",
+      "options": [
+        "List",
+        "Tuple",
+        "Dictionary",
+        "Set"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does **kwargs allow?",
+      "options": [
+        "Positional arguments only",
+        "Any number of keyword arguments",
+        "Multiple loops",
+        "Multiple returns"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Inside a function, **kwargs is stored as a:",
+      "options": [
+        "Tuple",
+        "List",
+        "Dictionary",
+        "String"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is local scope?",
+      "options": [
+        "Variables available everywhere",
+        "Variables created inside a function",
+        "Variables inside modules only",
+        "Class variables"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Can a local variable be accessed outside its function?",
+      "options": [
+        "Always",
+        "Sometimes",
+        "No",
+        "Only with return"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is global scope?",
+      "options": [
+        "Variables defined in the main body of a script",
+        "Variables inside loops",
+        "Variables inside classes only",
+        "Variables inside functions only"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which keyword is used to modify a global variable inside a function?",
+      "options": [
+        "public",
+        "extern",
+        "global",
+        "static"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "5",
+        "23",
+        "add",
+        "Error"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "0",
+        "False",
+        "None",
+        "Error"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is printed?",
+      "options": [
+        "10",
+        "Error",
+        "None",
+        "test"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement about global variables is true?",
+      "options": [
+        "They can be read inside functions",
+        "They cannot be accessed inside functions",
+        "They are local variables",
+        "They must use return"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What will happen without the global keyword when modifying a global variable inside a function?",
+      "options": [
+        "Global variable is updated",
+        "Python creates a new local variable",
+        "Program crashes",
+        "Function is ignored"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which feature makes functions useful in large programs?",
+      "options": [
+        "Reusability",
+        "Increased repetition",
+        "More syntax errors",
+        "Less organization"
+      ],
+      "answerIndex": 0
+    }
+  ],
+  "7": [
+    {
+      "question": "What is a string in Python?",
+      "options": [
+        "A collection of numbers only",
+        "A sequence of characters",
+        "A type of loop",
+        "A function"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which indexing starts from 0 in Python strings?",
+      "options": [
+        "Negative indexing",
+        "Reverse indexing",
+        "Positive indexing",
+        "Step indexing"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the index of the first character in a string?",
+      "options": [
+        "1",
+        "-1",
+        "0",
+        "2"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which index represents the last character of a string?",
+      "options": [
+        "0",
+        "-1",
+        "1",
+        "-2"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does slicing allow you to do?",
+      "options": [
+        "Delete a string",
+        "Extract a substring",
+        "Convert a string to a list",
+        "Reverse a list"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the general syntax for string slicing?",
+      "options": [
+        "string(start,stop,step)",
+        "string[start:stop:step]",
+        "string[start-stop-step]",
+        "slice(string)"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "In slicing, the start index is:",
+      "options": [
+        "Exclusive",
+        "Inclusive",
+        "Ignored",
+        "Optional only"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "In slicing, the stop index is:",
+      "options": [
+        "Inclusive",
+        "Mandatory",
+        "Exclusive",
+        "Negative only"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the default value of step in slicing?",
+      "options": [
+        "0",
+        "2",
+        "-1",
+        "1"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which slice reverses a string?",
+      "options": [
+        "s[:1]",
+        "s[::-1]",
+        "s[1:]",
+        "s[::2]"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "P",
+        "y",
+        "n",
+        "Error"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "P",
+        "y",
+        "n",
+        "h"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "Pyt",
+        "yth",
+        "ytho",
+        "tho"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "Pyt",
+        "yth",
+        "Python",
+        "tho"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "Pyt",
+        "hon",
+        "tho",
+        "yth"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does string immutability mean?",
+      "options": [
+        "Strings can be resized",
+        "Strings can be modified directly",
+        "Strings cannot be changed after creation",
+        "Strings are always uppercase"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What happens when executing?",
+      "options": [
+        "Output: Jello",
+        "TypeError",
+        "ValueError",
+        "SyntaxError"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "To modify a string, you must:",
+      "options": [
+        "Use append()",
+        "Create a new string",
+        "Use replace() on characters directly",
+        "Convert it to an integer"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which method converts a string to uppercase?",
+      "options": [
+        "capitalize()",
+        "upper()",
+        "large()",
+        "case()"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which method converts a string to lowercase?",
+      "options": [
+        "lower()",
+        "down()",
+        "small()",
+        "case()"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What does strip() do?",
+      "options": [
+        "Removes all spaces in a string",
+        "Removes leading and trailing whitespace",
+        "Deletes the string",
+        "Splits the string"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which method replaces occurrences of a substring?",
+      "options": [
+        "remove()",
+        "replace()",
+        "change()",
+        "modify()"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "hello world",
+        "Python world",
+        "hello Python",
+        "world hello"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which method splits a string into a list?",
+      "options": [
+        "join()",
+        "divide()",
+        "break()",
+        "split()"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "['a','b','c']",
+        "abc",
+        "a,b,c",
+        "Error"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which method joins elements of an iterable into a string?",
+      "options": [
+        "merge()",
+        "connect()",
+        "join()",
+        "append()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "ILovePython",
+        "I Love Python",
+        "['I','Love','Python']",
+        "Error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the result of:",
+      "options": [
+        "python",
+        "PYTHON",
+        "Python",
+        "pYTHON"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "\" Python \"",
+        "Python",
+        "\"Python \"",
+        "\" Python\""
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement about strings is TRUE?",
+      "options": [
+        "Strings are mutable",
+        "Strings cannot be indexed",
+        "Strings support slicing and indexing",
+        "Strings only store numbers"
+      ],
+      "answerIndex": 2
+    }
+  ],
+  "8": [
+    {
+      "question": "What is a list in Python?",
+      "options": [
+        "An unordered collection of unique items",
+        "An ordered, mutable sequence of items",
+        "An immutable sequence",
+        "A collection of key-value pairs"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which syntax is used to create a list?",
+      "options": [
+        "(1, 2, 3)",
+        "{1, 2, 3}",
+        "[1, 2, 3]",
+        "<1, 2, 3>"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which property of lists allows items to be changed after creation?",
+      "options": [
+        "Ordered",
+        "Mutable",
+        "Immutable",
+        "Unique"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Can a list contain elements of different data types?",
+      "options": [
+        "No",
+        "Only numbers",
+        "Only strings",
+        "Yes"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which method adds an element to the end of a list?",
+      "options": [
+        "add()",
+        "append()",
+        "insert()",
+        "push()"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which method removes and returns the last element by default?",
+      "options": [
+        "remove()",
+        "delete()",
+        "pop()",
+        "clear()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which method inserts an element at a specified position?",
+      "options": [
+        "append()",
+        "extend()",
+        "add()",
+        "insert()"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "[1, 2, 3]",
+        "[1, 2, 3, 4]",
+        "[4, 1, 2, 3]",
+        "Error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "10",
+        "20",
+        "30",
+        "Error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Lists allow:",
+      "options": [
+        "Only unique elements",
+        "Duplicate elements",
+        "Only integers",
+        "Only strings"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is a tuple?",
+      "options": [
+        "Ordered and mutable collection",
+        "Unordered collection",
+        "Ordered and immutable collection",
+        "Key-value collection"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which syntax creates a tuple?",
+      "options": [
+        "[1, 2, 3]",
+        "{1, 2, 3}",
+        "(1, 2, 3)",
+        "<1, 2, 3>"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Why are tuples considered safer than lists?",
+      "options": [
+        "They are smaller",
+        "They are immutable",
+        "They are faster to type",
+        "They use loops"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement about tuples is TRUE?",
+      "options": [
+        "Tuples are mutable",
+        "Tuples allow duplicates",
+        "Tuples cannot store strings",
+        "Tuples are unordered"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which collection type can be used as a dictionary key?",
+      "options": [
+        "List",
+        "Set",
+        "Tuple",
+        "Dictionary"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What happens when you try to modify a tuple element?",
+      "options": [
+        "It works normally",
+        "ValueError",
+        "TypeError",
+        "IndexError"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which collection does NOT allow duplicate values?",
+      "options": [
+        "List",
+        "Tuple",
+        "Dictionary",
+        "Set"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which syntax creates a set?",
+      "options": [
+        "[1, 2, 3]",
+        "(1, 2, 3)",
+        "{1, 2, 3}",
+        "<1, 2, 3>"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is a set?",
+      "options": [
+        "Ordered collection",
+        "Immutable collection",
+        "Unordered collection of unique items",
+        "Key-value collection"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which set operation finds common elements?",
+      "options": [
+        "Union (|)",
+        "Difference (-)",
+        "Intersection (&)",
+        "Append (+)"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which set operation combines all unique elements?",
+      "options": [
+        "Union (|)",
+        "Intersection (&)",
+        "Difference (-)",
+        "Join()"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the result of?",
+      "options": [
+        "{1, 4}",
+        "{2, 3}",
+        "{1, 2, 3, 4}",
+        "{}"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is a dictionary?",
+      "options": [
+        "Sequence of numbers",
+        "Collection of key-value pairs",
+        "Collection of unique values",
+        "Immutable collection"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which syntax creates a dictionary?",
+      "options": [
+        "[ ]",
+        "( )",
+        "{key:value}",
+        "< >"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "In a dictionary, keys must be:",
+      "options": [
+        "Mutable and unique",
+        "Immutable and unique",
+        "Strings only",
+        "Integers only"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "name",
+        "Alice",
+        "Error",
+        "None"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which method returns all dictionary keys?",
+      "options": [
+        "values()",
+        "items()",
+        "keys()",
+        "get()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which method returns all dictionary values?",
+      "options": [
+        "values()",
+        "keys()",
+        "items()",
+        "pop()"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "From Python 3.7 onwards, dictionaries:",
+      "options": [
+        "Are unordered",
+        "Preserve insertion order",
+        "Allow duplicate keys",
+        "Are immutable"
+      ],
+      "answerIndex": 1
+    }
+  ],
+  "9": [
+    {
+      "question": "What is the basic workflow of file handling in Python?",
+      "options": [
+        "Read \u2192 Open \u2192 Close",
+        "Open \u2192 Read/Write \u2192 Close",
+        "Close \u2192 Open \u2192 Read",
+        "Open \u2192 Close \u2192 Read"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which function is used to open a file in Python?",
+      "options": [
+        "file()",
+        "open()",
+        "fopen()",
+        "create()"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does the open() function return?",
+      "options": [
+        "String",
+        "Integer",
+        "File object",
+        "List"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which mode is the default mode for open()?",
+      "options": [
+        "'w'",
+        "'a'",
+        "'r'",
+        "'r+'"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What does 'r' mode do?",
+      "options": [
+        "Writes data",
+        "Appends data",
+        "Reads data",
+        "Deletes data"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What happens if a file does not exist and is opened in 'r' mode?",
+      "options": [
+        "Empty file is created",
+        "FileNotFoundError occurs",
+        "Program stops silently",
+        "File is appended"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which mode creates a file if it does not exist and overwrites existing content?",
+      "options": [
+        "'r'",
+        "'a'",
+        "'w'",
+        "'r+'"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which mode adds data to the end of a file?",
+      "options": [
+        "'w'",
+        "'r'",
+        "'r+'",
+        "'a'"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which mode allows both reading and writing?",
+      "options": [
+        "'a'",
+        "'r+'",
+        "'w'",
+        "'readwrite'"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Why is it important to close a file?",
+      "options": [
+        "To speed up the CPU",
+        "To avoid memory leaks and locked files",
+        "To delete file contents",
+        "To create backups"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which method is used to close a file?",
+      "options": [
+        "stop()",
+        "end()",
+        "close()",
+        "shutdown()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the recommended way to handle files in Python?",
+      "options": [
+        "open() only",
+        "close() only",
+        "with statement",
+        "delete() statement"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the advantage of using the with statement?",
+      "options": [
+        "File remains open forever",
+        "File closes automatically",
+        "File becomes read-only",
+        "File is encrypted"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword is used in a context manager?",
+      "options": [
+        "using",
+        "with",
+        "manage",
+        "open"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output type of f.readlines()?",
+      "options": [
+        "String",
+        "Integer",
+        "Dictionary",
+        "List"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which method reads the entire file?",
+      "options": [
+        "read()",
+        "readline()",
+        "readall()",
+        "lines()"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which method reads one line at a time?",
+      "options": [
+        "read()",
+        "readline()",
+        "readlines()",
+        "getline()"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which method returns all lines as a list?",
+      "options": [
+        "readline()",
+        "read()",
+        "readlines()",
+        "getlines()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What does f.read(5) do?",
+      "options": [
+        "Reads 5 lines",
+        "Reads 5 bytes/characters",
+        "Reads entire file",
+        "Reads 5 files"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output type of f.read()?",
+      "options": [
+        "String",
+        "List",
+        "Tuple",
+        "Dictionary"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What happens when opening a file in append mode ('a')?",
+      "options": [
+        "Existing content is erased",
+        "New data is added at the end",
+        "File becomes read-only",
+        "File is deleted"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement correctly opens a file for reading?",
+      "options": [
+        "open(\"data.txt\",\"r\")",
+        "open(\"data.txt\",\"read\")",
+        "file(\"data.txt\")",
+        "read(\"data.txt\")"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement correctly opens a file for writing?",
+      "options": [
+        "open(\"data.txt\",\"append\")",
+        "open(\"data.txt\",\"w\")",
+        "open(\"data.txt\",\"write\")",
+        "open(\"data.txt\",\"r\")"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "File automatically closes after block execution",
+        "File remains open forever",
+        "Syntax Error",
+        "File gets deleted"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which mode does NOT overwrite existing content?",
+      "options": [
+        "'w'",
+        "'r+'",
+        "'a'",
+        "'r'"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What kind of files can Python handle?",
+      "options": [
+        "Text files only",
+        "Binary files only",
+        "Both text and binary files",
+        "Database files only"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which of the following is a context manager example?",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is a potential issue if close() is not called?",
+      "options": [
+        "Faster execution",
+        "Memory leaks",
+        "More storage space",
+        "Better security"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement about readlines() is TRUE?",
+      "options": [
+        "Returns a string",
+        "Returns a tuple",
+        "Returns a list of lines",
+        "Returns a dictionary"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which file handling practice is considered best?",
+      "options": [
+        "Never close files",
+        "Always use global variables",
+        "Use the with statement whenever possible",
+        "Open the same file repeatedly without closing"
+      ],
+      "answerIndex": 2
+    }
+  ],
+  "10": [
+    {
+      "question": "What is an exception in Python?",
+      "options": [
+        "A comment in code",
+        "An error detected during execution",
+        "A loop statement",
+        "A function call"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which exception occurs when dividing by zero?",
+      "options": [
+        "ValueError",
+        "TypeError",
+        "ZeroDivisionError",
+        "FileNotFoundError"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What exception is raised by int(\"hello\")?",
+      "options": [
+        "TypeError",
+        "ValueError",
+        "NameError",
+        "IndexError"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which exception occurs when an operation is applied to an inappropriate type?",
+      "options": [
+        "FileNotFoundError",
+        "TypeError",
+        "ValueError",
+        "KeyError"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What exception is raised when a file cannot be found?",
+      "options": [
+        "FileNotFoundError",
+        "IOError",
+        "ValueError",
+        "TypeError"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which block contains code that may raise an exception?",
+      "options": [
+        "except",
+        "finally",
+        "try",
+        "else"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which keyword is used to handle exceptions?",
+      "options": [
+        "catch",
+        "except",
+        "handle",
+        "error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What happens when an exception occurs inside a try block?",
+      "options": [
+        "Program immediately stops",
+        "Execution moves to a matching except block",
+        "finally block is skipped",
+        "The exception is ignored"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the correct structure?",
+      "options": [
+        "try-catch",
+        "try-except",
+        "catch-finally",
+        "try-handle"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which block handles a ZeroDivisionError?",
+      "options": [
+        "ValueError",
+        "TypeError",
+        "ZeroDivisionError",
+        "NameError"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is printed?",
+      "options": [
+        "Error",
+        "5.0",
+        "10",
+        "Nothing"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword allows access to the exception object?",
+      "options": [
+        "as",
+        "in",
+        "with",
+        "from"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What does except ValueError as e: do?",
+      "options": [
+        "Creates a variable",
+        "Stores the exception object in e",
+        "Ignores exceptions",
+        "Raises an exception"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which block executes if no exception occurs?",
+      "options": [
+        "except",
+        "finally",
+        "else",
+        "raise"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which block always executes?",
+      "options": [
+        "try",
+        "else",
+        "except",
+        "finally"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "What is the primary use of the finally block?",
+      "options": [
+        "Creating variables",
+        "Releasing resources",
+        "Importing modules",
+        "Declaring functions"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement about finally is TRUE?",
+      "options": [
+        "Runs only if an exception occurs",
+        "Runs only if no exception occurs",
+        "Always executes",
+        "Is optional but never used"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is printed?",
+      "options": [
+        "Hello",
+        "Done",
+        "Hello Done",
+        "Error"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is printed?",
+      "options": [
+        "10",
+        "Division Error",
+        "Error",
+        "Nothing"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword is used to deliberately generate an exception?",
+      "options": [
+        "except",
+        "try",
+        "raise",
+        "finally"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the purpose of the raise statement?",
+      "options": [
+        "Ignore errors",
+        "Create loops",
+        "Force an exception to occur",
+        "Close files"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement raises a ValueError?",
+      "options": [
+        "throw ValueError()",
+        "raise ValueError(\"Invalid input\")",
+        "error ValueError()",
+        "exception ValueError()"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What happens if no matching except block exists?",
+      "options": [
+        "The exception is ignored",
+        "Program terminates with an error",
+        "else block handles it",
+        "finally block fixes it"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which exception is likely from this code?",
+      "options": [
+        "ValueError",
+        "ZeroDivisionError",
+        "TypeError",
+        "NameError"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What exception is raised?",
+      "options": [
+        "TypeError",
+        "ValueError",
+        "KeyError",
+        "IndexError"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is printed?",
+      "options": [
+        "A",
+        "B",
+        "A B",
+        "Error"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which exception is associated with missing files?",
+      "options": [
+        "FileNotFoundError",
+        "ImportError",
+        "ValueError",
+        "TypeError"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "5",
+        "Success",
+        "5 Success",
+        "Error"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Why is exception handling important?",
+      "options": [
+        "Makes code longer",
+        "Prevents program crashes and handles errors gracefully",
+        "Removes variables",
+        "Speeds up loops"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which order is correct?",
+      "options": [
+        "try \u2192 finally \u2192 except",
+        "try \u2192 except \u2192 else \u2192 finally",
+        "except \u2192 try \u2192 finally",
+        "try \u2192 else \u2192 except"
+      ],
+      "answerIndex": 1
+    }
+  ],
+  "11": [
+    {
+      "question": "What is a module in Python?",
+      "options": [
+        "A loop structure",
+        "A file containing Python definitions and statements",
+        "A database table",
+        "A package manager"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the extension of a Python module file?",
+      "options": [
+        ".txt",
+        ".java",
+        ".py",
+        ".exe"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Why are modules used in Python?",
+      "options": [
+        "To increase code duplication",
+        "To organize and reuse code",
+        "To replace functions",
+        "To create loops"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement is used to use a module in another script?",
+      "options": [
+        "include",
+        "require",
+        "import",
+        "using"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement imports an entire module?",
+      "options": [
+        "include math",
+        "import math",
+        "using math",
+        "load math"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "After executing import math, how is the square root function accessed?",
+      "options": [
+        "sqrt()",
+        "math.sqrt()",
+        "math->sqrt()",
+        "sqrt.math()"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement imports only a specific function?",
+      "options": [
+        "import module.function",
+        "include function",
+        "from module import function",
+        "using function"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the advantage of from module import func?",
+      "options": [
+        "No need to use module prefix",
+        "Faster internet connection",
+        "Creates a package",
+        "Makes code immutable"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement creates an alias for a module?",
+      "options": [
+        "import math rename m",
+        "import math as m",
+        "alias math m",
+        "from math as m"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Why are aliases useful?",
+      "options": [
+        "They shorten long module names",
+        "They increase memory usage",
+        "They create packages",
+        "They prevent imports"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What does the statement import numpy as np do?",
+      "options": [
+        "Imports NumPy with alias np",
+        "Creates a new package",
+        "Renames Python",
+        "Deletes NumPy"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which import style is discouraged?",
+      "options": [
+        "import math",
+        "import math as m",
+        "from math import sqrt",
+        "from math import *"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Why is from module import * discouraged?",
+      "options": [
+        "It causes namespace pollution",
+        "It makes code faster",
+        "It prevents function usage",
+        "It deletes variables"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is namespace pollution?",
+      "options": [
+        "Creating files in wrong folders",
+        "Too many names imported into current namespace",
+        "Deleting modules accidentally",
+        "Importing syntax errors"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which standard library module provides mathematical functions?",
+      "options": [
+        "random",
+        "string",
+        "math",
+        "os"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which constant belongs to the math module?",
+      "options": [
+        "math.rand",
+        "math.pi",
+        "math.float",
+        "math.value"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which function calculates a square root?",
+      "options": [
+        "math.square()",
+        "math.root()",
+        "math.sqrt()",
+        "math.power()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which function calculates factorials?",
+      "options": [
+        "math.fact()",
+        "math.factorial()",
+        "math.multiply()",
+        "math.product()"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which module is used to generate pseudo-random numbers?",
+      "options": [
+        "math",
+        "random",
+        "statistics",
+        "string"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does random.random() return?",
+      "options": [
+        "Integer between 1 and 100",
+        "Random string",
+        "Float between 0.0 and 1.0",
+        "Boolean value"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What does random.randint(1,10) return?",
+      "options": [
+        "Float from 0 to 1",
+        "Integer between 1 and 10",
+        "List of numbers",
+        "String value"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which function selects a random item from a sequence?",
+      "options": [
+        "random.pick()",
+        "random.select()",
+        "random.choice()",
+        "random.choose()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is a package in Python?",
+      "options": [
+        "A collection of modules organized in directories",
+        "A loop structure",
+        "A single function",
+        "A database file"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which file is traditionally required for Python to recognize a directory as a package?",
+      "options": [
+        "package.py",
+        "main.py",
+        "init.py",
+        "start.py"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the purpose of packages?",
+      "options": [
+        "Increase code complexity",
+        "Organize modules hierarchically",
+        "Remove functions",
+        "Replace classes"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement correctly imports a module inside a package?",
+      "options": [
+        "import package.module",
+        "package.import module",
+        "import module.package",
+        "package.module.import"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "Error",
+        "Mathematical constant \u03c0",
+        "0",
+        "Random value"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "25",
+        "125",
+        "5.0",
+        "Error"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "int",
+        "float",
+        "str",
+        "list"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement best describes modules and packages?",
+      "options": [
+        "They help organize, reuse, and manage code efficiently",
+        "They replace loops and conditions",
+        "They are used only for mathematics",
+        "They prevent function creation"
+      ],
+      "answerIndex": 0
+    }
+  ],
+  "12": [
+    {
+      "question": "What does OOP stand for?",
+      "options": [
+        "Object-Oriented Programming",
+        "Object Operating Program",
+        "Operating Object Process",
+        "Object Output Programming"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is OOP primarily based on?",
+      "options": [
+        "Functions",
+        "Objects and Classes",
+        "Loops",
+        "Modules"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is a class in Python?",
+      "options": [
+        "An instance of an object",
+        "A blueprint for creating objects",
+        "A variable type",
+        "A loop structure"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is an object?",
+      "options": [
+        "A package",
+        "A module",
+        "An instance of a class",
+        "A function"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which of the following is a key concept of OOP?",
+      "options": [
+        "Encapsulation",
+        "Inheritance",
+        "Polymorphism",
+        "All of the above"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which method acts as a constructor in Python?",
+      "options": [
+        "main()",
+        "start()",
+        "init()",
+        "create()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "When is the init() method called?",
+      "options": [
+        "When the program starts",
+        "When a class is defined",
+        "When an object is created",
+        "When a function is called"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the purpose of a constructor?",
+      "options": [
+        "Delete objects",
+        "Initialize object attributes",
+        "Import modules",
+        "Create loops"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which parameter must be the first parameter of an instance method?",
+      "options": [
+        "this",
+        "obj",
+        "self",
+        "cls"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What does self represent?",
+      "options": [
+        "The class itself",
+        "The current instance of the class",
+        "A global variable",
+        "A package"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword is used to create a class?",
+      "options": [
+        "object",
+        "define",
+        "class",
+        "new"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the correct syntax to define a class?",
+      "options": [
+        "Correct",
+        "Syntax Error",
+        "Runtime Error",
+        "Logical Error"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement creates an object of class Student?",
+      "options": [
+        "Student = obj()",
+        "obj.Student()",
+        "obj = Student()",
+        "create Student()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What are attributes in OOP?",
+      "options": [
+        "Methods of a class",
+        "Data associated with an object",
+        "Loops inside a class",
+        "Imported modules"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What are methods in OOP?",
+      "options": [
+        "Variables",
+        "Data types",
+        "Functions defined inside a class",
+        "Packages"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which code correctly defines an instance variable?",
+      "options": [
+        "self.name = name",
+        "name.self = name",
+        "name = self.name",
+        "self = name"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Instance variables are:",
+      "options": [
+        "Shared among all objects",
+        "Specific to each object",
+        "Global variables",
+        "Constants"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Where are instance variables usually defined?",
+      "options": [
+        "Outside the class",
+        "In the constructor (init)",
+        "In a package",
+        "In a loop"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is a class variable?",
+      "options": [
+        "Variable shared by all instances",
+        "Variable inside a function",
+        "Variable inside a loop",
+        "Local variable"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Where is a class variable defined?",
+      "options": [
+        "Inside init()",
+        "Inside a method",
+        "Directly inside the class body",
+        "Inside a package"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "ABC School",
+        "school",
+        "Error",
+        "None"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement about class variables is TRUE?",
+      "options": [
+        "Each object gets a separate copy",
+        "Shared among all objects",
+        "Cannot store strings",
+        "Must use self"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "Student",
+        "name",
+        "John",
+        "Error"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement accesses an instance variable?",
+      "options": [
+        "self.name",
+        "Student.name",
+        "class.name",
+        "instance.self"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is encapsulation?",
+      "options": [
+        "Wrapping data and methods together in a class",
+        "Creating loops",
+        "Importing packages",
+        "Handling exceptions"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which OOP feature allows code reuse through parent-child relationships?",
+      "options": [
+        "Abstraction",
+        "Encapsulation",
+        "Inheritance",
+        "Iteration"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which OOP feature means \"many forms\"?",
+      "options": [
+        "Encapsulation",
+        "Abstraction",
+        "Polymorphism",
+        "Inheritance"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which OOP feature hides implementation details?",
+      "options": [
+        "Inheritance",
+        "Abstraction",
+        "Looping",
+        "Slicing"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the state of an object?",
+      "options": [
+        "Its imported modules",
+        "Its attributes/data",
+        "Its loops",
+        "Its package structure"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the behavior of an object?",
+      "options": [
+        "Its methods/functions",
+        "Its variables",
+        "Its modules",
+        "Its files"
+      ],
+      "answerIndex": 0
+    }
+  ],
+  "13": [
+    {
+      "question": "What is inheritance in Python?",
+      "options": [
+        "Creating variables inside functions",
+        "A mechanism where a class acquires properties of another class",
+        "A type of loop",
+        "A file handling technique"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the class being inherited from called?",
+      "options": [
+        "Child Class",
+        "Subclass",
+        "Parent Class",
+        "Object Class"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the class that inherits called?",
+      "options": [
+        "Parent Class",
+        "Base Class",
+        "Superclass",
+        "Child Class"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which syntax correctly represents inheritance?",
+      "options": [
+        "Correct",
+        "Syntax Error",
+        "Runtime Error",
+        "Logical Error"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the primary benefit of inheritance?",
+      "options": [
+        "Faster execution",
+        "Code reusability",
+        "Less memory usage",
+        "Automatic debugging"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "How many parent classes are involved in Single Inheritance?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "Multiple"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which inheritance type follows Parent \u2192 Child \u2192 Grandchild?",
+      "options": [
+        "Multiple Inheritance",
+        "Hybrid Inheritance",
+        "Multilevel Inheritance",
+        "Single Inheritance"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which inheritance type allows a child class to inherit from more than one parent?",
+      "options": [
+        "Single Inheritance",
+        "Multilevel Inheritance",
+        "Multiple Inheritance",
+        "Hierarchical Inheritance"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is a superclass?",
+      "options": [
+        "Another name for parent class",
+        "A module",
+        "A package",
+        "A variable"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is a subclass?",
+      "options": [
+        "A loop",
+        "A child class",
+        "A package",
+        "A function"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is method overriding?",
+      "options": [
+        "Creating a new variable",
+        "Redefining a parent class method in the child class",
+        "Deleting a parent method",
+        "Importing a module"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "For method overriding to occur, the child method must have:",
+      "options": [
+        "Same name and signature as parent method",
+        "Different name",
+        "No parameters",
+        "Only one parameter"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which method is executed when an overridden method is called on a child object?",
+      "options": [
+        "Parent method always",
+        "Child method",
+        "Both methods automatically",
+        "None"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is polymorphism?",
+      "options": [
+        "Multiple loops in a program",
+        "Many variables in a class",
+        "Ability of different classes to respond differently to the same method call",
+        "Multiple inheritance only"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "The word \"Polymorphism\" means:",
+      "options": [
+        "Single Form",
+        "Many Forms",
+        "Multiple Variables",
+        "Multiple Classes"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which OOP concept allows different objects to use the same method name?",
+      "options": [
+        "Encapsulation",
+        "Abstraction",
+        "Polymorphism",
+        "Slicing"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the purpose of the super() function?",
+      "options": [
+        "Create an object",
+        "Access parent class methods and constructors",
+        "Import packages",
+        "Create loops"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does super() return?",
+      "options": [
+        "A child object",
+        "A temporary parent class object",
+        "A module",
+        "A package"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "In which situation is super() commonly used?",
+      "options": [
+        "File handling",
+        "Loop control",
+        "Calling parent constructor from child class",
+        "Exception handling"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement correctly calls a parent constructor?",
+      "options": [
+        "Correct",
+        "Syntax Error",
+        "Runtime Error",
+        "Logical Error"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "Child",
+        "Parent",
+        "Error",
+        "None"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "Parent",
+        "Child",
+        "Parent Child",
+        "Error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which concept is demonstrated in Q22?",
+      "options": [
+        "Encapsulation",
+        "Inheritance",
+        "Method Overriding",
+        "Abstraction"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "Animal Sound",
+        "Bark",
+        "Error",
+        "None"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "The Dog and Animal example mainly demonstrates:",
+      "options": [
+        "Polymorphism",
+        "File Handling",
+        "Slicing",
+        "Dictionaries"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which inheritance type involves only one parent and one child?",
+      "options": [
+        "Single Inheritance",
+        "Multiple Inheritance",
+        "Multilevel Inheritance",
+        "Hybrid Inheritance"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement about inheritance is TRUE?",
+      "options": [
+        "Child classes cannot access parent methods",
+        "Parent classes inherit from child classes",
+        "Child classes can reuse parent methods and attributes",
+        "Inheritance is only for variables"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What happens if a child class does not override a parent method?",
+      "options": [
+        "Error occurs",
+        "Parent method is used",
+        "Method is ignored",
+        "Program terminates"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which OOP principle reduces code duplication?",
+      "options": [
+        "Looping",
+        "Inheritance",
+        "Slicing",
+        "Indexing"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement best describes inheritance and polymorphism?",
+      "options": [
+        "They help create reusable and flexible object-oriented programs",
+        "They are used only for mathematical calculations",
+        "They replace functions entirely",
+        "They are file management techniques"
+      ],
+      "answerIndex": 0
+    }
+  ],
+  "14": [
+    {
+      "question": "What does NumPy stand for?",
+      "options": [
+        "Numerical Python",
+        "Number Programming",
+        "Numeric Package",
+        "New Python"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the primary purpose of NumPy?",
+      "options": [
+        "Web development",
+        "Scientific computing and numerical operations",
+        "File handling",
+        "Game development"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which object is the core data structure in NumPy?",
+      "options": [
+        "DataFrame",
+        "Series",
+        "ndarray",
+        "Dictionary"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement creates a NumPy array?",
+      "options": [
+        "Correct",
+        "Syntax Error",
+        "Runtime Error",
+        "Logical Error"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Compared to Python lists, NumPy arrays are:",
+      "options": [
+        "Slower",
+        "Less memory efficient",
+        "Faster and more memory efficient",
+        "Identical"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "NumPy arrays usually contain:",
+      "options": [
+        "Elements of the same type",
+        "Only strings",
+        "Mixed data types only",
+        "Dictionaries"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which function calculates the mean of array elements?",
+      "options": [
+        "np.avg()",
+        "np.mean()",
+        "np.average_value()",
+        "np.mid()"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which function calculates the sum of array elements?",
+      "options": [
+        "np.total()",
+        "np.addall()",
+        "np.sum()",
+        "np.count()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is vectorized addition?",
+      "options": [
+        "Adds 10 to every element",
+        "Appends 10 to array",
+        "Multiplies elements by 10",
+        "Causes an error"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the output?",
+      "options": [
+        "[1,2,3,2]",
+        "[3,4,5]",
+        "[2,4,6]",
+        "Error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which library is commonly used for data analysis in Python?",
+      "options": [
+        "random",
+        "math",
+        "pandas",
+        "os"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the primary purpose of Pandas?",
+      "options": [
+        "Graphics design",
+        "Data analysis and manipulation",
+        "Web hosting",
+        "Networking"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which are the two primary data structures in Pandas?",
+      "options": [
+        "Array and List",
+        "Series and DataFrame",
+        "Set and Dictionary",
+        "Queue and Stack"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is a Series in Pandas?",
+      "options": [
+        "Two-dimensional table",
+        "One-dimensional labeled array",
+        "NumPy array only",
+        "Collection of modules"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is a DataFrame?",
+      "options": [
+        "One-dimensional array",
+        "Dictionary",
+        "Two-dimensional labeled data structure",
+        "Set of functions"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement creates a DataFrame?",
+      "options": [
+        "Correct",
+        "Syntax Error",
+        "Runtime Error",
+        "Logical Error"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "A DataFrame is similar to:",
+      "options": [
+        "A text file",
+        "A spreadsheet or SQL table",
+        "A loop",
+        "A package"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which Pandas structure can contain columns of different data types?",
+      "options": [
+        "List",
+        "Series",
+        "DataFrame",
+        "Tuple"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What does the following filter do?",
+      "options": [
+        "Deletes rows",
+        "Selects rows where Age > 20",
+        "Sorts rows",
+        "Counts rows"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which column is being filtered in the previous example?",
+      "options": [
+        "Name",
+        "Marks",
+        "Age",
+        "Salary"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What does df.describe() provide?",
+      "options": [
+        "File information",
+        "Summary statistics",
+        "Column deletion",
+        "Data sorting"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statistics may be included in df.describe()?",
+      "options": [
+        "Mean",
+        "Count",
+        "Min and Max",
+        "All of the above"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "What is the output of:",
+      "options": [
+        "6",
+        "8",
+        "12",
+        "24"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the output of:",
+      "options": [
+        "20.0",
+        "30.0",
+        "10.0",
+        "60.0"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement about NumPy arrays is TRUE?",
+      "options": [
+        "They are slower than Python lists",
+        "They support efficient numerical operations",
+        "They cannot store numbers",
+        "They are always two-dimensional"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement about Pandas is TRUE?",
+      "options": [
+        "It is mainly used for machine hardware control",
+        "It provides tools for structured data analysis",
+        "It replaces Python completely",
+        "It cannot work with NumPy"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which library is commonly imported as np?",
+      "options": [
+        "Pandas",
+        "NumPy",
+        "Random",
+        "Math"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which library is commonly imported as pd?",
+      "options": [
+        "NumPy",
+        "Random",
+        "Pandas",
+        "Math"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which combination is correct?",
+      "options": [
+        "NumPy \u2192 Numerical Computing, Pandas \u2192 Data Analysis",
+        "NumPy \u2192 Web Development, Pandas \u2192 Networking",
+        "NumPy \u2192 File Handling, Pandas \u2192 Loops",
+        "NumPy \u2192 Packages, Pandas \u2192 Modules"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Why are NumPy and Pandas widely used together?",
+      "options": [
+        "They provide efficient numerical computation and powerful data analysis tools",
+        "They replace Python syntax",
+        "They are used only for file operations",
+        "They prevent object-oriented programming"
+      ],
+      "answerIndex": 0
+    }
+  ],
+  "15": [
+    {
+      "question": "What does real-world software development typically involve?",
+      "options": [
+        "Only user interfaces",
+        "Only databases",
+        "Integration of multiple components",
+        "Only file handling"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which component represents data entities in an application?",
+      "options": [
+        "Interface",
+        "Model",
+        "Storage",
+        "Controller"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "In the Student Grade Management System, what does the Student class represent?",
+      "options": [
+        "File storage",
+        "User interface",
+        "Individual student details",
+        "Database connection"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which component is responsible for storing data permanently?",
+      "options": [
+        "Logic Layer",
+        "Interface Layer",
+        "Storage Layer",
+        "Model Layer"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "In this application, which file acts as a flat-file database?",
+      "options": [
+        "students.py",
+        "grades.txt",
+        "database.db",
+        "records.csv"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the purpose of the Logic component?",
+      "options": [
+        "Store files",
+        "Calculate grades and process data",
+        "Display UI only",
+        "Create packages"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which component handles user inputs and outputs?",
+      "options": [
+        "Interface",
+        "Model",
+        "Storage",
+        "Package"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is system integration?",
+      "options": [
+        "Deleting duplicate files",
+        "Combining separate software components into a working system",
+        "Creating loops",
+        "Installing Python packages"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which of the following is NOT mentioned as an application component?",
+      "options": [
+        "Model",
+        "Storage",
+        "Logic",
+        "Compiler"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "What is the primary role of a Student object?",
+      "options": [
+        "Perform file operations",
+        "Represent student information",
+        "Create exceptions",
+        "Manage packages"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is serialization?",
+      "options": [
+        "Converting stored data into objects",
+        "Converting objects into storable/transmittable format",
+        "Encrypting files",
+        "Executing functions"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is de-serialization?",
+      "options": [
+        "Deleting stored data",
+        "Parsing stored data and reconstructing objects/variables",
+        "Compressing files",
+        "Creating modules"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which of the following is an example of serialized data?",
+      "options": [
+        "Student(name=\"Alice\")",
+        "Alice,85,95,90",
+        "{\"name\":\"Alice\"}",
+        "print(\"Alice\")"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Why is serialization important?",
+      "options": [
+        "Makes code slower",
+        "Allows storage and transmission of data",
+        "Prevents file handling",
+        "Removes objects from memory"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is being reconstructed during de-serialization?",
+      "options": [
+        "Loops",
+        "Packages",
+        "Variables or objects",
+        "Modules"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which operation converts an object into a string format for storage?",
+      "options": [
+        "Deserialization",
+        "Serialization",
+        "Compilation",
+        "Iteration"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does the line \"Alice,85,95,90\" typically represent?",
+      "options": [
+        "A function definition",
+        "Serialized student data",
+        "Exception message",
+        "Package structure"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is a flat-file database?",
+      "options": [
+        "A relational database server",
+        "A text file used for data storage",
+        "A Python package",
+        "A NumPy array"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which file format is used in the example application?",
+      "options": [
+        "grades.txt",
+        "grades.sql",
+        "grades.json",
+        "grades.xml"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which process occurs when reading stored student records into memory?",
+      "options": [
+        "Serialization",
+        "Compilation",
+        "De-serialization",
+        "Encapsulation"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is a clean coding principle?",
+      "options": [
+        "Using random variable names",
+        "Writing readable and maintainable code",
+        "Avoiding comments",
+        "Ignoring errors"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which variable name is more descriptive?",
+      "options": [
+        "x",
+        "y1",
+        "student_marks",
+        "a"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Why should descriptive method names be used?",
+      "options": [
+        "Increase code complexity",
+        "Improve readability and maintenance",
+        "Reduce storage space",
+        "Prevent inheritance"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is encapsulation in application design?",
+      "options": [
+        "Wrapping related data and methods together",
+        "Deleting variables",
+        "Creating files",
+        "Handling loops"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Why should exceptions be handled?",
+      "options": [
+        "To make code longer",
+        "To avoid program crashes and manage errors gracefully",
+        "To reduce readability",
+        "To prevent functions from running"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which structure is commonly used for exception handling?",
+      "options": [
+        "if-else",
+        "for loop",
+        "try-except",
+        "while loop"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the purpose of a docstring?",
+      "options": [
+        "Store database records",
+        "Document methods and functions",
+        "Create packages",
+        "Execute code"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which principle improves code organization by separating responsibilities?",
+      "options": [
+        "Modularity",
+        "Duplication",
+        "Nesting",
+        "Indexing"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement best describes a well-designed application?",
+      "options": [
+        "All code in one function",
+        "Separate model, logic, storage, and interface components",
+        "No exception handling",
+        "No documentation"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the main goal of Application Architecture and System Integration?",
+      "options": [
+        "Create larger files",
+        "Combine components into a reliable, maintainable software system",
+        "Avoid object-oriented programming",
+        "Eliminate data storage"
+      ],
+      "answerIndex": 1
+    }
+  ]
+}

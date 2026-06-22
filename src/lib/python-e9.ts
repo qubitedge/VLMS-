@@ -60,7 +60,23 @@ export const pythonExercise9: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "What is the basic workflow of file handling in Python?", options: ["Read \u2192 Open \u2192 Close", "Open \u2192 Read/Write \u2192 Close", "Close \u2192 Open \u2192 Read", "Open \u2192 Close \u2192 Read"], answerIndex: 1 },
+            { question: "Which function is used to open a file in Python?", options: ["file()", "open()", "fopen()", "create()"], answerIndex: 1 },
+            { question: "What does the open() function return?", options: ["String", "Integer", "File object", "List"], answerIndex: 2 },
+            { question: "Which mode is the default mode for open()?", options: ["'w'", "'a'", "'r'", "'r+'"], answerIndex: 2 },
+            { question: "What does 'r' mode do?", options: ["Writes data", "Appends data", "Reads data", "Deletes data"], answerIndex: 2 },
+            { question: "What happens if a file does not exist and is opened in 'r' mode?", options: ["Empty file is created", "FileNotFoundError occurs", "Program stops silently", "File is appended"], answerIndex: 1 },
+            { question: "Which mode creates a file if it does not exist and overwrites existing content?", options: ["'r'", "'a'", "'w'", "'r+'"], answerIndex: 2 },
+            { question: "Which mode adds data to the end of a file?", options: ["'w'", "'r'", "'r+'", "'a'"], answerIndex: 3 },
+            { question: "Which mode allows both reading and writing?", options: ["'a'", "'r+'", "'w'", "'readwrite'"], answerIndex: 1 },
+            { question: "Why is it important to close a file?", options: ["To speed up the CPU", "To avoid memory leaks and locked files", "To delete file contents", "To create backups"], answerIndex: 1 },
+            { question: "Which method is used to close a file?", options: ["stop()", "end()", "close()", "shutdown()"], answerIndex: 2 },
+            { question: "What is the recommended way to handle files in Python?", options: ["open() only", "close() only", "with statement", "delete() statement"], answerIndex: 2 },
+            { question: "What is the advantage of using the with statement?", options: ["File remains open forever", "File closes automatically", "File becomes read-only", "File is encrypted"], answerIndex: 1 },
+            { question: "Which keyword is used in a context manager?", options: ["using", "with", "manage", "open"], answerIndex: 1 },
+            { question: "What is the output type of f.readlines()?", options: ["String", "Integer", "Dictionary", "List"], answerIndex: 3 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand file operations, access modes, and context managers",
           "Understand the differences between read(), readline(), and readlines()",
@@ -88,7 +104,23 @@ export const pythonExercise9: Week = {
             { line: 15, annotation: "print(content) displays the file contents", memory: [], output: "Line 1: Hello from Python File I/O!\nLine 2: Working with files is easy.\nLine 3: Appended content.\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "Which method reads the entire file?", options: ["read()", "readline()", "readall()", "lines()"], answerIndex: 0 },
+            { question: "Which method reads one line at a time?", options: ["read()", "readline()", "readlines()", "getline()"], answerIndex: 1 },
+            { question: "Which method returns all lines as a list?", options: ["readline()", "read()", "readlines()", "getlines()"], answerIndex: 2 },
+            { question: "What does f.read(5) do?", options: ["Reads 5 lines", "Reads 5 bytes/characters", "Reads entire file", "Reads 5 files"], answerIndex: 1 },
+            { question: "What is the output type of f.read()?", options: ["String", "List", "Tuple", "Dictionary"], answerIndex: 0 },
+            { question: "What happens when opening a file in append mode ('a')?", options: ["Existing content is erased", "New data is added at the end", "File becomes read-only", "File is deleted"], answerIndex: 1 },
+            { question: "Which statement correctly opens a file for reading?", options: ["open(\"data.txt\",\"r\")", "open(\"data.txt\",\"read\")", "file(\"data.txt\")", "read(\"data.txt\")"], answerIndex: 0 },
+            { question: "Which statement correctly opens a file for writing?", options: ["open(\"data.txt\",\"append\")", "open(\"data.txt\",\"w\")", "open(\"data.txt\",\"write\")", "open(\"data.txt\",\"r\")"], answerIndex: 1 },
+            { question: "What is the output?", options: ["File automatically closes after block execution", "File remains open forever", "Syntax Error", "File gets deleted"], answerIndex: 0 },
+            { question: "Which mode does NOT overwrite existing content?", options: ["'w'", "'r+'", "'a'", "'r'"], answerIndex: 2 },
+            { question: "What kind of files can Python handle?", options: ["Text files only", "Binary files only", "Both text and binary files", "Database files only"], answerIndex: 2 },
+            { question: "Which of the following is a context manager example?", options: ["", "", "", ""], answerIndex: 1 },
+            { question: "What is a potential issue if close() is not called?", options: ["Faster execution", "Memory leaks", "More storage space", "Better security"], answerIndex: 1 },
+            { question: "Which statement about readlines() is TRUE?", options: ["Returns a string", "Returns a tuple", "Returns a list of lines", "Returns a dictionary"], answerIndex: 2 },
+            { question: "Which file handling practice is considered best?", options: ["Never close files", "Always use global variables", "Use the with statement whenever possible", "Open the same file repeatedly without closing"], answerIndex: 2 },
+          ],
         references: [
           "Python Tutorial — Reading and Writing Files: https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files",
           "W3Schools Python File Handling: https://www.w3schools.com/python/python_file_handling.asp",

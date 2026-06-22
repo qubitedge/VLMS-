@@ -71,7 +71,23 @@ export const pythonExercise2: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "A variable in Python is:", options: ["a fixed hardware unit", "a name that refers to a value", "always an integer", "a keyword only"], answerIndex: 1 },
+            { question: "Python variable types are:", options: ["manually declared before assignment", "determined automatically from assigned values", "always string", "always integer"], answerIndex: 1 },
+            { question: "A Python variable name must start with:", options: ["a digit only", "a special symbol only", "a letter or underscore", "a space"], answerIndex: 2 },
+            { question: "Which is a valid variable name?", options: ["2name", "my-var", "_count", "class"], answerIndex: 2 },
+            { question: "Variable names in Python are:", options: ["not case-sensitive", "case-sensitive", "always uppercase", "always lowercase"], answerIndex: 1 },
+            { question: "age and Age are:", options: ["syntax errors", "same variables", "different variables", "keywords"], answerIndex: 2 },
+            { question: "Which data type represents whole numbers?", options: ["float", "str", "int", "bool"], answerIndex: 2 },
+            { question: "Which data type represents decimal numbers?", options: ["str", "float", "bool", "tuple"], answerIndex: 1 },
+            { question: "Which data type represents text?", options: ["int", "float", "str", "bool"], answerIndex: 2 },
+            { question: "Which data type represents True or False values?", options: ["bool", "str", "list", "set"], answerIndex: 0 },
+            { question: "The type of 42 is:", options: ["float", "str", "int", "bool"], answerIndex: 2 },
+            { question: "The type() function is used to:", options: ["delete variables", "check the type of a value", "print only strings", "rename variables"], answerIndex: 1 },
+            { question: "Which operator performs addition?", options: ["-", "*", "+", "//"], answerIndex: 2 },
+            { question: "Which operator performs floor division?", options: ["/", "//", "%", "**"], answerIndex: 1 },
+            { question: "What is the result of 10 / 5 in Python?", options: ["2", "2.0", "3", "5.0"], answerIndex: 1 },
+          ],
         procedure: [
           "Read the Aim and Theory sections carefully to understand Python's dynamic typing and data types",
           "Manually work through the following expressions on paper: 17 // 5, 17 % 5, 2 ** 10, type(3.14)",
@@ -105,7 +121,23 @@ export const pythonExercise2: Week = {
             { line: 15, annotation: "print('Type of x:', type(x)) displays the type of x", memory: [], output: "Sum: 15\nType of x: <class 'int'>\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "What is the result of 10 // 3?", options: ["3", "3.33", "1", "4"], answerIndex: 0 },
+            { question: "What does the modulus operator % return?", options: ["quotient", "remainder", "product", "power"], answerIndex: 1 },
+            { question: "Which operator is used for exponentiation?", options: ["^", "**", "//", "%%"], answerIndex: 1 },
+            { question: "int('42') returns:", options: ["'42'", "42.0", "42", "True"], answerIndex: 2 },
+            { question: "float(42) returns:", options: ["'42'", "42", "42.0", "False"], answerIndex: 2 },
+            { question: "str(42) returns:", options: ["42", "'42'", "42.0", "True"], answerIndex: 1 },
+            { question: "bool(0) returns:", options: ["True", "False", "0", "None"], answerIndex: 1 },
+            { question: "bool('hello') returns:", options: ["False", "0", "True", "error"], answerIndex: 2 },
+            { question: "int('hello') raises:", options: ["TypeError", "NameError", "ValueError", "ZeroDivisionError"], answerIndex: 2 },
+            { question: "Python is dynamically typed, meaning:", options: ["a variable cannot change type", "types are fixed at compile time", "a variable can refer to values of different types during execution", "only strings are allowed"], answerIndex: 2 },
+            { question: "After x = 10 and then x = 'hello', x becomes:", options: ["still int", "str", "bool", "invalid"], answerIndex: 1 },
+            { question: "Which is NOT a valid fundamental data type from the lesson?", options: ["int", "float", "str", "header"], answerIndex: 3 },
+            { question: "Which operator gives the remainder of division?", options: ["/", "*", "%", "+"], answerIndex: 2 },
+            { question: "Which statement is correct?", options: ["Python variables require explicit type declaration", "Python variable names can be keywords", "Python variables are case-sensitive", "Variables must start with numbers"], answerIndex: 2 },
+            { question: "Which conversion returns a string?", options: ["str(42)", "int('42')", "float(42)", "bool(1)"], answerIndex: 0 },
+          ],
         references: [
           "Python Official Documentation — Built-in Types: https://docs.python.org/3/library/stdtypes.html",
           "Lutz M., Learning Python, 5th Edition, O'Reilly Media, 2013",

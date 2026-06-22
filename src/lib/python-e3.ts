@@ -57,7 +57,23 @@ export const pythonExercise3: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "Which function is used to read user input in Python?", options: ["read()", "get()", "input()", "scanf()"], answerIndex: 2 },
+            { question: "The input() function reads data from:", options: ["RAM only", "standard input", "compiler cache", "output stream"], answerIndex: 1 },
+            { question: "input() always returns data as:", options: ["int", "float", "bool", "str"], answerIndex: 3 },
+            { question: "If a user enters 45 through input(), Python initially stores it as:", options: ["integer 45", "string '45'", "float 45.0", "boolean True"], answerIndex: 1 },
+            { question: "To convert user age input into an integer, use:", options: ["str(input())", "bool(input())", "int(input())", "list(input())"], answerIndex: 2 },
+            { question: "To convert height input into decimal form, use:", options: ["float(input())", "int(input())", "str(input())", "tuple(input())"], answerIndex: 0 },
+            { question: "If int() receives non-numeric text like 'twenty', it raises:", options: ["NameError", "ValueError", "ZeroDivisionError", "SyntaxError"], answerIndex: 1 },
+            { question: "The syntax of input is:", options: ["input[value]", "input{prompt}", "input(prompt)", "read(prompt)"], answerIndex: 2 },
+            { question: "A prompt in input() is:", options: ["mandatory in all cases", "optional", "forbidden", "only numeric"], answerIndex: 1 },
+            { question: "F-strings were introduced in Python:", options: ["2.7", "3.0", "3.6", "4.0"], answerIndex: 2 },
+            { question: "To create an f-string, prefix the string with:", options: ["p", "x", "f", "s"], answerIndex: 2 },
+            { question: "In an f-string, expressions are placed inside:", options: ["square brackets", "parentheses", "angle brackets", "curly braces"], answerIndex: 3 },
+            { question: "Which is an example of an f-string?", options: ["'Hello, {}'.name", "f'Hello, {name}!'", "Hello(name)", "format('Hello')"], answerIndex: 1 },
+            { question: "F-strings are evaluated:", options: ["before installation", "at runtime", "only by compiler", "never"], answerIndex: 1 },
+            { question: "Compared to older formatting methods, f-strings are generally:", options: ["slower and harder to read", "faster and more readable", "invalid in Python 3", "only for integers"], answerIndex: 1 },
+          ],
         procedure: [
           "Read the Aim and Theory sections to understand how input() works and how f-strings format output",
           "Note that input() always yields a string, so math calculations require casting first",
@@ -85,7 +101,23 @@ export const pythonExercise3: Week = {
             { line: 9, annotation: "print(f'In 5 years, {name} will be {future_age} years old.') displays formatted message", memory: [], output: "Name: Alice\nAge: 20\nIn 5 years, Alice will be 25 years old.\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "Before f-strings, a common formatting method was:", options: ["split()", "append()", "format()", "replace()"], answerIndex: 2 },
+            { question: "'Hello, {}!'.format('Bob') outputs:", options: ["Hello, format!", "Hello, Bob!", "{} Bob", "Error"], answerIndex: 1 },
+            { question: "Placeholders in format() are written as:", options: ["[]", "()", "{}", "<>"], answerIndex: 2 },
+            { question: "Which is valid named or numbered formatting?", options: ["'I like {0} and {1}'.format('apples', 'bananas')", "'I like []'.format('apples')", "'I like <>'.format('apples')", "'I like ()'.format('apples')"], answerIndex: 0 },
+            { question: "To use user input in arithmetic, you usually need:", options: ["indentation", "type casting", "slicing", "inheritance"], answerIndex: 1 },
+            { question: "What is the type of the result of input('Enter: ')?", options: ["always str", "always int", "always float", "always bool"], answerIndex: 0 },
+            { question: "Which statement is correct?", options: ["input() automatically detects integers", "input() always returns string data", "input() returns bytes", "input() returns float by default"], answerIndex: 1 },
+            { question: "Which code correctly reads an integer age?", options: ["age = input(int('Enter age'))", "age = int(input('Enter age: '))", "age = float('Enter age: ')", "age = str(input(int))"], answerIndex: 1 },
+            { question: "Which code correctly reads a decimal number?", options: ["x = bool(input())", "x = str(input())", "x = float(input())", "x = list(input())"], answerIndex: 2 },
+            { question: "Which formatting style directly embeds expressions inside the string?", options: ["comments", "f-strings", "readlines", "import"], answerIndex: 1 },
+            { question: "In f'Hello, {name}!', name is:", options: ["a keyword", "a comment", "an embedded expression/variable", "a module"], answerIndex: 2 },
+            { question: "Which statement about format() is true?", options: ["It cannot use placeholders", "It is older than f-strings", "It only works for numbers", "It is invalid in Python 3"], answerIndex: 1 },
+            { question: "Which of the following is a possible problem with int(input())?", options: ["It always returns bool", "It may raise ValueError", "It deletes user input", "It creates a file"], answerIndex: 1 },
+            { question: "The purpose of type casting input is to:", options: ["reverse strings", "convert string data into needed numeric types", "import modules", "close files"], answerIndex: 1 },
+            { question: "Which output is correct for name = 'Bob'; print(f'Hello, {name}!')?", options: ["Hello, {name}!", "Hello, Bob!", "name = Bob", "{Bob}"], answerIndex: 1 },
+          ],
         references: [
           "Python Standard Library — Input/Output: https://docs.python.org/3/tutorial/inputoutput.html",
           "Lutz M., Learning Python, 5th Edition, O'Reilly Media, 2013",

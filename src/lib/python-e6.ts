@@ -58,7 +58,23 @@ export const pythonExercise6: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "What is a function in Python?", options: ["A loop", "A reusable block of code", "A variable", "A module"], answerIndex: 1 },
+            { question: "Which keyword is used to define a function?", options: ["function", "define", "def", "func"], answerIndex: 2 },
+            { question: "What is the correct syntax for defining a function?", options: ["function myFunc()", "def myFunc():", "define myFunc():", "func myFunc():"], answerIndex: 1 },
+            { question: "What is the purpose of a function?", options: ["Increase code repetition", "Reduce readability", "Reuse code and improve maintainability", "Create loops only"], answerIndex: 2 },
+            { question: "What does a function return if no return statement is specified?", options: ["0", "False", "Empty String", "None"], answerIndex: 3 },
+            { question: "What is the name of the text that describes a function?", options: ["Comment", "Annotation", "Docstring", "Metadata"], answerIndex: 2 },
+            { question: "Which statement is used to send a value back from a function?", options: ["send", "yield", "return", "output"], answerIndex: 2 },
+            { question: "What are parameters?", options: ["Values returned by a function", "Variables listed in function definition", "Variables outside the function", "Modules used by the function"], answerIndex: 1 },
+            { question: "What are arguments?", options: ["Values passed to a function", "Function names", "Return values", "Global variables"], answerIndex: 0 },
+            { question: "What is the output?", options: ["greet", "Hello", "Error", "None"], answerIndex: 1 },
+            { question: "What are default arguments?", options: ["Required arguments", "Arguments with predefined values", "Global arguments", "Hidden arguments"], answerIndex: 1 },
+            { question: "Which function definition uses a default argument?", options: ["def add(a,b):", "def add(a=5,b):", "def add(a,b=5):", "def add(=5,b):"], answerIndex: 2 },
+            { question: "Which rule applies to default parameters?", options: ["Must come before non-default parameters", "Must follow non-default parameters", "Can appear anywhere", "Are not allowed in Python"], answerIndex: 1 },
+            { question: "What are keyword arguments?", options: ["Arguments passed by parameter name", "Reserved words", "Function names", "Global variables"], answerIndex: 0 },
+            { question: "Which is a valid keyword argument call?", options: ["add(5,10)", "add(a=5,b=10)", "add(=5,=10)", "add(a,b)"], answerIndex: 1 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand function definitions, parameters, and variable scopes",
           "Note the syntax for defining functions, returning values, and using *args / **kwargs",
@@ -91,7 +107,23 @@ export const pythonExercise6: Week = {
             { line: 10, annotation: "global_val = 20 — modifies global variable to 20", memory: [{ variable: "global_val", type: "int", value: "20" }], output: "" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "What is the benefit of keyword arguments?", options: ["Faster execution", "Less memory usage", "Arguments can be passed in any order", "Prevent function calls"], answerIndex: 2 },
+            { question: "What does *args allow?", options: ["Multiple keyword arguments", "Multiple return values", "Any number of positional arguments", "Only integer arguments"], answerIndex: 2 },
+            { question: "Inside a function, *args is stored as a:", options: ["List", "Tuple", "Dictionary", "Set"], answerIndex: 1 },
+            { question: "What does **kwargs allow?", options: ["Positional arguments only", "Any number of keyword arguments", "Multiple loops", "Multiple returns"], answerIndex: 1 },
+            { question: "Inside a function, **kwargs is stored as a:", options: ["Tuple", "List", "Dictionary", "String"], answerIndex: 2 },
+            { question: "What is local scope?", options: ["Variables available everywhere", "Variables created inside a function", "Variables inside modules only", "Class variables"], answerIndex: 1 },
+            { question: "Can a local variable be accessed outside its function?", options: ["Always", "Sometimes", "No", "Only with return"], answerIndex: 2 },
+            { question: "What is global scope?", options: ["Variables defined in the main body of a script", "Variables inside loops", "Variables inside classes only", "Variables inside functions only"], answerIndex: 0 },
+            { question: "Which keyword is used to modify a global variable inside a function?", options: ["public", "extern", "global", "static"], answerIndex: 2 },
+            { question: "What is the output?", options: ["5", "23", "add", "Error"], answerIndex: 0 },
+            { question: "What is the output?", options: ["0", "False", "None", "Error"], answerIndex: 2 },
+            { question: "What is printed?", options: ["10", "Error", "None", "test"], answerIndex: 0 },
+            { question: "Which statement about global variables is true?", options: ["They can be read inside functions", "They cannot be accessed inside functions", "They are local variables", "They must use return"], answerIndex: 0 },
+            { question: "What will happen without the global keyword when modifying a global variable inside a function?", options: ["Global variable is updated", "Python creates a new local variable", "Program crashes", "Function is ignored"], answerIndex: 1 },
+            { question: "Which feature makes functions useful in large programs?", options: ["Reusability", "Increased repetition", "More syntax errors", "Less organization"], answerIndex: 0 },
+          ],
         references: [
           "Python Tutorial — Defining Functions: https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
           "W3Schools Python Functions: https://www.w3schools.com/python/python_functions.asp",

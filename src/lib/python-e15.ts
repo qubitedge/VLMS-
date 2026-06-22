@@ -50,7 +50,23 @@ export const pythonExercise15: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "What does real-world software development typically involve?", options: ["Only user interfaces", "Only databases", "Integration of multiple components", "Only file handling"], answerIndex: 2 },
+            { question: "Which component represents data entities in an application?", options: ["Interface", "Model", "Storage", "Controller"], answerIndex: 1 },
+            { question: "In the Student Grade Management System, what does the Student class represent?", options: ["File storage", "User interface", "Individual student details", "Database connection"], answerIndex: 2 },
+            { question: "Which component is responsible for storing data permanently?", options: ["Logic Layer", "Interface Layer", "Storage Layer", "Model Layer"], answerIndex: 2 },
+            { question: "In this application, which file acts as a flat-file database?", options: ["students.py", "grades.txt", "database.db", "records.csv"], answerIndex: 1 },
+            { question: "What is the purpose of the Logic component?", options: ["Store files", "Calculate grades and process data", "Display UI only", "Create packages"], answerIndex: 1 },
+            { question: "Which component handles user inputs and outputs?", options: ["Interface", "Model", "Storage", "Package"], answerIndex: 0 },
+            { question: "What is system integration?", options: ["Deleting duplicate files", "Combining separate software components into a working system", "Creating loops", "Installing Python packages"], answerIndex: 1 },
+            { question: "Which of the following is NOT mentioned as an application component?", options: ["Model", "Storage", "Logic", "Compiler"], answerIndex: 3 },
+            { question: "What is the primary role of a Student object?", options: ["Perform file operations", "Represent student information", "Create exceptions", "Manage packages"], answerIndex: 1 },
+            { question: "What is serialization?", options: ["Converting stored data into objects", "Converting objects into storable/transmittable format", "Encrypting files", "Executing functions"], answerIndex: 1 },
+            { question: "What is de-serialization?", options: ["Deleting stored data", "Parsing stored data and reconstructing objects/variables", "Compressing files", "Creating modules"], answerIndex: 1 },
+            { question: "Which of the following is an example of serialized data?", options: ["Student(name=\"Alice\")", "Alice,85,95,90", "{\"name\":\"Alice\"}", "print(\"Alice\")"], answerIndex: 1 },
+            { question: "Why is serialization important?", options: ["Makes code slower", "Allows storage and transmission of data", "Prevents file handling", "Removes objects from memory"], answerIndex: 1 },
+            { question: "What is being reconstructed during de-serialization?", options: ["Loops", "Packages", "Variables or objects", "Modules"], answerIndex: 2 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand how class definitions, collection management, and file handling integrate to form a system",
           "Note the structure of student serialization: saving columns as name, average, and grade in text lines",
@@ -79,7 +95,23 @@ export const pythonExercise15: Week = {
             { line: 26, annotation: "lines = f.readlines() — reads all lines as a list of strings", memory: [{ variable: "lines", type: "list", value: "['Alice,90.0,A\\n', 'Bob,78.3,B\\n']" }], output: "" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "Which operation converts an object into a string format for storage?", options: ["Deserialization", "Serialization", "Compilation", "Iteration"], answerIndex: 1 },
+            { question: "What does the line \"Alice,85,95,90\" typically represent?", options: ["A function definition", "Serialized student data", "Exception message", "Package structure"], answerIndex: 1 },
+            { question: "What is a flat-file database?", options: ["A relational database server", "A text file used for data storage", "A Python package", "A NumPy array"], answerIndex: 1 },
+            { question: "Which file format is used in the example application?", options: ["grades.txt", "grades.sql", "grades.json", "grades.xml"], answerIndex: 0 },
+            { question: "Which process occurs when reading stored student records into memory?", options: ["Serialization", "Compilation", "De-serialization", "Encapsulation"], answerIndex: 2 },
+            { question: "What is a clean coding principle?", options: ["Using random variable names", "Writing readable and maintainable code", "Avoiding comments", "Ignoring errors"], answerIndex: 1 },
+            { question: "Which variable name is more descriptive?", options: ["x", "y1", "student_marks", "a"], answerIndex: 2 },
+            { question: "Why should descriptive method names be used?", options: ["Increase code complexity", "Improve readability and maintenance", "Reduce storage space", "Prevent inheritance"], answerIndex: 1 },
+            { question: "What is encapsulation in application design?", options: ["Wrapping related data and methods together", "Deleting variables", "Creating files", "Handling loops"], answerIndex: 0 },
+            { question: "Why should exceptions be handled?", options: ["To make code longer", "To avoid program crashes and manage errors gracefully", "To reduce readability", "To prevent functions from running"], answerIndex: 1 },
+            { question: "Which structure is commonly used for exception handling?", options: ["if-else", "for loop", "try-except", "while loop"], answerIndex: 2 },
+            { question: "What is the purpose of a docstring?", options: ["Store database records", "Document methods and functions", "Create packages", "Execute code"], answerIndex: 1 },
+            { question: "Which principle improves code organization by separating responsibilities?", options: ["Modularity", "Duplication", "Nesting", "Indexing"], answerIndex: 0 },
+            { question: "Which statement best describes a well-designed application?", options: ["All code in one function", "Separate model, logic, storage, and interface components", "No exception handling", "No documentation"], answerIndex: 1 },
+            { question: "What is the main goal of Application Architecture and System Integration?", options: ["Create larger files", "Combine components into a reliable, maintainable software system", "Avoid object-oriented programming", "Eliminate data storage"], answerIndex: 1 },
+          ],
         references: [
           "Python Tutorial: https://docs.python.org/3/tutorial/",
           "W3Schools Python OOP and File Handling: https://www.w3schools.com/python/",

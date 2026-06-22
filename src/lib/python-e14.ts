@@ -50,7 +50,23 @@ export const pythonExercise14: Week = {
             ]
           }
         ],
-        pretest: [],
+        pretest: [
+            { question: "What does NumPy stand for?", options: ["Numerical Python", "Number Programming", "Numeric Package", "New Python"], answerIndex: 0 },
+            { question: "What is the primary purpose of NumPy?", options: ["Web development", "Scientific computing and numerical operations", "File handling", "Game development"], answerIndex: 1 },
+            { question: "Which object is the core data structure in NumPy?", options: ["DataFrame", "Series", "ndarray", "Dictionary"], answerIndex: 2 },
+            { question: "Which statement creates a NumPy array?", options: ["Correct", "Syntax Error", "Runtime Error", "Logical Error"], answerIndex: 0 },
+            { question: "Compared to Python lists, NumPy arrays are:", options: ["Slower", "Less memory efficient", "Faster and more memory efficient", "Identical"], answerIndex: 2 },
+            { question: "NumPy arrays usually contain:", options: ["Elements of the same type", "Only strings", "Mixed data types only", "Dictionaries"], answerIndex: 0 },
+            { question: "Which function calculates the mean of array elements?", options: ["np.avg()", "np.mean()", "np.average_value()", "np.mid()"], answerIndex: 1 },
+            { question: "Which function calculates the sum of array elements?", options: ["np.total()", "np.addall()", "np.sum()", "np.count()"], answerIndex: 2 },
+            { question: "What is vectorized addition?", options: ["Adds 10 to every element", "Appends 10 to array", "Multiplies elements by 10", "Causes an error"], answerIndex: 0 },
+            { question: "What is the output?", options: ["[1,2,3,2]", "[3,4,5]", "[2,4,6]", "Error"], answerIndex: 1 },
+            { question: "Which library is commonly used for data analysis in Python?", options: ["random", "math", "pandas", "os"], answerIndex: 2 },
+            { question: "What is the primary purpose of Pandas?", options: ["Graphics design", "Data analysis and manipulation", "Web hosting", "Networking"], answerIndex: 1 },
+            { question: "Which are the two primary data structures in Pandas?", options: ["Array and List", "Series and DataFrame", "Set and Dictionary", "Queue and Stack"], answerIndex: 1 },
+            { question: "What is a Series in Pandas?", options: ["Two-dimensional table", "One-dimensional labeled array", "NumPy array only", "Collection of modules"], answerIndex: 1 },
+            { question: "What is a DataFrame?", options: ["One-dimensional array", "Dictionary", "Two-dimensional labeled data structure", "Set of functions"], answerIndex: 2 },
+          ],
         procedure: [
           "Read the Aim and Theory to understand NumPy arrays, Pandas DataFrames, and statistical metrics",
           "Note the standard import statements for numpy and pandas",
@@ -80,7 +96,23 @@ export const pythonExercise14: Week = {
             { line: 14, annotation: "print('Mean:', arr_mean) displays average", memory: [], output: "Array: [10 20 30]\nMean: 20.0\n" }
           ]
         },
-        posttest: [],
+        posttest: [
+            { question: "Which statement creates a DataFrame?", options: ["Correct", "Syntax Error", "Runtime Error", "Logical Error"], answerIndex: 0 },
+            { question: "A DataFrame is similar to:", options: ["A text file", "A spreadsheet or SQL table", "A loop", "A package"], answerIndex: 1 },
+            { question: "Which Pandas structure can contain columns of different data types?", options: ["List", "Series", "DataFrame", "Tuple"], answerIndex: 2 },
+            { question: "What does the following filter do?", options: ["Deletes rows", "Selects rows where Age > 20", "Sorts rows", "Counts rows"], answerIndex: 1 },
+            { question: "Which column is being filtered in the previous example?", options: ["Name", "Marks", "Age", "Salary"], answerIndex: 2 },
+            { question: "What does df.describe() provide?", options: ["File information", "Summary statistics", "Column deletion", "Data sorting"], answerIndex: 1 },
+            { question: "Which statistics may be included in df.describe()?", options: ["Mean", "Count", "Min and Max", "All of the above"], answerIndex: 3 },
+            { question: "What is the output of:", options: ["6", "8", "12", "24"], answerIndex: 2 },
+            { question: "What is the output of:", options: ["20.0", "30.0", "10.0", "60.0"], answerIndex: 0 },
+            { question: "Which statement about NumPy arrays is TRUE?", options: ["They are slower than Python lists", "They support efficient numerical operations", "They cannot store numbers", "They are always two-dimensional"], answerIndex: 1 },
+            { question: "Which statement about Pandas is TRUE?", options: ["It is mainly used for machine hardware control", "It provides tools for structured data analysis", "It replaces Python completely", "It cannot work with NumPy"], answerIndex: 1 },
+            { question: "Which library is commonly imported as np?", options: ["Pandas", "NumPy", "Random", "Math"], answerIndex: 1 },
+            { question: "Which library is commonly imported as pd?", options: ["NumPy", "Random", "Pandas", "Math"], answerIndex: 2 },
+            { question: "Which combination is correct?", options: ["NumPy \u2192 Numerical Computing, Pandas \u2192 Data Analysis", "NumPy \u2192 Web Development, Pandas \u2192 Networking", "NumPy \u2192 File Handling, Pandas \u2192 Loops", "NumPy \u2192 Packages, Pandas \u2192 Modules"], answerIndex: 0 },
+            { question: "Why are NumPy and Pandas widely used together?", options: ["They provide efficient numerical computation and powerful data analysis tools", "They replace Python syntax", "They are used only for file operations", "They prevent object-oriented programming"], answerIndex: 0 },
+          ],
         references: [
           "NumPy User Guide: https://numpy.org/doc/stable/user/index.html",
           "Pandas Documentation: https://pandas.pydata.org/docs/",
