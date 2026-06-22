@@ -148,26 +148,28 @@ export const courses: Record<string, Course> = {
             code: `import re\nfrom collections import defaultdict\n\ndef get_stats(vocab):\n    pairs = defaultdict(int)\n    for word, freq in vocab.items():\n        symbols = word.split()\n        for i in range(len(symbols)-1):\n            pairs[symbols[i], symbols[i+1]] += freq\n    return pairs\n\ndef merge_vocab(pair, v_in):\n    v_out = {}\n    bigram = re.escape(' '.join(pair))\n    p = re.compile(r'(?<!\\S)' + bigram + r'(?!\\S)')\n    for word in v_in:\n        w_out = p.sub(''.join(pair), word)\n        v_out[w_out] = v_in[word]\n    return v_out\n\n# Example Run\ninitial_vocab = {'l o w </w>': 5, 'l o w e r </w>': 2, 'n e w e s t </w>': 6}\npairs = get_stats(initial_vocab)\nbest_pair = max(pairs, key=pairs.get)\nprint(f"Most frequent pair to merge: {best_pair}")`,
             content: {
               aim: {
-                text: "To implement a subword tokenization pipeline using the Byte-Pair Encoding (BPE) algorithm from first principles, and evaluate its token compression efficiency across diverse text corpora.",
+                text: "To implement a Byte-Pair Encoding tokenization pipeline from first principles by iteratively merging the most frequent character pairs in a corpus, building a subword vocabulary that efficiently balances coverage and compression across diverse text inputs.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "The Tokenization Bottleneck",
-                  body: [
-                    "In early Natural Language Processing, text was often processed at the word level. This required massive vocabulary tables and completely failed when encountering Out-Of-Vocabulary (OOV) words like novel names or misspellings.",
-                    "Conversely, character-level processing avoided OOV errors but caused sequences to become too long, destroying the neural network's ability to retain long-term context and exponentially increasing compute costs."
-                  ]
-                },
-                {
-                  title: "Byte-Pair Encoding (BPE)",
-                  body: [
-                    "Byte-Pair Encoding solves this bottleneck by treating text as a sequence of subwords. Originally a data compression technique, BPE iteratively finds the most frequent pair of adjacent symbols and merges them into a single new symbol.",
-                    "This creates a vocabulary where highly common words (like 'the' or 'and') become single tokens, while rare words are broken down into logical semantic chunks (like 'un', 'predict', 'able').",
-                    "Modern models like GPT-4 use a byte-level variation of BPE. Instead of starting with raw Unicode characters, they start with the 256 basic bytes, ensuring absolute structural robustness."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "The Two Old Problems",
+                                        "body": [
+                                                      "Computers used to read text in two ways \u2014 both had big problems:",
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Approach</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What It Does</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">The Problem</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Whole-Word</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Looks up each word in a giant dictionary</td><td class=\"p-3 text-muted-foreground\">New words / typos = total failure (OOV error)</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Letter-by-Letter</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Reads one character at a time</td><td class=\"p-3 text-muted-foreground\">Sentences become too long \u2014 computer forgets the start by the end</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "BPE \u2014 The Goldilocks Fix",
+                                        "body": [
+                                                      "BPE starts with letters, then keeps merging the most popular pairs into new symbols \u2014 like inventing shorthand for common combinations.",
+                                                      "Start: u n p r e d i c t a b l e  \u2192  Find most frequent pair  \u2192  Merge it into one new symbol  \u2192  Repeat thousands of times  \u2192  Result: un + predict + able",
+                                                      "Why BPE wins:",
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">BPE Behaviour</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Common words</td><td class=\"p-3 text-muted-foreground\">Single token \u2014 'the' = 1 piece</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Rare / new words</td><td class=\"p-3 text-muted-foreground\">Split into chunks \u2014 'un' + 'predict' + 'able'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Unknown words</td><td class=\"p-3 text-muted-foreground\">Never crashes \u2014 always finds pieces</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">GPT-4 upgrade</td><td class=\"p-3 text-muted-foreground\">Starts from 256 bytes \u2014 works for ALL languages</td></tr></tbody></table>",
+                                                      "![BPE Tokenization](/llmexp1.webp)"
+                                        ]
+                          }
+            ],
               pretest: [],
               procedure: [
                 "Corpus Preparation: Ingest a raw text corpus and append distinct end-of-word tokens (like </w>) to distinguish between word-internal boundaries and word-external boundaries.",
@@ -187,26 +189,26 @@ export const courses: Record<string, Course> = {
             code: `import numpy as np\n\ndef cosine_similarity(v1, v2):\n    dot_prod = np.dot(v1, v2)\n    norm_v1 = np.linalg.norm(v1)\n    norm_v2 = np.linalg.norm(v2)\n    return dot_prod / (norm_v1 * norm_v2)\n\n# Simulated low-dimensional dummy representations\nembeddings = {\n    "king":  np.array([0.90, 0.10, 0.05]),\n    "man":   np.array([0.85, 0.05, 0.02]),\n    "woman": np.array([0.15, 0.80, 0.01]),\n    "queen": np.array([0.20, 0.92, 0.04])\n}\n\n# Linear translation math\ntarget_vector = embeddings["king"] - embeddings["man"] + embeddings["woman"]\nscore = cosine_similarity(target_vector, embeddings["queen"])\n\nprint(f"Cosine Similarity to 'queen': {score:.4f}")`,
             content: {
               aim: {
-                text: "To calculate, analyze, and map high-dimensional word representations, utilizing vector math metrics to quantify semantic similarity and capture structural language relationships.",
+                text: "To generate dense vector representations of words and sentences using pre-trained embedding models, visualize their positions in high-dimensional semantic space, and quantify the conceptual similarity between text pairs using Cosine Similarity as the core distance metric.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "High-Dimensional Semantics",
-                  body: [
-                    "Word embeddings are a pivotal breakthrough in Deep Learning. Instead of representing text as discrete, unrelated IDs (one-hot encoding), embeddings map tokens into a continuous vector space.",
-                    "In this high-dimensional coordinate system, semantic meaning is represented by spatial position. Words that appear in similar linguistic contexts are pushed closer together.",
-                    "Formally, an embedding layer acts as a massive lookup table, matching a token ID to a dense tensor (e.g., $f: W \to \mathbb{R}^d$), where $d$ often ranges from 768 to 1536 dimensions depending on the architecture."
-                  ]
-                },
-                {
-                  title: "Mathematical Proximity",
-                  body: [
-                    "To determine how conceptually related two chunks of text are, systems rely on vector math, primarily calculating the Cosine Similarity.",
-                    "Cosine Similarity measures the angle between two vectors rather than their spatial magnitude. A score of 1.0 means perfect alignment, 0.0 means orthogonal (unrelated), and -1.0 means diametrically opposed."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "From IDs to a Map",
+                                        "body": [
+                                                      "Old method gave every word a unique number \u2014 but Cat=1 and Dog=2 tells the computer nothing about their relationship. Embeddings fix this by placing every word on a giant invisible map. Words used in similar sentences end up near each other.",
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Method</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Knows Cat \u2248 Dog?</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Can do King \u2212 Man + Woman = Queen?</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">One-Hot ID</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">No</td><td class=\"p-3 text-muted-foreground\">No</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Word Embeddings</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Yes \u2014 they are close on the map</td><td class=\"p-3 text-muted-foreground\">Yes \u2014 directions carry meaning</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "Cosine Similarity \u2014 the Angle Trick",
+                                        "body": [
+                                                      "We measure closeness by the angle between two word-arrows, not their length.",
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Angle</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Score</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Meaning</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">0\u00b0</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">1.0</td><td class=\"p-3 text-muted-foreground\">Same meaning</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">90\u00b0</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">0.0</td><td class=\"p-3 text-muted-foreground\">Unrelated</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">180\u00b0</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">-1.0</td><td class=\"p-3 text-muted-foreground\">Opposite meaning</td></tr></tbody></table>",
+                                                      "![Word Embeddings](/vector_space_sim.webp)"
+                                        ]
+                          }
+            ],
               simulation: "/vector_space_sim.html",
               pretest: [],
               procedure: [
@@ -227,33 +229,31 @@ export const courses: Record<string, Course> = {
             code: `import numpy as np\n\ndef get_positional_encoding(seq_len, d_model):\n    # Initialize the encoding matrix\n    pe = np.zeros((seq_len, d_model))\n    \n    # Compute the positional values\n    position = np.arange(seq_len)[:, np.newaxis]\n    div_term = np.exp(np.arange(0, d_model, 2) * -(np.log(10000.0) / d_model))\n    \n    # Assign alternating sine and cosine functions\n    pe[:, 0::2] = np.sin(position * div_term)\n    pe[:, 1::2] = np.cos(position * div_term)\n    \n    return pe\n\n# Run Verification\npe_matrix = get_positional_encoding(seq_len=10, d_model=64)\nprint(f"Generated Positional Matrix Shape: {pe_matrix.shape}")`,
             content: {
               aim: {
-                text: "To analyze the structural composition of the original Transformer architecture (Encoder-Decoder framework) and implement its positional encoding layer from scratch to understand non-sequential sequence processing.",
+                text: "To dissect and map the full structural anatomy of the original Encoder-Decoder Transformer architecture, and implement its Positional Encoding layer from scratch using alternating sine and cosine wave functions to understand how sequence order is preserved without recurrence.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "The Recurrence Bottleneck",
-                  body: [
-                    "Before 2017, sequence tasks were dominated by Recurrent Neural Networks (RNNs) and LSTMs. These models processed text strictly sequentially (token by token).",
-                    "This sequential nature prevented parallel processing on GPUs and caused models to physically 'forget' early context when dealing with long paragraphs."
-                  ]
-                },
-                {
-                  title: "The Transformer Revolution",
-                  body: [
-                    "The Transformer architecture abandoned recurrence entirely. Instead, it reads the entire text sequence simultaneously in a massive parallel burst, relying on Self-Attention to map context.",
-                    "However, processing everything at once destroys the inherent order of language (e.g., 'Dog bites man' vs 'Man bites dog').",
-                    "To fix this, the architecture injects Positional Encoding—a unique mathematical signature added directly into the input embeddings before they enter the network."
-                  ]
-                },
-                {
-                  title: "Positional Mathematics",
-                  body: [
-                    "The original paper 'Attention Is All You Need' utilizes alternating sine and cosine waves operating at different geometric frequencies to generate these positional signatures.",
-                    "This approach allows the model to extrapolate relative positions for sequences longer than those encountered during training."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "The Old Way (RNN) vs The New Way (Transformer)",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">RNN / LSTM</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Transformer</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Reads text</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">One word at a time</td><td class=\"p-3 text-muted-foreground\">All words simultaneously</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Speed</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Slow \u2014 sequential</td><td class=\"p-3 text-muted-foreground\">Fast \u2014 fully parallel</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Memory</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Forgets early words in long text</td><td class=\"p-3 text-muted-foreground\">Every word can see every other word</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">GPU friendly?</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">No</td><td class=\"p-3 text-muted-foreground\">Yes</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "The Ordering Problem & Positional Encoding",
+                                        "body": [
+                                                      "Reading everything at once loses word order \u2014 'Dog bites man' and 'Man bites dog' look identical. Fix: stamp each word with a unique wave signature before processing.",
+                                                      "Tokens in  \u2192  Add wave stamp (PE)  \u2192  Now each word has a seat number  \u2192  Encoder reads all at once  \u2192  Meaning preserved \u2713"
+                                        ]
+                          },
+                          {
+                                        "title": "Encoder vs Decoder \u2014 Quick Map",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Part</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Job</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Example</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Encoder</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Reads & understands input</td><td class=\"p-3 text-muted-foreground\">Reading English</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Decoder</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Generates output word by word</td><td class=\"p-3 text-muted-foreground\">Writing French</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Both together</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Full translation / summarisation</td><td class=\"p-3 text-muted-foreground\">GPT, T5, BERT</td></tr></tbody></table>",
+                                                      "![Transformer Architecture](/llmexp3.webp)"
+                                        ]
+                          }
+            ],
               pretest: [],
               procedure: [
                 "Sequence Initialization: Define the maximum expected sequence length and the specific dimensionality of the embedding model ($d_{model}$).",
@@ -273,25 +273,31 @@ export const courses: Record<string, Course> = {
             code: `import numpy as np\n\ndef scaled_dot_product_attention(Q, K, V):\n    # Compute raw score alignments\n    matmul_qk = np.dot(Q, K.T)\n    \n    # Scale scores based on dimensionality\n    dk = Q.shape[-1]\n    scaled_attention_logits = matmul_qk / np.sqrt(dk)\n    \n    # Row-wise softmax normalization\n    exp_logits = np.exp(scaled_attention_logits - np.max(scaled_attention_logits, axis=-1, keepdims=True))\n    attention_weights = exp_logits / np.sum(exp_logits, axis=-1, keepdims=True)\n    \n    # Weighted calculation over Values\n    output = np.dot(attention_weights, V)\n    return output, attention_weights\n\n# Sample Execution Setup\nnp.random.seed(42)\nQ = np.random.randn(3, 4) # 3 tokens, dimension 4\nK = np.random.randn(3, 4)\nV = np.random.randn(3, 4)\n\noutput, weights = scaled_dot_product_attention(Q, K, V)\nprint("Attention Weights Matrix:\\n", np.round(weights, 4))`,
             content: {
               aim: {
-                text: "To implement the mathematical operations of Scaled Dot-Product Attention from first principles, demonstrating how tokens dynamically weight and route contextual information from neighboring text elements.",
+                text: "To manually implement the complete Scaled Dot-Product Attention mechanism from first principles \u2014 computing Query, Key, and Value projections, applying scaled dot-product scoring, and using softmax normalization \u2014 to observe how each token dynamically routes and weights contextual information from every other token in the sequence.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "Scaled Dot-Product Attention",
-                  body: [
-                    "The backbone of the Transformer block is Scaled Dot-Product Attention. It allows a model to dynamically measure the relevance of every word in a sentence relative to all other words.",
-                    "For every input token vector, the model projects three distinct vector representations via linear layers: Queries ($Q$), Keys ($K$), and Values ($V$)."
-                  ]
-                },
-                {
-                  title: "Mathematical Formulation",
-                  body: [
-                    "The target attention weight matrix is formulated using the matrix equation: $\\text{Attention}(Q, K, V) = \\text{softmax}(\\frac{QK^T}{\\sqrt{d_k}})V$ where $d_k$ is the dimensionality of the key vectors.",
-                    "Dividing by $\\sqrt{d_k}$ balances the dot-product variance at high dimensions, preventing the internal gradients of the $\\text{softmax}$ activation layer from flattening out during backpropagation."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "The Library Analogy \u2014 Q, K, V",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Vector</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Role</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Library Analogy</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Q \u2014 Query</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">What am I looking for?</td><td class=\"p-3 text-muted-foreground\">Your search question</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">K \u2014 Key</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">What do I offer to others?</td><td class=\"p-3 text-muted-foreground\">A book's title / label</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">V \u2014 Value</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">What is my actual content?</td><td class=\"p-3 text-muted-foreground\">The book's inner knowledge</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "The Formula \u2014 Step by Step",
+                                        "body": [
+                                                      "Attention(Q, K, V) = softmax( QK^T / sqrt(d_k) ) x V",
+                                                      "Q \u00d7 K Score every word pair  \u2192  \u00f7 \u221ad_k Turn down the volume  \u2192  softmax() Convert to percentages  \u2192  \u00d7 V Blend values by score  \u2192  Context-rich output token"
+                                        ]
+                          },
+                          {
+                                        "title": "Why the Scaling \u00f7 \u221ad_k Matters",
+                                        "body": [
+                                                      "Without it, scores explode at high dimensions \u2192 softmax outputs near-zero gradients \u2192 the model stops learning. Dividing by \u221ad_k keeps scores in a healthy range.",
+                                                      "![Self-Attention](/llmexp4.webp)"
+                                        ]
+                          }
+            ],
               pretest: [],
               procedure: [
                 "Score Calculation: Compute the raw similarity score matrix by running a dot product between the Query matrix (Q) and the transpose of the Key matrix (K^T).",
@@ -317,27 +323,31 @@ export const courses: Record<string, Course> = {
             code: `import os\n\n# Assuming standard API pattern wrapper\ndef generate_zero_shot_sentiment(review_text):\n    system_instruction = "You are a precise classification engine. Output exactly one word: POSITIVE or NEGATIVE."\n    user_prompt = f"Analyze the sentiment of this text: '{review_text}'"\n    \n    # Structural simulation of API payload construction\n    payload = f"{system_instruction}\\nUser: {user_prompt}\\nAssistant:"\n    \n    # Simulated execution response\n    if "dies" in review_text or "broken" in review_text:\n        return "NEGATIVE"\n    return "POSITIVE"\n\n# Test Case\nreview = "The device build quality is robust, but the charging cable was missing from the box."\nresult = generate_zero_shot_sentiment(review)\nprint(f"Zero-Shot Evaluation Result: {result}")`,
             content: {
               aim: {
-                text: "To evaluate the intrinsic knowledge, baseline classification capabilities, and instruction-following boundaries of an LLM without providing contextual examples.",
+                text: "To evaluate the baseline generalization capabilities of a Large Language Model by designing and testing structured task prompts that contain no examples, measuring how accurately the model leverages its pre-trained knowledge to perform classification, translation, and instruction-following tasks under strict system-level behavioral constraints.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "The Zero-Shot Paradigm",
-                  body: [
-                    "Zero-Shot Prompting is the baseline evaluation method for Large Language Models. It tests the model's ability to complete a task without any external examples, relying solely on its internal pre-trained weights.",
-                    "Because modern LLMs are trained on vast swaths of the internet, they naturally develop a generalized understanding of grammar, sentiment, translation, and code logic.",
-                    "Zero-Shot tasks measure this innate generalizability. When a user asks an LLM to 'Translate this to French', the model relies entirely on the structural patterns it learned during initial training.",
-                      "![Zero-Shot Prompting](/zero_shot_illustration.webp)"
-                    ]
-                },
-                {
-                  title: "System vs. User Constraints",
-                  body: [
-                    "To enforce behavior in a zero-shot environment, developers utilize the System Prompt. This is a higher-tier instruction layer that dictates the model's persona, constraints, and operational bounds.",
-                    "If a model hallucinates or refuses to follow a specific structural output in a zero-shot scenario, it often indicates a failure in the underlying instruction-tuning phase of the model's development."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "What Is Zero-Shot?",
+                                        "body": [
+                                                      "You give the AI a task with zero examples. The AI uses only what it already learned from reading billions of internet pages during training.",
+                                                      "You write a clear task  \u2192  No examples given  \u2192  AI uses its pre-trained brain  \u2192  Outputs the answer"
+                                        ]
+                          },
+                          {
+                                        "title": "System Prompt vs User Prompt",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Layer</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Who Sets It</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What It Does</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">System Prompt</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Developer</td><td class=\"p-3 text-muted-foreground\">Sets the rulebook \u2014 persona, format, constraints</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">User Prompt</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">User</td><td class=\"p-3 text-muted-foreground\">The actual question or task being asked</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "When Zero-Shot Works vs Fails",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Task</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Zero-Shot?</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Translate to French</td><td class=\"p-3 text-muted-foreground\">Works</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Sentiment analysis</td><td class=\"p-3 text-muted-foreground\">Works</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Custom JSON schema</td><td class=\"p-3 text-muted-foreground\">Often fails</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Niche domain labels</td><td class=\"p-3 text-muted-foreground\">Often fails</td></tr></tbody></table>",
+                                                      "![Zero-Shot Prompting](/zero_shot_illustration.webp)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What is Zero-Shot Prompting?", options: ["Asking an AI to write code without using any numbers","Providing a task to an AI model without giving it any examples of the expected output","Giving the model zero instructions and expecting it to guess","Shutting down the model after one input"], answerIndex: 1 },
                             { question: "The \"Zero\" in Zero-Shot means:", options: ["Zero words in the prompt","Zero examples provided in the prompt","Zero accuracy expected","Zero training time"], answerIndex: 1 },
@@ -409,27 +419,25 @@ export const courses: Record<string, Course> = {
             code: `def compile_few_shot_prompt(target_input):\n    # Defining explicit structured exemplars\n    exemplars = [\n        {"input": "Text: The movie was a cinematic masterpiece. Sentiment: Highly Positive"},\n        {"input": "Text: Total waste of time and money. Sentiment: Highly Negative"},\n        {"input": "Text: Visually stunning but the plot was average. Sentiment: Mixed"}\n    ]\n    \n    # Constructing context loop\n    prompt_context = ""\n    for ex in exemplars:\n        prompt_context += f"{ex['input']}\\n###\\n"\n        \n    # Appending the evaluation target\n    final_prompt = f"{prompt_context}Text: {target_input}\\nSentiment:"\n    return final_prompt\n\n# Run Execution Preview\ntarget = "The acting was phenomenal but the sound tracking was terrible."\nfull_payload = compile_few_shot_prompt(target)\nprint(full_payload)`,
             content: {
               aim: {
-                text: "To implement In-Context Learning (ICL) by feeding a curated sequence of input-output exemplars to an LLM, guiding it to mimic specific stylistic, structural, or categorical distribution patterns.",
+                text: "To implement In-Context Learning by engineering a curated set of balanced input-output exemplars directly inside the prompt payload, guiding the model to replicate specific output patterns and classification schemas without modifying its underlying weights, while actively mitigating Majority Label Bias and Recency Bias through deliberate exemplar ordering.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "In-Context Learning (ICL)",
-                  body: [
-                    "When zero-shot constraints fail on highly specific formatting tasks, engineers turn to Few-Shot Prompting, also known as In-Context Learning.",
-                    "By appending a series of perfect input-output examples directly into the prompt payload, the LLM temporarily 'learns' the desired pattern without actually changing its underlying neural weights.",
-                    "This allows developers to rapidly prototype custom formatting behaviors (like proprietary JSON schemas or unique classification labels) without the immense cost of training a fine-tuned model.",
-                      "![Few-Shot Prompting](/few_shot_illustration.webp)"
-                    ]
-                },
-                {
-                  title: "Mitigating Exemplar Bias",
-                  body: [
-                    "Few-shot prompting carries risks. LLMs suffer from 'Majority Label Bias' and 'Recency Bias'. If you provide three 'Positive' examples and only one 'Negative' example, the model becomes statistically biased toward outputting 'Positive'.",
-                    "To prevent this, engineers must carefully balance their exemplars and intentionally randomize their order to prevent the model from blindly mimicking the structure of the last provided example."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "The Idea \u2014 Show, Don't Just Tell",
+                                        "body": [
+                                                      "Instead of explaining the rules, you paste a few perfect examples directly into the prompt. The AI copies the pattern \u2014 instantly, no retraining needed.",
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Step</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Detail</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Example 1</td><td class=\"p-3 text-muted-foreground\">'Cat' \u2192 Animal</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Example 2</td><td class=\"p-3 text-muted-foreground\">'Rose' \u2192 Plant</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Example 3</td><td class=\"p-3 text-muted-foreground\">'Eagle' \u2192 Animal</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">New question</td><td class=\"p-3 text-muted-foreground\">'Oak' \u2192 ?</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">AI sees the pattern</td><td class=\"p-3 text-muted-foreground\">Outputs: Plant \u2713</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "The Hidden Dangers \u2014 Bias",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Bias Type</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What Happens</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">The Fix</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Majority Label Bias</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">3 Positive examples, 1 Negative \u2192 AI always says Positive</td><td class=\"p-3 text-muted-foreground\">Balance labels equally</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Recency Bias</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">AI blindly copies the pattern of the last example</td><td class=\"p-3 text-muted-foreground\">Shuffle example order randomly</td></tr></tbody></table>",
+                                                      "![Few-Shot Prompting](/few_shot_illustration.webp)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What is Few-Shot Prompting?", options: ["Giving the AI model a few seconds to think","Providing a few input-output examples (demonstrations) within the prompt to show the model how to perform a task","Sending a few separate prompts at the same time","Training the model on a few mega-bytes of data"], answerIndex: 1 },
                             { question: "What does the \"Shot\" refer to in Few-Shot Prompting?", options: ["A program error","An example or demonstration pair (Input -> Output)","A token count metric","A network layer block"], answerIndex: 1 },
@@ -501,27 +509,31 @@ export const courses: Record<string, Course> = {
             code: `def solve_logic_with_cot(problem_text, enable_cot=True):\n    if enable_cot:\n        prompt = f"Problem: {problem_text}\\nReasoning: Let's think step by step."\n        # Simulated multi-token computation steps\n        steps = [\n            "1. Start with 3 boxes of 4 apples: 3 * 4 = 12 total apples.",\n            "2. Subtract the 2 apples given to his sister: 12 - 2 = 10.",\n            "Final Answer: 10"\n        ]\n        return "\\n".join(steps)\n    else:\n        prompt = f"Problem: {problem_text}\\nAnswer:"\n        return "Answer: 14" # Simulated immediate guessing failure\n\n# Test Call\npuzzle = "John has 3 boxes of apples. Each box contains 4 apples. He gives 2 apples to his sister. How many does he have left?"\nprint(solve_logic_with_cot(puzzle, enable_cot=True))`,
             content: {
               aim: {
-                text: "To unpack complex symbolic logic, mathematical deduction, and multi-step reasoning in an LLM by forcing the generation of an explicit intermediate rationale sequence before outputting the final answer.",
+                text: "To improve LLM accuracy on complex multi-step reasoning, mathematical deduction, and logical inference tasks by prompting the model to generate explicit intermediate reasoning steps before producing a final answer, effectively expanding its working memory and reducing catastrophic hallucination rates.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "The Computational Bottleneck",
-                  body: [
-                    "Standard LLMs process text autoregressively, predicting the next token based entirely on the existing context. If a user asks a complex math question and demands an immediate final answer, the model is forced to compute the entire multi-step solution in a single mathematical prediction.",
-                    "This frequently causes catastrophic hallucinations in logic, mathematics, and multi-hop reasoning tasks.",
-                      "![Chain-of-Thought Prompting](/cot_illustration.webp)"
-                    ]
-                },
-                {
-                  title: "Unlocking Working Memory",
-                  body: [
-                    "Chain-of-Thought (CoT) Prompting solves this by forcing the model to 'think out loud'. By generating intermediate reasoning steps before outputting the final answer, the model is given extra computational space.",
-                    "Every new token generated during the reasoning phase is fed back into the context window, effectively acting as an expanded working memory. This allows the model to break down complex logic sequentially.",
-                    "Techniques like Zero-Shot CoT simply append the phrase 'Let's think step by step', while Few-Shot CoT provides explicit examples of correct reasoning pathways."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "The Problem \u2014 No Scratch Paper",
+                                        "body": [
+                                                      "When you demand an instant final answer to a complex problem, the AI must compress 10 steps into 1 prediction \u2014 and usually gets it wrong. CoT gives it scratch paper to think on.",
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Without CoT</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">With CoT</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">How AI answers</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Guesses final answer in one shot</td><td class=\"p-3 text-muted-foreground\">Writes every step, then answers</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Accuracy on maths</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Often wrong</td><td class=\"p-3 text-muted-foreground\">Dramatically better</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Hallucination risk</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">High</td><td class=\"p-3 text-muted-foreground\">Low</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "How Each Step Feeds the Next",
+                                        "body": [
+                                                      "User asks hard question  \u2192  AI writes Step 1  \u2192  Step 1 added to context  \u2192  AI writes Step 2\u2026  \u2192  Final answer is grounded \u2713"
+                                        ]
+                          },
+                          {
+                                        "title": "Two Ways to Trigger CoT",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Method</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">How</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Effort</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Zero-Shot CoT</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Append 'Let us think step by step'</td><td class=\"p-3 text-muted-foreground\">One line \u2014 easy</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Few-Shot CoT</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Provide full worked examples with steps shown</td><td class=\"p-3 text-muted-foreground\">More effort \u2014 more reliable</td></tr></tbody></table>",
+                                                      "![Chain-of-Thought Prompting](/cot_illustration.webp)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What is the primary goal of Chain-of-Thought (CoT) Prompting?", options: ["To make the model generate random thoughts","To break down complex multi-step reasoning problems into a series of intermediate logical steps","To force the model to respond in a single word","To speed up token generation speeds"], answerIndex: 1 },
                             { question: "What iconic phrase triggers Zero-Shot Chain-of-Thought reasoning in an LLM?", options: ["Respond as fast as possible.","Let's think step by step.","Give me the final answer immediately.","Format this as a clean JSON file."], answerIndex: 1 },
@@ -593,27 +605,25 @@ export const courses: Record<string, Course> = {
             code: `import json\nfrom pydantic import BaseModel, Field\n\n# 1. Define the target structural schema requirements\nclass UserProfile(BaseModel):\n    name: str = Field(description="The user's full name")\n    age: int = Field(description="Age in years, must be positive")\n    skills: list[str] = Field(description="List of technical competencies")\n\n# 2. Simulate API response payload with strict JSON constraint enforcement\ndef parse_llm_response(raw_json_str):\n    try:\n        # Validate data directly against the Pydantic structural schema\n        data = json.loads(raw_json_str)\n        validated_profile = UserProfile(**data)\n        return "Success", validated_profile\n    except Exception as e:\n        return "Parsing/Validation Failure", str(e)\n\n# Run Validation Verification\nmock_output = '{"name": "Likhith Kumar", "age": 25, "skills": ["Python", "React", "FastAPI"]}'\nstatus, obj = parse_llm_response(mock_output)\nprint(f"Validation Status: {status}\\nObject: {obj}")`,
             content: {
               aim: {
-                text: "To enforce strict structural and grammatical constraints on LLM responses, ensuring outputs conform to valid code execution structures (like JSON, YAML, or Pydantic schemas) for downstream application integration.",
+                text: "To enforce strict, machine-parseable output formatting from an LLM by applying both prompt-level schema constraints and grammar-level token filtering techniques, ensuring every response conforms to a valid JSON or Pydantic schema structure suitable for direct programmatic ingestion by downstream APIs and databases.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "The Parsing Problem",
-                  body: [
-                    "Large Language Models naturally output conversational prose. While excellent for chatbots, this is detrimental for enterprise architectures where an LLM's output must be ingested programmatically by external databases or Python functions.",
-                    "If a model outputs 'Here is the JSON you requested: { ... }', the conversational prefix will instantly crash a standard JSON.parse() command.",
-                      "![Structured Output Generation](/structured_output_illustration.webp)"
-                    ]
-                },
-                {
-                  title: "Enforcing Structural Output",
-                  body: [
-                    "Structured Output Generation techniques force the LLM to adhere to a strict programmatic schema. The most basic approach is Prompt Constraints, explicitly telling the model to output *only* valid JSON with no markdown.",
-                    "Advanced approaches involve Grammar-Level Constraints, where the API engine restricts the actual probability distribution of the next token. If the token violates the provided Pydantic schema, it is mathematically blocked from being generated.",
-                    "This ensures 100% deterministic compliance when bridging the gap between non-deterministic AI generation and rigid traditional software."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "The Problem \u2014 AIs Love to Chat",
+                                        "body": [
+                                                      "By default the AI says: 'Sure! Here is the JSON: { ... } Hope this helps!' The word 'Sure' instantly crashes any program trying to parse that as JSON.",
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Default AI Output</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Structured Output</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Format</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Conversational prose + data</td><td class=\"p-3 text-muted-foreground\">Pure valid JSON only</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">JSON.parse() result</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">CRASH</td><td class=\"p-3 text-muted-foreground\">Works perfectly</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Use in production?</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">No</td><td class=\"p-3 text-muted-foreground\">Yes</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "Two Enforcement Levels",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Method</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">How It Works</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Reliability</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Prompt Constraints</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Tell the AI: output ONLY valid JSON, no markdown</td><td class=\"p-3 text-muted-foreground\">~90% \u2014 AI can still slip</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Grammar-Level Constraints</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">API engine blocks any token that violates the schema mathematically</td><td class=\"p-3 text-muted-foreground\">100% guaranteed \u2014 physically impossible to fail</td></tr></tbody></table>",
+                                                      "![Structured Output Generation](/structured_output_illustration.webp)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What is Structured Output Generation?", options: ["Making the text print out slowly word-by-word","Forcing an AI model to return its response in an exact, predictable machine-readable format (like JSON, XML, or YAML) matching a specific schema","Writing emails with clean headings","Converting a document into a text file"], answerIndex: 1 },
                             { question: "Which format is the most popular for structured data exchange with modern web APIs?", options: ["TXT","JSON (JavaScript Object Notation)","DOCX","MP4"], answerIndex: 1 },
@@ -684,27 +694,31 @@ export const courses: Record<string, Course> = {
             code: `class ConversationalBot:\n    def __init__(self, system_instruction):\n        # Establish the foundational system state\n        self.memory = [{"role": "system", "content": system_instruction}]\n\n    def chat_turn(self, user_message):\n        # 1. Append the new user input turn to history\n        self.memory.append({"role": "user", "content": user_message})\n        \n        # Simulated API processing over the complete state array\n        # In a production app, you would pass self.memory to the client SDK\n        simulated_response = f"Acknowledging request: '{user_message}' based on history of {len(self.memory)} turns."\n        \n        # 2. Append the assistant's generation block to preserve context\n        self.memory.append({"role": "assistant", "content": simulated_response})\n        return simulated_response\n\n# Verification Run\nbot = ConversationalBot("You are a helpful programming assistant.")\nprint(bot.chat_turn("Hello, I am setting up a Python project."))\nprint(bot.chat_turn("What folder layout do you recommend for it?"))`,
             content: {
               aim: {
-                text: "To architect a real-time conversational interface by engineering a stateful memory management loop that preserves chat history across independent stateless API calls.",
+                text: "To architect a fully stateful conversational interface by engineering a client-side rolling message history loop that appends every user and assistant turn with its role label, transmits the full history on every API call, and implements a truncation strategy \u2014 either Sliding Window or Summary Buffer \u2014 to sustain coherent long-term dialogue within the model's hard context window limit.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "The Stateless Architecture",
-                  body: [
-                    "By design, Large Language Model API endpoints are entirely stateless. They process an input, return an output, and immediately forget the transaction.",
-                    "To build a continuous, real-time conversational interface, the 'memory' of the conversation must be engineered and maintained entirely on the client side.",
-                      "![Stateful Memory Illustration](/llms_w3_1_stateful_memory.png)"
-                    ]
-                },
-                {
-                  title: "Stateful Memory Loops",
-                  body: [
-                    "This is achieved by maintaining an append-only rolling history array. Every interaction is mapped to a specific role: 'system' (for rules), 'user' (for queries), and 'assistant' (for responses).",
-                    "With every new message, the entire history array must be transmitted back to the API. As the conversation grows, this payload continuously expands.",
-                    "To prevent exceeding the model's hard context window limit (and to manage token costs), engineers must implement truncation strategies like Sliding Windows (deleting the oldest messages) or Summary Buffers (using a smaller LLM to summarize the history)."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "Shocking Fact \u2014 The AI Has No Memory!",
+                                        "body": [
+                                                      "Every API call starts completely fresh. The AI instantly forgets everything after replying. ChatGPT only seems to remember because the app secretly sends the entire conversation history with every message.",
+                                                      "Message 1 sent  \u2192  Reply 1 received  \u2192  Message 2 sent + full history  \u2192  Reply 2 received  \u2192  History grows every turn"
+                                        ]
+                          },
+                          {
+                                        "title": "The Three Roles in the History Array",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Role</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Who</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Example</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">system</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Developer</td><td class=\"p-3 text-muted-foreground\">'You are a helpful assistant. Reply concisely.'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">user</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Human</td><td class=\"p-3 text-muted-foreground\">'What is the capital of France?'</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">assistant</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">AI</td><td class=\"p-3 text-muted-foreground\">'The capital of France is Paris.'</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "When History Gets Too Big \u2014 Truncation Strategies",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Strategy</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What It Does</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Keeps Old Context?</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Cost</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Sliding Window</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Delete the oldest messages when limit is near</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">No \u2014 gone forever</td><td class=\"p-3 text-muted-foreground\">Low</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Summary Buffer</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Summarise old messages into one compact block</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Yes \u2014 compressed</td><td class=\"p-3 text-muted-foreground\">Medium</td></tr></tbody></table>",
+                                                      "![Building a Chatbot](/llms_w3_1_stateful_memory.png)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What is the main purpose of a chatbot?", options: ["To format computer hard drives", "To simulate human conversation through text or voice interactions", "To speed up internet hardware connections", "To compress large image files into zip formats"], answerIndex: 1 },
                             { question: "Which of the following describes a \"rule-based\" chatbot?", options: ["It learns dynamically from the internet every second", "It answers using pre-written, hard-coded rules and decision trees", "It trains its own neural network weight layers on the fly", "It requires a graphical GPU cluster card to run basic scripts"], answerIndex: 1 },
@@ -751,26 +765,27 @@ export const courses: Record<string, Course> = {
             code: `def map_reduce_summarizer_mock(document_chunks):\n    # 1. Map Phase: Summarize each chunk independently\n    intermediate_summaries = []\n    for chunk in document_chunks:\n        # Simulated individual API call per chunk block\n        map_summary = f"Summary of [{chunk[:20]}...]"\n        intermediate_summaries.append(map_summary)\n        \n    print(f"Map Phase Complete. Generated {len(intermediate_summaries)} chunk summaries.")\n    \n    # 2. Reduce Phase: Combine intermediate results into a final summary\n    combined_context = " ".join(intermediate_summaries)\n    final_summary = f"Final Executive Synthesis: {combined_context}"\n    return final_summary\n\n# Test Verification Data\nchunks = [\n    "Paragraph one discussing initial system specifications and project scopes.",\n    "Paragraph two detailing algorithmic development parameters and performance metrics.",\n    "Paragraph three listing project deployment strategies and continuous maintenance schemas."\n]\nprint(map_reduce_summarizer_mock(chunks))`,
             content: {
               aim: {
-                text: "To implement and benchmark massive text summarization processing strategies (Stuffing, Map-Reduce, and Refine) to handle documents that exceed baseline model context boundaries.",
+                text: "To design and benchmark three document summarization architectures \u2014 Stuffing, Map-Reduce, and Refine \u2014 against documents of varying sizes that exceed model context limits, comparing each strategy's output quality, context preservation depth, and total API call efficiency to determine the optimal approach for different document types.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "The Context Constraint",
-                  body: [
-                    "Summarizing massive documents (like legal contracts or textbooks) presents a unique challenge: the document often exceeds the maximum token limit of the LLM's context window.",
-                    "The naive approach, known as 'Stuffing', simply forces the entire document into the prompt. When documents exceed the limit, stuffing fails completely.",
-                      "![Text Summarization Workflow](/llms_w3_2_summarization.png)"
-                    ]
-                },
-                {
-                  title: "Advanced Chunking Architectures",
-                  body: [
-                    "To overcome this, engineers use Chunking Pipelines. The Map-Reduce architecture splits a massive document into smaller, manageable chunks. The LLM summarizes each chunk individually (the Map phase), and then summarizes the combined summaries into a final document (the Reduce phase).",
-                    "Alternatively, the Refine architecture generates a summary of the first chunk, then passes that summary alongside the second chunk to the LLM, asking it to update the ongoing summary. This process cascades sequentially through the entire document, preserving deep context but running slower due to its sequential nature."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "The Challenge \u2014 Document Won't Fit!",
+                                        "body": [
+                                                      "AI models can only read a limited number of words at once (context window). A 500-page legal contract is way too big. We need smart chunking strategies.",
+                                                      "Strategy 1 \u2014 Stuffing: Entire doc into one prompt  \u2192  Summary",
+                                                      "Strategy 2 \u2014 Map-Reduce: Split into chunks  \u2192  Summarise each (MAP)  \u2192  Combine summaries  \u2192  Final summary (REDUCE)",
+                                                      "Strategy 3 \u2014 Refine: Chunk 1 \u2192 Summary 1  \u2192  Chunk 2 + Summary 1 \u2192 Summary 2  \u2192  Chunk 3 + Summary 2 \u2192 Summary 3  \u2192  Final Summary \u2713"
+                                        ]
+                          },
+                          {
+                                        "title": "Strategy Comparison",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Strategy</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Speed</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Context Quality</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Best For</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Stuffing</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Instant</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Perfect</td><td class=\"p-3 text-muted-foreground\">Short docs only</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Map-Reduce</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Fast</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Some loss</td><td class=\"p-3 text-muted-foreground\">Large docs, speed matters</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Refine</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Slow</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Excellent</td><td class=\"p-3 text-muted-foreground\">Legal / technical docs</td></tr></tbody></table>",
+                                                      "![AI-Based Text Summarization](/llms_w3_2_summarization.png)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What are the two primary technical paradigms used in text summarization?", options: ["Extractive and Abstractive summarization", "Binary and Hexadecimal reductions models fields layouts", "Linear alignment parsing code trees compilations modules", "Vector space database partitioning coordinate indices calculations"], answerIndex: 0 },
                             { question: "How does \"Extractive Summarization\" work?", options: ["It writes completely new sentences from scratch using human intuition paths", "It identifies and copies exact, verbatim sentences or key phrases directly from the source text to form the summary", "It translates the entire document into another language variation first", "It deletes all adjectives and punctuation markers lines strings targets"], answerIndex: 1 },
@@ -807,27 +822,25 @@ export const courses: Record<string, Course> = {
             code: `def execute_grounded_qa(document_source, question):\n    # Simulating a basic search component to isolate relevant context lines\n    relevant_context = ""\n    for line in document_source.split("\\n"):\n        # Match keywords from the question to extract relevant lines\n        keyword = question.split()[-1].strip("?")\n        if keyword.lower() in line.lower():\n            relevant_context += line + " "\n\n    # Check if context was successfully extracted\n    if not relevant_context:\n        relevant_context = "No specific reference passage found in source document."\n\n    # Formulate the grounded prompt template\n    prompt_template = (\n        f"Context: {relevant_context}\\n"\n        f"Question: {question}\\n"\n        f"Answer the question using only the context provided above. If unknown, state 'Not Found':"\n    )\n    \n    return prompt_template\n\n# Verification Run\ndocument = (\n    "Section 1: Account setup requires a verified email address.\\n"\n    "Section 2: The standard refund window is 14 days from initial purchase.\\n"\n    "Section 3: Subscription cancellations take effect at the end of the billing cycle."\n)\nquery = "What is the timeline for a refund?"\nprint(execute_grounded_qa(document, query))`,
             content: {
               aim: {
-                text: "To construct a foundational Document Question-Answering pipeline by implementing a linear semantic context search loop to inject relevant document passages into an LLM prompt.",
+                text: "To build a context-grounded question answering pipeline that retrieves the most relevant passages from a provided document, injects them directly into a strictly constrained system prompt, and forces the LLM to extract verifiable answers exclusively from the supplied context \u2014 explicitly instructing the model to respond with 'I don't know' when the answer is absent \u2014 eliminating hallucination and creating a full audit trail from answer back to source.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "Grounding the Model",
-                  body: [
-                    "A Document Question Answering pipeline is the foundational precursor to enterprise RAG systems. It focuses on forcing an LLM to extract facts from a provided document rather than relying on its pre-trained memory.",
-                    "When users ask questions about proprietary documents (like a company HR manual), standard LLMs hallucinate because the facts were not in their training data.",
-                      "![Document QA Extraction Loop](/llms_w3_3_document_qa.png)"
-                    ]
-                },
-                {
-                  title: "The Extraction Loop",
-                  body: [
-                    "By injecting the relevant document directly into the prompt context alongside the user's question, the LLM acts as an advanced reading comprehension engine.",
-                    "The system prompt is heavily modified with strict constraints, commanding the model: 'Answer the question strictly using the provided context. If the answer is not present, reply with 'I don't know'.'",
-                    "This orchestration dramatically reduces hallucination rates and creates a verifiable audit trail for generated answers."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "The Problem \u2014 AI Guesses From Memory",
+                                        "body": [
+                                                      "Ask an AI about your company's private HR policy and it invents a confident answer that sounds right but is completely made up \u2014 it was never trained on your document.",
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Standard AI</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Document QA</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Knowledge source</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Pre-trained memory</td><td class=\"p-3 text-muted-foreground\">The document you provide</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Hallucination risk</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Very High</td><td class=\"p-3 text-muted-foreground\">Very Low</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Can be audited?</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">No</td><td class=\"p-3 text-muted-foreground\">Yes \u2014 answer traces back to source</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Unknown answer?</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Invents one</td><td class=\"p-3 text-muted-foreground\">Says 'I don't know'</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "The Extraction Flow",
+                                        "body": [
+                                                      "User question  \u2192  Find relevant passages  \u2192  Inject into prompt + rule: use only this  \u2192  AI reads & extracts answer  \u2192  Auditable result \u2713",
+                                                      "![Document Question Answering](/llms_w3_3_document_qa.png)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What is Document Question Answering (DocQA)?", options: ["Asking an AI to write a completely fictional novel story book from scratch", "An NLP task that extracts or generates precise answers to natural language questions based strictly on the content of provided source files (like PDFs or scanned images)", "Generating clean graphics layout presentation components code templates web assets", "Setting up data network firewalls proxies routes parameters configurations checks  What does OCR stand for in document text preprocessing ingestion systems pipelines?"], answerIndex: 1 },
                             { question: "", options: ["Optimal Context Retrieval", "Optical Character Recognition (converting text inside images/scans into machine-readable digital string text)", "Output Code Reduction", "Operational Coordinate Routing"], answerIndex: 1 },
@@ -867,26 +880,25 @@ export const courses: Record<string, Course> = {
             code: `import numpy as np\n\ndef generate_mock_embedding(text, dimension=4):\n    # Simulated mapping logic using character weight scores\n    np.random.seed(sum(ord(c) for c in text) % 100)\n    raw_vector = np.random.randn(dimension)\n    \n    # L2 Vector Normalization calculation\n    norm = np.linalg.norm(raw_vector)\n    normalized_vector = raw_vector / norm if norm > 0 else raw_vector\n    return normalized_vector.tolist()\n\n# Verification Pass\ntext_chunk = "Retrieval systems require fast data validation pipelines."\nvector = generate_mock_embedding(text_chunk)\nprint(f"Generated Vector Representation:\\n{np.round(vector, 4)}")`,
             content: {
               aim: {
-                text: "To implement a document ingestion chunking strategy and programmatically convert text blocks into dense vector representations using pre-trained embedding models.",
+                text: "To build a document ingestion pipeline that systematically chunks raw text into semantically coherent blocks, converts each chunk into a dense high-dimensional vector using a pre-trained embedding model, applies L2 normalization to standardize all vector magnitudes to 1.0, and stores the resulting vectors in a structured format ready for similarity-based retrieval.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "High-Dimensional Ingestion",
-                  body: [
-                    "To build a production-ready vector database, raw text must be systematically ingested, chunked, and converted into dense vector representations using Embedding Models.",
-                    "While tokenization maps text strings to discrete integer IDs, Embedding Models translate those strings into continuous vectors in a dense, high-dimensional numerical space. This process captures deep semantic meaning rather than just exact word matches.",
-                      "![Creating Embeddings Pipeline](/chunking_embedding_illustration.webp)"
-                    ]
-                },
-                {
-                  title: "The Mechanics of Vector Spaces",
-                  body: [
-                    "Given a text chunk C, an embedding model outputs a vector $v = Embedding(C) \in R^d$, where $d$ represents the dimensional complexity of the model (e.g., $1536$ for OpenAI text-embedding-3-small).",
-                    "To optimize downstream search operations, these floating-point arrays undergo L2 Vector Normalization, ensuring every vector has an exact magnitude of 1.0. This normalizes the space, allowing lightning-fast similarity comparisons."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "From Words to Numbers to Meaning",
+                                        "body": [
+                                                      "A computer cannot read meaning \u2014 it only works with numbers. Embedding models translate every paragraph into a unique list of numbers that captures its meaning as a location on a giant invisible map.",
+                                                      "Raw document (PDF / text)  \u2192  Chunking 200\u2013500 words each  \u2192  Embedding model chunk \u2192 vector  \u2192  L2 Normalise magnitude = 1.0  \u2192  Store in vector database"
+                                        ]
+                          },
+                          {
+                                        "title": "Why These Steps Matter",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Step</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Why It Is Needed</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Chunking</td><td class=\"p-3 text-muted-foreground\">One big blob = one blurry average of everything. Chunks keep ideas separate and findable.</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Embedding</td><td class=\"p-3 text-muted-foreground\">Converts meaning into numbers the computer can compare mathematically.</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">L2 Normalisation</td><td class=\"p-3 text-muted-foreground\">Makes all vectors the same length so comparisons are fair and fast.</td></tr></tbody></table>',",
+                                                      "![Creating Embeddings](/chunking_embedding_illustration.webp)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What is the first step in creating text embeddings using an API?", options: ["Deleting all numbers", "Passing raw text or tokens to an embedding model", "Writing a SQL database from scratch", "Formatting a hard drive"], answerIndex: 1 },
                             { question: "Which of these is a widely used commercial API for creating text embeddings?", options: ["OpenAI Embedding API (e.g., text-embedding-3-small)", "WinZip Compression Tool", "Google Sheets Font Layer", "Google Chrome URL Shortener"], answerIndex: 0 },
@@ -958,27 +970,30 @@ export const courses: Record<string, Course> = {
             code: `import numpy as np\n\ndef rank_semantic_chunks(query_vector, document_embeddings, top_k=2):\n    q = np.array(query_vector)\n    d_matrix = np.array(document_embeddings)\n    \n    # Calculate row-wise dot product similarity over normalized structures\n    scores = np.dot(d_matrix, q) / (np.linalg.norm(d_matrix, axis=1) * np.linalg.norm(q))\n    \n    # Isolate indices in descending order\n    top_indices = np.argsort(scores)[::-1][:top_k]\n    return [(idx, scores[idx]) for idx in top_indices]\n\n# Test Data Mocking\nmock_query = [0.1, 0.9, 0.0, 0.2]\nmock_docs = [\n    [0.12, 0.88, 0.01, 0.18], # High match\n    [0.85, 0.05, 0.10, 0.02], # Low match\n    [0.15, 0.82, 0.05, 0.22]  # Moderate match\n]\nprint("Top matched indices and scores:", rank_semantic_chunks(mock_query, mock_docs))`,
             content: {
               aim: {
-                text: "To implement a vector similarity index using NumPy, calculating spatial angles to extract relevant source text chunks without relying on exact keyword matching.",
+                text: "To implement a vector similarity search engine using cosine similarity as the ranking metric, enabling natural language queries to retrieve the most contextually relevant document chunks from a vector index \u2014 bypassing keyword matching entirely \u2014 and compare the performance trade-offs between brute-force Flat Index search and Approximate Nearest Neighbor indexing using HNSW graphs.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "Beyond Traditional Keywords",
-                  body: [
-                    "Semantic Search completely bypasses the limitations of traditional keyword matching engines (like BM25 or Elasticsearch). Instead of looking for identical string matches, it compares numerical vectors.",
-                    "When a user submits a question, it is translated into a vector. The search engine then calculates the spatial angle between the query vector and all stored document vectors.",
-                      "![Semantic Search Architecture](/semantic_search_illustration.webp)"
-                    ]
-                },
-                {
-                  title: "Similarity Metrics and Indexing",
-                  body: [
-                    "Ranking is primarily calculated using Cosine Similarity. Chunks that achieve the highest similarity scores represent the most contextually relevant passages.",
-                    "In massive production databases with millions of vectors, comparing the query against every single vector (Flat Index) is too slow.",
-                    "To solve this, databases use Approximate Nearest Neighbor (ANN) architectures, such as Hierarchical Navigable Small World (HNSW) graphs, which trade a tiny fraction of accuracy for massive, scalable lookup speeds."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "Keyword Search vs Semantic Search",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Keyword Search</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Semantic Search</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Matches on</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Exact same words</td><td class=\"p-3 text-muted-foreground\">Meaning and concept</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">'car' finds</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Only 'car'</td><td class=\"p-3 text-muted-foreground\">'vehicle', 'automobile', 'sedan' too</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Fails when</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Different words, same idea</td><td class=\"p-3 text-muted-foreground\">Almost never</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Method</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">String comparison</td><td class=\"p-3 text-muted-foreground\">Cosine similarity of vectors</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "The Search Flow",
+                                        "body": [
+                                                      "User question  \u2192  Embed the question \u2192 vector  \u2192  Compare against all stored vectors  \u2192  Rank by cosine similarity score  \u2192  Return top matching chunks"
+                                        ]
+                          },
+                          {
+                                        "title": "Flat Index vs HNSW \u2014 Speed Trade-off",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Index Type</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Method</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Speed</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Accuracy</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Use When</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Flat Index</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Check every single vector one by one</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Slow (millions = minutes)</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">100%</td><td class=\"p-3 text-muted-foreground\">Small datasets</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">HNSW Graph</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Navigate a smart graph, skip irrelevant zones</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Fast (millions = milliseconds)</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">~99%</td><td class=\"p-3 text-muted-foreground\">Production systems</td></tr></tbody></table>",
+                                                      "![Semantic Search](/semantic_search_illustration.webp)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What is Semantic Search?", options: ["Searching documents based strictly on exact keyword character matches", "Searching documents based on the conceptual meaning and intent of the query text", "Searching text files alphabetically by the first letter of each row", "Deleting duplicate words inside a database index"], answerIndex: 1 },
                             { question: "Traditional keyword search (like BM25 or TF-IDF) struggles with:", options: ["Matching exact product serial codes", "Synonyms (e.g., searching for \"automobile\" but the document uses the word \"car\")", "Processing short strings of text", "Counting exact term occurrences"], answerIndex: 1 },
@@ -1050,27 +1065,30 @@ export const courses: Record<string, Course> = {
             code: `def compile_rag_execution_payload(query, document_source_dict, match_idx_list):\n    # 1. Harvest matching context snippets from database records\n    retrieved_context_blocks = []\n    for idx in match_idx_list:\n        if idx in document_source_dict:\n            retrieved_context_blocks.append(document_source_dict[idx])\n            \n    context_str = " ".join(retrieved_context_blocks)\n    \n    # 2. Formulate the explicit system constraints and append variables\n    augmented_prompt = (\n        f"System: Answer the question using only the provided context. If unsure, say 'Not Found'.\\n"\n        f"Context: {context_str}\\n"\n        f"Question: {query}\\n"\n        f"Answer:"\n    )\n    return augmented_prompt\n\n# Run Pipeline Compilation Preview\ndb_records = {\n    0: "Version 4.2 framework updates deprecate historical encryption keys.",\n    1: "Session validation cookies expire automatically after 30 minutes."\n}\ntarget_matches = [0]\nprint(compile_rag_execution_payload("What happens to encryption keys in v4.2?", db_records, target_matches))`,
             content: {
               aim: {
-                text: "To integrate a semantic search component with an LLM text generation model, constructing a complete end-to-end Retrieval-Augmented Generation (RAG) pipeline that provides context-grounded answers.",
+                text: "To construct a complete end-to-end Retrieval-Augmented Generation system that intercepts user queries, executes semantic search against a live vector database, injects the top retrieved chunks as grounded context into a structured LLM prompt, and produces factually verifiable answers \u2014 directly solving the twin limitations of knowledge cutoff dates and hallucination in standalone language models.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "The RAG Orchestration Engine",
-                  body: [
-                    "Retrieval-Augmented Generation (RAG) is the enterprise gold standard for deploying LLMs. It fuses the rapid data retrieval of semantic search with the dynamic reasoning capabilities of generative models.",
-                    "RAG directly solves the two most significant limitations of LLMs: hardcoded knowledge cut-off dates and the propensity for factual hallucinations.",
-                      "![Retrieval-Augmented Generation Loop](/rag_pipeline_illustration.webp)"
-                    ]
-                },
-                {
-                  title: "The RAG Loop",
-                  body: [
-                    "The architecture operates on an orchestrator loop. When a user asks a question, the orchestrator intercepts it and executes a semantic search against an updated vector database.",
-                    "It retrieves the most relevant facts, injects those facts into a structured prompt, and passes the entire package to the LLM.",
-                    "This grounds the generation in verifiable reality. Advanced RAG pipelines improve upon this by utilizing Cross-Encoders (to logically rerank the retrieved chunks before injection) and Query Expansion (to rewrite poor user queries into optimized search strings)."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "The Two Problems RAG Fixes",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">LLM Problem</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What Happens</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">RAG Fix</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Knowledge cutoff</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">AI trained in 2023 has no idea about 2025 events</td><td class=\"p-3 text-muted-foreground\">Vector DB is updated; AI reads fresh facts before answering</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Hallucination</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">AI confidently invents facts it doesn't know</td><td class=\"p-3 text-muted-foreground\">AI is forced to answer only from retrieved real documents</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "The RAG Orchestration Loop",
+                                        "body": [
+                                                      "User asks a question  \u2192  Semantic search on vector DB  \u2192  Retrieve top 3\u20135 chunks  \u2192  Inject chunks into prompt  \u2192  LLM reads & answers \u2713"
+                                        ]
+                          },
+                          {
+                                        "title": "Advanced RAG Upgrades",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Upgrade</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What It Does</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Cross-Encoder Reranking</td><td class=\"p-3 text-muted-foreground\">Double-checks retrieved chunks and reorders by true relevance before injection</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Query Expansion</td><td class=\"p-3 text-muted-foreground\">Rewrites a vague user question into a better optimised search query first</td></tr></tbody></table>",
+                                                      "![RAG Pipeline](/rag_pipeline_illustration.webp)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What does RAG stand for in AI development?", options: ["Random Access Generation","Retrieval-Augmented Generation","Rapid Array Grouping","Real-time Authentication Gateway"], answerIndex: 1 },
                             { question: "What is the primary problem that a RAG pipeline solves for LLMs?", options: ["It makes the text font look sharper","It provides the model with up-to-date, external company-specific knowledge, reducing hallucinations and avoiding retraining costs","It increases internet connection speeds","It reduces python script indentation bugs"], answerIndex: 1 },
@@ -1142,27 +1160,31 @@ export const courses: Record<string, Course> = {
             code: `def determine_optimization_strategy(recency_critical, structural_customization):\n    # 0.0 = Low requirement, 1.0 = High requirement\n    if recency_critical > 0.7 and structural_customization <= 0.5:\n        return "DEPLOYMENT RECOMMENDATION: Use Prompt Engineering combined with an external RAG Pipeline."\n    elif structural_customization > 0.7 and recency_critical <= 0.4:\n        return "DEPLOYMENT RECOMMENDATION: Supervised Weight Parameter Fine-Tuning via LoRA/PEFT layers."\n    else:\n        return "DEPLOYMENT RECOMMENDATION: Deploy a Hybrid System (FT base model for tone, RAG for data retrieval)."\n\n# Run Scenario Simulation Test\nprint(determine_optimization_strategy(recency_critical=0.9, structural_customization=0.2))`,
             content: {
               aim: {
-                text: "To systematically analyze the technical trade-offs, cost models, and performance boundaries of Prompt Engineering/RAG versus Parametric Fine-Tuning configurations.",
+                text: "To systematically analyze and compare the technical trade-offs, deployment costs, use case boundaries, and performance characteristics of context-based optimization via Prompt Engineering and RAG against parametric optimization via supervised Fine-Tuning \u2014 including parameter-efficient LoRA adaptation \u2014 producing a clear decision framework for selecting the correct strategy given a specific enterprise requirement.",
                 bullets: []
               },
               theory: [
-                {
-                  title: "Choosing the Right Optimization Path",
-                  body: [
-                    "When optimizing an LLM for enterprise use, engineers must choose between altering the model's context or altering its neural weights.",
-                    "Prompt Engineering & RAG (In-Context Learning) injects knowledge directly into the active prompt. It is highly effective for rapidly changing external facts, requires minimal upfront compute, but increases per-query API token costs.",
-                      "![Prompt Engineering vs Fine-Tuning](/rag_vs_finetuning_illustration.webp)"
-                    ]
-                },
-                {
-                  title: "Parametric Fine-Tuning",
-                  body: [
-                    "Fine-Tuning (Parametric Optimization) fundamentally alters the statistical weights of the neural network via supervised training on hundreds of input-output pairs.",
-                    "While fine-tuning is terrible at learning new facts (which quickly become outdated), it excels at teaching the model complex structural formats, proprietary programming languages, and specific brand tones.",
-                    "Modern parameter-efficient techniques like LoRA (Low-Rank Adaptation) have made fine-tuning accessible by freezing the massive base model and only training a tiny adapter layer, drastically reducing GPU requirements."
-                  ]
-                }
-              ],
+                          {
+                                        "title": "Two Ways to Make an AI Better",
+                                        "body": [
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">RAG / Prompt Engineering</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Fine-Tuning</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">What changes</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">The context (what AI reads)</td><td class=\"p-3 text-muted-foreground\">The neural weights (AI's brain)</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Best for</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Changing facts, live data</td><td class=\"p-3 text-muted-foreground\">Fixed style, format, custom tone</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Speed to deploy</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Hours</td><td class=\"p-3 text-muted-foreground\">Days to weeks</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Cost</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Per-query token cost</td><td class=\"p-3 text-muted-foreground\">Large upfront GPU cost</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Learns new facts?</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Yes \u2014 update the DB</td><td class=\"p-3 text-muted-foreground\">No \u2014 facts go stale fast</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Learns new style?</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Inconsistent</td><td class=\"p-3 text-muted-foreground\">Deeply and reliably</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "LoRA \u2014 Fine-Tuning on a Budget",
+                                        "body": [
+                                                      "Full fine-tuning retrains billions of weights \u2014 extremely expensive. LoRA freezes the entire base model and trains only a tiny adapter layer on top. Like pinning a sticky note onto a textbook instead of reprinting the whole book.",
+                                                      "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Method</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Weights Trained</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">GPU Cost</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Full Fine-Tuning</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">7,000,000,000+</td><td class=\"p-3 text-muted-foreground\">Extremely high</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">LoRA Adapter</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">~1,000,000</td><td class=\"p-3 text-muted-foreground\">Accessible on a single GPU</td></tr></tbody></table>"
+                                        ]
+                          },
+                          {
+                                        "title": "Decision Flow \u2014 Which to Choose?",
+                                        "body": [
+                                                      "Do facts change often?  \u2192  YES: Use RAG update the DB  \u2192  NO: Need a custom style?  \u2192  YES: Fine-Tune (LoRA)  \u2192  Need both?: Fine-Tune style + RAG for facts",
+                                                      "![Fine-Tuning vs Prompt Engineering](/rag_vs_finetuning_illustration.webp)"
+                                        ]
+                          }
+            ],
               pretest: [
                             { question: "What is the primary difference between Prompt Engineering and Fine-Tuning?", options: ["Prompt engineering uses code; fine-tuning only uses plain English text instructions","Prompt engineering guides model behavior through text input context instructions without changing weights; fine-tuning structurally modifies the internal parameter weights of the neural network by training on a dataset","Fine-tuning is faster and cheaper to prototype than prompt engineering workflows","Prompt engineering changes the model's vocabulary size tracking metrics"], answerIndex: 1 },
                             { question: "What does \"Fine-Tuning\" a model actually do?", options: ["It tweaks the screen resolution font sizes on user devices dashboards layouts","It runs an optimization training loop across specialized domain dataset rows, adjusting model checkpoint weights so it adapts to specific formats, styles, or patterns natively","It deletes old tokens from memory index arrays systems fields databases parameters","It sets up an external vector search engine index cluster routing cloud server script channel"], answerIndex: 1 },
@@ -7120,6 +7142,7 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
     ]
   }
 };
+
 
 
 
