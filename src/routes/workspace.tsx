@@ -1009,6 +1009,38 @@ useEffect(() => {
           }
         }
 
+        // Helper function to shuffle options for a question and update its answer_index
+        const shuffleQuestionOptions = (q: any) => {
+          if (!q || !q.options || q.options.length === 0) return q;
+          const origAnsIdx = q.answer_index !== undefined ? q.answer_index : q.answerIndex;
+          if (origAnsIdx === undefined) return q;
+          
+          // Map options to keep track of their original indices
+          const mapped = q.options.map((opt: string, idx: number) => ({ opt, originalIdx: idx }));
+          
+          // Fisher-Yates shuffle
+          for (let i = mapped.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const temp = mapped[i];
+            mapped[i] = mapped[j];
+            mapped[j] = temp;
+          }
+          
+          return {
+            ...q,
+            options: mapped.map((item: any) => item.opt),
+            answer_index: mapped.findIndex((item: any) => item.originalIdx === origAnsIdx)
+          };
+        };
+
+        // Shuffle options for all pretest and posttest questions
+        if (pretest && pretest.length > 0) {
+          pretest = pretest.map(shuffleQuestionOptions);
+        }
+        if (posttest && posttest.length > 0) {
+          posttest = posttest.map(shuffleQuestionOptions);
+        }
+
         setSampledPretest(pretest);
         setSampledPosttest(posttest);
         setPretestAnswers({});
