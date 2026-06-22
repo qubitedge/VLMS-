@@ -1269,38 +1269,41 @@ const handlePostSolveAuthenticated = async (userId: string) => {
             </div>
           </div>
 
-          {/* Glass Stepper Navigation */}
-          <div className="flex items-center gap-2 overflow-x-auto py-2">
+          {/* Floating Glass Pills Stepper */}
+          <div className="flex items-center gap-4 overflow-x-auto py-4 px-2">
             {WORKSPACE_STEPS.map((step, idx) => {
               const isCompleted = idx < activeStepIndex;
               const isActive = idx === activeStepIndex;
               const isLocked = idx > maxStepReached && idx !== activeStepIndex;
               
+              let icon = "🎯";
+              const s = step.toLowerCase();
+              if (s.includes("theory")) icon = "📖";
+              else if (s.includes("test") || s.includes("quiz")) icon = "🧠";
+              else if (s.includes("solve") || s.includes("code") || s.includes("procedure")) icon = "🧪";
+
+              const displayName = step === "Code Test" || step === "Solve" ? "Procedure" : step === "Pretest" ? "Quiz" : step;
+
               return (
-                <div key={step} className="flex items-center">
-                  <button
-                    onClick={() => {
-                      if (idx <= maxStepReached) {
-                        setActiveStepIndex(idx);
-                      } else if (idx === activeStepIndex + 1) {
-                        handleNext();
-                      } else {
-                        toast.error(`Please complete the ${WORKSPACE_STEPS[activeStepIndex]} step first.`);
-                      }
-                    }}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-xs font-medium whitespace-nowrap transition-all ${
-                      isActive ? "bg-gradient-to-r from-[#00e5ff] to-[#7c3aed] text-white shadow-lg border-transparent" : 
-                      isCompleted ? "glass-card !p-2 !rounded-2xl text-foreground" : 
-                      "glass-card !p-2 !rounded-2xl text-muted-foreground opacity-60"
-                    } ${isLocked ? "cursor-not-allowed" : "hover:scale-105"}`}
-                  >
-                    {isCompleted ? <CheckCircle2 className="size-3.5 text-white" /> : <div className="w-1.5 h-1.5 rounded-full bg-current opacity-50" />}
-                    <span>{step}</span>
-                  </button>
-                  {idx < WORKSPACE_STEPS.length - 1 && (
-                    <div className="w-8 h-px bg-white/20 mx-2" />
-                  )}
-                </div>
+                <button
+                  key={step}
+                  onClick={() => {
+                    if (idx <= maxStepReached) {
+                      setActiveStepIndex(idx);
+                    } else if (idx === activeStepIndex + 1) {
+                      handleNext();
+                    } else {
+                      toast.error(`Please complete the ${WORKSPACE_STEPS[activeStepIndex]} step first.`);
+                    }
+                  }}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
+                    isActive ? "bg-white/60 dark:bg-black/60 backdrop-blur-xl border border-[#00e5ff]/50 shadow-[0_0_20px_rgba(0,229,255,0.4),inset_0_0_10px_rgba(124,58,237,0.2)] scale-110 mx-2 text-foreground" : 
+                    "glass-card !p-0 !px-5 !py-2.5 !rounded-full text-muted-foreground opacity-60 hover:opacity-100 hover:-translate-y-1"
+                  } ${isLocked ? "!cursor-not-allowed hover:!-translate-y-0" : ""}`}
+                >
+                  <span className="text-base">{icon}</span>
+                  <span>{displayName}</span>
+                </button>
               );
             })}
           </div>
