@@ -8,7 +8,7 @@ export const aiM2Experiments: Experiment[] = [
     expected: "A well-structured 600–800 word persuasive essay with a clear thesis, evidence-supported body paragraphs, counterargument acknowledgment, and a strong conclusion.",
     content: {
       aim: {
-        text: "In this experiment the student will use OpenAI's ChatGPT to draft, refine, and critically evaluate a persuasive essay through multi-turn prompting. The focus is on understanding ChatGPT as a writing collaborator rather than a one-shot generator, and on developing prompt engineering skills specific to long-form persuasive writing.",
+        text: "To use ChatGPT to draft, refine, and strengthen a persuasive essay by designing targeted prompts that specify audience, argument stance, tone, and structural requirements \u2014 demonstrating how iterative prompt refinement improves argument quality and rhetorical impact.",
         bullets: [
           "Understand how ChatGPT processes multi-turn conversational context to build and refine long-form writing",
           "Apply role prompting and persona assignment to control tone, audience targeting, and rhetorical style",
@@ -20,59 +20,20 @@ export const aiM2Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is ChatGPT?",
-          body: [
-            "ChatGPT is a conversational AI assistant developed by OpenAI, built on the GPT-4 family of large language models.",
-            "GPT-4 is a transformer-based autoregressive language model trained on a large corpus of text data followed by Reinforcement Learning from Human Feedback (RLHF) to align its outputs with human preferences for helpfulness, harmlessness, and honesty.",
-            "ChatGPT maintains conversational context within a session, allowing each response to be informed by the full history of the exchange. This multi-turn capability is what makes it particularly effective for iterative writing tasks."
-          ]
-        },
-        {
-          title: "Transformer Architecture and Language Generation",
-          body: [
-            "GPT-4 is based on the transformer architecture introduced by Vaswani et al. in 2017.",
-            "The model uses self-attention mechanisms to compute relationships between all tokens in the input simultaneously, allowing it to capture long-range dependencies in text far more effectively than earlier recurrent architectures.",
-            "During generation the model predicts the next token based on all preceding tokens, sampling from a probability distribution shaped by temperature and top-p parameters."
-          ]
-        },
-        {
-          title: "RLHF and Writing Quality",
-          body: [
-            "Raw GPT-4 outputs are refined through Reinforcement Learning from Human Feedback (RLHF).",
-            "This process significantly improves the coherence, factual grounding, appropriate tone, and instruction-following ability of the model's outputs compared to base pretraining alone.",
-            "It is the reason ChatGPT follows nuanced writing instructions such as 'make this more formal' or 'add a counterargument in paragraph 3' reliably."
-          ]
-        },
-        {
-          title: "Persuasive Essay Structure",
-          body: [
-            "A well-structured persuasive essay contains an introduction with a clear thesis statement, body paragraphs each making a single claim supported by evidence and reasoning, acknowledgment and refutation of counterarguments, and a conclusion that reinforces the thesis and calls to action or reflection.",
-            "When prompting ChatGPT for persuasive writing, explicitly requesting each of these structural components produces significantly better results than a generic 'write a persuasive essay' prompt."
-          ]
-        },
-        {
-          title: "Role Prompting and Persona Assignment",
-          body: [
-            "Assigning ChatGPT a role or persona at the start of the conversation constrains its tone, vocabulary level, and rhetorical approach.",
-            "For example 'You are a senior technology policy analyst writing for a peer-reviewed journal audience' will produce more formal, evidence-grounded, and citation-aware writing than no role assignment."
-          ]
-        },
-        {
-          title: "Multi-Turn Refinement Workflow",
-          body: [
-            "The most effective approach to using ChatGPT for persuasive writing is a staged multi-turn workflow.",
-            "In the first turn establish the role, audience, topic, and structural requirements. In subsequent turns issue specific refinement instructions — strengthen the thesis, add a counterargument, replace vague claims with specific examples.",
-            "Each turn builds on the previous, allowing precise control over the final output without restarting from scratch."
-          ]
-        },
-        {
-          title: "Ethical Considerations for Academic Writing",
-          body: [
-            "Submitting AI-generated text as one's own original work without disclosure constitutes academic dishonesty in most institutional policies.",
-            "The appropriate use of ChatGPT in academic contexts includes using it as a drafting aid, structural scaffold, or editing partner while ensuring the ideas, arguments, and final expression reflect the student's own thinking."
-          ]
-        }
+            {
+                  "title": "What Makes Writing Persuasive?",
+                  "body": [
+                        "Rhetorical elements shape how written communication is structured to influence the reader.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Rhetorical Element</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What It Means</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Prompt Instruction</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Ethos</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Build credibility</td><td class=\"p-3 text-muted-foreground\">'Use expert evidence and statistics'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Pathos</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Appeal to emotion</td><td class=\"p-3 text-muted-foreground\">'Include a relatable human story'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Logos</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Use logic and reason</td><td class=\"p-3 text-muted-foreground\">'Structure argument with clear evidence'</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Kairos</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Right time / urgency</td><td class=\"p-3 text-muted-foreground\">'Highlight why this matters right now'</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "The Iterative Writing Flow",
+                  "body": [
+                        "Give topic + stance  \u2192  First draft generated  \u2192  Ask: 'strengthen the argument'  \u2192  Ask: 'add statistics'  \u2192  Final polished essay",
+                        "![ChatGPT Persuasive Essay](/aitools_exp5.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -103,7 +64,7 @@ export const aiM2Experiments: Experiment[] = [
     expected: "A structured multi-section summary with clearly labeled components, calibrated language indicating uncertainty where appropriate, and a glossary and research questions section.",
     content: {
       aim: {
-        text: "In this experiment the student will use Anthropic's Claude to summarize complex research papers and critically assess the accuracy, completeness, and fidelity of the summaries produced. The focus is on understanding how to use Claude as a research reading assistant and on developing the critical skills to evaluate AI-generated summaries against source material.",
+        text: "To use Claude to produce accurate, structured summaries of academic papers by constructing prompts that specify summary depth, target audience, and output format \u2014 evaluating Claude's ability to extract key findings, methodology, and implications without distortion or hallucination.",
         bullets: [
           "Understand Claude's constitutional AI training approach and how it shapes output quality and honesty",
           "Use Claude's long context window to process full or partial research papers and produce structured summaries",
@@ -115,51 +76,20 @@ export const aiM2Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is Claude?",
-          body: [
-            "Claude is a large language model developed by Anthropic. Claude is trained using Constitutional AI (CAI), a methodology that uses a set of principles (a 'constitution') to guide the model's self-critique and revision during training.",
-            "This approach aims to produce a model that is reliably honest, calibrated in its uncertainty, and resistant to producing harmful or misleading outputs."
-          ]
-        },
-        {
-          title: "Constitutional AI and Calibrated Uncertainty",
-          body: [
-            "One key principle of Constitutional AI is calibrated uncertainty — Claude is trained to acknowledge when it is uncertain, to avoid overstating confidence in claims it cannot verify, and to flag when a summary may be incomplete or oversimplified.",
-            "For research summarization this reduces the risk of a confident-sounding but inaccurate summary misleading the reader."
-          ]
-        },
-        {
-          title: "Long Context Window",
-          body: [
-            "Claude 3.5 Sonnet supports a context window of 200,000 tokens (approx. 150,000 words or 500 pages).",
-            "This means Claude can process a full research paper or multiple related papers in a single context and produce a summary that draws on the full document rather than truncating."
-          ]
-        },
-        {
-          title: "Structured Summarization Prompting",
-          body: [
-            "Claude responds well to structured summarization instructions that specify the exact output format.",
-            "An effective prompt structure requests: a one-paragraph abstract-level summary, a section-by-section breakdown, the top significant contributions, a glossary of technical terms, and follow-up research questions."
-          ]
-        },
-        {
-          title: "Critical Assessment of AI Summaries",
-          body: [
-            "A critical assessment evaluates an AI summary on four dimensions:",
-            "1. Accuracy: correctly represents claims and methodology without distortion.",
-            "2. Completeness: includes all significant contributions and limitations.",
-            "3. Fidelity: preserves the paper's own framing without substituting meanings.",
-            "4. Hallucination risk: does not introduce claims or statistics absent in the original."
-          ]
-        },
-        {
-          title: "Claude in Research Workflows",
-          body: [
-            "Claude is a practical research assistant for literature review acceleration.",
-            "However over-reliance on AI summaries without reading primary sources is an academic risk — summaries necessarily simplify and may miss the nuance and limitations essential for rigorous research."
-          ]
-        }
+            {
+                  "title": "Why Claude for Academic Summarisation?",
+                  "body": [
+                        "Claude is trained to be precise and faithful to source material. It is less likely to add information that wasn't in the paper, making it safer for academic use than more creative models.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Summary Type</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Prompt Instruction</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Output</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Executive</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">'Summarise in 3 bullet points for a manager'</td><td class=\"p-3 text-muted-foreground\">Quick top-level overview</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Technical</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">'Summarise the methodology and results for a researcher'</td><td class=\"p-3 text-muted-foreground\">Deep, precise, jargon-intact</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Plain English</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">'Explain this paper to a 16-year-old student'</td><td class=\"p-3 text-muted-foreground\">Simple, analogies, no jargon</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "The Summarisation Flow",
+                  "body": [
+                        "Paste the paper / abstract  \u2192  Specify audience & depth  \u2192  Claude extracts key findings  \u2192  Ask follow-up questions  \u2192  Structured summary done",
+                        "![Claude Paper Summary](/aitools_exp6.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -190,7 +120,7 @@ export const aiM2Experiments: Experiment[] = [
     expected: "A well-structured 700–800 word blog post with consistent conversational tone, descriptive subheadings, accessible analogies for technical concepts, and a practical conclusion.",
     content: {
       aim: {
-        text: "In this experiment the student will use Google's Gemini to generate a structured blog post from a topic brief and evaluate the output on dimensions of tone, coherence, structural organization, and audience appropriateness. The focus is on understanding Gemini as a writing tool for technical communication and content creation relevant to CSE students.",
+        text: "To use Google Gemini to generate a well-structured, SEO-aware blog post by providing prompts that define topic, target keyword, reader persona, tone, and desired word count \u2014 and to iteratively refine headings, introductions, and calls-to-action for maximum engagement.",
         bullets: [
           "Understand Gemini's architecture as a natively multimodal model and how this influences its text generation capabilities",
           "Use Gemini to generate a full blog post from a structured brief specifying topic, audience, tone, and length",
@@ -202,41 +132,20 @@ export const aiM2Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is Gemini?",
-          body: [
-            "Gemini is Google DeepMind's family of large language models. Gemini was designed from the ground up as a natively multimodal model — trained simultaneously on text, images, audio, video, and code.",
-            "This native multimodality gives Gemini a different representational basis than text-only models, and it shows in tasks requiring integration of visual and textual knowledge."
-          ]
-        },
-        {
-          title: "Natively Multimodal Architecture",
-          body: [
-            "Gemini's architecture processes different modalities through a unified transformer-based backbone rather than separate encoders with a fusion layer.",
-            "This means the model's internal representations blend textual and visual information at the attention level. For blog writing, Gemini can describe or write about images and diagrams provided in the context."
-          ]
-        },
-        {
-          title: "Google Search Grounding",
-          body: [
-            "A key differentiator of Gemini in the Google ecosystem is its ability to ground responses in real-time Google Search results.",
-            "When Search grounding is enabled, Gemini retrieves current information from the web before generating a response, allowing it to incorporate recent events and statistics, addressing the knowledge cutoff limitation."
-          ]
-        },
-        {
-          title: "Blog Post Structure and Writing Register",
-          body: [
-            "A well-structured blog post for a technical audience includes a hook introduction, descriptive subheadings, practical examples or code snippets, and a summary conclusion.",
-            "Register refers to the level of formality and stylistic character of writing. For blog posts, registers include technical, conversational, and journalistic.",
-            "Specifying the register explicitly in the prompt is the most effective way to control Gemini's tone output."
-          ]
-        },
-        {
-          title: "Gemini for CSE Technical Communication",
-          body: [
-            "For CSE students Gemini is particularly applicable for writing technical blog posts explaining projects, generating documentation for open-source contributions, drafting event write-ups, and producing tutorial content."
-          ]
-        }
+            {
+                  "title": "Anatomy of a Great Blog Post",
+                  "body": [
+                        "An engaging blog post requires specific sections optimized for readers and search engines.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Section</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Purpose</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Prompt Instruction</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Hook / Intro</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Grab attention immediately</td><td class=\"p-3 text-muted-foreground\">'Start with a surprising statistic or question'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">H2 Headings</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Structure for scanning readers</td><td class=\"p-3 text-muted-foreground\">'Use 4 H2 subheadings with keyword'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Body Paragraphs</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Deliver the value</td><td class=\"p-3 text-muted-foreground\">'Each section: explain, example, takeaway'</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Call to Action</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Tell reader what to do next</td><td class=\"p-3 text-muted-foreground\">'End with a clear CTA for the reader'</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "SEO-Aware Blog Writing Flow",
+                  "body": [
+                        "Define topic + keyword  \u2192  Set reader persona & tone  \u2192  Generate full draft  \u2192  Refine intro & headings  \u2192  SEO-ready blog post",
+                        "![Gemini Blog Post](/aitools_exp7.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -263,7 +172,7 @@ export const aiM2Experiments: Experiment[] = [
     expected: "A detailed research synthesis report including primary findings, citation quality assessment, and identification of any hallucinated or misattributed sources.",
     content: {
       aim: {
-        text: "In this experiment the student will use Perplexity AI to conduct a multi-source research query. The student will explore how conversational search engines differ from traditional search engines and how to critically evaluate the AI's synthesis of multiple sources, focusing on citation accuracy and source quality.",
+        text: "To use Perplexity AI as an AI-powered research engine by formulating precise research queries that leverage its live web search capability, evaluating source citation quality, assessing answer accuracy across factual and contested topics, and comparing its research output to traditional search engine results.",
         bullets: [
           "Understand how conversational search engines aggregate and synthesize real-time web data",
           "Formulate complex research queries that require synthesizing information from multiple domains",
@@ -273,27 +182,20 @@ export const aiM2Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "Conversational Search Engines",
-          body: [
-            "Conversational search engines like Perplexity AI combine the real-time retrieval capabilities of traditional search engines with the natural language synthesis of Large Language Models (LLMs).",
-            "Instead of returning a list of links, the engine reads the top search results and writes a coherent, synthesized answer with inline citations pointing to the original sources."
-          ]
-        },
-        {
-          title: "Retrieval-Augmented Generation (RAG) in Search",
-          body: [
-            "Perplexity uses a technique similar to Retrieval-Augmented Generation. When a user asks a question, the system first queries the web to retrieve relevant documents.",
-            "These documents are injected into the LLM's context window, forcing the model to generate its response based strictly on the retrieved text rather than its parametric memory, heavily reducing hallucination."
-          ]
-        },
-        {
-          title: "Citation Verification and Source Quality",
-          body: [
-            "While conversational search engines provide citations, the quality of the answer is bounded by the quality of the sources it retrieves. If it retrieves biased, outdated, or incorrect web pages, the synthesized answer will reflect those errors.",
-            "A critical skill for knowledge workers is verifying that an AI's claim is actually supported by the cited source (citation fidelity) and that the source itself is credible."
-          ]
-        }
+            {
+                  "title": "Perplexity vs Google \u2014 What's Different?",
+                  "body": [
+                        "Comparing a search indexing model with a real-time conversational retrieval engine.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Google Search</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Perplexity AI</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">What you get</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">List of links to click</td><td class=\"p-3 text-muted-foreground\">Synthesised answer with citations</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Time to insight</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">You read multiple articles</td><td class=\"p-3 text-muted-foreground\">Instant summary from multiple sources</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Citations</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Implicit (you check yourself)</td><td class=\"p-3 text-muted-foreground\">Explicit inline source links</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Best for</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Finding specific pages</td><td class=\"p-3 text-muted-foreground\">Research questions needing synthesis</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "Writing a Good Research Query",
+                  "body": [
+                        "Specific question  \u2192  Perplexity searches live web  \u2192  Synthesises multiple sources  \u2192  Answer with citations  \u2192  Follow-up questions",
+                        "![Perplexity Research Query](/aitools_exp8.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -314,3 +216,5 @@ export const aiM2Experiments: Experiment[] = [
     }
   }
 ];
+
+// Trigger HMR

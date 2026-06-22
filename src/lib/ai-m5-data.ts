@@ -8,7 +8,7 @@ export const aiM5Experiments: Experiment[] = [
     expected: "An organized knowledge notebook with a clean document reference panel, cited answers mapping structural systems, and a fully processed conversational audio synthesis file.",
     content: {
       aim: {
-        text: "In this experiment, the student will use Google's NotebookLM to build a source-grounded AI research workspace. The student will upload complex technical materials to interact with an LLM that is strictly constrained to the provided source text. Additionally, the student will generate and evaluate synthetic audio discussions (podcasts) based on their source documents.",
+        text: "To use Google NotebookLM to ingest multiple source documents and conduct an interactive question-answering session that extracts, cross-references, and synthesises information across sources \u2014 evaluating the accuracy of grounded citations and the tool's ability to surface non-obvious connections between documents.",
         bullets: [
           "Understand the concept of a source-grounded language model workspace and how it eliminates hallucination",
           "Upload, organize, and query multiple heterogeneous documents (PDFs, Markdown text, website URLs)",
@@ -17,22 +17,20 @@ export const aiM5Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "Source-Grounded AI Workspaces",
-          body: [
-            "Traditional chat LLMs generate answers using their internal weights (parametric memory), which can lead to confident-sounding errors (hallucinations). NotebookLM uses an explicit Source-Grounded Architecture.",
-            "When you upload documents, they form an exclusive, closed-world knowledge base. The AI searches the uploaded text index, injects exact excerpts into the LLM's context window, and synthesizes a response. If a fact isn't in your sources, the AI cannot invent it."
-          ]
-        },
-        {
-          title: "Interactive Study Guides and Synthetic Audio",
-          body: [
-            "Beyond conversational Q&A, source-grounded tools can automatically generate meta-content:",
-            "Briefing Documents: High-level executive summaries that map out major technical themes.",
-            "Inline Citations: Clicking a citation link jumps directly to the exact page and paragraph of the source document.",
-            "Audio Overviews: Advanced pipeline architectures that convert source text into a natural, two-way conversational podcast script with realistic pacing and conversational banter."
-          ]
-        }
+            {
+                  "title": "NotebookLM \u2014 Your Personal Research Assistant",
+                  "body": [
+                        "NotebookLM serves as a stateful agent operating exclusively on your private documentation boundaries.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What It Does</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Grounded answers</td><td class=\"p-3 text-muted-foreground\">Every answer cites the exact document and passage it came from</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Cross-referencing</td><td class=\"p-3 text-muted-foreground\">Finds connections between multiple documents automatically</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">No hallucination</td><td class=\"p-3 text-muted-foreground\">Will not answer from outside your uploaded sources</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Audio overview</td><td class=\"p-3 text-muted-foreground\">Generates a podcast-style summary of your documents</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "The NotebookLM Question-Answering Flow",
+                  "body": [
+                        "Upload PDFs & notes  \u2192  NotebookLM indexes them  \u2192  Ask a question in chat  \u2192  Grounded answer with citation  \u2192  Follow-up and explore",
+                        "![NotebookLM Document Chat](/aitools_exp17.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -60,7 +58,7 @@ export const aiM5Experiments: Experiment[] = [
     expected: "A dynamic, multi-card responsive presentation deck featuring grid columns, high-impact data callout modules, and cohesive branding accents.",
     content: {
       aim: {
-        text: "In this experiment, the student will use Gamma App to transform an unformatted text outline into a highly engaging, professional presentation deck using AI markdown parsing and flexible card layouts. The focus is on mastering structured storytelling, visual hierarchy, and real-time design adjustments.",
+        text: "To use Gamma to transform a structured content outline into a visually polished presentation deck in under five minutes \u2014 evaluating the AI's slide structuring logic, visual theme selection, and content distribution \u2014 and iterating on specific slides through natural language editing instructions.",
         bullets: [
           "Understand the transition from a markdown outline to a responsive, container-based slide layout",
           "Generate a complete multi-card presentation deck from a project brief",
@@ -69,21 +67,20 @@ export const aiM5Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "Fluid Web-Based Presentational Elements",
-          body: [
-            "Traditional slide software uses a fixed canvas grid where text can spill off or shrink illegibly. Gamma relies on Fluid Web Containers. Slides are treated as flexible cards that assemble web layout blocks (flexboxes, grids, columns) dynamically.",
-            "If your text scales or changes, the surrounding card container adjusts its vertical flow and padding parameters automatically, ensuring clean layout alignments."
-          ]
-        },
-        {
-          title: "AI Outline Extraction and Layout Rules",
-          body: [
-            "When an AI presentation engine receives a topic prompt, it follows a two-stage compilation pipeline:",
-            "1. Semantic Partitioning: The model parses the prompt or outline into logical headers (H1, H2) to indicate the birth of a new slide card.",
-            "2. Visual Mapping: Bulleted sequences under a header are translated into visual components (e.g., three points map to a 3-column card grid; a chronological process maps to a timeline track)."
-          ]
-        }
+            {
+                  "title": "What Gamma Does Differently",
+                  "body": [
+                        "Gamma replaces template-based design with generative canvas workflows.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Traditional (PowerPoint)</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">AI-Powered (Gamma)</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Starting point</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Blank slide</td><td class=\"p-3 text-muted-foreground\">AI-generated full deck from outline</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Design time</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Hours choosing fonts and layouts</td><td class=\"p-3 text-muted-foreground\">Seconds \u2014 AI picks everything</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Content</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">You write every word</td><td class=\"p-3 text-muted-foreground\">AI drafts, you refine</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Editing</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Manual drag and drop</td><td class=\"p-3 text-muted-foreground\">Natural language: 'make slide 3 shorter'</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "The Presentation Design Flow",
+                  "body": [
+                        "Enter topic or paste outline  \u2192  Gamma generates all slides  \u2192  AI picks theme & layout  \u2192  'Make slide 2 more visual'  \u2192  Export or share link",
+                        "![Gamma Presentation Deck](/aitools_exp18.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -110,7 +107,7 @@ export const aiM5Experiments: Experiment[] = [
     expected: "An illustrated document showing clear text paragraphs paired with vector diagrams, containing stylized custom nodes, relational arrows, and clear visual summaries.",
     content: {
       aim: {
-        text: "In this experiment, the student will use Napkin AI to analyze raw technical text and automatically generate context-aware visual diagrams (flowcharts, venn diagrams, matrices, and mind maps). The student will master text-to-visual conversion workflows.",
+        text: "To use Napkin AI to automatically convert written explanations and structured text into clear visual diagrams \u2014 including flowcharts, comparison frameworks, and process maps \u2014 evaluating the semantic accuracy of AI-generated visuals and iterating on diagram type and layout through natural language instructions.",
         bullets: [
           "Understand the semantic mapping engine that connects abstract technical text to concrete visual diagrams",
           "Paste long-form technical explanations and trigger contextual diagram identification tracks",
@@ -119,22 +116,20 @@ export const aiM5Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "Semantic Visual Mapping Mechanics",
-          body: [
-            "Napkin AI uses an internal Semantic-to-Visual Translation Engine. The AI reads sentences, extracts core nouns and relational verbs, and identifies the underlying spatial or logical model described in the text.",
-            "For example: 'Data moves from Module A to Module B' becomes a Sequential Workflow Flowchart. 'System A has X, System B has Y' becomes a Venn Diagram Overlay."
-          ]
-        },
-        {
-          title: "Vector Diagram Topologies",
-          body: [
-            "Depending on the text structure, different diagram topologies are suggested:",
-            "• Sequential Flowcharts: procedural paths, state transitions, step-by-step data tracking.",
-            "• Hierarchical Core Pyramids: layers of abstraction (network protocols, software stacks).",
-            "• Matrix Quadrants: comparative analysis, trade-off studies (Cost vs. Complexity)."
-          ]
-        }
+            {
+                  "title": "Why Diagrams Matter",
+                  "body": [
+                        "Visual layouts increase learning and retention rates compared to dense paragraphs.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Diagram Type</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Best For</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Example Text Input</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Flowchart</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Processes and decisions</td><td class=\"p-3 text-muted-foreground\">'User logs in \u2192 check password \u2192 success or retry'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Comparison</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Side-by-side evaluation</td><td class=\"p-3 text-muted-foreground\">'RAG vs Fine-tuning: cost, speed, accuracy'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Timeline</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Sequential events</td><td class=\"p-3 text-muted-foreground\">'Phase 1: Research, Phase 2: Build, Phase 3: Test'</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Mind Map</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Brainstorming relationships</td><td class=\"p-3 text-muted-foreground\">'AI Tools: Writing, Coding, Design, Research'</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "The Diagram Generation Flow",
+                  "body": [
+                        "Paste or write your explanation  \u2192  Napkin reads the structure  \u2192  Selects best diagram type  \u2192  Generates visual  \u2192  Export as SVG / PNG",
+                        "![Napkin AI Diagrams](/aitools_exp19.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -160,7 +155,7 @@ export const aiM5Experiments: Experiment[] = [
     expected: "A comprehensive, multi-row research extraction matrix displaying paper titles, automated summaries, custom parameter columns, and verified source citations.",
     content: {
       aim: {
-        text: "In this experiment, the student will use Elicit (an AI-powered research assistant) to conduct a rigorous, automated literature review query. The student will master advanced search queries, construct customizable comparative data extraction matrices, and map the academic landscape.",
+        text: "To use Elicit as an AI research assistant for conducting a structured literature review by submitting targeted research questions, evaluating the relevance ranking of returned papers, extracting key findings across multiple studies using Elicit's column-based extraction system, and synthesising a coherent evidence summary from the results.",
         bullets: [
           "Understand the difference between semantic research engines and simple keyword index systems",
           "Execute a formal scientific query to discover peer-reviewed journal papers and conference materials",
@@ -169,20 +164,20 @@ export const aiM5Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "Semantic Citation Discovery Engines",
-          body: [
-            "Traditional search platforms look for exact keyword text strings. Semantic search engines like Elicit use Dense Vector Retrieval (Semantic Space Mapping).",
-            "The system maps queries into high-dimensional vector spaces where sentences with similar conceptual meanings are positioned close together. This ensures discovery of highly relevant papers that traditional keyword queries overlook."
-          ]
-        },
-        {
-          title: "Literature Extraction Matrices",
-          body: [
-            "Writing a literature review requires synthesizing information across dozens of separate publications. An Extraction Matrix organizes this process into a clear multi-attribute comparison table tracking Citations, Methodology, Dataset, Limitations, and Findings.",
-            "AI-assisted research engines automate this data collection by extracting these parameters into customizable tables."
-          ]
-        }
+            {
+                  "title": "What Is a Literature Review?",
+                  "body": [
+                        "Elicit automates database searching and key fact extraction across thousands of studies.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Step</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Traditional Literature Review</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Elicit AI Review</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Search</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Manual Google Scholar, keyword hunting</td><td class=\"p-3 text-muted-foreground\">One research question \u2192 Elicit finds papers</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Screening</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Read abstract of every paper manually</td><td class=\"p-3 text-muted-foreground\">AI ranks by relevance automatically</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Extraction</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Copy key facts from each paper manually</td><td class=\"p-3 text-muted-foreground\">AI fills columns: methods, results, sample size</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Synthesis</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Write summary from notes</td><td class=\"p-3 text-muted-foreground\">AI drafts synthesis across all papers</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "The Literature Review Flow",
+                  "body": [
+                        "Enter research question  \u2192  Elicit finds relevant papers  \u2192  AI ranks by relevance  \u2192  Extract findings across papers  \u2192  Synthesise evidence summary",
+                        "![Elicit Literature Review](/aitools_exp20.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -203,3 +198,5 @@ export const aiM5Experiments: Experiment[] = [
     }
   }
 ];
+
+// Trigger HMR

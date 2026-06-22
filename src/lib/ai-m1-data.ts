@@ -8,7 +8,7 @@ export const aiM1Experiments: Experiment[] = [
     expected: "A high-resolution photorealistic image matching the described scene with accurate lighting, texture, and composition.",
     content: {
       aim: {
-        text: "In this experiment the student will use Google DeepMind's Gemini Imagen to generate photorealistic images from text prompts. The student will explore how prompt structure, descriptive detail, and iterative refinement influence the realism, composition, and fidelity of AI-generated images. The focus is specifically on Imagen's strength in producing lifelike scenes, accurate lighting, and coherent spatial composition.",
+        text: "To use Google's Imagen model via the Gemini platform to generate highly photorealistic images from detailed text prompts, exploring how prompt specificity, lighting descriptors, and subject detail directly influence output quality and realism.",
         bullets: [
           "Understand how Gemini Imagen uses cascaded diffusion models to produce high-resolution photorealistic outputs",
           "Craft prompts that explicitly target photorealism using lighting descriptors, camera terminology, and scene context",
@@ -20,66 +20,20 @@ export const aiM1Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is Gemini Imagen?",
-          body: [
-            "Gemini Imagen is Google DeepMind's text-to-image generation system, integrated into the Gemini platform and accessible via Google's Vertex AI API.",
-            "Imagen uses a cascade of diffusion models — a base model generates a low-resolution image from the text prompt, and a series of super-resolution models progressively upscale and refine the output to produce a high-fidelity result.",
-            "This cascaded approach allows Imagen to preserve fine detail and achieve photorealistic texture across complex scenes."
-          ]
-        },
-        {
-          title: "Cascaded Diffusion Architecture",
-          body: [
-            "Unlike single-stage diffusion models, Imagen's cascaded pipeline works in stages. The first stage generates a 64x64 pixel image from the text embedding.",
-            "Subsequent super-resolution stages upscale to 256x256 and then to 1024x1024, each conditioned on both the text prompt and the output of the previous stage.",
-            "This means high-level semantics are established early and fine-grained details are added progressively, which is why Imagen performs strongly on photorealistic textures such as skin, fabric, water, and architectural surfaces."
-          ]
-        },
-        {
-          title: "Text Conditioning with T5",
-          body: [
-            "Imagen uses Google's T5 (Text-to-Text Transfer Transformer) as its text encoder rather than CLIP.",
-            "T5 is a large language model trained on text-only data, which gives Imagen stronger understanding of complex sentence structures, negations, and attribute binding compared to vision-language encoders.",
-            "This is why Imagen tends to handle detailed multi-attribute prompts more accurately than earlier systems."
-          ]
-        },
-        {
-          title: "Photorealism and Prompt Engineering",
-          body: [
-            "To produce photorealistic images with Imagen, prompts should include:",
-            "Camera and lens descriptors: \"shot on Sony A7R IV\", \"85mm portrait lens\", \"wide angle 24mm\"",
-            "Lighting conditions: \"golden hour sunlight\", \"overcast diffused lighting\", \"studio three-point lighting\"",
-            "Scene detail: specific locations, textures, materials, and environmental conditions",
-            "Quality markers: \"photorealistic\", \"8K resolution\", \"ultra-detailed\", \"sharp focus\"",
-            "Composition terms: \"rule of thirds\", \"shallow depth of field\", \"bokeh background\"",
-            "Example weak prompt: \"a street in India\"",
-            "Example strong prompt: \"A busy street market in Old Delhi at dusk, warm orange street lamps reflecting on wet cobblestones, vendors selling marigold garlands, shallow depth of field, photorealistic, shot on Nikon D850, 35mm lens, cinematic color grading\""
-          ]
-        },
-        {
-          title: "Imagen in the Google Ecosystem",
-          body: [
-            "Imagen is accessible through Google Vertex AI, making it relevant for CSE students interested in cloud-based AI deployment.",
-            "It is also embedded in Gemini Advanced and Google Workspace tools. The Vertex AI Imagen API supports programmatic image generation, editing, and visual question answering, enabling integration into full-stack applications."
-          ]
-        },
-        {
-          title: "Limitations of Imagen",
-          body: [
-            "Despite its photorealism strengths, Imagen has known limitations. Rendering legible text within images remains inconsistent across all diffusion-based systems including Imagen.",
-            "Generating accurate hand anatomy and counting specific numbers of objects reliably are ongoing challenges.",
-            "Imagen also enforces strict safety filters which may decline prompts involving real public figures or sensitive contexts."
-          ]
-        },
-        {
-          title: "Ethical Considerations",
-          body: [
-            "Photorealistic image generation carries the highest ethical risk among all image generation modalities.",
-            "A photorealistic AI-generated image of a person, place, or event can be indistinguishable from a real photograph, making it a direct tool for misinformation, non-consensual imagery, and identity fraud.",
-            "CSE students building applications with Imagen via the Vertex AI API must implement content moderation layers and comply with Google's Imagen usage policies."
-          ]
-        }
+            {
+                  "title": "What Makes Imagen Special?",
+                  "body": [
+                        "Imagen is Google's text-to-image model built for photorealism \u2014 outputs that look like actual photographs rather than illustrations. It was trained on billions of image-text pairs, learning to connect words like 'golden hour lighting' or 'shallow depth of field' to real visual qualities.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Prompt Element</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What It Controls</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Example</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Subject</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">What is in the image</td><td class=\"p-3 text-muted-foreground\">'A golden retriever sitting on grass'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Lighting</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Mood and atmosphere</td><td class=\"p-3 text-muted-foreground\">'soft morning light', 'studio lighting'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Camera style</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Depth and framing</td><td class=\"p-3 text-muted-foreground\">'shallow depth of field', '35mm lens'</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Quality tag</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Forces high detail</td><td class=\"p-3 text-muted-foreground\">'ultra-realistic', '8K', 'DSLR photo'</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "Prompt Engineering for Images",
+                  "body": [
+                        "Basic prompt 'a dog'  \u2192  Add subject detail  \u2192  Add lighting & style  \u2192  Add quality tags  \u2192  Photorealistic result",
+                        "![Gemini Imagen Photorealism](/aitools_exp1.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -114,7 +68,7 @@ export const aiM1Experiments: Experiment[] = [
     expected: "A stylistically rich concept art image accurately representing the described metaphorical scene with the specified color palette and mood.",
     content: {
       aim: {
-        text: "In this experiment the student will use OpenAI's DALL·E to generate concept art and illustrative imagery from text prompts. The student will explore DALL·E's strength in creative interpretation, conceptual scene building, and iterative prompt refinement within the ChatGPT interface.",
+        text: "To leverage OpenAI's DALL-E model to generate stylised concept art by experimenting with artistic style descriptors, medium references, and compositional framing instructions, understanding how abstract creative direction translates into visual output.",
         bullets: [
           "Understand how DALL·E 3 improves on earlier versions through tighter prompt adherence and natural language understanding",
           "Generate concept art for fictional characters, environments, and objects using structured prompts",
@@ -126,50 +80,20 @@ export const aiM1Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is DALL·E?",
-          body: [
-            "DALL·E is OpenAI's text-to-image generation model, with DALL·E 3 being the current production version.",
-            "Unlike earlier systems, DALL·E 3 was trained with a focus on prompt fidelity — the model is significantly better at following detailed and complex instructions, correctly attributing colors and counts to the right objects, and maintaining consistency across multi-element scenes.",
-            "DALL·E 3 is natively integrated into ChatGPT, meaning users can generate images through a conversational interface where follow-up instructions refine the output."
-          ]
-        },
-        {
-          title: "DALL·E Architecture and Training",
-          body: [
-            "DALL·E 3 is built on a latent diffusion architecture similar to Stable Diffusion but trained with recaptioned data.",
-            "OpenAI identified that images in training datasets often have poor or misleading captions, which degrades prompt adherence. To address this, they used a separate model to generate highly detailed synthetic captions for all training images, then trained DALL·E 3 on this recaptioned dataset.",
-            "This recaptioning approach is the primary reason DALL·E 3 outperforms earlier models on complex multi-attribute prompts such as \"a red cube on top of a blue sphere to the left of a green pyramid.\""
-          ]
-        },
-        {
-          title: "Conversational Image Refinement",
-          body: [
-            "A distinctive feature of DALL·E 3 within ChatGPT is that generation is conversational.",
-            "A user can say \"make the background darker,\" \"change the character's outfit to a lab coat,\" or \"regenerate but in a watercolor style\" and the model will interpret the instruction in the context of the prior exchange.",
-            "This makes DALL·E uniquely suited for iterative concept development where the final output evolves through dialogue rather than a single prompt."
-          ]
-        },
-        {
-          title: "Concept Art and Illustrative Use Cases",
-          body: [
-            "DALL·E performs particularly well at: Fantasy and science fiction world-building, Product and app concept visualization, Diagrammatic and explanatory art, Logo and branding concepts, Children's book and editorial illustration styles.",
-            "For CSE students, DALL·E is particularly useful for generating placeholder UI artwork, presentation visuals, architecture diagram illustrations, and project report cover imagery without requiring design skills."
-          ]
-        },
-        {
-          title: "Style Vocabulary for DALL·E",
-          body: [
-            "DALL·E responds well to explicit style references: Medium (\"oil painting\", \"watercolor\", \"vector art\"), Era and movement (\"Art Deco\", \"Cyberpunk\"), Mood (\"ethereal\", \"dystopian\").",
-            "Important: DALL·E will not replicate a living artist's style by name but responds well to movement and aesthetic descriptors."
-          ]
-        },
-        {
-          title: "DALL·E Safety and Content Policy",
-          body: [
-            "DALL·E enforces OpenAI's content policy which prohibits generation of real people's likenesses, explicit content, and violent imagery. Unlike some open-source alternatives, these filters cannot be bypassed."
-          ]
-        }
+            {
+                  "title": "DALL-E and Artistic Styles",
+                  "body": [
+                        "DALL-E excels at concept art and stylised illustration. You can tell it to paint like a specific era, medium, or artistic movement and it will blend those aesthetics into a single image.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Style Descriptor</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What You Get</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">'watercolour illustration'</td><td class=\"p-3 text-muted-foreground\">Soft, blended painterly look</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">'oil painting, baroque style'</td><td class=\"p-3 text-muted-foreground\">Rich, dramatic, classical art</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">'flat vector art'</td><td class=\"p-3 text-muted-foreground\">Clean minimal graphic design</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">'cyberpunk concept art'</td><td class=\"p-3 text-muted-foreground\">Neon, futuristic, gritty urban scenes</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">'Studio Ghibli style'</td><td class=\"p-3 text-muted-foreground\">Warm, hand-drawn anime aesthetic</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "The Concept Art Workflow",
+                  "body": [
+                        "Define the concept / idea  \u2192  Choose an artistic style  \u2192  Add mood & composition  \u2192  Iterate with variations  \u2192  Final concept art",
+                        "![DALL-E Concept Art](/aitools_exp2.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -200,7 +124,7 @@ export const aiM1Experiments: Experiment[] = [
     expected: "A stylized full-body character concept with strong aesthetic consistency matching the selected style model, accurate costume detail, and minimal anatomy artifacts.",
     content: {
       aim: {
-        text: "In this experiment the student will use Leonardo AI to design stylized characters by leveraging its fine-tuned model library, LoRA style adaptors, style presets, and canvas editing tools.",
+        text: "To use Leonardo AI's fine-tuned models to design consistent, detailed characters by crafting structured character description prompts covering appearance, costume, emotion, and pose \u2014 and to explore how model selection affects stylistic consistency across multiple character renders.",
         bullets: [
           "Understand how Leonardo AI is built on Stable Diffusion and extended through fine-tuned models and LoRA adaptors",
           "Apply style presets to generate characters in game art, anime, concept art, and photorealistic styles",
@@ -211,42 +135,20 @@ export const aiM1Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is Leonardo AI?",
-          body: [
-            "Leonardo AI is a cloud-based AI image generation platform built primarily on top of Stable Diffusion, extended with a rich library of community and platform-curated fine-tuned models, LoRA adaptors, and production tools.",
-            "Unlike raw Stable Diffusion deployments, Leonardo AI provides a structured interface with pre-loaded style models optimized for specific use cases including game asset creation, anime character design, architectural visualization, and photorealistic portraiture."
-          ]
-        },
-        {
-          title: "Stable Diffusion Foundation",
-          body: [
-            "Leonardo AI's generation engine is based on Stable Diffusion, specifically Latent Diffusion Models (LDM).",
-            "In LDMs the diffusion process operates in a compressed latent space rather than full pixel space. This approach is significantly more computationally efficient than pixel-space diffusion, enabling higher resolution generation on consumer-grade hardware."
-          ]
-        },
-        {
-          title: "Fine-Tuned Models and LoRA",
-          body: [
-            "A fine-tuned model is a version of Stable Diffusion that has been further trained on a curated dataset representing a specific style, character type, or subject domain.",
-            "LoRA (Low Rank Adaptation) is a parameter-efficient fine-tuning technique where a small set of additional weight matrices is trained on top of the base model. Multiple LoRAs can be combined with adjustable weights, allowing users to blend styles."
-          ]
-        },
-        {
-          title: "Generation Parameters",
-          body: [
-            "Inference Steps: The number of denoising iterations. Typical values range from 20 to 60 steps. Diminishing returns are observed beyond 40–50 steps.",
-            "Guidance Scale (CFG): Controls prompt adherence. Values between 7 and 12 are typical for character generation.",
-            "Negative Prompts for Character Art: 'extra limbs, deformed hands, bad anatomy, blurry, low quality, watermark'",
-            "Aspect Ratio: Portrait ratio (2:3 or 3:4) is standard for character sheets. Square (1:1) for headshots."
-          ]
-        },
-        {
-          title: "Canvas Editing",
-          body: [
-            "Leonardo AI's Canvas tool allows inpainting — selecting a specific region of a generated image and regenerating only that region with a new prompt while keeping the rest of the image intact. This is essential for character design workflows."
-          ]
-        }
+            {
+                  "title": "Why Leonardo for Characters?",
+                  "body": [
+                        "Leonardo AI offers specialised fine-tuned models \u2014 versions trained specifically on character art, game assets, or anime. This means you get much more consistent results for the same character across multiple images compared to general-purpose models.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Character Prompt Layer</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What to Describe</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Appearance</td><td class=\"p-3 text-muted-foreground\">Hair colour, eye colour, skin tone, age, body type</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Costume</td><td class=\"p-3 text-muted-foreground\">Clothing style, colours, materials, accessories</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Emotion</td><td class=\"p-3 text-muted-foreground\">'Determined expression', 'joyful smile', 'fierce gaze'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Pose</td><td class=\"p-3 text-muted-foreground\">'Standing heroically', 'crouching', 'arms crossed'</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Background</td><td class=\"p-3 text-muted-foreground\">'Plain white', 'fantasy forest', 'studio backdrop'</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "Consistency Across Renders",
+                  "body": [
+                        "Write detailed character sheet  \u2192  Select a consistent model  \u2192  Lock style descriptors  \u2192  Generate multiple poses  \u2192  Same character every time",
+                        "![Leonardo AI Character Design](/aitools_exp3.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -276,7 +178,7 @@ export const aiM1Experiments: Experiment[] = [
     expected: "A stylistically sophisticated composition utilizing aspect ratio, stylization, and varied parameter settings.",
     content: {
       aim: {
-        text: "In this experiment the student will use Midjourney to generate aesthetically refined, painterly, and compositionally sophisticated images. The student will explore Midjourney's unique parameter system.",
+        text: "To use Midjourney's advanced compositional controls \u2014 including aspect ratio flags, stylisation parameters, and negative prompts \u2014 to craft intentional artistic compositions that demonstrate mastery of visual balance, colour palette direction, and aesthetic coherence.",
         bullets: [
           "Understand Midjourney's proprietary model architecture",
           "Use Midjourney's parameter syntax including --ar, --stylize, --chaos, --v, and --no flags",
@@ -287,36 +189,20 @@ export const aiM1Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is Midjourney?",
-          body: [
-            "Midjourney is a proprietary AI image generation tool developed by Midjourney Inc. Unlike DALL·E and Leonardo AI, Midjourney uses its own custom model architecture rather than Stable Diffusion.",
-            "The model is known for producing images with exceptionally strong aesthetic quality — richly textured, painterly, compositionally balanced, and with a distinctive visual character."
-          ]
-        },
-        {
-          title: "Parameter Syntax",
-          body: [
-            "Midjourney uses a flag-based parameter system appended to the prompt:",
-            "--ar W:H : Sets aspect ratio. Examples: --ar 16:9 for widescreen.",
-            "--stylize N : Controls how strongly Midjourney's aesthetic training is applied. Range 0–1000. Default 100.",
-            "--chaos N : Controls variation between the four images in the output grid. Range 0–100.",
-            "--v N : Selects the model version. --v 6.1 is the current production version.",
-            "--no [element] : Negative prompt equivalent."
-          ]
-        },
-        {
-          title: "The Grid, Upscale, and Variation Workflow",
-          body: [
-            "Every Midjourney generation produces a 2x2 grid of four image variants. The user selects the best variant using U1–U4 (upscale) buttons to get a full-resolution version, or V1–V4 (variation) buttons to generate four new variants."
-          ]
-        },
-        {
-          title: "Image Prompting",
-          body: [
-            "Midjourney supports image prompting — prepending an image URL to the text prompt causes the model to use that image as a stylistic and compositional reference."
-          ]
-        }
+            {
+                  "title": "Midjourney's Unique Parameters",
+                  "body": [
+                        "Midjourney uses special command flags alongside your prompt to control the technical and artistic properties of the output.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Parameter</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What It Does</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Example</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">--ar</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Sets aspect ratio</td><td class=\"p-3 text-muted-foreground\">--ar 16:9 (widescreen), --ar 1:1 (square)</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">--stylize</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Controls artistic intensity</td><td class=\"p-3 text-muted-foreground\">--stylize 100 (subtle) to 1000 (very painterly)</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">--no</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Negative prompt \u2014 excludes</td><td class=\"p-3 text-muted-foreground\">--no text, --no people, --no blur</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">--v</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Model version</td><td class=\"p-3 text-muted-foreground\">--v 6 (latest, most detailed)</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">--chaos</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Variation randomness</td><td class=\"p-3 text-muted-foreground\">--chaos 0 (consistent) to 100 (wild)</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "Building a Composed Prompt",
+                  "body": [
+                        "Subject + scene  \u2192  Mood & colour palette  \u2192  Art style descriptor  \u2192  Add --ar --stylize --no  \u2192  Coherent composition",
+                        "![Midjourney Artistic Composition](/aitools_exp4.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -335,3 +221,5 @@ export const aiM1Experiments: Experiment[] = [
     }
   }
 ];
+
+// Trigger HMR

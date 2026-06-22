@@ -8,7 +8,7 @@ export const aiM3Experiments: Experiment[] = [
     expected: "A multi-file project with a main CLI script or API, data file, comprehensive error handling, and a README — all functional and testable.",
     content: {
       aim: {
-        text: "In this experiment the student will use Claude Code — Anthropic's agentic command-line coding assistant — to build a functional software mini-project from natural language instructions. The student will explore how Claude Code interprets high-level requirements, scaffolds project structure, writes and iterates on code, runs tests, and self-corrects errors across a multi-step development session.",
+        text: "To use Claude as an AI software architect by providing high-level project briefs and iteratively decomposing them into working code \u2014 covering file structure planning, function-by-function implementation, and debugging cycles \u2014 demonstrating end-to-end AI-assisted software development from specification to running output.",
         bullets: [
           "Understand the architectural difference between agentic coding assistants like Claude Code and autocomplete tools like GitHub Copilot",
           "Use natural language to specify functional requirements and watch Claude Code translate them into working code",
@@ -20,34 +20,21 @@ export const aiM3Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is Claude Code?",
-          body: [
-            "Claude Code is Anthropic's agentic coding assistant, available as a command-line tool (CLI) and as IDE extensions. Unlike GitHub Copilot which operates as an autocomplete engine within the editor, Claude Code is an agentic system.",
-            "It can read and write files, execute terminal commands, run tests, install dependencies, and iterate on code across multiple steps in response to a single high-level instruction."
-          ]
-        },
-        {
-          title: "Agentic AI vs Autocomplete AI",
-          body: [
-            "Autocomplete AI operates at the token prediction level — predicting the next line based on the current editing context.",
-            "Agentic AI operates at the task level — given a goal, it plans a sequence of actions, executes them, observes results, and adjusts without the developer writing a single line."
-          ]
-        },
-        {
-          title: "Natural Language to Code Workflow",
-          body: [
-            "The core workflow with Claude Code is: state the goal in plain English, review what Claude Code plans to do before it executes, approve or modify the plan, observe execution, and review the output.",
-            "This plan-review-execute loop is important — Claude Code will ask for confirmation before making significant changes, especially in existing codebases."
-          ]
-        },
-        {
-          title: "Code Quality and Review Obligations",
-          body: [
-            "AI-generated code is not production-ready without human review. Common issues include missing input validation, security vulnerabilities in user-input handling, and inadequate test coverage.",
-            "The developer retains full responsibility for all code submitted. Code review is not optional when using agentic coding tools."
-          ]
-        }
+            {
+                  "title": "Claude as a Software Architect",
+                  "body": [
+                        "Unlike autocomplete tools, Claude understands the full context of your project. You describe what you want to build in plain English and Claude plans the structure, writes each part, and explains every decision.",
+                        "Describe the project in plain English  \u2192  Claude plans file structure  \u2192  Claude writes each function  \u2192  You test it & report bugs  \u2192  Claude fixes & explains"
+                  ]
+            },
+            {
+                  "title": "Effective Project Prompting",
+                  "body": [
+                        "Using structural prompt components to direct the code generation behavior.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Prompt Element</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Example</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Goal</td><td class=\"p-3 text-muted-foreground\">'Build a Python script that reads a CSV and outputs a summary'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Constraints</td><td class=\"p-3 text-muted-foreground\">'Use only standard libraries, no pip installs'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Output form</td><td class=\"p-3 text-muted-foreground\">'Show me the file structure first, then write each file'</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Debug style</td><td class=\"p-3 text-muted-foreground\">'Here is the error message \u2014 explain what went wrong'</td></tr></tbody></table>",
+                        "![Claude Code Mini-Project](/aitools_exp9.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -75,7 +62,7 @@ export const aiM3Experiments: Experiment[] = [
     expected: "Refactored code that is measurably cleaner against clean code principles, with a planted bug identified and fixed.",
     content: {
       aim: {
-        text: "In this experiment the student will use Cursor AI — an AI-native code editor built on VS Code — to refactor and debug an existing codebase. The focus is on using AI as a code quality partner on existing code rather than generating from scratch.",
+        text: "To use Cursor AI's editor-integrated AI to refactor existing codebases by applying targeted AI instructions for improving code readability, reducing duplication, enforcing naming conventions, and splitting monolithic functions \u2014 measuring before-and-after code quality improvements.",
         bullets: [
           "Understand Cursor AI's architecture as an AI-native editor and how it differs from VS Code with Copilot",
           "Use Cursor's Cmd+K inline edit feature to perform targeted refactoring of specific functions",
@@ -85,28 +72,20 @@ export const aiM3Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is Cursor AI?",
-          body: [
-            "Cursor is an AI-native code editor forked from VS Code that deeply integrates large language model capabilities into the editing experience.",
-            "Unlike VS Code with Copilot which adds AI as a plugin layer, Cursor rebuilds the editing experience around AI interaction."
-          ]
-        },
-        {
-          title: "Cursor Interaction Modes",
-          body: [
-            "Cmd+K (Inline Edit): Places an AI edit instruction directly in the code for targeted, localized edits.",
-            "Chat Sidebar (Cmd+L): Opens a conversation panel with full codebase context to ask architectural questions and debug hypotheses.",
-            "Composer (Cmd+I): A multi-file editing mode where Cursor makes coordinated changes across multiple files."
-          ]
-        },
-        {
-          title: "AI-Assisted Debugging Workflow",
-          body: [
-            "For debugging, Cursor's Chat mode allows the developer to describe a bug symptom and ask for hypotheses. Cursor analyzes the function, identifies errors, and suggests fixes.",
-            "The developer's role is to evaluate each hypothesis against their understanding of the intended behavior."
-          ]
-        }
+            {
+                  "title": "What Is Refactoring?",
+                  "body": [
+                        "Refactoring means improving the structure of existing code without changing what it does. Think of it like reorganising a messy room \u2014 everything still works, but it's now clean and easy to navigate.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Refactoring Task</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Before</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">After</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Rename variables</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">'x', 'temp', 'data2'</td><td class=\"p-3 text-muted-foreground\">Descriptive names: 'user_age', 'invoice_total'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Split long function</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">One 200-line function</td><td class=\"p-3 text-muted-foreground\">10 focused 20-line functions</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Remove duplication</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Same logic copy-pasted 5 times</td><td class=\"p-3 text-muted-foreground\">One reusable function called 5 times</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Add comments</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">No explanations in code</td><td class=\"p-3 text-muted-foreground\">Every function has a clear docstring</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "Cursor AI Refactoring Flow",
+                  "body": [
+                        "Open messy code in Cursor  \u2192  Select a section & press Cmd+K  \u2192  'Refactor this: make it cleaner'  \u2192  AI rewrites in-place  \u2192  Review & accept changes",
+                        "![Cursor AI Refactoring](/aitools_exp10.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -135,7 +114,7 @@ export const aiM3Experiments: Experiment[] = [
     expected: "Working implementations of function stubs, a Copilot-generated test file with gaps manually filled, and a productivity comparison table.",
     content: {
       aim: {
-        text: "In this experiment the student will use GitHub Copilot to complete a structured set of coding tasks and measure the productivity impact compared to writing the same code without AI assistance. The focus is on understanding where Copilot accelerates development and where it requires careful supervision.",
+        text: "To measure the productivity impact of GitHub Copilot's inline code completion by completing a set of timed coding tasks with and without Copilot enabled \u2014 documenting keystrokes saved, time reduction, and accuracy of suggestions across different programming languages and task types.",
         bullets: [
           "Understand how GitHub Copilot uses the Codex and GPT-4 models to generate context-aware code completions",
           "Use Copilot inline suggestions to accelerate implementation of standard algorithmic tasks",
@@ -146,31 +125,14 @@ export const aiM3Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is GitHub Copilot?",
-          body: [
-            "GitHub Copilot is an AI pair programming tool powered by OpenAI's models. It provides real-time inline code suggestions as the developer types, predicting the next line, block, or entire function based on current file context."
-          ]
-        },
-        {
-          title: "Ghost Text and Tab-to-Accept",
-          body: [
-            "Copilot's inline suggestions appear as ghost text. The developer presses Tab to accept. The tab-to-accept workflow creates a risk: habitually accepting suggestions without reading them.",
-            "Studies have found that Copilot-generated code can contain security vulnerabilities (like SQL injection). The developer must read every suggestion before accepting."
-          ]
-        },
-        {
-          title: "Comment-Driven Development",
-          body: [
-            "One effective pattern is writing a natural language comment describing the function logic before writing code, causing Copilot to generate the complete implementation as a suggestion."
-          ]
-        },
-        {
-          title: "Productivity Impact Measurement",
-          body: [
-            "A structured comparison involves timing equivalent tasks completed with and without Copilot, counting lines generated manually vs AI, and evaluating code quality. This produces calibrated data on Copilot's real value."
-          ]
-        }
+            {
+                  "title": "How GitHub Copilot Works",
+                  "body": [
+                        "Copilot watches what you type in real time. As you write a function name or a comment describing what you need, it predicts the entire code block and shows it in grey text. Press Tab to accept.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Trigger Type</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What You Type</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What Copilot Generates</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Comment trigger</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\"># sort this list in descending order</td><td class=\"p-3 text-muted-foreground\">Full sort function with return</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Function name</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">def calculate_tax(</td><td class=\"p-3 text-muted-foreground\">Parameters, logic, docstring</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Pattern repeat</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">First item in a list pattern</td><td class=\"p-3 text-muted-foreground\">All remaining items automatically</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Test generation</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\"># write unit tests for this function</td><td class=\"p-3 text-muted-foreground\">Full pytest test file</td></tr></tbody></table>",
+                        "![GitHub Copilot Productivity](/aitools_exp11.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -198,7 +160,7 @@ export const aiM3Experiments: Experiment[] = [
     expected: "A live deployed web application with database connectivity, functional UI components, and a documented prompt iteration log.",
     content: {
       aim: {
-        text: "In this experiment the student will use the Replit Agent to prototype, build, and deploy a full-stack web application entirely through natural language instructions. The student will explore how autonomous AI agents manage the entire software development lifecycle—from project scaffolding and database configuration to frontend design and live deployment.",
+        text: "To use Replit Agent to build, run, and iterate on a full-stack web application prototype entirely in the browser \u2014 from natural language specification through to a live deployed URL \u2014 without any local environment setup, demonstrating AI-powered zero-configuration rapid prototyping.",
         bullets: [
           "Understand the concept of autonomous coding agents and end-to-end AI software generation",
           "Formulate comprehensive project briefs that explicitly define frontend, backend, and database requirements",
@@ -208,30 +170,20 @@ export const aiM3Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "Autonomous Coding Agents",
-          body: [
-            "Autonomous coding agents, like the Replit Agent, represent a paradigm shift from simple autocomplete tools. They operate within a fully managed cloud environment where they can write code, install packages, start servers, and interact with databases.",
-            "Instead of assisting a developer line-by-line, the agent takes a high-level goal and autonomously executes the necessary steps to build the entire application."
-          ]
-        },
-        {
-          title: "Full-Stack AI Scaffolding",
-          body: [
-            "When given a prompt to build an app, the agent must orchestrate multiple layers: setting up a backend server (e.g., Express or Flask), configuring a database (e.g., PostgreSQL or SQLite), and building a frontend (e.g., React or plain HTML/JS).",
-            "The developer's role shifts from writing syntax to acting as a product manager—defining requirements, reviewing progress, and issuing corrective prompts when the agent makes incorrect architectural choices."
-          ]
-        },
-        {
-          title: "Prompt Engineering for Applications",
-          body: [
-            "Building an entire application requires a structured prompt. A good 'App Brief' should specify:",
-            "1. Core functionality (what the app does)",
-            "2. Data models (what information needs to be stored)",
-            "3. User Interface (how it should look and behave)",
-            "4. Tech Stack (any specific language or framework requirements)"
-          ]
-        }
+            {
+                  "title": "Why Replit Agent Is Different",
+                  "body": [
+                        "Most coding tools just write code \u2014 you still need to install software, set up a server, and figure out deployment yourself. Replit Agent handles everything: it writes the code, runs it, fixes errors, and gives you a live URL \u2014 all in one place.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Step</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Traditional Dev</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Replit Agent</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Environment setup</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Install Node, Python, DB \u2014 hours</td><td class=\"p-3 text-muted-foreground\">Zero setup \u2014 runs in browser</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Write code</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">You write everything manually</td><td class=\"p-3 text-muted-foreground\">Agent writes from your description</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Fix errors</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">You debug line by line</td><td class=\"p-3 text-muted-foreground\">Agent detects and fixes automatically</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Deploy to web</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Configure servers, DNS, hosting</td><td class=\"p-3 text-muted-foreground\">One click \u2014 instant live URL</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "Replit Agent Workflow",
+                  "body": [
+                        "Describe your app in English  \u2192  Agent writes all the code  \u2192  Runs it automatically  \u2192  Fixes any errors itself  \u2192  Live URL in minutes",
+                        "![Replit Agent Prototyping](/aitools_exp12.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -252,3 +204,5 @@ export const aiM3Experiments: Experiment[] = [
     }
   }
 ];
+
+// Trigger HMR

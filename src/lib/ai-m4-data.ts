@@ -8,7 +8,7 @@ export const aiM4Experiments: Experiment[] = [
     expected: "A live, dynamic, responsive React-based landing page with consistent dark-mode styling, working animations, hover states, and clear component segmentation.",
     content: {
       aim: {
-        text: "In this experiment, the student will use Lovable.dev (an AI full-stack web developer agent) to generate, iterate on, and deploy a fully functional, highly aesthetic product landing page. The focus is on moving from a text-based product prompt to a living web interface using natural language edits, understanding component sections, and mastering interactive UI refinements.",
+        text: "To use Lovable to generate a complete, styled landing page from a single product brief prompt \u2014 iterating on layout, copy, colour scheme, and section structure through natural language instructions \u2014 and publish it to a live URL without writing any code.",
         bullets: [
           "Understand how AI design agents interpret product copy to generate contextual UI sections",
           "Learn to use conversational micro-prompts to change layouts, typography, color themes, and assets",
@@ -17,30 +17,20 @@ export const aiM4Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "What is Lovable.dev?",
-          body: [
-            "Lovable is an AI-powered full-stack development platform built on top of Large Language Models and specialized code-generation agents. Unlike simple template builders, Lovable interprets natural language to generate production-ready React code, using modern frontend tools like Tailwind CSS, Vite, and Shadcn UI.",
-            "It manages the full lifecycle: code creation, state management, previewing, and live hosting."
-          ]
-        },
-        {
-          title: "Anatomy of a High-Converting Landing Page",
-          body: [
-            "A successful landing page relies on a strategic layout designed to guide a user's attention down a specific path. AI generation tools typically structure these pages into discrete, modular components:",
-            "• Hero Section: Positioned at the very top, it contains an attention-grabbing H1 headline, a sub-headline explaining the value proposition, and a primary Call to Action (CTA) button.",
-            "• Social Proof / Trust Bars: Logos of clients, user reviews, or security badges to establish immediate credibility.",
-            "• Feature Grid: A breakdown of core technical/functional benefits, often organized into 3-column layouts using cards.",
-            "• Pricing/CTA Section: A clear breakdown of costs or a final high-contrast action button to convert the visitor."
-          ]
-        },
-        {
-          title: "Iterative Visual Refinement",
-          body: [
-            "When working with Generative UI tools, the initial 'one-shot' output is rarely perfect. The core skill is Conversational Refinement. Instead of manually writing code or moving pixels, developers pass descriptive strings to the AI (e.g., 'Make the Hero background a dark glassmorphism container').",
-            "The underlying AI reconstructs the Abstract Syntax Tree (AST) of the React components and applies the changes live."
-          ]
-        }
+            {
+                  "title": "Anatomy of a Landing Page",
+                  "body": [
+                        "Landing pages are optimized to hook and convert visitors rapidly.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Section</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Purpose</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What to Tell Lovable</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Hero</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">First impression \u2014 hook the visitor</td><td class=\"p-3 text-muted-foreground\">'Bold headline + subheading + CTA button'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Features</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Show what it does</td><td class=\"p-3 text-muted-foreground\">'3 feature cards with icons'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Social Proof</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Build trust</td><td class=\"p-3 text-muted-foreground\">'Testimonials section with 3 quotes'</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Pricing</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Convert visitors</td><td class=\"p-3 text-muted-foreground\">'3-tier pricing table'</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Footer</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Links and legal</td><td class=\"p-3 text-muted-foreground\">'Links, social icons, copyright'</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "The Lovable Design Flow",
+                  "body": [
+                        "Write product brief in chat  \u2192  Lovable generates full page  \u2192  Ask: 'change colour to blue'  \u2192  Ask: 'add testimonials'  \u2192  Publish to live URL",
+                        "![Lovable Landing Page](/aitools_exp13.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -69,7 +59,7 @@ export const aiM4Experiments: Experiment[] = [
     expected: "A working, multi-component application with interactive tabular data rows, live calculating stat bars, and functional modal dialog views.",
     content: {
       aim: {
-        text: "In this experiment, the student will leverage Bolt.new, an AI-powered browser-based development engine, to build, test, and run a complete multi-tier web application using natural language. The student will understand how an AI system manages frontend components, runtime environments, package installations, and client-side logic concurrently.",
+        text: "To use Bolt.new to build a complete full-stack web application from a natural language specification \u2014 including frontend UI, backend logic, and data persistence \u2014 deployed live in the browser, demonstrating AI-driven full-stack development without any local environment configuration.",
         bullets: [
           "Understand the concept of full-stack AI development environments running in browser sandboxes",
           "Initialize a web app project requiring dynamic client-side state management",
@@ -78,29 +68,20 @@ export const aiM4Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "Browser-Based Full-Stack Sandboxes",
-          body: [
-            "Traditional development requires setting up local code editors, installing runtimes (like Node.js), managing package conflicts (npm install), and configuring local servers.",
-            "Platforms like Bolt.new run an entire full-stack environment directly inside a web browser sandbox utilizing WebContainers.",
-            "This allows an AI model to not only write code but also execute shell commands, install npm packages, spin up servers, and read console error logs in real-time."
-          ]
-        },
-        {
-          title: "Client-Side State Management",
-          body: [
-            "A passive web page displays information; an interactive Web Application manages live data. To build an app like a dashboard or tracker, the application must maintain a 'State'—a memory store of user inputs.",
-            "When a user adds an item or toggles a status, the state changes, triggering an immediate graphical update of the DOM (Document Object Model) without needing a full page reload."
-          ]
-        },
-        {
-          title: "The AI-Developer Feedback Loop",
-          body: [
-            "When building complex functional web applications, the AI might write code that contains bugs, broken references, or typing mismatches.",
-            "The core architectural cycle of Bolt.new involves a closed loop: The user gives an instruction -> The AI writes the code files -> The integrated compiler builds the app.",
-            "If an error surfaces, the runtime logs are fed back into the AI context, allowing it to patch its own code automatically."
-          ]
-        }
+            {
+                  "title": "Full-Stack vs Landing Page",
+                  "body": [
+                        "Static pages vs. dynamic, database-backed applications.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Landing Page (Lovable)</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Full-Stack App (Bolt.new)</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Stores data?</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">No</td><td class=\"p-3 text-muted-foreground\">Yes \u2014 database included</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">User accounts?</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">No</td><td class=\"p-3 text-muted-foreground\">Yes \u2014 auth supported</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Dynamic?</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Static content only</td><td class=\"p-3 text-muted-foreground\">Changes based on user actions</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Examples</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Marketing site, portfolio</td><td class=\"p-3 text-muted-foreground\">Todo app, booking system, dashboard</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "The Bolt.new App Building Flow",
+                  "body": [
+                        "Describe the app & features  \u2192  Bolt builds frontend  \u2192  Bolt adds backend & DB  \u2192  Test in browser  \u2192  Deploy & share link",
+                        "![Bolt.new Web App](/aitools_exp14.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -126,7 +107,7 @@ export const aiM4Experiments: Experiment[] = [
     expected: "An accessible, flexible React sidebar component code framework featuring layout transitions, active link highlights, accordion tabs, and standardized CSS utility formatting.",
     content: {
       aim: {
-        text: "In this experiment, the student will use Vercel's v0 generative UI platform to build design-system-compliant, highly accurate UI components based on Shadcn UI and Tailwind CSS.",
+        text: "To use Vercel's v0 to generate production-ready React UI components from natural language descriptions \u2014 including forms, navigation bars, cards, and modals \u2014 and evaluate the generated Tailwind CSS and shadcn/ui code for direct integration into existing React projects.",
         bullets: [
           "Learn the principles of atomic web design using modern component-driven developer platforms",
           "Generate highly stylized, standalone UI components using clear, explicit design constraints",
@@ -135,28 +116,14 @@ export const aiM4Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "Atomic Component Design",
-          body: [
-            "Modern frontend engineering rejects massive, monolithic pages in favor of Component-Driven Development. UI interfaces are broken down into small, isolated structural building blocks called components.",
-            "These components are structured hierarchically: [Atom: Button] ➔ [Molecule: Search Bar] ➔ [Organism: Navigation Header].",
-            "Atoms are basic building blocks; Molecules are combinations of atoms; Organisms are complex UI components composed of molecules and atoms."
-          ]
-        },
-        {
-          title: "v0 Generative Mechanics",
-          body: [
-            "Vercel v0 is trained explicitly to map design patterns directly into optimized code using React, Tailwind CSS utility classes, and Radix UI primitives (packaged via the Shadcn UI library).",
-            "Rather than guessing styles arbitrarily, v0 uses predictable tokens for theme variables, ensuring generated elements match consistent structural parameters."
-          ]
-        },
-        {
-          title: "Version Tracking and Branching in Generative UI",
-          body: [
-            "When building UI components, an iteration may introduce unwanted design drift or break visual layout logic. v0 maintains an immutable sequential history log of every generation pass.",
-            "Developers can navigate back to a stable structural node (e.g., v2), branch out with a revised stylistic instruction, and generate a new visual variant without losing previous working states."
-          ]
-        }
+            {
+                  "title": "What Is a UI Component?",
+                  "body": [
+                        "A UI component is a reusable building block of a website \u2014 like a button, a login form, or a navigation bar. v0 generates these as clean React code.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Component Type</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What You Describe</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What v0 Generates</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Form</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">'Sign-up form with name, email, password, submit button'</td><td class=\"p-3 text-muted-foreground\">Full React form with validation</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Nav bar</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">'Dark navbar with logo left, links centre, CTA right'</td><td class=\"p-3 text-muted-foreground\">Responsive navbar component</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Card</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">'Product card with image, title, price, add-to-cart button'</td><td class=\"p-3 text-muted-foreground\">Styled card component</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Modal</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">'Confirmation dialog with cancel and confirm buttons'</td><td class=\"p-3 text-muted-foreground\">Accessible modal with overlay</td></tr></tbody></table>",
+                        "![v0 Component Library](/aitools_exp15.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -183,7 +150,7 @@ export const aiM4Experiments: Experiment[] = [
     expected: "A cleanly organized, fully layered, vector-based mobile analytics screen layout inside your canvas workspace utilizing standard auto-layout parameters and generating accessible CSS translation files.",
     content: {
       aim: {
-        text: "In this experiment, the student will use Figma's built-in AI layout engines to accelerate design workflows, convert textual component requirements into dynamic editable vector wires, map automatic alignment models, and prepare UI structures for production deployment.",
+        text: "To use Figma's AI-powered design features to auto-generate layout variations, apply design system constraints, and produce responsive grid structures from content briefs \u2014 evaluating AI-generated designs against established UX heuristics for usability, visual hierarchy, and accessibility.",
         bullets: [
           "Understand the role of AI layout tools within professional design and prototyping software",
           "Use natural language canvas commands to output structured vector interface mockups directly onto design frames",
@@ -192,29 +159,21 @@ export const aiM4Experiments: Experiment[] = [
         ]
       },
       theory: [
-        {
-          title: "Vector Canvas AI Engines",
-          body: [
-            "While platforms like Lovable and v0 output web code directly, professional product development workflows often begin in visual workspace vector tools like Figma.",
-            "Figma AI processes design-system parameters to assemble editable vector shapes, real layers, typography paths, and structural layouts on a blank frame from a textual layout brief.",
-            "Because these outputs are vector-based, human designers can resize, regroup, recolor, and manipulate any specific node manually."
-          ]
-        },
-        {
-          title: "Auto Layout Engineering Constraints",
-          body: [
-            "The core layout tool inside professional design setups is Auto Layout. It mirrors the behavior of the CSS Flexbox model in web code.",
-            "When AI engines generate canvas assets, they organize sections using clear structural rules: Direction (Arranging layers along a horizontal row or vertical column), Gaps and Padding (Controlling fixed spacing), and Resizing Rules (Defining whether a component card shrinks to Hug contents or stretches to Fill container)."
-          ]
-        },
-        {
-          title: "Design-to-Code Translation",
-          body: [
-            "Once a design layout is finalized on the vector canvas, it acts as a blueprint for developers.",
-            "Figma's Dev Mode inspects the layout geometry, alignment values, typography points, and spacing measurements, converting those properties directly into clean CSS properties or Tailwind CSS utility strings.",
-            "This bridges the gap between creative visual mockups and frontend code implementation."
-          ]
-        }
+            {
+                  "title": "What Figma AI Can Do",
+                  "body": [
+                        "Figma leverages AI tools to expedite design system compliance and mockup creation.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Figma AI Feature</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What It Does</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Auto Layout AI</td><td class=\"p-3 text-muted-foreground\">Generates responsive frames that adapt to content size</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Design Suggestions</td><td class=\"p-3 text-muted-foreground\">Proposes layout variations based on your content</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Component Matching</td><td class=\"p-3 text-muted-foreground\">Finds the right component from your design system automatically</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Copy Generation</td><td class=\"p-3 text-muted-foreground\">Fills placeholder text with contextually relevant content</td></tr></tbody></table>"
+                  ]
+            },
+            {
+                  "title": "Evaluating AI Designs \u2014 UX Heuristics",
+                  "body": [
+                        "A critical interface design requires checking formatting against accessibility and user guidelines.",
+                        "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Heuristic</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">What to Check</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Visual Hierarchy</td><td class=\"p-3 text-muted-foreground\">Is the most important element largest / most prominent?</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Whitespace</td><td class=\"p-3 text-muted-foreground\">Is there breathing room or is it too cluttered?</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Consistency</td><td class=\"p-3 text-muted-foreground\">Do fonts, colours and spacing match the design system?</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Accessibility</td><td class=\"p-3 text-muted-foreground\">Is contrast ratio above 4.5:1? Are tap targets large enough?</td></tr></tbody></table>",
+                        "![Figma AI Layouts](/aitools_exp16.webp)"
+                  ]
+            }
       ],
       pretest: [],
       procedure: [
@@ -236,3 +195,5 @@ export const aiM4Experiments: Experiment[] = [
     }
   }
 ];
+
+// Trigger HMR
