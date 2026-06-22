@@ -1,6 +1,6 @@
 [
   {
-    "question": "?",
+    "question": "What is the main purpose of a chatbot?",
     "options": [
       "To format computer hard drives",
       "To simulate human conversation through text or voice interactions",
@@ -95,12 +95,12 @@
       "Streamlit (or Gradio)",
       "NumPy",
       "Matplotlib",
-      "Pygame\"Intent\" in conversational AI ecosystems?"
+      "Pygame"
     ],
     "answerIndex": 0
   },
   {
-    "question": "",
+    "question": "What is an \"Intent\" in conversational AI ecosystems?",
     "options": [
       "The processing time duration taken to return text chunks streams",
       "The goal or purpose behind a user\u2019s typed message (e.g., \"book_flight\" or \"check_balance\")",
@@ -193,12 +193,12 @@
       "Opening multiple browser dashboard tabs grids layouts metrics at once",
       "Only preserving the most recent $N$ messages turns inside the prompt context memory buffer to save token costs and prevent crashes",
       "Converting text strings characters data values directly to numbers rows",
-      "Encrypting database tables keys indices columns relations schemas configurations?"
+      "Encrypting database tables keys indices columns relations schemas configurations"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "Which structure is best suited for sending conversation arrays format strings payloads to multi-turn chat completions API endpoints?",
     "options": [
       "A flat continuous unseparated plain paragraph document string",
       "A list of dictionary objects tracking role and content fields keys pairs",
@@ -243,12 +243,12 @@
       "Larger font files presentation theme configurations variables elements",
       "Guardrails and safety moderation filtering models layers components (e.g., Llama Guard)",
       "Empty dictionary structural object schemas trackers lists paths tools",
-      "Offline hardware calculation grid matrix transformations compiler scripts?"
+      "Offline hardware calculation grid matrix transformations compiler scripts"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "What are the two primary technical paradigms used in text summarization?",
     "options": [
       "Extractive and Abstractive summarization",
       "Binary and Hexadecimal reductions models fields layouts",
@@ -293,12 +293,12 @@
       "Typing instructions in all uppercase capital letters blocks sheets templates",
       "A \"Map-Reduce\" summarization strategy (summarizing small chunks individually first, then summarizing the summaries)",
       "Deleting all nouns from the document text records tables paths loops",
-      "Increasing the model temperature parameters score thresholds limits arrays?"
+      "Increasing the model temperature parameters score thresholds limits arrays"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "Which prompt instruction is explicitly tailored for a zero-shot summarization task constraint?",
     "options": [
       "\"Summarize the following text in exactly three bullet points: [Text]\"",
       "\"Here is an example summary... Now copy it exactly for this: [Text]\"",
@@ -389,12 +389,12 @@
     "question": "Summarization models fundamentally reduce data redundancy profiling indexes across text corpuses while preserving crucial:",
     "options": [
       "Spacing characters counts layout properties grid options parameters definitions",
-      "Core informational value metrics context meaning themes facts semantic weight(Doc"
+      "Core informational value metrics context meaning themes facts semantic weight"
     ],
     "answerIndex": 1
   },
   {
-    "question": "QA)?",
+    "question": "What is Document Question Answering (DocQA)?",
     "options": [
       "Asking an AI to write a completely fictional novel story book from scratch",
       "An NLP task that extracts or generates precise answers to natural language questions based strictly on the content of provided source files (like PDFs or scanned images)",

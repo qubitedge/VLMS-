@@ -237,7 +237,7 @@ import { TileGridBackground } from "@/components/TileGridBackground";
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const location = useLocation();
-  const hideBot = location.pathname.startsWith('/course') || location.pathname.startsWith('/workspace');
+  const hideBot = location.pathname.startsWith('/course/') || location.pathname.startsWith('/workspace');
   const isQuantumCourse = location.pathname.includes('/course/quantum-computing') || location.pathname.includes('/workspace?exp=qc-');
   const isDbmsCourse = location.pathname.includes('/course/dbms');
   const hasCustomBg = isQuantumCourse || isDbmsCourse;

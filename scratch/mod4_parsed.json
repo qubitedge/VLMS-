@@ -1,6 +1,6 @@
 [
   {
-    "question": "?",
+    "question": "What is the first step in creating text embeddings using an API?",
     "options": [
       "Deleting all numbers",
       "Passing raw text or tokens to an embedding model",
@@ -95,12 +95,12 @@
       "Translated into binary numbers manually",
       "Cleaned of completely corrupted formatting characters while preserving meaningful words and context",
       "Stripped of all vowels",
-      "Converted to uppercase letters only, you should use a:"
+      "Converted to uppercase letters only"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "When storing created embeddings for quick retrieval across millions of rows, you should use a:",
     "options": [
       "Text file (.txt)",
       "Vector Database (e.g., Pinecone, Milvus, Chroma, pgvector)",
@@ -193,12 +193,12 @@
       "Deleting bad data rows permanently",
       "Compressing high-dimensional vectors into lower dimensions for easier storage or 2D/3D visual graphing",
       "Increasing the token string lengths",
-      "Changing the language structure rules?"
+      "Changing the language structure rules"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "Which embedding size represents a typical vector dimension count for a highly accurate frontier model?",
     "options": [
       "2",
       "1536",
@@ -243,12 +243,12 @@
       "Token counts",
       "Memory footprint in bytes (Dimensions $\\times$ float precision size $\\times$ number of vectors)",
       "Lexical matching frequency score",
-      "Vocabulary array indices, what must you do to the text?"
+      "Vocabulary array indices"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "Before creating embeddings for long documents, what must you do to the text?",
     "options": [
       "Translate it to binary code",
       "Chunk it into smaller, manageable pieces (e.g., paragraphs or overlapping sentences)",
@@ -293,12 +293,12 @@
       "The model's hidden layers configurations",
       "Extra descriptive tags stored alongside the vector (like source URL, author, date, or raw text chunk) used for filtering search results",
       "The payment subscription plan tier",
-      "The computer operating system version?"
+      "The computer operating system version"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "Can a standard text embedding model capture the sequence order of words?",
     "options": [
       "No, it treats text like a random bag of words",
       "Yes, modern transformer-based embedding models encode position and sequence structure to capture true contextual meaning",
@@ -343,12 +343,12 @@
       "Cross-Encoder",
       "Bi-Encoder (Embedding model approach)",
       "Manual character loop matching",
-      "Hard-coded pattern matching regex\"Embedding Matrix\" inside a neural network do?"
+      "Hard-coded pattern matching regex"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "What does the \"Embedding Matrix\" inside a neural network do?",
     "options": [
       "Erases old values randomly",
       "Maps individual discrete token IDs to dense continuous vector positions",
@@ -393,12 +393,12 @@
       "FastAPI or Flask",
       "Google Sheets",
       "Markdown syntax",
-      "Standard computer hardware drivers(e.g., 3072 dimensions) over a low-dimension one (e.g., 384 dimensions)?"
+      "Standard computer hardware drivers"
     ],
     "answerIndex": 0
   },
   {
-    "question": "",
+    "question": "What is a trade-off of choosing a high-dimension embedding model (e.g., 3072 dimensions) over a low-dimension one (e.g., 384 dimensions)?",
     "options": [
       "High dimensions use less storage memory",
       "High dimensions typically capture finer semantic details but require significantly more storage space and slower processing times",
@@ -491,12 +491,12 @@
       "Code execution compilers",
       "Semantic Search and Retrieval-Augmented Generation (RAG)",
       "Hardware device drivers wiring",
-      "Network firewall proxies configuration?"
+      "Network firewall proxies configuration"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "What is Semantic Search?",
     "options": [
       "Searching documents based strictly on exact keyword character matches",
       "Searching documents based on the conceptual meaning and intent of the query text",
@@ -591,12 +591,12 @@
       "Character length tracking",
       "ANN (Approximate Nearest Neighbors) indexing",
       "Alphabetical sorting arrays",
-      "Regular expression string matching templates?"
+      "Regular expression string matching templates"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "What does ANN stand for in vector search indices?",
     "options": [
       "Artificial Neural Network",
       "Approximate Nearest Neighbors",
@@ -691,12 +691,12 @@
       "Deleting file extensions from a storage drive",
       "Restricting search queries to a subset of data matching clear criteria (e.g., where category == 'electronics') before or after running the vector search step",
       "Changing the font style of search result snippets",
-      "Compressing vector index records\"Pre-filtering\" in vector search?"
+      "Compressing vector index records"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "What is \"Pre-filtering\" in vector search?",
     "options": [
       "Checking the user's password before they search",
       "Applying metadata filters before running the vector similarity search, ensuring only valid documents are evaluated",
@@ -741,12 +741,12 @@
       "It is written in an unsupported programming language",
       "It is too computationally expensive and slow to run in real-time for large datasets",
       "It only works on short words",
-      "It requires a dark mode user interface style:"
+      "It requires a dark mode user interface style"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "Semantic search forms the core discovery component for building high-quality:",
     "options": [
       "Compiler diagnostic logs extensions",
       "E-commerce product recommendation engines, question-answering pipelines, and document search portals",
@@ -791,12 +791,12 @@
       "The exact same vector orientation path",
       "Diametrically opposite directions (opposite context meaning profiles)",
       "A perfect right angle layout",
-      "A random arrangement path\"Vector Drift\" issue?"
+      "A random arrangement path"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "What is a \"Vector Drift\" issue?",
     "options": [
       "The server hard drive moving physically",
       "A mismatch that happens over time when your production data profile shifts away from what the original embedding model was optimized to represent",
@@ -887,12 +887,12 @@
     "question": "Semantic search bridges the conceptual gap between human intent phrases and:",
     "options": [
       "Raw character-by-character text matching strings rules",
-      "Unstructured corporate document collections filed across vector spaces?"
+      "Unstructured corporate document collections filed across vector spaces"
     ],
     "answerIndex": 1
   },
   {
-    "question": "",
+    "question": "Which block maps an incoming query to candidate database context text matches?",
     "options": [
       "A final text generation model block",
       "An embedding vector calculation block matched against a similarity index search engine",
