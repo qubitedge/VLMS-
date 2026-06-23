@@ -583,9 +583,9 @@ const quantumShimRef = useRef<string | null>(null); // stores shim source
     }
   }, [language, sqlLoaded]);
 
-  // Pre-load pyodide when python is active for the Python course
+  // Pre-load pyodide when python is active for any Python-language course
   useEffect(() => {
-    if (language === "python" && details?.course.id === "python" && !pyodideLoaded) {
+    if (language === "python" && !pyodideLoaded) {
       loadPyodide()
         .then((pyodide) => {
           pyodideRef.current = pyodide;
@@ -595,7 +595,7 @@ const quantumShimRef = useRef<string | null>(null); // stores shim source
           setPyodideLoadError(err.message || "Failed to load Python engine");
         });
     }
-  }, [language, pyodideLoaded, details]);
+  }, [language, pyodideLoaded]);
 
   const templates: Record<string, { file: string; code: string; version: string }> = {
     c: {
@@ -662,8 +662,9 @@ ORDER  BY grade DESC;`,
   // Reset code on language / experiment change
   useEffect(() => {
     experimentStartTime.current = Date.now();
-    let newCode = templates[language].code;
-    if (language === "c" && details?.experiment.title === "Hello World") {
+    // Prefer the experiment's own starter code, then fall back to the language template
+    let newCode = details?.experiment.code || templates[language].code;
+    if (!details?.experiment.code && language === "c" && details?.experiment.title === "Hello World") {
       newCode = `#include<stdio.h>\nint main(){\n  printf("Hello World");\n  return 0;\n}`;
     }
     setCode(newCode);
@@ -673,7 +674,7 @@ ORDER  BY grade DESC;`,
   }, [language, exp]);
 
   const handleReset = () => {
-    setCode(templates[language].code);
+    setCode(details?.experiment.code || templates[language].code);
     setOutput("");
     setSqlResult(null);
     setIsError(false);
