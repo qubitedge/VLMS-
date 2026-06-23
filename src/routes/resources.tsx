@@ -421,8 +421,14 @@ function ResourcesPage() {
 
       {/* Fullscreen PDF Viewer Modal Overlay */}
       {selectedResource && (
-        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex flex-col items-center justify-center p-4 md:p-6 animate-in fade-in duration-200">
-          <div className="bg-slate-900 border border-slate-800 w-full max-w-7xl h-[90vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+        <div 
+          className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex flex-col items-center justify-center p-4 md:p-6 animate-in fade-in duration-200"
+          onClick={() => setSelectedResource(null)}
+        >
+          <div 
+            className="bg-slate-900 border border-slate-800 w-full max-w-7xl h-[90vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
             
             {/* Toolbar */}
             <div className="flex items-center gap-3 px-4 md:px-6 py-3 bg-slate-950 border-b border-slate-800 text-white justify-between">
