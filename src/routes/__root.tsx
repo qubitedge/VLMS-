@@ -191,12 +191,12 @@ function ProfileNav() {
 
 function DynamicIsland() {
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-40 w-[min(1200px,calc(100vw-2rem))]">
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-40 w-[min(1440px,calc(100vw-2rem))]">
       <div className="navbar flex items-center gap-4 px-4 py-3">
         {/* Brand */}
         <Link to="/" className="flex items-center gap-3 pl-3 pr-4 py-2 rounded-full">
           <div className="grid place-items-center size-10 rounded-full bg-white overflow-hidden shadow-sm">
-            <img src="/jntugvcev.b33bb43b07b2037ab043.svg" alt="JNTU GV" className="w-full h-full object-contain p-[2px]" />
+            <img src="/qubitedge.webp" alt="qubitedge" className="w-full h-full object-contain p-[2px]" />
           </div>
           <div className="hidden sm:flex flex-col leading-tight">
             <span className="font-display font-bold text-base tracking-tight">VLMS</span>

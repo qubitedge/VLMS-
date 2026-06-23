@@ -11,6 +11,15 @@ function AboutPage() {
       <div className="mb-16">
         <h1 className="text-4xl font-display font-bold mb-4">About Us</h1>
         <p className="text-muted-foreground text-lg">Meet the team behind the Virtual Lab Management System.</p>
+        <div className="mt-8 flex items-center gap-4 p-4 rounded-xl border border-border bg-secondary/30 w-fit backdrop-blur-sm">
+          <div className="size-16 rounded-lg bg-white overflow-hidden shadow-sm p-1 grid place-items-center">
+            <img src="/qubitedge.webp" alt="qubitedge Logo" className="w-full h-full object-contain" />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm text-cyan uppercase font-bold tracking-wider">In Collaboration With</span>
+            <span className="text-xl font-display font-semibold text-foreground">qubitedge</span>
+          </div>
+        </div>
       </div>
 
       {/* First Row: Guide */}
@@ -78,6 +87,30 @@ function AboutPage() {
             linkedin="https://www.linkedin.com/in/likhithmankala/" 
             image="/Likhith.webp"
           />
+        </div>
+      </div>
+
+      {/* Third Row: Collaboration Details */}
+      <div className="mt-16 bg-secondary/30 backdrop-blur-sm border border-border rounded-3xl p-8 lg:p-12 flex flex-col lg:flex-row gap-10 items-center">
+        <div className="shrink-0 relative group">
+          <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-2xl overflow-hidden border-4 border-cyan/20 group-hover:border-cyan/50 transition-colors shadow-2xl bg-white p-6 grid place-items-center">
+            <img 
+              src="/qubitedge.webp" 
+              alt="qubitedge"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+        
+        <div className="flex-1 space-y-4">
+          <div>
+            <h2 className="text-3xl font-display font-bold text-foreground">About qubitedge</h2>
+            <p className="text-cyan font-semibold tracking-wide text-sm uppercase mt-1">Strategic Technology Partner</p>
+          </div>
+          
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            qubitedge collaborates with academic institutions to build industry-aligned digital solutions and authoritative lab learning frameworks. By providing curriculum development support, isolated sandboxes, and modern hosting infrastructure, qubitedge ensures that learners get direct, zero-friction access to programming, data structures, database environments, and advanced quantum computing simulations.
+          </p>
         </div>
       </div>
     </div>
