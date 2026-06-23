@@ -1244,26 +1244,15 @@ const handlePostSolveAuthenticated = async (userId: string) => {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-background module-container">
+    <div className="h-[calc(100vh-30px)] flex flex-col bg-background module-container relative overflow-hidden">
+      {/* Ambient background orbs for premium glassmorphism */}
+      <div className="orb orb1 opacity-65" />
+      <div className="orb orb2 opacity-65" />
       {/* Top Header / Stepper */}
       <div className="px-8 py-4 flex items-center justify-center z-20 relative min-h-[80px]">
-        {/* Left Breadcrumb */}
-        <div className="flex items-center gap-3 text-sm text-muted-foreground glass-breadcrumb shrink-0 absolute left-8">
-          {details ? (
-            <Link to={`/course/${details.course.id}` as any} hash="experiments" className="hover:text-foreground flex items-center gap-1 font-medium">
-              <ArrowLeft className="size-3.5" /> {courseTitle}
-            </Link>
-          ) : (
-            <Link to="/courses" className="hover:text-foreground flex items-center gap-1 font-medium">
-              <ArrowLeft className="size-3.5" /> Back
-            </Link>
-          )}
-          {details && <span className="text-white/20">/</span>}
-          {details && <span className="font-semibold text-foreground/90">{weekTitle}</span>}
-        </div>
 
         {/* Floating Glass Pills Stepper (Centered) */}
-        <div className="flex items-center gap-8 overflow-x-auto py-3 px-8 rounded-full bg-white/40 dark:bg-black/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(31,38,135,0.1)] border border-white/40 dark:border-white/10">
+        <div className="flex items-center gap-5 overflow-x-auto py-3 px-8 rounded-full bg-white/40 dark:bg-black/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(31,38,135,0.1)] border border-white/40 dark:border-white/10">
           {WORKSPACE_STEPS.map((step, idx) => {
             const isCompleted = idx < activeStepIndex;
             const isActive = idx === activeStepIndex;
@@ -1290,8 +1279,8 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                   }
                 }}
                 className={`flex items-center justify-center gap-3 px-8 py-3.5 min-w-[160px] rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
-                  isActive ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border border-[#00e5ff]/50 shadow-[0_0_20px_rgba(0,229,255,0.4),inset_0_0_10px_rgba(124,58,237,0.2)] scale-105 text-foreground" : 
-                  "text-muted-foreground opacity-70 hover:opacity-100 hover:scale-105 hover:bg-white/20 dark:hover:bg-black/20"
+                  isActive ? "bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-[#00e5ff] shadow-[0_0_20px_rgba(0,229,255,0.35),inset_0_0_10px_rgba(124,58,237,0.15)] scale-105 text-foreground font-semibold" : 
+                  "text-muted-foreground opacity-45 hover:opacity-90 hover:scale-102 hover:bg-white/25 dark:hover:bg-black/25"
                 } ${isLocked ? "!cursor-not-allowed hover:!scale-100" : ""}`}
               >
                 <span className="text-lg">{icon}</span>
@@ -1308,7 +1297,23 @@ const handlePostSolveAuthenticated = async (userId: string) => {
           <div className="h-full grid lg:grid-cols-[1fr_1fr] divide-x divide-border">
             {/* ── Left Pane: Problem Description ─────────────────────────── */}
             <div className="h-full flex flex-col overflow-y-auto bg-card relative pb-24">
-              <div className="p-6 border-b border-border bg-secondary/20 flex items-center gap-4">
+              <div className="p-6 border-b border-border bg-secondary/20 flex flex-col gap-4">
+                {/* Breadcrumb inside problem description header */}
+                <div className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
+                  {details ? (
+                    <Link to={`/course/${details.course.id}` as any} hash="experiments" className="hover:text-foreground flex items-center gap-1">
+                      <ArrowLeft className="size-3" /> {courseTitle}
+                    </Link>
+                  ) : (
+                    <Link to="/courses" className="hover:text-foreground flex items-center gap-1">
+                      <ArrowLeft className="size-3" /> Back
+                    </Link>
+                  )}
+                  {details && <span className="text-muted-foreground/30">/</span>}
+                  {details && <span className="text-muted-foreground/80">{weekTitle}</span>}
+                </div>
+
+                <div className="flex items-center gap-4">
                 {isAITools && getAILogoUrl(details?.experiment.id) && (
                   <div className="size-16 rounded-xl bg-white border border-border flex items-center justify-center p-2 shadow-sm overflow-hidden shrink-0">
                     <img src={getAILogoUrl(details?.experiment.id)!} alt="Tool Logo" className="w-full h-full object-contain" onError={(e) => e.currentTarget.style.display = 'none'} />
@@ -1322,6 +1327,7 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                   </div>
                 </div>
               </div>
+            </div>
 
               <div className="p-8 flex-1 flex justify-center text-sm text-foreground/90">
                 {details ? (
@@ -1620,8 +1626,24 @@ const handlePostSolveAuthenticated = async (userId: string) => {
           </div>
         ) : (
           // CONTENT VIEWS FOR OTHER MODULES
-          <div className="h-full flex flex-col max-w-4xl mx-auto">
-            <div className="flex-1 overflow-y-auto p-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <div className="h-full flex flex-col max-w-6xl mx-auto px-4 py-6 z-10 relative w-full gap-4">
+            {/* Breadcrumb aligned with card */}
+            <div className="flex items-center gap-3 text-sm text-muted-foreground glass-breadcrumb self-start shrink-0">
+              {details ? (
+                <Link to={`/course/${details.course.id}` as any} hash="experiments" className="hover:text-foreground flex items-center gap-1 font-medium">
+                  <ArrowLeft className="size-3.5" /> {courseTitle}
+                </Link>
+              ) : (
+                <Link to="/courses" className="hover:text-foreground flex items-center gap-1 font-medium">
+                  <ArrowLeft className="size-3.5" /> Back
+                </Link>
+              )}
+              {details && <span className="text-white/20">/</span>}
+              {details && <span className="font-semibold text-foreground/90">{weekTitle}</span>}
+            </div>
+            
+            <div className="flex-1 glass-card flex flex-col overflow-hidden shadow-2xl border border-white/40 dark:border-white/10 rounded-3xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="flex-1 overflow-y-auto p-10">
               {isAITools && getAILogoUrl(details?.experiment.id) && currentStepName !== "pretest" && currentStepName !== "posttest" && (
                 <div className="mb-8 flex justify-center">
                   <div className="size-24 rounded-2xl bg-white border border-border/50 flex items-center justify-center p-4 shadow-xl overflow-hidden animate-in zoom-in-95 duration-500">
@@ -2739,31 +2761,32 @@ const handlePostSolveAuthenticated = async (userId: string) => {
 
                 return null;
               })()}
-            </div>
-            
-            <div className="flex items-center justify-between border-t border-border p-6 bg-background">
-              <button 
-                onClick={handlePrev} 
-                disabled={activeStepIndex === 0}
-                className="px-5 py-2.5 rounded-md border border-border bg-secondary hover:bg-secondary/80 text-sm font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none"
-              >
-                Previous
-              </button>
+              </div>
               
-              <div className="flex items-center gap-4">
-                {(currentStepName === "pretest" || currentStepName === "posttest" || currentStepName === "quiz") && isNextEnabled && (currentStepName === "pretest" ? sampledPretest.length > 0 : sampledPosttest.length > 0) && (
-                  <div className="flex items-center gap-2 text-sm font-medium px-4 py-2 bg-secondary/50 rounded-md border border-border">
-                    <span className="text-muted-foreground">Score:</span>
-                    <span className="text-mint text-base">{calculateScore(currentStepName as any)} / {(currentStepName === "pretest" ? sampledPretest : sampledPosttest).length || 0}</span>
-                  </div>
-                )}
-                
+              <div className="flex items-center justify-between border-t border-white/20 dark:border-white/10 p-6 bg-white/20 dark:bg-black/20 backdrop-blur-md">
                 <button 
-                  onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? handleLearnComplete : handleSubmit) : handleNext} 
-                  className="px-5 py-2.5 rounded-md bg-cyan text-cyan-foreground font-medium text-sm hover:bg-cyan/90 transition-colors"
+                  onClick={handlePrev} 
+                  disabled={activeStepIndex === 0}
+                  className="px-5 py-2.5 rounded-xl border border-white/25 dark:border-white/10 bg-white/40 dark:bg-black/40 hover:bg-white/60 dark:hover:bg-black/60 text-foreground text-sm font-medium transition-all disabled:opacity-50 disabled:pointer-events-none"
                 >
-                  {activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? "Proceed to Solve" : "Submit") : "Next"}
+                  Previous
                 </button>
+                
+                <div className="flex items-center gap-4">
+                  {(currentStepName === "pretest" || currentStepName === "posttest" || currentStepName === "quiz") && isNextEnabled && (currentStepName === "pretest" ? sampledPretest.length > 0 : sampledPosttest.length > 0) && (
+                    <div className="flex items-center gap-2 text-sm font-medium px-4 py-2 bg-white/30 dark:bg-black/30 backdrop-blur-md rounded-xl border border-white/20 dark:border-white/10">
+                      <span className="text-muted-foreground">Score:</span>
+                      <span className="text-mint text-base font-semibold">{calculateScore(currentStepName as any)} / {(currentStepName === "pretest" ? sampledPretest : sampledPosttest).length || 0}</span>
+                    </div>
+                  )}
+                  
+                  <button 
+                    onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? handleLearnComplete : handleSubmit) : handleNext} 
+                    className="px-5 py-2.5 rounded-xl bg-cyan text-cyan-foreground font-semibold text-sm hover:bg-cyan/90 transition-all shadow-[0_0_15px_rgba(6,182,212,0.25)]"
+                  >
+                    {activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? "Proceed to Solve" : "Submit") : "Next"}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
