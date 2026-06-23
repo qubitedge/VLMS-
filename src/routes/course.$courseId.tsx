@@ -426,7 +426,7 @@ function CoursePage() {
           </div>
 
           {/* Main Content */}
-          <div className="min-h-[500px] flex flex-col justify-between pb-16 rounded-3xl p-4 md:p-10 relative z-10 transition-all duration-500 border border-white/20 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)]">
+          <div className="min-h-[500px] flex flex-col justify-between pb-16 rounded-3xl p-4 md:p-10 relative z-10 transition-all duration-500 border border-white/20 dark:border-white/10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] min-w-0">
             <div key={currentTab} className="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-forwards">
               {currentTab === "Introduction" && course.introduction && (
                 <section className={hasCustomBg ? "prose prose-slate dark:prose-invert max-w-none prose-lg" : ""}>
@@ -508,6 +508,17 @@ function CoursePage() {
                       />
                     </div>
                   )}
+
+                  {course.id === "advanced-data-structures" && (
+                    <div className="mb-8 max-w-2xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
+                      <img
+                        src="/ads-flowchart.webp"
+                        alt="Advanced Data Structures curriculum"
+                        className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700"
+                      />
+                    </div>
+                  )}
+
 
                   {course.id === "java" && (
                     <div className="mb-8 max-w-2xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
@@ -591,8 +602,8 @@ function CoursePage() {
                     )}
                   </div>
                   {course.shortNotes ? (
-                    <div className="relative p-6 md:p-10 rounded-3xl border border-cyan/20 bg-card/50 backdrop-blur-sm shadow-xl overflow-y-auto max-h-[70vh] custom-scrollbar">
-                      <div className="sm:pl-4 relative z-10">
+                    <div className="relative p-6 md:p-10 rounded-3xl border border-cyan/20 bg-card/50 backdrop-blur-sm shadow-xl overflow-y-auto overflow-x-hidden max-h-[70vh] custom-scrollbar">
+                      <div className="sm:pl-4 relative z-10 min-w-0 w-full">
                         {/* Top Image */}
                         {course.id === 'data-structures-using-c-programming' && (
                           <div className="mb-10 p-4 bg-white/50 dark:bg-black/20 rounded-2xl border-4 border-dashed border-cyan/40 flex justify-center group relative overflow-hidden animate-in fade-in slide-in-from-top-4 duration-500">
@@ -602,7 +613,7 @@ function CoursePage() {
                         )}
 
                         {/* Content */}
-                        <div className="space-y-2">
+                        <div className="space-y-2 min-w-0">
                           {course.shortNotes.split(/\r?\n/).map((line, i) => {
                             const text = line.trim();
                             if (!text) return null;
@@ -684,7 +695,7 @@ function CoursePage() {
                               const tableHtml = text.replace('[TABLE]:', '');
                               el = (
                                 <div
-                                  className="my-6 overflow-x-auto rounded-xl border border-cyan/20 p-2 bg-card/30"
+                                  className="my-6 overflow-x-auto max-w-full rounded-xl border border-cyan/20 p-2 bg-card/30 [&_table]:min-w-[600px] [&_.grid]:flex [&_.grid]:flex-col [&_.grid]:md:grid"
                                   dangerouslySetInnerHTML={{ __html: tableHtml }}
                                 />
                               );
@@ -694,7 +705,7 @@ function CoursePage() {
                               el = (
                                 <div className="flex gap-3 items-start ml-2 md:ml-6 group">
                                   <div className="mt-2 w-1.5 h-1.5 rounded-full bg-cyan/50 group-hover:bg-cyan transition-colors shrink-0"></div>
-                                  <p className="text-foreground/80 leading-relaxed text-base md:text-lg">{text}</p>
+                                  <p className="text-foreground/80 leading-relaxed text-base md:text-lg break-words">{text}</p>
                                 </div>
                               );
                             }
