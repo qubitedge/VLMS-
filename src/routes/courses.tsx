@@ -714,6 +714,7 @@ export const Route = createFileRoute("/courses")({
 
 function CoursesPage() {
   const [profile, setProfile] = useState<{ name: string, interests: string[] } | null>(null);
+  const [activeTab, setActiveTab] = useState<"programming" | "ai" | "emerging">("programming");
 
   useEffect(() => {
     const profileStr = localStorage.getItem('currentUserProfile');
@@ -727,19 +728,9 @@ function CoursesPage() {
   const itBranch = branches.find(b => b.code === "IT");
   const courses = itBranch?.topics || [];
 
-  const recommendedCourses = courses.filter(c => {
-    if (!profile || !profile.interests || profile.interests.length === 0) return false;
-    const lowerCourse = c.toLowerCase();
-    return profile.interests.some(i => {
-      const lowerInterest = i.toLowerCase();
-      if (lowerInterest === "ai" && (lowerCourse.includes("ai") || lowerCourse.includes("machine learning") || lowerCourse.includes("llm"))) return true;
-      if (lowerCourse.includes(lowerInterest)) return true;
-      if (lowerInterest === "web development" && (lowerCourse.includes("web") || lowerCourse.includes("java"))) return true;
-      return false;
-    });
-  });
-
-  const remainingCourses = courses.filter(c => !recommendedCourses.includes(c));
+  const programmingCourses = courses.filter(c => ["c programming", "python", "java", "data structures"].some(p => c.toLowerCase().includes(p)));
+  const aiCourses = courses.filter(c => ["ai tools", "llms", "machine learning"].some(p => c.toLowerCase().includes(p)));
+  const emergingCourses = courses.filter(c => !programmingCourses.includes(c) && !aiCourses.includes(c));
 
   const renderCard = (t: string, isRecommended: boolean = false) => {
     const slug = t.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
@@ -785,28 +776,55 @@ function CoursesPage() {
       )}
       <p className="mt-2 text-muted-foreground max-w-2xl mb-10">Explore the complete syllabus and experiment workspace for your courses.</p>
 
-      {recommendedCourses.length > 0 && (
-        <>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-400/50 bg-purple-500/10 text-xs font-medium text-purple-400 mb-6">
-            <Star className="size-3.5" /> Recommended for You
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-            {recommendedCourses.map((t) => renderCard(t, true))}
-          </div>
-        </>
-      )}
-
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan/30 bg-cyan/10 text-xs font-medium text-cyan-600 dark:text-cyan-400 mb-6">
-        <BookOpen className="size-3.5" /> All Subjects
+      {/* Tab Navigation */}
+      <div className="flex items-center gap-4 mb-10 overflow-x-auto pb-2">
+        <button 
+          onClick={() => setActiveTab("programming")}
+          className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all ${
+            activeTab === "programming" 
+              ? "bg-blue-500/10 text-blue-500 border border-blue-400/50 shadow-sm" 
+              : "bg-white/5 dark:bg-slate-800/50 text-muted-foreground border border-transparent hover:bg-white/10 dark:hover:bg-slate-800"
+          }`}
+        >
+          <Code className="size-4" /> Programming
+        </button>
+        <button 
+          onClick={() => setActiveTab("ai")}
+          className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all ${
+            activeTab === "ai" 
+              ? "bg-purple-500/10 text-purple-500 border border-purple-400/50 shadow-sm" 
+              : "bg-white/5 dark:bg-slate-800/50 text-muted-foreground border border-transparent hover:bg-white/10 dark:hover:bg-slate-800"
+          }`}
+        >
+          <Sparkles className="size-4" /> Artificial Intelligence
+        </button>
+        <button 
+          onClick={() => setActiveTab("emerging")}
+          className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all ${
+            activeTab === "emerging" 
+              ? "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-400/50 shadow-sm" 
+              : "bg-white/5 dark:bg-slate-800/50 text-muted-foreground border border-transparent hover:bg-white/10 dark:hover:bg-slate-800"
+          }`}
+        >
+          <Hexagon className="size-4" /> Emerging Technologies
+        </button>
       </div>
 
-      {remainingCourses.length === 0 && recommendedCourses.length === 0 ? (
-        <div className="text-muted-foreground p-10 border border-dashed border-border rounded-xl text-center">
-          No subjects configured yet.
+      {activeTab === "programming" && programmingCourses.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          {programmingCourses.map((t) => renderCard(t, false))}
         </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {remainingCourses.map((t) => renderCard(t, false))}
+      )}
+
+      {activeTab === "ai" && aiCourses.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          {aiCourses.map((t) => renderCard(t, false))}
+        </div>
+      )}
+
+      {activeTab === "emerging" && emergingCourses.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          {emergingCourses.map((t) => renderCard(t, false))}
         </div>
       )}
     </div>
