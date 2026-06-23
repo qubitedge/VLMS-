@@ -1245,68 +1245,60 @@ const handlePostSolveAuthenticated = async (userId: string) => {
 
   return (
     <div className="h-screen flex flex-col bg-background module-container">
-      {/* Top Bar / Stepper */}
-      <div className="border-b border-border bg-card">
-        <div className="px-6 py-4 flex flex-col gap-4">
-          {/* Back button and title */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 text-sm text-muted-foreground glass-breadcrumb">
-              {details ? (
-                <Link to={`/course/${details.course.id}` as any} hash="experiments" className="hover:text-foreground flex items-center gap-1 font-medium">
-                  <ArrowLeft className="size-3.5" /> {courseTitle}
-                </Link>
-              ) : (
-                <Link to="/courses" className="hover:text-foreground flex items-center gap-1 font-medium">
-                  <ArrowLeft className="size-3.5" /> Back
-                </Link>
-              )}
-              {details && <span className="text-white/20">/</span>}
-              {details && <span className="font-semibold text-foreground/90">{weekTitle}</span>}
-            </div>
-            <div className="font-semibold">{title}</div>
-            <div className="text-sm font-mono text-muted-foreground">
-              Step {activeStepIndex + 1} of {WORKSPACE_STEPS.length}
-            </div>
-          </div>
+      {/* Top Header / Stepper */}
+      <div className="px-8 py-4 flex items-center justify-center z-20 relative min-h-[80px]">
+        {/* Left Breadcrumb */}
+        <div className="flex items-center gap-3 text-sm text-muted-foreground glass-breadcrumb shrink-0 absolute left-8">
+          {details ? (
+            <Link to={`/course/${details.course.id}` as any} hash="experiments" className="hover:text-foreground flex items-center gap-1 font-medium">
+              <ArrowLeft className="size-3.5" /> {courseTitle}
+            </Link>
+          ) : (
+            <Link to="/courses" className="hover:text-foreground flex items-center gap-1 font-medium">
+              <ArrowLeft className="size-3.5" /> Back
+            </Link>
+          )}
+          {details && <span className="text-white/20">/</span>}
+          {details && <span className="font-semibold text-foreground/90">{weekTitle}</span>}
+        </div>
 
-          {/* Floating Glass Pills Stepper */}
-          <div className="flex items-center gap-4 overflow-x-auto py-4 px-2">
-            {WORKSPACE_STEPS.map((step, idx) => {
-              const isCompleted = idx < activeStepIndex;
-              const isActive = idx === activeStepIndex;
-              const isLocked = idx > maxStepReached && idx !== activeStepIndex;
-              
-              let icon = "🎯";
-              const s = step.toLowerCase();
-              if (s.includes("theory")) icon = "📖";
-              else if (s.includes("test") || s.includes("quiz")) icon = "🧠";
-              else if (s.includes("solve") || s.includes("code") || s.includes("procedure")) icon = "🧪";
+        {/* Floating Glass Pills Stepper (Centered) */}
+        <div className="flex items-center gap-8 overflow-x-auto py-3 px-8 rounded-full bg-white/40 dark:bg-black/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(31,38,135,0.1)] border border-white/40 dark:border-white/10">
+          {WORKSPACE_STEPS.map((step, idx) => {
+            const isCompleted = idx < activeStepIndex;
+            const isActive = idx === activeStepIndex;
+            const isLocked = idx > maxStepReached && idx !== activeStepIndex;
+            
+            let icon = "🎯";
+            const s = step.toLowerCase();
+            if (s.includes("theory")) icon = "📖";
+            else if (s.includes("test") || s.includes("quiz")) icon = "🧠";
+            else if (s.includes("solve") || s.includes("code") || s.includes("procedure")) icon = "🧪";
 
-              const displayName = step === "Code Test" || step === "Solve" ? "Procedure" : step === "Pretest" ? "Quiz" : step;
+            const displayName = step === "Code Test" || step === "Solve" ? "Procedure" : step === "Pretest" ? "Quiz" : step;
 
-              return (
-                <button
-                  key={step}
-                  onClick={() => {
-                    if (idx <= maxStepReached) {
-                      setActiveStepIndex(idx);
-                    } else if (idx === activeStepIndex + 1) {
-                      handleNext();
-                    } else {
-                      toast.error(`Please complete the ${WORKSPACE_STEPS[activeStepIndex]} step first.`);
-                    }
-                  }}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
-                    isActive ? "bg-white/60 dark:bg-black/60 backdrop-blur-xl border border-[#00e5ff]/50 shadow-[0_0_20px_rgba(0,229,255,0.4),inset_0_0_10px_rgba(124,58,237,0.2)] scale-110 mx-2 text-foreground" : 
-                    "glass-card !p-0 !px-5 !py-2.5 !rounded-full text-muted-foreground opacity-60 hover:opacity-100 hover:-translate-y-1"
-                  } ${isLocked ? "!cursor-not-allowed hover:!-translate-y-0" : ""}`}
-                >
-                  <span className="text-base">{icon}</span>
-                  <span>{displayName}</span>
-                </button>
-              );
-            })}
-          </div>
+            return (
+              <button
+                key={step}
+                onClick={() => {
+                  if (idx <= maxStepReached) {
+                    setActiveStepIndex(idx);
+                  } else if (idx === activeStepIndex + 1) {
+                    handleNext();
+                  } else {
+                    toast.error(`Please complete the ${WORKSPACE_STEPS[activeStepIndex]} step first.`);
+                  }
+                }}
+                className={`flex items-center justify-center gap-3 px-8 py-3.5 min-w-[160px] rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
+                  isActive ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border border-[#00e5ff]/50 shadow-[0_0_20px_rgba(0,229,255,0.4),inset_0_0_10px_rgba(124,58,237,0.2)] scale-105 text-foreground" : 
+                  "text-muted-foreground opacity-70 hover:opacity-100 hover:scale-105 hover:bg-white/20 dark:hover:bg-black/20"
+                } ${isLocked ? "!cursor-not-allowed hover:!scale-100" : ""}`}
+              >
+                <span className="text-lg">{icon}</span>
+                <span>{displayName}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -1331,35 +1323,37 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                 </div>
               </div>
 
-              <div className="p-6 flex-1 text-sm text-foreground/90 space-y-6">
+              <div className="p-8 flex-1 flex justify-center text-sm text-foreground/90">
                 {details ? (
-                  <>
-                    <section className="glass-card !p-6 mb-4">
-                      <h2 className="font-semibold text-base mb-2 flex items-center gap-2"><Beaker className="size-4 text-cyan" /> Problem Statement</h2>
-                      <p className="leading-relaxed">{details.experiment.desc}</p>
-                      <p className="mt-3 text-muted-foreground leading-relaxed">{details.week.objective}</p>
+                  <div className="w-full max-w-[1100px] glass-card !p-10 !rounded-3xl space-y-10 self-start mt-4">
+                    <section>
+                      <h2 className="font-semibold text-2xl font-display mb-4 flex items-center gap-3"><span className="text-cyan text-2xl">🎯</span> Learning Objective</h2>
+                      <div className="text-lg leading-relaxed text-foreground/80 space-y-4">
+                        <p>{details.experiment.desc}</p>
+                        <p className="text-muted-foreground">{details.week.objective}</p>
+                      </div>
                     </section>
-                    <section className="glass-card !p-6 mb-4">
-                      <h2 className="font-semibold text-base mb-2 flex items-center gap-2"><Lightbulb className="size-4 text-mint" /> Expected Output</h2>
-                      <div className="bg-secondary/30 border border-border rounded-lg p-4 font-mono text-xs space-y-3">
+                    <section>
+                      <h2 className="font-semibold text-lg font-display mb-4 flex items-center gap-2"><Lightbulb className="size-5 text-mint" /> Expected Output</h2>
+                      <div className="bg-black/10 dark:bg-black/30 border border-border rounded-xl p-5 font-mono text-sm shadow-inner">
                         <div className="text-[#3fb950] font-medium">{details.experiment.expected}</div>
                       </div>
                     </section>
-                    <section className="glass-card !p-6">
-                      <h2 className="font-semibold text-base mb-2 flex items-center gap-2"><HelpCircle className="size-4 text-primary" /> Mini Questions</h2>
-                      <ul className="list-disc list-inside space-y-2 text-muted-foreground text-xs leading-relaxed">
+                    <section>
+                      <h2 className="font-semibold text-lg font-display mb-4 flex items-center gap-2"><HelpCircle className="size-5 text-primary" /> Mini Questions</h2>
+                      <ul className="list-disc list-inside space-y-3 text-muted-foreground text-base leading-relaxed ml-2">
                         {details.experiment.content?.pretest?.slice(0, 3).map((q: any, i: number) => (
-                          <li key={i} className="pl-1">{q.question}</li>
+                          <li key={i} className="pl-2">{q.question}</li>
                         )) || (
                           <>
-                            <li>What edge cases should you consider for this problem?</li>
-                            <li>Can you optimize the time complexity?</li>
-                            <li>How would this approach scale for large inputs?</li>
+                            <li className="pl-2">What edge cases should you consider for this problem?</li>
+                            <li className="pl-2">Can you optimize the time complexity?</li>
+                            <li className="pl-2">How would this approach scale for large inputs?</li>
                           </>
                         )}
                       </ul>
                     </section>
-                  </>
+                  </div>
                 ) : (
                   <div className="text-muted-foreground">Select a specific experiment from a course to view details here.</div>
                 )}

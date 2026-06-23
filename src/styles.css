@@ -217,25 +217,25 @@
   .orb {
       position:fixed;
       border-radius:50%;
-      filter:blur(120px);
+      filter:blur(150px);
       z-index: 0;
       pointer-events: none;
   }
 
   .orb1 {
-      width:400px;
-      height:400px;
-      background:#00d4ff30;
-      top:-100px;
-      left:-100px;
+      width: 60vw;
+      height: 60vh;
+      background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, rgba(0,212,255,0) 70%);
+      top: -10%;
+      left: -10%;
   }
 
   .orb2 {
-      width:500px;
-      height:500px;
-      background:#8b5cf630;
-      bottom:-200px;
-      right:-200px;
+      width: 70vw;
+      height: 70vh;
+      background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0) 70%);
+      bottom: -20%;
+      right: -10%;
   }
 
   .glass-breadcrumb {
