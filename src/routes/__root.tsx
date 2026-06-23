@@ -191,11 +191,11 @@ function ProfileNav() {
 
 function DynamicIsland() {
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-40 w-[min(1440px,calc(100vw-2rem))]">
-      <div className="navbar flex items-center gap-4 px-4 py-3">
+    <div className="fixed top-2 md:top-4 left-1/2 -translate-x-1/2 z-40 w-[min(1440px,calc(100vw-1rem))] md:w-[min(1440px,calc(100vw-2rem))]">
+      <div className="navbar flex items-center gap-2 md:gap-4 px-2 md:px-4 py-2 md:py-3 overflow-x-auto no-scrollbar">
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-3 pl-3 pr-4 py-2 rounded-full">
-          <div className="grid place-items-center size-10 rounded-full bg-white overflow-hidden shadow-sm">
+        <Link to="/" className="flex shrink-0 items-center gap-2 md:gap-3 pl-1 md:pl-3 pr-2 md:pr-4 py-1 md:py-2 rounded-full">
+          <div className="grid place-items-center size-8 md:size-10 rounded-full bg-white overflow-hidden shadow-sm">
             <img src="/qubitedge.webp" alt="qubitedge" className="w-full h-full object-contain p-[2px]" />
           </div>
           <div className="hidden sm:flex flex-col leading-tight">
@@ -204,28 +204,30 @@ function DynamicIsland() {
           </div>
         </Link>
 
-        <span className="hidden md:block h-8 w-px bg-border" />
+        <span className="hidden md:block h-8 w-px bg-border shrink-0" />
 
         {/* Nav */}
-        <nav className="flex items-center gap-2 flex-1 justify-center">
+        <nav className="flex items-center gap-1 md:gap-2 flex-1 justify-center shrink-0">
           {navItems.map(({ to, label, icon: Icon }) => (
             <Link
               key={to}
               to={to}
               activeOptions={{ exact: to === "/" }}
-              className="group relative flex items-center gap-2 rounded-full px-5 py-2.5 text-[15px] font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="group relative flex items-center gap-2 rounded-full px-3 md:px-5 py-2 md:py-2.5 text-[15px] font-medium text-muted-foreground hover:text-foreground transition-colors"
               activeProps={{ className: "bg-secondary text-foreground shadow-sm" }}
             >
-              <Icon className="size-4" />
+              <Icon className="size-4 shrink-0" />
               <span className="hidden sm:inline">{label}</span>
             </Link>
           ))}
         </nav>
 
-        <span className="h-8 w-px bg-border" />
+        <span className="h-8 w-px bg-border shrink-0" />
 
         {/* Profile Nav */}
-        <ProfileNav />
+        <div className="shrink-0">
+          <ProfileNav />
+        </div>
       </div>
     </div>
   );
