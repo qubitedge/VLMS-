@@ -1,0 +1,908 @@
+{
+  "java-e5-1": [
+    {
+      "question": "What is the super keyword in Java?",
+      "options": [
+        "A class",
+        "A method",
+        "A reference variable to the immediate parent class",
+        "A package"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "The super keyword is used to refer to:",
+      "options": [
+        "Current class object",
+        "Parent class object",
+        "Interface object",
+        "Package object"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword refers to the immediate parent class?",
+      "options": [
+        "this",
+        "extends",
+        "super",
+        "parent"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "One use of super is to access:",
+      "options": [
+        "Child class variables",
+        "Parent class variables",
+        "Local variables only",
+        "Static blocks only"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "The super keyword helps resolve:",
+      "options": [
+        "Compilation errors",
+        "Variable name hiding",
+        "Memory leaks",
+        "Package conflicts"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement accesses a parent class variable?",
+      "options": [
+        "this.x",
+        "super.x",
+        "parent.x",
+        "x.super"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword invokes a parent class method?",
+      "options": [
+        "this",
+        "super",
+        "static",
+        "final"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "The super keyword can be used inside:",
+      "options": [
+        "Child class",
+        "Package only",
+        "Interface only",
+        "Array only"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which of the following is a use of super?",
+      "options": [
+        "Access parent variables",
+        "Call parent methods",
+        "Call parent constructors",
+        "All of the above"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which keyword refers to the current object?",
+      "options": [
+        "super",
+        "this",
+        "extends",
+        "final"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does super.methodName() do?",
+      "options": [
+        "Calls child method",
+        "Calls parent method",
+        "Creates an object",
+        "Calls constructor"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What does super.variableName access?",
+      "options": [
+        "Local variable",
+        "Static variable",
+        "Parent class variable",
+        "Global variable"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Parent class constructors can be invoked using:",
+      "options": [
+        "this()",
+        "constructor()",
+        "super()",
+        "parent()"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Where must super() appear in a constructor?",
+      "options": [
+        "Last line",
+        "Middle line",
+        "Anywhere",
+        "First line"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which statement is valid?",
+      "options": [
+        "super();",
+        "parent();",
+        "extends();",
+        "base();"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Consider: class A{ int x = 10; } class B extends A{ int x = 20; } Which expression accesses the parent variable x inside class B?",
+      "options": [
+        "this.x",
+        "x",
+        "super.x",
+        "parent.x"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What is the purpose of using super with variables?",
+      "options": [
+        "Access child variables",
+        "Resolve variable hiding",
+        "Create objects",
+        "Delete variables"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which method is called? super.display();",
+      "options": [
+        "Current class display()",
+        "Parent class display()",
+        "Static display()",
+        "Interface display()"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which class member can be accessed using super?",
+      "options": [
+        "Parent variables",
+        "Parent methods",
+        "Parent constructors",
+        "All of the above"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "The super keyword is associated with:",
+      "options": [
+        "Inheritance",
+        "Arrays",
+        "Loops",
+        "Packages"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What happens if super() is not explicitly written and the parent has a no-argument constructor?",
+      "options": [
+        "Compilation error",
+        "Java inserts it automatically",
+        "Constructor is skipped",
+        "Runtime error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which constructor is called by super()?",
+      "options": [
+        "Child constructor",
+        "Default constructor of child",
+        "Immediate parent constructor",
+        "Static constructor"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which keyword is opposite in purpose to this?",
+      "options": [
+        "static",
+        "final",
+        "super",
+        "import"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which statement is TRUE?",
+      "options": [
+        "super refers to current class",
+        "super refers to immediate parent class",
+        "super refers to all parent classes directly",
+        "super creates objects"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is the output? class A{ void show(){ System.out.println(\"Parent\"); } } class B extends A{ void show(){ System.out.println(\"Child\"); } void display(){ super.show(); } }",
+      "options": [
+        "Child",
+        "Parent",
+        "Error",
+        "No Output"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement invokes the parent constructor?",
+      "options": [
+        "this();",
+        "constructor();",
+        "super();",
+        "parent();"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Why is super useful in method overriding?",
+      "options": [
+        "Calls overridden parent methods",
+        "Deletes methods",
+        "Creates methods",
+        "Hides methods"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What happens if super() is not the first statement in a constructor?",
+      "options": [
+        "No issue",
+        "Runtime error",
+        "Compilation error",
+        "Warning only"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which concept is demonstrated when using super.show() to call a parent method?",
+      "options": [
+        "Inheritance",
+        "Encapsulation",
+        "Sorting",
+        "Searching"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "The super keyword can access members of:",
+      "options": [
+        "Current class only",
+        "Immediate parent class only",
+        "Any unrelated class",
+        "Interface only"
+      ],
+      "answerIndex": 1
+    }
+  ],
+  "java-e5-2": [
+    {
+      "question": "What is an interface in Java?",
+      "options": [
+        "A package",
+        "A blueprint of a class",
+        "An object",
+        "A constructor"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword is used to declare an interface?",
+      "options": [
+        "class",
+        "abstract",
+        "interface",
+        "implements"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "A class uses which keyword to implement an interface?",
+      "options": [
+        "extends",
+        "inherits",
+        "implements",
+        "super"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Interfaces primarily contain:",
+      "options": [
+        "Instance variables only",
+        "Static constants and abstract methods",
+        "Constructors only",
+        "Packages only"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which Java version introduced default methods in interfaces?",
+      "options": [
+        "Java 5",
+        "Java 6",
+        "Java 7",
+        "Java 8"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which Java version introduced private methods in interfaces?",
+      "options": [
+        "Java 7",
+        "Java 8",
+        "Java 9",
+        "Java 10"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Why are interfaces used in Java?",
+      "options": [
+        "To achieve multiple inheritance of behavior",
+        "To create arrays",
+        "To perform sorting",
+        "To manage memory"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Can a class implement multiple interfaces?",
+      "options": [
+        "Yes",
+        "No",
+        "Only two",
+        "Only one"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which of the following is a valid interface declaration?",
+      "options": [
+        "class Demo {}",
+        "interface Demo {}",
+        "abstract Demo {}",
+        "implements Demo {}"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which method type can exist in interfaces from Java 8 onward?",
+      "options": [
+        "Default methods",
+        "Static methods",
+        "Abstract methods",
+        "All of the above"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Interface methods without implementation are called:",
+      "options": [
+        "Concrete methods",
+        "Abstract methods",
+        "Static methods",
+        "Final methods"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which keyword provides implementation inside an interface?",
+      "options": [
+        "default",
+        "final",
+        "extends",
+        "this"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "A class implementing an interface must:",
+      "options": [
+        "Override interface methods",
+        "Ignore interface methods",
+        "Delete interface methods",
+        "Make all methods static"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement is true?",
+      "options": [
+        "Interfaces can be instantiated directly",
+        "Interfaces contain constructors",
+        "Interfaces support abstraction",
+        "Interfaces cannot have methods"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What happens if a class does not implement all interface methods?",
+      "options": [
+        "Compilation error unless class is abstract",
+        "Runtime error",
+        "Program executes normally",
+        "Methods become optional"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which keyword is used between a class and interface?",
+      "options": [
+        "extends",
+        "implements",
+        "inherit",
+        "super"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Can interfaces contain static methods?",
+      "options": [
+        "Yes",
+        "No",
+        "Only private methods",
+        "Only abstract methods"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Interfaces help achieve:",
+      "options": [
+        "Multiple inheritance of behavior",
+        "Multiple inheritance of classes",
+        "Memory allocation",
+        "Thread synchronization only"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which is valid?",
+      "options": [
+        "interface A {}",
+        "new A();",
+        "constructor A(){}",
+        "interface methods with bodies only"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What type of variables exist in interfaces?",
+      "options": [
+        "Local variables",
+        "Static constants",
+        "Instance variables",
+        "Dynamic variables"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which statement is correct?",
+      "options": [
+        "Interfaces can have private methods in Java 9+",
+        "Interfaces cannot have methods",
+        "Interfaces have constructors",
+        "Interfaces can be instantiated"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which feature is mainly supported by interfaces?",
+      "options": [
+        "Abstraction",
+        "Sorting",
+        "Searching",
+        "File Handling"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "How many interfaces can a class implement?",
+      "options": [
+        "One",
+        "Two",
+        "Three",
+        "Multiple"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "question": "Which keyword is associated with interfaces?",
+      "options": [
+        "interface",
+        "implements",
+        "Both A and B",
+        "abstract only"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Interfaces are used to define:",
+      "options": [
+        "Contracts for classes",
+        "Memory locations",
+        "Packages",
+        "Variables only"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is the purpose of default methods?",
+      "options": [
+        "Provide implementation inside interfaces",
+        "Create objects",
+        "Allocate memory",
+        "Delete methods"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement about interfaces is FALSE?",
+      "options": [
+        "Interfaces support abstraction",
+        "Interfaces can achieve multiple inheritance of behavior",
+        "Interfaces can be instantiated directly",
+        "Interfaces contain abstract methods"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "What does a class gain by implementing an interface?",
+      "options": [
+        "Method contract to follow",
+        "Memory allocation",
+        "Package inheritance",
+        "Constructor inheritance"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Interfaces primarily define:",
+      "options": [
+        "What a class should do",
+        "How memory is allocated",
+        "How JVM works",
+        "Database tables"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which OOP concept is most closely related to interfaces?",
+      "options": [
+        "Abstraction",
+        "Sorting",
+        "Searching",
+        "Threading"
+      ],
+      "answerIndex": 0
+    }
+  ],
+  "java-e5-3": [
+    {
+      "question": "What is Runtime Polymorphism also known as?",
+      "options": [
+        "Static Binding",
+        "Dynamic Method Dispatch",
+        "Constructor Chaining",
+        "Method Hiding"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Runtime Polymorphism is resolved at:",
+      "options": [
+        "Compile Time",
+        "Design Time",
+        "Runtime",
+        "Link Time"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Runtime Polymorphism is achieved through:",
+      "options": [
+        "Method Overloading",
+        "Method Overriding",
+        "Constructors",
+        "Interfaces only"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "What is Method Overriding?",
+      "options": [
+        "Same method in parent and child class with same signature",
+        "Different method names",
+        "Different parameter counts only",
+        "Constructor replacement"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which method executes during runtime polymorphism?",
+      "options": [
+        "Parent method always",
+        "Child method based on actual object type",
+        "Reference type method",
+        "Static method"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Runtime Polymorphism depends on:",
+      "options": [
+        "Reference variable type only",
+        "Actual object type",
+        "Package name",
+        "Constructor type"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which OOP feature allows one interface, multiple forms?",
+      "options": [
+        "Encapsulation",
+        "Abstraction",
+        "Polymorphism",
+        "Inheritance only"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Overridden methods are selected by the JVM at:",
+      "options": [
+        "Compile Time",
+        "Runtime",
+        "Editing Time",
+        "Loading Time"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Method Overriding requires:",
+      "options": [
+        "Inheritance",
+        "Arrays",
+        "Packages",
+        "Interfaces only"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which method is called? Animal a = new Dog(); a.sound();",
+      "options": [
+        "Animal's sound()",
+        "Dog's sound()",
+        "Both methods",
+        "Error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Runtime Polymorphism is an example of:",
+      "options": [
+        "Dynamic Binding",
+        "Static Binding",
+        "Encapsulation",
+        "Aggregation"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which class method overrides another?",
+      "options": [
+        "Child Class Method",
+        "Parent Class Method",
+        "Interface Method",
+        "Static Method"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "The reference variable determines:",
+      "options": [
+        "Accessible methods",
+        "Actual execution method",
+        "JVM memory",
+        "Constructor type"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Actual object type determines:",
+      "options": [
+        "Method execution at runtime",
+        "Compilation only",
+        "Package structure",
+        "Constructor count"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Runtime Polymorphism increases:",
+      "options": [
+        "Flexibility and extensibility",
+        "Memory usage only",
+        "Compilation errors",
+        "Package dependencies"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which keyword is commonly used in overriding examples?",
+      "options": [
+        "extends",
+        "package",
+        "import",
+        "final only"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What happens when a child overrides a parent method?",
+      "options": [
+        "Parent method is hidden for that object",
+        "Parent class is deleted",
+        "Compilation fails",
+        "JVM crashes"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which type of binding occurs in runtime polymorphism?",
+      "options": [
+        "Early Binding",
+        "Static Binding",
+        "Dynamic Binding",
+        "Manual Binding"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Which is true?",
+      "options": [
+        "Runtime polymorphism uses overriding",
+        "Runtime polymorphism uses overloading",
+        "Runtime polymorphism uses constructors only",
+        "Runtime polymorphism ignores inheritance"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "What is required for overriding?",
+      "options": [
+        "Same method signature",
+        "Different method names",
+        "Different class names",
+        "Multiple constructors"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which method executes? Vehicle v = new Car(); v.start();",
+      "options": [
+        "Vehicle method based on reference",
+        "Car method based on object",
+        "Both methods",
+        "Error"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Runtime polymorphism is decided by:",
+      "options": [
+        "Compiler",
+        "JVM during execution",
+        "Editor",
+        "User input only"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Which concept allows different implementations of the same method?",
+      "options": [
+        "Polymorphism",
+        "Encapsulation",
+        "Sorting",
+        "Searching"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Method overriding supports:",
+      "options": [
+        "Runtime Polymorphism",
+        "Compile-Time Polymorphism",
+        "Exception Handling",
+        "File Handling"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which class method gets priority?",
+      "options": [
+        "Parent Method",
+        "Child Overridden Method",
+        "Interface Method",
+        "Static Method"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "question": "Runtime polymorphism requires:",
+      "options": [
+        "Inheritance relationship",
+        "Arrays",
+        "Packages",
+        "Threads"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Which statement is FALSE?",
+      "options": [
+        "Runtime polymorphism uses overriding",
+        "Actual object type matters",
+        "Reference type decides execution method",
+        "JVM resolves calls at runtime"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "question": "Dynamic Method Dispatch refers to:",
+      "options": [
+        "Runtime method selection",
+        "Constructor invocation",
+        "Package import",
+        "Variable declaration"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Overridden methods are selected based on:",
+      "options": [
+        "Object type",
+        "Variable name",
+        "Package name",
+        "Constructor name"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "question": "Runtime Polymorphism provides:",
+      "options": [
+        "Flexibility through dynamic behavior",
+        "Static execution only",
+        "Faster compilation only",
+        "No inheritance support"
+      ],
+      "answerIndex": 0
+    }
+  ]
+}

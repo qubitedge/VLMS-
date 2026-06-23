@@ -1,0 +1,3667 @@
+Exercise 5 – Experiment 1: The super Keyword
+
+Q1. What is the super keyword in Java?
+A. A class
+B. A method
+C. A reference variable to the immediate parent class
+D. A package
+Answer: C
+
+Q2. The super keyword is used to refer to:
+A. Current class object
+B. Parent class object
+C. Interface object
+D. Package object
+Answer: B
+
+Q3. Which keyword refers to the immediate parent class?
+A. this
+B. extends
+C. super
+D. parent
+Answer: C
+
+Q4. One use of super is to access:
+A. Child class variables
+B. Parent class variables
+C. Local variables only
+D. Static blocks only
+Answer: B
+
+Q5. The super keyword helps resolve:
+A. Compilation errors
+B. Variable name hiding
+C. Memory leaks
+D. Package conflicts
+Answer: B
+
+Q6. Which statement accesses a parent class variable?
+A. this.x
+B. super.x
+C. parent.x
+D. x.super
+Answer: B
+
+Q7. Which keyword invokes a parent class method?
+A. this
+B. super
+C. static
+D. final
+Answer: B
+
+Q8. The super keyword can be used inside:
+A. Child class
+B. Package only
+C. Interface only
+D. Array only
+Answer: A
+
+Q9. Which of the following is a use of super?
+A. Access parent variables
+B. Call parent methods
+C. Call parent constructors
+D. All of the above
+Answer: D
+
+Q10. Which keyword refers to the current object?
+A. super
+B. this
+C. extends
+D. final
+Answer: B
+
+Q11. What does super.methodName() do?
+A. Calls child method
+B. Calls parent method
+C. Creates an object
+D. Calls constructor
+Answer: B
+
+Q12. What does super.variableName access?
+A. Local variable
+B. Static variable
+C. Parent class variable
+D. Global variable
+Answer: C
+
+Q13. Parent class constructors can be invoked using:
+A. this()
+B. constructor()
+C. super()
+D. parent()
+Answer: C
+
+Q14. Where must super() appear in a constructor?
+A. Last line
+B. Middle line
+C. Anywhere
+D. First line
+Answer: D
+
+Q15. Which statement is valid?
+A. super();
+B. parent();
+C. extends();
+D. base();
+Answer: A
+
+Q16. Consider: class A{ int x = 10; } class B extends A{ int x = 20; } Which expression accesses the parent variable x inside class B?
+A. this.x
+B. x
+C. super.x
+D. parent.x
+Answer: C
+
+Q17. What is the purpose of using super with variables?
+A. Access child variables
+B. Resolve variable hiding
+C. Create objects
+D. Delete variables
+Answer: B
+
+Q18. Which method is called? super.display();
+A. Current class display()
+B. Parent class display()
+C. Static display()
+D. Interface display()
+Answer: B
+
+Q19. Which class member can be accessed using super?
+A. Parent variables
+B. Parent methods
+C. Parent constructors
+D. All of the above
+Answer: D
+
+Q20. The super keyword is associated with:
+A. Inheritance
+B. Arrays
+C. Loops
+D. Packages
+Answer: A
+
+Q21. What happens if super() is not explicitly written and the parent has a no-argument constructor?
+A. Compilation error
+B. Java inserts it automatically
+C. Constructor is skipped
+D. Runtime error
+Answer: B
+
+Q22. Which constructor is called by super()?
+A. Child constructor
+B. Default constructor of child
+C. Immediate parent constructor
+D. Static constructor
+Answer: C
+
+Q23. Which keyword is opposite in purpose to this?
+A. static
+B. final
+C. super
+D. import
+Answer: C
+
+Q24. Which statement is TRUE?
+A. super refers to current class
+B. super refers to immediate parent class
+C. super refers to all parent classes directly
+D. super creates objects
+Answer: B
+
+Q25. What is the output? class A{ void show(){ System.out.println("Parent"); } } class B extends A{ void show(){ System.out.println("Child"); } void display(){ super.show(); } }
+A. Child
+B. Parent
+C. Error
+D. No Output
+Answer: B
+
+Q26. Which statement invokes the parent constructor?
+A. this();
+B. constructor();
+C. super();
+D. parent();
+Answer: C
+
+Q27. Why is super useful in method overriding?
+A. Calls overridden parent methods
+B. Deletes methods
+C. Creates methods
+D. Hides methods
+Answer: A
+
+Q28. What happens if super() is not the first statement in a constructor?
+A. No issue
+B. Runtime error
+C. Compilation error
+D. Warning only
+Answer: C
+
+Q29. Which concept is demonstrated when using super.show() to call a parent method?
+A. Inheritance
+B. Encapsulation
+C. Sorting
+D. Searching
+Answer: A
+
+Q30. The super keyword can access members of:
+A. Current class only
+B. Immediate parent class only
+C. Any unrelated class
+D. Interface only
+Answer: B
+
+Exercise 5 – Experiment 2: Interfaces in Java
+
+Q1. What is an interface in Java?
+A. A package
+B. A blueprint of a class
+C. An object
+D. A constructor
+Answer: B
+
+Q2. Which keyword is used to declare an interface?
+A. class
+B. abstract
+C. interface
+D. implements
+Answer: C
+
+Q3. A class uses which keyword to implement an interface?
+A. extends
+B. inherits
+C. implements
+D. super
+Answer: C
+
+Q4. Interfaces primarily contain:
+A. Instance variables only
+B. Static constants and abstract methods
+C. Constructors only
+D. Packages only
+Answer: B
+
+Q5. Which Java version introduced default methods in interfaces?
+A. Java 5
+B. Java 6
+C. Java 7
+D. Java 8
+Answer: D
+
+Q6. Which Java version introduced private methods in interfaces?
+A. Java 7
+B. Java 8
+C. Java 9
+D. Java 10
+Answer: C
+
+Q7. Why are interfaces used in Java?
+A. To achieve multiple inheritance of behavior
+B. To create arrays
+C. To perform sorting
+D. To manage memory
+Answer: A
+
+Q8. Can a class implement multiple interfaces?
+A. Yes
+B. No
+C. Only two
+D. Only one
+Answer: A
+
+Q9. Which of the following is a valid interface declaration?
+A. class Demo {}
+B. interface Demo {}
+C. abstract Demo {}
+D. implements Demo {}
+Answer: B
+
+Q10. Which method type can exist in interfaces from Java 8 onward?
+A. Default methods
+B. Static methods
+C. Abstract methods
+D. All of the above
+Answer: D
+
+Q11. Interface methods without implementation are called:
+A. Concrete methods
+B. Abstract methods
+C. Static methods
+D. Final methods
+Answer: B
+
+Q12. Which keyword provides implementation inside an interface?
+A. default
+B. final
+C. extends
+D. this
+Answer: A
+
+Q13. A class implementing an interface must:
+A. Override interface methods
+B. Ignore interface methods
+C. Delete interface methods
+D. Make all methods static
+Answer: A
+
+Q14. Which statement is true?
+A. Interfaces can be instantiated directly
+B. Interfaces contain constructors
+C. Interfaces support abstraction
+D. Interfaces cannot have methods
+Answer: C
+
+Q15. What happens if a class does not implement all interface methods?
+A. Compilation error unless class is abstract
+B. Runtime error
+C. Program executes normally
+D. Methods become optional
+Answer: A
+
+Q16. Which keyword is used between a class and interface?
+A. extends
+B. implements
+C. inherit
+D. super
+Answer: B
+
+Q17. Can interfaces contain static methods?
+A. Yes
+B. No
+C. Only private methods
+D. Only abstract methods
+Answer: A
+
+Q18. Interfaces help achieve:
+A. Multiple inheritance of behavior
+B. Multiple inheritance of classes
+C. Memory allocation
+D. Thread synchronization only
+Answer: A
+
+Q19. Which is valid?
+A. interface A {}
+B. new A();
+C. constructor A(){}
+D. interface methods with bodies only
+Answer: A
+
+Q20. What type of variables exist in interfaces?
+A. Local variables
+B. Static constants
+C. Instance variables
+D. Dynamic variables
+Answer: B
+
+Q21. Which statement is correct?
+A. Interfaces can have private methods in Java 9+
+B. Interfaces cannot have methods
+C. Interfaces have constructors
+D. Interfaces can be instantiated
+Answer: A
+
+Q22. Which feature is mainly supported by interfaces?
+A. Abstraction
+B. Sorting
+C. Searching
+D. File Handling
+Answer: A
+
+Q23. How many interfaces can a class implement?
+A. One
+B. Two
+C. Three
+D. Multiple
+Answer: D
+
+Q24. Which keyword is associated with interfaces?
+A. interface
+B. implements
+C. Both A and B
+D. abstract only
+Answer: C
+
+Q25. Interfaces are used to define:
+A. Contracts for classes
+B. Memory locations
+C. Packages
+D. Variables only
+Answer: A
+
+Q26. What is the purpose of default methods?
+A. Provide implementation inside interfaces
+B. Create objects
+C. Allocate memory
+D. Delete methods
+Answer: A
+
+Q27. Which statement about interfaces is FALSE?
+A. Interfaces support abstraction
+B. Interfaces can achieve multiple inheritance of behavior
+C. Interfaces can be instantiated directly
+D. Interfaces contain abstract methods
+Answer: C
+
+Q28. What does a class gain by implementing an interface?
+A. Method contract to follow
+B. Memory allocation
+C. Package inheritance
+D. Constructor inheritance
+Answer: A
+
+Q29. Interfaces primarily define:
+A. What a class should do
+B. How memory is allocated
+C. How JVM works
+D. Database tables
+Answer: A
+
+Q30. Which OOP concept is most closely related to interfaces?
+A. Abstraction
+B. Sorting
+C. Searching
+D. Threading
+Answer: A
+
+Exercise 5 – Experiment 3: Runtime Polymorphism and Method Overriding
+
+Q1. What is Runtime Polymorphism also known as?
+A. Static Binding
+B. Dynamic Method Dispatch
+C. Constructor Chaining
+D. Method Hiding
+Answer: B
+
+Q2. Runtime Polymorphism is resolved at:
+A. Compile Time
+B. Design Time
+C. Runtime
+D. Link Time
+Answer: C
+
+Q3. Runtime Polymorphism is achieved through:
+A. Method Overloading
+B. Method Overriding
+C. Constructors
+D. Interfaces only
+Answer: B
+
+Q4. What is Method Overriding?
+A. Same method in parent and child class with same signature
+B. Different method names
+C. Different parameter counts only
+D. Constructor replacement
+Answer: A
+
+Q5. Which method executes during runtime polymorphism?
+A. Parent method always
+B. Child method based on actual object type
+C. Reference type method
+D. Static method
+Answer: B
+
+Q6. Runtime Polymorphism depends on:
+A. Reference variable type only
+B. Actual object type
+C. Package name
+D. Constructor type
+Answer: B
+
+Q7. Which OOP feature allows one interface, multiple forms?
+A. Encapsulation
+B. Abstraction
+C. Polymorphism
+D. Inheritance only
+Answer: C
+
+Q8. Overridden methods are selected by the JVM at:
+A. Compile Time
+B. Runtime
+C. Editing Time
+D. Loading Time
+Answer: B
+
+Q9. Method Overriding requires:
+A. Inheritance
+B. Arrays
+C. Packages
+D. Interfaces only
+Answer: A
+
+Q10. Which method is called? Animal a = new Dog(); a.sound();
+A. Animal's sound()
+B. Dog's sound()
+C. Both methods
+D. Error
+Answer: B
+
+Q11. Runtime Polymorphism is an example of:
+A. Dynamic Binding
+B. Static Binding
+C. Encapsulation
+D. Aggregation
+Answer: A
+
+Q12. Which class method overrides another?
+A. Child Class Method
+B. Parent Class Method
+C. Interface Method
+D. Static Method
+Answer: A
+
+Q13. The reference variable determines:
+A. Accessible methods
+B. Actual execution method
+C. JVM memory
+D. Constructor type
+Answer: A
+
+Q14. Actual object type determines:
+A. Method execution at runtime
+B. Compilation only
+C. Package structure
+D. Constructor count
+Answer: A
+
+Q15. Runtime Polymorphism increases:
+A. Flexibility and extensibility
+B. Memory usage only
+C. Compilation errors
+D. Package dependencies
+Answer: A
+
+Q16. Which keyword is commonly used in overriding examples?
+A. extends
+B. package
+C. import
+D. final only
+Answer: A
+
+Q17. What happens when a child overrides a parent method?
+A. Parent method is hidden for that object
+B. Parent class is deleted
+C. Compilation fails
+D. JVM crashes
+Answer: A
+
+Q18. Which type of binding occurs in runtime polymorphism?
+A. Early Binding
+B. Static Binding
+C. Dynamic Binding
+D. Manual Binding
+Answer: C
+
+Q19. Which is true?
+A. Runtime polymorphism uses overriding
+B. Runtime polymorphism uses overloading
+C. Runtime polymorphism uses constructors only
+D. Runtime polymorphism ignores inheritance
+Answer: A
+
+Q20. What is required for overriding?
+A. Same method signature
+B. Different method names
+C. Different class names
+D. Multiple constructors
+Answer: A
+
+Q21. Which method executes? Vehicle v = new Car(); v.start();
+A. Vehicle method based on reference
+B. Car method based on object
+C. Both methods
+D. Error
+Answer: B
+
+Q22. Runtime polymorphism is decided by:
+A. Compiler
+B. JVM during execution
+C. Editor
+D. User input only
+Answer: B
+
+Q23. Which concept allows different implementations of the same method?
+A. Polymorphism
+B. Encapsulation
+C. Sorting
+D. Searching
+Answer: A
+
+Q24. Method overriding supports:
+A. Runtime Polymorphism
+B. Compile-Time Polymorphism
+C. Exception Handling
+D. File Handling
+Answer: A
+
+Q25. Which class method gets priority?
+A. Parent Method
+B. Child Overridden Method
+C. Interface Method
+D. Static Method
+Answer: B
+
+Q26. Runtime polymorphism requires:
+A. Inheritance relationship
+B. Arrays
+C. Packages
+D. Threads
+Answer: A
+
+Q27. Which statement is FALSE?
+A. Runtime polymorphism uses overriding
+B. Actual object type matters
+C. Reference type decides execution method
+D. JVM resolves calls at runtime
+Answer: C
+
+Q28. Dynamic Method Dispatch refers to:
+A. Runtime method selection
+B. Constructor invocation
+C. Package import
+D. Variable declaration
+Answer: A
+
+Q29. Overridden methods are selected based on:
+A. Object type
+B. Variable name
+C. Package name
+D. Constructor name
+Answer: A
+
+Q30. Runtime Polymorphism provides:
+A. Flexibility through dynamic behavior
+B. Static execution only
+C. Faster compilation only
+D. No inheritance support
+Answer: A
+
+Exercise 6 – Experiment 1: Exception Handling in Java
+
+Q1. What is an exception in Java?
+A. A package
+B. An unwanted event during program execution
+C. A method
+D. A variable
+Answer: B
+
+Q2. An exception disrupts the:
+A. Memory allocation
+B. Normal flow of program execution
+C. Class structure
+D. Package hierarchy
+Answer: B
+
+Q3. Which keyword is used to define code that may throw an exception?
+A. catch
+B. finally
+C. try
+D. throw
+Answer: C
+
+Q4. Which block handles exceptions?
+A. try
+B. catch
+C. throws
+D. finally
+Answer: B
+
+Q5. Which block always executes whether an exception occurs or not?
+A. try
+B. catch
+C. throw
+D. finally
+Answer: D
+
+Q6. How many keywords are commonly used in Java exception handling?
+A. 3
+B. 4
+C. 5
+D. 6
+Answer: C
+
+Q7. Which keyword is used to explicitly throw an exception?
+A. throws
+B. catch
+C. finally
+D. throw
+Answer: D
+
+Q8. Which keyword declares exceptions that may be thrown by a method?
+A. throw
+B. throws
+C. catch
+D. try
+Answer: B
+
+Q9. Where is risky code placed?
+A. catch block
+B. finally block
+C. try block
+D. class block
+Answer: C
+
+Q10. What is the purpose of the catch block?
+A. Create exceptions
+B. Handle exceptions
+C. Ignore exceptions
+D. Delete exceptions
+Answer: B
+
+Q11. Which keyword is used for cleanup operations?
+A. catch
+B. throw
+C. finally
+D. throws
+Answer: C
+
+Q12. Which block is mandatory for exception handling?
+A. try
+B. finally
+C. catch only
+D. throws only
+Answer: A
+
+Q13. What happens if an exception occurs in a try block?
+A. Program terminates immediately
+B. Control transfers to a matching catch block
+C. finally is skipped
+D. JVM stops permanently
+Answer: B
+
+Q14. Which keyword generates an exception manually?
+A. try
+B. finally
+C. throw
+D. throws
+Answer: C
+
+Q15. Which keyword appears in a method signature?
+A. catch
+B. try
+C. throws
+D. finally
+Answer: C
+
+Q16. What is the main purpose of exception handling?
+A. Increase memory
+B. Handle runtime errors gracefully
+C. Create packages
+D. Improve syntax
+Answer: B
+
+Q17. Which block executes first?
+A. catch
+B. finally
+C. try
+D. throws
+Answer: C
+
+Q18. Which statement is true about finally?
+A. Executes only when an exception occurs
+B. Executes only when no exception occurs
+C. Always executes in normal situations
+D. Cannot be used with try
+Answer: C
+
+Q19. What happens after a matching catch block executes?
+A. finally block may execute
+B. try block restarts
+C. Program recompiles
+D. Exception disappears before handling
+Answer: A
+
+Q20. Which keyword pair is used to handle exceptions?
+A. try-catch
+B. throw-finally
+C. throws-catch
+D. new-catch
+Answer: A
+
+Q21. What is the output?
+
+try{
+   int a = 10/0;
+}
+catch(Exception e){
+   System.out.println("Handled");
+}
+
+A. Error
+B. Handled
+C. No Output
+D. Compilation Error
+Answer: B
+
+Q22. Which block is optional?
+A. try
+B. catch
+C. finally
+D. Both catch and finally depending on usage
+Answer: D
+
+Q23. What does throw do?
+A. Handles exception
+B. Creates and throws exception object
+C. Ignores exception
+D. Deletes exception
+Answer: B
+
+Q24. What does throws indicate?
+A. Method may pass exception handling responsibility to caller
+B. Exception is handled
+C. Exception is ignored
+D. Program stops
+Answer: A
+
+Q25. Which exception handling keyword is used only inside methods?
+A. throws
+B. catch
+C. try
+D. finally
+Answer: A
+
+Q26. What is the purpose of exception handling?
+A. Prevent compilation
+B. Maintain normal program execution
+C. Create classes
+D. Create objects
+Answer: B
+
+Q27. Which block contains cleanup code?
+A. try
+B. catch
+C. finally
+D. throws
+Answer: C
+
+Q28. Can a try block exist without catch?
+A. Yes, if finally exists
+B. No
+C. Only with throw
+D. Only with throws
+Answer: A
+
+Q29. Which keyword is NOT directly used to handle exceptions?
+A. try
+B. catch
+C. finally
+D. class
+Answer: D
+
+Q30. Exception handling improves:
+A. Program robustness
+B. Compilation speed only
+C. Package management
+D. Memory allocation only
+Answer: A
+
+Exercise 6 – Experiment 2: Multiple Catch Blocks
+
+Q1. What is the purpose of multiple catch blocks?
+A. Handle different exception types separately
+B. Create multiple exceptions
+C. Replace try block
+D. Avoid exceptions
+Answer: A
+
+Q2. A single try block can have:
+A. One catch block only
+B. Multiple catch blocks
+C. No catch blocks ever
+D. Unlimited try blocks directly attached
+Answer: B
+
+Q3. Which catch block executes?
+A. Last catch block
+B. First catch block
+C. First matching catch block
+D. All catch blocks
+Answer: C
+
+Q4. The JVM checks catch blocks in:
+A. Random order
+B. Bottom-up only
+C. Top-down order
+D. Alphabetical order
+Answer: C
+
+Q5. Why does the order of catch blocks matter?
+A. JVM requires sorting
+B. First matching catch executes
+C. Only last catch executes
+D. It affects compilation speed
+Answer: B
+
+Q6. Which should be placed first?
+A. Generic exception
+B. Specific exception
+C. finally block
+D. throws statement
+Answer: B
+
+Q7. Which is more specific?
+A. Exception
+B. ArithmeticException
+C. Throwable
+D. Object
+Answer: B
+
+Q8. What happens if Exception is caught before ArithmeticException?
+A. Program works normally
+B. Compiler error due to unreachable code
+C. Runtime error
+D. No exception handling
+Answer: B
+
+Q9. Multiple catch blocks are associated with:
+A. One try block
+B. One class
+C. One object
+D. One package
+Answer: A
+
+Q10. Which exception is more general?
+A. ArithmeticException
+B. NullPointerException
+C. Exception
+D. ArrayIndexOutOfBoundsException
+Answer: C
+
+Q11. What is the first rule of multiple catch blocks?
+A. Generic before specific
+B. Specific before generic
+C. Random order
+D. Alphabetical order
+Answer: B
+
+Q12. Which block handles division by zero?
+A. ArithmeticException catch
+B. Exception catch only
+C. finally block
+D. throws block
+Answer: A
+
+Q13. Which catch block executes for ArithmeticException if present first?
+A. ArithmeticException catch
+B. Exception catch
+C. finally
+D. None
+Answer: A
+
+Q14. Can multiple catch blocks be attached to one try block?
+A. Yes
+B. No
+C. Only two
+D. Only three
+Answer: A
+
+Q15. Which statement is true?
+A. All catch blocks execute
+B. Only matching catch executes
+C. No catch executes
+D. finally executes first
+Answer: B
+
+Q16. Which catch block is unreachable?
+
+catch(Exception e){}
+catch(ArithmeticException e){}
+
+A. Exception catch
+B. ArithmeticException catch
+C. Both
+D. None
+Answer: B
+
+Q17. What causes unreachable catch code?
+A. Specific exception after generic exception
+B. finally block
+C. throw statement
+D. Method call
+Answer: A
+
+Q18. What does JVM do when an exception occurs?
+A. Searches for matching catch block
+B. Executes all catches
+C. Skips catch blocks
+D. Recompiles code
+Answer: A
+
+Q19. Which catch block handles all exception types?
+A. ArithmeticException
+B. NullPointerException
+C. Exception
+D. IOException
+Answer: C
+
+Q20. Which exception type should be placed last?
+A. ArithmeticException
+B. NullPointerException
+C. Exception
+D. ArrayIndexOutOfBoundsException
+Answer: C
+
+Q21. What is the output?
+
+try{
+   int a=10/0;
+}
+catch(ArithmeticException e){
+   System.out.println("Arithmetic");
+}
+catch(Exception e){
+   System.out.println("General");
+}
+
+A. General
+B. Arithmetic
+C. Both
+D. Error
+Answer: B
+
+Q22. Which block executes after a matching catch?
+A. Another catch
+B. finally block (if present)
+C. try block again
+D. throws block
+Answer: B
+
+Q23. Multiple catch blocks improve:
+A. Exception-specific handling
+B. Memory usage
+C. Package management
+D. Compilation time
+Answer: A
+
+Q24. What happens if no catch block matches?
+A. Exception propagates further
+B. JVM ignores it
+C. Program recompiles
+D. catch executes anyway
+Answer: A
+
+Q25. Which catch block should come first?
+
+ArithmeticException
+Exception
+
+A. Exception
+B. ArithmeticException
+C. Either order
+D. None
+Answer: B
+
+Q26. What is the benefit of multiple catches?
+A. Different handling for different exceptions
+B. Faster execution always
+C. Fewer classes
+D. More memory
+Answer: A
+
+Q27. Which keyword is common to all catch blocks?
+A. try
+B. catch
+C. throw
+D. finally
+Answer: B
+
+Q28. JVM selects catch blocks based on:
+A. Variable names
+B. Exception type
+C. Package name
+D. Class name only
+Answer: B
+
+Q29. Which is true about catch block order?
+A. Order never matters
+B. Specific before generic
+C. Generic before specific
+D. Alphabetical order required
+Answer: B
+
+Q30. Multiple catch blocks are used to:
+A. Handle various exceptions efficiently
+B. Eliminate try blocks
+C. Create exceptions
+D. Remove finally blocks
+Answer: A
+
+Exercise 6 – Experiment 3: Java Built-in Exceptions
+
+Q1. Where are Java built-in exception classes primarily defined?
+A. java.util package
+B. java.io package
+C. java.lang package
+D. java.net package
+Answer: C
+
+Q2. Which exception occurs when accessing a member of a null object?
+A. IllegalArgumentException
+B. NumberFormatException
+C. NullPointerException
+D. IOException
+Answer: C
+
+Q3. What causes a NullPointerException?
+A. Dividing by zero
+B. Referencing a null object
+C. Invalid file path
+D. Wrong package import
+Answer: B
+
+Q4. Which exception occurs when converting an invalid string to a number?
+A. NullPointerException
+B. ArithmeticException
+C. IllegalArgumentException
+D. NumberFormatException
+Answer: D
+
+Q5. Which exception occurs when incorrect arguments are passed to a method?
+A. NumberFormatException
+B. IllegalArgumentException
+C. NullPointerException
+D. IOException
+Answer: B
+
+Q6. Which package is automatically imported in every Java program?
+A. java.io
+B. java.util
+C. java.lang
+D. java.net
+Answer: C
+
+Q7. What exception is likely for the code below?
+
+String s = null;
+System.out.println(s.length());
+
+A. NumberFormatException
+B. ArithmeticException
+C. NullPointerException
+D. IOException
+Answer: C
+
+Q8. Which exception is thrown by parsing "abc" using Integer.parseInt()?
+A. IllegalArgumentException
+B. NumberFormatException
+C. NullPointerException
+D. ArithmeticException
+Answer: B
+
+Q9. Which exception belongs to Java's built-in exceptions?
+A. UserException
+B. StudentException
+C. NumberFormatException
+D. AccountException
+Answer: C
+
+Q10. Built-in exceptions are provided by:
+A. Users
+B. JVM and Java API
+C. Database
+D. Operating System only
+Answer: B
+
+Q11. Which statement causes NumberFormatException?
+
+Integer.parseInt("12A");
+
+A. No Exception
+B. ArithmeticException
+C. NumberFormatException
+D. NullPointerException
+Answer: C
+
+Q12. What is the purpose of built-in exceptions?
+A. Handle common runtime errors
+B. Create packages
+C. Increase memory
+D. Compile programs faster
+Answer: A
+
+Q13. Which exception is related to invalid number conversion?
+A. NullPointerException
+B. NumberFormatException
+C. IOException
+D. Error
+Answer: B
+
+Q14. Which exception occurs before method execution when arguments are invalid?
+A. IllegalArgumentException
+B. NumberFormatException
+C. NullPointerException
+D. SQLException
+Answer: A
+
+Q15. What happens when a null reference is dereferenced?
+A. IllegalArgumentException
+B. NumberFormatException
+C. NullPointerException
+D. No Exception
+Answer: C
+
+Q16. Which code may throw IllegalArgumentException?
+A. Passing invalid parameter values to a method
+B. Parsing valid integers
+C. Accessing arrays correctly
+D. Creating objects
+Answer: A
+
+Q17. What is the output?
+
+Integer.parseInt("xyz");
+
+A. 0
+B. xyz
+C. NumberFormatException
+D. NullPointerException
+Answer: C
+
+Q18. Built-in exceptions help developers:
+A. Identify and handle runtime problems
+B. Create classes
+C. Manage packages only
+D. Create interfaces only
+Answer: A
+
+Q19. Which exception is associated with null references?
+A. NumberFormatException
+B. NullPointerException
+C. IllegalArgumentException
+D. IOException
+Answer: B
+
+Q20. Which exception indicates wrong method arguments?
+A. IllegalArgumentException
+B. NumberFormatException
+C. NullPointerException
+D. Error
+Answer: A
+
+Q21. What exception may occur in the following code?
+
+String s = "ABC";
+int n = Integer.parseInt(s);
+
+A. IllegalArgumentException
+B. NumberFormatException
+C. NullPointerException
+D. IOException
+Answer: B
+
+Q22. Which package contains NullPointerException?
+A. java.lang
+B. java.util
+C. java.sql
+D. java.awt
+Answer: A
+
+Q23. Built-in exceptions are examples of:
+A. Standard exception classes
+B. User-defined classes only
+C. Interfaces
+D. Packages
+Answer: A
+
+Q24. Which exception is NOT mentioned in the theory?
+A. NullPointerException
+B. NumberFormatException
+C. IllegalArgumentException
+D. ArrayIndexOutOfBoundsException
+Answer: D
+
+Q25. Invalid numeric string conversion leads to:
+A. IllegalArgumentException
+B. NumberFormatException
+C. NullPointerException
+D. IOException
+Answer: B
+
+Q26. What is the root cause of NullPointerException?
+A. Invalid number
+B. Null reference access
+C. Wrong package
+D. Invalid loop
+Answer: B
+
+Q27. Which exception helps validate method parameters?
+A. IllegalArgumentException
+B. NumberFormatException
+C. NullPointerException
+D. IOException
+Answer: A
+
+Q28. Java built-in exceptions are designed to:
+A. Handle common application errors
+B. Replace classes
+C. Replace interfaces
+D. Remove methods
+Answer: A
+
+Q29. Which exception occurs at runtime?
+A. NullPointerException
+B. NumberFormatException
+C. IllegalArgumentException
+D. All of the above
+Answer: D
+
+Q30. Which statement is true?
+A. Built-in exceptions are predefined by Java
+B. Built-in exceptions must be created manually
+C. Built-in exceptions are interfaces
+D. Built-in exceptions are packages
+Answer: A
+
+Exercise 6 – Experiment 4: Custom / User-Defined Exceptions
+
+Q1. What is a custom exception?
+A. Predefined Java exception
+B. User-created exception class
+C. Package
+D. Interface
+Answer: B
+
+Q2. Why are custom exceptions created?
+A. Handle application-specific errors
+B. Replace JVM
+C. Create packages
+D. Improve syntax
+Answer: A
+
+Q3. To create a checked custom exception, a class should extend:
+A. Object
+B. RuntimeException
+C. Exception
+D. ThrowableError
+Answer: C
+
+Q4. To create an unchecked custom exception, a class should extend:
+A. RuntimeException
+B. Exception
+C. Object
+D. Error
+Answer: A
+
+Q5. Which class is extended for checked exceptions?
+A. Error
+B. Exception
+C. Object
+D. String
+Answer: B
+
+Q6. Which class is extended for unchecked exceptions?
+A. Exception
+B. Throwable
+C. RuntimeException
+D. Object
+Answer: C
+
+Q7. A custom exception is usually declared using:
+A. interface
+B. enum
+C. class
+D. package
+Answer: C
+
+Q8. What is commonly included in a custom exception constructor?
+A. Loop
+B. Message parameter
+C. Array
+D. Interface
+Answer: B
+
+Q9. The constructor passes the message to the superclass using:
+A. this(message)
+B. super(message)
+C. throw(message)
+D. extends(message)
+Answer: B
+
+Q10. Which statement is correct?
+A. Custom exceptions cannot have constructors
+B. Custom exceptions are user-defined classes
+C. Custom exceptions are interfaces
+D. Custom exceptions are packages
+Answer: B
+
+Q11. What does super(message) do?
+A. Passes message to parent exception constructor
+B. Creates an object
+C. Handles exceptions
+D. Ignores exceptions
+Answer: A
+
+Q12. Which keyword creates an exception object?
+A. new
+B. class
+C. extends
+D. package
+Answer: A
+
+Q13. Which inheritance relationship is used in custom exceptions?
+A. Exception inheritance
+B. Interface inheritance
+C. Package inheritance
+D. Method inheritance
+Answer: A
+
+Q14. Which is a valid custom exception declaration?
+
+class MyException extends Exception
+
+A. Valid
+B. Invalid
+C. Interface
+D. Package
+Answer: A
+
+Q15. Checked custom exceptions extend:
+A. RuntimeException
+B. Exception
+C. Error
+D. Object
+Answer: B
+
+Q16. Unchecked custom exceptions extend:
+A. Exception
+B. Throwable
+C. RuntimeException
+D. String
+Answer: C
+
+Q17. What is the purpose of custom exceptions?
+A. Define application-specific error conditions
+B. Create packages
+C. Improve memory usage
+D. Replace methods
+Answer: A
+
+Q18. Which method passes an error message upward?
+A. throw()
+B. super(message)
+C. catch()
+D. finally()
+Answer: B
+
+Q19. What type of class is a custom exception?
+A. Normal Java class extending exception hierarchy
+B. Interface
+C. Package
+D. Enum
+Answer: A
+
+Q20. Which keyword is used in inheritance for custom exceptions?
+A. implements
+B. import
+C. extends
+D. package
+Answer: C
+
+Q21. What is the output type of a custom exception object?
+A. Exception instance
+B. Package
+C. Interface
+D. Method
+Answer: A
+
+Q22. Which constructor is commonly defined?
+
+MyException(String msg)
+
+A. To receive an error message
+B. To create arrays
+C. To import packages
+D. To override methods
+Answer: A
+
+Q23. What does checked mean in checked exception?
+A. Compiler checks handling requirements
+B. JVM ignores it
+C. No handling needed
+D. Package validation
+Answer: A
+
+Q24. RuntimeException-based custom exceptions are:
+A. Checked
+B. Unchecked
+C. Static
+D. Abstract
+Answer: B
+
+Q25. Which statement creates a custom exception object?
+A. new MyException("Error")
+B. MyException() package
+C. interface MyException
+D. import MyException
+Answer: A
+
+Q26. What is inherited from Exception class?
+A. Exception behavior
+B. Package structure
+C. Interface methods only
+D. Arrays
+Answer: A
+
+Q27. Why use custom exceptions instead of generic exceptions?
+A. More meaningful error handling
+B. Faster compilation only
+C. Less memory always
+D. Fewer classes
+Answer: A
+
+Q28. Which class belongs to the exception hierarchy?
+A. Exception
+B. RuntimeException
+C. CustomException extends Exception
+D. All of the above
+Answer: D
+
+Q29. The message passed to super(message) can later be retrieved as:
+A. Exception message
+B. Package name
+C. Class name
+D. Interface name
+Answer: A
+
+Q30. Custom exceptions improve:
+A. Application-specific error reporting
+B. Sorting algorithms
+C. Package management
+D. Memory allocation
+Answer: A
+
+Exercise 7 – Experiment 1: Multithreading in Java
+
+Q1. What is Multithreading in Java?
+A. Running one program at a time
+B. Executing multiple parts of a program concurrently
+C. Creating multiple classes
+D. Creating multiple packages
+Answer: B
+
+Q2. What is the primary goal of multithreading?
+A. Reduce memory usage
+B. Maximize CPU utilization
+C. Increase file size
+D. Reduce classes
+Answer: B
+
+Q3. A thread is:
+A. A package
+B. A lightweight sub-process
+C. A class only
+D. A constructor
+Answer: B
+
+Q4. How many ways are mentioned to create a thread in Java?
+A. One
+B. Two
+C. Three
+D. Four
+Answer: B
+
+Q5. Which class can be extended to create a thread?
+A. Runnable
+B. Object
+C. Thread
+D. Exception
+Answer: C
+
+Q6. Which interface can be implemented to create a thread?
+A. Serializable
+B. Cloneable
+C. Runnable
+D. Comparable
+Answer: C
+
+Q7. Which method must be overridden when extending Thread?
+A. start()
+B. run()
+C. execute()
+D. begin()
+Answer: B
+
+Q8. Which approach is preferred in Java?
+A. Extending Thread
+B. Implementing Runnable
+C. Using packages
+D. Using constructors
+Answer: B
+
+Q9. Why is implementing Runnable preferred?
+A. Faster execution
+B. Supports multiple inheritance
+C. Leaves the class free to extend another class
+D. Uses less memory only
+Answer: C
+
+Q10. Java supports:
+A. Multiple class inheritance
+B. Single class inheritance
+C. No inheritance
+D. Unlimited inheritance
+Answer: B
+
+Q11. Which keyword creates a thread object?
+A. class
+B. new
+C. package
+D. import
+Answer: B
+
+Q12. Which method starts a thread?
+A. run()
+B. execute()
+C. start()
+D. begin()
+Answer: C
+
+Q13. What happens when start() is called?
+A. JVM creates a new thread and invokes run()
+B. Program stops
+C. Thread is destroyed
+D. Constructor executes again
+Answer: A
+
+Q14. Which interface contains the run() method?
+A. Runnable
+B. Serializable
+C. Cloneable
+D. Comparable
+Answer: A
+
+Q15. What is executed concurrently in multithreading?
+A. Packages
+B. Methods
+C. Threads
+D. Constructors
+Answer: C
+
+Q16. Which statement is true?
+A. A class can extend multiple classes in Java
+B. Runnable avoids inheritance limitations
+C. Thread cannot be extended
+D. Threads cannot run concurrently
+Answer: B
+
+Q17. What is the entry point of a thread?
+A. start()
+B. main()
+C. run()
+D. join()
+Answer: C
+
+Q18. Which class provides thread-related methods?
+A. Thread
+B. Runnable
+C. Object
+D. String
+Answer: A
+
+Q19. Which approach allows inheriting another class?
+A. Extending Thread
+B. Implementing Runnable
+C. Extending Object
+D. Extending Exception
+Answer: B
+
+Q20. Multithreading improves:
+A. Concurrency
+B. CPU utilization
+C. Program responsiveness
+D. All of the above
+Answer: D
+
+Q21. Which code creates a thread by extending Thread?
+
+class MyThread extends Thread
+
+A. Runnable Thread
+B. Thread subclass
+C. Interface
+D. Package
+Answer: B
+
+Q22. Which code creates a thread by implementing Runnable?
+
+class MyThread implements Runnable
+
+A. Thread subclass
+B. Runnable implementation
+C. Package
+D. Exception
+Answer: B
+
+Q23. What is the benefit of concurrent execution?
+A. Better resource utilization
+B. More packages
+C. Less memory always
+D. Fewer methods
+Answer: A
+
+Q24. Which method contains thread logic?
+A. start()
+B. main()
+C. run()
+D. stop()
+Answer: C
+
+Q25. Which statement is FALSE?
+A. Threads can execute concurrently
+B. Runnable is an interface
+C. Java supports multiple class inheritance
+D. Thread is a class
+Answer: C
+
+Q26. Which object is required to start a thread?
+A. Thread object
+B. Package object
+C. String object
+D. Array object
+Answer: A
+
+Q27. Runnable is primarily used to:
+A. Define thread tasks
+B. Define exceptions
+C. Define arrays
+D. Define packages
+Answer: A
+
+Q28. Thread class belongs to which package?
+A. java.io
+B. java.util
+C. java.lang
+D. java.sql
+Answer: C
+
+Q29. Which method is automatically invoked after start()?
+A. join()
+B. sleep()
+C. run()
+D. stop()
+Answer: C
+
+Q30. Multithreading is mainly used for:
+A. Concurrent task execution
+B. Package creation
+C. Interface implementation only
+D. Database creation
+Answer: A
+
+Exercise 7 – Experiment 2: Thread Monitoring – isAlive() and join()
+
+Q1. Which method checks whether a thread is still running?
+A. start()
+B. run()
+C. isAlive()
+D. join()
+Answer: C
+
+Q2. What is the return type of isAlive()?
+A. int
+B. String
+C. boolean
+D. void
+Answer: C
+
+Q3. isAlive() returns true when:
+A. Thread has not started
+B. Thread has started and not terminated
+C. Thread is terminated
+D. Thread object is null
+Answer: B
+
+Q4. Which method waits for a thread to finish?
+A. sleep()
+B. start()
+C. isAlive()
+D. join()
+Answer: D
+
+Q5. What does join() do?
+A. Creates a thread
+B. Stops a thread
+C. Blocks calling thread until target thread completes
+D. Deletes a thread
+Answer: C
+
+Q6. Which thread commonly calls join()?
+A. Target thread itself
+B. Main thread
+C. Package thread
+D. Constructor thread
+Answer: B
+
+Q7. isAlive() is mainly used for:
+A. Thread status checking
+B. Thread creation
+C. Thread deletion
+D. Thread compilation
+Answer: A
+
+Q8. join() helps in:
+A. Coordinating thread execution sequence
+B. Creating objects
+C. Package management
+D. Interface implementation
+Answer: A
+
+Q9. What happens after join() completes?
+A. Waiting thread resumes execution
+B. Thread is recreated
+C. Program ends immediately
+D. JVM stops
+Answer: A
+
+Q10. Which statement is true?
+A. join() returns boolean
+B. isAlive() returns boolean
+C. start() returns boolean
+D. run() returns boolean
+Answer: B
+
+Q11. If a thread has terminated, isAlive() returns:
+A. true
+B. false
+C. null
+D. error
+Answer: B
+
+Q12. Which method blocks execution?
+A. isAlive()
+B. run()
+C. join()
+D. start()
+Answer: C
+
+Q13. What is checked by isAlive()?
+A. Thread priority
+B. Thread state of execution
+C. Thread name
+D. Thread package
+Answer: B
+
+Q14. Which method helps synchronize thread completion?
+A. run()
+B. start()
+C. join()
+D. stop()
+Answer: C
+
+Q15. When isAlive() returns false, the thread:
+A. Is running
+B. Has not started or has terminated
+C. Is sleeping only
+D. Is blocked forever
+Answer: B
+
+Q16. Which method belongs to the Thread class?
+A. isAlive()
+B. join()
+C. Both A and B
+D. Neither
+Answer: C
+
+Q17. What is the purpose of join()?
+A. Wait for another thread to finish
+B. Create multiple threads
+C. Stop all threads
+D. Check thread name
+Answer: A
+
+Q18. Which method is non-blocking?
+A. join()
+B. isAlive()
+C. Both
+D. Neither
+Answer: B
+
+Q19. Which statement is correct?
+A. join() blocks the calling thread
+B. join() blocks the target thread
+C. isAlive() blocks threads
+D. start() blocks threads
+Answer: A
+
+Q20. What does thread monitoring involve?
+A. Checking and coordinating thread execution
+B. Creating packages
+C. Creating interfaces
+D. Managing arrays
+Answer: A
+
+Q21. What is the output type of the following?
+
+t.isAlive();
+
+A. int
+B. boolean
+C. String
+D. void
+Answer: B
+
+Q22. Which method helps determine if a thread is active?
+A. join()
+B. run()
+C. isAlive()
+D. sleep()
+Answer: C
+
+Q23. Which thread waits during join()?
+A. Calling thread
+B. Target thread
+C. All threads
+D. No thread
+Answer: A
+
+Q24. What is the main benefit of join()?
+A. Ensures proper execution order
+B. Creates threads faster
+C. Increases memory
+D. Reduces packages
+Answer: A
+
+Q25. If main calls t.join(), main thread:
+A. Continues immediately
+B. Waits until t finishes
+C. Stops permanently
+D. Restarts t
+Answer: B
+
+Q26. Which method simply reports thread status?
+A. join()
+B. start()
+C. isAlive()
+D. run()
+Answer: C
+
+Q27. Which statement about join() is TRUE?
+A. It starts a thread
+B. It waits for thread completion
+C. It returns boolean
+D. It destroys threads
+Answer: B
+
+Q28. Thread coordination is achieved using:
+A. isAlive() only
+B. join() only
+C. Both isAlive() and join()
+D. Neither
+Answer: C
+
+Q29. Which method can be used before join() to check thread status?
+A. run()
+B. isAlive()
+C. stop()
+D. main()
+Answer: B
+
+Q30. isAlive() and join() are mainly used for:
+A. Thread monitoring and coordination
+B. Exception handling
+C. File processing
+D. Interface implementation
+Answer: A
+
+Exercise 7 – Experiment 3: Daemon Threads in Java
+
+Q1. What is a daemon thread in Java?
+A. A user thread
+B. A service provider thread running in the background
+C. A package
+D. A constructor
+Answer: B
+
+Q2. Which is an example of a daemon thread?
+A. Main thread
+B. Garbage Collector
+C. User login thread
+D. File reader thread
+Answer: B
+
+Q3. Daemon threads primarily run:
+A. In the foreground
+B. In the background
+C. In packages
+D. In interfaces
+Answer: B
+
+Q4. The life of a daemon thread depends on:
+A. Constructors
+B. User threads
+C. Packages
+D. Arrays
+Answer: B
+
+Q5. What happens when all user threads finish?
+A. Daemon threads continue forever
+B. JVM terminates automatically
+C. JVM creates new threads
+D. User threads restart
+Answer: B
+
+Q6. When JVM terminates, remaining daemon threads are:
+A. Suspended
+B. Saved
+C. Instantly terminated
+D. Restarted
+Answer: C
+
+Q7. Which method is used to mark a thread as daemon?
+A. daemon()
+B. setDaemon(true)
+C. isDaemon()
+D. makeDaemon()
+Answer: B
+
+Q8. When should setDaemon(true) be called?
+A. After start()
+B. Before start()
+C. After run()
+D. During join()
+Answer: B
+
+Q9. Which statement is true about daemon threads?
+A. They keep JVM alive
+B. They depend on user threads
+C. They cannot run in background
+D. They are packages
+Answer: B
+
+Q10. Which type of thread is essential for JVM continuation?
+A. Daemon thread
+B. User thread
+C. Background thread only
+D. Garbage collector only
+Answer: B
+
+Q11. Which method checks whether a thread is daemon?
+A. getDaemon()
+B. isDaemon()
+C. daemonCheck()
+D. daemon()
+Answer: B
+
+Q12. What is the primary purpose of daemon threads?
+A. Provide background services
+B. Create packages
+C. Handle exceptions
+D. Store data
+Answer: A
+
+Q13. What happens if setDaemon(true) is called after start()?
+A. Works normally
+B. Compilation error
+C. Runtime exception
+D. No effect
+Answer: C
+
+Q14. Daemon threads are commonly used for:
+A. Background tasks
+B. Database creation
+C. Package management
+D. Interface implementation
+Answer: A
+
+Q15. Which thread is usually non-daemon?
+A. Garbage Collector
+B. Main Thread
+C. Cleaner Thread
+D. Service Thread
+Answer: B
+
+Q16. JVM exits when:
+A. Any daemon thread exists
+B. All user threads terminate
+C. Garbage Collector stops
+D. Any thread starts
+Answer: B
+
+Q17. Which statement is FALSE?
+A. Daemon threads run in background
+B. Daemon threads depend on user threads
+C. Daemon threads keep JVM alive forever
+D. Garbage Collector is a daemon thread
+Answer: C
+
+Q18. What does setDaemon(true) do?
+A. Starts thread
+B. Stops thread
+C. Marks thread as daemon
+D. Joins thread
+Answer: C
+
+Q19. Which class contains daemon thread methods?
+A. Object
+B. Thread
+C. Runnable
+D. Exception
+Answer: B
+
+Q20. A daemon thread is also called a:
+A. Service thread
+B. Error thread
+C. Package thread
+D. Constructor thread
+Answer: A
+
+Q21. What is the output?
+
+Thread t = new Thread();
+t.setDaemon(true);
+System.out.println(t.isDaemon());
+
+A. false
+B. true
+C. error
+D. null
+Answer: B
+
+Q22. Which method returns daemon status?
+A. daemon()
+B. getDaemon()
+C. isDaemon()
+D. statusDaemon()
+Answer: C
+
+Q23. Which thread type has lower importance than user threads?
+A. Daemon thread
+B. Main thread
+C. Parent thread
+D. Child thread
+Answer: A
+
+Q24. Which statement best describes daemon threads?
+A. Independent of JVM
+B. Background support threads
+C. Compile-time threads
+D. Package threads
+Answer: B
+
+Q25. Daemon threads are automatically terminated by:
+A. Compiler
+B. JVM
+C. IDE
+D. User
+Answer: B
+
+Q26. Why are daemon threads useful?
+A. Perform background services automatically
+B. Replace user threads
+C. Create packages
+D. Increase inheritance
+Answer: A
+
+Q27. Which method must be called before start()?
+A. run()
+B. join()
+C. setDaemon(true)
+D. sleep()
+Answer: C
+
+Q28. What happens if only daemon threads remain?
+A. JVM continues forever
+B. JVM terminates
+C. Threads become user threads
+D. Program recompiles
+Answer: B
+
+Q29. Which of the following is daemon-related?
+A. Background processing
+B. Garbage collection
+C. Service tasks
+D. All of the above
+Answer: D
+
+Q30. Daemon thread execution depends on:
+A. Package availability
+B. User thread existence
+C. Constructor execution
+D. Array size
+Answer: B
+
+Exercise 7 – Experiment 4: Producer-Consumer Problem & Synchronization
+
+Q1. What is the Producer-Consumer problem?
+A. Sorting problem
+B. Synchronization problem involving shared data
+C. Searching problem
+D. Inheritance problem
+Answer: B
+
+Q2. The producer is responsible for:
+A. Consuming data
+B. Creating data items
+C. Deleting data
+D. Synchronizing methods only
+Answer: B
+
+Q3. The consumer is responsible for:
+A. Producing data
+B. Creating buffers
+C. Retrieving data items
+D. Creating threads only
+Answer: C
+
+Q4. Producer places data into a:
+A. Package
+B. Shared buffer
+C. Interface
+D. Method
+Answer: B
+
+Q5. Consumer retrieves data from a:
+A. Shared buffer
+B. Package
+C. Interface
+D. Class
+Answer: A
+
+Q6. What problem can occur without synchronization?
+A. Resource races
+B. Compilation errors
+C. Package conflicts
+D. Constructor errors
+Answer: A
+
+Q7. Which keyword is used for synchronization in Java?
+A. thread
+B. sync
+C. synchronized
+D. monitor
+Answer: C
+
+Q8. synchronized is used to:
+A. Prevent concurrent access
+B. Create threads
+C. Handle exceptions
+D. Create packages
+Answer: A
+
+Q9. synchronized locks:
+A. Arrays
+B. Object monitors
+C. Packages
+D. Constructors
+Answer: B
+
+Q10. Which method causes a thread to wait?
+A. notify()
+B. wait()
+C. join()
+D. start()
+Answer: B
+
+Q11. What does wait() do?
+A. Releases monitor lock and waits
+B. Creates a lock
+C. Wakes threads
+D. Stops JVM
+Answer: A
+
+Q12. Which method wakes a waiting thread?
+A. sleep()
+B. join()
+C. notify()
+D. run()
+Answer: C
+
+Q13. wait() belongs to which class?
+A. Thread
+B. Object
+C. Runnable
+D. Exception
+Answer: B
+
+Q14. notify() is used for:
+A. Thread communication
+B. Thread creation
+C. Thread deletion
+D. Package loading
+Answer: A
+
+Q15. Shared resources should be:
+A. Unsynchronized
+B. Synchronized
+C. Static only
+D. Final only
+Answer: B
+
+Q16. Producer and Consumer communicate using:
+A. Shared buffer
+B. Packages
+C. Interfaces
+D. Constructors
+Answer: A
+
+Q17. Synchronization prevents:
+A. Resource races
+B. Inheritance
+C. Polymorphism
+D. Packages
+Answer: A
+
+Q18. What happens when wait() is called?
+A. Monitor lock is released
+B. Monitor lock remains forever
+C. JVM stops
+D. Thread terminates
+Answer: A
+
+Q19. notify() wakes:
+A. All threads always
+B. One waiting thread
+C. Main thread only
+D. Daemon threads only
+Answer: B
+
+Q20. Which mechanism controls access to shared data?
+A. Synchronization
+B. Inheritance
+C. Encapsulation
+D. Abstraction
+Answer: A
+
+Q21. Producer-Consumer is an example of:
+A. Thread coordination
+B. Exception handling
+C. File management
+D. Package management
+Answer: A
+
+Q22. synchronized methods ensure:
+A. Mutual exclusion
+B. Multiple simultaneous access
+C. No thread execution
+D. JVM shutdown
+Answer: A
+
+Q23. What is the role of a monitor?
+A. Controls synchronized access
+B. Creates objects
+C. Loads packages
+D. Stores arrays
+Answer: A
+
+Q24. Which statement is true about wait()?
+A. It releases lock temporarily
+B. It wakes threads
+C. It starts threads
+D. It terminates threads
+Answer: A
+
+Q25. Which statement is true about notify()?
+A. Releases monitor lock
+B. Wakes waiting thread
+C. Stops thread execution
+D. Creates a thread
+Answer: B
+
+Q26. Shared buffer synchronization prevents:
+A. Data inconsistency
+B. Compilation errors
+C. Interface conflicts
+D. Package duplication
+Answer: A
+
+Q27. Which keyword is directly associated with locking?
+A. wait
+B. notify
+C. synchronized
+D. join
+Answer: C
+
+Q28. What is the relationship between producer and consumer?
+A. One creates, one retrieves data
+B. Both create data only
+C. Both consume data only
+D. Neither uses shared resources
+Answer: A
+
+Q29. Thread communication in Producer-Consumer commonly uses:
+A. wait() and notify()
+B. join() and start()
+C. run() and stop()
+D. main() and sleep()
+Answer: A
+
+Q30. The main goal of synchronization is:
+A. Safe access to shared resources
+B. Faster compilation
+C. More packages
+D. More constructors
+Answer: A
+
+Exercise 8 – Experiment 1: Packages in Java
+
+Q1. What is a package in Java?
+A. A method
+B. A group of related classes and interfaces
+C. A variable
+D. A constructor
+Answer: B
+
+Q2. Packages in Java are similar to:
+A. Arrays
+B. Folders in a directory
+C. Methods
+D. Variables
+Answer: B
+
+Q3. What is one major purpose of packages?
+A. Increase CPU speed
+B. Prevent naming conflicts
+C. Create threads
+D. Handle exceptions
+Answer: B
+
+Q4. Packages help organize:
+A. Classes and interfaces
+B. Loops only
+C. Variables only
+D. Constructors only
+Answer: A
+
+Q5. Which keyword is used to declare a package?
+A. import
+B. package
+C. class
+D. extends
+Answer: B
+
+Q6. Where should the package statement appear?
+A. End of file
+B. Middle of file
+C. Top of file
+D. Inside main()
+Answer: C
+
+Q7. What is the correct syntax to declare a package?
+A. import mypack;
+B. package mypack;
+C. class mypack;
+D. extends mypack;
+Answer: B
+
+Q8. Which keyword is used to use classes from another package?
+A. extends
+B. package
+C. import
+D. implements
+Answer: C
+
+Q9. Which statement imports a class?
+A. package pack.Class;
+B. import pack.Class;
+C. class pack.Class;
+D. extends pack.Class;
+Answer: B
+
+Q10. Packages provide:
+A. Namespacing
+B. Organization
+C. Access control
+D. All of the above
+Answer: D
+
+Q11. Which feature prevents naming conflicts?
+A. Inheritance
+B. Packages
+C. Arrays
+D. Threads
+Answer: B
+
+Q12. Packages improve:
+A. Search and lookup of classes
+B. CPU speed only
+C. Memory size only
+D. Thread count
+Answer: A
+
+Q13. Which access level is related to packages?
+A. package-private
+B. thread-private
+C. scene-private
+D. node-private
+Answer: A
+
+Q14. What can a package contain?
+A. Classes
+B. Interfaces
+C. Sub-packages
+D. All of the above
+Answer: D
+
+Q15. Which statement is TRUE?
+A. Packages group related program elements
+B. Packages create threads
+C. Packages replace classes
+D. Packages are variables
+Answer: A
+
+Q16. Which keyword allows access to classes from another package?
+A. import
+B. package
+C. new
+D. this
+Answer: A
+
+Q17. Packages help in:
+A. Better code organization
+B. Event handling
+C. Graphics rendering
+D. Thread execution
+Answer: A
+
+Q18. A package acts as a:
+A. Folder-like container
+B. Thread
+C. Scene
+D. Event
+Answer: A
+
+Q19. Which statement declares a package named student?
+A. import student;
+B. package student;
+C. class student;
+D. extends student;
+Answer: B
+
+Q20. Which is NOT a purpose of packages?
+A. Prevent naming conflicts
+B. Organize classes
+C. Control access
+D. Create constructors automatically
+Answer: D
+
+Q21. Packages are useful in:
+A. Large applications
+B. Small applications only
+C. Databases only
+D. Arrays only
+Answer: A
+
+Q22. What is a sub-package?
+A. Package inside another package
+B. Method inside package
+C. Interface only
+D. Thread package
+Answer: A
+
+Q23. Which line must come before class declaration?
+A. package statement
+B. main method
+C. constructor
+D. loop
+Answer: A
+
+Q24. What does import do?
+A. Makes classes accessible from another package
+B. Creates packages
+C. Deletes packages
+D. Creates objects
+Answer: A
+
+Q25. Packages improve code:
+A. Organization and maintainability
+B. Compilation errors
+C. Memory leaks
+D. Thread blocking
+Answer: A
+
+Q26. Which concept is most associated with packages?
+A. Namespacing
+B. Sorting
+C. Polymorphism
+D. Synchronization
+Answer: A
+
+Q27. What is the extension relationship of packages?
+A. Packages contain classes
+B. Classes contain packages
+C. Threads contain packages
+D. Scenes contain packages
+Answer: A
+
+Q28. Which statement is valid?
+A. package myapp;
+B. import myapp;
+C. class myapp;
+D. new myapp;
+Answer: A
+
+Q29. Packages help avoid:
+A. Naming conflicts
+B. Loops
+C. Objects
+D. Constructors
+Answer: A
+
+Q30. Java packages are primarily used for:
+A. Organizing related program components
+B. Thread creation
+C. Event handling
+D. Graphics rendering
+Answer: A
+
+Exercise 8 – Experiment 2: JavaFX Graphic Architecture
+
+Q1. What is JavaFX?
+A. Database platform
+B. Software platform for desktop applications
+C. Package manager
+D. Thread library
+Answer: B
+
+Q2. The top-level window in JavaFX is called:
+A. Node
+B. Scene
+C. Stage
+D. Event
+Answer: C
+
+Q3. What does a Stage represent?
+A. Window container
+B. Button
+C. Layout manager
+D. Event handler
+Answer: A
+
+Q4. What does a Scene represent?
+A. Window frame
+B. Content area of the application
+C. Package
+D. Thread
+Answer: B
+
+Q5. JavaFX UI is built using:
+A. Scene Graph
+B. Package Graph
+C. Thread Graph
+D. Event Graph
+Answer: A
+
+Q6. What is a Node in JavaFX?
+A. Package
+B. Thread
+C. UI component
+D. Exception
+Answer: C
+
+Q7. Which is an example of a Node?
+A. Button
+B. Label
+C. ImageView
+D. All of the above
+Answer: D
+
+Q8. A Scene is placed inside a:
+A. Node
+B. Stage
+C. Event
+D. Package
+Answer: B
+
+Q9. The Scene Graph is:
+A. Hierarchical structure of UI elements
+B. Package hierarchy
+C. Thread hierarchy
+D. Exception hierarchy
+Answer: A
+
+Q10. Which component represents a window?
+A. Node
+B. Label
+C. Stage
+D. Scene Graph
+Answer: C
+
+Q11. Which component contains visual content?
+A. Stage
+B. Scene
+C. Package
+D. Thread
+Answer: B
+
+Q12. JavaFX is mainly used for:
+A. GUI development
+B. Package creation
+C. Exception handling
+D. Multithreading only
+Answer: A
+
+Q13. Nodes are arranged in a:
+A. Graph structure
+B. Package structure
+C. Array structure
+D. Database structure
+Answer: A
+
+Q14. Which UI element is a Node?
+A. Button
+B. Label
+C. ImageView
+D. All of the above
+Answer: D
+
+Q15. What is the root of a JavaFX application window?
+A. Scene
+B. Stage
+C. Package
+D. Event
+Answer: B
+
+Q16. Scene Graph is composed of:
+A. Nodes
+B. Packages
+C. Threads
+D. Exceptions
+Answer: A
+
+Q17. Which statement is TRUE?
+A. Stage contains Scene
+B. Scene contains Stage
+C. Node contains Stage
+D. Event contains Scene
+Answer: A
+
+Q18. JavaFX applications are primarily:
+A. Desktop applications
+B. Mobile applications only
+C. Databases
+D. Servers only
+Answer: A
+
+Q19. Which component displays images?
+A. Label
+B. Button
+C. ImageView
+D. Stage
+Answer: C
+
+Q20. The content hierarchy in JavaFX is represented by:
+A. Scene Graph
+B. Package Tree
+C. Thread Tree
+D. Event Tree
+Answer: A
+
+Q21. Which component holds visual nodes?
+A. Scene
+B. Package
+C. Thread
+D. Constructor
+Answer: A
+
+Q22. A Button in JavaFX is a:
+A. Node
+B. Stage
+C. Scene
+D. Package
+Answer: A
+
+Q23. What is the relationship between Stage and Scene?
+A. Stage contains Scene
+B. Scene contains Stage
+C. Both are unrelated
+D. Both are packages
+Answer: A
+
+Q24. JavaFX architecture is based on:
+A. Hierarchical UI components
+B. Arrays
+C. Databases
+D. Packages only
+Answer: A
+
+Q25. Which JavaFX component is used for text display?
+A. ImageView
+B. Label
+C. Thread
+D. Package
+Answer: B
+
+Q26. What is the smallest visual element in JavaFX?
+A. Stage
+B. Scene
+C. Node
+D. Event
+Answer: C
+
+Q27. Scene Graph organizes:
+A. UI elements
+B. Threads
+C. Packages
+D. Exceptions
+Answer: A
+
+Q28. Which component is directly visible to the user as a window?
+A. Stage
+B. Scene
+C. Node
+D. Package
+Answer: A
+
+Q29. JavaFX architecture follows:
+A. Hierarchical design
+B. Linear design
+C. Circular design
+D. Random design
+Answer: A
+
+Q30. Stage, Scene, and Nodes are key components of:
+A. JavaFX Graphic Architecture
+B. Package Architecture
+C. Thread Architecture
+D. Exception Architecture
+Answer: A
+
+Exercise 8 – Experiment 3: Event-Driven Programming
+
+Q1. Modern GUI programming is primarily:
+A. Sequential
+B. Event-driven
+C. Recursive
+D. Package-driven
+Answer: B
+
+Q2. In event-driven programming, a program waits for:
+A. Packages
+B. Events
+C. Constructors
+D. Threads only
+Answer: B
+
+Q3. Which of the following is an event?
+A. Button click
+B. Key press
+C. Slider movement
+D. All of the above
+Answer: D
+
+Q4. What executes when an event occurs?
+A. Event handler routine
+B. Package
+C. Constructor
+D. Interface
+Answer: A
+
+Q5. JavaFX registers event listeners using:
+A. Functional interfaces
+B. Packages
+C. Arrays
+D. Threads
+Answer: A
+
+Q6. Which interface is commonly used for button events?
+A. Runnable
+B. EventHandler<ActionEvent>
+C. Serializable
+D. Cloneable
+Answer: B
+
+Q7. What is the purpose of an event handler?
+A. Respond to user actions
+B. Create packages
+C. Handle exceptions
+D. Create threads
+Answer: A
+
+Q8. Which Java feature simplifies event handling syntax?
+A. Lambda expressions
+B. Arrays
+C. Packages
+D. Constructors
+Answer: A
+
+Q9. What does setOnAction() do?
+A. Registers an event handler
+B. Creates a button
+C. Creates a thread
+D. Creates a package
+Answer: A
+
+Q10. Which event is associated with a button click?
+A. ActionEvent
+B. ThreadEvent
+C. PackageEvent
+D. SceneEvent
+Answer: A
+
+Q11. Event-driven programming reacts to:
+A. User interactions
+B. Packages only
+C. Arrays only
+D. Exceptions only
+Answer: A
+
+Q12. Which expression is a lambda expression?
+A. e -> calculate()
+B. calculate(e)
+C. event.calculate()
+D. calculate => e
+Answer: A
+
+Q13. What is the role of a listener?
+A. Wait for and respond to events
+B. Create objects
+C. Handle packages
+D. Create scenes
+Answer: A
+
+Q14. A key press is an example of:
+A. Event
+B. Package
+C. Constructor
+D. Thread
+Answer: A
+
+Q15. Which statement is TRUE?
+A. Event handlers execute when events occur
+B. Events execute handlers automatically at startup only
+C. Events are packages
+D. Events are threads
+Answer: A
+
+Q16. Event-driven programming improves:
+A. GUI responsiveness
+B. Package management
+C. Inheritance only
+D. Memory allocation only
+Answer: A
+
+Q17. Which method commonly attaches an event handler to a button?
+A. setOnAction()
+B. setThread()
+C. setPackage()
+D. setScene()
+Answer: A
+
+Q18. EventHandler is an example of a:
+A. Functional interface
+B. Package
+C. Thread
+D. Exception
+Answer: A
+
+Q19. Slider movement generates:
+A. Event
+B. Package
+C. Constructor
+D. Interface
+Answer: A
+
+Q20. The event object is commonly represented by:
+A. e
+B. x
+C. obj
+D. i
+Answer: A
+
+Q21. Which code registers a button event?
+
+button.setOnAction(e -> calculate());
+
+A. Event registration
+B. Thread creation
+C. Package import
+D. Exception handling
+Answer: A
+
+Q22. Event-driven applications spend much of their time:
+A. Waiting for events
+B. Creating packages
+C. Creating threads only
+D. Sorting arrays
+Answer: A
+
+Q23. Which component generates events?
+A. UI controls
+B. Packages
+C. Constructors
+D. Arrays
+Answer: A
+
+Q24. What is ActionEvent associated with?
+A. User actions such as button clicks
+B. Package loading
+C. Thread execution
+D. Exception handling
+Answer: A
+
+Q25. Lambda expressions help reduce:
+A. Boilerplate code
+B. Packages
+C. Threads
+D. Scenes
+Answer: A
+
+Q26. Event handlers are triggered by:
+A. Events
+B. Packages
+C. Classes only
+D. Constructors
+Answer: A
+
+Q27. Which paradigm is used in JavaFX GUIs?
+A. Event-driven programming
+B. Procedural programming only
+C. Assembly programming
+D. Database programming
+Answer: A
+
+Q28. Event listeners monitor:
+A. User interactions
+B. Packages
+C. Threads
+D. Classes only
+Answer: A
+
+Q29. Which is NOT an event example?
+A. Button click
+B. Key press
+C. Slider movement
+D. Package declaration
+Answer: D
+
+Q30. Event-driven programming is centered around:
+A. Events and handlers
+B. Packages and imports
+C. Threads and synchronization
+D. Classes and constructors
+Answer: A
+
+Exercise 9 – Experiment 1: Java Database Connectivity (JDBC)
+
+Q1. What does JDBC stand for?
+A. Java Database Connectivity
+B. Java Data Control
+C. Java Database Compiler
+D. Java Development Connectivity
+Answer: A
+
+Q2. JDBC is a:
+A. Programming Language
+B. Java API
+C. Database
+D. Operating System
+Answer: B
+
+Q3. What is the main purpose of JDBC?
+A. GUI Development
+B. Database Connectivity and Operations
+C. Thread Management
+D. Package Management
+Answer: B
+
+Q4. JDBC classes and interfaces are mainly found in which package?
+A. java.util
+B. java.io
+C. java.sql
+D. java.net
+Answer: C
+
+Q5. Which class loads database drivers and establishes connections?
+A. Connection
+B. ResultSet
+C. Statement
+D. DriverManager
+Answer: D
+
+Q6. Which interface represents a database connection session?
+A. Statement
+B. Connection
+C. ResultSet
+D. DriverManager
+Answer: B
+
+Q7. Which interface is used to execute static SQL queries?
+A. ResultSet
+B. DriverManager
+C. Statement
+D. Connection
+Answer: C
+
+Q8. Which object stores rows returned by a query?
+A. Statement
+B. Connection
+C. DriverManager
+D. ResultSet
+Answer: D
+
+Q9. DriverManager is responsible for:
+A. Storing query results
+B. Running SQL queries
+C. Loading drivers and creating connections
+D. Deleting records
+Answer: C
+
+Q10. A Connection object represents:
+A. Query result data
+B. Physical database session
+C. SQL statement
+D. Package import
+Answer: B
+
+Q11. Which JDBC component executes SQL statements?
+A. Statement
+B. ResultSet
+C. DriverManager
+D. Thread
+Answer: A
+
+Q12. ResultSet is used for:
+A. Holding query result rows
+B. Creating connections
+C. Loading drivers
+D. Managing packages
+Answer: A
+
+Q13. Which object is obtained after a SELECT query execution?
+A. Connection
+B. DriverManager
+C. ResultSet
+D. Package
+Answer: C
+
+Q14. JDBC enables:
+A. Database interaction from Java
+B. Graphics programming
+C. Event handling
+D. Thread synchronization
+Answer: A
+
+Q15. Which JDBC interface represents retrieved data?
+A. Statement
+B. ResultSet
+C. Connection
+D. DriverManager
+Answer: B
+
+Q16. Which class establishes a database connection?
+A. DriverManager
+B. Statement
+C. ResultSet
+D. Scanner
+Answer: A
+
+Q17. What is required before executing SQL queries?
+A. ResultSet
+B. Database Connection
+C. Package Creation
+D. Thread Creation
+Answer: B
+
+Q18. Which JDBC component communicates directly with the database session?
+A. Connection
+B. Statement
+C. ResultSet
+D. Array
+Answer: A
+
+Q19. Statement is mainly used for:
+A. Executing SQL commands
+B. Storing data permanently
+C. Creating packages
+D. Handling events
+Answer: A
+
+Q20. Which sequence is correct?
+A. ResultSet → Statement → Connection
+B. DriverManager → Connection → Statement → ResultSet
+C. Statement → DriverManager → ResultSet
+D. Connection → ResultSet → DriverManager
+Answer: B
+
+Q21. Which package contains JDBC APIs?
+A. java.awt
+B. java.lang
+C. java.sql
+D. java.text
+Answer: C
+
+Q22. What is the output of a query execution?
+A. Connection
+B. Statement
+C. ResultSet (for SELECT)
+D. DriverManager
+Answer: C
+
+Q23. JDBC supports:
+A. Query Execution
+B. Database Transactions
+C. Database Connections
+D. All of the above
+Answer: D
+
+Q24. Which object executes static SQL statements?
+A. Statement
+B. DriverManager
+C. ResultSet
+D. Package
+Answer: A
+
+Q25. DriverManager belongs to:
+A. java.sql
+B. java.util
+C. java.io
+D. java.net
+Answer: A
+
+Q26. What does ResultSet contain?
+A. SQL Queries
+B. Database Rows
+C. Driver Information
+D. Package Information
+Answer: B
+
+Q27. Which interface represents query results?
+A. Statement
+B. Connection
+C. ResultSet
+D. DriverManager
+Answer: C
+
+Q28. JDBC acts as a bridge between:
+A. Java Applications and Databases
+B. Java and HTML
+C. Java and CSS
+D. Java and JVM only
+Answer: A
+
+Q29. Which component must exist before Statement creation?
+A. ResultSet
+B. Connection
+C. Package
+D. Array
+Answer: B
+
+Q30. JDBC is primarily used for:
+A. Database Connectivity and Data Operations
+B. GUI Design
+C. Thread Creation
+D. Package Management
+Answer: A
+
+Exercise 9 – Experiment 2: DML Operations in JDBC
+
+Q1. What does DML stand for?
+A. Data Manipulation Language
+B. Data Modification Language
+C. Database Management Language
+D. Dynamic Modification Language
+Answer: B
+
+Q2. Which SQL statement is a DML operation?
+A. INSERT
+B. UPDATE
+C. DELETE
+D. All of the above
+Answer: D
+
+Q3. DML statements are used to:
+A. Modify table data
+B. Create packages
+C. Handle exceptions
+D. Create classes
+Answer: A
+
+Q4. Which JDBC method executes DML statements?
+A. executeQuery()
+B. executeUpdate()
+C. runQuery()
+D. executeData()
+Answer: B
+
+Q5. What is the parameter type of executeUpdate()?
+A. int
+B. String sql
+C. ResultSet
+D. Connection
+Answer: B
+
+Q6. executeUpdate() returns:
+A. ResultSet
+B. String
+C. Integer count of affected rows
+D. Boolean
+Answer: C
+
+Q7. What does a return value of 1 indicate?
+A. One row affected
+B. One table created
+C. One connection opened
+D. One exception occurred
+Answer: A
+
+Q8. INSERT is used to:
+A. Add new rows
+B. Delete rows
+C. Update rows
+D. Create packages
+Answer: A
+
+Q9. UPDATE is used to:
+A. Add rows
+B. Modify existing rows
+C. Delete rows
+D. Create tables
+Answer: B
+
+Q10. DELETE is used to:
+A. Insert records
+B. Modify records
+C. Remove records
+D. Create records
+Answer: C
+
+Q11. Which object can execute executeUpdate()?
+A. Statement
+B. PreparedStatement
+C. Both A and B
+D. ResultSet
+Answer: C
+
+Q12. executeUpdate() is mainly associated with:
+A. Data modification
+B. Data retrieval only
+C. Thread execution
+D. GUI events
+Answer: A
+
+Q13. Which SQL command adds data to a table?
+A. UPDATE
+B. DELETE
+C. INSERT
+D. DROP
+Answer: C
+
+Q14. Which SQL command changes existing rows?
+A. INSERT
+B. UPDATE
+C. DELETE
+D. SELECT
+Answer: B
+
+Q15. What does executeUpdate() return if no rows are affected?
+A. 0
+B. 1
+C. -1
+D. null
+Answer: A
+
+Q16. Which statement object executes DML queries?
+A. Statement
+B. PreparedStatement
+C. Both
+D. ResultSet
+Answer: C
+
+Q17. DML operations modify:
+A. Database data
+B. Packages
+C. Threads
+D. Interfaces
+Answer: A
+
+Q18. INSERT belongs to which category?
+A. DML
+B. JDBC Driver
+C. Package
+D. Thread
+Answer: A
+
+Q19. executeUpdate() is used for:
+A. INSERT
+B. UPDATE
+C. DELETE
+D. All of the above
+Answer: D
+
+Q20. The returned integer represents:
+A. Number of columns
+B. Number of tables
+C. Number of affected rows
+D. Number of connections
+Answer: C
+
+Q21. Which SQL operation changes data without retrieval?
+A. DML
+B. SELECT
+C. ResultSet
+D. DriverManager
+Answer: A
+
+Q22. What happens after a successful INSERT of one row?
+A. executeUpdate() returns 1
+B. executeUpdate() returns true
+C. ResultSet is returned
+D. JVM stops
+Answer: A
+
+Q23. PreparedStatement can also execute:
+A. executeUpdate()
+B. executePackage()
+C. executeThread()
+D. executeScene()
+Answer: A
+
+Q24. DML queries affect:
+A. Table rows
+B. Packages
+C. Interfaces
+D. Constructors
+Answer: A
+
+Q25. Which JDBC method is NOT mentioned for DML?
+A. executeUpdate()
+B. executeQuery()
+C. executeUpdate(String sql)
+D. executeUpdate() on PreparedStatement
+Answer: B
+
+Q26. A successful UPDATE returning 5 means:
+A. 5 rows modified
+B. 5 tables modified
+C. 5 connections opened
+D. 5 packages created
+Answer: A
+
+Q27. Which query inserts a new record?
+A. INSERT
+B. UPDATE
+C. DELETE
+D. SELECT
+Answer: A
+
+Q28. DML operations are part of:
+A. Data Modification Language
+B. Graphics Programming
+C. Event Handling
+D. Multithreading
+Answer: A
+
+Q29. executeUpdate() returns which data type?
+A. String
+B. boolean
+C. int
+D. ResultSet
+Answer: C
+
+Q30. The primary purpose of DML is:
+A. Modify database records
+B. Create packages
+C. Create interfaces
+D. Handle exceptions
+Answer: A
+
+Exercise 9 – Experiment 3: Deletions in JDBC
+
+Q1. Which SQL statement removes records from a table?
+A. INSERT
+B. UPDATE
+C. DELETE
+D. SELECT
+Answer: C
+
+Q2. DELETE queries in JDBC are executed using:
+A. executeQuery()
+B. executeUpdate()
+C. executeDelete()
+D. executeResult()
+Answer: B
+
+Q3. executeUpdate() returns:
+A. Deleted table name
+B. Number of affected rows
+C. ResultSet
+D. Boolean value
+Answer: B
+
+Q4. DELETE belongs to:
+A. DML
+B. GUI
+C. Package Management
+D. Threading
+Answer: A
+
+Q5. What does a return value of 1 indicate for DELETE?
+A. One row deleted
+B. One column deleted
+C. One table deleted
+D. One package deleted
+Answer: A
+
+Q6. Which condition determines rows to delete?
+A. WHERE clause
+B. IMPORT clause
+C. PACKAGE clause
+D. THREAD clause
+Answer: A
+
+Q7. What happens if no row matches the DELETE condition?
+A. Return value is 0
+B. Return value is 1
+C. Exception always occurs
+D. ResultSet returned
+Answer: A
+
+Q8. DELETE affects:
+A. Table rows
+B. Packages
+C. Interfaces
+D. Threads
+Answer: A
+
+Q9. Which method executes DELETE statements?
+A. executeQuery()
+B. executeUpdate()
+C. runDelete()
+D. executeRemove()
+Answer: B
+
+Q10. DELETE FROM student WHERE id=101 removes:
+A. Matching student record
+B. Entire table
+C. Entire database
+D. Connection
+Answer: A
+
+Q11. What is returned after deleting three matching rows?
+A. 0
+B. 1
+C. 3
+D. ResultSet
+Answer: C
+
+Q12. DELETE statements are examples of:
+A. Data modification operations
+B. Data retrieval operations
+C. Event handling operations
+D. Package operations
+Answer: A
+
+Q13. Which JDBC object commonly executes DELETE?
+A. Statement
+B. PreparedStatement
+C. Both A and B
+D. ResultSet
+Answer: C
+
+Q14. DELETE changes:
+A. Database contents
+B. Package contents
+C. Interface definitions
+D. Thread behavior
+Answer: A
+
+Q15. executeUpdate() returns an:
+A. Object
+B. int
+C. String
+D. ResultSet
+Answer: B
+
+Q16. Which query removes records?
+A. INSERT
+B. UPDATE
+C. DELETE
+D. SELECT
+Answer: C
+
+Q17. DELETE operation affects:
+A. Rows matching condition
+B. Entire database automatically
+C. Packages only
+D. Classes only
+Answer: A
+
+Q18. What is the purpose of DELETE?
+A. Remove unwanted data
+B. Insert data
+C. Update data
+D. Display data
+Answer: A
+
+Q19. Which clause specifies records to remove?
+A. WHERE
+B. ORDER
+C. GROUP
+D. IMPORT
+Answer: A
+
+Q20. DELETE execution is performed through:
+A. executeUpdate()
+B. executeQuery()
+C. ResultSet
+D. DriverManager
+Answer: A
+
+Q21. If student 101 exists, DELETE returns:
+A. 0
+B. 1
+C. null
+D. ResultSet
+Answer: B
+
+Q22. DELETE is categorized as:
+A. DML
+B. DDL
+C. GUI
+D. Threading
+Answer: A
+
+Q23. Which JDBC method reports rows deleted?
+A. executeUpdate()
+B. executeDelete()
+C. executeResult()
+D. executeRows()
+Answer: A
+
+Q24. What happens after successful deletion?
+A. Affected row count is returned
+B. ResultSet is returned
+C. New table created
+D. Connection closed automatically
+Answer: A
+
+Q25. DELETE modifies:
+A. Database records
+B. Packages
+C. Classes
+D. Interfaces
+Answer: A
+
+Q26. Which SQL keyword is associated with row removal?
+A. INSERT
+B. UPDATE
+C. DELETE
+D. SELECT
+Answer: C
+
+Q27. A return value of 5 means:
+A. Five rows deleted
+B. Five tables deleted
+C. Five packages deleted
+D. Five connections deleted
+Answer: A
+
+Q28. DELETE queries are executed similarly to:
+A. INSERT operations
+B. Event handling
+C. Package imports
+D. Thread creation
+Answer: A
+
+Q29. Which object stores deleted row count?
+A. int value returned by executeUpdate()
+B. ResultSet
+C. Connection
+D. DriverManager
+Answer: A
+
+Q30. The primary purpose of DELETE in JDBC is:
+A. Remove matching database records
+B. Create tables
+C. Open connections
+D. Load drivers
+Answer: A
