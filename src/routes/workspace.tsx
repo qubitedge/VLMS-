@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Play, Save, RotateCcw, CheckCircle2, Terminal, ArrowLeft, Lightbulb, Beaker, HelpCircle, Database, Book, Volume2, Square, Sparkles, ExternalLink, Cpu } from "lucide-react";
+import { Play, Save, RotateCcw, CheckCircle2, Terminal, ArrowLeft, Lightbulb, Beaker, HelpCircle, Database, Book, Volume2, Square, Sparkles, ExternalLink, Cpu, PanelLeftClose, PanelLeftOpen, Download, Code2, ChevronLeft, ChevronRight, Check } from "lucide-react";
 import { courses } from "@/lib/course-data";
 import Editor from "@monaco-editor/react";
 import { toast } from "sonner";
@@ -138,7 +138,7 @@ export const Route = createFileRoute("/workspace")({
       mode: search.mode as "learn" | "solve" | undefined,
     };
   },
-  head: () => ({ meta: [{ title: "Workspace — VLMS" }, { name: "description", content: "Isolated runtime workspace for student experiments." }] }),
+  head: () => ({ meta: [{ title: "Compiler Sandbox — VLMS" }, { name: "description", content: "Isolated compiler sandbox and runtime workspace for running code." }] }),
   component: Workspace,
 });
 
@@ -528,6 +528,255 @@ function HintTooltip({ hint }: { hint: string }) {
   );
 }
 
+// ── Sandbox Mode Boilerplate Templates ───────────────────────────────────────────
+const sandboxTemplates: Record<string, Array<{ name: string; desc: string; code: string }>> = {
+  c: [
+    {
+      name: "Hello World",
+      desc: "Standard greeting program",
+      code: `#include <stdio.h>\n\nint main() {\n    printf("Hello, World!\\n");\n    return 0;\n}`
+    },
+    {
+      name: "Interactive Sum",
+      desc: "Reads two integers from standard input and prints their sum",
+      code: `#include <stdio.h>\n\nint main() {\n    int a, b;\n    printf("Enter two numbers: ");\n    // Ensure you provide input in the stdin box below!\n    if (scanf("%d %d", &a, &b) == 2) {\n        printf("\\nSum of %d and %d is %d\\n", a, b, a + b);\n    } else {\n        printf("\\nError: Invalid input\\n");\n    }\n    return 0;\n}`
+    },
+    {
+      name: "Factorial (Recursion)",
+      desc: "Calculates factorial of a number using recursion",
+      code: `#include <stdio.h>\n\nlong long factorial(int n) {\n    if (n <= 1) return 1;\n    return n * factorial(n - 1);\n}\n\nint main() {\n    int num = 5;\n    printf("Factorial of %d is %lld\\n", num, factorial(num));\n    return 0;\n}`
+    },
+    {
+      name: "Bubble Sort",
+      desc: "Sorts a static integer array in ascending order",
+      code: `#include <stdio.h>\n\nvoid bubbleSort(int arr[], int n) {\n    for (int i = 0; i < n-1; i++) {\n        for (int j = 0; j < n-i-1; j++) {\n            if (arr[j] > arr[j+1]) {\n                int temp = arr[j];\n                arr[j] = arr[j+1];\n                arr[j+1] = temp;\n            }\n        }\n    }\n}\n\nint main() {\n    int arr[] = {64, 34, 25, 12, 22, 11, 90};\n    int n = sizeof(arr)/sizeof(arr[0]);\n    \n    printf("Original array: ");\n    for (int i = 0; i < n; i++) printf("%d ", arr[i]);\n    printf("\\n");\n    \n    bubbleSort(arr, n);\n    \n    printf("Sorted array:   ");\n    for (int i = 0; i < n; i++) printf("%d ", arr[i]);\n    printf("\\n");\n    \n    return 0;\n}`
+    },
+    {
+      name: "String Reversal",
+      desc: "Reverses a string buffer in-place",
+      code: `#include <stdio.h>\n#include <string.h>\n\nvoid reverseString(char str[]) {\n    int len = strlen(str);\n    for (int i = 0; i < len / 2; i++) {\n        char temp = str[i];\n        str[i] = str[len - i - 1];\n        str[len - i - 1] = temp;\n    }\n}\n\nint main() {\n    char word[] = "Antigravity";\n    printf("Original: %s\\n", word);\n    reverseString(word);\n    printf("Reversed: %s\\n", word);\n    return 0;\n}`
+    },
+    {
+      name: "Struct & Pointer",
+      desc: "Demonstrates C structs, pointers, and memory layout",
+      code: `#include <stdio.h>\n\nstruct Student {\n    int id;\n    char name[50];\n    float gpa;\n};\n\nint main() {\n    struct Student s1 = {101, "Alice Smith", 3.85};\n    struct Student *ptr = &s1;\n    \n    printf("Student Information:\\n");\n    printf("ID: %d\\n", ptr->id);\n    printf("Name: %s\\n", ptr->name);\n    printf("GPA: %.2f\\n", ptr->gpa);\n    \n    return 0;\n}`
+    }
+  ],
+  java: [
+    {
+      name: "Hello World",
+      desc: "Basic Java console application",
+      code: `public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}`
+    },
+    {
+      name: "Scanner Input",
+      desc: "Reads string and integer from standard input using Scanner",
+      code: `import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print("Enter your name: ");\n        String name = scanner.nextLine();\n        System.out.print("Enter your age: ");\n        int age = scanner.nextInt();\n        \n        System.out.println("\\nHello, " + name + "! Next year you will be " + (age + 1) + " years old.");\n        scanner.close();\n    }\n}`
+    },
+    {
+      name: "Fibonacci Series",
+      desc: "Generates Fibonacci numbers up to N terms",
+      code: `public class Main {\n    public static void main(String[] args) {\n        int n = 10;\n        int firstTerm = 0, secondTerm = 1;\n        System.out.print("Fibonacci Series up to " + n + " terms: ");\n\n        for (int i = 1; i <= n; ++i) {\n            System.out.print(firstTerm + ", ");\n            int nextTerm = firstTerm + secondTerm;\n            firstTerm = secondTerm;\n            secondTerm = nextTerm;\n        }\n        System.out.println();\n    }\n}`
+    },
+    {
+      name: "Matrix Addition",
+      desc: "Performs cell addition on two 2x2 matrices",
+      code: `public class Main {\n    public static void main(String[] args) {\n        int[][] a = {{1, 3}, {2, 4}};\n        int[][] b = {{5, 2}, {8, 1}};\n        int[][] sum = new int[2][2];\n        \n        System.out.println("Sum of Matrices:");\n        for (int i = 0; i < 2; i++) {\n            for (int j = 0; j < 2; j++) {\n                sum[i][j] = a[i][j] + b[i][j];\n                System.out.print(sum[i][j] + " ");\n            }\n            System.out.println();\n        }\n    }\n}`
+    },
+    {
+      name: "Class Inheritance",
+      desc: "Simple object-oriented inheritance demo",
+      code: `class Animal {\n    void speak() {\n        System.out.println("The animal makes a sound");\n    }\n}\n\nclass Dog extends Animal {\n    @Override\n    void speak() {\n        System.out.println("The dog barks: Woof! Woof!");\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Animal myPet = new Dog();\n        myPet.speak();\n    }\n}`
+    },
+    {
+      name: "Simple Thread",
+      desc: "Demonstrates Runnable interface and multi-threading",
+      code: `class Task implements Runnable {\n    @Override\n    public void run() {\n        for (int i = 1; i <= 3; i++) {\n            System.out.println("Thread running step " + i);\n            try {\n                Thread.sleep(200);\n            } catch (InterruptedException e) {\n                System.out.println(e.getMessage());\n            }\n        }\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Thread thread = new Thread(new Task());\n        thread.start();\n        System.out.println("Main thread running alongside.");\n    }\n}`
+    }
+  ],
+  python: [
+    {
+      name: "Hello World",
+      desc: "Sleek Python starter script",
+      code: `print("Hello, World!")`
+    },
+    {
+      name: "Reading Input",
+      desc: "Demonstrates standard input parsing in Python",
+      code: `import sys\n\nprint("Reading line by line from standard input:")\nfor line in sys.stdin:\n    stripped = line.strip()\n    if stripped:\n        print(f"Processed input: {stripped.upper()}")`
+    },
+    {
+      name: "List Operations",
+      desc: "Common list operations, filtering, and sorting",
+      code: `# Creating a list of squares for even numbers\nnumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\neven_squares = [x**2 for x in numbers if x % 2 == 0]\n\nprint("Original list:", numbers)\nprint("Squares of even numbers:", even_squares)\nprint("Sorted squares in reverse:", sorted(even_squares, reverse=True))`
+    },
+    {
+      name: "Prime Sieve",
+      desc: "Finds all prime numbers up to N using Sieve of Eratosthenes",
+      code: `def sieve_of_eratosthenes(n):\n    primes = [True] * (n + 1)\n    p = 2\n    while p * p <= n:\n        if primes[p]:\n            for i in range(p * p, n + 1, p):\n                primes[i] = False\n        p += 1\n    return [x for x in range(2, n + 1) if primes[x]]\n\nprint("Primes up to 50:")\nprint(sieve_of_eratosthenes(50))`
+    },
+    {
+      name: "OOP & Classes",
+      desc: "Standard object-oriented model with custom properties",
+      code: `class Car:\n    def __init__(self, brand, model, year):\n        self.brand = brand\n        self.model = model\n        self.year = year\n        \n    def get_description(self):\n        return f"{self.year} {self.brand} {self.model}"\n\nmy_car = Car("Tesla", "Model S", 2023)\nprint(my_car.get_description())`
+    },
+    {
+      name: "Exception Handling",
+      desc: "Handles dividing by zero safely using try/except blocks",
+      code: `def safe_divide(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return "Error: Cannot divide by zero!"\n    finally:\n        print("Division check complete.")\n\nprint("10 / 2 =", safe_divide(10, 2))\nprint("10 / 0 =", safe_divide(10, 0))`
+    }
+  ],
+  sql: [
+    {
+      name: "Student Grading System",
+      desc: "Creates a student table, inserts records, and queries grades",
+      code: `-- 1. Initialize schema\nCREATE TABLE students (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  name TEXT NOT NULL,\n  grade INTEGER,\n  city TEXT\n);\n\n-- 2. Populate records\nINSERT INTO students (name, grade, city) VALUES\n  ('Aarav', 92, 'Mumbai'),\n  ('Diya', 78, 'Delhi'),\n  ('Ishaan', 85, 'Bangalore'),\n  ('Ananya', 95, 'Mumbai');\n\n-- 3. Query records\nSELECT name, grade, city \nFROM students \nWHERE grade >= 80 \nORDER BY grade DESC;`
+    },
+    {
+      name: "Company Database Joins",
+      desc: "Demonstrates relational database inner joins",
+      code: `-- Create Departments Table\nCREATE TABLE departments (\n  dept_id INTEGER PRIMARY KEY,\n  dept_name TEXT NOT NULL\n);\n\n-- Create Employees Table\nCREATE TABLE employees (\n  emp_id INTEGER PRIMARY KEY AUTOINCREMENT,\n  name TEXT NOT NULL,\n  salary INTEGER,\n  dept_id INTEGER,\n  FOREIGN KEY (dept_id) REFERENCES departments(dept_id)\n);\n\n-- Insert Departments\nINSERT INTO departments VALUES (1, 'Engineering'), (2, 'Design'), (3, 'Marketing');\n\n-- Insert Employees\nINSERT INTO employees (name, salary, dept_id) VALUES\n  ('Amit', 75000, 1),\n  ('Rohan', 62000, 2),\n  ('Priya', 80000, 1),\n  ('Sania', 55000, 3);\n\n-- Perform Inner Join\nSELECT e.name AS Employee, e.salary, d.dept_name AS Department\nFROM employees e\nINNER JOIN departments d ON e.dept_id = d.dept_id\nORDER BY e.salary DESC;`
+    },
+    {
+      name: "Aggregates & GROUP BY",
+      desc: "Performs analytics aggregates across cities and scores",
+      code: `-- Create students table\nCREATE TABLE student_records (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  name TEXT,\n  score INTEGER,\n  city TEXT\n);\n\nINSERT INTO student_records (name, score, city) VALUES\n  ('Rahul', 88, 'Delhi'),\n  ('Sneha', 92, 'Mumbai'),\n  ('Kabir', 79, 'Delhi'),\n  ('Nehal', 85, 'Bangalore'),\n  ('Rohan', 90, 'Mumbai');\n\n-- Run aggregation\nSELECT city, COUNT(*) AS total_students, AVG(score) AS average_score\nFROM student_records\nGROUP BY city\nHAVING total_students >= 2;`
+    },
+    {
+      name: "Nested Subqueries",
+      desc: "Selects items based on average score thresholds using subqueries",
+      code: `-- Setup products table\nCREATE TABLE products (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  name TEXT,\n  price REAL\n);\n\nINSERT INTO products (name, price) VALUES\n  ('Laptop', 1200.00),\n  ('Smartphone', 800.00),\n  ('Tablet', 450.00),\n  ('Monitor', 300.00),\n  ('Keyboard', 50.00);\n\n-- Retrieve products priced above average\nSELECT name, price\nFROM products\nWHERE price > (SELECT AVG(price) FROM products)\nORDER BY price DESC;`
+    },
+    {
+      name: "Database Constraints",
+      desc: "Demonstrates column limits and check constraints",
+      code: `-- Setup table with constraints\nCREATE TABLE library_books (\n  isbn TEXT PRIMARY KEY,\n  title TEXT NOT NULL,\n  copies_available INTEGER CHECK (copies_available >= 0),\n  published_year INTEGER CHECK (published_year BETWEEN 1900 AND 2100)\n);\n\nINSERT INTO library_books VALUES\n  ('978-0131103627', 'The C Programming Language', 5, 1988),\n  ('978-0596007126', 'Head First Design Patterns', 2, 2004);\n\nSELECT * FROM library_books;`
+    }
+  ]
+};
+
+// ── Sandbox Mode Cheatsheets ─────────────────────────────────────────────────────
+const sandboxCheatsheets: Record<string, { title: string; sections: Array<{ heading: string; lines: string[] }> }> = {
+  c: {
+    title: "C Cheatsheet",
+    sections: [
+      {
+        heading: "Input / Output",
+        lines: [
+          "Print: printf(\"Hello %s\\n\", name);",
+          "Read int: scanf(\"%d\", &intVar);",
+          "Read string: scanf(\"%s\", strVar);",
+          "Read line: fgets(str, sizeof(str), stdin);"
+        ]
+      },
+      {
+        heading: "Data Types",
+        lines: [
+          "Integer: int (%d)",
+          "Float/Double: float (%f) / double (%lf)",
+          "Character: char (%c)",
+          "String: char str[100] (%s)"
+        ]
+      },
+      {
+        heading: "Common Libraries",
+        lines: [
+          "#include <stdio.h> - Standard I/O functions",
+          "#include <stdlib.h> - Memory allocations",
+          "#include <string.h> - String manipulation",
+          "#include <math.h> - Math functions (with -lm)"
+        ]
+      }
+    ]
+  },
+  java: {
+    title: "Java Cheatsheet",
+    sections: [
+      {
+        heading: "Input / Output",
+        lines: [
+          "Print line: System.out.println(\"Hello\");",
+          "Scanner sc = new Scanner(System.in);",
+          "Read string line: String s = sc.nextLine();",
+          "Read integer: int n = sc.nextInt();"
+        ]
+      },
+      {
+        heading: "Compiling Tip",
+        lines: [
+          "The main entry point class name must be 'Main'.",
+          "Do not declare the class as public (use 'class Main')."
+        ]
+      },
+      {
+        heading: "Key Classes",
+        lines: [
+          "Strings: String, StringBuilder",
+          "Lists: ArrayList, LinkedList",
+          "Maps: HashMap, TreeMap",
+          "Math: Math.max(), Math.sqrt()"
+        ]
+      }
+    ]
+  },
+  python: {
+    title: "Python 3 Cheatsheet",
+    sections: [
+      {
+        heading: "Input / Output",
+        lines: [
+          "Print: print(f\"Hello {name}\")",
+          "Read line: val = input(\"Prompt: \")",
+          "Read all stdin: import sys; sys.stdin.read()"
+        ]
+      },
+      {
+        heading: "Lists & Dicts",
+        lines: [
+          "Create list: arr = [1, 2, 3]",
+          "Append to list: arr.append(4)",
+          "List comprehension: [x * 2 for x in arr]",
+          "Create dictionary: d = {'key': 'value'}"
+        ]
+      },
+      {
+        heading: "Functions",
+        lines: [
+          "def greet(name):",
+          "    return f\"Hello {name}\""
+        ]
+      }
+    ]
+  },
+  sql: {
+    title: "SQL SQLite Cheatsheet",
+    sections: [
+      {
+        heading: "DDL Schema",
+        lines: [
+          "CREATE TABLE t (id INTEGER PRIMARY KEY, name TEXT);",
+          "DROP TABLE IF EXISTS t;"
+        ]
+      },
+      {
+        heading: "DML Operations",
+        lines: [
+          "INSERT INTO t (name) VALUES ('Alice');",
+          "UPDATE t SET name = 'Bob' WHERE id = 1;",
+          "DELETE FROM t WHERE id = 1;"
+        ]
+      },
+      {
+        heading: "Querying & Joins",
+        lines: [
+          "SELECT col1, col2 FROM t WHERE col3 > 10 ORDER BY col1 DESC;",
+          "SELECT t1.name, t2.role FROM t1 INNER JOIN t2 ON t1.id = t2.id;"
+        ]
+      }
+    ]
+  }
+};
+
 function Workspace() {
   const { exp, mode } = Route.useSearch();
   const navigate = useNavigate();
@@ -564,6 +813,20 @@ const quantumPyodideRef = useRef<any>(null);
 const quantumShimRef = useRef<string | null>(null); // stores shim source
 
   const [showPostSolveModal, setShowPostSolveModal] = useState(false);
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [sidebarTab, setSidebarTab] = useState<"templates" | "docs">("templates");
+
+  const downloadCode = () => {
+    const element = document.createElement("a");
+    const file = new Blob([code], { type: "text/plain" });
+    element.href = URL.createObjectURL(file);
+    element.download = templates[language]?.file || "code.txt";
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+    toast.success("Code downloaded successfully!");
+  };
 
   useEffect(() => {
     setIsMounted(true);
@@ -905,7 +1168,7 @@ except BaseException:
   const handleRun = () => {
     if (language === "sql") {
       handleRunSql();
-    } else if (language === "python" && details?.course.id === "python") {
+    } else if (language === "python" && (!details || details.course.id === "python" || details.course.id === "machine-learning" || details.course.id === "llms")) {
       handleRunPyodide();
     } else {
       handleRunCode();
@@ -967,7 +1230,7 @@ useEffect(() => {
   const [sampledPretest, setSampledPretest] = useState<any[]>([]);
   const [sampledPosttest, setSampledPosttest] = useState<any[]>([]);
 
-  const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
+  const [isLoadingQuestions, setIsLoadingQuestions] = useState(true);
 
   useEffect(() => {
     async function loadQuestions() {
@@ -1071,12 +1334,14 @@ useEffect(() => {
   };
 
   if (currentContent) {
-    if (currentStepName === "pretest" && sampledPretest.length > 0) {
-      if (Object.keys(pretestAnswers).length < sampledPretest.length) {
+    if (currentStepName === "pretest") {
+      const hasPretestLocal = currentContent.pretest?.length > 0;
+      if (isLoadingQuestions || (hasPretestLocal && sampledPretest.length === 0) || (sampledPretest.length > 0 && Object.keys(pretestAnswers).length < sampledPretest.length)) {
         isNextEnabled = false;
       }
-    } else if ((currentStepName === "posttest" || currentStepName === "quiz") && sampledPosttest.length > 0) {
-      if (Object.keys(posttestAnswers).length < sampledPosttest.length) {
+    } else if (currentStepName === "posttest" || currentStepName === "quiz") {
+      const hasPosttestLocal = currentContent.posttest?.length > 0;
+      if (isLoadingQuestions || (hasPosttestLocal && sampledPosttest.length === 0) || (sampledPosttest.length > 0 && Object.keys(posttestAnswers).length < sampledPosttest.length)) {
         isNextEnabled = false;
       }
     }
@@ -1243,6 +1508,290 @@ const handlePostSolveAuthenticated = async (userId: string) => {
   const handlePrev = () => {
     if (activeStepIndex > 0) setActiveStepIndex(activeStepIndex - 1);
   };
+
+  const renderSandbox = () => {
+    const activeCheatsheet = sandboxCheatsheets[language];
+    const activeTemplates = sandboxTemplates[language] || [];
+
+    return (
+      <div className="min-h-[calc(100vh-96px)] flex bg-slate-50 text-slate-800 font-sans p-6 justify-center">
+        {/* Main Centered Container with Max Width */}
+        <div className="w-full max-w-7xl flex bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+          
+          {/* ── Left Panel: Sidebar (Collapsible) ────────────────────────────────── */}
+          <div
+            className={`flex flex-col border-r border-slate-200 bg-slate-50/50 z-10 transition-all duration-300 ${
+              isSidebarOpen ? "w-72 md:w-80" : "w-0 overflow-hidden border-r-0"
+            }`}
+          >
+            {/* Tabs header */}
+            <div className="flex border-b border-slate-200 shrink-0 bg-white">
+              <button
+                onClick={() => setSidebarTab("templates")}
+                className={`flex-1 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 border-b-2 cursor-pointer ${
+                  sidebarTab === "templates"
+                    ? "text-blue-600 border-blue-600 bg-blue-50/50"
+                    : "text-slate-500 border-transparent hover:text-slate-800 hover:bg-slate-50"
+                }`}
+              >
+                Templates
+              </button>
+              <button
+                onClick={() => setSidebarTab("docs")}
+                className={`flex-1 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 border-b-2 cursor-pointer ${
+                  sidebarTab === "docs"
+                    ? "text-blue-600 border-blue-600 bg-blue-50/50"
+                    : "text-slate-500 border-transparent hover:text-slate-800 hover:bg-slate-50"
+                }`}
+              >
+                Cheatsheet
+              </button>
+            </div>
+
+            {/* Sidebar Content */}
+            <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
+              {sidebarTab === "templates" ? (
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-1">More Programs</h3>
+                    <p className="text-[11px] text-slate-500 mb-3">Load a starter program into the editor.</p>
+                  </div>
+                  <div className="space-y-2">
+                    {activeTemplates.map((t, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          setCode(t.code);
+                          toast.success(`Loaded template: ${t.name}`);
+                        }}
+                        className="w-full text-left p-3 rounded-xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 group cursor-pointer"
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className={`size-2 rounded-full ${
+                            language === "c" ? "bg-blue-500"
+                            : language === "java" ? "bg-orange-500"
+                            : language === "python" ? "bg-yellow-500"
+                            : "bg-emerald-500"
+                          }`} />
+                          <div className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">{t.name}</div>
+                        </div>
+                        <div className="text-xs text-slate-500 mt-1.5 leading-relaxed">{t.desc}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-800">{activeCheatsheet?.title || "Language Reference"}</h3>
+                    <p className="text-xs text-slate-500 mt-1">Quick syntax guide & compiling notes.</p>
+                  </div>
+                  {activeCheatsheet?.sections.map((sect, sIdx) => (
+                    <div key={sIdx} className="space-y-2">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600 border-b border-slate-200 pb-1">{sect.heading}</h4>
+                      <div className="space-y-1.5 font-mono text-[11px] text-slate-700">
+                        {sect.lines.map((ln, lIdx) => (
+                          <div key={lIdx} className="p-2 rounded bg-slate-100 border border-slate-200 whitespace-pre-wrap leading-relaxed">
+                            {ln}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* ── Main Workspace ──────────────────────────────────────────────────── */}
+          <div className="flex-1 flex flex-col min-w-0 relative">
+            
+            {/* Sidebar Toggle Button */}
+            <button
+              onClick={() => setIsSidebarOpen(open => !open)}
+              className="absolute top-1/2 -left-3 -translate-y-1/2 z-20 flex items-center justify-center size-6 rounded-full bg-white border border-slate-200 hover:border-blue-400 text-slate-600 hover:text-blue-600 transition-all shadow-md cursor-pointer"
+            >
+              {isSidebarOpen ? <ChevronLeft className="size-4" /> : <ChevronRight className="size-4" />}
+            </button>
+
+            {/* Header */}
+            <div className="px-6 py-4 bg-white border-b border-slate-200 flex flex-wrap items-center justify-between gap-4 z-10">
+              <div className="flex flex-wrap items-center gap-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-xl bg-blue-50 border border-blue-100 text-blue-600 shadow-sm">
+                    <Code2 className="size-5" />
+                  </div>
+                  <div>
+                    <h1 className="text-base font-extrabold tracking-tight font-display text-slate-900">Compiler Playground</h1>
+                    <p className="text-[10px] font-bold text-slate-500 mt-0.5 tracking-wider uppercase">Isolated Environment</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 p-1 bg-slate-100 rounded-xl border border-slate-200 shrink-0">
+                  {(["c", "java", "python", "sql"] as const).map((lang) => {
+                    const isActive = language === lang;
+                    const label = lang === "c" ? "C" : lang === "java" ? "Java" : lang === "python" ? "Python 3" : "SQL";
+                    
+                    const activeClass = lang === "c" ? "bg-blue-600 text-white shadow-md"
+                                      : lang === "java" ? "bg-orange-600 text-white shadow-md"
+                                      : lang === "python" ? "bg-yellow-500 text-white shadow-md"
+                                      : "bg-emerald-600 text-white shadow-md";
+
+                    const hoverClass = "hover:bg-slate-200 text-slate-600";
+
+                    return (
+                      <button
+                        key={lang}
+                        onClick={() => {
+                          setLanguage(lang);
+                          setCode(sandboxTemplates[lang]?.[0]?.code || templates[lang].code);
+                          setOutput("");
+                          setSqlResult(null);
+                          setIsError(false);
+                        }}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold tracking-wide transition-all cursor-pointer ${
+                          isActive ? activeClass : hoverClass
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleReset}
+                  className="p-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition-all text-slate-600 cursor-pointer shadow-sm"
+                  title="Reset code"
+                >
+                  <RotateCcw className="size-4" />
+                </button>
+                <button
+                  onClick={downloadCode}
+                  className="p-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition-all text-slate-600 cursor-pointer shadow-sm"
+                  title="Download code"
+                >
+                  <Download className="size-4" />
+                </button>
+                <button
+                  onClick={handleRun}
+                  disabled={isLoading || (isSql && !sqlLoaded) || (language === "python" && !pyodideLoaded)}
+                  className="flex items-center gap-2 px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-md active:scale-95 disabled:opacity-50 cursor-pointer shrink-0"
+                >
+                  <Play className={`size-4 ${isLoading ? "animate-spin" : "fill-current"}`} />
+                  {isLoading ? "Running..." : "Run Code"}
+                </button>
+              </div>
+            </div>
+
+            {/* IDE Area */}
+            <div className="flex-1 flex flex-col md:flex-row overflow-hidden divide-y md:divide-y-0 md:divide-x divide-slate-200">
+              {/* Editor Pane */}
+              <div className="flex-1 flex flex-col min-w-0">
+                <div className="px-4 py-2 bg-slate-50 border-b border-slate-200 flex items-center justify-between text-xs text-slate-600 font-mono font-bold select-none">
+                  <span>{templates[language]?.file || "code.txt"}</span>
+                  <span className="text-[10px] font-normal text-slate-500 bg-slate-200 px-2 py-0.5 rounded-full">
+                    {language === "sql" ? "SQLite WASM" : language === "python" ? "Pyodide Local" : "Wandbox Engine"}
+                  </span>
+                </div>
+                <div className="flex-1 bg-white relative">
+                  {isMounted && (
+                    <Editor
+                      height="100%"
+                      language={
+                        language === "python" ? "python"
+                        : language === "java"   ? "java"
+                        : language === "sql"    ? "sql"
+                        : "c"
+                      }
+                      theme="light"
+                      value={code}
+                      onChange={(val) => setCode(val || "")}
+                      options={{
+                        minimap: { enabled: false },
+                        fontSize: 14,
+                        fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+                        scrollBeyondLastLine: false,
+                        padding: { top: 16, bottom: 16 },
+                        lineHeight: 24,
+                      }}
+                    />
+                  )}
+                </div>
+              </div>
+
+              {/* Console / Input Pane */}
+              <div className="w-full md:w-80 lg:w-96 flex flex-col bg-slate-50 divide-y divide-slate-200">
+                {isSql ? (
+                  <div className="flex-1 flex flex-col">
+                    <div className="flex items-center justify-between px-4 py-2 border-b border-slate-200 bg-white text-xs font-bold uppercase tracking-wider text-slate-700">
+                      <span className="flex items-center gap-1.5"><Database className="size-3.5 text-blue-600" /> Results</span>
+                      {sqlResult?.tables && <span className="text-[10px] font-normal text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{sqlResult.tables.length} tables</span>}
+                    </div>
+                    <div className="flex-1 overflow-auto p-4 custom-scrollbar bg-slate-50">
+                      {isLoading ? (
+                        <div className="text-slate-500 text-xs font-mono animate-pulse">Executing query...</div>
+                      ) : sqlResult ? (
+                        <div className="text-slate-800"><SqlResultView {...sqlResult} /></div>
+                      ) : (
+                        <div className="h-full flex flex-col items-center justify-center opacity-50">
+                          <Database className="size-8 text-slate-400 mb-2" />
+                          <div className="text-slate-500 text-[11px] font-mono text-center">Run query to see results</div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="h-1/3 min-h-[120px] flex flex-col bg-white">
+                      <div className="px-4 py-2 border-b border-slate-200 bg-slate-50 text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                        <Terminal className="size-3.5 text-blue-600" /> Standard Input
+                      </div>
+                      <textarea
+                        value={stdin}
+                        onChange={(e) => setStdin(e.target.value)}
+                        placeholder="Enter program input here..."
+                        className="flex-1 p-3 bg-white border-none outline-none resize-none text-[13px] font-mono text-slate-800 placeholder:text-slate-400"
+                      />
+                    </div>
+                    <div className="flex-1 flex flex-col bg-white">
+                      <div className="px-4 py-2 border-b border-slate-200 bg-slate-50 text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center justify-between">
+                        <span className="flex items-center gap-1.5">
+                          <span className="size-2 rounded-full bg-emerald-500" /> Console Output
+                        </span>
+                        {output && <button onClick={() => setOutput("")} className="text-[10px] text-blue-600 hover:underline">Clear</button>}
+                      </div>
+                      <div className="flex-1 overflow-auto p-4 bg-slate-900 text-slate-100 custom-scrollbar">
+                        {output ? (
+                          <div className="space-y-2">
+                            <div className="text-[10px] text-slate-500 font-mono flex items-center gap-1.5 select-none">
+                              <span className="text-emerald-500">➜</span>
+                              {language === "python" ? "python3 main.py" : language === "java" ? "javac Main.java && java Main" : "gcc main.c -o main -lm && ./main"}
+                            </div>
+                            <pre className={`text-[13px] font-mono whitespace-pre-wrap leading-relaxed ${isError ? "text-red-400" : "text-slate-200"}`}>
+                              {output}
+                            </pre>
+                          </div>
+                        ) : (
+                          <div className="text-slate-600 text-xs font-mono italic">Program output...</div>
+                        )}
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  if (!details) {
+    return renderSandbox();
+  }
 
   return (
     <div className="h-[calc(100vh-30px)] flex flex-col bg-background module-container relative overflow-hidden">

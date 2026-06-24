@@ -9,7 +9,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import { LayoutDashboard, Database, FlaskConical, BookOpen, Beaker, Users } from "lucide-react";
+import { LayoutDashboard, Database, FlaskConical, BookOpen, Beaker, Users, Terminal } from "lucide-react";
 import { Loader } from "@/components/Loader";
 import { ErrorGraphic } from "@/components/ErrorGraphic";
 
@@ -96,7 +96,7 @@ function RootShell({ children }: { children: ReactNode }) {
 const navItems = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard },
   { to: "/courses", label: "Courses", icon: Database },
-  { to: "/workspace", label: "Workspace", icon: FlaskConical },
+  { to: "/workspace", label: "Compiler", icon: Terminal },
   { to: "/resources", label: "Resources", icon: BookOpen },
   { to: "/about", label: "About", icon: Users },
 ] as const;
