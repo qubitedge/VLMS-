@@ -8,8 +8,8 @@ import { quantumModule4 } from "./quantum-m4-data";
 import { quantumModule5 } from "./quantum-m5-data";
 
 export const quantumCourse: Course = {
-  id: "quantum-computing",
-  title: "Quantum Computing",
+  id: "foundations-of-quantum-computing",
+  title: "Foundations of Quantum Computing",
   shortNotes: quantumShortNotes,
   objectives: [
     "To introduce students to the foundational principles of quantum physics and their application to computation.",

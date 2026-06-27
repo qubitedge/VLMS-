@@ -1178,7 +1178,7 @@ except BaseException:
   const isSql = language === "sql";
   const isAITools = details?.course.id === "ai-tools";
   const isIot = details?.course.id === "iot";
-  const isQuantum = details?.course.id === "quantum-computing";
+  const isQuantum = details?.course.id === "foundations-of-quantum-computing" || details?.course.id === "quantum-computing-using-qiskit-lab";
   const isMath = details?.course.id === "mathematics-for-emerging-technologies";
 
   useEffect(() => {

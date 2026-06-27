@@ -1,6 +1,5 @@
 // AdvancedDataStructureNotes.tsx
 export const adsShortNotes = `ADVANCED DATA STRUCTURES - SHORT NOTES
-(As per JNTUGV / CEV R23 Syllabus)
 
 
 INTRODUCTION TO ADVANCED DATA STRUCTURES

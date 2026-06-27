@@ -9,6 +9,7 @@ import { cShortNotes } from './c-short-notes';
 import { mlShortNotes } from './ml-short-notes';
 import { llmsShortNotes } from './llms-short-notes';
 import { quantumCourse } from './quantum-data';
+import { qiskitCourse } from './qiskit-data';
 import { mathCourse } from './math-data';
 export type MCQ = {
   question: string;
@@ -83,7 +84,8 @@ export type Course = {
 };
 
 export const courses: Record<string, Course> = {
-  "quantum-computing": quantumCourse,
+  "foundations-of-quantum-computing": quantumCourse,
+  "quantum-computing-using-qiskit-lab": qiskitCourse,
   "ai-tools": aiCourse,
   "data-structures-using-c-programming": dsCourse,
   "java": javaCourse,

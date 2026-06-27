@@ -19,7 +19,7 @@ function getTopicIcon(topic: string) {
   if (topic === "AI Tools") return null;
   if (topic === "LLMs") return null;
   if (topic === "IoT") return null;
-  if (topic === "Quantum Computing") return <Hexagon className={iconClass} />;
+  if (topic === "Foundations of Quantum Computing" || topic === "Quantum Computing using Qiskit Lab") return <Hexagon className={iconClass} />;
   if (topic === "Algorithms") return <Workflow className={iconClass} />;
   return null;
 }
@@ -34,7 +34,8 @@ function getSubtitle(topic: string) {
   if (topic === "AI Tools") return "From basics to advanced pattertons";
   if (topic === "LLMs") return "Learn an text document";
   if (topic === "IoT") return "Circuit-ourot map map sensors";
-  if (topic === "Quantum Computing") return "Foundations of quantum mechanics and algorithms";
+  if (topic === "Foundations of Quantum Computing") return "Foundations of quantum mechanics and algorithms";
+  if (topic === "Quantum Computing using Qiskit Lab") return "Hands-on quantum circuits with IBM Qiskit";
   if (topic === "Mathematics for Emerging Technologies") return "Linear algebra, probability, logic and computing foundations";
   return "Comprehensive learning module";
 }
@@ -683,7 +684,7 @@ function getBgIcon(topic: string) {
     );
   }
 
-  if (topic === "Quantum Computing") {
+  if (topic === "Foundations of Quantum Computing" || topic === "Quantum Computing using Qiskit Lab") {
     return (
       <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-40 group-hover:opacity-70">
         <svg className="w-56 h-56 translate-x-12 translate-y-8 opacity-95 drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]" viewBox="0 0 200 200" fill="none" stroke="currentColor">

@@ -182,11 +182,11 @@ function CoursePage() {
   const currentTab = tabs[currentTabIndex] ? activeTab : tabs[0].id;
   const prevTab = currentTabIndex > 0 ? tabs[currentTabIndex - 1] : null;
   const nextTab = currentTabIndex < tabs.length - 1 ? tabs[currentTabIndex + 1] : null;
-  const hasCustomBg = course.id === 'quantum-computing' || course.id === 'dbms' || course.id === 'llms' || course.id === 'ai-tools';
+  const hasCustomBg = course.id === 'foundations-of-quantum-computing' || course.id === 'quantum-computing-using-qiskit-lab' || course.id === 'dbms' || course.id === 'llms' || course.id === 'ai-tools';
 
   return (
     <>
-      {course.id === 'quantum-computing' && (
+      {(course.id === 'foundations-of-quantum-computing' || course.id === 'quantum-computing-using-qiskit-lab') && (
         <div
           className="fixed inset-0 z-0 pointer-events-none"
           style={{
@@ -248,7 +248,7 @@ function CoursePage() {
               className="relative z-10 p-8 rounded-3xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col justify-center"
             >
               {/* Premium animated blur blobs & illustrations for quantum */}
-              {course.id === 'quantum-computing' && (
+              {(course.id === 'foundations-of-quantum-computing' || course.id === 'quantum-computing-using-qiskit-lab') && (
                 <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
                   {/* Atom Illustration Top Left */}
                   <svg className="absolute -top-12 -left-12 w-64 h-64 text-blue-500 opacity-[0.03] animate-[spin_60s_linear_infinite]" viewBox="0 0 100 100">
@@ -310,7 +310,7 @@ function CoursePage() {
                 {course.title}
               </h1>
               <p className="text-muted-foreground max-w-2xl text-lg mb-8 leading-relaxed">
-                {course.id === 'quantum-computing'
+                {(course.id === 'foundations-of-quantum-computing' || course.id === 'quantum-computing-using-qiskit-lab')
                   ? "Learn the principles of quantum mechanics, qubits, superposition, entanglement and quantum algorithms."
                   : course.id === 'llms'
                     ? "Master Large Language Models, prompt engineering, generative AI, and advanced AI application building."

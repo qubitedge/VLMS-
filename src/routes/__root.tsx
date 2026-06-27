@@ -240,7 +240,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const location = useLocation();
   const hideBot = location.pathname.startsWith('/course/') || location.pathname.startsWith('/workspace');
-  const isQuantumCourse = location.pathname.includes('/course/quantum-computing') || location.pathname.includes('/workspace?exp=qc-');
+  const isQuantumCourse = location.pathname.includes('/course/foundations-of-quantum-computing') || location.pathname.includes('/course/quantum-computing-using-qiskit-lab') || location.pathname.includes('/workspace?exp=qc-') || location.pathname.includes('/workspace?exp=qk-');
   const isDbmsCourse = location.pathname.includes('/course/dbms');
   const hasCustomBg = isQuantumCourse || isDbmsCourse;
 
