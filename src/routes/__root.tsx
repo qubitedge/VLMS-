@@ -235,6 +235,7 @@ function DynamicIsland() {
 
 import { Chatbot } from "@/components/Chatbot";
 import { TileGridBackground } from "@/components/TileGridBackground";
+import { Footer } from "@/components/Footer";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -243,6 +244,7 @@ function RootComponent() {
   const isQuantumCourse = location.pathname.includes('/course/foundations-of-quantum-computing') || location.pathname.includes('/course/quantum-computing-using-qiskit-lab') || location.pathname.includes('/workspace?exp=qc-') || location.pathname.includes('/workspace?exp=qk-');
   const isDbmsCourse = location.pathname.includes('/course/dbms');
   const hasCustomBg = isQuantumCourse || isDbmsCourse;
+  const hideFooter = location.pathname.startsWith('/workspace');
 
   useEffect(() => {
     console.log("🚀 Developed with ❤️ by Team SAPL | Sai Rupini• Asma • Pravallika • Likhith 👾");
@@ -250,14 +252,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className={`min-h-screen relative transition-colors duration-1000 overflow-hidden ${hasCustomBg ? 'bg-[#F8FAFF] dark:bg-[#0F172A]' : ''}`}>
+      <div className={`min-h-screen relative flex flex-col transition-colors duration-1000 overflow-hidden ${hasCustomBg ? 'bg-[#F8FAFF] dark:bg-[#0F172A]' : ''}`}>
         <div className="orb orb1"></div>
         <div className="orb orb2"></div>
         {!hasCustomBg && <TileGridBackground />}
         <DynamicIsland />
-        <main className="pt-24 relative z-10">
+        <main className="pt-24 relative z-10 flex-1 flex flex-col">
           <Outlet />
         </main>
+        {!hideFooter && <Footer />}
         {!hideBot && <Chatbot />}
         <Toaster />
       </div>

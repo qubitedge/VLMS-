@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, TerminalSquare, LayoutTemplate, FlaskConical, Code2, Globe } from "lucide-react";
+import { ArrowRight, TerminalSquare, LayoutTemplate, FlaskConical, Code2, Globe, ChevronDown } from "lucide-react";
+import { CourseCarousel } from "@/components/CourseCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -12,6 +13,10 @@ export const Route = createFileRoute("/")({
 });
 
 function LandingPage() {
+  const scrollToCarousel = () => {
+    document.getElementById("courses-carousel-section")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden bg-white text-slate-900">
       {/* Full Screen Background Image (User should upload 'bg-landing.webp' to public folder) */}
@@ -46,7 +51,7 @@ function LandingPage() {
       </header>
 
       {/* Main Hero Content */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 lg:px-10 text-center pb-20">
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 lg:px-10 text-center pb-12 pt-6">
         
         {/* Eyebrow Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan/10 text-xs font-bold text-cyan mb-8 opacity-0 animate-fade-in-up backdrop-blur-md border border-cyan/20 shadow-sm">
@@ -79,6 +84,15 @@ function LandingPage() {
             <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           </Link>
         </div>
+
+        {/* Animated Scroll Down Indicator */}
+        <button 
+          onClick={scrollToCarousel}
+          className="mt-16 flex flex-col items-center gap-2 text-xs font-semibold text-[#7c3aed] hover:opacity-85 transition-opacity cursor-pointer focus:outline-none opacity-0 animate-fade-in-up delay-500"
+        >
+          <span>Scroll to Courses</span>
+          <ChevronDown className="size-4 animate-bounce" />
+        </button>
       </main>
 
       {/* Floating Robot Icon (Bottom Right) */}
@@ -88,12 +102,14 @@ function LandingPage() {
         </div>
       </div>
 
-
-
-      {/* Footer */}
-      <footer className="relative z-10 w-full py-4 text-center text-xs font-medium text-slate-500">
-        &copy; {new Date().getFullYear()} VLMS Virtual Lab. Designed for Next-Gen Education.
-      </footer>
+      {/* Scroll Down Carousel Section */}
+      <section 
+        id="courses-carousel-section"
+        className="relative z-10 w-full max-w-[1250px] mx-auto px-6 lg:px-10 py-20 border-t border-slate-200/50 dark:border-slate-800/50"
+      >
+        <CourseCarousel />
+      </section>
     </div>
   );
 }
+
