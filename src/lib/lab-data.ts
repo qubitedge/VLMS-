@@ -13,7 +13,7 @@ export type Branch = {
 };
 
 export const branches: Branch[] = [
-  { code: "IT", title: "Information Technology", subtitle: "IT Labs", level: "Advanced", labs: 30, hours: 45, topics: ["C Programming", "Python", "Java", "Data Structures using C Programming", "DBMS", "Machine Learning", "AI Tools", "LLMs", "Advanced Data Structures", "IoT", "Foundations of Quantum Computing", "Quantum Computing using Qiskit Lab", "Mathematics for Emerging Technologies"], icon: Code2, tint: "from-cyan/20 to-transparent" },
+  { code: "IT", title: "Information Technology", subtitle: "IT Labs", level: "Advanced", labs: 30, hours: 45, topics: ["C Programming", "Python","Java","Data Structures using C Programming","DBMS","Machine Learning","AI Tools","LLMs","Advanced Data Structures","IoT","Foundations of Quantum Computing","Quantum Computing using Qiskit Lab","Mathematics for Emerging Technologies","Classical Mechanics and Electromagnetism","Computer Architecture and Digital Logic",], icon: Code2, tint: "from-cyan/20 to-transparent" },
 ];
 
 export const metrics = [

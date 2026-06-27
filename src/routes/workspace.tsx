@@ -1179,51 +1179,37 @@ except BaseException:
   const isAITools = details?.course.id === "ai-tools";
   const isIot = details?.course.id === "iot";
   const isQuantum = details?.course.id === "foundations-of-quantum-computing" || details?.course.id === "quantum-computing-using-qiskit-lab";
-  const isMath = details?.course.id === "mathematics-for-emerging-technologies";
+  const isMathCourse = ["mathematics-for-emerging-technologies", "classical-mechanics-and-electromagnetism", "computer-architecture-and-digital-logic"].includes(details?.course?.id ?? "");
 
   useEffect(() => {
-    if (isMath && mode === "solve") {
-      navigate({
-        to: "/workspace",
-        search: { exp, mode: "learn" },
-        replace: true,
-      });
-    }
-  }, [isMath, mode]);
-
     // Pre-load Pyodide + numpy + matplotlib for quantum course
-useEffect(() => {
-  if (isQuantum && !quantumPyodideLoaded) {
-    // Fetch the shim source from the public folder
-    fetch('/quantumShim.py')
-      .then(r => r.text())
-      .then(shimSrc => {
-        quantumShimRef.current = shimSrc;
-        return loadQuantumPyodide();
-      })
-      .then(pyodide => {
-        quantumPyodideRef.current = pyodide;
-        setQuantumPyodideLoaded(true);
-      })
-      .catch(err => setQuantumPyodideError(err.message));
-  }
-}, [isQuantum, quantumPyodideLoaded]);
+    if (isQuantum && !quantumPyodideLoaded) {
+      // Fetch the shim source from the public folder
+      fetch('/quantumShim.py')
+        .then(r => r.text())
+        .then(shimSrc => {
+          quantumShimRef.current = shimSrc;
+          return loadQuantumPyodide();
+        })
+        .then(pyodide => {
+          quantumPyodideRef.current = pyodide;
+          setQuantumPyodideLoaded(true);
+        })
+        .catch(err => setQuantumPyodideError(err.message));
+    }
+  }, [isQuantum, quantumPyodideLoaded]);
 
   const WORKSPACE_STEPS = useMemo(() => {
+    if (isMathCourse) {
+      return ["Aim", "Theory", "Procedure", "Quiz", "References"];
+    }  
     const baseSteps = isAITools 
       ? ["Aim", "Theory", "Pretest", "Procedure", "Solve", "Posttest", "References"]
-      : isMath
-?     ["Aim", "Theory", "Procedure", "Quiz", "References"]
       : isIot
       ? ["Aim", "Theory", "Pretest", "Procedure", "Tinkercad", "Posttest", "References"]
       : isQuantum
       ? ["Aim", "Theory", "Visualization", "Interactive Experiment", "Quiz"]
-      : ["Aim", "Theory", "Pretest", "Procedure", "Simulation", "Code Test", "Posttest", "References"];
-      
-    if (isMath) {
-        return baseSteps; // math always shows all steps regardless of mode
-      }
-
+      : ["Aim", "Theory", "Pretest", "Procedure", "Simulation", "Code Test", "Posttest", "References"]  
     if (mode === "learn") {
       return baseSteps.filter(step => 
         ["aim", "theory", "pretest", "procedure", "visualization"].includes(step.toLowerCase())
@@ -1234,7 +1220,7 @@ useEffect(() => {
       );
     }
     return baseSteps;
-  }, [mode, isAITools, isIot, isQuantum]);
+  }, [mode, isAITools, isIot, isQuantum, isMathCourse]);
   const experimentStartTime = useRef<number>(Date.now());
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [maxStepReached, setMaxStepReached] = useState(0);
@@ -1365,12 +1351,16 @@ useEffect(() => {
   }
 
   const handleSubmit = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (isMath) {
-      toast.success("Module Completed! 🎉");
-      navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
+    if (isMathCourse) {
+      toast.success("Module Completed Successfully! 🎉");
+      if (details?.course?.id) {
+        navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
+      } else {
+        navigate({ to: '/courses' });
+      }
       return;
     }
+    const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
       // ── GUEST PATH: Check if they've already skipped once for this experiment ──
       const alreadyShown = sessionStorage.getItem('vlms_popup_shown') === 'true';
@@ -1499,13 +1489,32 @@ const handlePostSolveAuthenticated = async (userId: string) => {
 
 const handleLearnComplete = () => {
   if (details?.experiment?.id) {
+    // Mark as learned (for unlocking Solve mode in non-math courses)
     const learned = JSON.parse(localStorage.getItem('learned_experiments') || '{}');
     learned[details.experiment.id] = true;
     localStorage.setItem('learned_experiments', JSON.stringify(learned));
 
-    if (isMath) {
-      toast.success("Module Completed! 🎉");
-      navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
+    if (isMathCourse) {
+      // For math courses, also mark as solved to count toward progress
+      const solved = JSON.parse(localStorage.getItem('solved_experiments') || '{}');
+      solved[details.experiment.id] = true;
+      localStorage.setItem('solved_experiments', JSON.stringify(solved));
+
+      // Also save to Supabase if user is logged in
+      const saveCompletion = async () => {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user && details?.experiment?.id && details?.course?.id) {
+          await markExperimentComplete(user.id, details.experiment.id, details.course.id);
+        }
+      };
+      saveCompletion();
+
+      toast.success("Module Completed Successfully! 🎉");
+      if (details?.course?.id) {
+        navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
+      } else {
+        navigate({ to: '/courses' });
+      }
       return;
     }
 
@@ -1962,11 +1971,13 @@ const handleLearnComplete = () => {
                   Previous{activeStepIndex > 0 ? `: ${WORKSPACE_STEPS[activeStepIndex - 1]}` : ""}
                 </button>
                 <button 
-                  onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? handleLearnComplete : handleSubmit) : handleNext} 
-                  className="px-4 py-2 rounded-md bg-cyan text-cyan-foreground font-medium text-sm hover:bg-cyan/90 transition-colors"
-                >
-                  {activeStepIndex === WORKSPACE_STEPS.length - 1 ? (isMath ? "Complete Module" : mode === "learn" ? "Proceed to Solve" : "Submit") : `Next: ${WORKSPACE_STEPS[activeStepIndex + 1]}`}
-                </button>
+  onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? handleLearnComplete : handleSubmit) : handleNext} 
+  className="px-5 py-2.5 rounded-xl bg-cyan text-cyan-foreground font-semibold text-sm hover:bg-cyan/90 transition-all shadow-[0_0_15px_rgba(6,182,212,0.25)]"
+>
+  {activeStepIndex === WORKSPACE_STEPS.length - 1 
+    ? (isMathCourse ? "Complete Module" : (mode === "learn" ? "Proceed to Solve" : "Submit")) 
+    : "Next"}
+</button>
               </div>
             </div>
 
@@ -3357,11 +3368,13 @@ const handleLearnComplete = () => {
                   )}
                   
                   <button 
-                    onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? handleLearnComplete : handleSubmit) : handleNext} 
-                    className="px-5 py-2.5 rounded-xl bg-cyan text-cyan-foreground font-semibold text-sm hover:bg-cyan/90 transition-all shadow-[0_0_15px_rgba(6,182,212,0.25)]"
-                  >
-                    {activeStepIndex === WORKSPACE_STEPS.length - 1 ? (isMath ? "Complete Module" : mode === "learn" ? "Proceed to Solve" : "Submit") : "Next"}
-                  </button>
+  onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? handleLearnComplete : handleSubmit) : handleNext} 
+  className="px-5 py-2.5 rounded-xl bg-cyan text-cyan-foreground font-semibold text-sm hover:bg-cyan/90 transition-all shadow-[0_0_15px_rgba(6,182,212,0.25)]"
+>
+  {activeStepIndex === WORKSPACE_STEPS.length - 1 
+    ? (isMathCourse ? "Complete Module" : (mode === "learn" ? "Proceed to Solve" : "Submit")) 
+    : "Next"}
+</button>
                 </div>
               </div>
             </div>

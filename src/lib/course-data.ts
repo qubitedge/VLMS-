@@ -10,7 +10,9 @@ import { mlShortNotes } from './ml-short-notes';
 import { llmsShortNotes } from './llms-short-notes';
 import { quantumCourse } from './quantum-data';
 import { qiskitCourse } from './qiskit-data';
-import { mathCourse } from './math-data';
+import { mathFoundationsCourse } from './math-c1-data'
+import { classicalMechCourse } from './math-c2-data';
+import { compArchCourse } from './math-c3-data';
 export type MCQ = {
   question: string;
   options: string[];
@@ -5639,7 +5641,9 @@ export const courses: Record<string, Course> = {
   "python": pythonCourse,
   "dbms": dbmsCourse,
   "advanced-data-structures": adsCourse,
-  "mathematics-for-emerging-technologies": mathCourse,
+  "mathematics-for-emerging-technologies": mathFoundationsCourse,
+  "classical-mechanics-and-electromagnetism" : classicalMechCourse,
+  "computer-architecture-and-digital-logic" : compArchCourse,
   "machine-learning": {
     id: "machine-learning",
     title: "Machine Learning Lab",

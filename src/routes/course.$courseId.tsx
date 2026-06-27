@@ -540,15 +540,7 @@ function CoursePage() {
                     </div>
                   )}
 
-                  {course.id === "mathematics-for-emerging-technologies" && (
-                    <div className="mb-8 max-w-lg mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
-                      <img
-                        src="/math-flowchart.webp"
-                        alt="Mathematics for Emerging Technologies Curriculum Flowchart"
-                        className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700"
-                      />
-                    </div>
-                  )}
+                  
 
                   {course.id === "iot" && (
                     <div className="mb-8 max-w-lg mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
@@ -1023,29 +1015,29 @@ function CoursePage() {
                                   </div>
                                 </div>
                                 <div className="flex flex-wrap gap-2 shrink-0 w-full sm:w-auto">
-                                  <Link
-                                    to="/workspace"
-                                    search={{ exp: exp.id, mode: "learn" }}
-                                    className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-cyan/30 hover:bg-cyan/10 text-cyan text-sm font-semibold transition-all flex-1 sm:flex-initial"
-                                  >
-                                    <Book className="size-4" /> Learn
-                                  </Link>
-                                  {courseId !== "mathematics-for-emerging-technologies" && (
-                                    learnedExps.has(exp.id) ? (
-                                       <Link
-                                        to="/workspace"
-                                        search={{ exp: exp.id, mode: "solve" }}
-                                        className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan to-primary text-white text-sm font-semibold shadow-md hover:shadow-lg hover:shadow-cyan/20 hover:scale-[1.02] active:scale-95 transition-all flex-1 sm:flex-initial"
-                                         >
-                                      <Code className="size-4" /> Solve
-                                      </Link>
-                                      ) : (
-                                    <button disabled className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-200/10 text-muted-foreground border border-border/40 text-sm font-semibold cursor-not-allowed opacity-50 flex-1 sm:flex-initial" title="Complete the Learn section first to unlock">
-                                    <Lock className="size-4" /> Solve (Locked)
-                                    </button>
-                                   )
-                                  )}
-                                </div>
+  <Link
+    to="/workspace"
+    search={{ exp: exp.id, mode: "learn" }}
+    className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-cyan/30 hover:bg-cyan/10 text-cyan text-sm font-semibold transition-all flex-1 sm:flex-initial"
+  >
+    <Book className="size-4" /> Learn
+  </Link>
+  {!["mathematics-for-emerging-technologies", "classical-mechanics-and-electromagnetism", "computer-architecture-and-digital-logic"].includes(courseId) && (
+    learnedExps.has(exp.id) ? (
+      <Link
+        to="/workspace"
+        search={{ exp: exp.id, mode: "solve" }}
+        className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan to-primary text-white text-sm font-semibold shadow-md hover:shadow-lg hover:shadow-cyan/20 hover:scale-[1.02] active:scale-95 transition-all flex-1 sm:flex-initial"
+      >
+        <Code className="size-4" /> Solve
+      </Link>
+    ) : (
+      <button disabled className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-200/10 text-muted-foreground border border-border/40 text-sm font-semibold cursor-not-allowed opacity-50 flex-1 sm:flex-initial" title="Complete the Learn section first to unlock">
+        <Lock className="size-4" /> Solve (Locked)
+      </button>
+    )
+  )}
+</div>
                               </div>
                             ))}
                           </div>
