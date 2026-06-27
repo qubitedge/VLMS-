@@ -1179,6 +1179,17 @@ except BaseException:
   const isAITools = details?.course.id === "ai-tools";
   const isIot = details?.course.id === "iot";
   const isQuantum = details?.course.id === "quantum-computing";
+  const isMath = details?.course.id === "mathematics-for-emerging-technologies";
+
+  useEffect(() => {
+    if (isMath && mode === "solve") {
+      navigate({
+        to: "/workspace",
+        search: { exp, mode: "learn" },
+        replace: true,
+      });
+    }
+  }, [isMath, mode]);
 
     // Pre-load Pyodide + numpy + matplotlib for quantum course
 useEffect(() => {
@@ -1201,11 +1212,17 @@ useEffect(() => {
   const WORKSPACE_STEPS = useMemo(() => {
     const baseSteps = isAITools 
       ? ["Aim", "Theory", "Pretest", "Procedure", "Solve", "Posttest", "References"]
+      : isMath
+?     ["Aim", "Theory", "Procedure", "Quiz", "References"]
       : isIot
       ? ["Aim", "Theory", "Pretest", "Procedure", "Tinkercad", "Posttest", "References"]
       : isQuantum
       ? ["Aim", "Theory", "Visualization", "Interactive Experiment", "Quiz"]
       : ["Aim", "Theory", "Pretest", "Procedure", "Simulation", "Code Test", "Posttest", "References"];
+      
+    if (isMath) {
+        return baseSteps; // math always shows all steps regardless of mode
+      }
 
     if (mode === "learn") {
       return baseSteps.filter(step => 
@@ -1349,7 +1366,11 @@ useEffect(() => {
 
   const handleSubmit = async () => {
     const { data: { user } } = await supabase.auth.getUser();
-  
+    if (isMath) {
+      toast.success("Module Completed! 🎉");
+      navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
+      return;
+    }
     if (!user) {
       // ── GUEST PATH: Check if they've already skipped once for this experiment ──
       const alreadyShown = sessionStorage.getItem('vlms_popup_shown') === 'true';
@@ -1476,22 +1497,27 @@ const handlePostSolveAuthenticated = async (userId: string) => {
 };
 
 
-  const handleLearnComplete = () => {
-    if (details?.experiment?.id) {
-      const learned = JSON.parse(localStorage.getItem('learned_experiments') || '{}');
-      learned[details.experiment.id] = true;
-      localStorage.setItem('learned_experiments', JSON.stringify(learned));
-      
-      toast.success("Learn phase completed! Solve mode unlocked. 🎉");
-      
-      navigate({
-        to: "/workspace",
-        search: { exp: details.experiment.id, mode: "solve" }
-      });
-      setActiveStepIndex(0);
-      setMaxStepReached(0);
+const handleLearnComplete = () => {
+  if (details?.experiment?.id) {
+    const learned = JSON.parse(localStorage.getItem('learned_experiments') || '{}');
+    learned[details.experiment.id] = true;
+    localStorage.setItem('learned_experiments', JSON.stringify(learned));
+
+    if (isMath) {
+      toast.success("Module Completed! 🎉");
+      navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
+      return;
     }
-  };
+
+    toast.success("Learn phase completed! Solve mode unlocked. 🎉");
+    navigate({
+      to: "/workspace",
+      search: { exp: details.experiment.id, mode: "solve" }
+    });
+    setActiveStepIndex(0);
+    setMaxStepReached(0);
+  }
+};
 
   const handleNext = () => {
     if (!isNextEnabled) {
@@ -1939,7 +1965,7 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                   onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? handleLearnComplete : handleSubmit) : handleNext} 
                   className="px-4 py-2 rounded-md bg-cyan text-cyan-foreground font-medium text-sm hover:bg-cyan/90 transition-colors"
                 >
-                  {activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? "Proceed to Solve" : "Submit") : `Next: ${WORKSPACE_STEPS[activeStepIndex + 1]}`}
+                  {activeStepIndex === WORKSPACE_STEPS.length - 1 ? (isMath ? "Complete Module" : mode === "learn" ? "Proceed to Solve" : "Submit") : `Next: ${WORKSPACE_STEPS[activeStepIndex + 1]}`}
                 </button>
               </div>
             </div>
@@ -3334,7 +3360,7 @@ const handlePostSolveAuthenticated = async (userId: string) => {
                     onClick={activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? handleLearnComplete : handleSubmit) : handleNext} 
                     className="px-5 py-2.5 rounded-xl bg-cyan text-cyan-foreground font-semibold text-sm hover:bg-cyan/90 transition-all shadow-[0_0_15px_rgba(6,182,212,0.25)]"
                   >
-                    {activeStepIndex === WORKSPACE_STEPS.length - 1 ? (mode === "learn" ? "Proceed to Solve" : "Submit") : "Next"}
+                    {activeStepIndex === WORKSPACE_STEPS.length - 1 ? (isMath ? "Complete Module" : mode === "learn" ? "Proceed to Solve" : "Submit") : "Next"}
                   </button>
                 </div>
               </div>

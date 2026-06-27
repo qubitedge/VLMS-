@@ -540,6 +540,16 @@ function CoursePage() {
                     </div>
                   )}
 
+                  {course.id === "mathematics-for-emerging-technologies" && (
+                    <div className="mb-8 max-w-lg mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
+                      <img
+                        src="/math-flowchart.webp"
+                        alt="Mathematics for Emerging Technologies Curriculum Flowchart"
+                        className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700"
+                      />
+                    </div>
+                  )}
+
                   {course.id === "iot" && (
                     <div className="mb-8 max-w-lg mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
                       <img
@@ -1020,22 +1030,20 @@ function CoursePage() {
                                   >
                                     <Book className="size-4" /> Learn
                                   </Link>
-                                  {learnedExps.has(exp.id) ? (
-                                    <Link
-                                      to="/workspace"
-                                      search={{ exp: exp.id, mode: "solve" }}
-                                      className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan to-primary text-white text-sm font-semibold shadow-md hover:shadow-lg hover:shadow-cyan/20 hover:scale-[1.02] active:scale-95 transition-all flex-1 sm:flex-initial"
-                                    >
+                                  {courseId !== "mathematics-for-emerging-technologies" && (
+                                    learnedExps.has(exp.id) ? (
+                                       <Link
+                                        to="/workspace"
+                                        search={{ exp: exp.id, mode: "solve" }}
+                                        className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan to-primary text-white text-sm font-semibold shadow-md hover:shadow-lg hover:shadow-cyan/20 hover:scale-[1.02] active:scale-95 transition-all flex-1 sm:flex-initial"
+                                         >
                                       <Code className="size-4" /> Solve
-                                    </Link>
-                                  ) : (
-                                    <button
-                                      disabled
-                                      className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-200/10 text-muted-foreground border border-border/40 text-sm font-semibold cursor-not-allowed opacity-50 flex-1 sm:flex-initial"
-                                      title="Complete the Learn section first to unlock"
-                                    >
-                                      <Lock className="size-4" /> Solve (Locked)
+                                      </Link>
+                                      ) : (
+                                    <button disabled className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-200/10 text-muted-foreground border border-border/40 text-sm font-semibold cursor-not-allowed opacity-50 flex-1 sm:flex-initial" title="Complete the Learn section first to unlock">
+                                    <Lock className="size-4" /> Solve (Locked)
                                     </button>
+                                   )
                                   )}
                                 </div>
                               </div>
@@ -1061,7 +1069,7 @@ function CoursePage() {
                     </div>
                     <button
                       onClick={handleClaimCertificate}
-                      disabled={!allSolved}
+                      disabled={courseId === "mathematics-for-emerging-technologies" ? false : !allSolved}
                       className={`shrink-0 px-6 py-3 rounded-xl font-semibold transition-all ${allSolved
                         ? "bg-cyan text-cyan-foreground hover:bg-cyan/90 shadow-md hover:shadow-lg active:scale-95"
                         : "bg-secondary text-muted-foreground cursor-not-allowed opacity-50"

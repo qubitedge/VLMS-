@@ -35,6 +35,7 @@ function getSubtitle(topic: string) {
   if (topic === "LLMs") return "Learn an text document";
   if (topic === "IoT") return "Circuit-ourot map map sensors";
   if (topic === "Quantum Computing") return "Foundations of quantum mechanics and algorithms";
+  if (topic === "Mathematics for Emerging Technologies") return "Linear algebra, probability, logic and computing foundations";
   return "Comprehensive learning module";
 }
 
@@ -695,6 +696,40 @@ function getBgIcon(topic: string) {
           <circle cx="178" cy="100" r="4" fill="#d8b4fe" />
           <circle cx="60" cy="169" r="4" fill="#d8b4fe" />
           <circle cx="60" cy="31" r="4" fill="#d8b4fe" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (topic === "Mathematics for Emerging Technologies") {
+    return (
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all 
+        duration-700 group-hover:scale-105 overflow-visible opacity-40 
+        group-hover:opacity-70">
+        <svg 
+          className="w-56 h-56 translate-x-10 translate-y-8" 
+          viewBox="0 0 200 200" 
+          fill="none" 
+          stroke="currentColor"
+        >
+          {/* Sigma symbol */}
+          <path 
+            d="M 140 40 L 60 40 L 100 100 L 60 160 L 140 160" 
+            stroke="#0d9488" 
+            strokeWidth="6" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+            fill="none"
+          />
+          {/* Decorative grid lines */}
+          <g stroke="#0d9488" strokeWidth="0.5" opacity="0.3">
+            {[60, 80, 100, 120, 140].map(x => (
+              <line key={x} x1={x} y1="20" x2={x} y2="180" />
+            ))}
+            {[60, 80, 100, 120, 140, 160].map(y => (
+              <line key={y} x1="40" y1={y} x2="170" y2={y} />
+            ))}
+          </g>
         </svg>
       </div>
     );

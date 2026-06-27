@@ -9,7 +9,7 @@ import { cShortNotes } from './c-short-notes';
 import { mlShortNotes } from './ml-short-notes';
 import { llmsShortNotes } from './llms-short-notes';
 import { quantumCourse } from './quantum-data';
-
+import { mathCourse } from './math-data';
 export type MCQ = {
   question: string;
   options: string[];
@@ -5637,6 +5637,7 @@ export const courses: Record<string, Course> = {
   "python": pythonCourse,
   "dbms": dbmsCourse,
   "advanced-data-structures": adsCourse,
+  "mathematics-for-emerging-technologies": mathCourse,
   "machine-learning": {
     id: "machine-learning",
     title: "Machine Learning Lab",
