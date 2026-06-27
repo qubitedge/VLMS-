@@ -1420,10 +1420,10 @@ export const courses: Record<string, Course> = {
       }
     ]
   },
-  "c-programming": {
-    id: "c-programming",
-    title: "C Programming",
-    objectives: [
+  "c-programming":{
+    "id": "c-programming",
+    "title": "C Programming",
+    "objectives": [
       "To introduce students to the C programming language and its role in modern computing",
       "To provide a structured, week-by-week hands-on programming experience aligned with JNTUGV syllabus",
       "To help students understand fundamental programming concepts such as variables, data types, operators, and expressions",
@@ -1438,108 +1438,108 @@ export const courses: Record<string, Course> = {
       "To perform file I/O operations including reading, writing, copying, and merging files",
       "To build problem-solving skills by converting real-world problems into algorithmic solutions"
     ],
-    introduction: [
+    "introduction": [
       "C is one of the most fundamental and widely-used programming languages in the history of computing. Developed by Dennis Ritchie at Bell Laboratories in 1972, C has stood the test of time as the foundation for operating systems, embedded systems, compilers, and system-level software. Almost every modern programming language — including Python, Java, and C++ — draws concepts from C.",
       "The Virtual C Programming Lab provides a hands-on, browser-based environment where students can write, compile, and execute C programs without requiring any local software installation.",
       "The lab covers structured experiments across key C Programming concepts — from basic I/O and arithmetic to pointers, data structures, recursion, and file handling. Each experiment includes a clear objective, problem statement, pre-loaded starter code, stdin support for interactive programs, and expected output for self-verification.",
       "Students can attempt all lab problems directly in the browser using a professional code editor powered by a real GCC compiler via the Wandbox execution engine."
     ],
-    shortNotes: cShortNotes,
-    targetAudience: {
-      primary: "Students of engineering and computer science enrolled in introductory C programming courses.",
-      prerequisites: [
+    "shortNotes": "cShortNotes",
+    "targetAudience": {
+      "primary": "Students of engineering and computer science enrolled in introductory C programming courses.",
+      "prerequisites": [
         "No prior programming experience required",
         "Basic computer operation skills (typing, using a browser)",
         "Understanding of basic mathematics (algebra, arithmetic)"
       ],
-      usefulFor: [
+      "usefulFor": [
         "Diploma students transitioning to B.Tech who want to strengthen fundamentals",
         "Students preparing for competitive exams like GATE where C concepts are tested",
         "Faculty members looking for ready-made experiment references aligned to standard programming curricula",
         "Self-learners who want a structured, compiler-ready C programming environment"
       ]
     },
-    alignment: {
-      university: "Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV)",
-      department: "Basic Sciences and Humanities (BS&HSS)",
-      course: "C Programming Lab",
-      credits: "L:0 T:0 P:3 C:1.5",
-      yearSem: "First Year, First / Second Semester",
-      branches: "All B.Tech branches (CSE, IT, ECE, EEE, ME, Civil)",
-      totalExperiments: "47 problems across 14 weeks",
-      compiler: "GCC (GNU Compiler Collection) via Wandbox — identical to the compiler used in JNTUGV physical labs",
-      units: [
-        { unit: "Unit I", topics: "Environment, Algorithms, Variables, Arithmetic", weeks: "Week 1–3" },
-        { unit: "Unit II", topics: "Operators, Branching, Loops", weeks: "Week 4–6" },
-        { unit: "Unit III", topics: "Arrays, Strings, Sorting, Matrices", weeks: "Week 7–8" },
-        { unit: "Unit IV", topics: "Pointers, Structures, Unions, Linked Lists", weeks: "Week 9–10" },
-        { unit: "Unit V", topics: "Functions, Recursion, File Handling", weeks: "Week 11–14" }
+    "alignment": {
+      "university": "Jawaharlal Nehru Technological University Gurajada Vizianagaram (JNTUGV)",
+      "department": "Basic Sciences and Humanities (BS&HSS)",
+      "course": "C Programming Lab",
+      "credits": "L:0 T:0 P:3 C:1.5",
+      "yearSem": "First Year, First / Second Semester",
+      "branches": "All B.Tech branches (CSE, IT, ECE, EEE, ME, Civil)",
+      "totalExperiments": "47 problems across 14 weeks",
+      "compiler": "GCC (GNU Compiler Collection) via Wandbox — identical to the compiler used in JNTUGV physical labs",
+      "units": [
+        { "unit": "Unit I", "topics": "Environment, Algorithms, Variables, Arithmetic", "weeks": "Week 1–3" },
+        { "unit": "Unit II", "topics": "Operators, Branching, Loops", "weeks": "Week 4–6" },
+        { "unit": "Unit III", "topics": "Arrays, Strings, Sorting, Matrices", "weeks": "Week 7–8" },
+        { "unit": "Unit IV", "topics": "Pointers, Structures, Unions, Linked Lists", "weeks": "Week 9–10" },
+        { "unit": "Unit V", "topics": "Functions, Recursion, File Handling", "weeks": "Week 11–14" }
       ]
     },
-    weeks: [
+    "weeks": [
       {
-        title: "WEEK 1",
-        objective: "Getting familiar with programming environment and writing first program",
-        tutorial: "Tutorial 1: Environment Setup",
-        labTitle: "Lab 1: First steps in C",
-        experiments: [
+        "title": "WEEK 1",
+        "objective": "Getting familiar with programming environment and writing first program",
+        "tutorial": "Tutorial 1: Environment Setup",
+        "labTitle": "Lab 1: First steps in C",
+        "experiments": [
           {
-            id: "c-w1-1",
-            title: "Hello World",
-            desc: "Write a C program to print 'Hello World' to the console.",
-            expected: "Hello World",
-            content: {
-              aim: {
-                text: "In this experiment, the student will be able to understand the basic structure of a C program and learn how to display output on the screen using the printf() function.",
-                bullets: [
+            "id": "c-w1-1",
+            "title": "Hello World",
+            "desc": "Write a C program to print 'Hello World' to the console.",
+            "expected": "Hello World",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces students to the most fundamental C program — printing a line of text to the screen. Students will examine the mandatory structural components of every C program: the preprocessor directive (#include <stdio.h>), the entry point function (int main()), the output function (printf()), and the return statement. By compiling and running the Hello World program, students gain hands-on familiarity with the GCC compiler workflow and confirm that their programming environment is fully operational before moving on to more complex experiments.",
+                "bullets": [
                   "Understand the structure of a C program — preprocessor directives, main function, and return statement",
                   "Learn the role of #include <stdio.h> header file",
                   "Use printf() to print text to the console",
                   "Successfully compile and run their first C program"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🎉 Think of it like this!",
-                  body: [
+                  "title": "🎉 Think of it like this!",
+                  "body": [
                     "Imagine you just got a brand new robot friend. Before the robot can do anything cool — dance, talk, or help you — it needs to wake up and say hello! That's exactly what this first program does. We're waking up the computer and telling it to say \"Hello, World!\"",
                     "Every time you write a C program, it's like giving your robot a set of instructions written on paper. The computer reads from top to bottom, does exactly what you wrote, and stops.",
-                    "![Hello World](https://lmichelin.fr/content/images/2019/05/5c1bb7dd5e7cc9678fcdc39f_Hello-World-Header.webp)"
                   ]
                 },
                 {
-                  title: "Structure of a C Program",
-                  body: ["Every C program follows a fixed, well-defined structure. Understanding this structure is the very first step to writing correct C programs. A C program is made up of several distinct parts that must appear in a specific order for the compiler to understand and build the program.", "C was designed in the early 1970s by Dennis Ritchie at Bell Labs. It was built to be close to the hardware while still being human-readable. Because of this design philosophy, C requires you to explicitly declare everything — the libraries you use, the variables you create, and what type of data they hold.", "A basic C program consists of the following parts in order: Preprocessor Directives (lines starting with #), the main() function declaration, opening brace {, the body of statements, closing brace }, and a return statement."]
+                  "title": "Structure of a C Program",
+                  "body": ["Every C program follows a fixed, well-defined structure. Understanding this structure is the very first step to writing correct C programs. A C program is made up of several distinct parts that must appear in a specific order for the compiler to understand and build the program.", "C was designed in the early 1970s by Dennis Ritchie at Bell Labs. It was built to be close to the hardware while still being human-readable. Because of this design philosophy, C requires you to explicitly declare everything — the libraries you use, the variables you create, and what type of data they hold.", "![Hello World concept](hello_world.webp)","A basic C program consists of the following parts in order: Preprocessor Directives (lines starting with #), the main() function declaration, opening brace {, the body of statements, closing brace }, and a return statement."]
+                  
                 },
                 {
-                  title: "1. Preprocessor Directive",
-                  body: ["Lines starting with # are preprocessor directives. They are processed by the C preprocessor (a separate phase before actual compilation) before any code is compiled.", "#include <stdio.h> tells the compiler to include the Standard Input Output library header file. This header file contains function prototypes (declarations) for functions like printf() and scanf(). Without it, the compiler does not know what printf() is and will produce a compilation error.", "Think of #include as an 'import' statement. The angle brackets < > tell the compiler to look in the standard system directories. Double quotes \" \" would tell it to look in the current directory first."]
+                  "title": "1. Preprocessor Directive",
+                  "body": ["Lines starting with # are preprocessor directives. They are processed by the C preprocessor (a separate phase before actual compilation) before any code is compiled.", "#include <stdio.h> tells the compiler to include the Standard Input Output library header file. This header file contains function prototypes (declarations) for functions like printf() and scanf(). Without it, the compiler does not know what printf() is and will produce a compilation error.", "Think of #include as an 'import' statement. The angle brackets < > tell the compiler to look in the standard system directories. Double quotes \" \" would tell it to look in the current directory first."]
                 },
                 {
-                  title: "2. main() Function",
-                  body: ["Every C program must have exactly one main() function. This is the mandatory entry point — the operating system calls main() to start your program. Execution always begins from the very first statement inside main() and proceeds line by line.", "int main() means the function returns an integer value to the operating system when it finishes. The OS can use this return value to determine if the program succeeded or failed.", "Variations like void main() exist but are not standard C and may not be supported on all compilers. The standard form int main() or int main(int argc, char* argv[]) should always be preferred."]
+                  "title": "2. main() Function",
+                  "body": ["Every C program must have exactly one main() function. This is the mandatory entry point — the operating system calls main() to start your program. Execution always begins from the very first statement inside main() and proceeds line by line.", "int main() means the function returns an integer value to the operating system when it finishes. The OS can use this return value to determine if the program succeeded or failed.", "Variations like void main() exist but are not standard C and may not be supported on all compilers. The standard form int main() or int main(int argc, char* argv[]) should always be preferred."]
                 },
                 {
-                  title: "3. printf() Function",
-                  body: ["printf() (print formatted) is used to print formatted output to the console (standard output). It is one of the most frequently used functions in C.", "Syntax: printf(\"text to print\"); or printf(\"format string\", variable1, variable2, ...);", "The text inside the double quotes is called the format string. It is printed exactly as-is, except for special escape sequences and format specifiers.", "Escape Sequences — Special character sequences beginning with a backslash \\\\ that represent control characters: \\\\n is newline (moves cursor to next line), \\\\t is horizontal tab, \\\\\\\\ prints a literal backslash, \\\\\" prints a literal double quote.", "printf() does NOT automatically add a newline at the end — you must explicitly include \\\\n if you want the output to move to the next line."]
+                  "title": "3. printf() Function",
+                  "body": ["printf() (print formatted) is used to print formatted output to the console (standard output). It is one of the most frequently used functions in C.", "Syntax: printf(\"text to print\"); or printf(\"format string\", variable1, variable2, ...);", "The text inside the double quotes is called the format string. It is printed exactly as-is, except for special escape sequences and format specifiers.", "Escape Sequences — Special character sequences beginning with a backslash \\\\ that represent control characters: \\\\n is newline (moves cursor to next line), \\\\t is horizontal tab, \\\\\\\\ prints a literal backslash, \\\\\" prints a literal double quote.", "printf() does NOT automatically add a newline at the end — you must explicitly include \\\\n if you want the output to move to the next line."]
                 },
                 {
-                  title: "👶 Super simple version",
-                  body: [
+                  "title": "👶 Super simple version",
+                  "body": [
                     "printf(\"Hello!\") is just the computer's way of shouting something out loud. The \\n at the end is like pressing Enter on your keyboard — it moves to the next line."
                   ]
                 },
                 {
-                  title: "4. return 0",
-                  body: ["return 0; at the end of main() sends the value 0 back to the operating system. By convention, 0 signals that the program terminated successfully without any errors.", "Any non-zero return value (like return 1; or return -1;) signals that the program encountered an error. This is used in scripting and automation to chain programs together — a parent process can check the exit code of a child process.", "Modern compilers often generate implicit return 0; if you forget it in main(), but it is always best practice to write it explicitly for clarity and portability."]
+                  "title": "4. return 0",
+                  "body": ["return 0; at the end of main() sends the value 0 back to the operating system. By convention, 0 signals that the program terminated successfully without any errors.", "Any non-zero return value (like return 1; or return -1;) signals that the program encountered an error. This is used in scripting and automation to chain programs together — a parent process can check the exit code of a child process.", "Modern compilers often generate implicit return 0; if you forget it in main(), but it is always best practice to write it explicitly for clarity and portability."]
                 },
                 {
-                  title: "5. Curly Braces { }",
-                  body: ["All statements inside a function body are enclosed within a pair of curly braces. The opening { marks the start of the function body and the closing } marks its end.", "Curly braces define a 'block' in C. Variables declared inside a block only exist within that block (this is called 'scope'). Everything between the braces is considered one logical unit.", "Proper indentation inside braces (typically 4 spaces or 1 tab) is a critical coding style practice. The compiler ignores whitespace, but consistent indentation makes code readable and maintainable — a skill you'll use throughout your programming career."]
+                  "title": "5. Curly Braces { }",
+                  "body": ["All statements inside a function body are enclosed within a pair of curly braces. The opening { marks the start of the function body and the closing } marks its end.", "Curly braces define a 'block' in C. Variables declared inside a block only exist within that block (this is called 'scope'). Everything between the braces is considered one logical unit.", "Proper indentation inside braces (typically 4 spaces or 1 tab) is a critical coding style practice. The compiler ignores whitespace, but consistent indentation makes code readable and maintainable — a skill you'll use throughout your programming career."]
                 }
               ],
-              pretest:[],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections completely before starting",
                 "Go to the Simulation tab and observe the step-by-step execution of the Hello World program",
                 "Note how each line of the program executes in order — preprocessor → main() → printf() → return",
@@ -1553,17 +1553,17 @@ export const courses: Record<string, Course> = {
                 "Run again and verify your custom output appears correctly",
                 "Once satisfied, proceed to the Posttest tab to test your understanding"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    printf(\"Hello World\\n\");\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Preprocessor loads stdio library containing printf()", memory: [], output: "" },
-                  { line: 3, annotation: "Program execution begins at main() function", memory: [], output: "" },
-                  { line: 4, annotation: "printf() sends the string to standard output", memory: [], output: "Hello World\n" },
-                  { line: 5, annotation: "Program sends exit code 0 to OS, ending successfully", memory: [], output: "Hello World\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    printf(\"Hello World\\n\");\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Preprocessor loads stdio library containing printf()", "memory": [], "output": "" },
+                  { "line": 3, "annotation": "Program execution begins at main() function", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "printf() sends the string to standard output", "memory": [], "output": "Hello World\n" },
+                  { "line": 5, "annotation": "Program sends exit code 0 to OS, ending successfully", "memory": [], "output": "Hello World\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan, B.W. and Ritchie, D.M., 'The C Programming Language', 2nd Edition, Prentice Hall",
                 "Balagurusamy, E., 'Programming in ANSI C', 8th Edition, McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Department",
@@ -1573,32 +1573,32 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w1-2",
-            title: "Basic Input Output",
-            desc: "Write a program that takes two variables (a string name and an integer age) and prints them.",
-            expected: "Name: Likhith Age: 20",
-            content: {
-              aim: {
-                text: "In this experiment, the student will learn how to take input from the user using scanf() and display it back using printf(). The student will understand format specifiers, variable declaration, and the relationship between input and output in C.",
-                bullets: [
+            "id": "c-w1-2",
+            "title": "Basic Input Output",
+            "desc": "Write a program that takes two variables (a string name and an integer age) and prints them.",
+            "expected": "Name: Likhith Age: 20",
+            "content": {
+              "aim": {
+                "text": "This experiment teaches students how a C program communicates interactively with the user by reading input from the keyboard and displaying formatted output on the screen. Students will declare variables of different types (a character array for a name and an integer for age), use the scanf() function with the address-of operator (&) to store user-typed values in those variables, and use printf() with format specifiers (%s, %d) to display them in a structured sentence. This experiment lays the groundwork for every subsequent program that processes user-supplied data.",
+                "bullets": [
                   "Declare variables of type char array and int",
                   "Use scanf() to read a string and integer from the user",
                   "Use printf() with format specifiers %s and %d to display them",
                   "Understand the use of & (address-of operator) in scanf()"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "📬 Think of it like a mailbox!",
-                  body: [
+                  "title": "📬 Think of it like a mailbox!",
+                  "body": [
                     "When the computer wants to receive something from you (like your name), it opens a mailbox called scanf(). The & symbol is like writing the address on the mailbox so the letter (your input) lands in the right place. Without the address, the letter gets lost!",
-                    "![Mailbox](https://tse1.mm.bing.net/th/id/OIP.NAVswaeh2Npnmt9mxDt4wwHaCp?pid=Api&P=0&h=180)"
                   ]
                 },
                 {
-                  title: "scanf() — Reading Input",
-                  body: [
+                  "title": "scanf() — Reading Input",
+                  "body": [
                     "scanf() (scan formatted) reads formatted input from the keyboard (standard input, stdin). It is the input counterpart to printf().",
+                    "![Scanf() Visualization](scanf.webp)",
                     "Syntax: scanf(\"format_specifier\", &variable);",
                     "The & symbol is the 'address-of' operator. It gives scanf() the memory address of the variable so it can directly store the value the user types into that memory location. Without &, scanf() receives the value of the variable, not its location, and cannot write to it (this is undefined behavior and often causes crashes).",
                     "scanf() reads input until it encounters whitespace (space, tab, newline). For reading strings with spaces, special functions like fgets() are needed.",
@@ -1606,9 +1606,10 @@ export const courses: Record<string, Course> = {
                   ]
                 },
                 {
-                  title: "printf() with Format Specifiers",
-                  body: [
+                  "title": "printf() with Format Specifiers",
+                  "body": [
                     "Format specifiers are placeholders in the format string that tell printf() how to display a variable's value. They always start with % and are followed by a letter indicating the data type.",
+                    "![Printf() Visualization](printf.webp)",
                     "Common Format Specifiers: %d for int (decimal integer), %f for float, %lf for double, %c for char, %s for char array (string).",
                     "Example: printf(\"Name: %s Age: %d\", name, age); → Replaces %s with the value of name and %d with the value of age, in the order they appear in the argument list.",
                     "Precision Modifier: %.2f displays a float with exactly 2 decimal places. The number between . and f specifies precision.",
@@ -1616,8 +1617,8 @@ export const courses: Record<string, Course> = {
                   ]
                 },
                 {
-                  title: "char array for strings",
-                  body: [
+                  "title": "char array for strings",
+                  "body": [
                     "C does not have a built-in string data type like Python or Java. Strings in C are stored as arrays of characters (char arrays), terminated by a special null character '\\0' (ASCII value 0).",
                     "Declaration: char name[50]; → declares a character array that can hold up to 49 printable characters plus the null terminator at position [49].",
                     "The null terminator is crucial — string functions like printf() with %s and strlen() use it to know where the string ends. If it's missing, these functions may read garbage memory.",
@@ -1626,14 +1627,14 @@ export const courses: Record<string, Course> = {
                   ]
                 },
                 {
-                  title: "🍱 A string is like a lunchbox with compartments!",
-                  body: [
+                  "title": "🍱 A string is like a lunchbox with compartments!",
+                  "body": [
                     "char name[50] is a lunchbox with 50 little compartments. Each compartment holds one letter. The last compartment always holds a special invisible marker '\\0' that says \"this is the end!\" If you forget that marker, the computer keeps looking for more letters — even into other people's lunchboxes!"
                   ]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully",
                 "Go to the Simulation tab to see how scanf() reads values and printf() displays them",
                 "Observe what happens in memory when variables are assigned values from user input",
@@ -1646,85 +1647,85 @@ export const courses: Record<string, Course> = {
                 "Observe how output changes based on input",
                 "Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    char name[50];\n    int age;\n    scanf(\"%s %d\", name, &age);\n    printf(\"Name: %s Age: %d\\n\", name, age);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Preprocessor loads stdio library", memory: [], output: "" },
-                  { line: 3, annotation: "Program execution begins at main()", memory: [], output: "" },
-                  { line: 4, annotation: "Memory allocated for char array 'name'", memory: [{ variable: "name", type: "char[50]", value: "garbage" }], output: "" },
-                  { line: 5, annotation: "Memory allocated for integer 'age'", memory: [{ variable: "name", type: "char[50]", value: "garbage" }, { variable: "age", type: "int", value: "garbage" }], output: "" },
-                  { line: 6, annotation: "scanf() reads 'Likhith 20' from standard input", memory: [{ variable: "name", type: "char[50]", value: "\"Likhith\"" }, { variable: "age", type: "int", value: "20" }], output: "" },
-                  { line: 7, annotation: "printf() sends formatted string to standard output", memory: [{ variable: "name", type: "char[50]", value: "\"Likhith\"" }, { variable: "age", type: "int", value: "20" }], output: "Name: Likhith Age: 20\n" },
-                  { line: 8, annotation: "Program ends successfully", memory: [{ variable: "name", type: "char[50]", value: "\"Likhith\"" }, { variable: "age", type: "int", value: "20" }], output: "Name: Likhith Age: 20\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    char name[50];\n    int age;\n    scanf(\"%s %d\", name, &age);\n    printf(\"Name: %s Age: %d\\n\", name, age);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Preprocessor loads stdio library", "memory": [], "output": "" },
+                  { "line": 3, "annotation": "Program execution begins at main()", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Memory allocated for char array 'name'", "memory": [{ "variable": "name", "type": "char[50]", "value": "garbage" }], "output": "" },
+                  { "line": 5, "annotation": "Memory allocated for integer 'age'", "memory": [{ "variable": "name", "type": "char[50]", "value": "garbage" }, { "variable": "age", "type": "int", "value": "garbage" }], "output": "" },
+                  { "line": 6, "annotation": "scanf() reads 'Likhith 20' from standard input", "memory": [{ "variable": "name", "type": "char[50]", "value": "\"Likhith\"" }, { "variable": "age", "type": "int", "value": "20" }], "output": "" },
+                  { "line": 7, "annotation": "printf() sends formatted string to standard output", "memory": [{ "variable": "name", "type": "char[50]", "value": "\"Likhith\"" }, { "variable": "age", "type": "int", "value": "20" }], "output": "Name: Likhith Age: 20\n" },
+                  { "line": 8, "annotation": "Program ends successfully", "memory": [{ "variable": "name", "type": "char[50]", "value": "\"Likhith\"" }, { "variable": "age", "type": "int", "value": "20" }], "output": "Name: Likhith Age: 20\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan, B.W. and Ritchie, D.M., 'The C Programming Language', 2nd Edition, Prentice Hall",
                 "Balagurusamy, E., 'Programming in ANSI C', 8th Edition, McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Department",
                 "GCC Documentation: https://gcc.gnu.org/onlinedocs/"
               ]
             }
-          },
-        ],
+          }
+        ]
       },
       {
-        title: "WEEK 2",
-        objective: "Converting algorithms/flowcharts into C source code",
-        tutorial: "Tutorial 2: Algorithms and Flowcharts",
-        labTitle: "Lab 2: Basic Algorithms",
-        experiments: [
+        "title": "WEEK 2",
+        "objective": "Converting algorithms/flowcharts into C source code",
+        "tutorial": "Tutorial 2: Algorithms and Flowcharts",
+        "labTitle": "Lab 2: Basic Algorithms",
+        "experiments": [
           {
-            id: "c-w2-1",
-            title: "Sum & Average",
-            desc: "Compute the sum and average of two integers.",
-            expected: "Sum: 14 Average: 7.00",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept two integers from the user, compute their sum and average, and display the results. The student will:",
-                bullets: [
+            "id": "c-w2-1",
+            "title": "Sum & Average",
+            "desc": "Compute the sum and average of two integers.",
+            "expected": "Sum: 14 Average: 7.00",
+            "content": {
+              "aim": {
+                "text": "This experiment demonstrates how C handles arithmetic on integer data and how type casting is used to obtain correct decimal results during division. Students will accept two integers from the user, compute their sum using the addition operator, and calculate their average by casting the integer sum to a float before dividing by 2. The experiment highlights the critical difference between integer division (which truncates) and floating-point division (which preserves the decimal portion), and introduces the %.2f format specifier for displaying results to exactly two decimal places.",
+                "bullets": [
                   "Declare and use multiple int and float variables",
                   "Perform arithmetic operations (addition, division)",
                   "Understand integer vs. float division and type casting",
                   "Use printf() with %d and %.2f format specifiers"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "➕ Story time!",
-                  body: [
+                  "title": "➕ Story time!",
+                  "body": [
                     "Imagine you and your friend both have some candies. You want to know how many you have together (that's the sum!) and how many each of you would get if you shared equally (that's the average!).",
                     "sum = a + b → Put all candies together in one pile",
                     "average = sum / 2 → Split the pile evenly"
                   ]
                 },
                 {
-                  title: "Arithmetic in C",
-                  body: ["C supports +, -, *, / and % (modulus). When both operands are integers, division truncates: 7 / 2 = 3, not 3.5.", "To obtain a decimal result, cast one operand to float: (float)a / b."]
+                  "title": "Arithmetic in C",
+                  "body": ["C supports +, -, *, / and % (modulus). When both operands are integers, division truncates: 7 / 2 = 3, not 3.5.", "To obtain a decimal result, cast one operand to float: (float)a / b."]
                 },
                 {
-                  title: "⚠️ Watch out for this sneaky bug!",
-                  body: [
+                  "title": "⚠️ Watch out for this sneaky bug!",
+                  "body": [
                     "In C, 5 / 2 gives you 2, NOT 2.5. Why? Because the computer thinks you only want a whole number! It's like cutting a pizza into 2 and ignoring the leftover crumbs. To keep the decimal part, write (float)5 / 2 — that tells the computer \"I want the crumbs too!\"",
-                    "![Pizza being split](https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400)"
+                    "![Integer division illustration](pizza_analogy.webp)"
                   ]
                 },
                 {
-                  title: "Sum",
-                  body: ["sum = a + b; stores the result in a new variable. Both a and b must be declared before use."]
+                  "title": "Sum",
+                  "body": ["sum = a + b; stores the result in a new variable. Both a and b must be declared before use."]
                 },
                 {
-                  title: "Average",
-                  body: ["average = (float)sum / 2; The cast ensures float division. Alternatively declare average as float and divide directly."]
+                  "title": "Average",
+                  "body": ["average = (float)sum / 2; The cast ensures float division. Alternatively declare average as float and divide directly."]
                 },
                 {
-                  title: "%.2f",
-                  body: ["%.2f prints a float with exactly 2 decimal places. Useful for displaying averages cleanly."]
+                  "title": "%.2f",
+                  "body": ["%.2f prints a float with exactly 2 decimal places. Useful for displaying averages cleanly."]
                 }
               ],
-              pretest:[],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab below and step through the program trace.",
                 "Observe how variables appear in memory and how integer vs. float division differ.",
@@ -1733,21 +1734,21 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Sum: 14 Average: 7.00",
                 "Try different inputs (odd numbers to test rounding). Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int a, b, sum;\n    float avg;\n    scanf(\"%d %d\", &a, &b);\n    sum = a + b;\n    avg = (float)sum / 2;\n    printf(\"Sum: %d Average: %.2f\\n\", sum, avg);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library for I/O functions", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate memory for integers a, b, sum", memory: [{variable: "a", type: "int", value: "?"}, {variable: "b", type: "int", value: "?"}, {variable: "sum", type: "int", value: "?"}], output: "" },
-                  { line: 5, annotation: "Allocate memory for float avg", memory: [{variable: "a", type: "int", value: "?"}, {variable: "b", type: "int", value: "?"}, {variable: "sum", type: "int", value: "?"}, {variable: "avg", type: "float", value: "?"}], output: "" },
-                  { line: 6, annotation: "scanf() reads '10 4' from user", memory: [{variable: "a", type: "int", value: "10"}, {variable: "b", type: "int", value: "4"}, {variable: "sum", type: "int", value: "?"}, {variable: "avg", type: "float", value: "?"}], output: "" },
-                  { line: 7, annotation: "Compute sum = a + b", memory: [{variable: "a", type: "int", value: "10"}, {variable: "b", type: "int", value: "4"}, {variable: "sum", type: "int", value: "14"}, {variable: "avg", type: "float", value: "?"}], output: "" },
-                  { line: 8, annotation: "Compute avg using float casting", memory: [{variable: "a", type: "int", value: "10"}, {variable: "b", type: "int", value: "4"}, {variable: "sum", type: "int", value: "14"}, {variable: "avg", type: "float", value: "7.00"}], output: "" },
-                  { line: 9, annotation: "printf() displays the result", memory: [{variable: "a", type: "int", value: "10"}, {variable: "b", type: "int", value: "4"}, {variable: "sum", type: "int", value: "14"}, {variable: "avg", type: "float", value: "7.00"}], output: "Sum: 14 Average: 7.00\n" },
-                  { line: 10, annotation: "Program terminates successfully", memory: [{variable: "a", type: "int", value: "10"}, {variable: "b", type: "int", value: "4"}, {variable: "sum", type: "int", value: "14"}, {variable: "avg", type: "float", value: "7.00"}], output: "Sum: 14 Average: 7.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int a, b, sum;\n    float avg;\n    scanf(\"%d %d\", &a, &b);\n    sum = a + b;\n    avg = (float)sum / 2;\n    printf(\"Sum: %d Average: %.2f\\n\", sum, avg);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library for I/O functions", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate memory for integers a, b, sum", "memory": [{ "variable": "a", "type": "int", "value": "?" }, { "variable": "b", "type": "int", "value": "?" }, { "variable": "sum", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "Allocate memory for float avg", "memory": [{ "variable": "a", "type": "int", "value": "?" }, { "variable": "b", "type": "int", "value": "?" }, { "variable": "sum", "type": "int", "value": "?" }, { "variable": "avg", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "scanf() reads '10 4' from user", "memory": [{ "variable": "a", "type": "int", "value": "10" }, { "variable": "b", "type": "int", "value": "4" }, { "variable": "sum", "type": "int", "value": "?" }, { "variable": "avg", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 7, "annotation": "Compute sum = a + b", "memory": [{ "variable": "a", "type": "int", "value": "10" }, { "variable": "b", "type": "int", "value": "4" }, { "variable": "sum", "type": "int", "value": "14" }, { "variable": "avg", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 8, "annotation": "Compute avg using float casting", "memory": [{ "variable": "a", "type": "int", "value": "10" }, { "variable": "b", "type": "int", "value": "4" }, { "variable": "sum", "type": "int", "value": "14" }, { "variable": "avg", "type": "float", "value": "7.00" }], "output": "" },
+                  { "line": 9, "annotation": "printf() displays the result", "memory": [{ "variable": "a", "type": "int", "value": "10" }, { "variable": "b", "type": "int", "value": "4" }, { "variable": "sum", "type": "int", "value": "14" }, { "variable": "avg", "type": "float", "value": "7.00" }], "output": "Sum: 14 Average: 7.00\n" },
+                  { "line": 10, "annotation": "Program terminates successfully", "memory": [{ "variable": "a", "type": "int", "value": "10" }, { "variable": "b", "type": "int", "value": "4" }, { "variable": "sum", "type": "int", "value": "14" }, { "variable": "avg", "type": "float", "value": "7.00" }], "output": "Sum: 14 Average: 7.00\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -1756,53 +1757,53 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w2-2",
-            title: "Fahrenheit to Celsius",
-            desc: "Convert temperature from Fahrenheit to Celsius.",
-            expected: "Celsius: 37.00",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept a temperature in Fahrenheit from the user, convert it to Celsius using the standard formula, and display the result. The student will:",
-                bullets: [
+            "id": "c-w2-2",
+            "title": "Fahrenheit to Celsius",
+            "desc": "Convert temperature from Fahrenheit to Celsius.",
+            "expected": "Celsius: 37.00",
+            "content": {
+              "aim": {
+                "text": "This experiment applies arithmetic expressions and operator precedence in C to solve a real-world unit-conversion problem. Students will accept a temperature value in Fahrenheit as a floating-point input, apply the standard conversion formula C = (F − 32) × 5 / 9 with explicit parentheses to enforce correct evaluation order, and display the Celsius result rounded to two decimal places. The experiment emphasises why operator precedence matters in arithmetic expressions and why parentheses must be used whenever the intended calculation order differs from C's default precedence rules.",
+                "bullets": [
                   "Declare and use float variables for temperature values",
                   "Apply the conversion formula: C = (F - 32) * 5 / 9",
                   "Understand operator precedence and parenthesisation in C",
                   "Use printf() with %.2f to display the result to 2 decimal places"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🌡️ Two countries, two thermometers!",
-                  body: [
+                  "title": "🌡️ Two countries, two thermometers!",
+                  "body": [
                     "In the USA, people say \"It's 98°F today!\" In India, we say \"It's 37°C today!\" They're talking about the exact same temperature — just in different languages! This program is a translator between those two languages.",
-                    "![A thermometer closeup](https://media.whas11.com/assets/WHAS/images/59bf16b5-29d2-49f8-90ce-c7dad13475d5/59bf16b5-29d2-49f8-90ce-c7dad13475d5_1140x641.webp)"
+                    "![Thermometer Fahrenheit Celsius](celsius-farenheit.webp)"
                   ]
                 },
                 {
-                  title: "Temperature Conversion Formula",
-                  body: ["The relationship between Fahrenheit and Celsius is:", "C = (F - 32) * 5 / 9", "This formula subtracts 32 from the Fahrenheit value, then multiplies by 5 and divides by 9."]
+                  "title": "Temperature Conversion Formula",
+                  "body": ["The relationship between Fahrenheit and Celsius is:", "C = (F - 32) * 5 / 9", "This formula subtracts 32 from the Fahrenheit value, then multiplies by 5 and divides by 9."]
                 },
                 {
-                  title: "🧮 Why the parentheses matter:",
-                  body: [
+                  "title": "🧮 Why the parentheses matter:",
+                  "body": [
                     "C is like a strict math teacher — it always does × and ÷ before + and −. So if you write F - 32 * 5 / 9, the computer first does 32 × 5 = 160, then 160 ÷ 9 = 17.7, and then subtracts that from F — which is completely wrong! Parentheses ( ) are your way of telling the computer: \"Do THIS part first!\""
                   ]
                 },
                 {
-                  title: "Operator Precedence",
-                  body: ["In C, multiplication and division have higher precedence than subtraction.", "Without parentheses, F - 32 * 5 / 9 would be evaluated incorrectly. Always use parentheses: (F - 32) * 5 / 9."]
+                  "title": "Operator Precedence",
+                  "body": ["In C, multiplication and division have higher precedence than subtraction.", "Without parentheses, F - 32 * 5 / 9 would be evaluated incorrectly. Always use parentheses: (F - 32) * 5 / 9."]
                 },
                 {
-                  title: "Float Variables",
-                  body: ["Declare both fahrenheit and celsius as float to avoid integer truncation.", "If declared as int, values like 98.6°F would lose their decimal part."]
+                  "title": "Float Variables",
+                  "body": ["Declare both fahrenheit and celsius as float to avoid integer truncation.", "If declared as int, values like 98.6°F would lose their decimal part."]
                 },
                 {
-                  title: "%.2f",
-                  body: ["%.2f prints a floating-point result rounded to 2 decimal places, giving clean output like 37.00."]
+                  "title": "%.2f",
+                  "body": ["%.2f prints a floating-point result rounded to 2 decimal places, giving clean output like 37.00."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the program trace.",
                 "Observe how the formula is applied and how float variables hold decimal values.",
@@ -1811,19 +1812,19 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Celsius: 37.00",
                 "Try inputs like 32 (freezing) and 212 (boiling) to verify. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    float f, c;\n    scanf(\"%f\", &f);\n    c = (f - 32) * 5 / 9;\n    printf(\"Celsius: %.2f\\n\", c);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate memory for floats f, c", memory: [{variable: "f", type: "float", value: "?"}, {variable: "c", type: "float", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf() reads 98.6 from user", memory: [{variable: "f", type: "float", value: "98.6"}, {variable: "c", type: "float", value: "?"}], output: "" },
-                  { line: 6, annotation: "Compute conversion formula", memory: [{variable: "f", type: "float", value: "98.6"}, {variable: "c", type: "float", value: "37.00"}], output: "" },
-                  { line: 7, annotation: "printf() displays formatted celsius", memory: [{variable: "f", type: "float", value: "98.6"}, {variable: "c", type: "float", value: "37.00"}], output: "Celsius: 37.00\n" },
-                  { line: 8, annotation: "Program ends successfully", memory: [{variable: "f", type: "float", value: "98.6"}, {variable: "c", type: "float", value: "37.00"}], output: "Celsius: 37.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    float f, c;\n    scanf(\"%f\", &f);\n    c = (f - 32) * 5 / 9;\n    printf(\"Celsius: %.2f\\n\", c);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate memory for floats f, c", "memory": [{ "variable": "f", "type": "float", "value": "?" }, { "variable": "c", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads 98.6 from user", "memory": [{ "variable": "f", "type": "float", "value": "98.6" }, { "variable": "c", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "Compute conversion formula", "memory": [{ "variable": "f", "type": "float", "value": "98.6" }, { "variable": "c", "type": "float", "value": "37.00" }], "output": "" },
+                  { "line": 7, "annotation": "printf() displays formatted celsius", "memory": [{ "variable": "f", "type": "float", "value": "98.6" }, { "variable": "c", "type": "float", "value": "37.00" }], "output": "Celsius: 37.00\n" },
+                  { "line": 8, "annotation": "Program ends successfully", "memory": [{ "variable": "f", "type": "float", "value": "98.6" }, { "variable": "c", "type": "float", "value": "37.00" }], "output": "Celsius: 37.00\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -1832,45 +1833,44 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w2-3",
-            title: "Simple Interest",
-            desc: "Calculate Simple Interest given P, R, T.",
-            expected: "Simple Interest: 100.00",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept principal, rate of interest, and time from the user, compute the simple interest, and display the result. The student will:",
-                bullets: [
+            "id": "c-w2-3",
+            "title": "Simple Interest",
+            "desc": "Calculate Simple Interest given P, R, T.",
+            "expected": "Simple Interest: 100.00",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces financial computation in C by implementing the simple interest formula (SI = P × R × T / 100). Students will accept three floating-point values representing principal, annual interest rate, and time period in years, compute the simple interest, and display the result formatted to two decimal places. The experiment reinforces the use of float variables for quantities that may contain decimal parts, demonstrates multi-variable arithmetic expressions, and shows how real-world financial formulas are translated directly into C code.",
+                "bullets": [
                   "Declare and use float variables for financial calculations",
                   "Apply the simple interest formula: SI = (P * R * T) / 100",
                   "Understand the importance of float division in financial computations",
                   "Use printf() with %.2f to display monetary results to 2 decimal places"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🏦 Imagine a piggy bank that grows!",
-                  body: [
+                  "title": "🏦 Imagine a piggy bank that grows!",
+                  "body": [
                     "You put ₹1000 in a bank (that's your Principal P). The bank says \"we'll give you 5% extra every year\" (that's the Rate R). After 3 years (Time T), how much extra money do you earn? That extra money is called Simple Interest!",
                     "Formula: SI = (P × R × T) / 100",
                     "Example: P=1000, R=5, T=3 → SI = (1000×5×3)/100 = ₹150 earned!",
-                    "![Piggy bank with coins](https://tse4.mm.bing.net/th/id/OIP.z19VFAmAL1ioO2-V-UUmIgHaDL?pid=Api&P=0&h=180)"
                   ]
                 },
                 {
-                  title: "Simple Interest Formula",
-                  body: ["Simple interest is calculated as:", "SI = (P * R * T) / 100", "Where: P = Principal amount, R = Rate of interest per annum, T = Time period"]
+                  "title": "Simple Interest Formula",
+                  "body": ["Simple interest is calculated as:", "SI = (P * R * T) / 100", "Where: P = Principal amount, R = Rate of interest per annum, T = Time period"]
                 },
                 {
-                  title: "Why Float?",
-                  body: ["Financial values often involve decimals. Declaring P, R, T, and SI as float ensures that fractional values are preserved.", "If all variables were int, a rate like 8.5% would be truncated to 8."]
+                  "title": "Why Float?",
+                  "body": ["Financial values often involve decimals. Declaring P, R, T, and SI as float ensures that fractional values are preserved.", "If all variables were int, a rate like 8.5% would be truncated to 8."]
                 },
                 {
-                  title: "Operator Precedence",
-                  body: ["Multiplication is performed left to right before division. P * R * T is evaluated first, then divided by 100.", "No special parenthesisation is needed beyond the outer grouping."]
+                  "title": "Operator Precedence",
+                  "body": ["Multiplication is performed left to right before division. P * R * T is evaluated first, then divided by 100.", "No special parenthesisation is needed beyond the outer grouping."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the program trace.",
                 "Observe how P, R, and T are read and how SI is computed step by step.",
@@ -1879,19 +1879,19 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Simple Interest: 100.00",
                 "Try inputs with decimal rate like 1000 8.5 3 to test float handling. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    float p, r, t, si;\n    scanf(\"%f %f %f\", &p, &r, &t);\n    si = (p * r * t) / 100;\n    printf(\"Simple Interest: %.2f\\n\", si);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate memory for floats p, r, t, si", memory: [{variable: "p", type: "float", value: "?"}, {variable: "r", type: "float", value: "?"}, {variable: "t", type: "float", value: "?"}, {variable: "si", type: "float", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '1000 5 2' from user", memory: [{variable: "p", type: "float", value: "1000"}, {variable: "r", type: "float", value: "5"}, {variable: "t", type: "float", value: "2"}, {variable: "si", type: "float", value: "?"}], output: "" },
-                  { line: 6, annotation: "Compute SI formula", memory: [{variable: "p", type: "float", value: "1000"}, {variable: "r", type: "float", value: "5"}, {variable: "t", type: "float", value: "2"}, {variable: "si", type: "float", value: "100.00"}], output: "" },
-                  { line: 7, annotation: "printf() displays formatted result", memory: [{variable: "p", type: "float", value: "1000"}, {variable: "r", type: "float", value: "5"}, {variable: "t", type: "float", value: "2"}, {variable: "si", type: "float", value: "100.00"}], output: "Simple Interest: 100.00\n" },
-                  { line: 8, annotation: "Program ends successfully", memory: [{variable: "p", type: "float", value: "1000"}, {variable: "r", type: "float", value: "5"}, {variable: "t", type: "float", value: "2"}, {variable: "si", type: "float", value: "100.00"}], output: "Simple Interest: 100.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    float p, r, t, si;\n    scanf(\"%f %f %f\", &p, &r, &t);\n    si = (p * r * t) / 100;\n    printf(\"Simple Interest: %.2f\\n\", si);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate memory for floats p, r, t, si", "memory": [{ "variable": "p", "type": "float", "value": "?" }, { "variable": "r", "type": "float", "value": "?" }, { "variable": "t", "type": "float", "value": "?" }, { "variable": "si", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '1000 5 2' from user", "memory": [{ "variable": "p", "type": "float", "value": "1000" }, { "variable": "r", "type": "float", "value": "5" }, { "variable": "t", "type": "float", "value": "2" }, { "variable": "si", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "Compute SI formula", "memory": [{ "variable": "p", "type": "float", "value": "1000" }, { "variable": "r", "type": "float", "value": "5" }, { "variable": "t", "type": "float", "value": "2" }, { "variable": "si", "type": "float", "value": "100.00" }], "output": "" },
+                  { "line": 7, "annotation": "printf() displays formatted result", "memory": [{ "variable": "p", "type": "float", "value": "1000" }, { "variable": "r", "type": "float", "value": "5" }, { "variable": "t", "type": "float", "value": "2" }, { "variable": "si", "type": "float", "value": "100.00" }], "output": "Simple Interest: 100.00\n" },
+                  { "line": 8, "annotation": "Program ends successfully", "memory": [{ "variable": "p", "type": "float", "value": "1000" }, { "variable": "r", "type": "float", "value": "5" }, { "variable": "t", "type": "float", "value": "2" }, { "variable": "si", "type": "float", "value": "100.00" }], "output": "Simple Interest: 100.00\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -1899,23 +1899,23 @@ export const courses: Record<string, Course> = {
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 3",
-        objective: "Variables, data types, arithmetic operators",
-        tutorial: "Tutorial 3: Variables and Arithmetic",
-        labTitle: "Lab 3: Computational problems",
-        experiments: [
+        "title": "WEEK 3",
+        "objective": "Variables, data types, arithmetic operators",
+        "tutorial": "Tutorial 3: Variables and Arithmetic",
+        "labTitle": "Lab 3: Computational problems",
+        "experiments": [
           {
-            id: "c-w3-1",
-            title: "Square Root",
-            desc: "Find square root of a given number using math.h.",
-            expected: "Square Root: 5.00",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept a non-negative number from the user and compute its square root using the sqrt() function from the math library. The student will:",
-                bullets: [
+            "id": "c-w3-1",
+            "title": "Square Root",
+            "desc": "Find square root of a given number using math.h.",
+            "expected": "Square Root: 5.00",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces the C standard math library (math.h) and demonstrates how to use built-in mathematical functions in a program. Students will accept a non-negative number from the user, compute its square root using the sqrt() function, and display the result to two decimal places. Beyond the computation itself, the experiment covers three important practical points: the need to include the math.h header, the use of the double data type for precision, and the requirement to link the math library with the -lm compiler flag — a step that catches many beginners off guard.",
+                "bullets": [
                   "Declare and use float/double variables",
                   "Include and use the math.h library",
                   "Apply the sqrt() function",
@@ -1923,40 +1923,40 @@ export const courses: Record<string, Course> = {
                   "Understand the importance of linking the math library with -lm during compilation"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🌳 The \"un-squaring\" machine!",
-                  body: [
+                  "title": "🌳 The \"un-squaring\" machine!",
+                  "body": [
                     "If you know that 5 × 5 = 25, then the square root of 25 is 5. It's like having a magic machine — you put in 25, and it gives you back the number that was multiplied by itself to make 25.",
                     "In C, this magic machine is called sqrt() and it lives in a toolbox called math.h.",
-                    "![A calculator](https://media.geeksforgeeks.org/wp-content/uploads/20231231153207/Square-Root-Symbol.webp)"
+                    "![Square root symbol mathematics](sqrt_c.webp)"
                   ]
                 },
                 {
-                  title: "Square Root",
-                  body: ["The square root of a number n is a value x such that x * x = n.", "For example, sqrt(25) = 5.0 and sqrt(2) = 1.414..."]
+                  "title": "Square Root",
+                  "body": ["The square root of a number n is a value x such that x * x = n.", "For example, sqrt(25) = 5.0 and sqrt(2) = 1.414..."]
                 },
                 {
-                  title: "math.h Library",
-                  body: ["C does not include mathematical functions by default. The header #include <math.h> must be included at the top of the program to access functions like sqrt(), pow(), fabs(), ceil(), floor(), etc."]
+                  "title": "math.h Library",
+                  "body": ["C does not include mathematical functions by default. The header #include <math.h> must be included at the top of the program to access functions like sqrt(), pow(), fabs(), ceil(), floor(), etc."]
                 },
                 {
-                  title: "sqrt() Function",
-                  body: ["Syntax: double sqrt(double x);", "It accepts a double argument and returns the square root as a double. Passing a negative number results in a NaN (Not a Number) output; no crash occurs but the result is invalid."]
+                  "title": "sqrt() Function",
+                  "body": ["Syntax: double sqrt(double x);", "It accepts a double argument and returns the square root as a double. Passing a negative number results in a NaN (Not a Number) output; no crash occurs but the result is invalid."]
                 },
                 {
-                  title: "Compilation and Types",
-                  body: ["When using math.h functions, compile with: gcc program.c -o program -lm", "The -lm flag links the math library explicitly. Without it, a linker error occurs on some systems.", "sqrt() returns a double. If your variable is float, an implicit conversion occurs. It is safest to declare the variable as double when using math.h functions."]
+                  "title": "Compilation and Types",
+                  "body": ["When using math.h functions, compile with: gcc program.c -o program -lm", "The -lm flag links the math library explicitly. Without it, a linker error occurs on some systems.", "sqrt() returns a double. If your variable is float, an implicit conversion occurs. It is safest to declare the variable as double when using math.h functions."]
                 },
                 {
-                  title: "🛠️ What is -lm?",
-                  body: [
+                  "title": "🛠️ What is -lm?",
+                  "body": [
                     "When you use math.h, you need to also tell the compiler: \"Hey, I'm borrowing the math toolbox!\" The -lm flag is that permission slip. Without it, the compiler says \"I don't know what sqrt() is!\" and refuses to build your program."
                   ]
                 }
               ],
-              pretest:[],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the program trace.",
                 "Observe how the math.h library is included and how sqrt() is called.",
@@ -1965,20 +1965,20 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Square Root: 5.00",
                 "Try inputs like 2 and 0 to observe decimal and zero results. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double n, root;\n    scanf(\"%lf\", &n);\n    root = sqrt(n);\n    printf(\"Square Root: %.2f\\n\", root);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library for I/O", memory: [], output: "" },
-                  { line: 2, annotation: "Load math library for sqrt()", memory: [], output: "" },
-                  { line: 5, annotation: "Allocate memory for doubles n, root", memory: [{variable: "n", type: "double", value: "?"}, {variable: "root", type: "double", value: "?"}], output: "" },
-                  { line: 6, annotation: "scanf() reads '25' from user", memory: [{variable: "n", type: "double", value: "25.00"}, {variable: "root", type: "double", value: "?"}], output: "" },
-                  { line: 7, annotation: "Compute square root", memory: [{variable: "n", type: "double", value: "25.00"}, {variable: "root", type: "double", value: "5.00"}], output: "" },
-                  { line: 8, annotation: "printf() displays result", memory: [{variable: "n", type: "double", value: "25.00"}, {variable: "root", type: "double", value: "5.00"}], output: "Square Root: 5.00\n" },
-                  { line: 9, annotation: "Program terminates successfully", memory: [{variable: "n", type: "double", value: "25.00"}, {variable: "root", type: "double", value: "5.00"}], output: "Square Root: 5.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double n, root;\n    scanf(\"%lf\", &n);\n    root = sqrt(n);\n    printf(\"Square Root: %.2f\\n\", root);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library for I/O", "memory": [], "output": "" },
+                  { "line": 2, "annotation": "Load math library for sqrt()", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Allocate memory for doubles n, root", "memory": [{ "variable": "n", "type": "double", "value": "?" }, { "variable": "root", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "scanf() reads '25' from user", "memory": [{ "variable": "n", "type": "double", "value": "25.00" }, { "variable": "root", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 7, "annotation": "Compute square root", "memory": [{ "variable": "n", "type": "double", "value": "25.00" }, { "variable": "root", "type": "double", "value": "5.00" }], "output": "" },
+                  { "line": 8, "annotation": "printf() displays result", "memory": [{ "variable": "n", "type": "double", "value": "25.00" }, { "variable": "root", "type": "double", "value": "5.00" }], "output": "Square Root: 5.00\n" },
+                  { "line": 9, "annotation": "Program terminates successfully", "memory": [{ "variable": "n", "type": "double", "value": "25.00" }, { "variable": "root", "type": "double", "value": "5.00" }], "output": "Square Root: 5.00\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -1987,14 +1987,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w3-2",
-            title: "Compound Interest",
-            desc: "Calculate Compound Interest given P, R, T.",
-            expected: "Compound Interest: 210.00",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept principal, rate of interest, and number of years from the user, compute the compound interest, and display the result. The student will:",
-                bullets: [
+            "id": "c-w3-2",
+            "title": "Compound Interest",
+            "desc": "Calculate Compound Interest given P, R, T.",
+            "expected": "Compound Interest: 210.00",
+            "content": {
+              "aim": {
+                "text": "This experiment builds on the simple interest concept by implementing compound interest, where interest accumulates on both the original principal and previously earned interest. Students will accept principal, annual rate, and time as double-precision inputs, compute the final amount using the pow() function from math.h (A = P × (1 + R/100)^T), subtract the principal to obtain compound interest, and display the result to two decimal places. The experiment compares the growing effect of compound interest against simple interest and demonstrates why the pow() function is necessary for exponentiation in C.",
+                "bullets": [
                   "Declare and use float/double variables",
                   "Apply the compound interest formula: CI = P * pow(1 + R/100, T) - P",
                   "Use the pow() function from math.h",
@@ -2002,39 +2002,38 @@ export const courses: Record<string, Course> = {
                   "Distinguish between simple interest and compound interest computations"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🌱 Interest on interest — like a snowball rolling downhill!",
-                  body: [
+                  "title": "🌱 Interest on interest — like a snowball rolling downhill!",
+                  "body": [
                     "Simple interest always earns the same fixed amount every year. But compound interest earns interest on your ORIGINAL money AND on the interest you've already collected. So your money grows faster and faster — like a snowball picking up more snow as it rolls!",
-                    "![Snowball rolling downhill](https://sqy7rm.media.zestyio.com/Compound-Interest-Formula-Desktop.webp)"
                   ]
                 },
                 {
-                  title: "Compound Interest Formula",
-                  body: ["Unlike simple interest, compound interest calculates interest on both the principal and the previously accumulated interest:", "A = P * pow(1 + R/100, T)", "CI = A - P", "Where: P = Principal, R = Annual rate, T = Time, A = Amount"]
+                  "title": "Compound Interest Formula",
+                  "body": ["Unlike simple interest, compound interest calculates interest on both the principal and the previously accumulated interest:", "A = P * pow(1 + R/100, T)", "CI = A - P", "Where: P = Principal, R = Annual rate, T = Time, A = Amount"]
                 },
                 {
-                  title: "pow() Function",
-                  body: ["Syntax: double pow(double base, double exp);", "Returns base raised to the power exp. Requires #include <math.h> and -lm at compilation."]
+                  "title": "pow() Function",
+                  "body": ["Syntax: double pow(double base, double exp);", "Returns base raised to the power exp. Requires #include <math.h> and -lm at compilation."]
                 },
                 {
-                  title: "🔢 Why not just multiply manually?",
-                  body: [
+                  "title": "🔢 Why not just multiply manually?",
+                  "body": [
                     "What if T = 10 years? Would you write × 1.05 × 1.05 × 1.05 × 1.05 × 1.05 ... ten times? That's messy! pow(1.05, 10) does all that multiplication for you in one clean step. pow(base, exponent) means \"multiply base by itself exponent times.\""
                   ]
                 },
                 {
-                  title: "Why Not Use Simple Multiplication?",
-                  body: ["Compound interest involves raising a value to a power (exponentiation), which cannot be done cleanly with * alone for arbitrary T.", "pow() handles this for any real value of T, including fractional years."]
+                  "title": "Why Not Use Simple Multiplication?",
+                  "body": ["Compound interest involves raising a value to a power (exponentiation), which cannot be done cleanly with * alone for arbitrary T.", "pow() handles this for any real value of T, including fractional years."]
                 },
                 {
-                  title: "Float vs Double",
-                  body: ["For financial calculations with many decimal places, double is more precise than float. Always prefer double when using pow() and similar functions."]
+                  "title": "Float vs Double",
+                  "body": ["For financial calculations with many decimal places, double is more precise than float. Always prefer double when using pow() and similar functions."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the program trace.",
                 "Observe how pow() is called and how CI is derived from Amount minus Principal.",
@@ -2043,20 +2042,20 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Compound Interest: 210.00",
                 "Try fractional rates like 1000 8.5 3 and compare with simple interest. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double p, r, t, a, ci;\n    scanf(\"%lf %lf %lf\", &p, &r, &t);\n    a = p * pow(1 + r/100, t);\n    ci = a - p;\n    printf(\"Compound Interest: %.2f\\n\", ci);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio and math libraries", memory: [], output: "" },
-                  { line: 5, annotation: "Allocate memory for variables", memory: [{variable: "p", type: "double", value: "?"}, {variable: "r", type: "double", value: "?"}, {variable: "t", type: "double", value: "?"}, {variable: "a", type: "double", value: "?"}, {variable: "ci", type: "double", value: "?"}], output: "" },
-                  { line: 6, annotation: "scanf() reads '1000 10 2'", memory: [{variable: "p", type: "double", value: "1000"}, {variable: "r", type: "double", value: "10"}, {variable: "t", type: "double", value: "2"}, {variable: "a", type: "double", value: "?"}, {variable: "ci", type: "double", value: "?"}], output: "" },
-                  { line: 7, annotation: "Compute Amount using pow()", memory: [{variable: "p", type: "double", value: "1000"}, {variable: "r", type: "double", value: "10"}, {variable: "t", type: "double", value: "2"}, {variable: "a", type: "double", value: "1210.00"}, {variable: "ci", type: "double", value: "?"}], output: "" },
-                  { line: 8, annotation: "Compute Compound Interest", memory: [{variable: "p", type: "double", value: "1000"}, {variable: "r", type: "double", value: "10"}, {variable: "t", type: "double", value: "2"}, {variable: "a", type: "double", value: "1210.00"}, {variable: "ci", type: "double", value: "210.00"}], output: "" },
-                  { line: 9, annotation: "printf() displays result", memory: [{variable: "p", type: "double", value: "1000"}, {variable: "r", type: "double", value: "10"}, {variable: "t", type: "double", value: "2"}, {variable: "a", type: "double", value: "1210.00"}, {variable: "ci", type: "double", value: "210.00"}], output: "Compound Interest: 210.00\n" },
-                  { line: 10, annotation: "Program terminates successfully", memory: [{variable: "p", type: "double", value: "1000"}, {variable: "r", type: "double", value: "10"}, {variable: "t", type: "double", value: "2"}, {variable: "a", type: "double", value: "1210.00"}, {variable: "ci", type: "double", value: "210.00"}], output: "Compound Interest: 210.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double p, r, t, a, ci;\n    scanf(\"%lf %lf %lf\", &p, &r, &t);\n    a = p * pow(1 + r/100, t);\n    ci = a - p;\n    printf(\"Compound Interest: %.2f\\n\", ci);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio and math libraries", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Allocate memory for variables", "memory": [{ "variable": "p", "type": "double", "value": "?" }, { "variable": "r", "type": "double", "value": "?" }, { "variable": "t", "type": "double", "value": "?" }, { "variable": "a", "type": "double", "value": "?" }, { "variable": "ci", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "scanf() reads '1000 10 2'", "memory": [{ "variable": "p", "type": "double", "value": "1000" }, { "variable": "r", "type": "double", "value": "10" }, { "variable": "t", "type": "double", "value": "2" }, { "variable": "a", "type": "double", "value": "?" }, { "variable": "ci", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 7, "annotation": "Compute Amount using pow()", "memory": [{ "variable": "p", "type": "double", "value": "1000" }, { "variable": "r", "type": "double", "value": "10" }, { "variable": "t", "type": "double", "value": "2" }, { "variable": "a", "type": "double", "value": "1210.00" }, { "variable": "ci", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 8, "annotation": "Compute Compound Interest", "memory": [{ "variable": "p", "type": "double", "value": "1000" }, { "variable": "r", "type": "double", "value": "10" }, { "variable": "t", "type": "double", "value": "2" }, { "variable": "a", "type": "double", "value": "1210.00" }, { "variable": "ci", "type": "double", "value": "210.00" }], "output": "" },
+                  { "line": 9, "annotation": "printf() displays result", "memory": [{ "variable": "p", "type": "double", "value": "1000" }, { "variable": "r", "type": "double", "value": "10" }, { "variable": "t", "type": "double", "value": "2" }, { "variable": "a", "type": "double", "value": "1210.00" }, { "variable": "ci", "type": "double", "value": "210.00" }], "output": "Compound Interest: 210.00\n" },
+                  { "line": 10, "annotation": "Program terminates successfully", "memory": [{ "variable": "p", "type": "double", "value": "1000" }, { "variable": "r", "type": "double", "value": "10" }, { "variable": "t", "type": "double", "value": "2" }, { "variable": "a", "type": "double", "value": "1210.00" }, { "variable": "ci", "type": "double", "value": "210.00" }], "output": "Compound Interest: 210.00\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2065,14 +2064,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w3-3",
-            title: "Heron's Formula",
-            desc: "Calculate the area of a triangle using sides a, b, c.",
-            expected: "Area: 6.00",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept the three sides of a triangle from the user and compute its area using Heron's Formula. The student will:",
-                bullets: [
+            "id": "c-w3-3",
+            "title": "Heron's Formula",
+            "desc": "Calculate the area of a triangle using sides a, b, c.",
+            "expected": "Area: 6.00",
+            "content": {
+              "aim": {
+                "text": "This experiment demonstrates how to compute the area of a triangle when only its three side lengths are known — without needing height or any angle — using Heron's Formula (Area = √(s·(s-a)·(s-b)·(s-c)), where s is the semi-perimeter). Students will accept three side lengths as double inputs, verify the triangle inequality (a+b > c and variants), compute the semi-perimeter, apply the formula using sqrt() from math.h, and display the computed area. The experiment reinforces the use of intermediate variables, multi-step formula translation, and defensive input validation in C programs.",
+                "bullets": [
                   "Declare and use float/double variables for side lengths and area",
                   "Compute the semi-perimeter of a triangle",
                   "Apply Heron's Formula using sqrt() from math.h",
@@ -2080,40 +2079,40 @@ export const courses: Record<string, Course> = {
                   "Use printf() with %.2f to display the computed area"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "📐 Finding area without a ruler for height!",
-                  body: [
+                  "title": "📐 Finding area without a ruler for height!",
+                  "body": [
                     "Usually to find a triangle's area you need ½ × base × height. But what if you only know the lengths of all three sides and can't measure the height? Heron of Alexandria figured out a clever formula about 2000 years ago that lets you do exactly that!",
                     "It's like being a detective — you use the clues you have (the three sides) to figure out something you can't directly measure (the area).",
-                    "![A triangle drawn on paper](https://androidcure.com/wp-content/uploads/2021/06/Heron-Formula.webp)"
+                    "![Triangle with sides labeled a b c](herons-formula.webp)"
                   ]
                 },
                 {
-                  title: "Heron's Formula",
-                  body: ["Given a triangle with sides a, b, and c, its area can be computed without knowing any angle:", "s = (a + b + c) / 2 (semi-perimeter)", "Area = sqrt(s * (s-a) * (s-b) * (s-c))", "This formula works for any triangle as long as the sides satisfy the triangle inequality."]
+                  "title": "Heron's Formula",
+                  "body": ["Given a triangle with sides a, b, and c, its area can be computed without knowing any angle:", "s = (a + b + c) / 2 (semi-perimeter)", "Area = sqrt(s * (s-a) * (s-b) * (s-c))", "This formula works for any triangle as long as the sides satisfy the triangle inequality."]
                 },
                 {
-                  title: "Triangle Inequality",
-                  body: ["For three sides to form a valid triangle, the sum of any two sides must be greater than the third side:", "a + b > c, b + c > a, a + c > b", "If this condition is not met, the expression inside sqrt() becomes negative or zero, yielding NaN or 0 as the area."]
+                  "title": "Triangle Inequality",
+                  "body": ["For three sides to form a valid triangle, the sum of any two sides must be greater than the third side:", "a + b > c, b + c > a, a + c > b", "If this condition is not met, the expression inside sqrt() becomes negative or zero, yielding NaN or 0 as the area."]
                 },
                 {
-                  title: "✅ The triangle test:",
-                  body: [
+                  "title": "✅ The triangle test:",
+                  "body": [
                     "Can you make a triangle with sides 3, 4, and 10? Try it with sticks! The 10cm stick is too long — the other two (3+4=7) can't even reach each other to close the triangle. So the rule is: any two sides added together must be longer than the third side. If this fails, there's no triangle — and your code should handle that!"
                   ]
                 },
                 {
-                  title: "Semi-perimeter",
-                  body: ["s is half the perimeter. It simplifies the formula and is a required intermediate value. Always compute s before computing the area."]
+                  "title": "Semi-perimeter",
+                  "body": ["s is half the perimeter. It simplifies the formula and is a required intermediate value. Always compute s before computing the area."]
                 },
                 {
-                  title: "sqrt() and math.h",
-                  body: ["Heron's Formula requires a square root. Include math.h and compile with -lm."]
+                  "title": "sqrt() and math.h",
+                  "body": ["Heron's Formula requires a square root. Include math.h and compile with -lm."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the program trace.",
                 "Observe how s is computed first and how each factor (s-a), (s-b), (s-c) is evaluated.",
@@ -2122,20 +2121,20 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Area: 6.00",
                 "Try an equilateral triangle like 5 5 5 and an invalid input like 1 2 10. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double a, b, c, s, area;\n    scanf(\"%lf %lf %lf\", &a, &b, &c);\n    s = (a + b + c) / 2;\n    area = sqrt(s * (s-a) * (s-b) * (s-c));\n    printf(\"Area: %.2f\\n\", area);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio and math libraries", memory: [], output: "" },
-                  { line: 5, annotation: "Allocate memory for variables", memory: [{variable: "a", type: "double", value: "?"}, {variable: "b", type: "double", value: "?"}, {variable: "c", type: "double", value: "?"}, {variable: "s", type: "double", value: "?"}, {variable: "area", type: "double", value: "?"}], output: "" },
-                  { line: 6, annotation: "scanf() reads '3 4 5' from user", memory: [{variable: "a", type: "double", value: "3.00"}, {variable: "b", type: "double", value: "4.00"}, {variable: "c", type: "double", value: "5.00"}, {variable: "s", type: "double", value: "?"}, {variable: "area", type: "double", value: "?"}], output: "" },
-                  { line: 7, annotation: "Compute semi-perimeter s", memory: [{variable: "a", type: "double", value: "3.00"}, {variable: "b", type: "double", value: "4.00"}, {variable: "c", type: "double", value: "5.00"}, {variable: "s", type: "double", value: "6.00"}, {variable: "area", type: "double", value: "?"}], output: "" },
-                  { line: 8, annotation: "Compute Area using Heron's formula", memory: [{variable: "a", type: "double", value: "3.00"}, {variable: "b", type: "double", value: "4.00"}, {variable: "c", type: "double", value: "5.00"}, {variable: "s", type: "double", value: "6.00"}, {variable: "area", type: "double", value: "6.00"}], output: "" },
-                  { line: 9, annotation: "printf() displays area", memory: [{variable: "a", type: "double", value: "3.00"}, {variable: "b", type: "double", value: "4.00"}, {variable: "c", type: "double", value: "5.00"}, {variable: "s", type: "double", value: "6.00"}, {variable: "area", type: "double", value: "6.00"}], output: "Area: 6.00\n" },
-                  { line: 10, annotation: "Program terminates successfully", memory: [{variable: "a", type: "double", value: "3.00"}, {variable: "b", type: "double", value: "4.00"}, {variable: "c", type: "double", value: "5.00"}, {variable: "s", type: "double", value: "6.00"}, {variable: "area", type: "double", value: "6.00"}], output: "Area: 6.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double a, b, c, s, area;\n    scanf(\"%lf %lf %lf\", &a, &b, &c);\n    s = (a + b + c) / 2;\n    area = sqrt(s * (s-a) * (s-b) * (s-c));\n    printf(\"Area: %.2f\\n\", area);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio and math libraries", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Allocate memory for variables", "memory": [{ "variable": "a", "type": "double", "value": "?" }, { "variable": "b", "type": "double", "value": "?" }, { "variable": "c", "type": "double", "value": "?" }, { "variable": "s", "type": "double", "value": "?" }, { "variable": "area", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "scanf() reads '3 4 5' from user", "memory": [{ "variable": "a", "type": "double", "value": "3.00" }, { "variable": "b", "type": "double", "value": "4.00" }, { "variable": "c", "type": "double", "value": "5.00" }, { "variable": "s", "type": "double", "value": "?" }, { "variable": "area", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 7, "annotation": "Compute semi-perimeter s", "memory": [{ "variable": "a", "type": "double", "value": "3.00" }, { "variable": "b", "type": "double", "value": "4.00" }, { "variable": "c", "type": "double", "value": "5.00" }, { "variable": "s", "type": "double", "value": "6.00" }, { "variable": "area", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 8, "annotation": "Compute Area using Heron's formula", "memory": [{ "variable": "a", "type": "double", "value": "3.00" }, { "variable": "b", "type": "double", "value": "4.00" }, { "variable": "c", "type": "double", "value": "5.00" }, { "variable": "s", "type": "double", "value": "6.00" }, { "variable": "area", "type": "double", "value": "6.00" }], "output": "" },
+                  { "line": 9, "annotation": "printf() displays area", "memory": [{ "variable": "a", "type": "double", "value": "3.00" }, { "variable": "b", "type": "double", "value": "4.00" }, { "variable": "c", "type": "double", "value": "5.00" }, { "variable": "s", "type": "double", "value": "6.00" }, { "variable": "area", "type": "double", "value": "6.00" }], "output": "Area: 6.00\n" },
+                  { "line": 10, "annotation": "Program terminates successfully", "memory": [{ "variable": "a", "type": "double", "value": "3.00" }, { "variable": "b", "type": "double", "value": "4.00" }, { "variable": "c", "type": "double", "value": "5.00" }, { "variable": "s", "type": "double", "value": "6.00" }, { "variable": "area", "type": "double", "value": "6.00" }], "output": "Area: 6.00\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2144,55 +2143,55 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w3-4",
-            title: "Distance Traveled",
-            desc: "Calculate distance using s = ut + 0.5*a*t^2.",
-            expected: "Distance: 20.00",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept initial velocity, acceleration, and time from the user, compute the distance traveled using the equation of motion, and display the result. The student will:",
-                bullets: [
+            "id": "c-w3-4",
+            "title": "Distance Traveled",
+            "desc": "Calculate distance using s = ut + 0.5*a*t^2.",
+            "expected": "Distance: 20.00",
+            "content": {
+              "aim": {
+                "text": "This experiment applies C arithmetic to classical kinematics by implementing the second equation of motion (s = ut + ½at²). Students will accept initial velocity, acceleration, and time as floating-point inputs, compute the distance traveled using the kinematic formula, and display the result to two decimal places. A central learning point is the integer-division trap: writing 1/2 in C yields 0, so the constant ½ must be written as 0.5. The experiment connects physics equations to programming and reinforces careful handling of constants and operators in C arithmetic expressions.",
+                "bullets": [
                   "Declare and use float variables for physical quantities",
                   "Apply the kinematic equation: s = ut + (1/2) * a * t * t",
                   "Understand why (1/2) must be written as 0.5 or (float)1/2 to avoid integer truncation",
                   "Use printf() with %.2f to display the distance to 2 decimal places"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🚀 Launching a rocket in code!",
-                  body: [
+                  "title": "🚀 Launching a rocket in code!",
+                  "body": [
                     "Imagine a car starts from rest (initial velocity = 0) and speeds up at 2 m/s every second (acceleration = 2 m/s²). After 5 seconds, how far has it gone? This formula from physics tells you exactly that! It's the same formula scientists use to calculate how far a rocket travels after launch.",
                     "s = u×t + ½×a×t²",
                     "u = starting speed, a = how fast it's speeding up, t = how many seconds passed",
-                    "![A rocket launching](https://forums.flightsimulator.com/uploads/default/original/4X/b/6/3/b63f37de919e547414b9a4bc348618c5730d2b8e.webp)"
+                    "![Projectile motion parabolic](projectile-motion.webp)"
                   ]
                 },
                 {
-                  title: "Equation of Motion",
-                  body: ["The distance traveled by an object under uniform acceleration is:", "s = u*t + 0.5 * a * t * t", "Where: s = Distance (m), u = Initial velocity (m/s), a = Acceleration (m/s²), t = Time (s)", "This is the second equation of motion from classical kinematics."]
+                  "title": "Equation of Motion",
+                  "body": ["The distance traveled by an object under uniform acceleration is:", "s = u*t + 0.5 * a * t * t", "Where: s = Distance (m), u = Initial velocity (m/s), a = Acceleration (m/s²), t = Time (s)", "This is the second equation of motion from classical kinematics."]
                 },
                 {
-                  title: "Integer Division Pitfall",
-                  body: ["Writing 1/2 in C evaluates to 0 because both operands are integer literals, truncating the result.", "Always write 0.5 or (float)1/2 to preserve the half factor."]
+                  "title": "Integer Division Pitfall",
+                  "body": ["Writing 1/2 in C evaluates to 0 because both operands are integer literals, truncating the result.", "Always write 0.5 or (float)1/2 to preserve the half factor."]
                 },
                 {
-                  title: "⚠️ The sneaky 1/2 bug again!",
-                  body: [
+                  "title": "⚠️ The sneaky 1/2 bug again!",
+                  "body": [
                     "Writing 1/2 in C gives 0 — not 0.5! Always write 0.5 directly in physics formulas. It's one of the most common beginner mistakes that causes completely wrong answers. The computer isn't wrong — it's just doing integer math because you gave it two whole numbers!"
                   ]
                 },
                 {
-                  title: "Squaring t",
-                  body: ["C has no ** operator. To compute t squared, write t * t or use pow(t, 2).", "For simple squaring, t * t is preferred as it avoids the overhead of calling pow()."]
+                  "title": "Squaring t",
+                  "body": ["C has no ** operator. To compute t squared, write t * t or use pow(t, 2).", "For simple squaring, t * t is preferred as it avoids the overhead of calling pow()."]
                 },
                 {
-                  title: "Units",
-                  body: ["Ensure consistent units. If u is in m/s and a is in m/s², then t must be in seconds and s will be in metres."]
+                  "title": "Units",
+                  "body": ["Ensure consistent units. If u is in m/s and a is in m/s², then t must be in seconds and s will be in metres."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the program trace.",
                 "Observe how each term u*t and 0.5*a*t*t is computed and summed.",
@@ -2201,19 +2200,19 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Distance: 20.00",
                 "Try u = 5, a = 2, t = 3 and manually verify. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    float u, a, t, s;\n    scanf(\"%f %f %f\", &u, &a, &t);\n    s = u * t + 0.5 * a * t * t;\n    printf(\"Distance: %.2f\\n\", s);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate memory for floats", memory: [{variable: "u", type: "float", value: "?"}, {variable: "a", type: "float", value: "?"}, {variable: "t", type: "float", value: "?"}, {variable: "s", type: "float", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '0 10 2'", memory: [{variable: "u", type: "float", value: "0.00"}, {variable: "a", type: "float", value: "10.00"}, {variable: "t", type: "float", value: "2.00"}, {variable: "s", type: "float", value: "?"}], output: "" },
-                  { line: 6, annotation: "Compute Distance s", memory: [{variable: "u", type: "float", value: "0.00"}, {variable: "a", type: "float", value: "10.00"}, {variable: "t", type: "float", value: "2.00"}, {variable: "s", type: "float", value: "20.00"}], output: "" },
-                  { line: 7, annotation: "printf() displays distance", memory: [{variable: "u", type: "float", value: "0.00"}, {variable: "a", type: "float", value: "10.00"}, {variable: "t", type: "float", value: "2.00"}, {variable: "s", type: "float", value: "20.00"}], output: "Distance: 20.00\n" },
-                  { line: 8, annotation: "Program terminates", memory: [{variable: "u", type: "float", value: "0.00"}, {variable: "a", type: "float", value: "10.00"}, {variable: "t", type: "float", value: "2.00"}, {variable: "s", type: "float", value: "20.00"}], output: "Distance: 20.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    float u, a, t, s;\n    scanf(\"%f %f %f\", &u, &a, &t);\n    s = u * t + 0.5 * a * t * t;\n    printf(\"Distance: %.2f\\n\", s);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate memory for floats", "memory": [{ "variable": "u", "type": "float", "value": "?" }, { "variable": "a", "type": "float", "value": "?" }, { "variable": "t", "type": "float", "value": "?" }, { "variable": "s", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '0 10 2'", "memory": [{ "variable": "u", "type": "float", "value": "0.00" }, { "variable": "a", "type": "float", "value": "10.00" }, { "variable": "t", "type": "float", "value": "2.00" }, { "variable": "s", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "Compute Distance s", "memory": [{ "variable": "u", "type": "float", "value": "0.00" }, { "variable": "a", "type": "float", "value": "10.00" }, { "variable": "t", "type": "float", "value": "2.00" }, { "variable": "s", "type": "float", "value": "20.00" }], "output": "" },
+                  { "line": 7, "annotation": "printf() displays distance", "memory": [{ "variable": "u", "type": "float", "value": "0.00" }, { "variable": "a", "type": "float", "value": "10.00" }, { "variable": "t", "type": "float", "value": "2.00" }, { "variable": "s", "type": "float", "value": "20.00" }], "output": "Distance: 20.00\n" },
+                  { "line": 8, "annotation": "Program terminates", "memory": [{ "variable": "u", "type": "float", "value": "0.00" }, { "variable": "a", "type": "float", "value": "10.00" }, { "variable": "t", "type": "float", "value": "2.00" }, { "variable": "s", "type": "float", "value": "20.00" }], "output": "Distance: 20.00\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2221,23 +2220,23 @@ export const courses: Record<string, Course> = {
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 4",
-        objective: "Expressions, operator precedence and associativity",
-        tutorial: "Tutorial 4: Operators and Precedence",
-        labTitle: "Lab 4: Expressions and Operators",
-        experiments: [
+        "title": "WEEK 4",
+        "objective": "Expressions, operator precedence and associativity",
+        "tutorial": "Tutorial 4: Operators and Precedence",
+        "labTitle": "Lab 4: Expressions and Operators",
+        "experiments": [
           {
-            id: "c-w4-1",
-            title: "Expression Evaluation",
-            desc: "Evaluate the expression A+B*C+(D*E)+F*G.",
-            expected: "2 + 3 * 4 = 14",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to evaluate a complex arithmetic expression involving multiple operators and demonstrate the effect of operator precedence and associativity on the result. The student will:",
-                bullets: [
+            "id": "c-w4-1",
+            "title": "Expression Evaluation",
+            "desc": "Evaluate the expression A+B*C+(D*E)+F*G.",
+            "expected": "2 + 3 * 4 = 14",
+            "content": {
+              "aim": {
+                "text": "This experiment develops a precise understanding of how C evaluates arithmetic expressions containing multiple operators. Students will write a program that evaluates a set of expressions — including expressions mixing +, *, %, and unary operators — and prints each result. The core learning objective is understanding operator precedence (multiplication and division before addition and subtraction), left-to-right associativity for same-precedence operators, and how parentheses override default evaluation order. Students will also distinguish between integer and floating-point division, and explore the modulus operator for remainder computation.",
+                "bullets": [
                   "Understand operator precedence levels in C (*, /, % before +, -)",
                   "Understand left-to-right associativity for arithmetic operators",
                   "Use parentheses to control evaluation order",
@@ -2245,41 +2244,41 @@ export const courses: Record<string, Course> = {
                   "Print intermediate and final results using printf()"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🎯 Math has a queue, just like a canteen!",
-                  body: [
+                  "title": "🎯 Math has a queue, just like a canteen!",
+                  "body": [
                     "In a school canteen, students with lunch boxes go first, then others. In C math, × and ÷ always go before + and −. This ordering is called operator precedence — it's the queue system of mathematics!",
                     "So 2 + 3 × 4 = 2 + 12 = 14 (NOT 5 × 4 = 20)",
                     "Use ( ) parentheses whenever you want something to go first in the queue!",
-                    "![Queue / lineup of people](https://image2.slideserve.com/4538776/expression-evaluation-l.webp)"
+                    "![Operator precedence table](Operator-Precedence-and-Associativity-in-C.webp)"
                   ]
                 },
                 {
-                  title: "Operator Precedence",
-                  body: ["When an expression contains multiple operators, C evaluates higher-precedence operators first. The standard precedence order for arithmetic:", "Level 1 (highest): *, /, %", "Level 2: +, -", "Level 3 (lowest): = (assignment)", "Example: 2 + 3 * 4 evaluates as 2 + (3 * 4) = 2 + 12 = 14, not 20."]
+                  "title": "Operator Precedence",
+                  "body": ["When an expression contains multiple operators, C evaluates higher-precedence operators first. The standard precedence order for arithmetic:", "Level 1 (highest): *, /, %", "Level 2: +, -", "Level 3 (lowest): = (assignment)", "Example: 2 + 3 * 4 evaluates as 2 + (3 * 4) = 2 + 12 = 14, not 20."]
                 },
                 {
-                  title: "Associativity",
-                  body: ["When two operators have equal precedence, associativity determines evaluation order. All basic arithmetic operators are left-to-right associative:", "10 - 3 - 2 evaluates as (10 - 3) - 2 = 5, not 10 - (3 - 2) = 9."]
+                  "title": "Associativity",
+                  "body": ["When two operators have equal precedence, associativity determines evaluation order. All basic arithmetic operators are left-to-right associative:", "10 - 3 - 2 evaluates as (10 - 3) - 2 = 5, not 10 - (3 - 2) = 9."]
                 },
                 {
-                  title: "↔️ Left to right — like reading a book!",
-                  body: [
+                  "title": "↔️ Left to right — like reading a book!",
+                  "body": [
                     "When operators have the same precedence (like − and −), C reads them left to right, just like you read a sentence. So 10 - 3 - 2 becomes (10-3) - 2 = 5, not 10 - (3-2) = 9. Always read left to right when in doubt!"
                   ]
                 },
                 {
-                  title: "Parentheses",
-                  body: ["Parentheses override all precedence rules and force a sub-expression to be evaluated first:", "(2 + 3) * 4 = 20"]
+                  "title": "Parentheses",
+                  "body": ["Parentheses override all precedence rules and force a sub-expression to be evaluated first:", "(2 + 3) * 4 = 20"]
                 },
                 {
-                  title: "Modulus and Types",
-                  body: ["Integer vs Float Division — 7 / 2 = 3 (integer truncation). 7.0 / 2 = 3.5 (float).", "Modulus Operator — % gives the remainder of integer division. 17 % 5 = 2 because 17 = 5*3 + 2. % is only valid for integer operands in C."]
+                  "title": "Modulus and Types",
+                  "body": ["Integer vs Float Division — 7 / 2 = 3 (integer truncation). 7.0 / 2 = 3.5 (float).", "Modulus Operator — % gives the remainder of integer division. 17 % 5 = 2 because 17 = 5*3 + 2. % is only valid for integer operands in C."]
                 },
                 {
-                  title: "🧮 What is % — the remainder operator?",
-                  body: [
+                  "title": "🧮 What is % — the remainder operator?",
+                  "body": [
                     "17 % 5 means: \"how many are left over after dividing 17 into groups of 5?\"",
                     "17 ÷ 5 = 3 groups of 5 (that's 15), with 2 left over.",
                     "So 17 % 5 = 2.",
@@ -2287,12 +2286,12 @@ export const courses: Record<string, Course> = {
                   ]
                 },
                 {
-                  title: "Increment and Decrement",
-                  body: ["++ and -- modify a variable by 1.", "Pre-increment ++x : increments first, then uses value.", "Post-increment x++ : uses value first, then increments."]
+                  "title": "Increment and Decrement",
+                  "body": ["++ and -- modify a variable by 1.", "Pre-increment ++x : increments first, then uses value.", "Post-increment x++ : uses value first, then increments."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the expression evaluation trace.",
                 "Observe how each sub-expression is evaluated in order of precedence.",
@@ -2301,21 +2300,21 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify each printed result matches the expected value.",
                 "Modify the expressions using parentheses and observe how results change. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int res1 = 2 + 3 * 4;\n    int res2 = 10 - 3 - 2;\n    int res3 = 17 % 5;\n    printf(\"2 + 3 * 4 = %d\\n\", res1);\n    printf(\"10 - 3 - 2 = %d\\n\", res2);\n    printf(\"17 %% 5 = %d\\n\", res3);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Evaluate 3 * 4 first, then 2 + 12 = 14", memory: [{variable: "res1", type: "int", value: "14"}], output: "" },
-                  { line: 5, annotation: "Left to right: 10 - 3 = 7, then 7 - 2 = 5", memory: [{variable: "res1", type: "int", value: "14"}, {variable: "res2", type: "int", value: "5"}], output: "" },
-                  { line: 6, annotation: "17 % 5 is remainder of 17 / 5, which is 2", memory: [{variable: "res1", type: "int", value: "14"}, {variable: "res2", type: "int", value: "5"}, {variable: "res3", type: "int", value: "2"}], output: "" },
-                  { line: 7, annotation: "Print first result", memory: [{variable: "res1", type: "int", value: "14"}, {variable: "res2", type: "int", value: "5"}, {variable: "res3", type: "int", value: "2"}], output: "2 + 3 * 4 = 14\n" },
-                  { line: 8, annotation: "Print second result", memory: [{variable: "res1", type: "int", value: "14"}, {variable: "res2", type: "int", value: "5"}, {variable: "res3", type: "int", value: "2"}], output: "2 + 3 * 4 = 14\n10 - 3 - 2 = 5\n" },
-                  { line: 9, annotation: "Print third result", memory: [{variable: "res1", type: "int", value: "14"}, {variable: "res2", type: "int", value: "5"}, {variable: "res3", type: "int", value: "2"}], output: "2 + 3 * 4 = 14\n10 - 3 - 2 = 5\n17 % 5 = 2\n" },
-                  { line: 10, annotation: "Program terminates", memory: [{variable: "res1", type: "int", value: "14"}, {variable: "res2", type: "int", value: "5"}, {variable: "res3", type: "int", value: "2"}], output: "2 + 3 * 4 = 14\n10 - 3 - 2 = 5\n17 % 5 = 2\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int res1 = 2 + 3 * 4;\n    int res2 = 10 - 3 - 2;\n    int res3 = 17 % 5;\n    printf(\"2 + 3 * 4 = %d\\n\", res1);\n    printf(\"10 - 3 - 2 = %d\\n\", res2);\n    printf(\"17 %% 5 = %d\\n\", res3);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Evaluate 3 * 4 first, then 2 + 12 = 14", "memory": [{ "variable": "res1", "type": "int", "value": "14" }], "output": "" },
+                  { "line": 5, "annotation": "Left to right: 10 - 3 = 7, then 7 - 2 = 5", "memory": [{ "variable": "res1", "type": "int", "value": "14" }, { "variable": "res2", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 6, "annotation": "17 % 5 is remainder of 17 / 5, which is 2", "memory": [{ "variable": "res1", "type": "int", "value": "14" }, { "variable": "res2", "type": "int", "value": "5" }, { "variable": "res3", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 7, "annotation": "Print first result", "memory": [{ "variable": "res1", "type": "int", "value": "14" }, { "variable": "res2", "type": "int", "value": "5" }, { "variable": "res3", "type": "int", "value": "2" }], "output": "2 + 3 * 4 = 14\n" },
+                  { "line": 8, "annotation": "Print second result", "memory": [{ "variable": "res1", "type": "int", "value": "14" }, { "variable": "res2", "type": "int", "value": "5" }, { "variable": "res3", "type": "int", "value": "2" }], "output": "2 + 3 * 4 = 14\n10 - 3 - 2 = 5\n" },
+                  { "line": 9, "annotation": "Print third result", "memory": [{ "variable": "res1", "type": "int", "value": "14" }, { "variable": "res2", "type": "int", "value": "5" }, { "variable": "res3", "type": "int", "value": "2" }], "output": "2 + 3 * 4 = 14\n10 - 3 - 2 = 5\n17 % 5 = 2\n" },
+                  { "line": 10, "annotation": "Program terminates", "memory": [{ "variable": "res1", "type": "int", "value": "14" }, { "variable": "res2", "type": "int", "value": "5" }, { "variable": "res3", "type": "int", "value": "2" }], "output": "2 + 3 * 4 = 14\n10 - 3 - 2 = 5\n17 % 5 = 2\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2324,14 +2323,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w4-2",
-            title: "Max of Three",
-            desc: "Find maximum among three numbers using conditional operator.",
-            expected: "Maximum: 25",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept three integers from the user and determine the largest among them using the ternary operator and/or relational operators. The student will:",
-                bullets: [
+            "id": "c-w4-2",
+            "title": "Max of Three",
+            "desc": "Find maximum among three numbers using conditional operator.",
+            "expected": "Maximum: 25",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces the ternary (conditional) operator and relational operators in C by solving the practical problem of finding the largest of three integers. Students will accept three integers from the user and determine the maximum using a nested ternary expression ((a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c)). The experiment teaches how relational operators produce boolean (0/1) results, how the ternary operator acts as a compact inline decision maker, and how logical operators can combine multiple conditions — providing a foundation for all decision-making constructs in subsequent experiments.",
+                "bullets": [
                   "Declare and use int variables",
                   "Apply relational operators (>, <, >=, <=, ==, !=)",
                   "Use the ternary (conditional) operator ?: to select the maximum value",
@@ -2339,26 +2338,26 @@ export const courses: Record<string, Course> = {
                   "Use printf() to display the result"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Relational Operators",
-                  body: ["Used to compare two values and return 1 (true) or 0 (false):", "> greater than, < less than, >= greater than or equal to, <= less than or equal to", "== equal to (note: == not =, which is assignment)", "!= not equal to"]
+                  "title": "Relational Operators",
+                  "body": ["Used to compare two values and return 1 (true) or 0 (false):", "> greater than, < less than, >= greater than or equal to, <= less than or equal to", "== equal to (note: == not =, which is assignment)", "!= not equal to"]
                 },
                 {
-                  title: "Ternary Operator",
-                  body: ["The conditional (ternary) operator is the only C operator that takes three operands.", "Syntax: condition ? expression_if_true : expression_if_false", "Example: max = (a > b) ? a : b;", "If a > b is true, max gets a; otherwise max gets b."]
+                  "title": "Ternary Operator",
+                  "body": ["The conditional (ternary) operator is the only C operator that takes three operands.", "Syntax: condition ? expression_if_true : expression_if_false", "Example: max = (a > b) ? a : b;", "If a > b is true, max gets a; otherwise max gets b."]
                 },
                 {
-                  title: "Finding Max of Three",
-                  body: ["Chain two ternary operations:", "max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);", "Alternatively, use two sequential comparisons with a temporary variable:", "max = a; if (b > max) max = b; if (c > max) max = c;"]
+                  "title": "Finding Max of Three",
+                  "body": ["Chain two ternary operations:", "max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);", "Alternatively, use two sequential comparisons with a temporary variable:", "![Flow of finding max of three numbers](largest-among-three-numbers.webp)","max = a; if (b > max) max = b; if (c > max) max = c;"]
                 },
                 {
-                  title: "Logical Operators and Precedence",
-                  body: ["Logical Operators — && (AND), || (OR), ! (NOT) are used to combine conditions. (a > b && a > c) is true only when a is strictly greater than both b and c.", "Arithmetic operators have higher precedence than relational operators.", "Relational operators have higher precedence than logical operators.", "Ternary has lower precedence than arithmetic and relational but higher than assignment."]
+                  "title": "Logical Operators and Precedence",
+                  "body": ["Logical Operators — && (AND), || (OR), ! (NOT) are used to combine conditions. (a > b && a > c) is true only when a is strictly greater than both b and c.", "Arithmetic operators have higher precedence than relational operators.", "Relational operators have higher precedence than logical operators.", "Ternary has lower precedence than arithmetic and relational but higher than assignment."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the ternary evaluation trace.",
                 "Observe how conditions are evaluated and how the ternary operator selects a value.",
@@ -2367,19 +2366,19 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Maximum: 25",
                 "Try equal values like 5 5 5 and negative values like -3 -1 -7. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int a, b, c, max;\n    scanf(\"%d %d %d\", &a, &b, &c);\n    max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);\n    printf(\"Maximum: %d\\n\", max);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate memory for integers", memory: [{variable: "a", type: "int", value: "?"}, {variable: "b", type: "int", value: "?"}, {variable: "c", type: "int", value: "?"}, {variable: "max", type: "int", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '10 25 7'", memory: [{variable: "a", type: "int", value: "10"}, {variable: "b", type: "int", value: "25"}, {variable: "c", type: "int", value: "7"}, {variable: "max", type: "int", value: "?"}], output: "" },
-                  { line: 6, annotation: "Evaluate ternary: (10 > 25) is false, so evaluate ((25 > 7) ? 25 : 7) -> 25", memory: [{variable: "a", type: "int", value: "10"}, {variable: "b", type: "int", value: "25"}, {variable: "c", type: "int", value: "7"}, {variable: "max", type: "int", value: "25"}], output: "" },
-                  { line: 7, annotation: "printf() displays max", memory: [{variable: "a", type: "int", value: "10"}, {variable: "b", type: "int", value: "25"}, {variable: "c", type: "int", value: "7"}, {variable: "max", type: "int", value: "25"}], output: "Maximum: 25\n" },
-                  { line: 8, annotation: "Program terminates", memory: [{variable: "a", type: "int", value: "10"}, {variable: "b", type: "int", value: "25"}, {variable: "c", type: "int", value: "7"}, {variable: "max", type: "int", value: "25"}], output: "Maximum: 25\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int a, b, c, max;\n    scanf(\"%d %d %d\", &a, &b, &c);\n    max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);\n    printf(\"Maximum: %d\\n\", max);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate memory for integers", "memory": [{ "variable": "a", "type": "int", "value": "?" }, { "variable": "b", "type": "int", "value": "?" }, { "variable": "c", "type": "int", "value": "?" }, { "variable": "max", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '10 25 7'", "memory": [{ "variable": "a", "type": "int", "value": "10" }, { "variable": "b", "type": "int", "value": "25" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "max", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "Evaluate ternary: (10 > 25) is false, so evaluate ((25 > 7) ? 25 : 7) -> 25", "memory": [{ "variable": "a", "type": "int", "value": "10" }, { "variable": "b", "type": "int", "value": "25" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "max", "type": "int", "value": "25" }], "output": "" },
+                  { "line": 7, "annotation": "printf() displays max", "memory": [{ "variable": "a", "type": "int", "value": "10" }, { "variable": "b", "type": "int", "value": "25" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "max", "type": "int", "value": "25" }], "output": "Maximum: 25\n" },
+                  { "line": 8, "annotation": "Program terminates", "memory": [{ "variable": "a", "type": "int", "value": "10" }, { "variable": "b", "type": "int", "value": "25" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "max", "type": "int", "value": "25" }], "output": "Maximum: 25\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2388,14 +2387,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w4-3",
-            title: "Marks Average",
-            desc: "Calculate total and average of 5 subjects.",
-            expected: "Total: 425 Average: 85.00 Grade: B",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept marks for multiple subjects from the user, compute the total and average marks, and display the results along with a grade determined using relational and logical operators. The student will:",
-                bullets: [
+            "id": "c-w4-3",
+            "title": "Marks Average",
+            "desc": "Calculate total and average of 5 subjects.",
+            "expected": "Total: 425 Average: 85.00 Grade: B",
+            "content": {
+              "aim": {
+                "text": "This experiment integrates multiple operator concepts to solve a realistic grading problem. Students will accept marks for five subjects, accumulate the total using compound assignment operators (+=), compute the float average with a type cast, and determine the student's grade using a chain of relational and logical comparisons (>=, &&). By the end, students will understand how compound assignment shortens repetitive code, how operator precedence affects multi-condition boolean expressions, and how a sequence of if-else if branches selects exactly one outcome from a set of mutually exclusive grade bands.",
+                "bullets": [
                   "Declare and use int variables for marks and float for average",
                   "Apply compound assignment operators (+=) to accumulate a total",
                   "Use relational and logical operators to determine a grade band",
@@ -2403,26 +2402,26 @@ export const courses: Record<string, Course> = {
                   "Use printf() with %d and %.2f format specifiers"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Compound Assignment Operators",
-                  body: ["C provides shorthand operators that combine arithmetic with assignment:", "total += marks is equivalent to total = total + marks", "x *= 2 is equivalent to x = x * 2", "These make code concise and reduce repetition."]
+                  "title": "Compound Assignment Operators",
+                  "body": ["C provides shorthand operators that combine arithmetic with assignment:", "total += marks is equivalent to total = total + marks", "x *= 2 is equivalent to x = x * 2", "These make code concise and reduce repetition."]
                 },
                 {
-                  title: "Average Calculation",
-                  body: ["To compute an average:", "average = (float)total / n", "The cast to float ensures decimal precision. If total and n are both int, integer division truncates the result."]
+                  "title": "Average Calculation",
+                  "body": ["To compute an average:", "average = (float)total / n", "The cast to float ensures decimal precision. If total and n are both int, integer division truncates the result."]
                 },
                 {
-                  title: "Relational and Logical Operators in Grading",
-                  body: ["Grade bands are checked using >= and <= with && (AND):", "if (average >= 90 && average <= 100) → Grade A", "if (average >= 75 && average < 90) → Grade B", "if (average >= 60 && average < 75) → Grade C", "if (average >= 40 && average < 60) → Grade D", "if (average < 40) → Grade F"]
+                  "title": "Relational and Logical Operators in Grading",
+                  "body": ["Grade bands are checked using >= and <= with && (AND):", "if (average >= 90 && average <= 100) → Grade A", "if (average >= 75 && average < 90) → Grade B", "if (average >= 60 && average < 75) → Grade C", "if (average >= 40 && average < 60) → Grade D", "if (average < 40) → Grade F"]
                 },
                 {
-                  title: "Precedence and Associativity",
-                  body: ["Arithmetic is evaluated first, then relational operators (>, >=, <, <=), then logical operators (&&, ||).", "Parentheses can be used to make complex conditions clearer.", "Both && and || are left-to-right associative. In (a && b && c), a is evaluated first; if a is false, the rest are short-circuited (not evaluated)."]
+                  "title": "Precedence and Associativity",
+                  "body": ["Arithmetic is evaluated first, then relational operators (>, >=, <, <=), then logical operators (&&, ||).", "Parentheses can be used to make complex conditions clearer.", "Both && and || are left-to-right associative. In (a && b && c), a is evaluated first; if a is false, the rest are short-circuited (not evaluated)."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the accumulation and grading trace.",
                 "Observe how += builds the total and how the grade condition chain is evaluated.",
@@ -2431,22 +2430,22 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output shows Total, Average, and Grade correctly.",
                 "Try borderline inputs like 40 40 40 40 40 and 39 39 39 39 39. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int m1, m2, m3, m4, m5;\n    int total = 0;\n    float avg;\n    scanf(\"%d %d %d %d %d\", &m1, &m2, &m3, &m4, &m5);\n    total += m1; total += m2; total += m3; total += m4; total += m5;\n    avg = (float)total / 5;\n    printf(\"Total: %d\\nAverage: %.2f\\n\", total, avg);\n    if (avg >= 90) printf(\"Grade: A\\n\");\n    else if (avg >= 75) printf(\"Grade: B\\n\");\n    else if (avg >= 60) printf(\"Grade: C\\n\");\n    else if (avg >= 40) printf(\"Grade: D\\n\");\n    else printf(\"Grade: F\\n\");\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate memory for marks", memory: [{variable: "total", type: "int", value: "0"}, {variable: "avg", type: "float", value: "?"}], output: "" },
-                  { line: 7, annotation: "scanf() reads '85 90 78 92 80'", memory: [{variable: "total", type: "int", value: "0"}, {variable: "avg", type: "float", value: "?"}], output: "" },
-                  { line: 8, annotation: "Accumulate total using +=", memory: [{variable: "total", type: "int", value: "425"}, {variable: "avg", type: "float", value: "?"}], output: "" },
-                  { line: 9, annotation: "Compute float average", memory: [{variable: "total", type: "int", value: "425"}, {variable: "avg", type: "float", value: "85.00"}], output: "" },
-                  { line: 10, annotation: "Print total and average", memory: [{variable: "total", type: "int", value: "425"}, {variable: "avg", type: "float", value: "85.00"}], output: "Total: 425\nAverage: 85.00\n" },
-                  { line: 11, annotation: "Check if avg >= 90 (False)", memory: [{variable: "total", type: "int", value: "425"}, {variable: "avg", type: "float", value: "85.00"}], output: "Total: 425\nAverage: 85.00\n" },
-                  { line: 12, annotation: "Check if avg >= 75 (True), print Grade: B", memory: [{variable: "total", type: "int", value: "425"}, {variable: "avg", type: "float", value: "85.00"}], output: "Total: 425\nAverage: 85.00\nGrade: B\n" },
-                  { line: 17, annotation: "Program terminates", memory: [{variable: "total", type: "int", value: "425"}, {variable: "avg", type: "float", value: "85.00"}], output: "Total: 425\nAverage: 85.00\nGrade: B\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int m1, m2, m3, m4, m5;\n    int total = 0;\n    float avg;\n    scanf(\"%d %d %d %d %d\", &m1, &m2, &m3, &m4, &m5);\n    total += m1; total += m2; total += m3; total += m4; total += m5;\n    avg = (float)total / 5;\n    printf(\"Total: %d\\nAverage: %.2f\\n\", total, avg);\n    if (avg >= 90) printf(\"Grade: A\\n\");\n    else if (avg >= 75) printf(\"Grade: B\\n\");\n    else if (avg >= 60) printf(\"Grade: C\\n\");\n    else if (avg >= 40) printf(\"Grade: D\\n\");\n    else printf(\"Grade: F\\n\");\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate memory for marks", "memory": [{ "variable": "total", "type": "int", "value": "0" }, { "variable": "avg", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 7, "annotation": "scanf() reads '85 90 78 92 80'", "memory": [{ "variable": "total", "type": "int", "value": "0" }, { "variable": "avg", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 8, "annotation": "Accumulate total using +=", "memory": [{ "variable": "total", "type": "int", "value": "425" }, { "variable": "avg", "type": "float", "value": "?" }], "output": "" },
+                  { "line": 9, "annotation": "Compute float average", "memory": [{ "variable": "total", "type": "int", "value": "425" }, { "variable": "avg", "type": "float", "value": "85.00" }], "output": "" },
+                  { "line": 10, "annotation": "Print total and average", "memory": [{ "variable": "total", "type": "int", "value": "425" }, { "variable": "avg", "type": "float", "value": "85.00" }], "output": "Total: 425\nAverage: 85.00\n" },
+                  { "line": 11, "annotation": "Check if avg >= 90 (False)", "memory": [{ "variable": "total", "type": "int", "value": "425" }, { "variable": "avg", "type": "float", "value": "85.00" }], "output": "Total: 425\nAverage: 85.00\n" },
+                  { "line": 12, "annotation": "Check if avg >= 75 (True), print Grade: B", "memory": [{ "variable": "total", "type": "int", "value": "425" }, { "variable": "avg", "type": "float", "value": "85.00" }], "output": "Total: 425\nAverage: 85.00\nGrade: B\n" },
+                  { "line": 17, "annotation": "Program terminates", "memory": [{ "variable": "total", "type": "int", "value": "425" }, { "variable": "avg", "type": "float", "value": "85.00" }], "output": "Total: 425\nAverage: 85.00\nGrade: B\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2454,23 +2453,23 @@ export const courses: Record<string, Course> = {
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 5",
-        objective: "if-else, switch-case, nested-if, relational and logical operators",
-        tutorial: "Tutorial 5: Branching",
-        labTitle: "Lab 5: Conditional statements",
-        experiments: [
+        "title": "WEEK 5",
+        "objective": "if-else, switch-case, nested-if, relational and logical operators",
+        "tutorial": "Tutorial 5: Branching",
+        "labTitle": "Lab 5: Conditional statements",
+        "experiments": [
           {
-            id: "c-w5-1",
-            title: "Max and Min of Four Numbers",
-            desc: "Find the max and min of four numbers using if-else.",
-            expected: "Maximum: 45 Minimum: 7",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept four integers from the user and determine the largest and smallest among them using nested if-else statements and relational operators. The student will:",
-                bullets: [
+            "id": "c-w5-1",
+            "title": "Max and Min of Four Numbers",
+            "desc": "Find the max and min of four numbers using if-else.",
+            "expected": "Maximum: 45 Minimum: 7",
+            "content": {
+              "aim": {
+                "text": "This experiment develops systematic multi-value comparison skills using nested if-else and sequential if statements in C. Students will accept four integers from the user, initialise both a maximum and a minimum tracker to the first element, and then compare each remaining element against the current maximum and minimum, updating them whenever a larger or smaller value is found. A single pass through all four values is sufficient to determine both extremes simultaneously. The experiment reinforces the initialisation-to-first-element strategy, avoidance of arbitrary initial values (such as 0) that fail for all-negative inputs, and clean display of both results.",
+                "bullets": [
                   "Declare and use int variables for four input numbers",
                   "Apply nested if-else to compare multiple values systematically",
                   "Use relational operators (>, <) to drive conditional logic",
@@ -2478,37 +2477,37 @@ export const courses: Record<string, Course> = {
                   "Use printf() to display the results clearly"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🏆 The sports tournament analogy!",
-                  body: [
+                  "title": "🏆 The sports tournament analogy!",
+                  "body": [
                     "Imagine 4 students running a race. How do you find the fastest? Simple — you watch who crosses the finish line first! In code, we do the same thing: start by assuming the first person is the fastest, then check each remaining person. If someone is faster, they become the new \"champion.\" Keep going until you've checked everyone — the last champion is your winner (maximum)!",
                     "Finding the minimum is the same game, but you're looking for the slowest instead.",
-                    "![Kids racing on a track](https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400)"
+                    "![Race track finish line](max-min.webp)"
                   ]
                 },
                 {
-                  title: "Nested if-else",
-                  body: ["An if-else construct placed inside another if or else block is called a nested if-else. It allows multi-way decisions based on a sequence of conditions.", "if (condition1) {\n    if (condition2) { ... }\n    else { ... }\n} else { ... }"]
+                  "title": "Nested if-else",
+                  "body": ["An if-else construct placed inside another if or else block is called a nested if-else. It allows multi-way decisions based on a sequence of conditions.", "if (condition1) {\n    if (condition2) { ... }\n    else { ... }\n} else { ... }"]
                 },
                 {
-                  title: "🪆 Nested if-else = boxes inside boxes!",
-                  body: [
+                  "title": "🪆 Nested if-else = boxes inside boxes!",
+                  "body": [
                     "Think of Russian nesting dolls (Matryoshka). The outer doll checks one condition. If you open it, there's another doll inside checking another condition. That's exactly what nested if-else does — decisions inside decisions. The computer opens each layer one by one until it finds the answer!",
-                    "![Russian nesting dolls](https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400)"
+                    "![Russian matryoshka nesting dolls](doll-analogy.webp)"
                   ]
                 },
                 {
-                  title: "Finding Maximum and Minimum",
-                  body: ["Assume the first variable is the maximum, then compare it against each remaining variable, updating the maximum whenever a larger value is found:", "max = a; if (b > max) max = b; if (c > max) max = c; if (d > max) max = d;", "Same strategy in reverse for minimum:", "min = a; if (b < min) min = b; if (c < min) min = c; if (d < min) min = d;"]
+                  "title": "Finding Maximum and Minimum",
+                  "body": ["Assume the first variable is the maximum, then compare it against each remaining variable, updating the maximum whenever a larger value is found:", "max = a; if (b > max) max = b; if (c > max) max = c; if (d > max) max = d;", "Same strategy in reverse for minimum:", "min = a; if (b < min) min = b; if (c < min) min = c; if (d < min) min = d;"]
                 },
                 {
-                  title: "Relational and Logical Operators",
-                  body: ["> greater than, < less than, >= greater or equal, <= less or equal, == equality check, != not equal.", "Logical AND (&&) can combine conditions to check max in one step: if (a >= b && a >= c && a >= d) max = a;"]
+                  "title": "Relational and Logical Operators",
+                  "body": ["> greater than, < less than, >= greater or equal, <= less or equal, == equality check, != not equal.", "Logical AND (&&) can combine conditions to check max in one step: if (a >= b && a >= c && a >= d) max = a;"]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the comparison trace.",
                 "Observe how max and min are updated as each number is compared.",
@@ -2517,25 +2516,25 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Maximum: 45  Minimum: 7",
                 "Try all equal values like 5 5 5 5 and negative values like -3 -8 -1 -5. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int a, b, c, d, max, min;\n    scanf(\"%d %d %d %d\", &a, &b, &c, &d);\n    max = a; min = a;\n    if (b > max) max = b;\n    if (c > max) max = c;\n    if (d > max) max = d;\n    if (b < min) min = b;\n    if (c < min) min = c;\n    if (d < min) min = d;\n    printf(\"Maximum: %d\\nMinimum: %d\\n\", max, min);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "a", type: "int", value: "?"}, {variable: "b", type: "int", value: "?"}, {variable: "c", type: "int", value: "?"}, {variable: "d", type: "int", value: "?"}, {variable: "max", type: "int", value: "?"}, {variable: "min", type: "int", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '12 45 7 30'", memory: [{variable: "a", type: "int", value: "12"}, {variable: "b", type: "int", value: "45"}, {variable: "c", type: "int", value: "7"}, {variable: "d", type: "int", value: "30"}, {variable: "max", type: "int", value: "?"}, {variable: "min", type: "int", value: "?"}], output: "" },
-                  { line: 6, annotation: "Assume first is max and min", memory: [{variable: "a", type: "int", value: "12"}, {variable: "b", type: "int", value: "45"}, {variable: "c", type: "int", value: "7"}, {variable: "d", type: "int", value: "30"}, {variable: "max", type: "int", value: "12"}, {variable: "min", type: "int", value: "12"}], output: "" },
-                  { line: 7, annotation: "45 > 12 is true, update max to 45", memory: [{variable: "a", type: "int", value: "12"}, {variable: "b", type: "int", value: "45"}, {variable: "c", type: "int", value: "7"}, {variable: "d", type: "int", value: "30"}, {variable: "max", type: "int", value: "45"}, {variable: "min", type: "int", value: "12"}], output: "" },
-                  { line: 8, annotation: "7 > 45 is false, max stays 45", memory: [{variable: "a", type: "int", value: "12"}, {variable: "b", type: "int", value: "45"}, {variable: "c", type: "int", value: "7"}, {variable: "d", type: "int", value: "30"}, {variable: "max", type: "int", value: "45"}, {variable: "min", type: "int", value: "12"}], output: "" },
-                  { line: 9, annotation: "30 > 45 is false, max stays 45", memory: [{variable: "a", type: "int", value: "12"}, {variable: "b", type: "int", value: "45"}, {variable: "c", type: "int", value: "7"}, {variable: "d", type: "int", value: "30"}, {variable: "max", type: "int", value: "45"}, {variable: "min", type: "int", value: "12"}], output: "" },
-                  { line: 10, annotation: "45 < 12 is false, min stays 12", memory: [{variable: "a", type: "int", value: "12"}, {variable: "b", type: "int", value: "45"}, {variable: "c", type: "int", value: "7"}, {variable: "d", type: "int", value: "30"}, {variable: "max", type: "int", value: "45"}, {variable: "min", type: "int", value: "12"}], output: "" },
-                  { line: 11, annotation: "7 < 12 is true, update min to 7", memory: [{variable: "a", type: "int", value: "12"}, {variable: "b", type: "int", value: "45"}, {variable: "c", type: "int", value: "7"}, {variable: "d", type: "int", value: "30"}, {variable: "max", type: "int", value: "45"}, {variable: "min", type: "int", value: "7"}], output: "" },
-                  { line: 12, annotation: "30 < 7 is false, min stays 7", memory: [{variable: "a", type: "int", value: "12"}, {variable: "b", type: "int", value: "45"}, {variable: "c", type: "int", value: "7"}, {variable: "d", type: "int", value: "30"}, {variable: "max", type: "int", value: "45"}, {variable: "min", type: "int", value: "7"}], output: "" },
-                  { line: 13, annotation: "Print result", memory: [{variable: "a", type: "int", value: "12"}, {variable: "b", type: "int", value: "45"}, {variable: "c", type: "int", value: "7"}, {variable: "d", type: "int", value: "30"}, {variable: "max", type: "int", value: "45"}, {variable: "min", type: "int", value: "7"}], output: "Maximum: 45\nMinimum: 7\n" },
-                  { line: 14, annotation: "Program terminates", memory: [{variable: "a", type: "int", value: "12"}, {variable: "b", type: "int", value: "45"}, {variable: "c", type: "int", value: "7"}, {variable: "d", type: "int", value: "30"}, {variable: "max", type: "int", value: "45"}, {variable: "min", type: "int", value: "7"}], output: "Maximum: 45\nMinimum: 7\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int a, b, c, d, max, min;\n    scanf(\"%d %d %d %d\", &a, &b, &c, &d);\n    max = a; min = a;\n    if (b > max) max = b;\n    if (c > max) max = c;\n    if (d > max) max = d;\n    if (b < min) min = b;\n    if (c < min) min = c;\n    if (d < min) min = d;\n    printf(\"Maximum: %d\\nMinimum: %d\\n\", max, min);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "a", "type": "int", "value": "?" }, { "variable": "b", "type": "int", "value": "?" }, { "variable": "c", "type": "int", "value": "?" }, { "variable": "d", "type": "int", "value": "?" }, { "variable": "max", "type": "int", "value": "?" }, { "variable": "min", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '12 45 7 30'", "memory": [{ "variable": "a", "type": "int", "value": "12" }, { "variable": "b", "type": "int", "value": "45" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "d", "type": "int", "value": "30" }, { "variable": "max", "type": "int", "value": "?" }, { "variable": "min", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "Assume first is max and min", "memory": [{ "variable": "a", "type": "int", "value": "12" }, { "variable": "b", "type": "int", "value": "45" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "d", "type": "int", "value": "30" }, { "variable": "max", "type": "int", "value": "12" }, { "variable": "min", "type": "int", "value": "12" }], "output": "" },
+                  { "line": 7, "annotation": "45 > 12 is true, update max to 45", "memory": [{ "variable": "a", "type": "int", "value": "12" }, { "variable": "b", "type": "int", "value": "45" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "d", "type": "int", "value": "30" }, { "variable": "max", "type": "int", "value": "45" }, { "variable": "min", "type": "int", "value": "12" }], "output": "" },
+                  { "line": 8, "annotation": "7 > 45 is false, max stays 45", "memory": [{ "variable": "a", "type": "int", "value": "12" }, { "variable": "b", "type": "int", "value": "45" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "d", "type": "int", "value": "30" }, { "variable": "max", "type": "int", "value": "45" }, { "variable": "min", "type": "int", "value": "12" }], "output": "" },
+                  { "line": 9, "annotation": "30 > 45 is false, max stays 45", "memory": [{ "variable": "a", "type": "int", "value": "12" }, { "variable": "b", "type": "int", "value": "45" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "d", "type": "int", "value": "30" }, { "variable": "max", "type": "int", "value": "45" }, { "variable": "min", "type": "int", "value": "12" }], "output": "" },
+                  { "line": 10, "annotation": "45 < 12 is false, min stays 12", "memory": [{ "variable": "a", "type": "int", "value": "12" }, { "variable": "b", "type": "int", "value": "45" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "d", "type": "int", "value": "30" }, { "variable": "max", "type": "int", "value": "45" }, { "variable": "min", "type": "int", "value": "12" }], "output": "" },
+                  { "line": 11, "annotation": "7 < 12 is true, update min to 7", "memory": [{ "variable": "a", "type": "int", "value": "12" }, { "variable": "b", "type": "int", "value": "45" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "d", "type": "int", "value": "30" }, { "variable": "max", "type": "int", "value": "45" }, { "variable": "min", "type": "int", "value": "7" }], "output": "" },
+                  { "line": 12, "annotation": "30 < 7 is false, min stays 7", "memory": [{ "variable": "a", "type": "int", "value": "12" }, { "variable": "b", "type": "int", "value": "45" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "d", "type": "int", "value": "30" }, { "variable": "max", "type": "int", "value": "45" }, { "variable": "min", "type": "int", "value": "7" }], "output": "" },
+                  { "line": 13, "annotation": "Print result", "memory": [{ "variable": "a", "type": "int", "value": "12" }, { "variable": "b", "type": "int", "value": "45" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "d", "type": "int", "value": "30" }, { "variable": "max", "type": "int", "value": "45" }, { "variable": "min", "type": "int", "value": "7" }], "output": "Maximum: 45\nMinimum: 7\n" },
+                  { "line": 14, "annotation": "Program terminates", "memory": [{ "variable": "a", "type": "int", "value": "12" }, { "variable": "b", "type": "int", "value": "45" }, { "variable": "c", "type": "int", "value": "7" }, { "variable": "d", "type": "int", "value": "30" }, { "variable": "max", "type": "int", "value": "45" }, { "variable": "min", "type": "int", "value": "7" }], "output": "Maximum: 45\nMinimum: 7\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2544,14 +2543,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w5-2",
-            title: "Electricity Bill Generator",
-            desc: "Generate electricity bill based on units consumed.",
-            expected: "Electricity Bill: Rs. 650.00",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept the number of units of electricity consumed by a customer and compute the electricity bill using a slab-based tariff structure implemented with if-else if-else statements. The student will:",
-                bullets: [
+            "id": "c-w5-2",
+            "title": "Electricity Bill Generator",
+            "desc": "Generate electricity bill based on units consumed.",
+            "expected": "Electricity Bill: Rs. 650.00",
+            "content": {
+              "aim": {
+                "text": "This experiment applies if-else if-else chains to implement a real-world multi-slab electricity billing system. Students will accept the number of units consumed, identify which consumption slabs apply, compute the cumulative cost for each slab at its respective per-unit rate, add a fixed service charge, and display the total bill to two decimal places. The experiment demonstrates how branching constructs model real regulatory tariff structures, why cumulative (not flat) billing requires careful arithmetic across slab boundaries, and how a single correct branch in an if-else if chain executes to the exclusion of all others.",
+                "bullets": [
                   "Declare and use int and float variables for units and bill amount",
                   "Apply if-else if-else chains to implement multi-slab billing logic",
                   "Perform cumulative arithmetic across multiple slabs",
@@ -2559,22 +2558,21 @@ export const courses: Record<string, Course> = {
                   "Understand real-world applications of conditional branching"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "💡 Why does your bill go up so fast?!",
-                  body: [
+                  "title": "💡 Why does your bill go up so fast?!",
+                  "body": [
                     "Have you ever noticed that when your family uses a LOT of electricity, the bill suddenly jumps up way more than expected? That's because electricity boards use a slab system — the more you use, the higher the price per unit. It's like a video game where the first 100 units are \"easy mode\" (cheap), the next 100 are \"medium mode\" (costlier), and anything beyond that is \"hard mode\" (expensive)!",
                     "This teaches the computer to calculate exactly how much to charge based on which \"level\" of usage you're in.",
-                    "![Electric meter or electricity bill](https://staticimg.amarujala.com/assets/images/2024/04/15/electric-bill-electricity-bill-new_2a609bc128bc3196169a37a0f9399406.webp)"
                   ]
                 },
                 {
-                  title: "Slab-Based Tariff",
-                  body: ["Electricity boards charge different rates per unit for different consumption ranges. A common slab structure:", "Units 1–100 : Rs. 1.50 per unit", "Units 101–200 : Rs. 2.50 per unit (for units above 100)", "Units 201–300 : Rs. 4.00 per unit (for units above 200)", "Units above 300: Rs. 6.00 per unit (for units above 300)"]
+                  "title": "Slab-Based Tariff",
+                  "body": ["Electricity boards charge different rates per unit for different consumption ranges. A common slab structure:", "Units 1–100 : Rs. 1.50 per unit", "Units 101–200 : Rs. 2.50 per unit (for units above 100)", "Units 201–300 : Rs. 4.00 per unit (for units above 200)", "Units above 300: Rs. 6.00 per unit (for units above 300)"]
                 },
                 {
-                  title: "🎮 The slab game — an example:",
-                  body: [
+                  "title": "🎮 The slab game — an example:",
+                  "body": [
                     "You used 250 units this month. Here's how the bill works:",
                     "First 100 units → cheapest price (easy mode)",
                     "Next 100 units → medium price",
@@ -2583,16 +2581,16 @@ export const courses: Record<string, Course> = {
                   ]
                 },
                 {
-                  title: "Cumulative Billing",
-                  body: ["A consumer using 250 units pays:", "First 100 units: 100 * 1.50 = 150.00", "Next 100 units: 100 * 2.50 = 250.00", "Last 50 units: 50 * 4.00 = 200.00", "Total: Rs. 600.00"]
+                  "title": "Cumulative Billing",
+                  "body": ["A consumer using 250 units pays:", "First 100 units: 100 * 1.50 = 150.00", "Next 100 units: 100 * 2.50 = 250.00", "Last 50 units: 50 * 4.00 = 200.00", "Total: Rs. 600.00"]
                 },
                 {
-                  title: "if-else if-else Chain",
-                  body: ["Used when exactly one of several mutually exclusive conditions must be selected:", "if (units <= 100) { ... } else if (units <= 200) { ... } else if (units <= 300) { ... } else { ... }", "Once a condition is true, the rest of the chain is skipped. A fixed service charge (e.g. Rs. 50) is often added to the computed amount."]
+                  "title": "if-else if-else Chain",
+                  "body": ["Used when exactly one of several mutually exclusive conditions must be selected:", "if (units <= 100) { ... } else if (units <= 200) { ... } else if (units <= 300) { ... } else { ... }", "Once a condition is true, the rest of the chain is skipped. A fixed service charge (e.g. Rs. 50) is often added to the computed amount."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the slab selection and bill computation.",
                 "Observe how the if-else if chain selects exactly one slab block to execute.",
@@ -2601,23 +2599,23 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Electricity Bill: Rs. 650.00 (including Rs. 50 service charge)",
                 "Try 50, 150, 350 units to exercise all slab branches. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int units;\n    float bill = 0;\n    scanf(\"%d\", &units);\n    if (units <= 100) {\n        bill = units * 1.50;\n    } else if (units <= 200) {\n        bill = (100 * 1.50) + ((units - 100) * 2.50);\n    } else if (units <= 300) {\n        bill = (100 * 1.50) + (100 * 2.50) + ((units - 200) * 4.00);\n    } else {\n        bill = (100 * 1.50) + (100 * 2.50) + (100 * 4.00) + ((units - 300) * 6.00);\n    }\n    bill += 50.00;\n    printf(\"Electricity Bill: Rs. %.2f\\n\", bill);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "units", type: "int", value: "?"}, {variable: "bill", type: "float", value: "0.00"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '250'", memory: [{variable: "units", type: "int", value: "250"}, {variable: "bill", type: "float", value: "0.00"}], output: "" },
-                  { line: 6, annotation: "units <= 100 is false", memory: [{variable: "units", type: "int", value: "250"}, {variable: "bill", type: "float", value: "0.00"}], output: "" },
-                  { line: 8, annotation: "units <= 200 is false", memory: [{variable: "units", type: "int", value: "250"}, {variable: "bill", type: "float", value: "0.00"}], output: "" },
-                  { line: 10, annotation: "units <= 300 is true, executing this block", memory: [{variable: "units", type: "int", value: "250"}, {variable: "bill", type: "float", value: "0.00"}], output: "" },
-                  { line: 11, annotation: "Calculate 150 + 250 + (50 * 4.00) = 600.00", memory: [{variable: "units", type: "int", value: "250"}, {variable: "bill", type: "float", value: "600.00"}], output: "" },
-                  { line: 15, annotation: "Add fixed service charge of Rs. 50", memory: [{variable: "units", type: "int", value: "250"}, {variable: "bill", type: "float", value: "650.00"}], output: "" },
-                  { line: 16, annotation: "printf() displays total bill", memory: [{variable: "units", type: "int", value: "250"}, {variable: "bill", type: "float", value: "650.00"}], output: "Electricity Bill: Rs. 650.00\n" },
-                  { line: 17, annotation: "Program terminates", memory: [{variable: "units", type: "int", value: "250"}, {variable: "bill", type: "float", value: "650.00"}], output: "Electricity Bill: Rs. 650.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int units;\n    float bill = 0;\n    scanf(\"%d\", &units);\n    if (units <= 100) {\n        bill = units * 1.50;\n    } else if (units <= 200) {\n        bill = (100 * 1.50) + ((units - 100) * 2.50);\n    } else if (units <= 300) {\n        bill = (100 * 1.50) + (100 * 2.50) + ((units - 200) * 4.00);\n    } else {\n        bill = (100 * 1.50) + (100 * 2.50) + (100 * 4.00) + ((units - 300) * 6.00);\n    }\n    bill += 50.00;\n    printf(\"Electricity Bill: Rs. %.2f\\n\", bill);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "units", "type": "int", "value": "?" }, { "variable": "bill", "type": "float", "value": "0.00" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '250'", "memory": [{ "variable": "units", "type": "int", "value": "250" }, { "variable": "bill", "type": "float", "value": "0.00" }], "output": "" },
+                  { "line": 6, "annotation": "units <= 100 is false", "memory": [{ "variable": "units", "type": "int", "value": "250" }, { "variable": "bill", "type": "float", "value": "0.00" }], "output": "" },
+                  { "line": 8, "annotation": "units <= 200 is false", "memory": [{ "variable": "units", "type": "int", "value": "250" }, { "variable": "bill", "type": "float", "value": "0.00" }], "output": "" },
+                  { "line": 10, "annotation": "units <= 300 is true, executing this block", "memory": [{ "variable": "units", "type": "int", "value": "250" }, { "variable": "bill", "type": "float", "value": "0.00" }], "output": "" },
+                  { "line": 11, "annotation": "Calculate 150 + 250 + (50 * 4.00) = 600.00", "memory": [{ "variable": "units", "type": "int", "value": "250" }, { "variable": "bill", "type": "float", "value": "600.00" }], "output": "" },
+                  { "line": 15, "annotation": "Add fixed service charge of Rs. 50", "memory": [{ "variable": "units", "type": "int", "value": "250" }, { "variable": "bill", "type": "float", "value": "650.00" }], "output": "" },
+                  { "line": 16, "annotation": "printf() displays total bill", "memory": [{ "variable": "units", "type": "int", "value": "250" }, { "variable": "bill", "type": "float", "value": "650.00" }], "output": "Electricity Bill: Rs. 650.00\n" },
+                  { "line": 17, "annotation": "Program terminates", "memory": [{ "variable": "units", "type": "int", "value": "250" }, { "variable": "bill", "type": "float", "value": "650.00" }], "output": "Electricity Bill: Rs. 650.00\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2626,14 +2624,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w5-3",
-            title: "Quadratic Roots",
-            desc: "Find roots of the quadratic equation ax2+bx+c=0.",
-            expected: "Roots: 3.00, 2.00 or Complex",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept coefficients a, b, and c of a quadratic equation ax² + bx + c = 0 and compute and classify its roots using the discriminant. The student will:",
-                bullets: [
+            "id": "c-w5-3",
+            "title": "Quadratic Roots",
+            "desc": "Find roots of the quadratic equation ax2+bx+c=0.",
+            "expected": "Roots: 3.00, 2.00 or Complex",
+            "content": {
+              "aim": {
+                "text": "This experiment uses nested if-else branching to classify and compute the roots of a quadratic equation ax² + bx + c = 0 based on the discriminant (D = b² − 4ac). Students will accept the three coefficients, handle the special case a = 0 (linear equation), compute D, and branch into three paths: two distinct real roots (D > 0), two equal real roots (D = 0), or complex conjugate roots (D < 0). The experiment reinforces the use of sqrt() from math.h, demonstrates how a single computed discriminant value drives three completely different code paths, and builds defensive programming habits through edge-case checking before applying formulas.",
+                "bullets": [
                   "Declare and use float/double variables for coefficients and roots",
                   "Compute the discriminant: D = b*b - 4*a*c",
                   "Use nested if-else to classify roots as real & distinct, real & equal, or complex",
@@ -2641,26 +2639,26 @@ export const courses: Record<string, Course> = {
                   "Handle edge cases including a = 0 (not a quadratic)"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🎯 Finding where a curve touches the ground!",
-                  body: [
+                  "title": "🎯 Finding where a curve touches the ground!",
+                  "body": [
                     "Imagine you throw a ball in the air. It goes up, reaches a peak, then comes back down. If you draw this path, it makes a U-shaped curve (called a parabola). A quadratic equation describes this curve. The \"roots\" are the two points where the ball hits the ground (touches the x-axis)!",
                     "The formula ax² + bx + c = 0 is the math that describes that ball's path. Solving it tells you WHEN it lands.",
-                    "![A ball arc / parabola](https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400)"
+                    "![Parabola touching x-axis graph](parabola.webp)"
                   ]
                 },
                 {
-                  title: "Quadratic Formula",
-                  body: ["A second-degree polynomial equation of the form: ax² + bx + c = 0 where a ≠ 0", "Formula: x = (-b ± sqrt(b² - 4ac)) / (2a)"]
+                  "title": "Quadratic Formula",
+                  "body": ["A second-degree polynomial equation of the form: ax² + bx + c = 0 where a ≠ 0", "Formula: x = (-b ± sqrt(b² - 4ac)) / (2a)"]
                 },
                 {
-                  title: "Discriminant",
-                  body: ["D = b² - 4ac determines the nature of the roots:", "D > 0 : Two distinct real roots. x1 = (-b + sqrt(D)) / (2a), x2 = (-b - sqrt(D)) / (2a)", "D == 0 : Two equal (repeated) real roots. x1 = x2 = -b / (2a)", "D < 0 : Two complex conjugate roots (no real roots). Real part = -b / (2a), Imaginary part = sqrt(-D) / (2a)"]
+                  "title": "Discriminant",
+                  "body": ["D = b² - 4ac determines the nature of the roots:", "D > 0 : Two distinct real roots. x1 = (-b + sqrt(D)) / (2a), x2 = (-b - sqrt(D)) / (2a)", "D == 0 : Two equal (repeated) real roots. x1 = x2 = -b / (2a)", "D < 0 : Two complex conjugate roots (no real roots). Real part = -b / (2a), Imaginary part = sqrt(-D) / (2a)"]
                 },
                 {
-                  title: "🔍 The discriminant is a fortune teller!",
-                  body: [
+                  "title": "🔍 The discriminant is a fortune teller!",
+                  "body": [
                     "Before solving the equation, we calculate D = b² - 4ac. This single number tells us the FUTURE of our solutions:",
                     "D > 0 → 🎉 Two different real answers (ball lands in two spots)",
                     "D = 0 → 🤔 One repeated answer (ball just barely grazes the ground)",
@@ -2669,12 +2667,12 @@ export const courses: Record<string, Course> = {
                   ]
                 },
                 {
-                  title: "Edge Case",
-                  body: ["If a = 0, the equation becomes linear: bx + c = 0, solved as x = -c/b.", "This must be checked before applying the quadratic formula to avoid division by zero."]
+                  "title": "Edge Case",
+                  "body": ["If a = 0, the equation becomes linear: bx + c = 0, solved as x = -c/b.", "This must be checked before applying the quadratic formula to avoid division by zero."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace through the discriminant computation and branching.",
                 "Observe how D > 0, D == 0, and D < 0 lead to three different output paths.",
@@ -2683,23 +2681,23 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Root1: 3.00  Root2: 2.00",
                 "Try 1 2 1 (equal roots) and 1 1 1 (complex roots). Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double a, b, c, d, r1, r2;\n    scanf(\"%lf %lf %lf\", &a, &b, &c);\n    if (a == 0) {\n        printf(\"Not a quadratic equation.\\n\");\n    } else {\n        d = b * b - 4 * a * c;\n        if (d > 0) {\n            r1 = (-b + sqrt(d)) / (2 * a);\n            r2 = (-b - sqrt(d)) / (2 * a);\n            printf(\"Root1: %.2f  Root2: %.2f\\n\", r1, r2);\n        } else if (d == 0) {\n            r1 = -b / (2 * a);\n            printf(\"Equal roots: %.2f\\n\", r1);\n        } else {\n            printf(\"Complex roots\\n\");\n        }\n    }\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio and math libraries", memory: [], output: "" },
-                  { line: 5, annotation: "Allocate variables", memory: [{variable: "a", type: "double", value: "?"}, {variable: "b", type: "double", value: "?"}, {variable: "c", type: "double", value: "?"}, {variable: "d", type: "double", value: "?"}], output: "" },
-                  { line: 6, annotation: "scanf() reads '1 -5 6'", memory: [{variable: "a", type: "double", value: "1.0"}, {variable: "b", type: "double", value: "-5.0"}, {variable: "c", type: "double", value: "6.0"}, {variable: "d", type: "double", value: "?"}], output: "" },
-                  { line: 7, annotation: "Check if a == 0 (False)", memory: [{variable: "a", type: "double", value: "1.0"}, {variable: "b", type: "double", value: "-5.0"}, {variable: "c", type: "double", value: "6.0"}, {variable: "d", type: "double", value: "?"}], output: "" },
-                  { line: 10, annotation: "Compute discriminant D = 25 - 24 = 1", memory: [{variable: "a", type: "double", value: "1.0"}, {variable: "b", type: "double", value: "-5.0"}, {variable: "c", type: "double", value: "6.0"}, {variable: "d", type: "double", value: "1.0"}], output: "" },
-                  { line: 11, annotation: "Check if D > 0 (True)", memory: [{variable: "a", type: "double", value: "1.0"}, {variable: "b", type: "double", value: "-5.0"}, {variable: "c", type: "double", value: "6.0"}, {variable: "d", type: "double", value: "1.0"}], output: "" },
-                  { line: 12, annotation: "Compute Root1 = (5 + 1)/2 = 3.0", memory: [{variable: "a", type: "double", value: "1.0"}, {variable: "b", type: "double", value: "-5.0"}, {variable: "c", type: "double", value: "6.0"}, {variable: "d", type: "double", value: "1.0"}], output: "" },
-                  { line: 13, annotation: "Compute Root2 = (5 - 1)/2 = 2.0", memory: [{variable: "a", type: "double", value: "1.0"}, {variable: "b", type: "double", value: "-5.0"}, {variable: "c", type: "double", value: "6.0"}, {variable: "d", type: "double", value: "1.0"}], output: "" },
-                  { line: 14, annotation: "printf() displays both distinct roots", memory: [{variable: "a", type: "double", value: "1.0"}, {variable: "b", type: "double", value: "-5.0"}, {variable: "c", type: "double", value: "6.0"}, {variable: "d", type: "double", value: "1.0"}], output: "Root1: 3.00  Root2: 2.00\n" },
-                  { line: 22, annotation: "Program terminates", memory: [{variable: "a", type: "double", value: "1.0"}, {variable: "b", type: "double", value: "-5.0"}, {variable: "c", type: "double", value: "6.0"}, {variable: "d", type: "double", value: "1.0"}], output: "Root1: 3.00  Root2: 2.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double a, b, c, d, r1, r2;\n    scanf(\"%lf %lf %lf\", &a, &b, &c);\n    if (a == 0) {\n        printf(\"Not a quadratic equation.\\n\");\n    } else {\n        d = b * b - 4 * a * c;\n        if (d > 0) {\n            r1 = (-b + sqrt(d)) / (2 * a);\n            r2 = (-b - sqrt(d)) / (2 * a);\n            printf(\"Root1: %.2f  Root2: %.2f\\n\", r1, r2);\n        } else if (d == 0) {\n            r1 = -b / (2 * a);\n            printf(\"Equal roots: %.2f\\n\", r1);\n        } else {\n            printf(\"Complex roots\\n\");\n        }\n    }\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio and math libraries", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Allocate variables", "memory": [{ "variable": "a", "type": "double", "value": "?" }, { "variable": "b", "type": "double", "value": "?" }, { "variable": "c", "type": "double", "value": "?" }, { "variable": "d", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "scanf() reads '1 -5 6'", "memory": [{ "variable": "a", "type": "double", "value": "1.0" }, { "variable": "b", "type": "double", "value": "-5.0" }, { "variable": "c", "type": "double", "value": "6.0" }, { "variable": "d", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 7, "annotation": "Check if a == 0 (False)", "memory": [{ "variable": "a", "type": "double", "value": "1.0" }, { "variable": "b", "type": "double", "value": "-5.0" }, { "variable": "c", "type": "double", "value": "6.0" }, { "variable": "d", "type": "double", "value": "?" }], "output": "" },
+                  { "line": 10, "annotation": "Compute discriminant D = 25 - 24 = 1", "memory": [{ "variable": "a", "type": "double", "value": "1.0" }, { "variable": "b", "type": "double", "value": "-5.0" }, { "variable": "c", "type": "double", "value": "6.0" }, { "variable": "d", "type": "double", "value": "1.0" }], "output": "" },
+                  { "line": 11, "annotation": "Check if D > 0 (True)", "memory": [{ "variable": "a", "type": "double", "value": "1.0" }, { "variable": "b", "type": "double", "value": "-5.0" }, { "variable": "c", "type": "double", "value": "6.0" }, { "variable": "d", "type": "double", "value": "1.0" }], "output": "" },
+                  { "line": 12, "annotation": "Compute Root1 = (5 + 1)/2 = 3.0", "memory": [{ "variable": "a", "type": "double", "value": "1.0" }, { "variable": "b", "type": "double", "value": "-5.0" }, { "variable": "c", "type": "double", "value": "6.0" }, { "variable": "d", "type": "double", "value": "1.0" }], "output": "" },
+                  { "line": 13, "annotation": "Compute Root2 = (5 - 1)/2 = 2.0", "memory": [{ "variable": "a", "type": "double", "value": "1.0" }, { "variable": "b", "type": "double", "value": "-5.0" }, { "variable": "c", "type": "double", "value": "6.0" }, { "variable": "d", "type": "double", "value": "1.0" }], "output": "" },
+                  { "line": 14, "annotation": "printf() displays both distinct roots", "memory": [{ "variable": "a", "type": "double", "value": "1.0" }, { "variable": "b", "type": "double", "value": "-5.0" }, { "variable": "c", "type": "double", "value": "6.0" }, { "variable": "d", "type": "double", "value": "1.0" }], "output": "Root1: 3.00  Root2: 2.00\n" },
+                  { "line": 22, "annotation": "Program terminates", "memory": [{ "variable": "a", "type": "double", "value": "1.0" }, { "variable": "b", "type": "double", "value": "-5.0" }, { "variable": "c", "type": "double", "value": "6.0" }, { "variable": "d", "type": "double", "value": "1.0" }], "output": "Root1: 3.00  Root2: 2.00\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2708,14 +2706,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w5-4",
-            title: "Calculator Using Switch",
-            desc: "Simulate a basic calculator for +, -, *, /.",
-            expected: "Result: 13.00",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to implement a simple arithmetic calculator that accepts two numbers and an operator from the user and performs the corresponding operation using a switch-case statement. The student will:",
-                bullets: [
+            "id": "c-w5-4",
+            "title": "Calculator Using Switch",
+            "desc": "Simulate a basic calculator for +, -, *, /.",
+            "expected": "Result: 13.00",
+            "content": {
+              "aim": {
+                "text": "This experiment builds a four-function arithmetic calculator using the switch-case statement to dispatch operations based on a user-supplied operator character. Students will accept two float operands and an operator (+, -, *, /), use switch to route execution to the correct arithmetic branch, handle division by zero within the '/' case, and use the default case to report invalid operators. The experiment demonstrates when switch-case is preferred over if-else if chains, how the break statement prevents fall-through between cases, and how operator characters are processed as char values in C.",
+                "bullets": [
                   "Declare and use float variables for operands and result",
                   "Accept a char input for the operator (+, -, *, /)",
                   "Use switch-case to dispatch to the correct operation",
@@ -2724,45 +2722,44 @@ export const courses: Record<string, Course> = {
                   "Use printf() with %.2f to display the result"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🔢 Building your own pocket calculator!",
-                  body: [
-                    "Every calculator has buttons: +, -, ×, ÷. When you press a button, the calculator looks at WHICH button you pressed and does that specific operation. That's exactly what switch-case does in C! Instead of writing a long chain of if-else if-else if, you list all the cases neatly — like the buttons on a calculator.",
-                    "![Classic calculator](https://wikihow.com/images/1/10/Find-the-Minimum-and-Maximum-Points-Using-a-Graphing-Calculator-Step-7.webp)"
+                  "title": "🔢 Building your own pocket calculator!",
+                  "body": [
+                    "Every calculator has buttons: +, -, ×, ÷. When you press a button, the calculator looks at WHICH button you pressed and does that specific operation. That's exactly what switch-case does in C! Instead of writing a long chain of if-else if-else if, you list all the cases neatly — like the buttons on a calculator."
                   ]
                 },
                 {
-                  title: "switch-case Statement",
-                  body: ["An alternative to long if-else if chains when branching on the value of a single integer or character expression.", "switch (expression) {\n    case value1: statements; break;\n    case value2: statements; break;\n    default: statements;\n}"]
+                  "title": "switch-case Statement",
+                  "body": ["An alternative to long if-else if chains when branching on the value of a single integer or character expression.",                     "![Simple calculator device](switch-case.webp)","switch (expression) {\n    case value1: statements; break;\n    case value2: statements; break;\n    default: statements;\n}"]
                 },
                 {
-                  title: "break Statement and Fall-Through",
-                  body: ["Each case must end with break to prevent fall-through. Without break, execution continues into the next case regardless of its label.", "Intentional fall-through (omitting break) can group cases: case '+': case 'p': result = a + b; break;"]
+                  "title": "break Statement and Fall-Through",
+                  "body": ["Each case must end with break to prevent fall-through. Without break, execution continues into the next case regardless of its label.", "Intentional fall-through (omitting break) can group cases: case '+': case 'p': result = a + b; break;"]
                 },
                 {
-                  title: "🚪 break is like a door stopper!",
-                  body: [
+                  "title": "🚪 break is like a door stopper!",
+                  "body": [
                     "Imagine you walk into a hotel. Room 1 is addition, Room 2 is subtraction, Room 3 is multiplication. Without break, once you enter Room 1 and finish, you'd accidentally walk into Room 2, then Room 3 as well! The break statement is a door stopper — it keeps you in the right room and stops you from falling through into the next one."
                   ]
                 },
                 {
-                  title: "default Case and Char Input",
-                  body: ["default case is executed when no case value matches the expression. Used to handle invalid or unexpected input gracefully.", "Operators are characters. Read with scanf(\" %c\", &op). The leading space in \" %c\" skips any leftover whitespace or newline in the input buffer."]
+                  "title": "default Case and Char Input",
+                  "body": ["default case is executed when no case value matches the expression. Used to handle invalid or unexpected input gracefully.", "Operators are characters. Read with scanf(\" %c\", &op). The leading space in \" %c\" skips any leftover whitespace or newline in the input buffer."]
                 },
                 {
-                  title: "Division by Zero",
-                  body: ["Always check if the divisor is zero before performing division:\ncase '/':\n    if (b == 0) printf(\"Error\");\n    else result = a / b;\n    break;"]
+                  "title": "Division by Zero",
+                  "body": ["Always check if the divisor is zero before performing division:\ncase '/':\n    if (b == 0) printf(\"Error\");\n    else result = a / b;\n    break;"]
                 },
                 {
-                  title: "⛔ Why you can never divide by zero:",
-                  body: [
+                  "title": "⛔ Why you can never divide by zero:",
+                  "body": [
                     "Try asking your calculator 5 ÷ 0. It shows ERROR! Why? Because 5 ÷ 0 means \"how many times does 0 fit into 5?\" — and the answer is infinite, which a computer can't store. It's like asking \"how many empty bags do you need to hold 5 apples?\" — you'd need endless empty bags! Always check if (b == 0) before dividing."
                   ]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace through the switch dispatch for different operators.",
                 "Observe how break stops execution after each case and how default catches bad input.",
@@ -2771,20 +2768,20 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Result: 13.00",
                 "Test all four operators and try 10 0 / for division by zero. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    float a, b, res;\n    char op;\n    scanf(\"%f %f %c\", &a, &b, &op);\n    switch(op) {\n        case '+': res = a + b; printf(\"Result: %.2f\\n\", res); break;\n        case '-': res = a - b; printf(\"Result: %.2f\\n\", res); break;\n        case '*': res = a * b; printf(\"Result: %.2f\\n\", res); break;\n        case '/': \n            if (b == 0) printf(\"Error: Division by zero\\n\");\n            else printf(\"Result: %.2f\\n\", a / b);\n            break;\n        default: printf(\"Invalid operator\\n\");\n    }\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "a", type: "float", value: "?"}, {variable: "b", type: "float", value: "?"}, {variable: "op", type: "char", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '10 3 +'", memory: [{variable: "a", type: "float", value: "10.0"}, {variable: "b", type: "float", value: "3.0"}, {variable: "op", type: "char", value: "'+'"}], output: "" },
-                  { line: 6, annotation: "switch evaluates op '+'", memory: [{variable: "a", type: "float", value: "10.0"}, {variable: "b", type: "float", value: "3.0"}, {variable: "op", type: "char", value: "'+'"}], output: "" },
-                  { line: 7, annotation: "Case '+' matches. Compute res and print", memory: [{variable: "a", type: "float", value: "10.0"}, {variable: "b", type: "float", value: "3.0"}, {variable: "op", type: "char", value: "'+'"}], output: "Result: 13.00\n" },
-                  { line: 7, annotation: "break statement exits switch block", memory: [{variable: "a", type: "float", value: "10.0"}, {variable: "b", type: "float", value: "3.0"}, {variable: "op", type: "char", value: "'+'"}], output: "Result: 13.00\n" },
-                  { line: 16, annotation: "Program terminates", memory: [{variable: "a", type: "float", value: "10.0"}, {variable: "b", type: "float", value: "3.0"}, {variable: "op", type: "char", value: "'+'"}], output: "Result: 13.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    float a, b, res;\n    char op;\n    scanf(\"%f %f %c\", &a, &b, &op);\n    switch(op) {\n        case '+': res = a + b; printf(\"Result: %.2f\\n\", res); break;\n        case '-': res = a - b; printf(\"Result: %.2f\\n\", res); break;\n        case '*': res = a * b; printf(\"Result: %.2f\\n\", res); break;\n        case '/': \n            if (b == 0) printf(\"Error: Division by zero\\n\");\n            else printf(\"Result: %.2f\\n\", a / b);\n            break;\n        default: printf(\"Invalid operator\\n\");\n    }\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "a", "type": "float", "value": "?" }, { "variable": "b", "type": "float", "value": "?" }, { "variable": "op", "type": "char", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '10 3 +'", "memory": [{ "variable": "a", "type": "float", "value": "10.0" }, { "variable": "b", "type": "float", "value": "3.0" }, { "variable": "op", "type": "char", "value": "'+'" }], "output": "" },
+                  { "line": 6, "annotation": "switch evaluates op '+'", "memory": [{ "variable": "a", "type": "float", "value": "10.0" }, { "variable": "b", "type": "float", "value": "3.0" }, { "variable": "op", "type": "char", "value": "'+'" }], "output": "" },
+                  { "line": 7, "annotation": "Case '+' matches. Compute res and print", "memory": [{ "variable": "a", "type": "float", "value": "10.0" }, { "variable": "b", "type": "float", "value": "3.0" }, { "variable": "op", "type": "char", "value": "'+'" }], "output": "Result: 13.00\n" },
+                  { "line": 7, "annotation": "break statement exits switch block", "memory": [{ "variable": "a", "type": "float", "value": "10.0" }, { "variable": "b", "type": "float", "value": "3.0" }, { "variable": "op", "type": "char", "value": "'+'" }], "output": "Result: 13.00\n" },
+                  { "line": 16, "annotation": "Program terminates", "memory": [{ "variable": "a", "type": "float", "value": "10.0" }, { "variable": "b", "type": "float", "value": "3.0" }, { "variable": "op", "type": "char", "value": "'+'" }], "output": "Result: 13.00\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2793,53 +2790,53 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w5-5",
-            title: "Leap Year Check",
-            desc: "Determine if a given year is a leap year.",
-            expected: "Leap Year / Not Leap Year",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept a year from the user and determine whether it is a leap year or not using nested if-else statements and logical operators. The student will:",
-                bullets: [
+            "id": "c-w5-5",
+            "title": "Leap Year Check",
+            "desc": "Determine if a given year is a leap year.",
+            "expected": "Leap Year / Not Leap Year",
+            "content": {
+              "aim": {
+                "text": "This experiment implements the three-tier leap year rule using the modulus operator and logical operators in C. Students will accept a year from the user and determine whether it is a leap year by evaluating the compound condition: divisible by 4 AND (not divisible by 100 OR divisible by 400). The experiment solidifies understanding of the modulus operator (%) for divisibility testing, boolean short-circuit evaluation in &&/|| expressions, and the historical reason for the century-year exception — providing a realistic example of how precise logical conditions are encoded in programming.",
+                "bullets": [
                   "Declare and use an int variable for the year",
                   "Apply the standard leap year rule using % (modulus) and logical operators",
                   "Implement the three-condition leap year test using nested if-else",
                   "Use printf() to display whether the year is a leap year or not"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "📅 Why do we even need leap years?",
-                  body: [
+                  "title": "📅 Why do we even need leap years?",
+                  "body": [
                     "The Earth takes 365 days AND about 6 hours to go around the Sun. But our calendar only counts 365 days. So every year, we ignore those extra 6 hours. After 4 years, those ignored hours add up to a whole extra day (6×4=24 hours)! We add that day as February 29 — that's a leap year. Without this fix, our calendar would slowly drift, and eventually July would be in winter!",
-                    "![Earth orbiting the sun / calendar](https://dims.apnews.com/dims4/default/11ffb44/2147483647/strip/true/crop/4511x2537+0+235/resize/1440x810!/quality/90/?url=https:%2F%2Fassets.apnews.com%2Fd2%2F45%2F92bbfa6f4b44bee259b33411a5cb%2Ff7c5e5ee51eb4bffbf2ef57badc3f179)"
+                    "![Earth orbit around the Sun diagram](leap-year.webp)"
                   ]
                 },
                 {
-                  title: "Leap Year Rules",
-                  body: ["A year is a leap year if: Rule 1: It is divisible by 4 AND Rule 2: It is NOT divisible by 100 OR Rule 3: It is divisible by 400", "Condensed Rule: (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)"]
+                  "title": "Leap Year Rules",
+                  "body": ["A year is a leap year if: Rule 1: It is divisible by 4 AND Rule 2: It is NOT divisible by 100 OR Rule 3: It is divisible by 400", "Condensed Rule: (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)"]
                 },
                 {
-                  title: "Breakdown",
-                  body: ["Divisible by 4 : Candidate for leap year (e.g. 2024)", "Divisible by 100 : Century year — NOT a leap year unless also divisible by 400", "Divisible by 400 : Always a leap year (e.g. 2000)"]
+                  "title": "Breakdown",
+                  "body": ["Divisible by 4 : Candidate for leap year (e.g. 2024)", "Divisible by 100 : Century year — NOT a leap year unless also divisible by 400", "Divisible by 400 : Always a leap year (e.g. 2000)"]
                 },
                 {
-                  title: "Examples",
-                  body: ["2024 : 2024 % 4 == 0, 2024 % 100 != 0 → Leap year", "1900 : 1900 % 4 == 0, 1900 % 100 == 0, 1900 % 400 != 0 → Not a leap year", "2000 : 2000 % 400 == 0 → Leap year", "2023 : 2023 % 4 != 0 → Not a leap year"]
+                  "title": "Examples",
+                  "body": ["2024 : 2024 % 4 == 0, 2024 % 100 != 0 → Leap year", "1900 : 1900 % 4 == 0, 1900 % 100 == 0, 1900 % 400 != 0 → Not a leap year", "2000 : 2000 % 400 == 0 → Leap year", "2023 : 2023 % 4 != 0 → Not a leap year"]
                 },
                 {
-                  title: "🧩 The 100-year exception — why?!",
-                  body: [
+                  "title": "🧩 The 100-year exception — why?!",
+                  "body": [
                     "If we added a leap year every 4 years perfectly, we'd still be off by a tiny bit (the Earth takes slightly less than exactly 6 extra hours). Over 100 years, these tiny errors add up. So century years (1900, 2100) are NOT leap years — unless they're also divisible by 400 (like 2000). It's a correction inside a correction inside a correction — like fixing a slightly wrong clock!"
                   ]
                 },
                 {
-                  title: "Operators",
-                  body: ["Modulus Operator — year % 4 gives the remainder when year is divided by 4.", "Logical Operators: && (AND) both conditions must be true, || (OR) at least one condition must be true, ! (NOT) inverts a boolean result"]
+                  "title": "Operators",
+                  "body": ["Modulus Operator — year % 4 gives the remainder when year is divided by 4.", "Logical Operators: && (AND) both conditions must be true, || (OR) at least one condition must be true, ! (NOT) inverts a boolean result"]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace through the three-level condition check.",
                 "Observe how 2000, 1900, 2024, and 2023 each take different paths through the logic.",
@@ -2848,19 +2845,19 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: 2024 is a Leap Year",
                 "Test 1900, 2000, 2023, and 1600 to cover all rule branches. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int year;\n    scanf(\"%d\", &year);\n    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {\n        printf(\"%d is a Leap Year\\n\", year);\n    } else {\n        printf(\"%d is not a Leap Year\\n\", year);\n    }\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate year variable", memory: [{variable: "year", type: "int", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '2024'", memory: [{variable: "year", type: "int", value: "2024"}], output: "" },
-                  { line: 6, annotation: "Check condition: (2024 % 4 == 0 && 2024 % 100 != 0) is true", memory: [{variable: "year", type: "int", value: "2024"}], output: "" },
-                  { line: 7, annotation: "printf() prints leap year message", memory: [{variable: "year", type: "int", value: "2024"}], output: "2024 is a Leap Year\n" },
-                  { line: 11, annotation: "Program terminates", memory: [{variable: "year", type: "int", value: "2024"}], output: "2024 is a Leap Year\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int year;\n    scanf(\"%d\", &year);\n    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {\n        printf(\"%d is a Leap Year\\n\", year);\n    } else {\n        printf(\"%d is not a Leap Year\\n\", year);\n    }\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate year variable", "memory": [{ "variable": "year", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '2024'", "memory": [{ "variable": "year", "type": "int", "value": "2024" }], "output": "" },
+                  { "line": 6, "annotation": "Check condition: (2024 % 4 == 0 && 2024 % 100 != 0) is true", "memory": [{ "variable": "year", "type": "int", "value": "2024" }], "output": "" },
+                  { "line": 7, "annotation": "printf() prints leap year message", "memory": [{ "variable": "year", "type": "int", "value": "2024" }], "output": "2024 is a Leap Year\n" },
+                  { "line": 11, "annotation": "Program terminates", "memory": [{ "variable": "year", "type": "int", "value": "2024" }], "output": "2024 is a Leap Year\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2868,23 +2865,23 @@ export const courses: Record<string, Course> = {
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 6",
-        objective: "while, do-while, for loops, break and continue",
-        tutorial: "Tutorial 6: Loops",
-        labTitle: "Lab 6: Iterative problems",
-        experiments: [
+        "title": "WEEK 6",
+        "objective": "while, do-while, for loops, break and continue",
+        "tutorial": "Tutorial 6: Loops",
+        "labTitle": "Lab 6: Iterative problems",
+        "experiments": [
           {
-            id: "c-w6-1",
-            title: "Factorial",
-            desc: "Calculate factorial of a given number.",
-            expected: "Factorial: 120",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept a non-negative integer from the user and compute its factorial using a loop. The student will:",
-                bullets: [
+            "id": "c-w6-1",
+            "title": "Factorial",
+            "desc": "Calculate factorial of a given number.",
+            "expected": "Factorial: 120",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces iterative computation using a for loop to compute the factorial of a non-negative integer. Students will accept n from the user, handle the negative-input edge case, and accumulate the product n × (n-1) × … × 1 in a long long variable to accommodate the rapid growth of factorial values. The experiment teaches loop structure (initialisation, condition, increment), the choice of long long over int to prevent overflow, the %lld format specifier, and the special mathematical definition of 0! = 1. It serves as a foundation for understanding both iterative and (in Week 12) recursive computation of the same problem.",
+                "bullets": [
                   "Declare and use int and long long variables to handle large factorial values",
                   "Implement factorial computation using for, while, or do-while loop",
                   "Understand the mathematical definition of factorial including 0! = 1",
@@ -2892,42 +2889,42 @@ export const courses: Record<string, Course> = {
                   "Use printf() with %lld to display large integer results"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🎂 How many ways can your friends sit at a birthday party?",
-                  body: [
+                  "title": "🎂 How many ways can your friends sit at a birthday party?",
+                  "body": [
                     "If 3 friends — Aarav, Bhanu, and Chetan — sit in a row, how many different seating arrangements are possible?",
                     "Aarav first: 3 choices for seat 1, 2 remaining for seat 2, 1 left for seat 3 → 3 × 2 × 1 = 6 ways",
                     "That's 3! = 6. This is exactly what factorial computes — the number of ways to arrange things. Used everywhere in maths, probability, and even game development!",
-                    "![Kids sitting at a party table](https://d14qv6cm1t62pm.cloudfront.net/ccbp-website/Blogs/home/factorial-program-in-c-image-2.webp)"
+                    "![Permutation arrangement diagram](permutation.webp)"
                   ]
                 },
                 {
-                  title: "Factorial Definition",
-                  body: ["The factorial of a non-negative integer n, written n!, is: n! = n × (n-1) × (n-2) × ... × 2 × 1", "0! = 1 (by definition), 1! = 1, 5! = 5 × 4 × 3 × 2 × 1 = 120"]
+                  "title": "Factorial Definition",
+                  "body": ["The factorial of a non-negative integer n, written n!, is: n! = n × (n-1) × (n-2) × ... × 2 × 1", "0! = 1 (by definition), 1! = 1, 5! = 5 × 4 × 3 × 2 × 1 = 120"]
                 },
                 {
-                  title: "Iterative Approach Using for Loop",
-                  body: ["long long fact = 1;\nfor (int i = 1; i <= n; i++) {\n    fact = fact * i;\n}", "The loop multiplies fact by each integer from 1 to n sequentially."]
+                  "title": "Iterative Approach Using for Loop",
+                  "body": ["long long fact = 1;\nfor (int i = 1; i <= n; i++) {\n    fact = fact * i;\n}", "The loop multiplies fact by each integer from 1 to n sequentially."]
                 },
                 {
-                  title: "Why long long?",
-                  body: ["Factorials grow very rapidly: 10! = 3,628,800, 15! = 1,307,674,368,000, 20! = 2,432,902,008,176,640,000", "An int (typically 32-bit) overflows beyond 12!. Use long long (64-bit) to safely hold values up to 20!. Format specifier: %lld."]
+                  "title": "Why long long?",
+                  "body": ["Factorials grow very rapidly: 10! = 3,628,800, 15! = 1,307,674,368,000, 20! = 2,432,902,008,176,640,000", "An int (typically 32-bit) overflows beyond 12!. Use long long (64-bit) to safely hold values up to 20!. Format specifier: %lld."]
                 },
                 {
-                  title: "📈 Factorials grow INSANELY fast!",
-                  body: [
+                  "title": "📈 Factorials grow INSANELY fast!",
+                  "body": [
                     "1! = 1 ... 5! = 120 ... 10! = 3,628,800 ... 20! = 2,432,902,008,176,640,000",
                     "By just 20, the number has 19 digits! A regular int in C can only hold numbers up to about 2 billion (10 digits). That's why we use long long — a bigger box that holds numbers up to about 9 quintillion. Even then, 21! overflows it. Factorials are like rabbits — they multiply way faster than you expect!"
                   ]
                 },
                 {
-                  title: "Negative Input Handling",
-                  body: ["Factorial is undefined for negative integers. Check with if (n < 0) and print an error message before attempting any computation."]
+                  "title": "Negative Input Handling",
+                  "body": ["Factorial is undefined for negative integers. Check with if (n < 0) and print an error message before attempting any computation."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and step through the loop trace for n = 5.",
                 "Observe how the accumulator fact is updated at each iteration.",
@@ -2936,29 +2933,29 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: Factorial: 120",
                 "Try n = 0, n = 1, n = 15, and n = -3 to test all branches. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    long long fact = 1;\n    int n, i;\n    scanf(\"%d\", &n);\n    if (n < 0) {\n        printf(\"Error: Factorial of negative number is undefined\\n\");\n    } else {\n        for (i = 1; i <= n; i++) {\n            fact = fact * i;\n        }\n        printf(\"Factorial: %lld\\n\", fact);\n    }\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "fact", type: "long long", value: "1"}, {variable: "n", type: "int", value: "?"}, {variable: "i", type: "int", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '5'", memory: [{variable: "fact", type: "long long", value: "1"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "?"}], output: "" },
-                  { line: 6, annotation: "n < 0 is false", memory: [{variable: "fact", type: "long long", value: "1"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "?"}], output: "" },
-                  { line: 9, annotation: "Loop i = 1", memory: [{variable: "fact", type: "long long", value: "1"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 10, annotation: "fact = 1 * 1 = 1", memory: [{variable: "fact", type: "long long", value: "1"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 9, annotation: "Loop i = 2", memory: [{variable: "fact", type: "long long", value: "1"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "2"}], output: "" },
-                  { line: 10, annotation: "fact = 1 * 2 = 2", memory: [{variable: "fact", type: "long long", value: "2"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "2"}], output: "" },
-                  { line: 9, annotation: "Loop i = 3", memory: [{variable: "fact", type: "long long", value: "2"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "3"}], output: "" },
-                  { line: 10, annotation: "fact = 2 * 3 = 6", memory: [{variable: "fact", type: "long long", value: "6"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "3"}], output: "" },
-                  { line: 9, annotation: "Loop i = 4", memory: [{variable: "fact", type: "long long", value: "6"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "4"}], output: "" },
-                  { line: 10, annotation: "fact = 6 * 4 = 24", memory: [{variable: "fact", type: "long long", value: "24"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "4"}], output: "" },
-                  { line: 9, annotation: "Loop i = 5", memory: [{variable: "fact", type: "long long", value: "24"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "5"}], output: "" },
-                  { line: 10, annotation: "fact = 24 * 5 = 120", memory: [{variable: "fact", type: "long long", value: "120"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "5"}], output: "" },
-                  { line: 12, annotation: "printf() prints factorial", memory: [{variable: "fact", type: "long long", value: "120"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "6"}], output: "Factorial: 120\n" },
-                  { line: 15, annotation: "Program terminates", memory: [{variable: "fact", type: "long long", value: "120"}, {variable: "n", type: "int", value: "5"}, {variable: "i", type: "int", value: "6"}], output: "Factorial: 120\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    long long fact = 1;\n    int n, i;\n    scanf(\"%d\", &n);\n    if (n < 0) {\n        printf(\"Error: Factorial of negative number is undefined\\n\");\n    } else {\n        for (i = 1; i <= n; i++) {\n            fact = fact * i;\n        }\n        printf(\"Factorial: %lld\\n\", fact);\n    }\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "fact", "type": "long long", "value": "1" }, { "variable": "n", "type": "int", "value": "?" }, { "variable": "i", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '5'", "memory": [{ "variable": "fact", "type": "long long", "value": "1" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "n < 0 is false", "memory": [{ "variable": "fact", "type": "long long", "value": "1" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i = 1", "memory": [{ "variable": "fact", "type": "long long", "value": "1" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "fact = 1 * 1 = 1", "memory": [{ "variable": "fact", "type": "long long", "value": "1" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i = 2", "memory": [{ "variable": "fact", "type": "long long", "value": "1" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 10, "annotation": "fact = 1 * 2 = 2", "memory": [{ "variable": "fact", "type": "long long", "value": "2" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i = 3", "memory": [{ "variable": "fact", "type": "long long", "value": "2" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 10, "annotation": "fact = 2 * 3 = 6", "memory": [{ "variable": "fact", "type": "long long", "value": "6" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i = 4", "memory": [{ "variable": "fact", "type": "long long", "value": "6" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 10, "annotation": "fact = 6 * 4 = 24", "memory": [{ "variable": "fact", "type": "long long", "value": "24" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i = 5", "memory": [{ "variable": "fact", "type": "long long", "value": "24" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 10, "annotation": "fact = 24 * 5 = 120", "memory": [{ "variable": "fact", "type": "long long", "value": "120" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 12, "annotation": "printf() prints factorial", "memory": [{ "variable": "fact", "type": "long long", "value": "120" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "6" }], "output": "Factorial: 120\n" },
+                  { "line": 15, "annotation": "Program terminates", "memory": [{ "variable": "fact", "type": "long long", "value": "120" }, { "variable": "n", "type": "int", "value": "5" }, { "variable": "i", "type": "int", "value": "6" }], "output": "Factorial: 120\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -2967,14 +2964,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w6-2",
-            title: "Prime Number Check",
-            desc: "Check if a number is prime.",
-            expected: "17 is a Prime Number",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept a positive integer from the user and determine whether it is a prime number using a loop with break and a flag variable. The student will:",
-                bullets: [
+            "id": "c-w6-2",
+            "title": "Prime Number Check",
+            "desc": "Check if a number is prime.",
+            "expected": "17 is a Prime Number",
+            "content": {
+              "aim": {
+                "text": "This experiment implements the trial-division algorithm to determine whether a given positive integer is prime. Students will use a for loop that tests divisibility from 2 up to the square root of the number (i * i <= n), breaking out immediately upon finding any factor and using a flag variable to record the result. The experiment teaches the efficiency advantage of the square-root optimisation over checking all values up to n-1, the use of the break statement to exit a loop early, and the flag pattern for recording a condition discovered mid-loop — concepts applicable to a broad class of search and verification problems.",
+                "bullets": [
                   "Declare and use int variables for the number, loop counter, and flag",
                   "Implement a trial division loop from 2 to sqrt(n) for efficiency",
                   "Use break to exit the loop early when a factor is found",
@@ -2982,40 +2979,39 @@ export const courses: Record<string, Course> = {
                   "Use printf() to display whether the number is prime or not"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🔐 Primes are the atoms of mathematics!",
-                  body: [
+                  "title": "🔐 Primes are the atoms of mathematics!",
+                  "body": [
                     "Every number can be broken into smaller pieces by multiplication — except prime numbers. A prime number is a number that can ONLY be divided by 1 and itself. No other number divides it cleanly.",
                     "Here's the wild part: primes are used to protect your passwords and bank details right now! When you type your password on a website, it gets locked using a mathematical trick based on huge prime numbers. Hackers can't break it because multiplying two giant primes is easy — but finding the two primes from the product is nearly impossible!",
-                    "![A padlock / security concept](https://i.ytimg.com/vi/_kh9uX5MCOo/maxresdefault.webp)"
                   ]
                 },
                 {
-                  title: "Prime Number Definition",
-                  body: ["A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.", "Primes: 2, 3, 5, 7, 11... Not prime (composite): 4, 6, 8, 9... 1 is neither prime nor composite."]
+                  "title": "Prime Number Definition",
+                  "body": ["A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.", "Primes: 2, 3, 5, 7, 11... Not prime (composite): 4, 6, 8, 9... 1 is neither prime nor composite."]
                 },
                 {
-                  title: "Trial Division",
-                  body: ["To check if n is prime, test divisibility for each i from 2 to n-1. If n % i == 0 for any i, n is not prime."]
+                  "title": "Trial Division",
+                  "body": ["To check if n is prime, test divisibility for each i from 2 to n-1. If n % i == 0 for any i, n is not prime."]
                 },
                 {
-                  title: "Optimised Loop",
-                  body: ["It is sufficient to check divisors only up to sqrt(n). If n has a factor greater than sqrt(n), it must have a corresponding factor smaller than sqrt(n).", "for (i = 2; i * i <= n; i++) reduces iterations significantly."]
+                  "title": "Optimised Loop",
+                  "body": ["It is sufficient to check divisors only up to sqrt(n). If n has a factor greater than sqrt(n), it must have a corresponding factor smaller than sqrt(n).", "for (i = 2; i * i <= n; i++) reduces iterations significantly."]
                 },
                 {
-                  title: "⚡ The square root trick — why does it work?",
-                  body: [
+                  "title": "⚡ The square root trick — why does it work?",
+                  "body": [
                     "If 36 has a factor of 4, it MUST also have a factor of 9 (because 4×9=36). One factor will always be ≤ √36 = 6, and the other ≥ 6. So if we check all numbers up to √n and find no factor, there can't be any factor above √n either. This cuts our work from checking 35 numbers (for n=36) down to just 6. For large numbers like 1,000,000, we check 1000 instead of 999,999. That's 1000× faster!"
                   ]
                 },
                 {
-                  title: "break Statement and Flag",
-                  body: ["When a factor is found, there is no need to continue checking. break exits the loop immediately.", "A flag (isPrime) is initialised to 1. If any factor is found, it is set to 0. After the loop, the flag determines the result."]
+                  "title": "break Statement and Flag",
+                  "body": ["When a factor is found, there is no need to continue checking. break exits the loop immediately.", "A flag (isPrime) is initialised to 1. If any factor is found, it is set to 0. After the loop, the flag determines the result."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace through the loop for n = 7 and n = 12.",
                 "Observe how break fires immediately at i = 2 for n = 12 and never fires for n = 7.",
@@ -3024,26 +3020,26 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: 17 is a Prime Number",
                 "Try 1, 2, 4, 97, and 100 to exercise all branches. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int n, i, isPrime = 1;\n    scanf(\"%d\", &n);\n    if (n <= 1) {\n        isPrime = 0;\n    } else {\n        for (i = 2; i * i <= n; i++) {\n            if (n % i == 0) {\n                isPrime = 0;\n                break;\n            }\n        }\n    }\n    if (isPrime) printf(\"%d is a Prime Number\\n\", n);\n    else printf(\"%d is not a Prime Number\\n\", n);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "n", type: "int", value: "?"}, {variable: "i", type: "int", value: "?"}, {variable: "isPrime", type: "int", value: "1"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '17'", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "?"}, {variable: "isPrime", type: "int", value: "1"}], output: "" },
-                  { line: 6, annotation: "n <= 1 is false", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "?"}, {variable: "isPrime", type: "int", value: "1"}], output: "" },
-                  { line: 9, annotation: "Loop i = 2 (2*2 <= 17)", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "2"}, {variable: "isPrime", type: "int", value: "1"}], output: "" },
-                  { line: 10, annotation: "17 % 2 != 0", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "2"}, {variable: "isPrime", type: "int", value: "1"}], output: "" },
-                  { line: 9, annotation: "Loop i = 3 (3*3 <= 17)", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "3"}, {variable: "isPrime", type: "int", value: "1"}], output: "" },
-                  { line: 10, annotation: "17 % 3 != 0", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "3"}, {variable: "isPrime", type: "int", value: "1"}], output: "" },
-                  { line: 9, annotation: "Loop i = 4 (4*4 <= 17)", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "4"}, {variable: "isPrime", type: "int", value: "1"}], output: "" },
-                  { line: 10, annotation: "17 % 4 != 0", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "4"}, {variable: "isPrime", type: "int", value: "1"}], output: "" },
-                  { line: 9, annotation: "Loop exits, i = 5 (5*5 > 17)", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "5"}, {variable: "isPrime", type: "int", value: "1"}], output: "" },
-                  { line: 16, annotation: "isPrime is 1, print Prime", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "5"}, {variable: "isPrime", type: "int", value: "1"}], output: "17 is a Prime Number\n" },
-                  { line: 18, annotation: "Program terminates", memory: [{variable: "n", type: "int", value: "17"}, {variable: "i", type: "int", value: "5"}, {variable: "isPrime", type: "int", value: "1"}], output: "17 is a Prime Number\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int n, i, isPrime = 1;\n    scanf(\"%d\", &n);\n    if (n <= 1) {\n        isPrime = 0;\n    } else {\n        for (i = 2; i * i <= n; i++) {\n            if (n % i == 0) {\n                isPrime = 0;\n                break;\n            }\n        }\n    }\n    if (isPrime) printf(\"%d is a Prime Number\\n\", n);\n    else printf(\"%d is not a Prime Number\\n\", n);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "n", "type": "int", "value": "?" }, { "variable": "i", "type": "int", "value": "?" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '17'", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "?" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 6, "annotation": "n <= 1 is false", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "?" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i = 2 (2*2 <= 17)", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "2" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "17 % 2 != 0", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "2" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i = 3 (3*3 <= 17)", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "3" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "17 % 3 != 0", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "3" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i = 4 (4*4 <= 17)", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "4" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "17 % 4 != 0", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "4" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 9, "annotation": "Loop exits, i = 5 (5*5 > 17)", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "5" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 16, "annotation": "isPrime is 1, print Prime", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "5" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "17 is a Prime Number\n" },
+                  { "line": 18, "annotation": "Program terminates", "memory": [{ "variable": "n", "type": "int", "value": "17" }, { "variable": "i", "type": "int", "value": "5" }, { "variable": "isPrime", "type": "int", "value": "1" }], "output": "17 is a Prime Number\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3052,14 +3048,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w6-3",
-            title: "Sine Series",
-            desc: "Calculate sin(x) using Taylor series expansion.",
-            expected: "sin(30) ≈ 0.500000",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to compute the value of sin(x) using its Taylor/Maclaurin series expansion up to a specified number of terms. The student will:",
-                bullets: [
+            "id": "c-w6-3",
+            "title": "Sine Series",
+            "desc": "Calculate sin(x) using Taylor series expansion.",
+            "expected": "sin(30) ≈ 0.500000",
+            "content": {
+              "aim": {
+                "text": "This experiment demonstrates how transcendental functions like sin(x) are computed numerically using the Taylor–Maclaurin series expansion: sin(x) = x − x³/3! + x⁵/5! − x⁷/7! + …. Students will accept an angle in degrees, convert it to radians (x_rad = degrees × π/180), and accumulate the series over a user-specified number of terms using an iterative term-building technique that avoids repeated factorial and power calculations. The experiment shows how successive approximations converge to the true value, introduces the degree-to-radian conversion essential for all trigonometric computation in C, and allows comparison of the series result against the math.h library sin() function.",
+                "bullets": [
                   "Declare and use double variables for x, the term, and the running sum",
                   "Accept x in degrees and convert to radians before computation",
                   "Apply the sine series formula iteratively using a for loop",
@@ -3068,41 +3064,41 @@ export const courses: Record<string, Course> = {
                   "Use printf() with %.6f to display results to sufficient decimal precision"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🌊 How does your phone calculate sin(30°)?",
-                  body: [
+                  "title": "🌊 How does your phone calculate sin(30°)?",
+                  "body": [
                     "Your calculator doesn't have a \"sin button\" hardwired with a table of answers. It uses a clever mathematical trick discovered by a mathematician named Maclaurin — it approximates sin using an infinite series of additions and multiplications. Each extra term makes the answer more accurate. After 10-15 terms, the result matches the exact answer to many decimal places!",
                     "This is how computers calculate ALL trigonometric functions — no magic, just clever repeated arithmetic.",
-                    "![Sine wave graph](https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400)"
+                    "![Sine wave unit circle diagram](sine-wave.webp)"
                   ]
                 },
                 {
-                  title: "Sine Series (Maclaurin Expansion)",
-                  body: ["sin(x) = x - x³/3! + x⁵/5! - x⁷/7! + x⁹/9! - ...", "General term (n starting from 0): term_n = (-1)^n * x^(2n+1) / (2n+1)!"]
+                  "title": "Sine Series (Maclaurin Expansion)",
+                  "body": ["sin(x) = x - x³/3! + x⁵/5! - x⁷/7! + x⁹/9! - ...", "General term (n starting from 0): term_n = (-1)^n * x^(2n+1) / (2n+1)!"]
                 },
                 {
-                  title: "Degree to Radian Conversion",
-                  body: ["Trigonometric series require x in radians: x_rad = x_deg * (M_PI / 180.0)", "M_PI is defined in math.h. Alternatively use 3.14159265358979."]
+                  "title": "Degree to Radian Conversion",
+                  "body": ["Trigonometric series require x in radians: x_rad = x_deg * (M_PI / 180.0)", "M_PI is defined in math.h. Alternatively use 3.14159265358979."]
                 },
                 {
-                  title: "📐 Why radians, not degrees?",
-                  body: [
+                  "title": "📐 Why radians, not degrees?",
+                  "body": [
                     "Degrees (0°–360°) are human-invented. Radians are what the universe actually uses in mathematics. The formula sin(x) = x - x³/6 + ... only works when x is in radians. Think of degrees as a nickname (like calling someone \"Raju\") and radians as their official name on the birth certificate (like \"Rajeshwar\"). Math functions only understand the official name!",
                     "Conversion: multiply degrees by π/180 to get radians."
                   ]
                 },
                 {
-                  title: "Iterative Term Building",
-                  body: ["Rather than computing pow() and factorial from scratch each iteration (expensive), build each term from the previous one:", "term = term * (-1) * x * x / ((2*n) * (2*n + 1))", "This avoids repeated factorial and power calculations."]
+                  "title": "Iterative Term Building",
+                  "body": ["Rather than computing pow() and factorial from scratch each iteration (expensive), build each term from the previous one:", "term = term * (-1) * x * x / ((2*n) * (2*n + 1))", "This avoids repeated factorial and power calculations."]
                 },
                 {
-                  title: "Convergence and Accuracy",
-                  body: ["More terms give higher accuracy. For most angles, 10–15 terms are sufficient for double precision.", "Comparing your series result against math.h's sin() validates the implementation."]
+                  "title": "Convergence and Accuracy",
+                  "body": ["More terms give higher accuracy. For most angles, 10–15 terms are sufficient for double precision.", "Comparing your series result against math.h's sin() validates the implementation."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace the series computation term by term for x = 30°.",
                 "Observe how the running sum converges toward 0.500000 as terms are added.",
@@ -3111,26 +3107,26 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: sin(30) ≈ 0.500000",
                 "Try 90, 0, 180, and 45 degrees. Compare series result with math.h sin(). Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#define PI 3.14159265358979\n\nint main() {\n    double deg, x, term, sum = 0;\n    int n, i;\n    scanf(\"%lf %d\", &deg, &n);\n    x = deg * (PI / 180.0);\n    term = x;\n    for (i = 0; i < n; i++) {\n        sum += term;\n        term = term * (-1) * x * x / ((2 * i + 2) * (2 * i + 3));\n    }\n    printf(\"sin(%.0f) ≈ %.6f\\n\", deg, sum);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library and define PI", memory: [], output: "" },
-                  { line: 5, annotation: "Allocate variables", memory: [{variable: "sum", type: "double", value: "0.0"}], output: "" },
-                  { line: 7, annotation: "scanf() reads '30 10'", memory: [{variable: "deg", type: "double", value: "30.0"}, {variable: "n", type: "int", value: "10"}, {variable: "sum", type: "double", value: "0.0"}], output: "" },
-                  { line: 8, annotation: "Convert 30 degrees to radians", memory: [{variable: "deg", type: "double", value: "30.0"}, {variable: "x", type: "double", value: "0.523599"}, {variable: "n", type: "int", value: "10"}], output: "" },
-                  { line: 9, annotation: "Set initial term to x", memory: [{variable: "x", type: "double", value: "0.523599"}, {variable: "term", type: "double", value: "0.523599"}, {variable: "sum", type: "double", value: "0.0"}], output: "" },
-                  { line: 10, annotation: "Loop i = 0", memory: [{variable: "term", type: "double", value: "0.523599"}, {variable: "sum", type: "double", value: "0.0"}], output: "" },
-                  { line: 11, annotation: "Add term to sum", memory: [{variable: "term", type: "double", value: "0.523599"}, {variable: "sum", type: "double", value: "0.523599"}], output: "" },
-                  { line: 12, annotation: "Compute next term (negative x^3 / 3!)", memory: [{variable: "term", type: "double", value: "-0.023925"}, {variable: "sum", type: "double", value: "0.523599"}], output: "" },
-                  { line: 10, annotation: "Loop i = 1", memory: [{variable: "term", type: "double", value: "-0.023925"}, {variable: "sum", type: "double", value: "0.523599"}], output: "" },
-                  { line: 11, annotation: "Add term to sum", memory: [{variable: "term", type: "double", value: "-0.023925"}, {variable: "sum", type: "double", value: "0.499674"}], output: "" },
-                  { line: 12, annotation: "Compute next term (positive x^5 / 5!)", memory: [{variable: "term", type: "double", value: "0.000328"}, {variable: "sum", type: "double", value: "0.499674"}], output: "" },
-                  { line: 14, annotation: "Loop continues... printf() displays final sum", memory: [{variable: "sum", type: "double", value: "0.500000"}], output: "sin(30) ≈ 0.500000\n" },
-                  { line: 16, annotation: "Program terminates", memory: [{variable: "sum", type: "double", value: "0.500000"}], output: "sin(30) ≈ 0.500000\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#define PI 3.14159265358979\n\nint main() {\n    double deg, x, term, sum = 0;\n    int n, i;\n    scanf(\"%lf %d\", &deg, &n);\n    x = deg * (PI / 180.0);\n    term = x;\n    for (i = 0; i < n; i++) {\n        sum += term;\n        term = term * (-1) * x * x / ((2 * i + 2) * (2 * i + 3));\n    }\n    printf(\"sin(%.0f) ≈ %.6f\\n\", deg, sum);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library and define PI", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Allocate variables", "memory": [{ "variable": "sum", "type": "double", "value": "0.0" }], "output": "" },
+                  { "line": 7, "annotation": "scanf() reads '30 10'", "memory": [{ "variable": "deg", "type": "double", "value": "30.0" }, { "variable": "n", "type": "int", "value": "10" }, { "variable": "sum", "type": "double", "value": "0.0" }], "output": "" },
+                  { "line": 8, "annotation": "Convert 30 degrees to radians", "memory": [{ "variable": "deg", "type": "double", "value": "30.0" }, { "variable": "x", "type": "double", "value": "0.523599" }, { "variable": "n", "type": "int", "value": "10" }], "output": "" },
+                  { "line": 9, "annotation": "Set initial term to x", "memory": [{ "variable": "x", "type": "double", "value": "0.523599" }, { "variable": "term", "type": "double", "value": "0.523599" }, { "variable": "sum", "type": "double", "value": "0.0" }], "output": "" },
+                  { "line": 10, "annotation": "Loop i = 0", "memory": [{ "variable": "term", "type": "double", "value": "0.523599" }, { "variable": "sum", "type": "double", "value": "0.0" }], "output": "" },
+                  { "line": 11, "annotation": "Add term to sum", "memory": [{ "variable": "term", "type": "double", "value": "0.523599" }, { "variable": "sum", "type": "double", "value": "0.523599" }], "output": "" },
+                  { "line": 12, "annotation": "Compute next term (negative x^3 / 3!)", "memory": [{ "variable": "term", "type": "double", "value": "-0.023925" }, { "variable": "sum", "type": "double", "value": "0.523599" }], "output": "" },
+                  { "line": 10, "annotation": "Loop i = 1", "memory": [{ "variable": "term", "type": "double", "value": "-0.023925" }, { "variable": "sum", "type": "double", "value": "0.523599" }], "output": "" },
+                  { "line": 11, "annotation": "Add term to sum", "memory": [{ "variable": "term", "type": "double", "value": "-0.023925" }, { "variable": "sum", "type": "double", "value": "0.499674" }], "output": "" },
+                  { "line": 12, "annotation": "Compute next term (positive x^5 / 5!)", "memory": [{ "variable": "term", "type": "double", "value": "0.000328" }, { "variable": "sum", "type": "double", "value": "0.499674" }], "output": "" },
+                  { "line": 14, "annotation": "Loop continues... printf() displays final sum", "memory": [{ "variable": "sum", "type": "double", "value": "0.500000" }], "output": "sin(30) ≈ 0.500000\n" },
+                  { "line": 16, "annotation": "Program terminates", "memory": [{ "variable": "sum", "type": "double", "value": "0.500000" }], "output": "sin(30) ≈ 0.500000\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3139,14 +3135,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w6-4",
-            title: "Palindrome Check",
-            desc: "Check if a number is a palindrome.",
-            expected: "121 is a Palindrome",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept a positive integer from the user and determine whether it is a palindrome by reversing its digits using a while loop. The student will:",
-                bullets: [
+            "id": "c-w6-4",
+            "title": "Palindrome Check",
+            "desc": "Check if a number is a palindrome.",
+            "expected": "121 is a Palindrome",
+            "content": {
+              "aim": {
+                "text": "This experiment implements palindrome detection for integers using digit extraction and reversal inside a while loop. Students will save the original number, then iteratively extract the last digit using the modulus operator (n % 10), build the reversed number by accumulating digits (reversed = reversed * 10 + remainder), and remove the processed digit from n using integer division (n /= 10). After the loop exhausts all digits, comparing the reversed number to the original determines whether the number reads the same forwards and backwards. The experiment solidifies understanding of the modulus-and-division pattern for digit manipulation — a technique reused in many number-theory problems.",
+                "bullets": [
                   "Declare and use int variables for the number, reversed number, and remainder",
                   "Extract digits one by one using the modulus and division operators",
                   "Build the reversed number digit by digit inside a while loop",
@@ -3154,26 +3150,26 @@ export const courses: Record<string, Course> = {
                   "Use printf() to display the result"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🪞 A number that looks the same in a mirror!",
-                  body: [
+                  "title": "🪞 A number that looks the same in a mirror!",
+                  "body": [
                     "A palindrome reads the same forwards and backwards. Like the word \"MADAM\" — spell it backwards, still MADAM! Or the number 121 — flip it, still 121. Or 12321 — still 12321.",
                     "To check this in code, we reverse the number and compare it to the original. If they match, it's a palindrome — like checking if someone looks the same from the front and back in a mirror!",
-                    "![Mirror reflection concept](https://ica.edu.np/uploads/blog_image/original/78811.webp)"
+                    "![Mirror symmetry reflection concept](mirror-symmetry.webp)"
                   ]
                 },
                 {
-                  title: "Palindrome Number",
-                  body: ["A number is a palindrome if it reads the same forwards and backwards.", "Examples: 121 → 121 (Palindrome), 123 → 321 (Not a Palindrome), 5 → 5 (Palindrome)."]
+                  "title": "Palindrome Number",
+                  "body": ["A number is a palindrome if it reads the same forwards and backwards.", "Examples: 121 → 121 (Palindrome), 123 → 321 (Not a Palindrome), 5 → 5 (Palindrome)."]
                 },
                 {
-                  title: "Digit Extraction",
-                  body: ["remainder = n % 10 extracts the last digit of n.", "n = n / 10 removes the last digit from n (integer division)."]
+                  "title": "Digit Extraction",
+                  "body": ["remainder = n % 10 extracts the last digit of n.", "n = n / 10 removes the last digit from n (integer division)."]
                 },
                 {
-                  title: "🔢 How do we reverse a number step by step?",
-                  body: [
+                  "title": "🔢 How do we reverse a number step by step?",
+                  "body": [
                     "Let's reverse 123:",
                     "Step 1: Last digit = 123 % 10 = 3. Remaining = 123 / 10 = 12. Reversed = 0 × 10 + 3 = 3",
                     "Step 2: Last digit = 12 % 10 = 2. Remaining = 12 / 10 = 1. Reversed = 3 × 10 + 2 = 32",
@@ -3182,16 +3178,16 @@ export const courses: Record<string, Course> = {
                   ]
                 },
                 {
-                  title: "Building the Reversed Number",
-                  body: ["reversed = reversed * 10 + remainder", "Each iteration shifts the existing reversed digits left by one place and appends the newly extracted digit."]
+                  "title": "Building the Reversed Number",
+                  "body": ["reversed = reversed * 10 + remainder", "Each iteration shifts the existing reversed digits left by one place and appends the newly extracted digit."]
                 },
                 {
-                  title: "Preserving the Original",
-                  body: ["Before entering the loop, save the original value: original = n;", "After reversal, compare original == reversed to decide palindrome status. Negative numbers are not palindromes."]
+                  "title": "Preserving the Original",
+                  "body": ["Before entering the loop, save the original value: original = n;", "After reversal, compare original == reversed to decide palindrome status. Negative numbers are not palindromes."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace the digit extraction loop for n = 121.",
                 "Observe how remainder, reversed, and n change at each iteration.",
@@ -3200,33 +3196,33 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify output: 121 is a Palindrome",
                 "Try 1331, 123, 5, and 10. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int n, original, reversed = 0, remainder;\n    scanf(\"%d\", &n);\n    original = n;\n    while (n > 0) {\n        remainder = n % 10;\n        reversed = reversed * 10 + remainder;\n        n /= 10;\n    }\n    if (original == reversed) printf(\"%d is a Palindrome\\n\", original);\n    else printf(\"%d is not a Palindrome\\n\", original);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "n", type: "int", value: "?"}, {variable: "original", type: "int", value: "?"}, {variable: "reversed", type: "int", value: "0"}, {variable: "remainder", type: "int", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '121'", memory: [{variable: "n", type: "int", value: "121"}], output: "" },
-                  { line: 6, annotation: "Save original value", memory: [{variable: "original", type: "int", value: "121"}], output: "" },
-                  { line: 7, annotation: "while n > 0 (121 > 0)", memory: [{variable: "n", type: "int", value: "121"}], output: "" },
-                  { line: 8, annotation: "remainder = 121 % 10 = 1", memory: [{variable: "remainder", type: "int", value: "1"}], output: "" },
-                  { line: 9, annotation: "reversed = 0 * 10 + 1 = 1", memory: [{variable: "reversed", type: "int", value: "1"}], output: "" },
-                  { line: 10, annotation: "n = 121 / 10 = 12", memory: [{variable: "n", type: "int", value: "12"}], output: "" },
-                  { line: 7, annotation: "while n > 0 (12 > 0)", memory: [{variable: "n", type: "int", value: "12"}], output: "" },
-                  { line: 8, annotation: "remainder = 12 % 10 = 2", memory: [{variable: "remainder", type: "int", value: "2"}], output: "" },
-                  { line: 9, annotation: "reversed = 1 * 10 + 2 = 12", memory: [{variable: "reversed", type: "int", value: "12"}], output: "" },
-                  { line: 10, annotation: "n = 12 / 10 = 1", memory: [{variable: "n", type: "int", value: "1"}], output: "" },
-                  { line: 7, annotation: "while n > 0 (1 > 0)", memory: [{variable: "n", type: "int", value: "1"}], output: "" },
-                  { line: 8, annotation: "remainder = 1 % 10 = 1", memory: [{variable: "remainder", type: "int", value: "1"}], output: "" },
-                  { line: 9, annotation: "reversed = 12 * 10 + 1 = 121", memory: [{variable: "reversed", type: "int", value: "121"}], output: "" },
-                  { line: 10, annotation: "n = 1 / 10 = 0", memory: [{variable: "n", type: "int", value: "0"}], output: "" },
-                  { line: 7, annotation: "while n > 0 (0 > 0) -> Exit loop", memory: [{variable: "n", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "Check if original == reversed (121 == 121)", memory: [{variable: "original", type: "int", value: "121"}, {variable: "reversed", type: "int", value: "121"}], output: "" },
-                  { line: 12, annotation: "printf() displays Palindrome", memory: [], output: "121 is a Palindrome\n" },
-                  { line: 14, annotation: "Program terminates", memory: [], output: "121 is a Palindrome\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int n, original, reversed = 0, remainder;\n    scanf(\"%d\", &n);\n    original = n;\n    while (n > 0) {\n        remainder = n % 10;\n        reversed = reversed * 10 + remainder;\n        n /= 10;\n    }\n    if (original == reversed) printf(\"%d is a Palindrome\\n\", original);\n    else printf(\"%d is not a Palindrome\\n\", original);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "n", "type": "int", "value": "?" }, { "variable": "original", "type": "int", "value": "?" }, { "variable": "reversed", "type": "int", "value": "0" }, { "variable": "remainder", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '121'", "memory": [{ "variable": "n", "type": "int", "value": "121" }], "output": "" },
+                  { "line": 6, "annotation": "Save original value", "memory": [{ "variable": "original", "type": "int", "value": "121" }], "output": "" },
+                  { "line": 7, "annotation": "while n > 0 (121 > 0)", "memory": [{ "variable": "n", "type": "int", "value": "121" }], "output": "" },
+                  { "line": 8, "annotation": "remainder = 121 % 10 = 1", "memory": [{ "variable": "remainder", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 9, "annotation": "reversed = 0 * 10 + 1 = 1", "memory": [{ "variable": "reversed", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "n = 121 / 10 = 12", "memory": [{ "variable": "n", "type": "int", "value": "12" }], "output": "" },
+                  { "line": 7, "annotation": "while n > 0 (12 > 0)", "memory": [{ "variable": "n", "type": "int", "value": "12" }], "output": "" },
+                  { "line": 8, "annotation": "remainder = 12 % 10 = 2", "memory": [{ "variable": "remainder", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 9, "annotation": "reversed = 1 * 10 + 2 = 12", "memory": [{ "variable": "reversed", "type": "int", "value": "12" }], "output": "" },
+                  { "line": 10, "annotation": "n = 12 / 10 = 1", "memory": [{ "variable": "n", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 7, "annotation": "while n > 0 (1 > 0)", "memory": [{ "variable": "n", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 8, "annotation": "remainder = 1 % 10 = 1", "memory": [{ "variable": "remainder", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 9, "annotation": "reversed = 12 * 10 + 1 = 121", "memory": [{ "variable": "reversed", "type": "int", "value": "121" }], "output": "" },
+                  { "line": 10, "annotation": "n = 1 / 10 = 0", "memory": [{ "variable": "n", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 7, "annotation": "while n > 0 (0 > 0) -> Exit loop", "memory": [{ "variable": "n", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "Check if original == reversed (121 == 121)", "memory": [{ "variable": "original", "type": "int", "value": "121" }, { "variable": "reversed", "type": "int", "value": "121" }], "output": "" },
+                  { "line": 12, "annotation": "printf() displays Palindrome", "memory": [], "output": "121 is a Palindrome\n" },
+                  { "line": 14, "annotation": "Program terminates", "memory": [], "output": "121 is a Palindrome\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3235,14 +3231,14 @@ export const courses: Record<string, Course> = {
             }
           },
           {
-            id: "c-w6-5",
-            title: "Number Pyramid",
-            desc: "Print a number pyramid pattern.",
-            expected: "Pyramid pattern output",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept the number of rows from the user and print a number pyramid pattern using nested for loops. The student will:",
-                bullets: [
+            "id": "c-w6-5",
+            "title": "Number Pyramid",
+            "desc": "Print a number pyramid pattern.",
+            "expected": "Pyramid pattern output",
+            "content": {
+              "aim": {
+                "text": "This experiment demonstrates the construction of 2D console patterns using nested for loops. Students will accept the number of rows and use an outer loop to process each row, a first inner loop to print (n − i) leading spaces that centre the pyramid, and a second inner loop to print the integers 1 through i for that row. Each row ends with a newline. The experiment develops spatial reasoning about how loop counter values translate to visual structure, reinforces nested loop mechanics (the outer loop controls rows; inner loops control what appears on each row), and introduces the interplay between loop variables and output formatting.",
+                "bullets": [
                   "Declare and use int variables for row count, loop counters, and spacing",
                   "Use an outer for loop to iterate over rows",
                   "Use inner for loops to print leading spaces and numbers for each row",
@@ -3250,40 +3246,40 @@ export const courses: Record<string, Course> = {
                   "Use printf() with space and number formatting to align output correctly"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🔺 Building patterns with loops — like stacking bricks!",
-                  body: [
+                  "title": "🔺 Building patterns with loops — like stacking bricks!",
+                  "body": [
                     "Look at a pyramid from the front. Row 1 has 1 brick, row 2 has 2 bricks, row 3 has 3 bricks. Each row is wider than the last, and everything is centered. To draw this with code, we use loops inside loops — the outer loop builds each row, the inner loops place the spaces and numbers perfectly.",
                     "It's like a construction worker who, for each floor of the building, carefully counts how many bricks to place and where to start!",
-                    "![A pyramid or triangle pattern](https://static.scientificamerican.com/dam/m/5a010cba8055f33f/original/oddPyramid_graphic_d1_TEXT.webp?m=1721669879.477&w=900)"
+                    "![Number pyramid pattern triangle](number-pyramid.webp)"
                   ]
                 },
                 {
-                  title: "Nested Loops",
-                  body: ["A loop placed inside another loop is called a nested loop. The outer loop controls the row number and the inner loop(s) control what is printed on each row.", "for (i = 1; i <= n; i++) {\n    for (j = 1; j <= ...; j++) { printf(...); }\n    printf(\"\\n\");\n}"]
+                  "title": "Nested Loops",
+                  "body": ["A loop placed inside another loop is called a nested loop. The outer loop controls the row number and the inner loop(s) control what is printed on each row.", "for (i = 1; i <= n; i++) {\n    for (j = 1; j <= ...; j++) { printf(...); }\n    printf(\"\\n\");\n}"]
                 },
                 {
-                  title: "🧅 Nested loops = onion layers!",
-                  body: [
+                  "title": "🧅 Nested loops = onion layers!",
+                  "body": [
                     "Peel an onion — there's a layer, inside it another layer, inside it another. A nested loop is the same. The outer loop says \"do this for each ROW.\" The inner loop says \"for this row, do this for each COLUMN.\" Every time the outer loop ticks once, the entire inner loop runs completely. So for a 5-row pyramid, the inner loops run a total of 1+2+3+4+5 = 15 times!"
                   ]
                 },
                 {
-                  title: "Number Pyramid Pattern",
-                  body: ["Row i contains: (n - i) leading spaces (to centre the pyramid) and numbers 1 through i (with spaces between).", "Example for n=3:\n  1\n 1 2\n1 2 3"]
+                  "title": "Number Pyramid Pattern",
+                  "body": ["Row i contains: (n - i) leading spaces (to centre the pyramid) and numbers 1 through i (with spaces between).", "Example for n=3:\n  1\n 1 2\n1 2 3"]
                 },
                 {
-                  title: "Counting Iterations",
-                  body: ["Outer loop: runs n times (i = 1 to n).", "Space loop: runs (n - i) times per row.", "Number loop: runs i times per row."]
+                  "title": "Counting Iterations",
+                  "body": ["Outer loop: runs n times (i = 1 to n).", "Space loop: runs (n - i) times per row.", "Number loop: runs i times per row."]
                 },
                 {
-                  title: "break vs continue",
-                  body: ["break: exits the loop entirely.", "continue: skips only the current iteration, loop continues."]
+                  "title": "break vs continue",
+                  "body": ["break: exits the loop entirely.", "continue: skips only the current iteration, loop continues."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace the nested loops row by row for n = 4.",
                 "Observe how the space count decreases and the number count increases per row.",
@@ -3292,30 +3288,30 @@ export const courses: Record<string, Course> = {
                 "Click Run Code. Verify the pyramid is centred and numbers increase left to right.",
                 "Try n = 1, n = 3, and n = 7 to observe how the pyramid scales. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int n, i, j;\n    scanf(\"%d\", &n);\n    for (i = 1; i <= n; i++) {\n        for (j = 1; j <= n - i; j++) {\n            printf(\" \");\n        }\n        for (j = 1; j <= i; j++) {\n            printf(\"%d \", j);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "n", type: "int", value: "?"}, {variable: "i", type: "int", value: "?"}, {variable: "j", type: "int", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf() reads '3' for 3 rows", memory: [{variable: "n", type: "int", value: "3"}], output: "" },
-                  { line: 6, annotation: "Row i=1", memory: [{variable: "n", type: "int", value: "3"}, {variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 7, annotation: "Print spaces: 3-1 = 2 spaces", memory: [{variable: "j", type: "int", value: "1"}], output: "  " },
-                  { line: 10, annotation: "Print numbers up to i=1", memory: [{variable: "j", type: "int", value: "1"}], output: "  1 " },
-                  { line: 13, annotation: "Newline", memory: [], output: "  1 \n" },
-                  { line: 6, annotation: "Row i=2", memory: [{variable: "n", type: "int", value: "3"}, {variable: "i", type: "int", value: "2"}], output: "  1 \n" },
-                  { line: 7, annotation: "Print spaces: 3-2 = 1 space", memory: [{variable: "j", type: "int", value: "1"}], output: "  1 \n " },
-                  { line: 10, annotation: "Print numbers up to i=2", memory: [{variable: "j", type: "int", value: "1"}], output: "  1 \n 1 2 " },
-                  { line: 13, annotation: "Newline", memory: [], output: "  1 \n 1 2 \n" },
-                  { line: 6, annotation: "Row i=3", memory: [{variable: "n", type: "int", value: "3"}, {variable: "i", type: "int", value: "3"}], output: "  1 \n 1 2 \n" },
-                  { line: 7, annotation: "Print spaces: 3-3 = 0 spaces", memory: [{variable: "j", type: "int", value: "1"}], output: "  1 \n 1 2 \n" },
-                  { line: 10, annotation: "Print numbers up to i=3", memory: [{variable: "j", type: "int", value: "1"}], output: "  1 \n 1 2 \n1 2 3 " },
-                  { line: 13, annotation: "Newline", memory: [], output: "  1 \n 1 2 \n1 2 3 \n" },
-                  { line: 6, annotation: "Loop finishes (i=4 > 3)", memory: [], output: "  1 \n 1 2 \n1 2 3 \n" },
-                  { line: 15, annotation: "Program terminates", memory: [], output: "  1 \n 1 2 \n1 2 3 \n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int n, i, j;\n    scanf(\"%d\", &n);\n    for (i = 1; i <= n; i++) {\n        for (j = 1; j <= n - i; j++) {\n            printf(\" \");\n        }\n        for (j = 1; j <= i; j++) {\n            printf(\"%d \", j);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "n", "type": "int", "value": "?" }, { "variable": "i", "type": "int", "value": "?" }, { "variable": "j", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf() reads '3' for 3 rows", "memory": [{ "variable": "n", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 6, "annotation": "Row i=1", "memory": [{ "variable": "n", "type": "int", "value": "3" }, { "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 7, "annotation": "Print spaces: 3-1 = 2 spaces", "memory": [{ "variable": "j", "type": "int", "value": "1" }], "output": "  " },
+                  { "line": 10, "annotation": "Print numbers up to i=1", "memory": [{ "variable": "j", "type": "int", "value": "1" }], "output": "  1 " },
+                  { "line": 13, "annotation": "Newline", "memory": [], "output": "  1 \n" },
+                  { "line": 6, "annotation": "Row i=2", "memory": [{ "variable": "n", "type": "int", "value": "3" }, { "variable": "i", "type": "int", "value": "2" }], "output": "  1 \n" },
+                  { "line": 7, "annotation": "Print spaces: 3-2 = 1 space", "memory": [{ "variable": "j", "type": "int", "value": "1" }], "output": "  1 \n " },
+                  { "line": 10, "annotation": "Print numbers up to i=2", "memory": [{ "variable": "j", "type": "int", "value": "1" }], "output": "  1 \n 1 2 " },
+                  { "line": 13, "annotation": "Newline", "memory": [], "output": "  1 \n 1 2 \n" },
+                  { "line": 6, "annotation": "Row i=3", "memory": [{ "variable": "n", "type": "int", "value": "3" }, { "variable": "i", "type": "int", "value": "3" }], "output": "  1 \n 1 2 \n" },
+                  { "line": 7, "annotation": "Print spaces: 3-3 = 0 spaces", "memory": [{ "variable": "j", "type": "int", "value": "1" }], "output": "  1 \n 1 2 \n" },
+                  { "line": 10, "annotation": "Print numbers up to i=3", "memory": [{ "variable": "j", "type": "int", "value": "1" }], "output": "  1 \n 1 2 \n1 2 3 " },
+                  { "line": 13, "annotation": "Newline", "memory": [], "output": "  1 \n 1 2 \n1 2 3 \n" },
+                  { "line": 6, "annotation": "Loop finishes (i=4 > 3)", "memory": [], "output": "  1 \n 1 2 \n1 2 3 \n" },
+                  { "line": 15, "annotation": "Program terminates", "memory": [], "output": "  1 \n 1 2 \n1 2 3 \n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3323,23 +3319,23 @@ export const courses: Record<string, Course> = {
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 7",
-        objective: "1D array definition, initialization, linear search",
-        tutorial: "Tutorial 7: 1D Arrays",
-        labTitle: "Lab 7: Array manipulation",
-        experiments: [
+        "title": "WEEK 7",
+        "objective": "1D array definition, initialization, linear search",
+        "tutorial": "Tutorial 7: 1D Arrays",
+        "labTitle": "Lab 7: Array manipulation",
+        "experiments": [
           {
-            id: "c-w7-1",
-            title: "Min and Max of Array",
-            desc: "Find minimum and maximum in 1D array.",
-            expected: "Min: 1  Max: 9",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept n integers into a 1D array and find the minimum and maximum elements using a single traversal loop. The student will:",
-                bullets: [
+            "id": "c-w7-1",
+            "title": "Min and Max of Array",
+            "desc": "Find minimum and maximum in 1D array.",
+            "expected": "Min: 1  Max: 9",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces 1D arrays in C and demonstrates how to find the smallest and largest elements in a single traversal. Students will declare a fixed-size integer array, read n elements into it from the user, initialise both a minimum and a maximum tracker to the first element (arr[0]), and update each tracker whenever a smaller or larger element is encountered in the remaining positions. By completing this experiment, students understand array declaration, index-based element access, the initialise-to-first-element strategy for min/max algorithms, and the O(n) single-pass efficiency of the approach.",
+                "bullets": [
                   "Declare and initialise a 1D integer array of fixed maximum size",
                   "Accept n elements from the user into the array using a for loop",
                   "Initialise min and max to the first element of the array",
@@ -3347,33 +3343,33 @@ export const courses: Record<string, Course> = {
                   "Use printf() to display the minimum and maximum values found"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Kid-Friendly Addition",
-                  body: [`### 📏 The Tallest Student in Line!
-Imagine a gym teacher trying to find the tallest student in a lineup. The teacher starts by pointing at the very first student and saying, \"You are the tallest so far!\" Then, the teacher walks down the line, comparing everyone to that student. Anytime the teacher finds someone even taller, they point to the new student instead. By the end of the line, the person being pointed to is guaranteed to be the tallest in the class (the Maximum)!
-
-![Line of students](https://labviewwiki.org/w/images/2/28/Array_Max_and_Min_-_Terminals.webp)`]
+                  "title": "📏 The Tallest Student in Line!",
+                  "body": [
+                    "Imagine a gym teacher trying to find the tallest student in a lineup. The teacher starts by pointing at the very first student and saying, \"You are the tallest so far!\" Then, the teacher walks down the line, comparing everyone to that student. Anytime the teacher finds someone even taller, they point to the new student instead. By the end of the line, the person being pointed to is guaranteed to be the tallest in the class (the Maximum)!",
+                    "![Array max min diagram](max-min-array.webp)"
+                  ]
                 },
                 {
-                  title: "1D Array",
-                  body: ["A one-dimensional array is a contiguous block of memory storing elements of the same data type, accessed via an index starting at 0:", "int arr[100]; declares an array of 100 integers", "arr[0] = 10; assigns 10 to the first element", "arr[n-1] is the last valid element for an array of size n"]
+                  "title": "1D Array",
+                  "body": ["A one-dimensional array is a contiguous block of memory storing elements of the same data type, accessed via an index starting at 0:", "int arr[100]; declares an array of 100 integers", "arr[0] = 10; assigns 10 to the first element", "arr[n-1] is the last valid element for an array of size n"]
                 },
                 {
-                  title: "Array Initialisation and Input",
-                  body: ["for (i = 0; i < n; i++) scanf(\"%d\", &arr[i]);", "Each element is read from standard input using its address &arr[i]."]
+                  "title": "Array Initialisation and Input",
+                  "body": ["for (i = 0; i < n; i++) scanf(\"%d\", &arr[i]);", "Each element is read from standard input using its address &arr[i]."]
                 },
                 {
-                  title: "Finding Min and Max",
-                  body: ["Initialise both min and max to the first element arr[0], then iterate from index 1 to n-1, updating as needed:", "min = arr[0]; max = arr[0];\nfor (i = 1; i < n; i++) {\n    if (arr[i] < min) min = arr[i];\n    if (arr[i] > max) max = arr[i];\n}", "This requires exactly one pass through the array — O(n) time complexity."]
+                  "title": "Finding Min and Max",
+                  "body": ["Initialise both min and max to the first element arr[0], then iterate from index 1 to n-1, updating as needed:", "min = arr[0]; max = arr[0];\nfor (i = 1; i < n; i++) {\n    if (arr[i] < min) min = arr[i];\n    if (arr[i] > max) max = arr[i];\n}", "This requires exactly one pass through the array — O(n) time complexity."]
                 },
                 {
-                  title: "Why Not Initialise to 0?",
-                  body: ["If all elements are negative, initialising min = 0 would incorrectly leave min as 0. Always initialise to arr[0] to handle all input ranges.", "Index Bounds: Valid indices are 0 to n-1. Accessing arr[n] is undefined behaviour."]
+                  "title": "Why Not Initialise to 0?",
+                  "body": ["If all elements are negative, initialising min = 0 would incorrectly leave min as 0. Always initialise to arr[0] to handle all input ranges.", "Index Bounds: Valid indices are 0 to n-1. Accessing arr[n] is undefined behaviour."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace how min and max are updated element by element.",
                 "Observe that both are initialised to arr[0] and updated only when a new extreme is found.",
@@ -3382,30 +3378,30 @@ Imagine a gym teacher trying to find the tallest student in a lineup. The teache
                 "Click Run Code. Verify output: Min: 1  Max: 9",
                 "Try all-equal arrays like 4 4 4 4 and all-negative arrays like -3 -7 -1 -9. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int arr[100];\n    int n, i, min, max;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    min = arr[0];\n    max = arr[0];\n    for (i = 1; i < n; i++) {\n        if (arr[i] < min) min = arr[i];\n        if (arr[i] > max) max = arr[i];\n    }\n    printf(\"Min: %d  Max: %d\\n\", min, max);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "arr", type: "int[]", value: "size 100"}, {variable: "n", type: "int", value: "?"}, {variable: "min", type: "int", value: "?"}, {variable: "max", type: "int", value: "?"}], output: "" },
-                  { line: 6, annotation: "scanf reads n=5", memory: [{variable: "arr", type: "int[]", value: "size 100"}, {variable: "n", type: "int", value: "5"}], output: "" },
-                  { line: 7, annotation: "Read array elements: 3 9 1 7 5", memory: [{variable: "arr", type: "int[]", value: "{3, 9, 1, 7, 5}"}, {variable: "n", type: "int", value: "5"}], output: "" },
-                  { line: 10, annotation: "Initialise min = arr[0]", memory: [{variable: "arr", type: "int[]", value: "{3, 9, 1, 7, 5}"}, {variable: "min", type: "int", value: "3"}], output: "" },
-                  { line: 11, annotation: "Initialise max = arr[0]", memory: [{variable: "arr", type: "int[]", value: "{3, 9, 1, 7, 5}"}, {variable: "min", type: "int", value: "3"}, {variable: "max", type: "int", value: "3"}], output: "" },
-                  { line: 12, annotation: "Loop i=1 to 4", memory: [{variable: "i", type: "int", value: "1"}, {variable: "min", type: "int", value: "3"}, {variable: "max", type: "int", value: "3"}], output: "" },
-                  { line: 13, annotation: "i=1, arr[1]=9, 9<3 false", memory: [{variable: "i", type: "int", value: "1"}, {variable: "min", type: "int", value: "3"}, {variable: "max", type: "int", value: "3"}], output: "" },
-                  { line: 14, annotation: "i=1, 9>3 true -> max = 9", memory: [{variable: "i", type: "int", value: "1"}, {variable: "min", type: "int", value: "3"}, {variable: "max", type: "int", value: "9"}], output: "" },
-                  { line: 13, annotation: "i=2, arr[2]=1, 1<3 true -> min = 1", memory: [{variable: "i", type: "int", value: "2"}, {variable: "min", type: "int", value: "1"}, {variable: "max", type: "int", value: "9"}], output: "" },
-                  { line: 14, annotation: "i=2, 1>9 false", memory: [{variable: "i", type: "int", value: "2"}, {variable: "min", type: "int", value: "1"}, {variable: "max", type: "int", value: "9"}], output: "" },
-                  { line: 13, annotation: "i=3, arr[3]=7, 7<1 false", memory: [{variable: "i", type: "int", value: "3"}, {variable: "min", type: "int", value: "1"}, {variable: "max", type: "int", value: "9"}], output: "" },
-                  { line: 14, annotation: "i=3, 7>9 false", memory: [{variable: "i", type: "int", value: "3"}, {variable: "min", type: "int", value: "1"}, {variable: "max", type: "int", value: "9"}], output: "" },
-                  { line: 13, annotation: "i=4, arr[4]=5, 5<1 false", memory: [{variable: "i", type: "int", value: "4"}, {variable: "min", type: "int", value: "1"}, {variable: "max", type: "int", value: "9"}], output: "" },
-                  { line: 14, annotation: "i=4, 5>9 false", memory: [{variable: "i", type: "int", value: "4"}, {variable: "min", type: "int", value: "1"}, {variable: "max", type: "int", value: "9"}], output: "" },
-                  { line: 16, annotation: "printf output", memory: [{variable: "min", type: "int", value: "1"}, {variable: "max", type: "int", value: "9"}], output: "Min: 1  Max: 9\n" },
-                  { line: 18, annotation: "Program terminates", memory: [], output: "Min: 1  Max: 9\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int arr[100];\n    int n, i, min, max;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    min = arr[0];\n    max = arr[0];\n    for (i = 1; i < n; i++) {\n        if (arr[i] < min) min = arr[i];\n        if (arr[i] > max) max = arr[i];\n    }\n    printf(\"Min: %d  Max: %d\\n\", min, max);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "arr", "type": "int[]", "value": "size 100" }, { "variable": "n", "type": "int", "value": "?" }, { "variable": "min", "type": "int", "value": "?" }, { "variable": "max", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "scanf reads n=5", "memory": [{ "variable": "arr", "type": "int[]", "value": "size 100" }, { "variable": "n", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 7, "annotation": "Read array elements: 3 9 1 7 5", "memory": [{ "variable": "arr", "type": "int[]", "value": "{3, 9, 1, 7, 5}" }, { "variable": "n", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 10, "annotation": "Initialise min = arr[0]", "memory": [{ "variable": "arr", "type": "int[]", "value": "{3, 9, 1, 7, 5}" }, { "variable": "min", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 11, "annotation": "Initialise max = arr[0]", "memory": [{ "variable": "arr", "type": "int[]", "value": "{3, 9, 1, 7, 5}" }, { "variable": "min", "type": "int", "value": "3" }, { "variable": "max", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 12, "annotation": "Loop i=1 to 4", "memory": [{ "variable": "i", "type": "int", "value": "1" }, { "variable": "min", "type": "int", "value": "3" }, { "variable": "max", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 13, "annotation": "i=1, arr[1]=9, 9<3 false", "memory": [{ "variable": "i", "type": "int", "value": "1" }, { "variable": "min", "type": "int", "value": "3" }, { "variable": "max", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 14, "annotation": "i=1, 9>3 true -> max = 9", "memory": [{ "variable": "i", "type": "int", "value": "1" }, { "variable": "min", "type": "int", "value": "3" }, { "variable": "max", "type": "int", "value": "9" }], "output": "" },
+                  { "line": 13, "annotation": "i=2, arr[2]=1, 1<3 true -> min = 1", "memory": [{ "variable": "i", "type": "int", "value": "2" }, { "variable": "min", "type": "int", "value": "1" }, { "variable": "max", "type": "int", "value": "9" }], "output": "" },
+                  { "line": 14, "annotation": "i=2, 1>9 false", "memory": [{ "variable": "i", "type": "int", "value": "2" }, { "variable": "min", "type": "int", "value": "1" }, { "variable": "max", "type": "int", "value": "9" }], "output": "" },
+                  { "line": 13, "annotation": "i=3, arr[3]=7, 7<1 false", "memory": [{ "variable": "i", "type": "int", "value": "3" }, { "variable": "min", "type": "int", "value": "1" }, { "variable": "max", "type": "int", "value": "9" }], "output": "" },
+                  { "line": 14, "annotation": "i=3, 7>9 false", "memory": [{ "variable": "i", "type": "int", "value": "3" }, { "variable": "min", "type": "int", "value": "1" }, { "variable": "max", "type": "int", "value": "9" }], "output": "" },
+                  { "line": 13, "annotation": "i=4, arr[4]=5, 5<1 false", "memory": [{ "variable": "i", "type": "int", "value": "4" }, { "variable": "min", "type": "int", "value": "1" }, { "variable": "max", "type": "int", "value": "9" }], "output": "" },
+                  { "line": 14, "annotation": "i=4, 5>9 false", "memory": [{ "variable": "i", "type": "int", "value": "4" }, { "variable": "min", "type": "int", "value": "1" }, { "variable": "max", "type": "int", "value": "9" }], "output": "" },
+                  { "line": 16, "annotation": "printf output", "memory": [{ "variable": "min", "type": "int", "value": "1" }, { "variable": "max", "type": "int", "value": "9" }], "output": "Min: 1  Max: 9\n" },
+                  { "line": 18, "annotation": "Program terminates", "memory": [], "output": "Min: 1  Max: 9\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3414,14 +3410,14 @@ Imagine a gym teacher trying to find the tallest student in a lineup. The teache
             }
           },
           {
-            id: "c-w7-2",
-            title: "Linear Search",
-            desc: "Search for an element in a 1D array.",
-            expected: "Element found / Not found",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept n integers into a 1D array and search for a target element using the linear search algorithm. The student will:",
-                bullets: [
+            "id": "c-w7-2",
+            "title": "Linear Search",
+            "desc": "Search for an element in a 1D array.",
+            "expected": "Element found / Not found",
+            "content": {
+              "aim": {
+                "text": "This experiment implements the linear (sequential) search algorithm to locate a target value in an unsorted 1D array. Students will load n integers into an array, accept a search key from the user, and scan from index 0 to n-1, comparing each element to the key. Upon finding a match the loop exits early via break, and a flag variable records success along with the position. The experiment analyses best-case (O(1) — found at index 0), worst-case (O(n) — found at last position or not present), and average-case complexity, and contrasts linear search with binary search to motivate the need for sorted data.",
+                "bullets": [
                   "Declare and use a 1D integer array to store input elements",
                   "Accept a target value from the user to search for",
                   "Implement linear search by traversing the array from index 0 to n-1",
@@ -3430,33 +3426,33 @@ Imagine a gym teacher trying to find the tallest student in a lineup. The teache
                   "Analyse the best-case, worst-case, and average-case complexity of linear search"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Kid-Friendly Addition",
-                  body: [`### 🔑 The Lost Locker Key!
-Oh no, you dropped your house key inside one of the school lockers, but you don't remember which one! Since you don't know where it is, you have to open Locker 1 and check. Not there? Open Locker 2 and check. Not there? Open Locker 3... You keep doing this one-by-one until you either find the key, or run out of lockers! This step-by-step checking is called a \"Linear Search\".
-
-![Row of lockers](https://dsavisualizer.in/og/searching/linearSearch.webp)`]
+                  "title": "🔑 The Lost Locker Key!",
+                  "body": [
+                    "Oh no, you dropped your house key inside one of the school lockers, but you don't remember which one! Since you don't know where it is, you have to open Locker 1 and check. Not there? Open Locker 2 and check. Not there? Open Locker 3... You keep doing this one-by-one until you either find the key, or run out of lockers! This step-by-step checking is called a \"Linear Search\".",
+                    "![Linear search through array visualisation](Linear-Search.webp)"
+                  ]
                 },
                 {
-                  title: "Linear Search Algorithm",
-                  body: ["Sequentially checks each element of the array from the first to the last until the target is found or the array is exhausted.", "for (i = 0; i < n; i++) { if (arr[i] == key) { found = 1; pos = i; break; } }"]
+                  "title": "Linear Search Algorithm",
+                  "body": ["Sequentially checks each element of the array from the first to the last until the target is found or the array is exhausted.", "for (i = 0; i < n; i++) { if (arr[i] == key) { found = 1; pos = i; break; } }"]
                 },
                 {
-                  title: "Complexity Analysis",
-                  body: ["Best Case: Target is the first element: O(1) — one comparison.", "Worst Case: Target is the last element or not present: O(n) — n comparisons.", "Average Case: Target is somewhere in the middle on average: O(n/2) = O(n)."]
+                  "title": "Complexity Analysis",
+                  "body": ["Best Case: Target is the first element: O(1) — one comparison.", "Worst Case: Target is the last element or not present: O(n) — n comparisons.", "Average Case: Target is somewhere in the middle on average: O(n/2) = O(n)."]
                 },
                 {
-                  title: "Flag and Position Variables",
-                  body: ["found = 0; initialised to 'not found' before the loop.", "pos = -1; -1 conventionally means 'not found' for an index.", "After the loop, if found == 1, pos holds the index of the first occurrence."]
+                  "title": "Flag and Position Variables",
+                  "body": ["found = 0; initialised to 'not found' before the loop.", "pos = -1; -1 conventionally means 'not found' for an index.", "After the loop, if found == 1, pos holds the index of the first occurrence."]
                 },
                 {
-                  title: "break Statement and Array State",
-                  body: ["Exits the loop immediately when the target is found, avoiding unnecessary further comparisons.", "Linear search works on both sorted and unsorted arrays, unlike binary search (which requires a sorted array)."]
+                  "title": "break Statement and Array State",
+                  "body": ["Exits the loop immediately when the target is found, avoiding unnecessary further comparisons.", "Linear search works on both sorted and unsorted arrays, unlike binary search (which requires a sorted array)."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace the search for a target in a sample array.",
                 "Observe how the loop advances index by index and stops at the first match.",
@@ -3465,29 +3461,29 @@ Oh no, you dropped your house key inside one of the school lockers, but you don'
                 "Click Run Code. Verify output: Element 20 found at index 2 (0-based)",
                 "Try a key that is not in the array and a key that appears multiple times. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int arr[100];\n    int n, i, key, found = 0, pos = -1;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    scanf(\"%d\", &key);\n    for (i = 0; i < n; i++) {\n        if (arr[i] == key) {\n            found = 1;\n            pos = i;\n            break;\n        }\n    }\n    if (found) printf(\"Element %d found at index %d (0-based)\\n\", key, pos);\n    else printf(\"Element not found\\n\");\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "arr", type: "int[]", value: "size 100"}, {variable: "n", type: "int", value: "?"}, {variable: "key", type: "int", value: "?"}, {variable: "found", type: "int", value: "0"}, {variable: "pos", type: "int", value: "-1"}], output: "" },
-                  { line: 6, annotation: "scanf reads n=5", memory: [{variable: "arr", type: "int[]", value: "size 100"}, {variable: "n", type: "int", value: "5"}], output: "" },
-                  { line: 7, annotation: "Read array elements: 10 30 20 50 40", memory: [{variable: "arr", type: "int[]", value: "{10, 30, 20, 50, 40}"}], output: "" },
-                  { line: 10, annotation: "scanf reads key=20", memory: [{variable: "arr", type: "int[]", value: "{10, 30, 20, 50, 40}"}, {variable: "key", type: "int", value: "20"}], output: "" },
-                  { line: 11, annotation: "Loop i=0", memory: [{variable: "i", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "i=0, arr[0]=10, 10==20 false", memory: [{variable: "i", type: "int", value: "0"}], output: "" },
-                  { line: 11, annotation: "Loop i=1", memory: [{variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 12, annotation: "i=1, arr[1]=30, 30==20 false", memory: [{variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 11, annotation: "Loop i=2", memory: [{variable: "i", type: "int", value: "2"}], output: "" },
-                  { line: 12, annotation: "i=2, arr[2]=20, 20==20 true", memory: [{variable: "i", type: "int", value: "2"}], output: "" },
-                  { line: 13, annotation: "found = 1", memory: [{variable: "found", type: "int", value: "1"}], output: "" },
-                  { line: 14, annotation: "pos = 2", memory: [{variable: "pos", type: "int", value: "2"}], output: "" },
-                  { line: 15, annotation: "break exits loop", memory: [], output: "" },
-                  { line: 18, annotation: "if(found) is true, printf output", memory: [], output: "Element 20 found at index 2 (0-based)\n" },
-                  { line: 21, annotation: "Program terminates", memory: [], output: "Element 20 found at index 2 (0-based)\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int arr[100];\n    int n, i, key, found = 0, pos = -1;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    scanf(\"%d\", &key);\n    for (i = 0; i < n; i++) {\n        if (arr[i] == key) {\n            found = 1;\n            pos = i;\n            break;\n        }\n    }\n    if (found) printf(\"Element %d found at index %d (0-based)\\n\", key, pos);\n    else printf(\"Element not found\\n\");\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "arr", "type": "int[]", "value": "size 100" }, { "variable": "n", "type": "int", "value": "?" }, { "variable": "key", "type": "int", "value": "?" }, { "variable": "found", "type": "int", "value": "0" }, { "variable": "pos", "type": "int", "value": "-1" }], "output": "" },
+                  { "line": 6, "annotation": "scanf reads n=5", "memory": [{ "variable": "arr", "type": "int[]", "value": "size 100" }, { "variable": "n", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 7, "annotation": "Read array elements: 10 30 20 50 40", "memory": [{ "variable": "arr", "type": "int[]", "value": "{10, 30, 20, 50, 40}" }], "output": "" },
+                  { "line": 10, "annotation": "scanf reads key=20", "memory": [{ "variable": "arr", "type": "int[]", "value": "{10, 30, 20, 50, 40}" }, { "variable": "key", "type": "int", "value": "20" }], "output": "" },
+                  { "line": 11, "annotation": "Loop i=0", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "i=0, arr[0]=10, 10==20 false", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 11, "annotation": "Loop i=1", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 12, "annotation": "i=1, arr[1]=30, 30==20 false", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 11, "annotation": "Loop i=2", "memory": [{ "variable": "i", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 12, "annotation": "i=2, arr[2]=20, 20==20 true", "memory": [{ "variable": "i", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 13, "annotation": "found = 1", "memory": [{ "variable": "found", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 14, "annotation": "pos = 2", "memory": [{ "variable": "pos", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 15, "annotation": "break exits loop", "memory": [], "output": "" },
+                  { "line": 18, "annotation": "if(found) is true, printf output", "memory": [], "output": "Element 20 found at index 2 (0-based)\n" },
+                  { "line": 21, "annotation": "Program terminates", "memory": [], "output": "Element 20 found at index 2 (0-based)\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3496,14 +3492,14 @@ Oh no, you dropped your house key inside one of the school lockers, but you don'
             }
           },
           {
-            id: "c-w7-3",
-            title: "Reverse Array",
-            desc: "Reverse the elements of a 1D array.",
-            expected: "Reversed array",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept n integers into a 1D array and reverse the array in-place using a two-pointer swapping technique. The student will:",
-                bullets: [
+            "id": "c-w7-3",
+            "title": "Reverse Array",
+            "desc": "Reverse the elements of a 1D array.",
+            "expected": "Reversed array",
+            "content": {
+              "aim": {
+                "text": "This experiment implements in-place array reversal using the two-pointer technique. Students will initialise a left index at 0 and a right index at n-1, swap the elements at those positions using a temporary variable, advance left forward and right backward, and repeat until the two pointers meet. The experiment teaches the XOR-less swap with a temp variable, why in-place reversal needs only O(1) extra memory compared to copying to a second array, and how exactly ⌊n/2⌋ swaps are sufficient to fully reverse an array of n elements.",
+                "bullets": [
                   "Declare and use a 1D integer array and a temporary swap variable",
                   "Accept n elements from the user into the array",
                   "Implement in-place reversal by swapping arr[left] and arr[right] while advancing left forward and right backward until they meet",
@@ -3511,33 +3507,33 @@ Oh no, you dropped your house key inside one of the school lockers, but you don'
                   "Understand the difference between in-place reversal and copying to a second array"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Kid-Friendly Addition",
-                  body: [`### 🥞 Flipping the Pancake Stack!
-Reversing an array is like flipping a whole stack of pancakes upside down! The pancake at the very top swaps places with the pancake at the very bottom. Then, the second pancake from the top swaps with the second from the bottom. You keep swapping the opposite ends until you meet right in the middle!
-
-![Pancakes flipping](https://www.tutorialspoint.com/python/images/reverse_array_operation_python.webp)`]
+                  "title": "🥞 Flipping the Pancake Stack!",
+                  "body": [
+                    "Reversing an array is like flipping a whole stack of pancakes upside down! The pancake at the very top swaps places with the pancake at the very bottom. Then, the second pancake from the top swaps with the second from the bottom. You keep swapping the opposite ends until you meet right in the middle!",
+                    "![Array reversal two-pointer diagram](array-reverse.webp)"
+                  ]
                 },
                 {
-                  title: "Array Reversal",
-                  body: ["Reversing an array means placing its elements in the opposite order: Original : {1, 2, 3, 4, 5} -> Reversed : {5, 4, 3, 2, 1}"]
+                  "title": "Array Reversal",
+                  "body": ["Reversing an array means placing its elements in the opposite order: Original : {1, 2, 3, 4, 5} -> Reversed : {5, 4, 3, 2, 1}"]
                 },
                 {
-                  title: "Two-Pointer In-Place Technique",
-                  body: ["Use two index variables, left starting at 0 and right starting at n-1. Swap the elements at these positions, then move left forward and right backward.", "Repeat until left >= right:\nwhile (left < right) {\n    temp = arr[left];\n    arr[left] = arr[right];\n    arr[right] = temp;\n    left++; right--;\n}"]
+                  "title": "Two-Pointer In-Place Technique",
+                  "body": ["Use two index variables, left starting at 0 and right starting at n-1. Swap the elements at these positions, then move left forward and right backward.", "Repeat until left >= right:\nwhile (left < right) {\n    temp = arr[left];\n    arr[left] = arr[right];\n    arr[right] = temp;\n    left++; right--;\n}"]
                 },
                 {
-                  title: "Number of Swaps and Temporary Variable",
-                  body: ["For n elements, exactly floor(n/2) swaps are performed. n = 5 : 2 swaps.", "A temp variable is required for swapping to avoid overwriting a value before it can be saved."]
+                  "title": "Number of Swaps and Temporary Variable",
+                  "body": ["For n elements, exactly floor(n/2) swaps are performed. n = 5 : 2 swaps.", "A temp variable is required for swapping to avoid overwriting a value before it can be saved."]
                 },
                 {
-                  title: "In-Place vs Second Array",
-                  body: ["In-place reversal uses O(1) extra space (only temp). Copying to a second array uses O(n) extra space — wasteful for large arrays.", "Time Complexity: O(n): each element is moved at most once."]
+                  "title": "In-Place vs Second Array",
+                  "body": ["In-place reversal uses O(1) extra space (only temp). Copying to a second array uses O(n) extra space — wasteful for large arrays.", "Time Complexity: O(n): each element is moved at most once."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace the swap steps for array {1, 2, 3, 4, 5}.",
                 "Observe how left and right converge toward the centre with each swap.",
@@ -3546,34 +3542,34 @@ Reversing an array is like flipping a whole stack of pancakes upside down! The p
                 "Click Run Code. Verify output: Reversed: 5 4 3 2 1",
                 "Try even-sized arrays, single-element arrays, and already-reversed arrays. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int arr[100];\n    int n, i, left, right, temp;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    left = 0;\n    right = n - 1;\n    while (left < right) {\n        temp = arr[left];\n        arr[left] = arr[right];\n        arr[right] = temp;\n        left++;\n        right--;\n    }\n    printf(\"Reversed: \");\n    for (i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "arr", type: "int[]", value: "size 100"}, {variable: "n", type: "int", value: "?"}], output: "" },
-                  { line: 6, annotation: "scanf reads n=5", memory: [{variable: "n", type: "int", value: "5"}], output: "" },
-                  { line: 7, annotation: "Read array elements: 1 2 3 4 5", memory: [{variable: "arr", type: "int[]", value: "{1, 2, 3, 4, 5}"}], output: "" },
-                  { line: 10, annotation: "left = 0", memory: [{variable: "left", type: "int", value: "0"}], output: "" },
-                  { line: 11, annotation: "right = 4", memory: [{variable: "right", type: "int", value: "4"}], output: "" },
-                  { line: 12, annotation: "while left < right (0 < 4)", memory: [], output: "" },
-                  { line: 13, annotation: "Swap arr[0] and arr[4]", memory: [{variable: "temp", type: "int", value: "1"}], output: "" },
-                  { line: 14, annotation: "arr[0] = 5", memory: [{variable: "arr", type: "int[]", value: "{5, 2, 3, 4, 5}"}], output: "" },
-                  { line: 15, annotation: "arr[4] = 1", memory: [{variable: "arr", type: "int[]", value: "{5, 2, 3, 4, 1}"}], output: "" },
-                  { line: 16, annotation: "left++", memory: [{variable: "left", type: "int", value: "1"}], output: "" },
-                  { line: 17, annotation: "right--", memory: [{variable: "right", type: "int", value: "3"}], output: "" },
-                  { line: 12, annotation: "while left < right (1 < 3)", memory: [], output: "" },
-                  { line: 13, annotation: "Swap arr[1] and arr[3]", memory: [{variable: "temp", type: "int", value: "2"}], output: "" },
-                  { line: 14, annotation: "arr[1] = 4", memory: [{variable: "arr", type: "int[]", value: "{5, 4, 3, 4, 1}"}], output: "" },
-                  { line: 15, annotation: "arr[3] = 2", memory: [{variable: "arr", type: "int[]", value: "{5, 4, 3, 2, 1}"}], output: "" },
-                  { line: 16, annotation: "left++", memory: [{variable: "left", type: "int", value: "2"}], output: "" },
-                  { line: 17, annotation: "right--", memory: [{variable: "right", type: "int", value: "2"}], output: "" },
-                  { line: 12, annotation: "while left < right (2 < 2) false -> Exit loop", memory: [], output: "" },
-                  { line: 19, annotation: "Print reversed array", memory: [], output: "Reversed: 5 4 3 2 1 \n" },
-                  { line: 24, annotation: "Program terminates", memory: [], output: "Reversed: 5 4 3 2 1 \n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int arr[100];\n    int n, i, left, right, temp;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    left = 0;\n    right = n - 1;\n    while (left < right) {\n        temp = arr[left];\n        arr[left] = arr[right];\n        arr[right] = temp;\n        left++;\n        right--;\n    }\n    printf(\"Reversed: \");\n    for (i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "arr", "type": "int[]", "value": "size 100" }, { "variable": "n", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "scanf reads n=5", "memory": [{ "variable": "n", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 7, "annotation": "Read array elements: 1 2 3 4 5", "memory": [{ "variable": "arr", "type": "int[]", "value": "{1, 2, 3, 4, 5}" }], "output": "" },
+                  { "line": 10, "annotation": "left = 0", "memory": [{ "variable": "left", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 11, "annotation": "right = 4", "memory": [{ "variable": "right", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 12, "annotation": "while left < right (0 < 4)", "memory": [], "output": "" },
+                  { "line": 13, "annotation": "Swap arr[0] and arr[4]", "memory": [{ "variable": "temp", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 14, "annotation": "arr[0] = 5", "memory": [{ "variable": "arr", "type": "int[]", "value": "{5, 2, 3, 4, 5}" }], "output": "" },
+                  { "line": 15, "annotation": "arr[4] = 1", "memory": [{ "variable": "arr", "type": "int[]", "value": "{5, 2, 3, 4, 1}" }], "output": "" },
+                  { "line": 16, "annotation": "left++", "memory": [{ "variable": "left", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 17, "annotation": "right--", "memory": [{ "variable": "right", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 12, "annotation": "while left < right (1 < 3)", "memory": [], "output": "" },
+                  { "line": 13, "annotation": "Swap arr[1] and arr[3]", "memory": [{ "variable": "temp", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 14, "annotation": "arr[1] = 4", "memory": [{ "variable": "arr", "type": "int[]", "value": "{5, 4, 3, 4, 1}" }], "output": "" },
+                  { "line": 15, "annotation": "arr[3] = 2", "memory": [{ "variable": "arr", "type": "int[]", "value": "{5, 4, 3, 2, 1}" }], "output": "" },
+                  { "line": 16, "annotation": "left++", "memory": [{ "variable": "left", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 17, "annotation": "right--", "memory": [{ "variable": "right", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 12, "annotation": "while left < right (2 < 2) false -> Exit loop", "memory": [], "output": "" },
+                  { "line": 19, "annotation": "Print reversed array", "memory": [], "output": "Reversed: 5 4 3 2 1 \n" },
+                  { "line": 24, "annotation": "Program terminates", "memory": [], "output": "Reversed: 5 4 3 2 1 \n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3582,14 +3578,14 @@ Reversing an array is like flipping a whole stack of pancakes upside down! The p
             }
           },
           {
-            id: "c-w7-4",
-            title: "Remove Duplicates",
-            desc: "Remove duplicate elements from an array.",
-            expected: "Unique: 1 3 2 5  New size: 4",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept n integers into a 1D array and remove all duplicate elements, retaining only the first occurrence of each value, then display the resulting array and its new size. The student will:",
-                bullets: [
+            "id": "c-w7-4",
+            "title": "Remove Duplicates",
+            "desc": "Remove duplicate elements from an array.",
+            "expected": "Unique: 1 3 2 5  New size: 4",
+            "content": {
+              "aim": {
+                "text": "This experiment implements a duplicate-removal algorithm using nested loops to retain only the first occurrence of each value in a 1D array. For each element at position i, an inner loop checks all preceding elements (positions 0 to i-1); if a match is found, a flag marks the element as a duplicate and the inner loop exits early. Only elements not flagged as duplicates are copied to a result array, whose final length gives the count of unique values. The experiment introduces the O(n²) nested-loop approach to deduplication, the flag pattern for recording a loop-discovered condition, and the use of a separate output array with an independent size counter.",
+                "bullets": [
                   "Declare and use 1D integer arrays for input and output",
                   "Use nested loops to compare each element against all previously accepted elements",
                   "Use a flag variable to decide whether to include the current element",
@@ -3597,33 +3593,33 @@ Reversing an array is like flipping a whole stack of pancakes upside down! The p
                   "Print the deduplicated array and its size using printf()"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Kid-Friendly Addition",
-                  body: [`### 🃏 Sorting a Trading Card Collection!
-Imagine you buy a pack of Pokémon cards and get three Pikachus. When you put them in your special display binder, you only want to show *one* Pikachu card to keep your collection unique. You keep the first one, and throw the duplicates away! In an array, removing duplicates means shifting all the unique items to the front, and ignoring the repeats.
-
-![Trading cards](https://www.devscall.com/_next/image?url=https:%2F%2Fcdn.sanity.io%2Fimages%2Fq5upm53j%2Fproduction%2F22798cd73f702208d7e73fe633f246852bcdbc9b-1381x407.webp%3Ffit%3Dmax%26auto%3Dformat&w=1920&q=75)`]
+                  "title": "🃏 Sorting a Trading Card Collection!",
+                  "body": [
+                    "Imagine you buy a pack of Pokémon cards and get three Pikachus. When you put them in your special display binder, you only want to show *one* Pikachu card to keep your collection unique. You keep the first one, and throw the duplicates away! In an array, removing duplicates means shifting all the unique items to the front, and ignoring the repeats.",
+                    "![Set of unique items deduplication concept](deduplication-process.webp)"
+                  ]
                 },
                 {
-                  title: "Duplicate Element",
-                  body: ["An element is a duplicate if the same value has already appeared at an earlier index in the array."]
+                  "title": "Duplicate Element",
+                  "body": ["An element is a duplicate if the same value has already appeared at an earlier index in the array."]
                 },
                 {
-                  title: "Nested Loop Approach",
-                  body: ["For each element arr[i], check whether it has already appeared in arr[0..i-1]. If not, include it in the result.", "j = 0;\nfor (i = 0; i < n; i++) {\n    isDuplicate = 0;\n    for (k = 0; k < i; k++) { if (arr[k] == arr[i]) { isDuplicate = 1; break; } }\n    if (!isDuplicate) result[j++] = arr[i];\n}"]
+                  "title": "Nested Loop Approach",
+                  "body": ["For each element arr[i], check whether it has already appeared in arr[0..i-1]. If not, include it in the result.", "j = 0;\nfor (i = 0; i < n; i++) {\n    isDuplicate = 0;\n    for (k = 0; k < i; k++) { if (arr[k] == arr[i]) { isDuplicate = 1; break; } }\n    if (!isDuplicate) result[j++] = arr[i];\n}"]
                 },
                 {
-                  title: "Flag Variable and Result Size",
-                  body: ["isDuplicate is initialised to 0 before the inner loop. If any earlier element matches arr[i], isDuplicate is set to 1 and the inner loop breaks early. Only elements with isDuplicate == 0 are copied to result.", "j counts the number of unique elements added. After the loop, j holds the new size of the deduplicated array."]
+                  "title": "Flag Variable and Result Size",
+                  "body": ["isDuplicate is initialised to 0 before the inner loop. If any earlier element matches arr[i], isDuplicate is set to 1 and the inner loop breaks early. Only elements with isDuplicate == 0 are copied to result.", "j counts the number of unique elements added. After the loop, j holds the new size of the deduplicated array."]
                 },
                 {
-                  title: "Complexity",
-                  body: ["Time Complexity: O(n²): for each of the n elements, up to n-1 earlier elements are checked.", "Space Complexity: O(n): the result array uses at most n slots."]
+                  "title": "Complexity",
+                  "body": ["Time Complexity: O(n²): for each of the n elements, up to n-1 earlier elements are checked.", "Space Complexity: O(n): the result array uses at most n slots."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace the nested loop for array {1, 3, 2, 3, 1, 5}.",
                 "Observe how each element is checked against all previous elements before being added.",
@@ -3632,45 +3628,45 @@ Imagine you buy a pack of Pokémon cards and get three Pikachus. When you put th
                 "Click Run Code. Verify output: Unique: 1 3 2 5  New size: 4",
                 "Try all-unique arrays, all-duplicate arrays, and single-element arrays. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int arr[100], result[100];\n    int n, i, k, j = 0, isDuplicate;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    for (i = 0; i < n; i++) {\n        isDuplicate = 0;\n        for (k = 0; k < i; k++) {\n            if (arr[k] == arr[i]) {\n                isDuplicate = 1;\n                break;\n            }\n        }\n        if (!isDuplicate) {\n            result[j++] = arr[i];\n        }\n    }\n    printf(\"Unique: \");\n    for (i = 0; i < j; i++) {\n        printf(\"%d \", result[i]);\n    }\n    printf(\" New size: %d\\n\", j);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "j", type: "int", value: "0"}, {variable: "n", type: "int", value: "?"}], output: "" },
-                  { line: 6, annotation: "scanf reads n=6", memory: [{variable: "n", type: "int", value: "6"}], output: "" },
-                  { line: 7, annotation: "Read array elements: 1 3 2 3 1 5", memory: [{variable: "arr", type: "int[]", value: "{1, 3, 2, 3, 1, 5}"}], output: "" },
-                  { line: 10, annotation: "Loop i=0", memory: [{variable: "i", type: "int", value: "0"}], output: "" },
-                  { line: 11, annotation: "isDuplicate = 0", memory: [{variable: "isDuplicate", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "Inner loop k=0 < 0 (false)", memory: [], output: "" },
-                  { line: 18, annotation: "Add arr[0] to result", memory: [{variable: "result", type: "int[]", value: "{1, ...}"}, {variable: "j", type: "int", value: "1"}], output: "" },
-                  { line: 10, annotation: "Loop i=1 (val 3)", memory: [{variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 11, annotation: "isDuplicate = 0", memory: [{variable: "isDuplicate", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "Inner loop k=0 (arr[0]=1 != 3)", memory: [], output: "" },
-                  { line: 18, annotation: "Add arr[1] to result", memory: [{variable: "result", type: "int[]", value: "{1, 3, ...}"}, {variable: "j", type: "int", value: "2"}], output: "" },
-                  { line: 10, annotation: "Loop i=2 (val 2)", memory: [{variable: "i", type: "int", value: "2"}], output: "" },
-                  { line: 11, annotation: "isDuplicate = 0", memory: [{variable: "isDuplicate", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "Inner loop k=0,1 (no match)", memory: [], output: "" },
-                  { line: 18, annotation: "Add arr[2] to result", memory: [{variable: "result", type: "int[]", value: "{1, 3, 2, ...}"}, {variable: "j", type: "int", value: "3"}], output: "" },
-                  { line: 10, annotation: "Loop i=3 (val 3)", memory: [{variable: "i", type: "int", value: "3"}], output: "" },
-                  { line: 11, annotation: "isDuplicate = 0", memory: [{variable: "isDuplicate", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "Inner loop matches at k=1 (arr[1]=3)", memory: [], output: "" },
-                  { line: 14, annotation: "isDuplicate = 1, break", memory: [{variable: "isDuplicate", type: "int", value: "1"}], output: "" },
-                  { line: 17, annotation: "Skip adding to result", memory: [], output: "" },
-                  { line: 10, annotation: "Loop i=4 (val 1)", memory: [{variable: "i", type: "int", value: "4"}], output: "" },
-                  { line: 11, annotation: "isDuplicate = 0", memory: [{variable: "isDuplicate", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "Inner loop matches at k=0 (arr[0]=1)", memory: [], output: "" },
-                  { line: 14, annotation: "isDuplicate = 1, break", memory: [{variable: "isDuplicate", type: "int", value: "1"}], output: "" },
-                  { line: 17, annotation: "Skip adding to result", memory: [], output: "" },
-                  { line: 10, annotation: "Loop i=5 (val 5)", memory: [{variable: "i", type: "int", value: "5"}], output: "" },
-                  { line: 11, annotation: "isDuplicate = 0", memory: [{variable: "isDuplicate", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "Inner loop k=0..4 (no match)", memory: [], output: "" },
-                  { line: 18, annotation: "Add arr[5] to result", memory: [{variable: "result", type: "int[]", value: "{1, 3, 2, 5, ...}"}, {variable: "j", type: "int", value: "4"}], output: "" },
-                  { line: 22, annotation: "Print result", memory: [], output: "Unique: 1 3 2 5  New size: 4\n" },
-                  { line: 28, annotation: "Program terminates", memory: [], output: "Unique: 1 3 2 5  New size: 4\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int arr[100], result[100];\n    int n, i, k, j = 0, isDuplicate;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    for (i = 0; i < n; i++) {\n        isDuplicate = 0;\n        for (k = 0; k < i; k++) {\n            if (arr[k] == arr[i]) {\n                isDuplicate = 1;\n                break;\n            }\n        }\n        if (!isDuplicate) {\n            result[j++] = arr[i];\n        }\n    }\n    printf(\"Unique: \");\n    for (i = 0; i < j; i++) {\n        printf(\"%d \", result[i]);\n    }\n    printf(\" New size: %d\\n\", j);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "j", "type": "int", "value": "0" }, { "variable": "n", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 6, "annotation": "scanf reads n=6", "memory": [{ "variable": "n", "type": "int", "value": "6" }], "output": "" },
+                  { "line": 7, "annotation": "Read array elements: 1 3 2 3 1 5", "memory": [{ "variable": "arr", "type": "int[]", "value": "{1, 3, 2, 3, 1, 5}" }], "output": "" },
+                  { "line": 10, "annotation": "Loop i=0", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 11, "annotation": "isDuplicate = 0", "memory": [{ "variable": "isDuplicate", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "Inner loop k=0 < 0 (false)", "memory": [], "output": "" },
+                  { "line": 18, "annotation": "Add arr[0] to result", "memory": [{ "variable": "result", "type": "int[]", "value": "{1, ...}" }, { "variable": "j", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "Loop i=1 (val 3)", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 11, "annotation": "isDuplicate = 0", "memory": [{ "variable": "isDuplicate", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "Inner loop k=0 (arr[0]=1 != 3)", "memory": [], "output": "" },
+                  { "line": 18, "annotation": "Add arr[1] to result", "memory": [{ "variable": "result", "type": "int[]", "value": "{1, 3, ...}" }, { "variable": "j", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 10, "annotation": "Loop i=2 (val 2)", "memory": [{ "variable": "i", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 11, "annotation": "isDuplicate = 0", "memory": [{ "variable": "isDuplicate", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "Inner loop k=0,1 (no match)", "memory": [], "output": "" },
+                  { "line": 18, "annotation": "Add arr[2] to result", "memory": [{ "variable": "result", "type": "int[]", "value": "{1, 3, 2, ...}" }, { "variable": "j", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 10, "annotation": "Loop i=3 (val 3)", "memory": [{ "variable": "i", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 11, "annotation": "isDuplicate = 0", "memory": [{ "variable": "isDuplicate", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "Inner loop matches at k=1 (arr[1]=3)", "memory": [], "output": "" },
+                  { "line": 14, "annotation": "isDuplicate = 1, break", "memory": [{ "variable": "isDuplicate", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 17, "annotation": "Skip adding to result", "memory": [], "output": "" },
+                  { "line": 10, "annotation": "Loop i=4 (val 1)", "memory": [{ "variable": "i", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 11, "annotation": "isDuplicate = 0", "memory": [{ "variable": "isDuplicate", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "Inner loop matches at k=0 (arr[0]=1)", "memory": [], "output": "" },
+                  { "line": 14, "annotation": "isDuplicate = 1, break", "memory": [{ "variable": "isDuplicate", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 17, "annotation": "Skip adding to result", "memory": [], "output": "" },
+                  { "line": 10, "annotation": "Loop i=5 (val 5)", "memory": [{ "variable": "i", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 11, "annotation": "isDuplicate = 0", "memory": [{ "variable": "isDuplicate", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "Inner loop k=0..4 (no match)", "memory": [], "output": "" },
+                  { "line": 18, "annotation": "Add arr[5] to result", "memory": [{ "variable": "result", "type": "int[]", "value": "{1, 3, 2, 5, ...}" }, { "variable": "j", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 22, "annotation": "Print result", "memory": [], "output": "Unique: 1 3 2 5  New size: 4\n" },
+                  { "line": 28, "annotation": "Program terminates", "memory": [], "output": "Unique: 1 3 2 5  New size: 4\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3678,23 +3674,23 @@ Imagine you buy a pack of Pokémon cards and get three Pikachus. When you put th
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 8",
-        objective: "2D arrays, string operations, bubble sort",
-        tutorial: "Tutorial 8: Matrices, Strings, Sorting",
-        labTitle: "Lab 8: 2D Arrays and Strings",
-        experiments: [
+        "title": "WEEK 8",
+        "objective": "2D arrays, string operations, bubble sort",
+        "tutorial": "Tutorial 8: Matrices, Strings, Sorting",
+        "labTitle": "Lab 8: 2D Arrays and Strings",
+        "experiments": [
           {
-            id: "c-w8-1",
-            title: "Matrix Addition",
-            desc: "Add two matrices.",
-            expected: "Result matrix",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept two matrices of the same dimensions from the user, compute their sum element-wise, and display the result matrix. The student will:",
-                bullets: [
+            "id": "c-w8-1",
+            "title": "Matrix Addition",
+            "desc": "Add two matrices.",
+            "expected": "Result matrix",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces 2D arrays and matrix arithmetic in C. Students will accept two m × n matrices row by row, compute their element-wise sum (C[i][j] = A[i][j] + B[i][j]) using nested for loops, and display the result matrix with aligned formatting. The experiment teaches 2D array declaration in C, row-major memory layout, nested loop traversal patterns for matrix operations, and the constraint that matrix addition is only defined when both matrices share identical dimensions. It forms the foundation for more complex matrix operations such as multiplication.",
+                "bullets": [
                   "Declare and initialise 2D integer arrays for two input matrices and one result matrix",
                   "Accept matrix dimensions (rows and columns) from the user",
                   "Use nested for loops to read elements into both matrices",
@@ -3702,33 +3698,33 @@ Imagine you buy a pack of Pokémon cards and get three Pikachus. When you put th
                   "Use nested for loops with printf() to display the result in matrix format"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Kid-Friendly Addition",
-                  body: [`### 🍕 The Double-Decker Pizza Grid!
-Imagine you have two square pizza boxes (Matrix A and Matrix B), and both are sliced into a perfect 3x3 grid. To add these matrices together, you don't do anything crazy—you just stack them! The slice in the top-left corner of Box A gets added to the slice in the top-left corner of Box B. You just add the matching spots together. It's that simple!
-
-![Pizza grid](https://media.geeksforgeeks.org/wp-content/uploads/20250621093907095324/addition_of_matrices.webp)`]
+                  "title": "🍕 The Double-Decker Pizza Grid!",
+                  "body": [
+                    "Imagine you have two square pizza boxes (Matrix A and Matrix B), and both are sliced into a perfect 3x3 grid. To add these matrices together, you don't do anything crazy—you just stack them! The slice in the top-left corner of Box A gets added to the slice in the top-left corner of Box B. You just add the matching spots together. It's that simple!",
+                    "![Matrix addition element-wise diagram](matrix-addition.webp)"
+                  ]
                 },
                 {
-                  title: "2D Array Declaration",
-                  body: ["A two-dimensional array in C is declared as: int A[10][10];", "It stores elements in row-major order. Element at row i, column j is accessed as A[i][j]. Row indices run from 0 to rows-1; column indices from 0 to cols-1."]
+                  "title": "2D Array Declaration",
+                  "body": ["A two-dimensional array in C is declared as: int A[10][10];", "It stores elements in row-major order. Element at row i, column j is accessed as A[i][j]. Row indices run from 0 to rows-1; column indices from 0 to cols-1."]
                 },
                 {
-                  title: "Matrix Addition",
-                  body: ["Two matrices A and B of the same dimensions (m × n) can be added. The result matrix C is computed element-wise: C[i][j] = A[i][j] + B[i][j]", "Matrices of different dimensions cannot be added."]
+                  "title": "Matrix Addition",
+                  "body": ["Two matrices A and B of the same dimensions (m × n) can be added. The result matrix C is computed element-wise: C[i][j] = A[i][j] + B[i][j]", "Matrices of different dimensions cannot be added."]
                 },
                 {
-                  title: "Nested Loop Structure",
-                  body: ["Two nested loops traverse all elements:\nfor (i = 0; i < rows; i++) {\n    for (j = 0; j < cols; j++) {\n        C[i][j] = A[i][j] + B[i][j];\n    }\n}", "The outer loop iterates over rows; the inner loop iterates over columns."]
+                  "title": "Nested Loop Structure",
+                  "body": ["Two nested loops traverse all elements:\nfor (i = 0; i < rows; i++) {\n    for (j = 0; j < cols; j++) {\n        C[i][j] = A[i][j] + B[i][j];\n    }\n}", "The outer loop iterates over rows; the inner loop iterates over columns."]
                 },
                 {
-                  title: "Printing a Matrix",
-                  body: ["Use nested loops and \\n after each row. %4d right-aligns numbers in a 4-character wide field for neat output.", "Time Complexity: O(m × n). Space Complexity: O(m × n)."]
+                  "title": "Printing a Matrix",
+                  "body": ["Use nested loops and \\n after each row. %4d right-aligns numbers in a 4-character wide field for neat output.", "Time Complexity: O(m × n). Space Complexity: O(m × n)."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace element-wise addition for two 2×2 matrices.",
                 "Observe how C[i][j] = A[i][j] + B[i][j] is computed for each position.",
@@ -3737,34 +3733,34 @@ Imagine you have two square pizza boxes (Matrix A and Matrix B), and both are sl
                 "Click Run Code. Verify result matrix.",
                 "Try non-square matrices (2×3) and matrices containing negative values. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int A[10][10], B[10][10], C[10][10];\n    int rows, cols, i, j;\n    scanf(\"%d %d\", &rows, &cols);\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            scanf(\"%d\", &A[i][j]);\n        }\n    }\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            scanf(\"%d\", &B[i][j]);\n        }\n    }\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            C[i][j] = A[i][j] + B[i][j];\n        }\n    }\n    printf(\"Result:\\n\");\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            printf(\"%4d\", C[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate matrix variables A, B, C", memory: [{variable: "rows", type: "int", value: "?"}, {variable: "cols", type: "int", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf reads dimensions (e.g., 2 2)", memory: [{variable: "rows", type: "int", value: "2"}, {variable: "cols", type: "int", value: "2"}], output: "" },
-                  { line: 9, annotation: "Read Matrix A elements (1 2 3 4)", memory: [{variable: "A", type: "int[][]", value: "{{1, 2}, {3, 4}}"}], output: "" },
-                  { line: 14, annotation: "Read Matrix B elements (5 6 7 8)", memory: [{variable: "B", type: "int[][]", value: "{{5, 6}, {7, 8}}"}], output: "" },
-                  { line: 17, annotation: "Start Addition outer loop i=0", memory: [{variable: "i", type: "int", value: "0"}], output: "" },
-                  { line: 18, annotation: "Inner loop j=0", memory: [{variable: "i", type: "int", value: "0"}, {variable: "j", type: "int", value: "0"}], output: "" },
-                  { line: 19, annotation: "C[0][0] = A[0][0] + B[0][0] = 1 + 5 = 6", memory: [{variable: "C[0][0]", type: "int", value: "6"}], output: "" },
-                  { line: 18, annotation: "Inner loop j=1", memory: [{variable: "i", type: "int", value: "0"}, {variable: "j", type: "int", value: "1"}], output: "" },
-                  { line: 19, annotation: "C[0][1] = A[0][1] + B[0][1] = 2 + 6 = 8", memory: [{variable: "C[0][1]", type: "int", value: "8"}], output: "" },
-                  { line: 17, annotation: "Outer loop i=1", memory: [{variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 18, annotation: "Inner loop j=0", memory: [{variable: "i", type: "int", value: "1"}, {variable: "j", type: "int", value: "0"}], output: "" },
-                  { line: 19, annotation: "C[1][0] = A[1][0] + B[1][0] = 3 + 7 = 10", memory: [{variable: "C[1][0]", type: "int", value: "10"}], output: "" },
-                  { line: 18, annotation: "Inner loop j=1", memory: [{variable: "i", type: "int", value: "1"}, {variable: "j", type: "int", value: "1"}], output: "" },
-                  { line: 19, annotation: "C[1][1] = A[1][1] + B[1][1] = 4 + 8 = 12", memory: [{variable: "C[1][1]", type: "int", value: "12"}], output: "" },
-                  { line: 22, annotation: "Start printing", memory: [], output: "Result:\n" },
-                  { line: 25, annotation: "Print row 0", memory: [], output: "Result:\n   6   8" },
-                  { line: 27, annotation: "Newline after row 0", memory: [], output: "Result:\n   6   8\n" },
-                  { line: 25, annotation: "Print row 1", memory: [], output: "Result:\n   6   8\n  10  12" },
-                  { line: 27, annotation: "Newline after row 1", memory: [], output: "Result:\n   6   8\n  10  12\n" },
-                  { line: 29, annotation: "Program terminates", memory: [], output: "Result:\n   6   8\n  10  12\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int A[10][10], B[10][10], C[10][10];\n    int rows, cols, i, j;\n    scanf(\"%d %d\", &rows, &cols);\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            scanf(\"%d\", &A[i][j]);\n        }\n    }\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            scanf(\"%d\", &B[i][j]);\n        }\n    }\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            C[i][j] = A[i][j] + B[i][j];\n        }\n    }\n    printf(\"Result:\\n\");\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            printf(\"%4d\", C[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate matrix variables A, B, C", "memory": [{ "variable": "rows", "type": "int", "value": "?" }, { "variable": "cols", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf reads dimensions (e.g., 2 2)", "memory": [{ "variable": "rows", "type": "int", "value": "2" }, { "variable": "cols", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 9, "annotation": "Read Matrix A elements (1 2 3 4)", "memory": [{ "variable": "A", "type": "int[][]", "value": "{{1, 2}, {3, 4}}" }], "output": "" },
+                  { "line": 14, "annotation": "Read Matrix B elements (5 6 7 8)", "memory": [{ "variable": "B", "type": "int[][]", "value": "{{5, 6}, {7, 8}}" }], "output": "" },
+                  { "line": 17, "annotation": "Start Addition outer loop i=0", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 18, "annotation": "Inner loop j=0", "memory": [{ "variable": "i", "type": "int", "value": "0" }, { "variable": "j", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 19, "annotation": "C[0][0] = A[0][0] + B[0][0] = 1 + 5 = 6", "memory": [{ "variable": "C[0][0]", "type": "int", "value": "6" }], "output": "" },
+                  { "line": 18, "annotation": "Inner loop j=1", "memory": [{ "variable": "i", "type": "int", "value": "0" }, { "variable": "j", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 19, "annotation": "C[0][1] = A[0][1] + B[0][1] = 2 + 6 = 8", "memory": [{ "variable": "C[0][1]", "type": "int", "value": "8" }], "output": "" },
+                  { "line": 17, "annotation": "Outer loop i=1", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 18, "annotation": "Inner loop j=0", "memory": [{ "variable": "i", "type": "int", "value": "1" }, { "variable": "j", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 19, "annotation": "C[1][0] = A[1][0] + B[1][0] = 3 + 7 = 10", "memory": [{ "variable": "C[1][0]", "type": "int", "value": "10" }], "output": "" },
+                  { "line": 18, "annotation": "Inner loop j=1", "memory": [{ "variable": "i", "type": "int", "value": "1" }, { "variable": "j", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 19, "annotation": "C[1][1] = A[1][1] + B[1][1] = 4 + 8 = 12", "memory": [{ "variable": "C[1][1]", "type": "int", "value": "12" }], "output": "" },
+                  { "line": 22, "annotation": "Start printing", "memory": [], "output": "Result:\n" },
+                  { "line": 25, "annotation": "Print row 0", "memory": [], "output": "Result:\n   6   8" },
+                  { "line": 27, "annotation": "Newline after row 0", "memory": [], "output": "Result:\n   6   8\n" },
+                  { "line": 25, "annotation": "Print row 1", "memory": [], "output": "Result:\n   6   8\n  10  12" },
+                  { "line": 27, "annotation": "Newline after row 1", "memory": [], "output": "Result:\n   6   8\n  10  12\n" },
+                  { "line": 29, "annotation": "Program terminates", "memory": [], "output": "Result:\n   6   8\n  10  12\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3773,14 +3769,14 @@ Imagine you have two square pizza boxes (Matrix A and Matrix B), and both are sl
             }
           },
           {
-            id: "c-w8-2",
-            title: "Matrix Multiplication",
-            desc: "Multiply two matrices.",
-            expected: "Product matrix",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept two matrices from the user and compute their product using three nested loops. The student will:",
-                bullets: [
+            "id": "c-w8-2",
+            "title": "Matrix Multiplication",
+            "desc": "Multiply two matrices.",
+            "expected": "Product matrix",
+            "content": {
+              "aim": {
+                "text": "This experiment implements the three-loop matrix multiplication algorithm to compute the product of an m × p matrix A and a p × n matrix B, yielding an m × n result matrix C where each element C[i][j] is the dot product of row i of A and column j of B. Students will validate the compatibility condition (A's column count must equal B's row count), initialise each C[i][j] to zero before the innermost accumulation loop, and display the product matrix with aligned formatting. The experiment demonstrates the O(m × p × n) time complexity, the critical importance of zero-initialisation before accumulation, and the geometric interpretation of matrix multiplication as row-column dot products.",
+                "bullets": [
                   "Declare and initialise 2D integer arrays for two input matrices and the result matrix",
                   "Validate that the number of columns of A equals the number of rows of B",
                   "Implement the three-loop matrix multiplication algorithm",
@@ -3788,33 +3784,33 @@ Imagine you have two square pizza boxes (Matrix A and Matrix B), and both are sl
                   "Display the result matrix using nested loops and printf()"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Kid-Friendly Addition",
-                  body: [`### 🏭 The Factory Assembly Line!
-Matrix multiplication is NOT like addition. It's a complex, choreographed dance! Instead of just matching spots, the workers on the conveyor belt (a Row in Matrix A) have to high-five every single worker going up the elevator (a Column in Matrix B). You multiply them one-by-one and add up all the high-fives to get a single number for the new matrix. It's a Row-by-Column collision!
-
-![Assembly line](https://i.ytimg.com/vi/2spTnAiQg4M/maxresdefault.webp)`]
+                  "title": "🏭 The Factory Assembly Line!",
+                  "body": [
+                    "Matrix multiplication is NOT like addition. It's a complex, choreographed dance! Instead of just matching spots, the workers on the conveyor belt (a Row in Matrix A) have to high-five every single worker going up the elevator (a Column in Matrix B). You multiply them one-by-one and add up all the high-fives to get a single number for the new matrix. It's a Row-by-Column collision!",
+                    "![Matrix multiplication dot product diagram](matrix-multiplication.webp)"
+                  ]
                 },
                 {
-                  title: "Matrix Multiplication Condition",
-                  body: ["A matrix A of size m × p can be multiplied by a matrix B of size p × n only if the number of columns of A equals the number of rows of B (both equal p). The result C is of size m × n."]
+                  "title": "Matrix Multiplication Condition",
+                  "body": ["A matrix A of size m × p can be multiplied by a matrix B of size p × n only if the number of columns of A equals the number of rows of B (both equal p). The result C is of size m × n."]
                 },
                 {
-                  title: "Formula",
-                  body: ["Each element C[i][j] is the dot product of row i of A and column j of B:", "C[i][j] = Σ A[i][k] * B[k][j]   for k = 0 to p-1"]
+                  "title": "Formula",
+                  "body": ["Each element C[i][j] is the dot product of row i of A and column j of B:", "C[i][j] = Σ A[i][k] * B[k][j]   for k = 0 to p-1"]
                 },
                 {
-                  title: "Three-Loop Algorithm",
-                  body: ["for (i = 0; i < m; i++)\n    for (j = 0; j < n; j++) {\n        C[i][j] = 0;\n        for (k = 0; k < p; k++)\n            C[i][j] += A[i][k] * B[k][j];\n    }"]
+                  "title": "Three-Loop Algorithm",
+                  "body": ["for (i = 0; i < m; i++)\n    for (j = 0; j < n; j++) {\n        C[i][j] = 0;\n        for (k = 0; k < p; k++)\n            C[i][j] += A[i][k] * B[k][j];\n    }"]
                 },
                 {
-                  title: "Initialisation of C",
-                  body: ["Each C[i][j] must be set to 0 before the innermost loop adds to it. Failing to initialise causes garbage values to corrupt the result.", "Time Complexity: O(m × p × n). Space Complexity: O(m × n)."]
+                  "title": "Initialisation of C",
+                  "body": ["Each C[i][j] must be set to 0 before the innermost loop adds to it. Failing to initialise causes garbage values to corrupt the result.", "Time Complexity: O(m × p × n). Space Complexity: O(m × n)."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace the dot product computation for C[0][0] and C[0][1].",
                 "Observe how the k loop accumulates A[i][k] * B[k][j] into C[i][j].",
@@ -3823,38 +3819,38 @@ Matrix multiplication is NOT like addition. It's a complex, choreographed dance!
                 "Click Run Code. Verify result: C = {{19,22},{43,50}}",
                 "Try a 2×3 multiplied by 3×2 and attempt an invalid multiplication to test the check. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int A[10][10], B[10][10], C[10][10];\n    int m, p, n, i, j, k;\n    scanf(\"%d %d %d\", &m, &p, &n);\n    for (i = 0; i < m; i++) {\n        for (j = 0; j < p; j++) {\n            scanf(\"%d\", &A[i][j]);\n        }\n    }\n    for (i = 0; i < p; i++) {\n        for (j = 0; j < n; j++) {\n            scanf(\"%d\", &B[i][j]);\n        }\n    }\n    for (i = 0; i < m; i++) {\n        for (j = 0; j < n; j++) {\n            C[i][j] = 0;\n            for (k = 0; k < p; k++) {\n                C[i][j] += A[i][k] * B[k][j];\n            }\n        }\n    }\n    printf(\"Result:\\n\");\n    for (i = 0; i < m; i++) {\n        for (j = 0; j < n; j++) {\n            printf(\"%4d\", C[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate matrices and variables", memory: [{variable: "m", type: "int", value: "?"}, {variable: "p", type: "int", value: "?"}, {variable: "n", type: "int", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf reads dimensions (2 2 2)", memory: [{variable: "m", type: "int", value: "2"}, {variable: "p", type: "int", value: "2"}, {variable: "n", type: "int", value: "2"}], output: "" },
-                  { line: 9, annotation: "Read Matrix A (1 2 3 4)", memory: [{variable: "A", type: "int[][]", value: "{{1, 2}, {3, 4}}"}], output: "" },
-                  { line: 14, annotation: "Read Matrix B (5 6 7 8)", memory: [{variable: "B", type: "int[][]", value: "{{5, 6}, {7, 8}}"}], output: "" },
-                  { line: 17, annotation: "Outer loop i=0", memory: [{variable: "i", type: "int", value: "0"}], output: "" },
-                  { line: 18, annotation: "Mid loop j=0", memory: [{variable: "i", type: "int", value: "0"}, {variable: "j", type: "int", value: "0"}], output: "" },
-                  { line: 19, annotation: "C[0][0] = 0", memory: [{variable: "C[0][0]", type: "int", value: "0"}], output: "" },
-                  { line: 20, annotation: "Inner loop k=0, k=1", memory: [{variable: "C[0][0]", type: "int", value: "19"}], output: "" },
-                  { line: 18, annotation: "Mid loop j=1", memory: [{variable: "i", type: "int", value: "0"}, {variable: "j", type: "int", value: "1"}], output: "" },
-                  { line: 19, annotation: "C[0][1] = 0", memory: [{variable: "C[0][1]", type: "int", value: "0"}], output: "" },
-                  { line: 20, annotation: "Inner loop k=0, k=1", memory: [{variable: "C[0][1]", type: "int", value: "22"}], output: "" },
-                  { line: 17, annotation: "Outer loop i=1", memory: [{variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 18, annotation: "Mid loop j=0", memory: [{variable: "i", type: "int", value: "1"}, {variable: "j", type: "int", value: "0"}], output: "" },
-                  { line: 19, annotation: "C[1][0] = 0", memory: [{variable: "C[1][0]", type: "int", value: "0"}], output: "" },
-                  { line: 20, annotation: "Inner loop k=0, k=1", memory: [{variable: "C[1][0]", type: "int", value: "43"}], output: "" },
-                  { line: 18, annotation: "Mid loop j=1", memory: [{variable: "i", type: "int", value: "1"}, {variable: "j", type: "int", value: "1"}], output: "" },
-                  { line: 19, annotation: "C[1][1] = 0", memory: [{variable: "C[1][1]", type: "int", value: "0"}], output: "" },
-                  { line: 20, annotation: "Inner loop k=0, k=1", memory: [{variable: "C[1][1]", type: "int", value: "50"}], output: "" },
-                  { line: 25, annotation: "Print Result", memory: [], output: "Result:\n" },
-                  { line: 28, annotation: "Print row 0", memory: [], output: "Result:\n  19  22" },
-                  { line: 30, annotation: "Newline after row 0", memory: [], output: "Result:\n  19  22\n" },
-                  { line: 28, annotation: "Print row 1", memory: [], output: "Result:\n  19  22\n  43  50" },
-                  { line: 30, annotation: "Newline after row 1", memory: [], output: "Result:\n  19  22\n  43  50\n" },
-                  { line: 32, annotation: "Program terminates", memory: [], output: "Result:\n  19  22\n  43  50\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int A[10][10], B[10][10], C[10][10];\n    int m, p, n, i, j, k;\n    scanf(\"%d %d %d\", &m, &p, &n);\n    for (i = 0; i < m; i++) {\n        for (j = 0; j < p; j++) {\n            scanf(\"%d\", &A[i][j]);\n        }\n    }\n    for (i = 0; i < p; i++) {\n        for (j = 0; j < n; j++) {\n            scanf(\"%d\", &B[i][j]);\n        }\n    }\n    for (i = 0; i < m; i++) {\n        for (j = 0; j < n; j++) {\n            C[i][j] = 0;\n            for (k = 0; k < p; k++) {\n                C[i][j] += A[i][k] * B[k][j];\n            }\n        }\n    }\n    printf(\"Result:\\n\");\n    for (i = 0; i < m; i++) {\n        for (j = 0; j < n; j++) {\n            printf(\"%4d\", C[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate matrices and variables", "memory": [{ "variable": "m", "type": "int", "value": "?" }, { "variable": "p", "type": "int", "value": "?" }, { "variable": "n", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf reads dimensions (2 2 2)", "memory": [{ "variable": "m", "type": "int", "value": "2" }, { "variable": "p", "type": "int", "value": "2" }, { "variable": "n", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 9, "annotation": "Read Matrix A (1 2 3 4)", "memory": [{ "variable": "A", "type": "int[][]", "value": "{{1, 2}, {3, 4}}" }], "output": "" },
+                  { "line": 14, "annotation": "Read Matrix B (5 6 7 8)", "memory": [{ "variable": "B", "type": "int[][]", "value": "{{5, 6}, {7, 8}}" }], "output": "" },
+                  { "line": 17, "annotation": "Outer loop i=0", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 18, "annotation": "Mid loop j=0", "memory": [{ "variable": "i", "type": "int", "value": "0" }, { "variable": "j", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 19, "annotation": "C[0][0] = 0", "memory": [{ "variable": "C[0][0]", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 20, "annotation": "Inner loop k=0, k=1", "memory": [{ "variable": "C[0][0]", "type": "int", "value": "19" }], "output": "" },
+                  { "line": 18, "annotation": "Mid loop j=1", "memory": [{ "variable": "i", "type": "int", "value": "0" }, { "variable": "j", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 19, "annotation": "C[0][1] = 0", "memory": [{ "variable": "C[0][1]", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 20, "annotation": "Inner loop k=0, k=1", "memory": [{ "variable": "C[0][1]", "type": "int", "value": "22" }], "output": "" },
+                  { "line": 17, "annotation": "Outer loop i=1", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 18, "annotation": "Mid loop j=0", "memory": [{ "variable": "i", "type": "int", "value": "1" }, { "variable": "j", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 19, "annotation": "C[1][0] = 0", "memory": [{ "variable": "C[1][0]", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 20, "annotation": "Inner loop k=0, k=1", "memory": [{ "variable": "C[1][0]", "type": "int", "value": "43" }], "output": "" },
+                  { "line": 18, "annotation": "Mid loop j=1", "memory": [{ "variable": "i", "type": "int", "value": "1" }, { "variable": "j", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 19, "annotation": "C[1][1] = 0", "memory": [{ "variable": "C[1][1]", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 20, "annotation": "Inner loop k=0, k=1", "memory": [{ "variable": "C[1][1]", "type": "int", "value": "50" }], "output": "" },
+                  { "line": 25, "annotation": "Print Result", "memory": [], "output": "Result:\n" },
+                  { "line": 28, "annotation": "Print row 0", "memory": [], "output": "Result:\n  19  22" },
+                  { "line": 30, "annotation": "Newline after row 0", "memory": [], "output": "Result:\n  19  22\n" },
+                  { "line": 28, "annotation": "Print row 1", "memory": [], "output": "Result:\n  19  22\n  43  50" },
+                  { "line": 30, "annotation": "Newline after row 1", "memory": [], "output": "Result:\n  19  22\n  43  50\n" },
+                  { "line": 32, "annotation": "Program terminates", "memory": [], "output": "Result:\n  19  22\n  43  50\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3863,14 +3859,14 @@ Matrix multiplication is NOT like addition. It's a complex, choreographed dance!
             }
           },
           {
-            id: "c-w8-3",
-            title: "Bubble Sort",
-            desc: "Sort an array using bubble sort.",
-            expected: "Sorted array",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept n integers into a 1D array and sort them in ascending order using the Bubble Sort algorithm. The student will:",
-                bullets: [
+            "id": "c-w8-3",
+            "title": "Bubble Sort",
+            "desc": "Sort an array using bubble sort.",
+            "expected": "Sorted array",
+            "content": {
+              "aim": {
+                "text": "This experiment implements the Bubble Sort algorithm to sort a 1D integer array in ascending order. Students will use an outer loop to perform n-1 passes and an inner loop to compare adjacent element pairs, swapping them when out of order so that the largest unsorted element rises to its final position after each pass. An early-termination optimisation using a swapped flag detects an already-sorted array and exits the outer loop prematurely, yielding O(n) best-case performance. The experiment covers the algorithm's stability property, its O(n²) worst- and average-case complexity, and the role of the three-step swap (temp → a → b → temp) in rearranging elements without data loss.",
+                "bullets": [
                   "Declare and use a 1D integer array and a temporary swap variable",
                   "Implement the standard two-loop Bubble Sort",
                   "Apply an early-termination optimisation using a swapped flag",
@@ -3878,33 +3874,33 @@ Matrix multiplication is NOT like addition. It's a complex, choreographed dance!
                   "Analyse best-case, worst-case, and average-case time complexity of Bubble Sort"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Kid-Friendly Addition",
-                  body: [`### 🫧 Bubbles Rising in a Soda!
-When you pour a glass of soda, the biggest, heaviest bubbles always float to the top first. That's exactly how Bubble Sort works! We compare two numbers side-by-side. If the left one is heavier (larger), they swap places. The heavy numbers slowly \"bubble\" their way to the far right end of the array, one by one, until everyone is standing in the perfect order!
-
-![Bubble sort visualization](https://favtutor.com/resources/images/uploads/mceu_61632030011682402256084.webp)`]
+                  "title": "🫧 Bubbles Rising in a Soda!",
+                  "body": [
+                    "When you pour a glass of soda, the biggest, heaviest bubbles always float to the top first. That's exactly how Bubble Sort works! We compare two numbers side-by-side. If the left one is heavier (larger), they swap places. The heavy numbers slowly \"bubble\" their way to the far right end of the array, one by one, until everyone is standing in the perfect order!",
+                    "![Bubble sort passes visualisation](bubblesort-animation.gif)"
+                  ]
                 },
                 {
-                  title: "Bubble Sort Algorithm",
-                  body: ["Repeatedly steps through the array comparing adjacent elements and swapping them if they are in the wrong order. Larger elements \"bubble\" toward the end with each pass."]
+                  "title": "Bubble Sort Algorithm",
+                  "body": ["Repeatedly steps through the array comparing adjacent elements and swapping them if they are in the wrong order. Larger elements \"bubble\" toward the end with each pass."]
                 },
                 {
-                  title: "Standard Two-Loop Implementation",
-                  body: ["for (i = 0; i < n-1; i++) {\n    for (j = 0; j < n-1-i; j++) {\n        if (arr[j] > arr[j+1]) {\n            temp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = temp;\n        }\n    }\n}", "After pass i, the largest i+1 elements are in their final positions at the end."]
+                  "title": "Standard Two-Loop Implementation",
+                  "body": ["for (i = 0; i < n-1; i++) {\n    for (j = 0; j < n-1-i; j++) {\n        if (arr[j] > arr[j+1]) {\n            temp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = temp;\n        }\n    }\n}", "After pass i, the largest i+1 elements are in their final positions at the end."]
                 },
                 {
-                  title: "Early Termination Optimisation",
-                  body: ["Add a swapped flag. If no swap occurred in a full pass, the array is already sorted and the outer loop exits early:", "swapped = 0;\nfor (j = 0; j < n-1-i; j++) {\n    if (arr[j] > arr[j+1]) { swap; swapped = 1; }\n}\nif (!swapped) break;"]
+                  "title": "Early Termination Optimisation",
+                  "body": ["Add a swapped flag. If no swap occurred in a full pass, the array is already sorted and the outer loop exits early:", "swapped = 0;\nfor (j = 0; j < n-1-i; j++) {\n    if (arr[j] > arr[j+1]) { swap; swapped = 1; }\n}\nif (!swapped) break;"]
                 },
                 {
-                  title: "Complexity and Stability",
-                  body: ["Worst/Average case: O(n²). Best case (already sorted): O(n) with early termination.", "Space Complexity: O(1). Stability: Bubble Sort is stable (equal elements retain order)."]
+                  "title": "Complexity and Stability",
+                  "body": ["Worst/Average case: O(n²). Best case (already sorted): O(n) with early termination.", "Space Complexity: O(1). Stability: Bubble Sort is stable (equal elements retain order)."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace each pass of Bubble Sort on array {5, 3, 1, 4, 2}.",
                 "Observe how the largest unsorted element reaches its final position after each pass.",
@@ -3913,43 +3909,43 @@ When you pour a glass of soda, the biggest, heaviest bubbles always float to the
                 "Click Run Code. Verify output: Sorted: 1 2 3 4 5",
                 "Try an already-sorted array to verify early termination, and a reverse-sorted array. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    int arr[100];\n    int n, i, j, temp, swapped;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    for (i = 0; i < n - 1; i++) {\n        swapped = 0;\n        for (j = 0; j < n - 1 - i; j++) {\n            if (arr[j] > arr[j+1]) {\n                temp = arr[j];\n                arr[j] = arr[j+1];\n                arr[j+1] = temp;\n                swapped = 1;\n            }\n        }\n        if (!swapped) break;\n    }\n    printf(\"Sorted: \");\n    for (i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio library", memory: [], output: "" },
-                  { line: 4, annotation: "Allocate variables", memory: [{variable: "arr", type: "int[]", value: "size 100"}, {variable: "n", type: "int", value: "?"}], output: "" },
-                  { line: 5, annotation: "scanf reads n=5", memory: [{variable: "n", type: "int", value: "5"}], output: "" },
-                  { line: 7, annotation: "Read elements: 5 3 1 4 2", memory: [{variable: "arr", type: "int[]", value: "{5, 3, 1, 4, 2}"}], output: "" },
-                  { line: 9, annotation: "Pass i=0", memory: [{variable: "i", type: "int", value: "0"}], output: "" },
-                  { line: 10, annotation: "swapped = 0", memory: [{variable: "swapped", type: "int", value: "0"}], output: "" },
-                  { line: 11, annotation: "Inner loop j=0 to 3", memory: [{variable: "j", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "arr[0]>arr[1] (5>3) -> Swap", memory: [{variable: "arr", type: "int[]", value: "{3, 5, 1, 4, 2}"}, {variable: "swapped", type: "int", value: "1"}], output: "" },
-                  { line: 12, annotation: "arr[1]>arr[2] (5>1) -> Swap", memory: [{variable: "j", type: "int", value: "1"}, {variable: "arr", type: "int[]", value: "{3, 1, 5, 4, 2}"}], output: "" },
-                  { line: 12, annotation: "arr[2]>arr[3] (5>4) -> Swap", memory: [{variable: "j", type: "int", value: "2"}, {variable: "arr", type: "int[]", value: "{3, 1, 4, 5, 2}"}], output: "" },
-                  { line: 12, annotation: "arr[3]>arr[4] (5>2) -> Swap", memory: [{variable: "j", type: "int", value: "3"}, {variable: "arr", type: "int[]", value: "{3, 1, 4, 2, 5}"}], output: "" },
-                  { line: 19, annotation: "Pass 0 ends. swapped=1", memory: [], output: "" },
-                  { line: 9, annotation: "Pass i=1", memory: [{variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 10, annotation: "swapped = 0", memory: [{variable: "swapped", type: "int", value: "0"}], output: "" },
-                  { line: 11, annotation: "Inner loop j=0 to 2", memory: [{variable: "j", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "arr[0]>arr[1] (3>1) -> Swap", memory: [{variable: "arr", type: "int[]", value: "{1, 3, 4, 2, 5}"}, {variable: "swapped", type: "int", value: "1"}], output: "" },
-                  { line: 12, annotation: "arr[1]>arr[2] (3>4) -> No swap", memory: [{variable: "j", type: "int", value: "1"}], output: "" },
-                  { line: 12, annotation: "arr[2]>arr[3] (4>2) -> Swap", memory: [{variable: "j", type: "int", value: "2"}, {variable: "arr", type: "int[]", value: "{1, 3, 2, 4, 5}"}], output: "" },
-                  { line: 9, annotation: "Pass i=2", memory: [{variable: "i", type: "int", value: "2"}], output: "" },
-                  { line: 10, annotation: "swapped = 0", memory: [{variable: "swapped", type: "int", value: "0"}], output: "" },
-                  { line: 11, annotation: "Inner loop j=0 to 1", memory: [{variable: "j", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "arr[0]>arr[1] (1>3) -> No swap", memory: [], output: "" },
-                  { line: 12, annotation: "arr[1]>arr[2] (3>2) -> Swap", memory: [{variable: "j", type: "int", value: "1"}, {variable: "arr", type: "int[]", value: "{1, 2, 3, 4, 5}"}, {variable: "swapped", type: "int", value: "1"}], output: "" },
-                  { line: 9, annotation: "Pass i=3", memory: [{variable: "i", type: "int", value: "3"}], output: "" },
-                  { line: 10, annotation: "swapped = 0", memory: [{variable: "swapped", type: "int", value: "0"}], output: "" },
-                  { line: 11, annotation: "Inner loop j=0 to 0", memory: [{variable: "j", type: "int", value: "0"}], output: "" },
-                  { line: 12, annotation: "arr[0]>arr[1] (1>2) -> No swap", memory: [], output: "" },
-                  { line: 19, annotation: "swapped=0 -> break (Early exit)", memory: [], output: "" },
-                  { line: 21, annotation: "Print Sorted array", memory: [], output: "Sorted: 1 2 3 4 5 \n" },
-                  { line: 26, annotation: "Program terminates", memory: [], output: "Sorted: 1 2 3 4 5 \n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    int arr[100];\n    int n, i, j, temp, swapped;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    for (i = 0; i < n - 1; i++) {\n        swapped = 0;\n        for (j = 0; j < n - 1 - i; j++) {\n            if (arr[j] > arr[j+1]) {\n                temp = arr[j];\n                arr[j] = arr[j+1];\n                arr[j+1] = temp;\n                swapped = 1;\n            }\n        }\n        if (!swapped) break;\n    }\n    printf(\"Sorted: \");\n    for (i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio library", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Allocate variables", "memory": [{ "variable": "arr", "type": "int[]", "value": "size 100" }, { "variable": "n", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 5, "annotation": "scanf reads n=5", "memory": [{ "variable": "n", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 7, "annotation": "Read elements: 5 3 1 4 2", "memory": [{ "variable": "arr", "type": "int[]", "value": "{5, 3, 1, 4, 2}" }], "output": "" },
+                  { "line": 9, "annotation": "Pass i=0", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 10, "annotation": "swapped = 0", "memory": [{ "variable": "swapped", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 11, "annotation": "Inner loop j=0 to 3", "memory": [{ "variable": "j", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "arr[0]>arr[1] (5>3) -> Swap", "memory": [{ "variable": "arr", "type": "int[]", "value": "{3, 5, 1, 4, 2}" }, { "variable": "swapped", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 12, "annotation": "arr[1]>arr[2] (5>1) -> Swap", "memory": [{ "variable": "j", "type": "int", "value": "1" }, { "variable": "arr", "type": "int[]", "value": "{3, 1, 5, 4, 2}" }], "output": "" },
+                  { "line": 12, "annotation": "arr[2]>arr[3] (5>4) -> Swap", "memory": [{ "variable": "j", "type": "int", "value": "2" }, { "variable": "arr", "type": "int[]", "value": "{3, 1, 4, 5, 2}" }], "output": "" },
+                  { "line": 12, "annotation": "arr[3]>arr[4] (5>2) -> Swap", "memory": [{ "variable": "j", "type": "int", "value": "3" }, { "variable": "arr", "type": "int[]", "value": "{3, 1, 4, 2, 5}" }], "output": "" },
+                  { "line": 19, "annotation": "Pass 0 ends. swapped=1", "memory": [], "output": "" },
+                  { "line": 9, "annotation": "Pass i=1", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "swapped = 0", "memory": [{ "variable": "swapped", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 11, "annotation": "Inner loop j=0 to 2", "memory": [{ "variable": "j", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "arr[0]>arr[1] (3>1) -> Swap", "memory": [{ "variable": "arr", "type": "int[]", "value": "{1, 3, 4, 2, 5}" }, { "variable": "swapped", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 12, "annotation": "arr[1]>arr[2] (3>4) -> No swap", "memory": [{ "variable": "j", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 12, "annotation": "arr[2]>arr[3] (4>2) -> Swap", "memory": [{ "variable": "j", "type": "int", "value": "2" }, { "variable": "arr", "type": "int[]", "value": "{1, 3, 2, 4, 5}" }], "output": "" },
+                  { "line": 9, "annotation": "Pass i=2", "memory": [{ "variable": "i", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 10, "annotation": "swapped = 0", "memory": [{ "variable": "swapped", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 11, "annotation": "Inner loop j=0 to 1", "memory": [{ "variable": "j", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "arr[0]>arr[1] (1>3) -> No swap", "memory": [], "output": "" },
+                  { "line": 12, "annotation": "arr[1]>arr[2] (3>2) -> Swap", "memory": [{ "variable": "j", "type": "int", "value": "1" }, { "variable": "arr", "type": "int[]", "value": "{1, 2, 3, 4, 5}" }, { "variable": "swapped", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 9, "annotation": "Pass i=3", "memory": [{ "variable": "i", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 10, "annotation": "swapped = 0", "memory": [{ "variable": "swapped", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 11, "annotation": "Inner loop j=0 to 0", "memory": [{ "variable": "j", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 12, "annotation": "arr[0]>arr[1] (1>2) -> No swap", "memory": [], "output": "" },
+                  { "line": 19, "annotation": "swapped=0 -> break (Early exit)", "memory": [], "output": "" },
+                  { "line": 21, "annotation": "Print Sorted array", "memory": [], "output": "Sorted: 1 2 3 4 5 \n" },
+                  { "line": 26, "annotation": "Program terminates", "memory": [], "output": "Sorted: 1 2 3 4 5 \n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -3958,14 +3954,14 @@ When you pour a glass of soda, the biggest, heaviest bubbles always float to the
             }
           },
           {
-            id: "c-w8-4",
-            title: "String Concatenation",
-            desc: "Concatenate two strings without using strcat().",
-            expected: "Concatenated string",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept two strings from the user and concatenate the second string to the end of the first without using the library function strcat(), implementing the operation manually with loops. The student will:",
-                bullets: [
+            "id": "c-w8-4",
+            "title": "String Concatenation",
+            "desc": "Concatenate two strings without using strcat().",
+            "expected": "Concatenated string",
+            "content": {
+              "aim": {
+                "text": "This experiment implements string concatenation manually without using the strcat() library function, giving students direct experience with how C strings are structured and manipulated at the character level. Students will accept two strings, find the length of the first string using strlen(), then append each character of the second string to the end of the first by writing into positions starting at index len1, and finally place a null terminator at the end of the combined string. The experiment underlines why the null terminator is critical to string validity, why the destination buffer must be large enough to hold both strings, and how manual character-by-character operations mirror what library functions do internally.",
+                "bullets": [
                   "Declare character arrays (strings) of sufficient size to hold both strings",
                   "Use strlen() to find the lengths of both strings",
                   "Traverse the second string character by character, appending to the first",
@@ -3973,33 +3969,33 @@ When you pour a glass of soda, the biggest, heaviest bubbles always float to the
                   "Display the concatenated result using printf() with %s"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Kid-Friendly Addition",
-                  body: [`### 🚂 Connecting the Train Cars!
-In C, a word (String) is just a train made out of individual letter boxcars. The very last car is always a special marker called the Null Terminator ('\0'). When we \"concatenate\" two strings, it's like unhooking the caboose of the first train, and hooking the entire second train onto the back to create one giant mega-train!
-
-![String concatenation](https://media.geeksforgeeks.org/wp-content/uploads/20230915112055/StringConcatenation-(1)-(1).webp)`]
+                  "title": "🚂 Connecting the Train Cars!",
+                  "body": [
+                    "In C, a word (String) is just a train made out of individual letter boxcars. The very last car is always a special marker called the Null Terminator ('\0'). When we \"concatenate\" two strings, it's like unhooking the caboose of the first train, and hooking the entire second train onto the back to create one giant mega-train!",
+                    "![String concatenation null terminator diagram](string-concat.webp)"
+                  ]
                 },
                 {
-                  title: "Strings in C",
-                  body: ["A string is a character array terminated by the null character '\\0'.", "char str[50] = \"Hello\"; // stored as: H e l l o \\0", "strlen(\"Hello\") = 5 (the null terminator is not counted)."]
+                  "title": "Strings in C",
+                  "body": ["A string is a character array terminated by the null character '\\0'.", "char str[50] = \"Hello\"; // stored as: H e l l o \\0", "strlen(\"Hello\") = 5 (the null terminator is not counted)."]
                 },
                 {
-                  title: "Manual Concatenation Algorithm",
-                  body: ["len1 = strlen(s1);\nfor (i = 0; s2[i] != '\\0'; i++)\n    s1[len1 + i] = s2[i];\ns1[len1 + i] = '\\0';", "You must explicitly append '\\0' at the end. Without it, printf(\"%s\") will read into undefined memory."]
+                  "title": "Manual Concatenation Algorithm",
+                  "body": ["len1 = strlen(s1);\nfor (i = 0; s2[i] != '\\0'; i++)\n    s1[len1 + i] = s2[i];\ns1[len1 + i] = '\\0';", "You must explicitly append '\\0' at the end. Without it, printf(\"%s\") will read into undefined memory."]
                 },
                 {
-                  title: "Buffer Size",
-                  body: ["s1 must be declared large enough to hold both strings plus '\\0'. Exceeding the buffer causes undefined behaviour (buffer overflow)."]
+                  "title": "Buffer Size",
+                  "body": ["s1 must be declared large enough to hold both strings plus '\\0'. Exceeding the buffer causes undefined behaviour (buffer overflow)."]
                 },
                 {
-                  title: "Library Alternative",
-                  body: ["strcat(s1, s2); appends s2 to s1, including null terminator automatically.", "strncat(s1, s2, n); safer version that copies at most n characters."]
+                  "title": "Library Alternative",
+                  "body": ["strcat(s1, s2); appends s2 to s1, including null terminator automatically.", "strncat(s1, s2, n); safer version that copies at most n characters."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace character-by-character appending of s2 onto s1.",
                 "Observe how len1 is used as the starting index and how '\\0' terminates the result.",
@@ -4008,31 +4004,31 @@ In C, a word (String) is just a train made out of individual letter boxcars. The
                 "Click Run Code. Verify output: Concatenated: HelloWorld",
                 "Try empty strings and longer strings. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char s1[200], s2[100];\n    int len1, i;\n    scanf(\"%s %s\", s1, s2);\n    len1 = strlen(s1);\n    for (i = 0; s2[i] != '\\0'; i++) {\n        s1[len1 + i] = s2[i];\n    }\n    s1[len1 + i] = '\\0';\n    printf(\"Concatenated: %s\\n\", s1);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio and string libraries", memory: [], output: "" },
-                  { line: 5, annotation: "Allocate string buffers", memory: [{variable: "s1", type: "char[]", value: "size 200"}, {variable: "s2", type: "char[]", value: "size 100"}], output: "" },
-                  { line: 7, annotation: "scanf reads 'Hello' and 'World'", memory: [{variable: "s1", type: "char[]", value: "\"Hello\""}, {variable: "s2", type: "char[]", value: "\"World\""}], output: "" },
-                  { line: 8, annotation: "strlen(s1) = 5", memory: [{variable: "s1", type: "char[]", value: "\"Hello\""}, {variable: "len1", type: "int", value: "5"}], output: "" },
-                  { line: 9, annotation: "Loop starts (i=0, s2[0]='W')", memory: [{variable: "i", type: "int", value: "0"}], output: "" },
-                  { line: 10, annotation: "s1[5] = 'W'", memory: [{variable: "s1", type: "char[]", value: "\"HelloW\""}], output: "" },
-                  { line: 9, annotation: "Loop i=1, s2[1]='o'", memory: [{variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 10, annotation: "s1[6] = 'o'", memory: [{variable: "s1", type: "char[]", value: "\"HelloWo\""}], output: "" },
-                  { line: 9, annotation: "Loop i=2, s2[2]='r'", memory: [{variable: "i", type: "int", value: "2"}], output: "" },
-                  { line: 10, annotation: "s1[7] = 'r'", memory: [{variable: "s1", type: "char[]", value: "\"HelloWor\""}], output: "" },
-                  { line: 9, annotation: "Loop i=3, s2[3]='l'", memory: [{variable: "i", type: "int", value: "3"}], output: "" },
-                  { line: 10, annotation: "s1[8] = 'l'", memory: [{variable: "s1", type: "char[]", value: "\"HelloWorl\""}], output: "" },
-                  { line: 9, annotation: "Loop i=4, s2[4]='d'", memory: [{variable: "i", type: "int", value: "4"}], output: "" },
-                  { line: 10, annotation: "s1[9] = 'd'", memory: [{variable: "s1", type: "char[]", value: "\"HelloWorld\""}], output: "" },
-                  { line: 9, annotation: "Loop i=5, s2[5]='\\0' -> Exit loop", memory: [{variable: "i", type: "int", value: "5"}], output: "" },
-                  { line: 12, annotation: "Append '\\0' to s1", memory: [{variable: "s1", type: "char[]", value: "\"HelloWorld\\0\""}], output: "" },
-                  { line: 13, annotation: "printf output", memory: [], output: "Concatenated: HelloWorld\n" },
-                  { line: 15, annotation: "Program terminates", memory: [], output: "Concatenated: HelloWorld\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char s1[200], s2[100];\n    int len1, i;\n    scanf(\"%s %s\", s1, s2);\n    len1 = strlen(s1);\n    for (i = 0; s2[i] != '\\0'; i++) {\n        s1[len1 + i] = s2[i];\n    }\n    s1[len1 + i] = '\\0';\n    printf(\"Concatenated: %s\\n\", s1);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio and string libraries", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Allocate string buffers", "memory": [{ "variable": "s1", "type": "char[]", "value": "size 200" }, { "variable": "s2", "type": "char[]", "value": "size 100" }], "output": "" },
+                  { "line": 7, "annotation": "scanf reads 'Hello' and 'World'", "memory": [{ "variable": "s1", "type": "char[]", "value": "\"Hello\"" }, { "variable": "s2", "type": "char[]", "value": "\"World\"" }], "output": "" },
+                  { "line": 8, "annotation": "strlen(s1) = 5", "memory": [{ "variable": "s1", "type": "char[]", "value": "\"Hello\"" }, { "variable": "len1", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 9, "annotation": "Loop starts (i=0, s2[0]='W')", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 10, "annotation": "s1[5] = 'W'", "memory": [{ "variable": "s1", "type": "char[]", "value": "\"HelloW\"" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i=1, s2[1]='o'", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "s1[6] = 'o'", "memory": [{ "variable": "s1", "type": "char[]", "value": "\"HelloWo\"" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i=2, s2[2]='r'", "memory": [{ "variable": "i", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 10, "annotation": "s1[7] = 'r'", "memory": [{ "variable": "s1", "type": "char[]", "value": "\"HelloWor\"" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i=3, s2[3]='l'", "memory": [{ "variable": "i", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 10, "annotation": "s1[8] = 'l'", "memory": [{ "variable": "s1", "type": "char[]", "value": "\"HelloWorl\"" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i=4, s2[4]='d'", "memory": [{ "variable": "i", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 10, "annotation": "s1[9] = 'd'", "memory": [{ "variable": "s1", "type": "char[]", "value": "\"HelloWorld\"" }], "output": "" },
+                  { "line": 9, "annotation": "Loop i=5, s2[5]='\\0' -> Exit loop", "memory": [{ "variable": "i", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 12, "annotation": "Append '\\0' to s1", "memory": [{ "variable": "s1", "type": "char[]", "value": "\"HelloWorld\\0\"" }], "output": "" },
+                  { "line": 13, "annotation": "printf output", "memory": [], "output": "Concatenated: HelloWorld\n" },
+                  { "line": 15, "annotation": "Program terminates", "memory": [], "output": "Concatenated: HelloWorld\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -4041,14 +4037,14 @@ In C, a word (String) is just a train made out of individual letter boxcars. The
             }
           },
           {
-            id: "c-w8-5",
-            title: "Reverse String",
-            desc: "Reverse a string.",
-            expected: "Reversed string",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept a string from the user and reverse it in-place using a two-pointer swapping technique, without using any library reversal function. The student will:",
-                bullets: [
+            "id": "c-w8-5",
+            "title": "Reverse String",
+            "desc": "Reverse a string.",
+            "expected": "Reversed string",
+            "content": {
+              "aim": {
+                "text": "This experiment applies the two-pointer swapping technique (used for array reversal in Week 7) to reverse a C string in-place without using any standard library reversal function. Students will accept a string, compute its length using strlen() to position the right pointer at the last character (index len-1), and iteratively swap characters from both ends toward the centre while ensuring the null terminator at index len is never touched. The experiment also serves as a natural lead-in to palindrome detection — if the reversed string is identical to the original, the string is a palindrome.",
+                "bullets": [
                   "Declare a character array of sufficient size",
                   "Use strlen() to find the string length and set the two pointer positions",
                   "Swap characters from both ends moving toward the centre using a while loop",
@@ -4056,33 +4052,33 @@ In C, a word (String) is just a train made out of individual letter boxcars. The
                   "Display the reversed string using printf() with %s"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Kid-Friendly Addition",
-                  body: [`### 🪟 Reading Backwards through Glass!
-Reversing a string is exactly like reversing an array of numbers. You swap the first letter with the very last letter, the second letter with the second-to-last, and keep squeezing inwards until you meet in the middle. The only trick? You have to make sure you don't accidentally move the '\0' end-of-train marker, otherwise the computer won't know where the word stops!
-
-![Reverse string](https://storage.googleapis.com/algodailyrandomassets/curriculum/easy-strings/reverse-a-string.webp)`]
+                  "title": "🪟 Reading Backwards through Glass!",
+                  "body": [
+                    "Reversing a string is exactly like reversing an array of numbers. You swap the first letter with the very last letter, the second letter with the second-to-last, and keep squeezing inwards until you meet in the middle. The only trick? You have to make sure you don't accidentally move the '\0' end-of-train marker, otherwise the computer won't know where the word stops!",
+                    "![String reversal two pointer diagram](Reverse-String.webp)"
+                  ]
                 },
                 {
-                  title: "String as Character Array",
-                  body: ["A C string is stored as a char array: char str[] = \"Hello\";", "Indices 0 to len-1 hold the characters; index len holds '\\0'."]
+                  "title": "String as Character Array",
+                  "body": ["A C string is stored as a char array: char str[] = \"Hello\";", "Indices 0 to len-1 hold the characters; index len holds '\\0'."]
                 },
                 {
-                  title: "Two-Pointer Reversal",
-                  body: ["Identical to the array reversal technique:", "left = 0; right = strlen(str) - 1;\nwhile (left < right) {\n    temp = str[left]; str[left] = str[right]; str[right] = temp;\n    left++; right--;\n}", "The null terminator at index len is never touched — it stays in place."]
+                  "title": "Two-Pointer Reversal",
+                  "body": ["Identical to the array reversal technique:", "left = 0; right = strlen(str) - 1;\nwhile (left < right) {\n    temp = str[left]; str[left] = str[right]; str[right] = temp;\n    left++; right--;\n}", "The null terminator at index len is never touched — it stays in place."]
                 },
                 {
-                  title: "Number of Swaps and Null Terminator Safety",
-                  body: ["Swaps: floor(len / 2). \"Hello\" (len=5) : 2 swaps.", "strlen() counts only characters before '\\0'. Setting right = strlen(str) - 1 ensures '\\0' is never swapped, preserving string validity."]
+                  "title": "Number of Swaps and Null Terminator Safety",
+                  "body": ["Swaps: floor(len / 2). \"Hello\" (len=5) : 2 swaps.", "strlen() counts only characters before '\\0'. Setting right = strlen(str) - 1 ensures '\\0' is never swapped, preserving string validity."]
                 },
                 {
-                  title: "Palindrome Detection",
-                  body: ["Reversing a string and comparing with the original is one method to check if a string is a palindrome. \"madam\" reversed = \"madam\" -> Palindrome.", "Library Alternative: strrev(str) reverses a string in-place (available in some compilers; not in standard C99/C11)."]
+                  "title": "Palindrome Detection",
+                  "body": ["Reversing a string and comparing with the original is one method to check if a string is a palindrome. \"madam\" reversed = \"madam\" -> Palindrome.", "Library Alternative: strrev(str) reverses a string in-place (available in some compilers; not in standard C99/C11)."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace the swap steps for str = \"Hello\".",
                 "Observe how left and right converge and the null terminator remains untouched.",
@@ -4091,33 +4087,33 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Click Run Code. Verify output: Reversed: olleH",
                 "Try palindromes like \"madam\" and \"racecar\". Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[100];\n    int left, right;\n    char temp;\n    scanf(\"%s\", str);\n    left = 0;\n    right = strlen(str) - 1;\n    while (left < right) {\n        temp = str[left];\n        str[left] = str[right];\n        str[right] = temp;\n        left++;\n        right--;\n    }\n    printf(\"Reversed: %s\\n\", str);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio and string libraries", memory: [], output: "" },
-                  { line: 5, annotation: "Allocate variables", memory: [{variable: "str", type: "char[]", value: "size 100"}], output: "" },
-                  { line: 8, annotation: "scanf reads 'Hello'", memory: [{variable: "str", type: "char[]", value: "\"Hello\""}], output: "" },
-                  { line: 9, annotation: "left = 0", memory: [{variable: "left", type: "int", value: "0"}], output: "" },
-                  { line: 10, annotation: "right = strlen(\"Hello\") - 1 = 4", memory: [{variable: "right", type: "int", value: "4"}], output: "" },
-                  { line: 11, annotation: "while left < right (0 < 4)", memory: [], output: "" },
-                  { line: 12, annotation: "temp = str[0] ('H')", memory: [{variable: "temp", type: "char", value: "'H'"}], output: "" },
-                  { line: 13, annotation: "str[0] = str[4] ('o')", memory: [{variable: "str", type: "char[]", value: "\"oello\""}], output: "" },
-                  { line: 14, annotation: "str[4] = temp ('H')", memory: [{variable: "str", type: "char[]", value: "\"oellH\""}], output: "" },
-                  { line: 15, annotation: "left++", memory: [{variable: "left", type: "int", value: "1"}], output: "" },
-                  { line: 16, annotation: "right--", memory: [{variable: "right", type: "int", value: "3"}], output: "" },
-                  { line: 11, annotation: "while left < right (1 < 3)", memory: [], output: "" },
-                  { line: 12, annotation: "temp = str[1] ('e')", memory: [{variable: "temp", type: "char", value: "'e'"}], output: "" },
-                  { line: 13, annotation: "str[1] = str[3] ('l')", memory: [{variable: "str", type: "char[]", value: "\"olllo\""}], output: "" },
-                  { line: 14, annotation: "str[3] = temp ('e')", memory: [{variable: "str", type: "char[]", value: "\"olleH\""}], output: "" },
-                  { line: 15, annotation: "left++", memory: [{variable: "left", type: "int", value: "2"}], output: "" },
-                  { line: 16, annotation: "right--", memory: [{variable: "right", type: "int", value: "2"}], output: "" },
-                  { line: 11, annotation: "while left < right (2 < 2) false -> Exit loop", memory: [], output: "" },
-                  { line: 18, annotation: "Print reversed string", memory: [], output: "Reversed: olleH\n" },
-                  { line: 20, annotation: "Program terminates", memory: [], output: "Reversed: olleH\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[100];\n    int left, right;\n    char temp;\n    scanf(\"%s\", str);\n    left = 0;\n    right = strlen(str) - 1;\n    while (left < right) {\n        temp = str[left];\n        str[left] = str[right];\n        str[right] = temp;\n        left++;\n        right--;\n    }\n    printf(\"Reversed: %s\\n\", str);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio and string libraries", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Allocate variables", "memory": [{ "variable": "str", "type": "char[]", "value": "size 100" }], "output": "" },
+                  { "line": 8, "annotation": "scanf reads 'Hello'", "memory": [{ "variable": "str", "type": "char[]", "value": "\"Hello\"" }], "output": "" },
+                  { "line": 9, "annotation": "left = 0", "memory": [{ "variable": "left", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 10, "annotation": "right = strlen(\"Hello\") - 1 = 4", "memory": [{ "variable": "right", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 11, "annotation": "while left < right (0 < 4)", "memory": [], "output": "" },
+                  { "line": 12, "annotation": "temp = str[0] ('H')", "memory": [{ "variable": "temp", "type": "char", "value": "'H'" }], "output": "" },
+                  { "line": 13, "annotation": "str[0] = str[4] ('o')", "memory": [{ "variable": "str", "type": "char[]", "value": "\"oello\"" }], "output": "" },
+                  { "line": 14, "annotation": "str[4] = temp ('H')", "memory": [{ "variable": "str", "type": "char[]", "value": "\"oellH\"" }], "output": "" },
+                  { "line": 15, "annotation": "left++", "memory": [{ "variable": "left", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 16, "annotation": "right--", "memory": [{ "variable": "right", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 11, "annotation": "while left < right (1 < 3)", "memory": [], "output": "" },
+                  { "line": 12, "annotation": "temp = str[1] ('e')", "memory": [{ "variable": "temp", "type": "char", "value": "'e'" }], "output": "" },
+                  { "line": 13, "annotation": "str[1] = str[3] ('l')", "memory": [{ "variable": "str", "type": "char[]", "value": "\"olllo\"" }], "output": "" },
+                  { "line": 14, "annotation": "str[3] = temp ('e')", "memory": [{ "variable": "str", "type": "char[]", "value": "\"olleH\"" }], "output": "" },
+                  { "line": 15, "annotation": "left++", "memory": [{ "variable": "left", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 16, "annotation": "right--", "memory": [{ "variable": "right", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 11, "annotation": "while left < right (2 < 2) false -> Exit loop", "memory": [], "output": "" },
+                  { "line": 18, "annotation": "Print reversed string", "memory": [], "output": "Reversed: olleH\n" },
+                  { "line": 20, "annotation": "Program terminates", "memory": [], "output": "Reversed: olleH\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -4125,23 +4121,23 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 9",
-        objective: "malloc, calloc, realloc, free, command-line args",
-        tutorial: "Tutorial 9: Pointers and Dynamic Memory",
-        labTitle: "Lab 9: Dynamic Allocation",
-        experiments: [
+        "title": "WEEK 9",
+        "objective": "malloc, calloc, realloc, free, command-line args",
+        "tutorial": "Tutorial 9: Pointers and Dynamic Memory",
+        "labTitle": "Lab 9: Dynamic Allocation",
+        "experiments": [
           {
-            id: "c-w9-1",
-            title: "Array Sum using malloc",
-            desc: "Calculate the sum of elements allocated via malloc().",
-            expected: "Sum=X",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to dynamically allocate memory for an integer array of size n using malloc(), accept n integers from the user, compute their sum and average, and free the allocated memory before exiting. The student will:",
-                bullets: [
+            "id": "c-w9-1",
+            "title": "Array Sum using malloc",
+            "desc": "Calculate the sum of elements allocated via malloc().",
+            "expected": "Sum=X",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces dynamic memory allocation in C using malloc() from the stdlib.h library. Unlike static arrays whose size is fixed at compile time, malloc() allocates a requested number of bytes on the heap at runtime, enabling programs to handle arrays of user-determined size. Students will read n from the user, allocate an integer array of exactly that size, verify the returned pointer is not NULL (allocation failure), read elements into the array, compute their sum and average, and release the memory with free() before exiting. The experiment establishes the complete dynamic allocation lifecycle — allocate, use, check, free — and explains why memory leaks occur when free() is omitted.",
+                "bullets": [
                   "Include stdlib.h for malloc() and free()",
                   "Dynamically allocate an integer array using malloc()",
                   "Check the return value of malloc() for NULL (allocation failure)",
@@ -4150,38 +4146,38 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Use printf() with %d and %.2f to display sum and average"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Static vs Dynamic Allocation",
-                  body: ["Static  : int arr[100]; — size fixed at compile time, stored on the stack.", "Dynamic : int *arr = malloc(n * sizeof(int)); — size decided at runtime, stored on the heap. Allows flexible, user-determined array sizes."]
+                  "title": "Static vs Dynamic Allocation",
+                  "body": ["Static  : int arr[100]; — size fixed at compile time, stored on the stack.", "Dynamic : int *arr = malloc(n * sizeof(int)); — size decided at runtime, stored on the heap. Allows flexible, user-determined array sizes."]
                 },
                 {
-                  title: "malloc()",
-                  body: ["Memory ALLOCation. Syntax:\n  void *malloc(size_t size);\nAllocates a contiguous block of size bytes on the heap. Returns a void* pointer to the first byte, or NULL if allocation fails. The memory is uninitialised (contains garbage values). Must be cast to the required type:\n  int *arr = (int *) malloc(n * sizeof(int));"]
+                  "title": "malloc()",
+                  "body": [ "![Malloc memory allocation](malloc.webp)","Memory ALLOCation. Syntax:\n  void *malloc(size_t size);\nAllocates a contiguous block of size bytes on the heap. Returns a void* pointer to the first byte, or NULL if allocation fails. The memory is uninitialised (contains garbage values). Must be cast to the required type:\n  int *arr = (int *) malloc(n * sizeof(int));"]
                 },
                 {
-                  title: "sizeof(int)",
-                  body: ["Always use sizeof to compute the correct byte count per element. sizeof(int) is typically 4 bytes on 32/64-bit systems. Hardcoding 4 is non-portable."]
+                  "title": "sizeof(int)",
+                  "body": ["Always use sizeof to compute the correct byte count per element. sizeof(int) is typically 4 bytes on 32/64-bit systems. Hardcoding 4 is non-portable."]
                 },
                 {
-                  title: "NULL Check",
-                  body: ["malloc() returns NULL when the system cannot allocate the requested memory (e.g. out of heap space). Always check:\n  if (arr == NULL) { printf(\"Allocation failed\\n\"); exit(1); }\nDereferencing a NULL pointer causes a segmentation fault."]
+                  "title": "NULL Check",
+                  "body": ["malloc() returns NULL when the system cannot allocate the requested memory (e.g. out of heap space). Always check:\n  if (arr == NULL) { printf(\"Allocation failed\\n\"); exit(1); }\nDereferencing a NULL pointer causes a segmentation fault."]
                 },
                 {
-                  title: "free()",
-                  body: ["Releases the heap memory back to the OS:\n  free(arr);\nAfter free(), the pointer is a dangling pointer. Set it to NULL immediately:\n  arr = NULL;\nFailure to free memory causes a memory leak — the allocated block remains reserved until the program exits."]
+                  "title": "free()",
+                  "body": ["Releases the heap memory back to the OS:\n  free(arr);\nAfter free(), the pointer is a dangling pointer. Set it to NULL immediately:\n  arr = NULL;\nFailure to free memory causes a memory leak — the allocated block remains reserved until the program exits."]
                 },
                 {
-                  title: "Pointer Arithmetic",
-                  body: ["arr[i] is equivalent to *(arr + i). Both access the element i positions ahead of the base address."]
+                  "title": "Pointer Arithmetic",
+                  "body": ["arr[i] is equivalent to *(arr + i). Both access the element i positions ahead of the base address."]
                 },
                 {
-                  title: "Sum and Average",
-                  body: ["sum = 0;\nfor (i = 0; i < n; i++) sum += arr[i];\naverage = (float) sum / n;"]
+                  "title": "Sum and Average",
+                  "body": ["sum = 0;\nfor (i = 0; i < n; i++) sum += arr[i];\naverage = (float) sum / n;"]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace malloc, array fill, sum computation, and free.",
                 "Observe the heap address assigned to arr and how it is released after free().",
@@ -4190,39 +4186,39 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Click Run Code. Verify output: Sum: 150  Average: 30.00",
                 "Try n = 1 and a large n like 1000 to observe dynamic sizing. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n, i, sum = 0;\n    float average;\n    int *arr;\n    scanf(\"%d\", &n);\n    arr = (int *) malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Allocation failed\\n\");\n        return 1;\n    }\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n        sum += arr[i];\n    }\n    average = (float) sum / n;\n    printf(\"Sum: %d  Average: %.2f\\n\", sum, average);\n    free(arr);\n    arr = NULL;\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio and stdlib libraries", memory: [], output: "" },
-                  { line: 5, annotation: "Allocate variables", memory: [{variable: "n", type: "int", value: "?"}, {variable: "sum", type: "int", value: "0"}, {variable: "arr", type: "int*", value: "NULL"}], output: "" },
-                  { line: 8, annotation: "scanf reads n=5", memory: [{variable: "n", type: "int", value: "5"}], output: "" },
-                  { line: 9, annotation: "malloc(5 * 4 = 20 bytes)", memory: [{variable: "arr", type: "int*", value: "0xHeapAddr1"}], output: "" },
-                  { line: 10, annotation: "arr != NULL, proceed", memory: [], output: "" },
-                  { line: 14, annotation: "Loop starts i=0", memory: [{variable: "i", type: "int", value: "0"}], output: "" },
-                  { line: 15, annotation: "scanf arr[0]=10", memory: [{variable: "arr[0]", type: "int", value: "10"}], output: "" },
-                  { line: 16, annotation: "sum = sum + 10 = 10", memory: [{variable: "sum", type: "int", value: "10"}], output: "" },
-                  { line: 14, annotation: "Loop i=1", memory: [{variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 15, annotation: "scanf arr[1]=20", memory: [{variable: "arr[1]", type: "int", value: "20"}], output: "" },
-                  { line: 16, annotation: "sum = 10 + 20 = 30", memory: [{variable: "sum", type: "int", value: "30"}], output: "" },
-                  { line: 14, annotation: "Loop i=2", memory: [{variable: "i", type: "int", value: "2"}], output: "" },
-                  { line: 15, annotation: "scanf arr[2]=30", memory: [{variable: "arr[2]", type: "int", value: "30"}], output: "" },
-                  { line: 16, annotation: "sum = 30 + 30 = 60", memory: [{variable: "sum", type: "int", value: "60"}], output: "" },
-                  { line: 14, annotation: "Loop i=3", memory: [{variable: "i", type: "int", value: "3"}], output: "" },
-                  { line: 15, annotation: "scanf arr[3]=40", memory: [{variable: "arr[3]", type: "int", value: "40"}], output: "" },
-                  { line: 16, annotation: "sum = 60 + 40 = 100", memory: [{variable: "sum", type: "int", value: "100"}], output: "" },
-                  { line: 14, annotation: "Loop i=4", memory: [{variable: "i", type: "int", value: "4"}], output: "" },
-                  { line: 15, annotation: "scanf arr[4]=50", memory: [{variable: "arr[4]", type: "int", value: "50"}], output: "" },
-                  { line: 16, annotation: "sum = 100 + 50 = 150", memory: [{variable: "sum", type: "int", value: "150"}], output: "" },
-                  { line: 14, annotation: "Loop ends", memory: [], output: "" },
-                  { line: 18, annotation: "average = 150.0 / 5 = 30.00", memory: [{variable: "average", type: "float", value: "30.00"}], output: "" },
-                  { line: 19, annotation: "Print sum and average", memory: [], output: "Sum: 150  Average: 30.00\n" },
-                  { line: 20, annotation: "free(arr) - Memory released", memory: [{variable: "arr", type: "int*", value: "0xHeapAddr1 (Freed)"}], output: "" },
-                  { line: 21, annotation: "Set arr to NULL to avoid dangling pointer", memory: [{variable: "arr", type: "int*", value: "NULL"}], output: "" },
-                  { line: 22, annotation: "Program terminates", memory: [], output: "Sum: 150  Average: 30.00\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n, i, sum = 0;\n    float average;\n    int *arr;\n    scanf(\"%d\", &n);\n    arr = (int *) malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Allocation failed\\n\");\n        return 1;\n    }\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n        sum += arr[i];\n    }\n    average = (float) sum / n;\n    printf(\"Sum: %d  Average: %.2f\\n\", sum, average);\n    free(arr);\n    arr = NULL;\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio and stdlib libraries", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Allocate variables", "memory": [{ "variable": "n", "type": "int", "value": "?" }, { "variable": "sum", "type": "int", "value": "0" }, { "variable": "arr", "type": "int*", "value": "NULL" }], "output": "" },
+                  { "line": 8, "annotation": "scanf reads n=5", "memory": [{ "variable": "n", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 9, "annotation": "malloc(5 * 4 = 20 bytes)", "memory": [{ "variable": "arr", "type": "int*", "value": "0xHeapAddr1" }], "output": "" },
+                  { "line": 10, "annotation": "arr != NULL, proceed", "memory": [], "output": "" },
+                  { "line": 14, "annotation": "Loop starts i=0", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 15, "annotation": "scanf arr[0]=10", "memory": [{ "variable": "arr[0]", "type": "int", "value": "10" }], "output": "" },
+                  { "line": 16, "annotation": "sum = sum + 10 = 10", "memory": [{ "variable": "sum", "type": "int", "value": "10" }], "output": "" },
+                  { "line": 14, "annotation": "Loop i=1", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 15, "annotation": "scanf arr[1]=20", "memory": [{ "variable": "arr[1]", "type": "int", "value": "20" }], "output": "" },
+                  { "line": 16, "annotation": "sum = 10 + 20 = 30", "memory": [{ "variable": "sum", "type": "int", "value": "30" }], "output": "" },
+                  { "line": 14, "annotation": "Loop i=2", "memory": [{ "variable": "i", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 15, "annotation": "scanf arr[2]=30", "memory": [{ "variable": "arr[2]", "type": "int", "value": "30" }], "output": "" },
+                  { "line": 16, "annotation": "sum = 30 + 30 = 60", "memory": [{ "variable": "sum", "type": "int", "value": "60" }], "output": "" },
+                  { "line": 14, "annotation": "Loop i=3", "memory": [{ "variable": "i", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 15, "annotation": "scanf arr[3]=40", "memory": [{ "variable": "arr[3]", "type": "int", "value": "40" }], "output": "" },
+                  { "line": 16, "annotation": "sum = 60 + 40 = 100", "memory": [{ "variable": "sum", "type": "int", "value": "100" }], "output": "" },
+                  { "line": 14, "annotation": "Loop i=4", "memory": [{ "variable": "i", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 15, "annotation": "scanf arr[4]=50", "memory": [{ "variable": "arr[4]", "type": "int", "value": "50" }], "output": "" },
+                  { "line": 16, "annotation": "sum = 100 + 50 = 150", "memory": [{ "variable": "sum", "type": "int", "value": "150" }], "output": "" },
+                  { "line": 14, "annotation": "Loop ends", "memory": [], "output": "" },
+                  { "line": 18, "annotation": "average = 150.0 / 5 = 30.00", "memory": [{ "variable": "average", "type": "float", "value": "30.00" }], "output": "" },
+                  { "line": 19, "annotation": "Print sum and average", "memory": [], "output": "Sum: 150  Average: 30.00\n" },
+                  { "line": 20, "annotation": "free(arr) - Memory released", "memory": [{ "variable": "arr", "type": "int*", "value": "0xHeapAddr1 (Freed)" }], "output": "" },
+                  { "line": 21, "annotation": "Set arr to NULL to avoid dangling pointer", "memory": [{ "variable": "arr", "type": "int*", "value": "NULL" }], "output": "" },
+                  { "line": 22, "annotation": "Program terminates", "memory": [], "output": "Sum: 150  Average: 30.00\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -4231,14 +4227,14 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
             }
           },
           {
-            id: "c-w9-2",
-            title: "Student Average using Structures",
-            desc: "Array of structures dynamically allocated with malloc().",
-            expected: "Average=X.XX",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to dynamically allocate an array of structures representing students, accept each student's name and marks, compute the average marks for each student, and display the results. The student will:",
-                bullets: [
+            "id": "c-w9-2",
+            "title": "Student Average using Structures",
+            "desc": "Array of structures dynamically allocated with malloc().",
+            "expected": "Average=X.XX",
+            "content": {
+              "aim": {
+                "text": "This experiment combines structures and dynamic memory allocation to manage a collection of student records. Students will define a struct containing a name, a dynamically allocated marks array, and an average field; allocate an array of n such structures using malloc(); for each student, allocate a separate marks array with malloc(), read marks for multiple subjects, compute the average, and store it in the struct field; print all student names and averages; and finally free every inner marks array before freeing the outer students array. The experiment demonstrates nested dynamic allocation, the difference between dot (.) and arrow (->) operators, and the importance of freeing memory in the correct reverse order to avoid losing inner pointers.",
+                "bullets": [
                   "Define a struct to hold a student's name and marks array",
                   "Dynamically allocate an array of n student structures using malloc()",
                   "Use a nested loop to accept marks for multiple subjects per student",
@@ -4247,38 +4243,38 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Free all dynamically allocated memory before program exit"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Structures in C",
-                  body: ["A struct groups related variables of different types under one name:\n  struct Student {\n      char name[50];\n      int  marks[5];\n      float average;\n  };\nEach field is accessed using the dot operator: s.name, s.marks[0], s.average."]
+                  "title": "Structures in C",
+                  "body": ["A struct groups related variables of different types under one name:\n  struct Student {\n      char name[50];\n      int  marks[5];\n      float average;\n  };\nEach field is accessed using the dot operator: s.name, s.marks[0], s.average."]
                 },
                 {
-                  title: "Array of Structures",
-                  body: ["Declares multiple student records:\n  struct Student students[100];   // static\nDynamically:\n  struct Student *students = (struct Student *) malloc(n * sizeof(struct Student));"]
+                  "title": "Array of Structures",
+                  "body": ["Declares multiple student records:\n  struct Student students[100];   // static\nDynamically:\n  struct Student *students = (struct Student *) malloc(n * sizeof(struct Student));"]
                 },
                 {
-                  title: "sizeof(struct Student)",
-                  body: ["Returns the total bytes for one struct instance, including all fields and any padding added by the compiler for alignment. Always use sizeof rather than adding field sizes manually."]
+                  "title": "sizeof(struct Student)",
+                  "body": ["Returns the total bytes for one struct instance, including all fields and any padding added by the compiler for alignment. Always use sizeof rather than adding field sizes manually."]
                 },
                 {
-                  title: "Dot vs Arrow Operator",
-                  body: ["s.name           accesses field name of a struct variable s", "ptr->name        accesses field name through a pointer ptr", "(*ptr).name      is equivalent to ptr->name"]
+                  "title": "Dot vs Arrow Operator",
+                  "body": ["s.name           accesses field name of a struct variable s", "ptr->name        accesses field name through a pointer ptr", "(*ptr).name      is equivalent to ptr->name"]
                 },
                 {
-                  title: "Average per Student",
-                  body: ["sum = 0;\nfor (j = 0; j < subjects; j++) sum += students[i].marks[j];\nstudents[i].average = (float) sum / subjects;"]
+                  "title": "Average per Student",
+                  "body": ["sum = 0;\nfor (j = 0; j < subjects; j++) sum += students[i].marks[j];\nstudents[i].average = (float) sum / subjects;"]
                 },
                 {
-                  title: "Nested Dynamic Allocation",
-                  body: ["For a variable number of subjects per student, marks can itself be a dynamically allocated int*:\n  students[i].marks = (int *) malloc(subjects * sizeof(int));\nEach inner allocation must also be freed individually before freeing the outer array."]
+                  "title": "Nested Dynamic Allocation",
+                  "body": ["For a variable number of subjects per student, marks can itself be a dynamically allocated int*:\n  students[i].marks = (int *) malloc(subjects * sizeof(int));\nEach inner allocation must also be freed individually before freeing the outer array."]
                 },
                 {
-                  title: "Memory Freeing Order",
-                  body: ["Free inner allocations before the outer array to avoid losing the inner pointers:\n  for (i = 0; i < n; i++) free(students[i].marks);\n  free(students);"]
+                  "title": "Memory Freeing Order",
+                  "body": ["Free inner allocations before the outer array to avoid losing the inner pointers:\n  for (i = 0; i < n; i++) free(students[i].marks);\n  free(students);"]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace struct allocation, field assignment, and average computation for two students.",
                 "Observe how students[i].marks[j] is filled and how students[i].average is computed.",
@@ -4287,54 +4283,54 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Click Run Code. Verify average for Alice: 85.00 and Bob: 68.33",
                 "Try a single student and a student with all-zero marks. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Student {\n    char name[50];\n    int *marks;\n    float average;\n};\n\nint main() {\n    int n, subjects, i, j, sum;\n    struct Student *students;\n    scanf(\"%d %d\", &n, &subjects);\n    students = (struct Student *) malloc(n * sizeof(struct Student));\n    for (i = 0; i < n; i++) {\n        scanf(\"%s\", students[i].name);\n        students[i].marks = (int *) malloc(subjects * sizeof(int));\n        sum = 0;\n        for (j = 0; j < subjects; j++) {\n            scanf(\"%d\", &students[i].marks[j]);\n            sum += students[i].marks[j];\n        }\n        students[i].average = (float) sum / subjects;\n    }\n    for (i = 0; i < n; i++) {\n        printf(\"%s - Average: %.2f\\n\", students[i].name, students[i].average);\n    }\n    for (i = 0; i < n; i++) {\n        free(students[i].marks);\n    }\n    free(students);\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load libraries", memory: [], output: "" },
-                  { line: 12, annotation: "Allocate variables", memory: [{variable: "n", type: "int", value: "?"}, {variable: "subjects", type: "int", value: "?"}], output: "" },
-                  { line: 13, annotation: "scanf reads n=2, subjects=3", memory: [{variable: "n", type: "int", value: "2"}, {variable: "subjects", type: "int", value: "3"}], output: "" },
-                  { line: 14, annotation: "malloc students array", memory: [{variable: "students", type: "struct Student*", value: "size 2"}], output: "" },
-                  { line: 15, annotation: "Student 1 loop starts (i=0)", memory: [{variable: "i", type: "int", value: "0"}], output: "" },
-                  { line: 16, annotation: "scanf name 'Alice'", memory: [{variable: "students[0].name", type: "char[]", value: "\"Alice\""}], output: "" },
-                  { line: 17, annotation: "malloc marks array for Alice", memory: [{variable: "students[0].marks", type: "int*", value: "size 3"}], output: "" },
-                  { line: 18, annotation: "sum = 0", memory: [{variable: "sum", type: "int", value: "0"}], output: "" },
-                  { line: 19, annotation: "Marks loop for Alice starts", memory: [{variable: "j", type: "int", value: "0"}], output: "" },
-                  { line: 20, annotation: "scanf mark 80", memory: [{variable: "students[0].marks[0]", type: "int", value: "80"}], output: "" },
-                  { line: 21, annotation: "sum += 80", memory: [{variable: "sum", type: "int", value: "80"}], output: "" },
-                  { line: 19, annotation: "j=1", memory: [{variable: "j", type: "int", value: "1"}], output: "" },
-                  { line: 20, annotation: "scanf mark 90", memory: [{variable: "students[0].marks[1]", type: "int", value: "90"}], output: "" },
-                  { line: 21, annotation: "sum += 90 (170)", memory: [{variable: "sum", type: "int", value: "170"}], output: "" },
-                  { line: 19, annotation: "j=2", memory: [{variable: "j", type: "int", value: "2"}], output: "" },
-                  { line: 20, annotation: "scanf mark 85", memory: [{variable: "students[0].marks[2]", type: "int", value: "85"}], output: "" },
-                  { line: 21, annotation: "sum += 85 (255)", memory: [{variable: "sum", type: "int", value: "255"}], output: "" },
-                  { line: 23, annotation: "average = 255 / 3 = 85.00", memory: [{variable: "students[0].average", type: "float", value: "85.00"}], output: "" },
-                  { line: 15, annotation: "Student 2 loop starts (i=1)", memory: [{variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 16, annotation: "scanf name 'Bob'", memory: [{variable: "students[1].name", type: "char[]", value: "\"Bob\""}], output: "" },
-                  { line: 17, annotation: "malloc marks array for Bob", memory: [{variable: "students[1].marks", type: "int*", value: "size 3"}], output: "" },
-                  { line: 18, annotation: "sum = 0", memory: [{variable: "sum", type: "int", value: "0"}], output: "" },
-                  { line: 19, annotation: "Marks loop for Bob starts", memory: [{variable: "j", type: "int", value: "0"}], output: "" },
-                  { line: 20, annotation: "scanf mark 70", memory: [{variable: "students[1].marks[0]", type: "int", value: "70"}], output: "" },
-                  { line: 21, annotation: "sum += 70", memory: [{variable: "sum", type: "int", value: "70"}], output: "" },
-                  { line: 19, annotation: "j=1", memory: [{variable: "j", type: "int", value: "1"}], output: "" },
-                  { line: 20, annotation: "scanf mark 60", memory: [{variable: "students[1].marks[1]", type: "int", value: "60"}], output: "" },
-                  { line: 21, annotation: "sum += 60 (130)", memory: [{variable: "sum", type: "int", value: "130"}], output: "" },
-                  { line: 19, annotation: "j=2", memory: [{variable: "j", type: "int", value: "2"}], output: "" },
-                  { line: 20, annotation: "scanf mark 75", memory: [{variable: "students[1].marks[2]", type: "int", value: "75"}], output: "" },
-                  { line: 21, annotation: "sum += 75 (205)", memory: [{variable: "sum", type: "int", value: "205"}], output: "" },
-                  { line: 23, annotation: "average = 205 / 3 = 68.33", memory: [{variable: "students[1].average", type: "float", value: "68.33"}], output: "" },
-                  { line: 25, annotation: "Print Loop i=0", memory: [{variable: "i", type: "int", value: "0"}], output: "" },
-                  { line: 26, annotation: "Print Alice", memory: [], output: "Alice - Average: 85.00\n" },
-                  { line: 25, annotation: "Print Loop i=1", memory: [{variable: "i", type: "int", value: "1"}], output: "" },
-                  { line: 26, annotation: "Print Bob", memory: [], output: "Alice - Average: 85.00\nBob - Average: 68.33\n" },
-                  { line: 28, annotation: "Free Loop starts", memory: [], output: "" },
-                  { line: 29, annotation: "Free Alice's marks", memory: [], output: "" },
-                  { line: 29, annotation: "Free Bob's marks", memory: [], output: "" },
-                  { line: 31, annotation: "Free students array", memory: [], output: "" },
-                  { line: 32, annotation: "Program terminates", memory: [], output: "Alice - Average: 85.00\nBob - Average: 68.33\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Student {\n    char name[50];\n    int *marks;\n    float average;\n};\n\nint main() {\n    int n, subjects, i, j, sum;\n    struct Student *students;\n    scanf(\"%d %d\", &n, &subjects);\n    students = (struct Student *) malloc(n * sizeof(struct Student));\n    for (i = 0; i < n; i++) {\n        scanf(\"%s\", students[i].name);\n        students[i].marks = (int *) malloc(subjects * sizeof(int));\n        sum = 0;\n        for (j = 0; j < subjects; j++) {\n            scanf(\"%d\", &students[i].marks[j]);\n            sum += students[i].marks[j];\n        }\n        students[i].average = (float) sum / subjects;\n    }\n    for (i = 0; i < n; i++) {\n        printf(\"%s - Average: %.2f\\n\", students[i].name, students[i].average);\n    }\n    for (i = 0; i < n; i++) {\n        free(students[i].marks);\n    }\n    free(students);\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load libraries", "memory": [], "output": "" },
+                  { "line": 12, "annotation": "Allocate variables", "memory": [{ "variable": "n", "type": "int", "value": "?" }, { "variable": "subjects", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 13, "annotation": "scanf reads n=2, subjects=3", "memory": [{ "variable": "n", "type": "int", "value": "2" }, { "variable": "subjects", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 14, "annotation": "malloc students array", "memory": [{ "variable": "students", "type": "struct Student*", "value": "size 2" }], "output": "" },
+                  { "line": 15, "annotation": "Student 1 loop starts (i=0)", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 16, "annotation": "scanf name 'Alice'", "memory": [{ "variable": "students[0].name", "type": "char[]", "value": "\"Alice\"" }], "output": "" },
+                  { "line": 17, "annotation": "malloc marks array for Alice", "memory": [{ "variable": "students[0].marks", "type": "int*", "value": "size 3" }], "output": "" },
+                  { "line": 18, "annotation": "sum = 0", "memory": [{ "variable": "sum", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 19, "annotation": "Marks loop for Alice starts", "memory": [{ "variable": "j", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 20, "annotation": "scanf mark 80", "memory": [{ "variable": "students[0].marks[0]", "type": "int", "value": "80" }], "output": "" },
+                  { "line": 21, "annotation": "sum += 80", "memory": [{ "variable": "sum", "type": "int", "value": "80" }], "output": "" },
+                  { "line": 19, "annotation": "j=1", "memory": [{ "variable": "j", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 20, "annotation": "scanf mark 90", "memory": [{ "variable": "students[0].marks[1]", "type": "int", "value": "90" }], "output": "" },
+                  { "line": 21, "annotation": "sum += 90 (170)", "memory": [{ "variable": "sum", "type": "int", "value": "170" }], "output": "" },
+                  { "line": 19, "annotation": "j=2", "memory": [{ "variable": "j", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 20, "annotation": "scanf mark 85", "memory": [{ "variable": "students[0].marks[2]", "type": "int", "value": "85" }], "output": "" },
+                  { "line": 21, "annotation": "sum += 85 (255)", "memory": [{ "variable": "sum", "type": "int", "value": "255" }], "output": "" },
+                  { "line": 23, "annotation": "average = 255 / 3 = 85.00", "memory": [{ "variable": "students[0].average", "type": "float", "value": "85.00" }], "output": "" },
+                  { "line": 15, "annotation": "Student 2 loop starts (i=1)", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 16, "annotation": "scanf name 'Bob'", "memory": [{ "variable": "students[1].name", "type": "char[]", "value": "\"Bob\"" }], "output": "" },
+                  { "line": 17, "annotation": "malloc marks array for Bob", "memory": [{ "variable": "students[1].marks", "type": "int*", "value": "size 3" }], "output": "" },
+                  { "line": 18, "annotation": "sum = 0", "memory": [{ "variable": "sum", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 19, "annotation": "Marks loop for Bob starts", "memory": [{ "variable": "j", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 20, "annotation": "scanf mark 70", "memory": [{ "variable": "students[1].marks[0]", "type": "int", "value": "70" }], "output": "" },
+                  { "line": 21, "annotation": "sum += 70", "memory": [{ "variable": "sum", "type": "int", "value": "70" }], "output": "" },
+                  { "line": 19, "annotation": "j=1", "memory": [{ "variable": "j", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 20, "annotation": "scanf mark 60", "memory": [{ "variable": "students[1].marks[1]", "type": "int", "value": "60" }], "output": "" },
+                  { "line": 21, "annotation": "sum += 60 (130)", "memory": [{ "variable": "sum", "type": "int", "value": "130" }], "output": "" },
+                  { "line": 19, "annotation": "j=2", "memory": [{ "variable": "j", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 20, "annotation": "scanf mark 75", "memory": [{ "variable": "students[1].marks[2]", "type": "int", "value": "75" }], "output": "" },
+                  { "line": 21, "annotation": "sum += 75 (205)", "memory": [{ "variable": "sum", "type": "int", "value": "205" }], "output": "" },
+                  { "line": 23, "annotation": "average = 205 / 3 = 68.33", "memory": [{ "variable": "students[1].average", "type": "float", "value": "68.33" }], "output": "" },
+                  { "line": 25, "annotation": "Print Loop i=0", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 26, "annotation": "Print Alice", "memory": [], "output": "Alice - Average: 85.00\n" },
+                  { "line": 25, "annotation": "Print Loop i=1", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 26, "annotation": "Print Bob", "memory": [], "output": "Alice - Average: 85.00\nBob - Average: 68.33\n" },
+                  { "line": 28, "annotation": "Free Loop starts", "memory": [], "output": "" },
+                  { "line": 29, "annotation": "Free Alice's marks", "memory": [], "output": "" },
+                  { "line": 29, "annotation": "Free Bob's marks", "memory": [], "output": "" },
+                  { "line": 31, "annotation": "Free students array", "memory": [], "output": "" },
+                  { "line": 32, "annotation": "Program terminates", "memory": [], "output": "Alice - Average: 85.00\nBob - Average: 68.33\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -4343,14 +4339,14 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
             }
           },
           {
-            id: "c-w9-3",
-            title: "Failed Students using calloc",
-            desc: "Filter and print failed students from an array allocated with calloc().",
-            expected: "List of failed students",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to dynamically allocate memory for n student marks using calloc(), accept marks from the user, identify and count students who have failed (marks below a passing threshold), and display their roll numbers and marks. The student will:",
-                bullets: [
+            "id": "c-w9-3",
+            "title": "Failed Students using calloc",
+            "desc": "Filter and print failed students from an array allocated with calloc().",
+            "expected": "List of failed students",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces calloc() as an alternative to malloc() that zero-initialises every allocated byte. Students will allocate n integer slots for student marks using calloc(), read marks into the array, iterate through the values to identify those below the passing threshold (40), print each failing student's roll number and mark, count the total failures, and release memory. The experiment contrasts calloc (zero-initialised, two-argument) with malloc (uninitialised, one-argument), explains when zero-initialisation is beneficial, and introduces realloc() conceptually as a tool for resizing previously allocated blocks when data size is not known upfront.",
+                "bullets": [
                   "Include stdlib.h for calloc() and free()",
                   "Allocate a zero-initialised integer array using calloc()",
                   "Accept n marks and store them in the allocated array",
@@ -4359,34 +4355,34 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Free the allocated memory and set the pointer to NULL"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "calloc()",
-                  body: ["Contiguous ALLOCation. Syntax:\n  void *calloc(size_t num, size_t size);\nAllocates memory for num elements each of size bytes and zero-initialises every byte. Returns a void* pointer, or NULL on failure.\n  int *marks = (int *) calloc(n, sizeof(int));"]
+                  "title": "calloc()",
+                  "body": [ "![Calloc memory Allcocation](calloc.webp)","Contiguous ALLOCation. Syntax:\n  void *calloc(size_t num, size_t size);\nAllocates memory for num elements each of size bytes and zero-initialises every byte. Returns a void* pointer, or NULL on failure.\n  int *marks = (int *) calloc(n, sizeof(int));"]
                 },
                 {
-                  title: "malloc() vs calloc()",
-                  body: ["malloc(n * sizeof(int))   : allocates n*sizeof(int) bytes; content uninitialised\ncalloc(n, sizeof(int))    : allocates n*sizeof(int) bytes; all bytes set to 0", "calloc is preferred when zero-initialisation is needed (e.g. counters, flags, marks arrays where un-entered values should default to 0)."]
+                  "title": "malloc() vs calloc()",
+                  "body": ["malloc(n * sizeof(int))   : allocates n*sizeof(int) bytes; content uninitialised\ncalloc(n, sizeof(int))    : allocates n*sizeof(int) bytes; all bytes set to 0", "calloc is preferred when zero-initialisation is needed (e.g. counters, flags, marks arrays where un-entered values should default to 0)."]
                 },
                 {
-                  title: "realloc()",
-                  body: ["REALLOCation. Resizes a previously allocated block:\n  ptr = realloc(ptr, new_size);\nIf new_size is larger, extra bytes are uninitialised. If the block cannot be expanded in place, realloc allocates a new block, copies the old data, frees the old block, and returns the new address. Returns NULL on failure — always assign to a temporary pointer to avoid losing the original:\n  int *temp = realloc(marks, new_n * sizeof(int));\n  if (temp != NULL) marks = temp;"]
+                  "title": "realloc()",
+                  "body": ["REALLOCation. Resizes a previously allocated block:\n  ptr = realloc(ptr, new_size);\nIf new_size is larger, extra bytes are uninitialised. If the block cannot be expanded in place, realloc allocates a new block, copies the old data, frees the old block, and returns the new address. Returns NULL on failure — always assign to a temporary pointer to avoid losing the original:\n  int *temp = realloc(marks, new_n * sizeof(int));\n  if (temp != NULL) marks = temp;"]
                 },
                 {
-                  title: "Identifying Failed Students",
-                  body: ["failCount = 0;\nfor (i = 0; i < n; i++) {\n    if (marks[i] < PASS_MARK) {\n        printf(\"Roll %d: %d\\n\", i+1, marks[i]);\n        failCount++;\n    }\n}"]
+                  "title": "Identifying Failed Students",
+                  "body": ["failCount = 0;\nfor (i = 0; i < n; i++) {\n    if (marks[i] < PASS_MARK) {\n        printf(\"Roll %d: %d\\n\", i+1, marks[i]);\n        failCount++;\n    }\n}"]
                 },
                 {
-                  title: "Zero Initialisation Advantage",
-                  body: ["Because calloc zero-initialises, any unread entry defaults to 0 (which would be below pass mark). This makes calloc particularly appropriate when partial data entry is a concern."]
+                  "title": "Zero Initialisation Advantage",
+                  "body": ["Because calloc zero-initialises, any unread entry defaults to 0 (which would be below pass mark). This makes calloc particularly appropriate when partial data entry is a concern."]
                 },
                 {
-                  title: "free() and NULL Assignment",
-                  body: ["free(marks);\nmarks = NULL;"]
+                  "title": "free() and NULL Assignment",
+                  "body": ["free(marks);\nmarks = NULL;"]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace calloc allocation, marks entry, and the fail check loop.",
                 "Observe that unmodified calloc slots hold 0 and how marks below 40 are flagged.",
@@ -4395,39 +4391,39 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Click Run Code. Verify output:\nFailed Students:\nRoll 2: 32\nRoll 4: 27\nTotal failed: 2",
                 "Try all passing marks, all failing marks, and n = 1. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n, i, failCount = 0;\n    int *marks;\n    scanf(\"%d\", &n);\n    marks = (int *) calloc(n, sizeof(int));\n    if (marks == NULL) {\n        printf(\"Allocation failed\\n\");\n        return 1;\n    }\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &marks[i]);\n    }\n    printf(\"Failed Students:\\n\");\n    for (i = 0; i < n; i++) {\n        if (marks[i] < 40) {\n            printf(\"Roll %d: %d\\n\", i + 1, marks[i]);\n            failCount++;\n        }\n    }\n    printf(\"Total failed: %d\\n\", failCount);\n    free(marks);\n    marks = NULL;\n    return 0;\n}",
-                steps: [
-                  { line: 1, annotation: "Load stdio and stdlib libraries", memory: [], output: "" },
-                  { line: 5, annotation: "Allocate variables", memory: [{variable: "n", type: "int", value: "?"}, {variable: "failCount", type: "int", value: "0"}], output: "" },
-                  { line: 7, annotation: "scanf reads n=5", memory: [{variable: "n", type: "int", value: "5"}], output: "" },
-                  { line: 8, annotation: "calloc(5, 4) zeroes memory", memory: [{variable: "marks", type: "int*", value: "{0, 0, 0, 0, 0}"}], output: "" },
-                  { line: 9, annotation: "marks != NULL, proceed", memory: [], output: "" },
-                  { line: 13, annotation: "Read loop starts", memory: [], output: "" },
-                  { line: 14, annotation: "scanf marks[0]=55", memory: [{variable: "marks", type: "int*", value: "{55, 0, 0, 0, 0}"}], output: "" },
-                  { line: 14, annotation: "scanf marks[1]=32", memory: [{variable: "marks", type: "int*", value: "{55, 32, 0, 0, 0}"}], output: "" },
-                  { line: 14, annotation: "scanf marks[2]=48", memory: [{variable: "marks", type: "int*", value: "{55, 32, 48, 0, 0}"}], output: "" },
-                  { line: 14, annotation: "scanf marks[3]=27", memory: [{variable: "marks", type: "int*", value: "{55, 32, 48, 27, 0}"}], output: "" },
-                  { line: 14, annotation: "scanf marks[4]=61", memory: [{variable: "marks", type: "int*", value: "{55, 32, 48, 27, 61}"}], output: "" },
-                  { line: 16, annotation: "Print header", memory: [], output: "Failed Students:\n" },
-                  { line: 17, annotation: "Check loop starts", memory: [], output: "" },
-                  { line: 18, annotation: "marks[0]=55 >= 40 (Pass)", memory: [], output: "" },
-                  { line: 18, annotation: "marks[1]=32 < 40 (Fail)", memory: [], output: "" },
-                  { line: 19, annotation: "Print Roll 2", memory: [], output: "Failed Students:\nRoll 2: 32\n" },
-                  { line: 20, annotation: "failCount++", memory: [{variable: "failCount", type: "int", value: "1"}], output: "" },
-                  { line: 18, annotation: "marks[2]=48 >= 40 (Pass)", memory: [], output: "" },
-                  { line: 18, annotation: "marks[3]=27 < 40 (Fail)", memory: [], output: "" },
-                  { line: 19, annotation: "Print Roll 4", memory: [], output: "Failed Students:\nRoll 2: 32\nRoll 4: 27\n" },
-                  { line: 20, annotation: "failCount++", memory: [{variable: "failCount", type: "int", value: "2"}], output: "" },
-                  { line: 18, annotation: "marks[4]=61 >= 40 (Pass)", memory: [], output: "" },
-                  { line: 23, annotation: "Print total failed", memory: [], output: "Failed Students:\nRoll 2: 32\nRoll 4: 27\nTotal failed: 2\n" },
-                  { line: 24, annotation: "free(marks)", memory: [{variable: "marks", type: "int*", value: "0xHeapAddr (Freed)"}], output: "" },
-                  { line: 25, annotation: "marks = NULL", memory: [{variable: "marks", type: "int*", value: "NULL"}], output: "" },
-                  { line: 26, annotation: "Program terminates", memory: [], output: "Failed Students:\nRoll 2: 32\nRoll 4: 27\nTotal failed: 2\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n, i, failCount = 0;\n    int *marks;\n    scanf(\"%d\", &n);\n    marks = (int *) calloc(n, sizeof(int));\n    if (marks == NULL) {\n        printf(\"Allocation failed\\n\");\n        return 1;\n    }\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &marks[i]);\n    }\n    printf(\"Failed Students:\\n\");\n    for (i = 0; i < n; i++) {\n        if (marks[i] < 40) {\n            printf(\"Roll %d: %d\\n\", i + 1, marks[i]);\n            failCount++;\n        }\n    }\n    printf(\"Total failed: %d\\n\", failCount);\n    free(marks);\n    marks = NULL;\n    return 0;\n}",
+                "steps": [
+                  { "line": 1, "annotation": "Load stdio and stdlib libraries", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Allocate variables", "memory": [{ "variable": "n", "type": "int", "value": "?" }, { "variable": "failCount", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 7, "annotation": "scanf reads n=5", "memory": [{ "variable": "n", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 8, "annotation": "calloc(5, 4) zeroes memory", "memory": [{ "variable": "marks", "type": "int*", "value": "{0, 0, 0, 0, 0}" }], "output": "" },
+                  { "line": 9, "annotation": "marks != NULL, proceed", "memory": [], "output": "" },
+                  { "line": 13, "annotation": "Read loop starts", "memory": [], "output": "" },
+                  { "line": 14, "annotation": "scanf marks[0]=55", "memory": [{ "variable": "marks", "type": "int*", "value": "{55, 0, 0, 0, 0}" }], "output": "" },
+                  { "line": 14, "annotation": "scanf marks[1]=32", "memory": [{ "variable": "marks", "type": "int*", "value": "{55, 32, 0, 0, 0}" }], "output": "" },
+                  { "line": 14, "annotation": "scanf marks[2]=48", "memory": [{ "variable": "marks", "type": "int*", "value": "{55, 32, 48, 0, 0}" }], "output": "" },
+                  { "line": 14, "annotation": "scanf marks[3]=27", "memory": [{ "variable": "marks", "type": "int*", "value": "{55, 32, 48, 27, 0}" }], "output": "" },
+                  { "line": 14, "annotation": "scanf marks[4]=61", "memory": [{ "variable": "marks", "type": "int*", "value": "{55, 32, 48, 27, 61}" }], "output": "" },
+                  { "line": 16, "annotation": "Print header", "memory": [], "output": "Failed Students:\n" },
+                  { "line": 17, "annotation": "Check loop starts", "memory": [], "output": "" },
+                  { "line": 18, "annotation": "marks[0]=55 >= 40 (Pass)", "memory": [], "output": "" },
+                  { "line": 18, "annotation": "marks[1]=32 < 40 (Fail)", "memory": [], "output": "" },
+                  { "line": 19, "annotation": "Print Roll 2", "memory": [], "output": "Failed Students:\nRoll 2: 32\n" },
+                  { "line": 20, "annotation": "failCount++", "memory": [{ "variable": "failCount", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 18, "annotation": "marks[2]=48 >= 40 (Pass)", "memory": [], "output": "" },
+                  { "line": 18, "annotation": "marks[3]=27 < 40 (Fail)", "memory": [], "output": "" },
+                  { "line": 19, "annotation": "Print Roll 4", "memory": [], "output": "Failed Students:\nRoll 2: 32\nRoll 4: 27\n" },
+                  { "line": 20, "annotation": "failCount++", "memory": [{ "variable": "failCount", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 18, "annotation": "marks[4]=61 >= 40 (Pass)", "memory": [], "output": "" },
+                  { "line": 23, "annotation": "Print total failed", "memory": [], "output": "Failed Students:\nRoll 2: 32\nRoll 4: 27\nTotal failed: 2\n" },
+                  { "line": 24, "annotation": "free(marks)", "memory": [{ "variable": "marks", "type": "int*", "value": "0xHeapAddr (Freed)" }], "output": "" },
+                  { "line": 25, "annotation": "marks = NULL", "memory": [{ "variable": "marks", "type": "int*", "value": "NULL" }], "output": "" },
+                  { "line": 26, "annotation": "Program terminates", "memory": [], "output": "Failed Students:\nRoll 2: 32\nRoll 4: 27\nTotal failed: 2\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -4435,23 +4431,23 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 10",
-        objective: "Structures, Unions, bit fields, singly linked list",
-        tutorial: "Tutorial 10: Structures and Unions",
-        labTitle: "Lab 10: Advanced Data Structures",
-        experiments: [
+        "title": "WEEK 10",
+        "objective": "Structures, Unions, bit fields, singly linked list",
+        "tutorial": "Tutorial 10: Structures and Unions",
+        "labTitle": "Lab 10: Advanced Data Structures",
+        "experiments": [
           {
-            id: "c-w10-1",
-            title: "Singly Linked List",
-            desc: "Create and display a singly linked list.",
-            expected: "X->X->NULL",
-            content: {
-              aim: {
-                text: "In this experiment, the student will understand the concept of dynamic memory allocation using self-referential structures in C. The student will create a singly linked list by dynamically allocating nodes using malloc() and traverse the list to display all elements. The student will:",
-                bullets: [
+            "id": "c-w10-1",
+            "title": "Singly Linked List",
+            "desc": "Create and display a singly linked list.",
+            "expected": "X->X->NULL",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces the singly linked list — a fundamental dynamic data structure where elements (nodes) are stored non-contiguously in heap memory and connected through pointers. Each node contains a data field and a next pointer to the following node, with the last node's next set to NULL. Students will define a self-referential struct for the node, allocate each node dynamically using malloc(), link nodes into a chain by updating a tail pointer, and traverse the complete list from head to NULL printing each element. The experiment demonstrates why linked lists offer flexible runtime resizing that fixed arrays cannot, and introduces the head and tail pointer management patterns used in all subsequent linked list operations.",
+                "bullets": [
                   "Understand what a self-referential structure is in C",
                   "Learn how nodes are created and linked using pointers",
                   "Implement insertion at the end of a linked list",
@@ -4459,60 +4455,60 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Understand how dynamic memory differs from static arrays"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "What is a Linked List?",
-                  body: ["A linked list is a linear data structure where elements called nodes are stored in memory non-contiguously. Unlike arrays, linked list elements are not stored in adjacent memory locations. Each node holds data and a pointer to the next node."]
+                  "title": "What is a Linked List?",
+                  "body": ["A linked list is a linear data structure where elements called nodes are stored in memory non-contiguously. Unlike arrays, linked list elements are not stored in adjacent memory locations. Each node holds data and a pointer to the next node."]
                 },
                 {
-                  title: "Self-Referential Structure",
-                  body: ["A structure that contains a pointer to itself is called a self-referential structure. This is the foundation of linked lists in C.\nStructure of a Node:", "data field — stores the actual integer value\nnext field — stores the address of the next node (pointer to same struct type)"]
+                  "title": "Self-Referential Structure",
+                  "body": ["A structure that contains a pointer to itself is called a self-referential structure. This is the foundation of linked lists in C.\nStructure of a Node:", "data field — stores the actual integer value\nnext field — stores the address of the next node (pointer to same struct type)"]
                 },
                 {
-                  title: "Head Pointer",
-                  body: ["The head pointer always points to the first node of the list. If head is NULL the list is empty."]
+                  "title": "Head Pointer",
+                  "body": ["The head pointer always points to the first node of the list. If head is NULL the list is empty."]
                 },
                 {
-                  title: "Tail Pointer",
-                  body: ["The tail pointer tracks the last node. The last node always has its next pointer set to NULL indicating end of list."]
+                  "title": "Tail Pointer",
+                  "body": ["The tail pointer tracks the last node. The last node always has its next pointer set to NULL indicating end of list."]
                 },
                 {
-                  title: "Node Creation using malloc()",
-                  body: ["malloc() allocates memory dynamically at runtime on the heap. sizeof(struct Node) gives the exact bytes needed for one node. The returned void pointer is cast to struct Node pointer."]
+                  "title": "Node Creation using malloc()",
+                  "body": ["malloc() allocates memory dynamically at runtime on the heap. sizeof(struct Node) gives the exact bytes needed for one node. The returned void pointer is cast to struct Node pointer."]
                 },
                 {
-                  title: "Insertion at End",
-                  body: ["For the first node — head and tail both point to it. For every subsequent node — tail's next points to new node, then tail moves to new node."]
+                  "title": "Insertion at End",
+                  "body": ["For the first node — head and tail both point to it. For every subsequent node — tail's next points to new node, then tail moves to new node."]
                 },
                 {
-                  title: "Traversal",
-                  body: ["Start from head, print data, move to next node using cur = cur->next, repeat until cur becomes NULL."]
+                  "title": "Traversal",
+                  "body": ["Start from head, print data, move to next node using cur = cur->next, repeat until cur becomes NULL."]
                 },
                 {
-                  title: "🚂 A linked list is like a treasure hunt chain!",
-                  body: [
+                  "title": "🚂 A linked list is like a treasure hunt chain!",
+                  "body": [
                     "Imagine a treasure hunt where the first clue tells you where to find the second clue, the second clue tells you where to find the third, and so on. Each clue (node) has two things: the actual treasure hint (data) and the location of the next clue (pointer). The last clue says \"THE END\" (NULL). That's exactly a linked list!",
                     "Unlike an array where all items sit in a neat row, linked list nodes can be anywhere in memory — they just hold each other's hand (via pointers) to stay connected.",
-                    "![Treasure map with connected dots](https://images.unsplash.com/photo-1577495508326-19a1b3cf65b9?w=400)"
+                    "![Singly linked list nodes diagram](singly-linkedlist.webp)"
                   ]
                 },
                 {
-                  title: "Visual Structure for input 3 nodes: 10 20 30",
-                  body: ["10 -> 20 -> 30 -> NULL", "Each arrow represents the next pointer storing the address of the following node."]
+                  "title": "Visual Structure for input 3 nodes: 10 20 30",
+                  "body": ["10 -> 20 -> 30 -> NULL", "Each arrow represents the next pointer storing the address of the following node."]
                 },
                 {
-                  title: "Why Linked List over Array?",
-                  body: ["Arrays have fixed size decided at compile time. Linked lists grow and shrink dynamically at runtime. Insertion and deletion are efficient in linked lists without shifting elements."]
+                  "title": "Why Linked List over Array?",
+                  "body": ["Arrays have fixed size decided at compile time. Linked lists grow and shrink dynamically at runtime. Insertion and deletion are efficient in linked lists without shifting elements."]
                 },
                 {
-                  title: "📏 The key difference — flexibility!",
-                  body: [
+                  "title": "📏 The key difference — flexibility!",
+                  "body": [
                     "Arrays are like a fixed-size parking lot — built for exactly 100 cars, even if only 3 show up today. Linked lists are like a valet service — you add a parking spot whenever a new car arrives, and remove one when a car leaves. No wasted space, no size limits declared upfront. The trade-off: finding a specific car takes longer (you must walk the chain), while arrays let you jump directly to any spot."
                   ]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim carefully and understand what singly linked list means",
                 "Go to Theory and study self-referential structures and how malloc() creates nodes",
                 "Observe the Visual Structure diagram showing how 10 -> 20 -> 30 -> NULL looks in memory",
@@ -4530,45 +4526,45 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Try with different inputs — 5 nodes, different values",
                 "Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* next;\n};\n\nint main() {\n    int n, i, val;\n    struct Node *head = NULL, *tail = NULL, *newNode, *cur;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &val);\n        newNode = (struct Node*)malloc(sizeof(struct Node));\n        newNode->data = val;\n        newNode->next = NULL;\n        if (head == NULL) {\n            head = newNode;\n            tail = newNode;\n        } else {\n            tail->next = newNode;\n            tail = newNode;\n        }\n    }\n    cur = head;\n    while (cur != NULL) {\n        printf(\"%d->\", cur->data);\n        cur = cur->next;\n    }\n    printf(\"NULL\\n\");\n    return 0;\n}",
-                steps: [
-                  { line: 8, annotation: "Declare head and tail", memory: [{ variable: "head", type: "Node*", value: "NULL" }, { variable: "tail", type: "Node*", value: "NULL" }], output: "" },
-                  { line: 9, annotation: "Read n=3", memory: [{ variable: "n", type: "int", value: "3" }], output: "" },
-                  { line: 10, annotation: "Loop i=0", memory: [{ variable: "i", type: "int", value: "0" }], output: "" },
-                  { line: 11, annotation: "scanf val=10", memory: [{ variable: "val", type: "int", value: "10" }], output: "" },
-                  { line: 12, annotation: "malloc Node 1 (addr 1001)", memory: [{ variable: "newNode", type: "Node*", value: "1001" }], output: "" },
-                  { line: 13, annotation: "newNode->data = 10", memory: [{ variable: "newNode->data", type: "int", value: "10" }], output: "" },
-                  { line: 14, annotation: "newNode->next = NULL", memory: [{ variable: "newNode->next", type: "Node*", value: "NULL" }], output: "" },
-                  { line: 15, annotation: "head is NULL (first node)", memory: [], output: "" },
-                  { line: 16, annotation: "head = 1001", memory: [{ variable: "head", type: "Node*", value: "1001" }], output: "" },
-                  { line: 17, annotation: "tail = 1001", memory: [{ variable: "tail", type: "Node*", value: "1001" }], output: "" },
-                  { line: 10, annotation: "Loop i=1", memory: [{ variable: "i", type: "int", value: "1" }], output: "" },
-                  { line: 11, annotation: "scanf val=20", memory: [{ variable: "val", type: "int", value: "20" }], output: "" },
-                  { line: 12, annotation: "malloc Node 2 (addr 2001)", memory: [{ variable: "newNode", type: "Node*", value: "2001" }], output: "" },
-                  { line: 13, annotation: "newNode->data = 20", memory: [{ variable: "newNode->data", type: "int", value: "20" }], output: "" },
-                  { line: 14, annotation: "newNode->next = NULL", memory: [{ variable: "newNode->next", type: "Node*", value: "NULL" }], output: "" },
-                  { line: 19, annotation: "tail->next = 2001", memory: [{ variable: "tail->next", type: "Node*", value: "2001" }], output: "" },
-                  { line: 20, annotation: "tail = 2001", memory: [{ variable: "tail", type: "Node*", value: "2001" }], output: "" },
-                  { line: 10, annotation: "Loop i=2", memory: [{ variable: "i", type: "int", value: "2" }], output: "" },
-                  { line: 11, annotation: "scanf val=30", memory: [{ variable: "val", type: "int", value: "30" }], output: "" },
-                  { line: 12, annotation: "malloc Node 3 (addr 3001)", memory: [{ variable: "newNode", type: "Node*", value: "3001" }], output: "" },
-                  { line: 13, annotation: "newNode->data = 30", memory: [{ variable: "newNode->data", type: "int", value: "30" }], output: "" },
-                  { line: 14, annotation: "newNode->next = NULL", memory: [{ variable: "newNode->next", type: "Node*", value: "NULL" }], output: "" },
-                  { line: 19, annotation: "tail->next = 3001", memory: [{ variable: "tail->next", type: "Node*", value: "3001" }], output: "" },
-                  { line: 20, annotation: "tail = 3001", memory: [{ variable: "tail", type: "Node*", value: "3001" }], output: "" },
-                  { line: 23, annotation: "Traversal starts, cur = head", memory: [{ variable: "cur", type: "Node*", value: "1001" }], output: "" },
-                  { line: 25, annotation: "print 10->", memory: [], output: "10->" },
-                  { line: 26, annotation: "cur = cur->next (2001)", memory: [{ variable: "cur", type: "Node*", value: "2001" }], output: "10->" },
-                  { line: 25, annotation: "print 20->", memory: [], output: "10->20->" },
-                  { line: 26, "annotation": "cur = cur->next (3001)", memory: [{ variable: "cur", type: "Node*", value: "3001" }], output: "10->20->" },
-                  { line: 25, "annotation": "print 30->", memory: [], output: "10->20->30->" },
-                  { line: 26, "annotation": "cur = cur->next (NULL)", memory: [{ variable: "cur", type: "Node*", value: "NULL" }], output: "10->20->30->" },
-                  { line: 28, annotation: "print NULL", memory: [], output: "10->20->30->NULL\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* next;\n};\n\nint main() {\n    int n, i, val;\n    struct Node *head = NULL, *tail = NULL, *newNode, *cur;\n    scanf(\"%d\", &n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &val);\n        newNode = (struct Node*)malloc(sizeof(struct Node));\n        newNode->data = val;\n        newNode->next = NULL;\n        if (head == NULL) {\n            head = newNode;\n            tail = newNode;\n        } else {\n            tail->next = newNode;\n            tail = newNode;\n        }\n    }\n    cur = head;\n    while (cur != NULL) {\n        printf(\"%d->\", cur->data);\n        cur = cur->next;\n    }\n    printf(\"NULL\\n\");\n    return 0;\n}",
+                "steps": [
+                  { "line": 8, "annotation": "Declare head and tail", "memory": [{ "variable": "head", "type": "Node*", "value": "NULL" }, { "variable": "tail", "type": "Node*", "value": "NULL" }], "output": "" },
+                  { "line": 9, "annotation": "Read n=3", "memory": [{ "variable": "n", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 10, "annotation": "Loop i=0", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 11, "annotation": "scanf val=10", "memory": [{ "variable": "val", "type": "int", "value": "10" }], "output": "" },
+                  { "line": 12, "annotation": "malloc Node 1 (addr 1001)", "memory": [{ "variable": "newNode", "type": "Node*", "value": "1001" }], "output": "" },
+                  { "line": 13, "annotation": "newNode->data = 10", "memory": [{ "variable": "newNode->data", "type": "int", "value": "10" }], "output": "" },
+                  { "line": 14, "annotation": "newNode->next = NULL", "memory": [{ "variable": "newNode->next", "type": "Node*", "value": "NULL" }], "output": "" },
+                  { "line": 15, "annotation": "head is NULL (first node)", "memory": [], "output": "" },
+                  { "line": 16, "annotation": "head = 1001", "memory": [{ "variable": "head", "type": "Node*", "value": "1001" }], "output": "" },
+                  { "line": 17, "annotation": "tail = 1001", "memory": [{ "variable": "tail", "type": "Node*", "value": "1001" }], "output": "" },
+                  { "line": 10, "annotation": "Loop i=1", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 11, "annotation": "scanf val=20", "memory": [{ "variable": "val", "type": "int", "value": "20" }], "output": "" },
+                  { "line": 12, "annotation": "malloc Node 2 (addr 2001)", "memory": [{ "variable": "newNode", "type": "Node*", "value": "2001" }], "output": "" },
+                  { "line": 13, "annotation": "newNode->data = 20", "memory": [{ "variable": "newNode->data", "type": "int", "value": "20" }], "output": "" },
+                  { "line": 14, "annotation": "newNode->next = NULL", "memory": [{ "variable": "newNode->next", "type": "Node*", "value": "NULL" }], "output": "" },
+                  { "line": 19, "annotation": "tail->next = 2001", "memory": [{ "variable": "tail->next", "type": "Node*", "value": "2001" }], "output": "" },
+                  { "line": 20, "annotation": "tail = 2001", "memory": [{ "variable": "tail", "type": "Node*", "value": "2001" }], "output": "" },
+                  { "line": 10, "annotation": "Loop i=2", "memory": [{ "variable": "i", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 11, "annotation": "scanf val=30", "memory": [{ "variable": "val", "type": "int", "value": "30" }], "output": "" },
+                  { "line": 12, "annotation": "malloc Node 3 (addr 3001)", "memory": [{ "variable": "newNode", "type": "Node*", "value": "3001" }], "output": "" },
+                  { "line": 13, "annotation": "newNode->data = 30", "memory": [{ "variable": "newNode->data", "type": "int", "value": "30" }], "output": "" },
+                  { "line": 14, "annotation": "newNode->next = NULL", "memory": [{ "variable": "newNode->next", "type": "Node*", "value": "NULL" }], "output": "" },
+                  { "line": 19, "annotation": "tail->next = 3001", "memory": [{ "variable": "tail->next", "type": "Node*", "value": "3001" }], "output": "" },
+                  { "line": 20, "annotation": "tail = 3001", "memory": [{ "variable": "tail", "type": "Node*", "value": "3001" }], "output": "" },
+                  { "line": 23, "annotation": "Traversal starts, cur = head", "memory": [{ "variable": "cur", "type": "Node*", "value": "1001" }], "output": "" },
+                  { "line": 25, "annotation": "print 10->", "memory": [], "output": "10->" },
+                  { "line": 26, "annotation": "cur = cur->next (2001)", "memory": [{ "variable": "cur", "type": "Node*", "value": "2001" }], "output": "10->" },
+                  { "line": 25, "annotation": "print 20->", "memory": [], "output": "10->20->" },
+                  { "line": 26, "annotation": "cur = cur->next (3001)", "memory": [{ "variable": "cur", "type": "Node*", "value": "3001" }], "output": "10->20->" },
+                  { "line": 25, "annotation": "print 30->", "memory": [], "output": "10->20->30->" },
+                  { "line": 26, "annotation": "cur = cur->next (NULL)", "memory": [{ "variable": "cur", "type": "Node*", "value": "NULL" }], "output": "10->20->30->" },
+                  { "line": 28, "annotation": "print NULL", "memory": [], "output": "10->20->30->NULL\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan B.W. and Ritchie D.M., The C Programming Language, 2nd Edition, Prentice Hall",
                 "Balagurusamy E., Programming in ANSI C, 8th Edition, McGraw Hill",
                 "Reema Thareja, Data Structures Using C, 2nd Edition, Oxford University Press",
@@ -4578,14 +4574,14 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
             }
           },
           {
-            id: "c-w10-2",
-            title: "Structure vs Union Demo",
-            desc: "Compare sizes of struct and union.",
-            expected: "Different sizes shown",
-            content: {
-              aim: {
-                text: "In this experiment the student will understand the fundamental difference between structures and unions in C by comparing their memory sizes and observing how data is stored in each. The student will use sizeof() operator to measure and compare how memory is allocated differently for struct and union with identical fields. The student will:",
-                bullets: [
+            "id": "c-w10-2",
+            "title": "Structure vs Union Demo",
+            "desc": "Compare sizes of struct and union.",
+            "expected": "Different sizes shown",
+            "content": {
+              "aim": {
+                "text": "This experiment contrasts the two composite data types in C — struct and union — by defining both with identical fields (int, float, char) and using the sizeof() operator to measure and compare the memory each consumes. Students will observe that a struct allocates separate memory for every member (total size equals the sum of all members plus compiler padding for alignment), while a union allocates only enough memory for its largest member (all fields share the same physical bytes). The experiment also demonstrates that writing to one union member corrupts the value stored by another, explaining when unions are appropriate (memory-constrained embedded systems, variant record types) and when structs are required (holding multiple independent values simultaneously).",
+                "bullets": [
                   "Define a structure and a union with identical fields",
                   "Use sizeof() to measure memory consumed by each",
                   "Understand why struct size is sum of all fields but union size is largest field only",
@@ -4593,26 +4589,26 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Understand real-world use cases for each"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "🏠 Structure = a house with separate rooms. Union = one room that changes purpose!",
-                  body: [
+                  "title": "🏠 Structure = a house with separate rooms. Union = one room that changes purpose!",
+                  "body": [
                     "A struct is like a house with a bedroom, kitchen, and living room — all existing at the same time, each with its own space. You can use all rooms simultaneously.",
                     "A union is like a studio apartment with ONE room. Sometimes it's a bedroom, sometimes it's a gym, sometimes it's an office — but it can only be ONE thing at a time. The room is always the same size (the biggest version needed), but only the last use matters.",
-                    "![House floor plan / apartment studio](https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400)"
+                    "![Struct vs union memory layout diagram](struct-union.webp)"
                   ]
                 },
                 {
-                  title: "What is a Structure?",
-                  body: ["A structure is a user-defined data type that groups multiple variables of different data types under one name. Each member gets its own separate memory location. Total size of a struct equals the sum of sizes of all its members (plus possible padding bytes added by compiler for alignment).", "Example with int i (4 bytes) + float f (4 bytes) + char c (1 byte) = minimum 9 bytes, compiler may pad to 12 bytes for alignment."]
+                  "title": "What is a Structure?",
+                  "body": ["A structure is a user-defined data type that groups multiple variables of different data types under one name. Each member gets its own separate memory location. Total size of a struct equals the sum of sizes of all its members (plus possible padding bytes added by compiler for alignment).", "Example with int i (4 bytes) + float f (4 bytes) + char c (1 byte) = minimum 9 bytes, compiler may pad to 12 bytes for alignment."]
                 },
                 {
-                  title: "What is a Union?",
-                  body: ["A union is also a user-defined data type that groups multiple variables under one name. But all members share the same memory location. The size of a union equals the size of its largest member only. Only one member can hold a valid value at any given time.", "Example with int i (4 bytes) + float f (4 bytes) + char c (1 byte) = 4 bytes total (largest member size)."]
+                  "title": "What is a Union?",
+                  "body": ["A union is also a user-defined data type that groups multiple variables under one name. But all members share the same memory location. The size of a union equals the size of its largest member only. Only one member can hold a valid value at any given time.", "Example with int i (4 bytes) + float f (4 bytes) + char c (1 byte) = 4 bytes total (largest member size)."]
                 },
                 {
-                  title: "Key Difference Table",
-                  body: [
+                  "title": "Key Difference Table",
+                  "body": [
                     "Feature | Structure | Union",
                     "Memory | Separate for each member | Shared single location",
                     "Size | Sum of all members | Size of largest member",
@@ -4621,16 +4617,16 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   ]
                 },
                 {
-                  title: "Padding in Structures",
-                  body: ["Compilers add padding bytes between members to align data on word boundaries for faster CPU access. This is why struct size may be larger than the raw sum of members."]
+                  "title": "Padding in Structures",
+                  "body": ["Compilers add padding bytes between members to align data on word boundaries for faster CPU access. This is why struct size may be larger than the raw sum of members."]
                 },
                 {
-                  title: "When to use Union?",
-                  body: ["Unions are used in embedded systems, network packet parsing, and anywhere memory is extremely limited and only one field is needed at a time."]
+                  "title": "When to use Union?",
+                  "body": ["Unions are used in embedded systems, network packet parsing, and anywhere memory is extremely limited and only one field is needed at a time."]
                 }
               ],
-              pretest:[],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read Theory carefully focusing on the difference table between struct and union",
                 "Go to Simulation tab and observe how memory is allocated differently for each",
                 "Watch how struct gives separate boxes for each member and union gives one shared box",
@@ -4643,17 +4639,17 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Try adding more members to both in the editor and re-run to see size change",
                 "Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nstruct S {\n    int i;\n    float f;\n    char c;\n};\n\nunion U {\n    int i;\n    float f;\n    char c;\n};\n\nint main() {\n    printf(\"Size of Struct=%lu\\n\", sizeof(struct S));\n    printf(\"Size of Union=%lu\\n\", sizeof(union U));\n    return 0;\n}",
-                steps: [
-                  { line: 3, annotation: "struct S defined (int, float, char)", memory: [], output: "" },
-                  { line: 9, annotation: "union U defined (int, float, char)", memory: [], output: "" },
-                  { line: 16, annotation: "sizeof(struct S) evaluated (12 bytes)", memory: [], output: "Size of Struct=12\n" },
-                  { line: 17, annotation: "sizeof(union U) evaluated (4 bytes)", memory: [], output: "Size of Struct=12\nSize of Union=4\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nstruct S {\n    int i;\n    float f;\n    char c;\n};\n\nunion U {\n    int i;\n    float f;\n    char c;\n};\n\nint main() {\n    printf(\"Size of Struct=%lu\\n\", sizeof(struct S));\n    printf(\"Size of Union=%lu\\n\", sizeof(union U));\n    return 0;\n}",
+                "steps": [
+                  { "line": 3, "annotation": "struct S defined (int, float, char)", "memory": [], "output": "" },
+                  { "line": 9, "annotation": "union U defined (int, float, char)", "memory": [], "output": "" },
+                  { "line": 16, "annotation": "sizeof(struct S) evaluated (12 bytes)", "memory": [], "output": "Size of Struct=12\n" },
+                  { "line": 17, "annotation": "sizeof(union U) evaluated (4 bytes)", "memory": [], "output": "Size of Struct=12\nSize of Union=4\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan B.W. and Ritchie D.M., The C Programming Language, 2nd Edition, Prentice Hall",
                 "Balagurusamy E., Programming in ANSI C, 8th Edition, McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Department, Week 10",
@@ -4661,24 +4657,24 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Wandbox Online Compiler: https://wandbox.org"
               ]
             }
-          },
-        ],
+          }
+        ]
       },
       {
-        title: "WEEK 11",
-        objective: "Functions, call by value, scope, Euler's method",
-        tutorial: "Tutorial 11: Functions",
-        labTitle: "Lab 11: Modular Programming",
-        experiments: [
+        "title": "WEEK 11",
+        "objective": "Functions, call by value, scope, Euler's method",
+        "tutorial": "Tutorial 11: Functions",
+        "labTitle": "Lab 11: Modular Programming",
+        "experiments": [
           {
-            id: "c-w11-1",
-            title: "NCR Value",
-            desc: "Calculate nCr using functions.",
-            expected: "NCR=X",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to compute the binomial coefficient nCr (n choose r) using a dedicated factorial function, demonstrating modular programming through function definition, declaration, and call by value. The student will:",
-                bullets: [
+            "id": "c-w11-1",
+            "title": "NCR Value",
+            "desc": "Calculate nCr using functions.",
+            "expected": "NCR=X",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces modular programming in C by decomposing the computation of the binomial coefficient nCr into a reusable factorial() function called three times from main(). Students will write the function prototype, implement the iterative factorial body using a for loop with a long long accumulator, validate that r ≤ n and both are non-negative before computing, and display the result. The experiment establishes three core function concepts: call by value (local parameters are copies and changes inside the function do not affect the caller), function scope (local variables in factorial() are invisible to main() and vice versa), and code reuse (a single function definition replaces three repeated loops).",
+                "bullets": [
                   "Write a long long factorial(int n) function and call it from main()",
                   "Understand call by value — changes to parameters inside a function do not affect the caller's variables",
                   "Understand function scope — local variables declared inside a function are not visible outside it",
@@ -4687,42 +4683,42 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Use printf() with %lld to display the result"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Modular Programming",
-                  body: ["Breaking a program into independent, reusable functions. Each function has a single responsibility. main() orchestrates calls; helper functions perform specific computations. Benefits include readability, reusability, and easier debugging."]
+                  "title": "Modular Programming",
+                  "body": ["Breaking a program into independent, reusable functions. Each function has a single responsibility. main() orchestrates calls; helper functions perform specific computations. Benefits include readability, reusability, and easier debugging."]
                 },
                 {
-                  title: "Function Definition",
-                  body: ["Syntax:\n  return_type function_name(parameter_list) {\n      // body\n      return value;\n  }\nExample:\n  long long factorial(int n) {\n      long long fact = 1;\n      for (int i = 1; i <= n; i++) fact *= i;\n      return fact;\n  }"]
+                  "title": "Function Definition",
+                  "body": ["Syntax:\n  return_type function_name(parameter_list) {\n      // body\n      return value;\n  }\nExample:\n  long long factorial(int n) {\n      long long fact = 1;\n      for (int i = 1; i <= n; i++) fact *= i;\n      return fact;\n  }"]
                 },
                 {
-                  title: "Function Declaration (Prototype)",
-                  body: ["Placed before main() so the compiler knows the function's signature before it is called:\n  long long factorial(int n);"]
+                  "title": "Function Declaration (Prototype)",
+                  "body": ["Placed before main() so the compiler knows the function's signature before it is called:\n  long long factorial(int n);","![Function Prototype](Function-Prototype.webp)"]
                 },
                 {
-                  title: "Call by Value",
-                  body: ["C passes arguments by copying their values into the function's local parameters. Modifying the parameter inside the function has no effect on the original variable in the caller:\n  void modify(int x) { x = 100; }   // caller's variable unchanged\n  int a = 5; modify(a);             // a is still 5 after the call"]
+                  "title": "Call by Value",
+                  "body": ["C passes arguments by copying their values into the function's local parameters. Modifying the parameter inside the function has no effect on the original variable in the caller:\n  void modify(int x) { x = 100; }   // caller's variable unchanged\n  int a = 5; modify(a);             // a is still 5 after the call"]
                 },
                 {
-                  title: "Scope",
-                  body: ["A variable declared inside a function is local to that function. It is created when the function is called and destroyed when it returns. Variables in main() are not accessible inside factorial() and vice versa."]
+                  "title": "Scope",
+                  "body": ["A variable declared inside a function is local to that function. It is created when the function is called and destroyed when it returns. Variables in main() are not accessible inside factorial() and vice versa."]
                 },
                 {
-                  title: "nCr Formula",
-                  body: ["nCr = n! / (r! × (n-r)!)\nFor n = 5, r = 2:\n  5C2 = 120 / (2 × 6) = 120 / 12 = 10"]
+                  "title": "nCr Formula",
+                  "body": ["nCr = n! / (r! × (n-r)!)\nFor n = 5, r = 2:\n  5C2 = 120 / (2 × 6) = 120 / 12 = 10"]
                 },
                 {
-                  title: "Input Validation",
-                  body: ["if (r > n || n < 0 || r < 0) → invalid input\nnC0 = nCn = 1 (edge cases, naturally handled by factorial formula)"]
+                  "title": "Input Validation",
+                  "body": ["if (r > n || n < 0 || r < 0) → invalid input\nnC0 = nCn = 1 (edge cases, naturally handled by factorial formula)"]
                 },
                 {
-                  title: "Overflow Consideration",
-                  body: ["Factorials grow rapidly. Use long long and limit n to reasonable values (n ≤ 20 for long long). For larger n, use the multiplicative formula to avoid intermediate overflow."]
+                  "title": "Overflow Consideration",
+                  "body": ["Factorials grow rapidly. Use long long and limit n to reasonable values (n ≤ 20 for long long). For larger n, use the multiplicative formula to avoid intermediate overflow."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace the three factorial calls for n, r, and (n-r).",
                 "Observe how call by value preserves the caller's n and r across all three calls.",
@@ -4731,33 +4727,33 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Click Run Code. Verify output: 5C2 = 10",
                 "Try edge cases: n = r (answer = 1), r = 0 (answer = 1), and r > n (invalid). Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nlong long factorial(int n) {\n    long long fact = 1;\n    int i;\n    for (i = 1; i <= n; i++) {\n        fact *= i;\n    }\n    return fact;\n}\n\nint main() {\n    int n, r;\n    long long nCr;\n    scanf(\"%d %d\", &n, &r);\n    if (r > n || n < 0 || r < 0) {\n        printf(\"Invalid input\\n\");\n        return 1;\n    }\n    nCr = factorial(n) / (factorial(r) * factorial(n - r));\n    printf(\"%dC%d = %lld\\n\", n, r, nCr);\n    return 0;\n}",
-                steps: [
-                  { line: 12, annotation: "Declare variables", memory: [{ variable: "n", type: "int", value: "?" }, { variable: "r", type: "int", value: "?" }, { variable: "nCr", type: "long long", value: "?" }], output: "" },
-                  { line: 14, annotation: "Read n=5, r=2", memory: [{ variable: "n", type: "int", value: "5" }, { variable: "r", type: "int", value: "2" }], output: "" },
-                  { line: 15, annotation: "Check input validity", memory: [], output: "" },
-                  { line: 19, annotation: "Call factorial(n) where n=5", memory: [], output: "" },
-                  { line: 3, annotation: "factorial(5) starts", memory: [{ variable: "fact", type: "long long", value: "1" }], output: "" },
-                  { line: 5, annotation: "Loop i=1 to 5", memory: [], output: "" },
-                  { line: 6, annotation: "fact = 120", memory: [{ variable: "fact", type: "long long", value: "120" }], output: "" },
-                  { line: 8, annotation: "Return 120", memory: [], output: "" },
-                  { line: 19, annotation: "Call factorial(r) where r=2", memory: [], output: "" },
-                  { line: 3, annotation: "factorial(2) starts", memory: [{ variable: "fact", type: "long long", value: "1" }], output: "" },
-                  { line: 5, annotation: "Loop i=1 to 2", memory: [], output: "" },
-                  { line: 6, annotation: "fact = 2", memory: [{ variable: "fact", type: "long long", value: "2" }], output: "" },
-                  { line: 8, annotation: "Return 2", memory: [], output: "" },
-                  { line: 19, annotation: "Call factorial(n-r) where n-r=3", memory: [], output: "" },
-                  { line: 3, annotation: "factorial(3) starts", memory: [{ variable: "fact", type: "long long", value: "1" }], output: "" },
-                  { line: 5, annotation: "Loop i=1 to 3", memory: [], output: "" },
-                  { line: 6, annotation: "fact = 6", memory: [{ variable: "fact", type: "long long", value: "6" }], output: "" },
-                  { line: 8, annotation: "Return 6", memory: [], output: "" },
-                  { line: 19, annotation: "Calculate nCr = 120 / (2 * 6) = 10", memory: [{ variable: "nCr", type: "long long", value: "10" }], output: "" },
-                  { line: 20, annotation: "Print result", memory: [], output: "5C2 = 10\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nlong long factorial(int n) {\n    long long fact = 1;\n    int i;\n    for (i = 1; i <= n; i++) {\n        fact *= i;\n    }\n    return fact;\n}\n\nint main() {\n    int n, r;\n    long long nCr;\n    scanf(\"%d %d\", &n, &r);\n    if (r > n || n < 0 || r < 0) {\n        printf(\"Invalid input\\n\");\n        return 1;\n    }\n    nCr = factorial(n) / (factorial(r) * factorial(n - r));\n    printf(\"%dC%d = %lld\\n\", n, r, nCr);\n    return 0;\n}",
+                "steps": [
+                  { "line": 12, "annotation": "Declare variables", "memory": [{ "variable": "n", "type": "int", "value": "?" }, { "variable": "r", "type": "int", "value": "?" }, { "variable": "nCr", "type": "long long", "value": "?" }], "output": "" },
+                  { "line": 14, "annotation": "Read n=5, r=2", "memory": [{ "variable": "n", "type": "int", "value": "5" }, { "variable": "r", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 15, "annotation": "Check input validity", "memory": [], "output": "" },
+                  { "line": 19, "annotation": "Call factorial(n) where n=5", "memory": [], "output": "" },
+                  { "line": 3, "annotation": "factorial(5) starts", "memory": [{ "variable": "fact", "type": "long long", "value": "1" }], "output": "" },
+                  { "line": 5, "annotation": "Loop i=1 to 5", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "fact = 120", "memory": [{ "variable": "fact", "type": "long long", "value": "120" }], "output": "" },
+                  { "line": 8, "annotation": "Return 120", "memory": [], "output": "" },
+                  { "line": 19, "annotation": "Call factorial(r) where r=2", "memory": [], "output": "" },
+                  { "line": 3, "annotation": "factorial(2) starts", "memory": [{ "variable": "fact", "type": "long long", "value": "1" }], "output": "" },
+                  { "line": 5, "annotation": "Loop i=1 to 2", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "fact = 2", "memory": [{ "variable": "fact", "type": "long long", "value": "2" }], "output": "" },
+                  { "line": 8, "annotation": "Return 2", "memory": [], "output": "" },
+                  { "line": 19, "annotation": "Call factorial(n-r) where n-r=3", "memory": [], "output": "" },
+                  { "line": 3, "annotation": "factorial(3) starts", "memory": [{ "variable": "fact", "type": "long long", "value": "1" }], "output": "" },
+                  { "line": 5, "annotation": "Loop i=1 to 3", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "fact = 6", "memory": [{ "variable": "fact", "type": "long long", "value": "6" }], "output": "" },
+                  { "line": 8, "annotation": "Return 6", "memory": [], "output": "" },
+                  { "line": 19, "annotation": "Calculate nCr = 120 / (2 * 6) = 10", "memory": [{ "variable": "nCr", "type": "long long", "value": "10" }], "output": "" },
+                  { "line": 20, "annotation": "Print result", "memory": [], "output": "5C2 = 10\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -4766,14 +4762,14 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
             }
           },
           {
-            id: "c-w11-2",
-            title: "String Length without strlen",
-            desc: "Calculate the length of a string using a custom function.",
-            expected: "Length=X",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to compute the length of a string without using the standard library strlen() function, implementing the count in a separate user-defined function to demonstrate modular programming and pointer-based string traversal. The student will:",
-                bullets: [
+            "id": "c-w11-2",
+            "title": "String Length without strlen",
+            "desc": "Calculate the length of a string using a custom function.",
+            "expected": "Length=X",
+            "content": {
+              "aim": {
+                "text": "This experiment implements a custom string-length function that replicates the behaviour of the standard strlen() without calling it, deepening students' understanding of how strings are stored and traversed in C. The function advances a counter while the current character at str[count] is not the null terminator '\\0', then returns the count. Students will call this function from main(), compare its output with the library strlen() result for verification, and experiment with edge cases (empty string, single character). The experiment reinforces function decomposition, demonstrates an alternative pointer-arithmetic approach, and consolidates the null-terminator model of C strings.",
+                "bullets": [
                   "Write an int stringLength(char *str) function that traverses the string manually",
                   "Understand how the null terminator '\\0' marks the end of a string",
                   "Demonstrate call by value for the pointer — the address is copied but the original pointer in the caller is unaffected",
@@ -4782,38 +4778,38 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Use printf() with %d to display the computed length"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "String Length",
-                  body: ["The length of a C string is the number of characters before the null terminator '\\0'. strlen(\"Hello\") = 5. The null terminator itself is not counted."]
+                  "title": "String Length",
+                  "body": ["The length of a C string is the number of characters before the null terminator '\\0'. strlen(\"Hello\") = 5. The null terminator itself is not counted."]
                 },
                 {
-                  title: "Manual Length Function",
-                  body: ["Traverse using a counter until '\\0' is reached:\n  int stringLength(char *str) {\n      int count = 0;\n      while (str[count] != '\\0')\n          count++;\n      return count;\n  }\nAlternatively using pointer arithmetic:\n  int stringLength(char *str) {\n      char *p = str;\n      while (*p != '\\0') p++;\n      return (int)(p - str);\n  }\nBoth approaches are equivalent."]
+                  "title": "Manual Length Function",
+                  "body": ["Traverse using a counter until '\\0' is reached:\n  int stringLength(char *str) {\n      int count = 0;\n      while (str[count] != '\\0')\n          count++;\n      return count;\n  }\nAlternatively using pointer arithmetic:\n  int stringLength(char *str) {\n      char *p = str;\n      while (*p != '\\0') p++;\n      return (int)(p - str);\n  }\nBoth approaches are equivalent."]
                 },
                 {
-                  title: "Call by Value for Pointers",
-                  body: ["When a char* pointer is passed to a function, the address value is copied into the parameter. The function can read and traverse the string through this copy, but reassigning the parameter (str = something_else) does not affect the caller's pointer. Note: the string contents themselves can be modified through the pointer (this is call by value of the address, not call by value of the data)."]
+                  "title": "Call by Value for Pointers",
+                  "body": ["When a char* pointer is passed to a function, the address value is copied into the parameter. The function can read and traverse the string through this copy, but reassigning the parameter (str = something_else) does not affect the caller's pointer. Note: the string contents themselves can be modified through the pointer (this is call by value of the address, not call by value of the data)."]
                 },
                 {
-                  title: "Pointer Arithmetic",
-                  body: ["p - str gives the number of elements between the two pointers. For a char array, this equals the number of characters traversed."]
+                  "title": "Pointer Arithmetic",
+                  "body": ["p - str gives the number of elements between the two pointers. For a char array, this equals the number of characters traversed."]
                 },
                 {
-                  title: "Null Terminator Detection",
-                  body: ["str[i] != '\\0' and *p != '\\0' are equivalent checks. '\\0' has integer value 0, so while (str[i]) also works as a compact loop condition."]
+                  "title": "Null Terminator Detection",
+                  "body": ["![String Length Visualization](string-length.webp)","str[i] != '\\0' and *p != '\\0' are equivalent checks. '\\0' has integer value 0, so while (str[i]) also works as a compact loop condition."]
                 },
                 {
-                  title: "Scope of count",
-                  body: ["The variable count is local to stringLength(). It exists only during the function call and is destroyed on return. The caller receives the return value, not direct access to count."]
+                  "title": "Scope of count",
+                  "body": ["The variable count is local to stringLength(). It exists only during the function call and is destroyed on return. The caller receives the return value, not direct access to count."]
                 },
                 {
-                  title: "Edge Cases",
-                  body: ["Empty string \"\"   : length = 0 (loop body never executes)\nSingle char \"a\"   : length = 1\nString with spaces: spaces are counted as regular characters"]
+                  "title": "Edge Cases",
+                  "body": ["Empty string \"\"   : length = 0 (loop body never executes)\nSingle char \"a\"   : length = 1\nString with spaces: spaces are counted as regular characters"]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace the while loop for str = \"Hello\".",
                 "Observe how count increments from 0 to 5 and the loop exits when str[5] == '\\0'.",
@@ -4822,32 +4818,32 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Click Run Code. Verify output: Length: 5",
                 "Try an empty string, a string with spaces (use fgets), and a long string. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint stringLength(char *str) {\n    int count = 0;\n    while (str[count] != '\\0') {\n        count++;\n    }\n    return count;\n}\n\nint main() {\n    char str[100];\n    int len;\n    scanf(\"%s\", str);\n    len = stringLength(str);\n    printf(\"Length: %d\\n\", len);\n    return 0;\n}",
-                steps: [
-                  { line: 12, annotation: "Declare variables", memory: [{ variable: "str", type: "char[]", value: "?" }, { variable: "len", type: "int", value: "?" }], output: "" },
-                  { line: 14, annotation: "Read str=\"Hello\"", memory: [{ variable: "str", type: "char[]", value: "\"Hello\"" }], output: "" },
-                  { line: 15, annotation: "Call stringLength(str)", memory: [], output: "" },
-                  { line: 3, annotation: "stringLength starts, str points to \"Hello\"", memory: [], output: "" },
-                  { line: 4, annotation: "Initialize count = 0", memory: [{ variable: "count", type: "int", value: "0" }], output: "" },
-                  { line: 5, annotation: "str[0] is 'H', != '\\0'", memory: [], output: "" },
-                  { line: 6, annotation: "count++", memory: [{ variable: "count", type: "int", value: "1" }], output: "" },
-                  { line: 5, annotation: "str[1] is 'e', != '\\0'", memory: [], output: "" },
-                  { line: 6, annotation: "count++", memory: [{ variable: "count", type: "int", value: "2" }], output: "" },
-                  { line: 5, annotation: "str[2] is 'l', != '\\0'", memory: [], output: "" },
-                  { line: 6, annotation: "count++", memory: [{ variable: "count", type: "int", value: "3" }], output: "" },
-                  { line: 5, annotation: "str[3] is 'l', != '\\0'", memory: [], output: "" },
-                  { line: 6, annotation: "count++", memory: [{ variable: "count", type: "int", value: "4" }], output: "" },
-                  { line: 5, annotation: "str[4] is 'o', != '\\0'", memory: [], output: "" },
-                  { line: 6, annotation: "count++", memory: [{ variable: "count", type: "int", value: "5" }], output: "" },
-                  { line: 5, annotation: "str[5] is '\\0'", memory: [], output: "" },
-                  { line: 8, annotation: "Return count (5)", memory: [], output: "" },
-                  { line: 15, annotation: "len = 5", memory: [{ variable: "len", type: "int", value: "5" }], output: "" },
-                  { line: 16, annotation: "Print Length", memory: [], output: "Length: 5\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint stringLength(char *str) {\n    int count = 0;\n    while (str[count] != '\\0') {\n        count++;\n    }\n    return count;\n}\n\nint main() {\n    char str[100];\n    int len;\n    scanf(\"%s\", str);\n    len = stringLength(str);\n    printf(\"Length: %d\\n\", len);\n    return 0;\n}",
+                "steps": [
+                  { "line": 12, "annotation": "Declare variables", "memory": [{ "variable": "str", "type": "char[]", "value": "?" }, { "variable": "len", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 14, "annotation": "Read str=\"Hello\"", "memory": [{ "variable": "str", "type": "char[]", "value": "\"Hello\"" }], "output": "" },
+                  { "line": 15, "annotation": "Call stringLength(str)", "memory": [], "output": "" },
+                  { "line": 3, "annotation": "stringLength starts, str points to \"Hello\"", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Initialize count = 0", "memory": [{ "variable": "count", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 5, "annotation": "str[0] is 'H', != '\\0'", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "count++", "memory": [{ "variable": "count", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 5, "annotation": "str[1] is 'e', != '\\0'", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "count++", "memory": [{ "variable": "count", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 5, "annotation": "str[2] is 'l', != '\\0'", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "count++", "memory": [{ "variable": "count", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 5, "annotation": "str[3] is 'l', != '\\0'", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "count++", "memory": [{ "variable": "count", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 5, "annotation": "str[4] is 'o', != '\\0'", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "count++", "memory": [{ "variable": "count", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 5, "annotation": "str[5] is '\\0'", "memory": [], "output": "" },
+                  { "line": 8, "annotation": "Return count (5)", "memory": [], "output": "" },
+                  { "line": 15, "annotation": "len = 5", "memory": [{ "variable": "len", "type": "int", "value": "5" }], "output": "" },
+                  { "line": 16, "annotation": "Print Length", "memory": [], "output": "Length: 5\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -4856,14 +4852,14 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
             }
           },
           {
-            id: "c-w11-3",
-            title: "Matrix Transpose",
-            desc: "Transpose a matrix via a function.",
-            expected: "Transposed matrix",
-            content: {
-              aim: {
-                text: "In this experiment, the student will write a C program to accept a matrix from the user, compute its transpose using a dedicated function, and display both the original and transposed matrices. The student will:",
-                bullets: [
+            "id": "c-w11-3",
+            "title": "Matrix Transpose",
+            "desc": "Transpose a matrix via a function.",
+            "expected": "Transposed matrix",
+            "content": {
+              "aim": {
+                "text": "This experiment implements matrix transposition through a dedicated function to demonstrate how 2D arrays are passed to and modified by functions in C. Students will define a transpose() function that accepts two 2D arrays and the row/column dimensions, compute B[j][i] = A[i][j] for all positions using nested loops, and call it from main(). Because array names decay to base-address pointers in C, the function directly modifies the caller's B array — effectively call by reference for the matrix contents, while the dimension integers are passed by value. The experiment also introduces the in-place transposition technique for square matrices as an extension.",
+                "bullets": [
                   "Define a void transpose(int A[][MAX], int B[][MAX], int rows, int cols) function",
                   "Pass 2D arrays to a function and understand how array addresses are passed",
                   "Compute the transpose by assigning B[j][i] = A[i][j] for all valid i, j",
@@ -4872,38 +4868,38 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Display original and transposed matrices with formatted printf() output"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Matrix Transpose",
-                  body: ["The transpose of an m × n matrix A is an n × m matrix B where:\n  B[j][i] = A[i][j]   for all i in [0, m-1] and j in [0, n-1]\nRow i of A becomes column i of B. The dimensions swap: an m × n matrix transposes to an n × m matrix."]
+                  "title": "Matrix Transpose",
+                  "body": ["![Matrix Transpose](matrix-transpose.webp)","The transpose of an m × n matrix A is an n × m matrix B where:\n  B[j][i] = A[i][j]   for all i in [0, m-1] and j in [0, n-1]\nRow i of A becomes column i of B. The dimensions swap: an m × n matrix transposes to an n × m matrix."]
                 },
                 {
-                  title: "Example",
-                  body: ["A (2×3):            Transpose B (3×2):\n  1  2  3             1  4\n  4  5  6             2  5\n                      3  6"]
+                  "title": "Example",
+                  "body": ["A (2×3):            Transpose B (3×2):\n  1  2  3             1  4\n  4  5  6             2  5\n                      3  6"]
                 },
                 {
-                  title: "Passing 2D Arrays to Functions",
-                  body: ["In C, a 2D array passed to a function decays to a pointer to its first row. The column dimension must be specified in the parameter:\n  void transpose(int A[][MAX], int B[][MAX], int rows, int cols)\nMAX is a compile-time constant (e.g. #define MAX 10). The row count is passed as a runtime parameter."]
+                  "title": "Passing 2D Arrays to Functions",
+                  "body": ["In C, a 2D array passed to a function decays to a pointer to its first row. The column dimension must be specified in the parameter:\n  void transpose(int A[][MAX], int B[][MAX], int rows, int cols)\nMAX is a compile-time constant (e.g. #define MAX 10). The row count is passed as a runtime parameter."]
                 },
                 {
-                  title: "Why Array Data Is Modified",
-                  body: ["Arrays are not copied when passed to functions; the function receives the base address. Modifications to B[j][i] inside the function are directly reflected in the caller's array — this is effectively call by reference for array contents. The dimension variables rows and cols are passed by value."]
+                  "title": "Why Array Data Is Modified",
+                  "body": ["Arrays are not copied when passed to functions; the function receives the base address. Modifications to B[j][i] inside the function are directly reflected in the caller's array — this is effectively call by reference for array contents. The dimension variables rows and cols are passed by value."]
                 },
                 {
-                  title: "In-Place Transpose (Square Matrices Only)",
-                  body: ["For a square n × n matrix, the transpose can be done in-place by swapping A[i][j] and A[j][i] for i < j only (not both, to avoid double-swapping):\n  for (i = 0; i < n; i++)\n      for (j = i+1; j < n; j++) {\n          temp = A[i][j]; A[i][j] = A[j][i]; A[j][i] = temp;\n      }\nFor non-square matrices, a second matrix B is required."]
+                  "title": "In-Place Transpose (Square Matrices Only)",
+                  "body": ["For a square n × n matrix, the transpose can be done in-place by swapping A[i][j] and A[j][i] for i < j only (not both, to avoid double-swapping):\n  for (i = 0; i < n; i++)\n      for (j = i+1; j < n; j++) {\n          temp = A[i][j]; A[i][j] = A[j][i]; A[j][i] = temp;\n      }\nFor non-square matrices, a second matrix B is required."]
                 },
                 {
-                  title: "Scope of Loop Variables",
-                  body: ["Loop counters i and j declared inside the function are local to that function and do not conflict with any same-named variables in main()."]
+                  "title": "Scope of Loop Variables",
+                  "body": ["Loop counters i and j declared inside the function are local to that function and do not conflict with any same-named variables in main()."]
                 },
                 {
-                  title: "Time and Space Complexity",
-                  body: ["Time Complexity — O(m × n): every element is copied exactly once.\nSpace Complexity — O(m × n) for the result matrix B (O(1) extra for in-place)."]
+                  "title": "Time and Space Complexity",
+                  "body": ["Time Complexity — O(m × n): every element is copied exactly once.\nSpace Complexity — O(m × n) for the result matrix B (O(1) extra for in-place)."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read the Aim and Theory sections carefully.",
                 "Open the Simulation tab and trace B[j][i] = A[i][j] assignments for a 2×3 matrix.",
                 "Observe how the function modifies the caller's B array through the base address.",
@@ -4912,26 +4908,26 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Click Run Code. Verify: Original (2×3):  1 2 3 / 4 5 6 | Transpose (3×2): 1 4 / 2 5 / 3 6",
                 "Try a square 3×3 matrix and a 1×5 row matrix. Proceed to Posttest."
               ],
-              simulation: {
-                code: "#include <stdio.h>\n#define MAX 10\n\nvoid transpose(int A[][MAX], int B[][MAX], int rows, int cols) {\n    int i, j;\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            B[j][i] = A[i][j];\n        }\n    }\n}\n\nint main() {\n    int A[MAX][MAX], B[MAX][MAX];\n    int rows, cols, i, j;\n    scanf(\"%d %d\", &rows, &cols);\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            scanf(\"%d\", &A[i][j]);\n        }\n    }\n    transpose(A, B, rows, cols);\n    printf(\"Transpose:\\n\");\n    for (i = 0; i < cols; i++) {\n        for (j = 0; j < rows; j++) {\n            printf(\"%d \", B[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
-                steps: [
-                  { line: 15, annotation: "Declare variables", memory: [{ variable: "rows", type: "int", value: "?" }, { variable: "cols", type: "int", value: "?" }], output: "" },
-                  { line: 16, annotation: "Read rows=2, cols=3", memory: [{ variable: "rows", type: "int", value: "2" }, { variable: "cols", type: "int", value: "3" }], output: "" },
-                  { line: 17, annotation: "Read matrix A elements", memory: [], output: "" },
-                  { line: 22, annotation: "Call transpose(A, B, 2, 3)", memory: [], output: "" },
-                  { line: 4, annotation: "transpose starts", memory: [], output: "" },
-                  { line: 6, annotation: "Nested loop to assign B[j][i] = A[i][j]", memory: [], output: "" },
-                  { line: 8, annotation: "B[0][0]=A[0][0], B[1][0]=A[0][1], ...", memory: [], output: "" },
-                  { line: 11, annotation: "transpose complete, returns", memory: [], output: "" },
-                  { line: 23, annotation: "Print Transpose:", memory: [], output: "Transpose:\n" },
-                  { line: 24, annotation: "Print matrix B", memory: [], output: "" },
-                  { line: 26, "annotation": "Print row 1", "memory": [], "output": "Transpose:\n1 4 \n" },
-                  { line: 26, "annotation": "Print row 2", "memory": [], "output": "Transpose:\n1 4 \n2 5 \n" },
-                  { line: 26, "annotation": "Print row 3", "memory": [], "output": "Transpose:\n1 4 \n2 5 \n3 6 \n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n#define MAX 10\n\nvoid transpose(int A[][MAX], int B[][MAX], int rows, int cols) {\n    int i, j;\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            B[j][i] = A[i][j];\n        }\n    }\n}\n\nint main() {\n    int A[MAX][MAX], B[MAX][MAX];\n    int rows, cols, i, j;\n    scanf(\"%d %d\", &rows, &cols);\n    for (i = 0; i < rows; i++) {\n        for (j = 0; j < cols; j++) {\n            scanf(\"%d\", &A[i][j]);\n        }\n    }\n    transpose(A, B, rows, cols);\n    printf(\"Transpose:\\n\");\n    for (i = 0; i < cols; i++) {\n        for (j = 0; j < rows; j++) {\n            printf(\"%d \", B[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+                "steps": [
+                  { "line": 15, "annotation": "Declare variables", "memory": [{ "variable": "rows", "type": "int", "value": "?" }, { "variable": "cols", "type": "int", "value": "?" }], "output": "" },
+                  { "line": 16, "annotation": "Read rows=2, cols=3", "memory": [{ "variable": "rows", "type": "int", "value": "2" }, { "variable": "cols", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 17, "annotation": "Read matrix A elements", "memory": [], "output": "" },
+                  { "line": 22, "annotation": "Call transpose(A, B, 2, 3)", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "transpose starts", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "Nested loop to assign B[j][i] = A[i][j]", "memory": [], "output": "" },
+                  { "line": 8, "annotation": "B[0][0]=A[0][0], B[1][0]=A[0][1], ...", "memory": [], "output": "" },
+                  { "line": 11, "annotation": "transpose complete, returns", "memory": [], "output": "" },
+                  { "line": 23, "annotation": "Print Transpose:", "memory": [], "output": "Transpose:\n" },
+                  { "line": 24, "annotation": "Print matrix B", "memory": [], "output": "" },
+                  { "line": 26, "annotation": "Print row 1", "memory": [], "output": "Transpose:\n1 4 \n" },
+                  { "line": 26, "annotation": "Print row 2", "memory": [], "output": "Transpose:\n1 4 \n2 5 \n" },
+                  { "line": 26, "annotation": "Print row 3", "memory": [], "output": "Transpose:\n1 4 \n2 5 \n3 6 \n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan & Ritchie, \"The C Programming Language\", 2nd Ed., Prentice Hall",
                 "Balagurusamy, \"Programming in ANSI C\", 8th Ed., McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Dept.",
@@ -4939,23 +4935,23 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 12",
-        objective: "Recursive functions for naturally recursive problems",
-        tutorial: "Tutorial 12: Recursion",
-        labTitle: "Lab 12: Recursive techniques",
-        experiments: [
+        "title": "WEEK 12",
+        "objective": "Recursive functions for naturally recursive problems",
+        "tutorial": "Tutorial 12: Recursion",
+        "labTitle": "Lab 12: Recursive techniques",
+        "experiments": [
           {
-            id: "c-w12-1",
-            title: "Fibonacci Series",
-            desc: "Generate the Fibonacci series using recursion.",
-            expected: "Fibonacci sequence",
-            content: {
-              aim: {
-                text: "In this experiment the student will understand how recursion works in C by implementing the Fibonacci series. The student will learn how a function calls itself repeatedly with smaller inputs until it reaches a base case and how the call stack builds and unwinds during recursive execution. The student will:",
-                bullets: [
+            "id": "c-w12-1",
+            "title": "Fibonacci Series",
+            "desc": "Generate the Fibonacci series using recursion.",
+            "expected": "Fibonacci sequence",
+            "content": {
+              "aim": {
+                "text": "This experiment implements the Fibonacci series using a recursive function to provide students with their first hands-on experience of recursion in C. The fib(n) function directly encodes the mathematical definition — fib(0) = 0, fib(1) = 1, fib(n) = fib(n-1) + fib(n-2) — so that each call immediately maps to the formula. Students will call fib(i) inside a loop to print the first n terms and trace the recursive call tree to understand how calls stack up and unwind. The experiment also highlights the exponential growth of call count with naive recursion (an important motivation for memoisation covered in advanced courses), and makes clear how missing base cases would cause infinite recursion and a stack overflow crash.",
+                "bullets": [
                   "Understand the concept of recursion and base case",
                   "Implement a recursive function fib(n) that returns the nth Fibonacci number",
                   "Understand how recursive calls stack up in memory",
@@ -4963,34 +4959,34 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Observe how fib(n) = fib(n-1) + fib(n-2) breaks down to fib(0) and fib(1)"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "What is Recursion?",
-                  body: ["Recursion is a programming technique where a function calls itself to solve a smaller version of the same problem. Every recursive solution has two parts — a base case that stops the recursion and a recursive case that breaks the problem down further."]
+                  "title": "What is Recursion?",
+                  "body": ["Recursion is a programming technique where a function calls itself to solve a smaller version of the same problem. Every recursive solution has two parts — a base case that stops the recursion and a recursive case that breaks the problem down further.","![Recursive Function in C](recursion.webp)"]
                 },
                 {
-                  title: "Fibonacci Series",
-                  body: ["The Fibonacci series is a sequence where each number is the sum of the two preceding numbers.\nSeries: 0 1 1 2 3 5 8 13 21 34 ...\nMathematical definition:\nfib(0) = 0 — base case\nfib(1) = 1 — base case\nfib(n) = fib(n-1) + fib(n-2) — recursive case for n greater than 1"]
+                  "title": "Fibonacci Series",
+                  "body": ["![Fibaonacci series](fibonacci-series.webp)","The Fibonacci series is a sequence where each number is the sum of the two preceding numbers.\nSeries: 0 1 1 2 3 5 8 13 21 34 ...\nMathematical definition:\nfib(0) = 0 — base case\nfib(1) = 1 — base case\nfib(n) = fib(n-1) + fib(n-2) — recursive case for n greater than 1"]
                 },
                 {
-                  title: "Recursive Call Tree for fib(4)",
-                  body: ["fib(4) calls fib(3) and fib(2)\nfib(3) calls fib(2) and fib(1)\nfib(2) calls fib(1) and fib(0)\nEach call adds a new frame to the call stack. When base case is hit the function returns and the stack unwinds back up."]
+                  "title": "Recursive Call Tree for fib(4)",
+                  "body": ["fib(4) calls fib(3) and fib(2)\nfib(3) calls fib(2) and fib(1)\nfib(2) calls fib(1) and fib(0)\nEach call adds a new frame to the call stack. When base case is hit the function returns and the stack unwinds back up."]
                 },
                 {
-                  title: "Call Stack Concept",
-                  body: ["Every function call occupies a stack frame in memory containing its local variables and return address. For fib(5) the maximum stack depth is 5 frames deep. This is why deep recursion on large n causes stack overflow."]
+                  "title": "Call Stack Concept",
+                  "body": ["Every function call occupies a stack frame in memory containing its local variables and return address. For fib(5) the maximum stack depth is 5 frames deep. This is why deep recursion on large n causes stack overflow."]
                 },
                 {
-                  title: "Time Complexity Warning",
-                  body: ["Naive recursive Fibonacci recalculates the same subproblems multiple times. fib(30) makes over a million function calls. This is inefficient but perfectly illustrates recursion for learning purposes."]
+                  "title": "Time Complexity Warning",
+                  "body": ["Naive recursive Fibonacci recalculates the same subproblems multiple times. fib(30) makes over a million function calls. This is inefficient but perfectly illustrates recursion for learning purposes."]
                 },
                 {
-                  title: "Base Case Importance",
-                  body: ["Without base cases fib(0)=0 and fib(1)=1 the function would recurse infinitely and crash with a stack overflow error."]
+                  "title": "Base Case Importance",
+                  "body": ["Without base cases fib(0)=0 and fib(1)=1 the function would recurse infinitely and crash with a stack overflow error."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read Aim and understand what Fibonacci series means mathematically",
                 "Go to Theory and study the recursive definition fib(n) = fib(n-1) + fib(n-2)",
                 "Trace fib(4) manually on paper using the call tree before running the simulation",
@@ -5005,31 +5001,31 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Verify output: 0 1 1 2 3 5 8",
                 "Try n=10 and verify: 0 1 1 2 3 5 8 13 21 34. Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint fib(int n) {\n    if (n <= 1) {\n        return n;\n    }\n    return fib(n - 1) + fib(n - 2);\n}\n\nint main() {\n    int n = 5, i;\n    for (i = 0; i < n; i++) {\n        printf(\"%d \", fib(i));\n    }\n    printf(\"\\n\");\n    return 0;\n}",
-                steps: [
-                  { line: 3, annotation: "fib(n) defined with base cases", memory: [], output: "" },
-                  { line: 11, annotation: "main() calls fib(0)", memory: [{ variable: "i", type: "int", value: "0" }], output: "" },
-                  { line: 4, annotation: "fib(0) hits base case immediately", memory: [], output: "" },
-                  { line: 5, annotation: "Returns 0", memory: [], output: "" },
-                  { line: 13, annotation: "Output panel: 0", memory: [], output: "0 " },
-                  { line: 11, annotation: "main() calls fib(1)", memory: [{ variable: "i", type: "int", value: "1" }], output: "" },
-                  { line: 4, annotation: "fib(1) hits base case immediately", memory: [], output: "" },
-                  { line: 5, annotation: "Returns 1", memory: [], output: "" },
-                  { line: 13, annotation: "Output panel: 0 1", memory: [], output: "0 1 " },
-                  { line: 11, annotation: "main() calls fib(2)", memory: [{ variable: "i", type: "int", value: "2" }], output: "" },
-                  { line: 7, annotation: "fib(2) = fib(1) + fib(0) = 1 + 0 = 1", memory: [], output: "" },
-                  { line: 13, annotation: "Output panel: 0 1 1", memory: [], output: "0 1 1 " },
-                  { line: 11, annotation: "main() calls fib(3)", memory: [{ variable: "i", type: "int", value: "3" }], output: "" },
-                  { line: 7, annotation: "fib(3) = fib(2) + fib(1) = 1 + 1 = 2", memory: [], output: "" },
-                  { line: 13, annotation: "Output panel: 0 1 1 2", memory: [], output: "0 1 1 2 " },
-                  { line: 11, annotation: "main() calls fib(4)", memory: [{ variable: "i", type: "int", value: "4" }], output: "" },
-                  { line: 7, annotation: "fib(4) = fib(3) + fib(2) = 2 + 1 = 3", memory: [], output: "" },
-                  { line: 13, annotation: "Output panel: 0 1 1 2 3", memory: [], output: "0 1 1 2 3 " }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint fib(int n) {\n    if (n <= 1) {\n        return n;\n    }\n    return fib(n - 1) + fib(n - 2);\n}\n\nint main() {\n    int n = 5, i;\n    for (i = 0; i < n; i++) {\n        printf(\"%d \", fib(i));\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+                "steps": [
+                  { "line": 3, "annotation": "fib(n) defined with base cases", "memory": [], "output": "" },
+                  { "line": 11, "annotation": "main() calls fib(0)", "memory": [{ "variable": "i", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 4, "annotation": "fib(0) hits base case immediately", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Returns 0", "memory": [], "output": "" },
+                  { "line": 13, "annotation": "Output panel: 0", "memory": [], "output": "0 " },
+                  { "line": 11, "annotation": "main() calls fib(1)", "memory": [{ "variable": "i", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 4, "annotation": "fib(1) hits base case immediately", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Returns 1", "memory": [], "output": "" },
+                  { "line": 13, "annotation": "Output panel: 0 1", "memory": [], "output": "0 1 " },
+                  { "line": 11, "annotation": "main() calls fib(2)", "memory": [{ "variable": "i", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 7, "annotation": "fib(2) = fib(1) + fib(0) = 1 + 0 = 1", "memory": [], "output": "" },
+                  { "line": 13, "annotation": "Output panel: 0 1 1", "memory": [], "output": "0 1 1 " },
+                  { "line": 11, "annotation": "main() calls fib(3)", "memory": [{ "variable": "i", "type": "int", "value": "3" }], "output": "" },
+                  { "line": 7, "annotation": "fib(3) = fib(2) + fib(1) = 1 + 1 = 2", "memory": [], "output": "" },
+                  { "line": 13, "annotation": "Output panel: 0 1 1 2", "memory": [], "output": "0 1 1 2 " },
+                  { "line": 11, "annotation": "main() calls fib(4)", "memory": [{ "variable": "i", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 7, "annotation": "fib(4) = fib(3) + fib(2) = 2 + 1 = 3", "memory": [], "output": "" },
+                  { "line": 13, "annotation": "Output panel: 0 1 1 2 3", "memory": [], "output": "0 1 1 2 3 " }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan B.W. and Ritchie D.M., The C Programming Language, 2nd Edition, Prentice Hall",
                 "Balagurusamy E., Programming in ANSI C, 8th Edition, McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Department, Week 12",
@@ -5038,14 +5034,14 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
             }
           },
           {
-            id: "c-w12-2",
-            title: "Factorial Recursive",
-            desc: "Calculate factorial recursively.",
-            expected: "Factorial=X",
-            content: {
-              aim: {
-                text: "In this experiment the student will implement the factorial function recursively in C and understand how each recursive call reduces the problem size by one until the base case n=0 is reached. The student will observe how the call stack builds and unwinds cleanly for factorial compared to Fibonacci. The student will:",
-                bullets: [
+            "id": "c-w12-2",
+            "title": "Factorial Recursive",
+            "desc": "Calculate factorial recursively.",
+            "expected": "Factorial=X",
+            "content": {
+              "aim": {
+                "text": "This experiment implements the factorial function recursively to contrast with the iterative approach studied in Week 6. The recursive definition — fact(0) = 1, fact(n) = n × fact(n-1) — maps directly to the mathematical recurrence, illustrating how recursion elegantly expresses naturally self-similar problems. Students will trace the call stack frame by frame (fact(4) → fact(3) → … → fact(0) → returns upward multiplying at each level) and compare the recursive solution's clarity against the iterative loop. The experiment also warns about integer overflow for large n and demonstrates linear O(n) recursion depth, distinguishing it from the branching (O(2^n)) recursion of Fibonacci.",
+                "bullets": [
                   "Understand factorial as a naturally recursive mathematical definition",
                   "Implement fact(n) = n multiplied by fact(n-1) with base case fact(0) = 1",
                   "Trace the call stack frame by frame for small n values",
@@ -5053,30 +5049,30 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Compare recursive factorial with iterative factorial mentally"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Factorial Definition",
-                  body: ["Factorial of n written as n! is the product of all positive integers from 1 to n.\nMathematical definition:\nfact(0) = 1 — base case\nfact(n) = n multiplied by fact(n-1) — recursive case for n greater than 0\nExamples:\n0! = 1\n3! = 3 × 2 × 1 = 6\n5! = 5 × 4 × 3 × 2 × 1 = 120"]
+                  "title": "Factorial Definition",
+                  "body": ["Factorial of n written as n! is the product of all positive integers from 1 to n.\nMathematical definition:\nfact(0) = 1 — base case\nfact(n) = n multiplied by fact(n-1) — recursive case for n greater than 0\nExamples:\n0! = 1\n3! = 3 × 2 × 1 = 6\n5! = 5 × 4 × 3 × 2 × 1 = 120"]
                 },
                 {
-                  title: "Why Factorial is Naturally Recursive",
-                  body: ["fact(5) depends on fact(4), which depends on fact(3), all the way down to fact(0). Each call solves a slightly smaller version of the same problem — this is the essence of recursion."]
+                  "title": "Why Factorial is Naturally Recursive",
+                  "body": ["fact(5) depends on fact(4), which depends on fact(3), all the way down to fact(0). Each call solves a slightly smaller version of the same problem — this is the essence of recursion."]
                 },
                 {
-                  title: "Call Stack Trace for fact(4)",
-                  body: ["fact(4) calls fact(3)\nfact(3) calls fact(2)\nfact(2) calls fact(1)\nfact(1) calls fact(0)\nfact(0) returns 1 — base case hit\nfact(1) returns 1 × 1 = 1\nfact(2) returns 2 × 1 = 2\nfact(3) returns 3 × 2 = 6\nfact(4) returns 4 × 6 = 24"]
+                  "title": "Call Stack Trace for fact(4)",
+                  "body": ["fact(4) calls fact(3)\nfact(3) calls fact(2)\nfact(2) calls fact(1)\nfact(1) calls fact(0)\nfact(0) returns 1 — base case hit\nfact(1) returns 1 × 1 = 1\nfact(2) returns 2 × 1 = 2\nfact(3) returns 3 × 2 = 6\nfact(4) returns 4 × 6 = 24"]
                 },
                 {
-                  title: "Linear Recursion",
-                  body: ["Factorial is linear recursion — each call makes exactly one recursive call unlike Fibonacci which makes two. This means the call stack depth equals n and the time complexity is O(n)."]
+                  "title": "Linear Recursion",
+                  "body": ["Factorial is linear recursion — each call makes exactly one recursive call unlike Fibonacci which makes two. This means the call stack depth equals n and the time complexity is O(n).","![Factorial Recursion](factorial-recursion.webp)"]
                 },
                 {
-                  title: "Integer Overflow Warning",
-                  body: ["Factorial grows very fast. fact(13) exceeds the range of int (2,147,483,647). For large n use long or unsigned long long to avoid overflow."]
+                  "title": "Integer Overflow Warning",
+                  "body": ["Factorial grows very fast. fact(13) exceeds the range of int (2,147,483,647). For large n use long or unsigned long long to avoid overflow."]
                 }
               ],
-              pretest:[],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read Aim and recall the mathematical definition of factorial",
                 "Go to Theory and trace fact(4) manually on paper before simulation",
                 "Write each call stack frame on paper: fact(4) → fact(3) → fact(2) → fact(1) → fact(0)",
@@ -5091,24 +5087,24 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Verify output: Factorial=120",
                 "Try n=0 and verify output: Factorial=1. Try n=12 and check if result is correct: 479001600. Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nlong long fact(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    return n * fact(n - 1);\n}\n\nint main() {\n    int n = 4;\n    printf(\"Factorial=%lld\\n\", fact(n));\n    return 0;\n}",
-                steps: [
-                  { line: 11, annotation: "main() reads n=4, calls fact(4)", memory: [{ variable: "n", type: "int", value: "4" }], output: "" },
-                  { line: 7, annotation: "fact(4) calls fact(3)", memory: [], output: "" },
-                  { line: 7, annotation: "fact(3) calls fact(2)", memory: [], output: "" },
-                  { line: 7, annotation: "fact(2) calls fact(1)", memory: [], output: "" },
-                  { line: 7, annotation: "fact(1) calls fact(0)", memory: [], output: "" },
-                  { line: 4, annotation: "fact(0) returns 1 (Base Case)", memory: [], output: "" },
-                  { line: 7, annotation: "fact(1) returns 1 * 1 = 1", memory: [], output: "" },
-                  { line: 7, annotation: "fact(2) returns 2 * 1 = 2", memory: [], output: "" },
-                  { line: 7, annotation: "fact(3) returns 3 * 2 = 6", memory: [], output: "" },
-                  { line: 7, annotation: "fact(4) returns 4 * 6 = 24", memory: [], output: "" },
-                  { line: 12, annotation: "main() receives 24", memory: [], output: "Factorial=24\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nlong long fact(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    return n * fact(n - 1);\n}\n\nint main() {\n    int n = 4;\n    printf(\"Factorial=%lld\\n\", fact(n));\n    return 0;\n}",
+                "steps": [
+                  { "line": 11, "annotation": "main() reads n=4, calls fact(4)", "memory": [{ "variable": "n", "type": "int", "value": "4" }], "output": "" },
+                  { "line": 7, "annotation": "fact(4) calls fact(3)", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "fact(3) calls fact(2)", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "fact(2) calls fact(1)", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "fact(1) calls fact(0)", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "fact(0) returns 1 (Base Case)", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "fact(1) returns 1 * 1 = 1", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "fact(2) returns 2 * 1 = 2", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "fact(3) returns 3 * 2 = 6", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "fact(4) returns 4 * 6 = 24", "memory": [], "output": "" },
+                  { "line": 12, "annotation": "main() receives 24", "memory": [], "output": "Factorial=24\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan B.W. and Ritchie D.M., The C Programming Language, 2nd Edition, Prentice Hall",
                 "Balagurusamy E., Programming in ANSI C, 8th Edition, McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Department, Week 12",
@@ -5117,14 +5113,14 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
             }
           },
           {
-            id: "c-w12-3",
-            title: "Ackermann Function",
-            desc: "Compute the Ackermann function recursively.",
-            expected: "Ackermann=X",
-            content: {
-              aim: {
-                text: "In this experiment the student will implement the Ackermann function — one of the most famous examples of a function that is computable but not primitive recursive. The student will understand deep nested recursion, double recursion, and why even small inputs like ack(3,3) produce extremely large outputs and massive call stacks. The student will:",
-                bullets: [
+            "id": "c-w12-3",
+            "title": "Ackermann Function",
+            "desc": "Compute the Ackermann function recursively.",
+            "expected": "Ackermann=X",
+            "content": {
+              "aim": {
+                "text": "This experiment implements the Ackermann function — a landmark example from theoretical computer science that is computable yet grows faster than any primitive recursive function. Students will implement the three-case recursive definition (ack(0,n) = n+1; ack(m,0) = ack(m-1,1); ack(m,n) = ack(m-1, ack(m, n-1))) and observe through small test cases such as ack(1,1) = 3 and ack(3,3) = 61 how the double recursion in Case 3 generates an enormous number of nested calls even for tiny inputs. The experiment develops awareness of stack-depth limits, stack overflow risks for large arguments, and the theoretical distinction between computable and primitive-recursive functions.",
+                "bullets": [
                   "Understand the three-case definition of the Ackermann function",
                   "Implement ack(m,n) using nested recursion in C",
                   "Trace the call stack for small inputs like ack(1,1) and ack(2,1)",
@@ -5132,34 +5128,34 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Appreciate the theoretical importance of Ackermann function in computer science"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "What is the Ackermann Function?",
-                  body: ["The Ackermann function is a classic example from theoretical computer science defined by Wilhelm Ackermann in 1928. It grows faster than any primitive recursive function making it important in computability theory."]
+                  "title": "What is the Ackermann Function?",
+                  "body": ["The Ackermann function is a classic example from theoretical computer science defined by Wilhelm Ackermann in 1928. It grows faster than any primitive recursive function making it important in computability theory."]
                 },
                 {
-                  title: "Three-Case Definition:",
-                  body: ["Case 1: If m=0, return n+1\nCase 2: If m > 0 and n=0, return ack(m-1, 1)\nCase 3: If m > 0 and n > 0, return ack(m-1, ack(m, n-1))"]
+                  "title": "Three-Case Definition:",
+                  "body": ["Case 1: If m=0, return n+1\nCase 2: If m > 0 and n=0, return ack(m-1, 1)\nCase 3: If m > 0 and n > 0, return ack(m-1, ack(m, n-1))"]
                 },
                 {
-                  title: "Why It Grows So Fast",
-                  body: ["ack(3,3) = 61. ack(4,1) = 65533. ack(4,2) is a number with 19,728 digits. This explosive growth comes from the double recursion in Case 3 — ack calls itself inside its own argument."]
+                  "title": "Why It Grows So Fast",
+                  "body": ["ack(3,3) = 61. ack(4,1) = 65533. ack(4,2) is a number with 19,728 digits. This explosive growth comes from the double recursion in Case 3 — ack calls itself inside its own argument."]
                 },
                 {
-                  title: "Double Recursion",
-                  body: ["Case 3 is ack(m-1, ack(m, n-1)). The inner ack(m, n-1) must fully resolve before the outer ack(m-1, ...) can begin. This creates an enormous call tree even for small inputs."]
+                  "title": "Double Recursion",
+                  "body": ["Case 3 is ack(m-1, ack(m, n-1)). The inner ack(m, n-1) must fully resolve before the outer ack(m-1, ...) can begin. This creates an enormous call tree even for small inputs."]
                 },
                 {
-                  title: "Practical Limits",
-                  body: ["Only test with m ≤ 3 and n ≤ 4 in your program. Larger values will crash the program due to stack overflow or take years to compute."]
+                  "title": "Practical Limits",
+                  "body": ["Only test with m ≤ 3 and n ≤ 4 in your program. Larger values will crash the program due to stack overflow or take years to compute."]
                 },
                 {
-                  title: "Theoretical Importance",
-                  body: ["The Ackermann function proved that not all computable functions are primitive recursive — a landmark result in mathematical logic and the theory of computation."]
+                  "title": "Theoretical Importance",
+                  "body": ["The Ackermann function proved that not all computable functions are primitive recursive — a landmark result in mathematical logic and the theory of computation."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read Aim and Theory carefully — Ackermann is more complex than Fibonacci or Factorial",
                 "Study all three cases of the definition and memorize which case applies when",
                 "Manually trace ack(1,1) on paper step by step using the three cases",
@@ -5172,20 +5168,20 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Click Run Code and verify against the values table in Theory",
                 "Do NOT try m=4 with n greater than 1 — it will timeout or crash. Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint ack(int m, int n) {\n    if (m == 0) return n + 1;\n    if (m > 0 && n == 0) return ack(m - 1, 1);\n    return ack(m - 1, ack(m, n - 1));\n}\n\nint main() {\n    printf(\"Ackermann=%d\\n\", ack(1, 1));\n    return 0;\n}",
-                steps: [
-                  { line: 10, annotation: "main() calls ack(1,1)", memory: [], output: "" },
-                  { line: 6, annotation: "ack(1,1): Case 3 applies -> ack(0, ack(1,0))", memory: [], output: "" },
-                  { line: 5, annotation: "Resolve ack(1,0): Case 2 applies -> ack(0,1)", memory: [], output: "" },
-                  { line: 4, annotation: "Resolve ack(0,1): Case 1 applies -> returns 2", memory: [], output: "" },
-                  { line: 6, annotation: "Inner argument resolved. Now resolve ack(0,2)", memory: [], output: "" },
-                  { line: 4, annotation: "Resolve ack(0,2): Case 1 applies -> returns 3", memory: [], output: "" },
-                  { line: 10, annotation: "printf executes", memory: [], output: "Ackermann=3\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint ack(int m, int n) {\n    if (m == 0) return n + 1;\n    if (m > 0 && n == 0) return ack(m - 1, 1);\n    return ack(m - 1, ack(m, n - 1));\n}\n\nint main() {\n    printf(\"Ackermann=%d\\n\", ack(1, 1));\n    return 0;\n}",
+                "steps": [
+                  { "line": 10, "annotation": "main() calls ack(1,1)", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "ack(1,1): Case 3 applies -> ack(0, ack(1,0))", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "Resolve ack(1,0): Case 2 applies -> ack(0,1)", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Resolve ack(0,1): Case 1 applies -> returns 2", "memory": [], "output": "" },
+                  { "line": 6, "annotation": "Inner argument resolved. Now resolve ack(0,2)", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Resolve ack(0,2): Case 1 applies -> returns 3", "memory": [], "output": "" },
+                  { "line": 10, "annotation": "printf executes", "memory": [], "output": "Ackermann=3\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan B.W. and Ritchie D.M., The C Programming Language, 2nd Edition, Prentice Hall",
                 "Balagurusamy E., Programming in ANSI C, 8th Edition, McGraw Hill",
                 "Ackermann W., Zum Hilbertschen Aufbau der reellen Zahlen, Mathematische Annalen, 1928",
@@ -5195,23 +5191,23 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 13",
-        objective: "Pointers, call by reference, dangling pointers",
-        tutorial: "Tutorial 13: Call by Reference and Pointers",
-        labTitle: "Lab 13: Pointer manipulations",
-        experiments: [
+        "title": "WEEK 13",
+        "objective": "Pointers, call by reference, dangling pointers",
+        "tutorial": "Tutorial 13: Call by Reference and Pointers",
+        "labTitle": "Lab 13: Pointer manipulations",
+        "experiments": [
           {
-            id: "c-w13-1",
-            title: "Swap using Call by Reference",
-            desc: "Swap two numbers using pointers.",
-            expected: "Swapped values",
-            content: {
-              aim: {
-                text: "In this experiment the student will understand the difference between call by value and call by reference in C. The student will implement a swap function using pointers to modify the original variables in the caller function and observe how passing addresses instead of values allows functions to change data outside their own scope. The student will:",
-                bullets: [
+            "id": "c-w13-1",
+            "title": "Swap using Call by Reference",
+            "desc": "Swap two numbers using pointers.",
+            "expected": "Swapped values",
+            "content": {
+              "aim": {
+                "text": "This experiment demonstrates the critical difference between call by value (which cannot modify the caller's variables) and call by reference via pointers (which can). Students will first understand why a naive swap(int x, int y) function fails — it operates on copies — and then implement a correct swap(int *x, int *y) that receives memory addresses via the & operator and modifies the original variables through pointer dereferencing (*). By tracing how the addresses of a and b are passed, how temp = *x saves the value at the address, and how *x = *y writes to the original memory location, students build a precise mental model of pointers and indirection that underpins dynamic data structures, output parameters, and array passing in C.",
+                "bullets": [
                   "Understand why call by value fails for swapping",
                   "Learn how pointers carry memory addresses to functions",
                   "Implement swap using pointer parameters",
@@ -5219,38 +5215,38 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Understand the role of & and * operators in call by reference"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Call by Value vs Call by Reference",
-                  body: ["In call by value a copy of the variable is passed to the function. Changes inside the function do not affect the original variable in main. This is the default in C.\nIn call by reference the address of the variable is passed using the & operator. The function receives a pointer and uses the * operator to access and modify the original variable directly."]
+                  "title": "Call by Value vs Call by Reference",
+                  "body": ["In call by value a copy of the variable is passed to the function. Changes inside the function do not affect the original variable in main. This is the default in C.\nIn call by reference the address of the variable is passed using the & operator. The function receives a pointer and uses the * operator to access and modify the original variable directly."]
                 },
                 {
-                  title: "Why Swap Fails with Call by Value",
-                  body: ["If you pass a and b directly to swap(a, b) the function gets copies x and y. Swapping x and y does nothing to the original a and b in main. After the function returns a and b are unchanged."]
+                  "title": "Why Swap Fails with Call by Value",
+                  "body": ["If you pass a and b directly to swap(a, b) the function gets copies x and y. Swapping x and y does nothing to the original a and b in main. After the function returns a and b are unchanged."]
                 },
                 {
-                  title: "Why Swap Works with Call by Reference",
-                  body: ["When you pass &a and &b the function receives pointers to the actual memory locations of a and b. Using *ptr you read or write the value at that address directly. Any change through the pointer changes the original variable."]
+                  "title": "Why Swap Works with Call by Reference",
+                  "body": ["When you pass &a and &b the function receives pointers to the actual memory locations of a and b. Using *ptr you read or write the value at that address directly. Any change through the pointer changes the original variable."]
                 },
                 {
-                  title: "The & Operator",
-                  body: ["& gives the memory address of a variable. &a means the address where a is stored in memory. Example: if a is at address 2000 then &a = 2000."]
+                  "title": "The & Operator",
+                  "body": ["& gives the memory address of a variable. &a means the address where a is stored in memory. Example: if a is at address 2000 then &a = 2000."]
                 },
                 {
-                  title: "The * Operator in Pointer Context",
-                  body: ["* before a pointer variable dereferences it — meaning go to that address and read or write the value there. If ptr = &a then *ptr = 10 sets a to 10."]
+                  "title": "The * Operator in Pointer Context",
+                  "body": ["* before a pointer variable dereferences it — meaning go to that address and read or write the value there. If ptr = &a then *ptr = 10 sets a to 10."]
                 },
                 {
-                  title: "Swap Logic using Pointers",
-                  body: ["temp = *a stores the value at address a into temp\n*a = *b copies the value at address b into address a\n*b = temp copies temp into address b\nResult: original variables in main are swapped."]
+                  "title": "Swap Logic using Pointers",
+                  "body": ["temp = *a stores the value at address a into temp\n*a = *b copies the value at address b into address a\n*b = temp copies temp into address b\nResult: original variables in main are swapped."]
                 },
                 {
-                  title: "Dangling Pointer Brief",
-                  body: ["A dangling pointer is a pointer that points to a memory location that has been freed or gone out of scope. Accessing a dangling pointer causes undefined behavior. This is covered as a warning in this week's tutorial."]
+                  "title": "Dangling Pointer Brief",
+                  "body": ["A dangling pointer is a pointer that points to a memory location that has been freed or gone out of scope. Accessing a dangling pointer causes undefined behavior. This is covered as a warning in this week's tutorial."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read Theory and clearly understand why call by value fails for swap",
                 "Draw on paper: two boxes labeled a=10 and b=20 with addresses 2000 and 3000",
                 "Trace what happens when you pass &a and &b to swap()",
@@ -5265,20 +5261,20 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Verify output: a=20 b=10",
                 "Try with negative numbers: -5 100 and verify swap works. Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nvoid swap(int *x, int *y) {\n    int temp = *x;\n    *x = *y;\n    *y = temp;\n}\n\nint main() {\n    int a = 10;\n    int b = 20;\n    swap(&a, &b);\n    printf(\"a=%d b=%d\\n\", a, b);\n    return 0;\n}",
-                steps: [
-                  { line: 10, annotation: "main() declares a=10 and b=20", memory: [{ variable: "a", type: "int", value: "10", address: "2000" }, { variable: "b", type: "int", value: "20", address: "3000" }], output: "" },
-                  { line: 12, annotation: "swap(&a, &b) called", memory: [{ variable: "x", type: "int*", value: "2000" }, { variable: "y", type: "int*", value: "3000" }], output: "" },
-                  { line: 4, annotation: "temp = *x", memory: [{ variable: "temp", type: "int", value: "10" }], output: "" },
-                  { line: 5, annotation: "*x = *y", memory: [{ variable: "a", type: "int", value: "20", address: "2000" }], output: "" },
-                  { line: 6, annotation: "*y = temp", memory: [{ variable: "b", type: "int", value: "10", address: "3000" }], output: "" },
-                  { line: 7, annotation: "swap() returns, back in main()", memory: [], output: "" },
-                  { line: 13, annotation: "printf executes", memory: [], output: "a=20 b=10\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nvoid swap(int *x, int *y) {\n    int temp = *x;\n    *x = *y;\n    *y = temp;\n}\n\nint main() {\n    int a = 10;\n    int b = 20;\n    swap(&a, &b);\n    printf(\"a=%d b=%d\\n\", a, b);\n    return 0;\n}",
+                "steps": [
+                  { "line": 10, "annotation": "main() declares a=10 and b=20", "memory": [{ "variable": "a", "type": "int", "value": "10", "address": "2000" }, { "variable": "b", "type": "int", "value": "20", "address": "3000" }], "output": "" },
+                  { "line": 12, "annotation": "swap(&a, &b) called", "memory": [{ "variable": "x", "type": "int*", "value": "2000" }, { "variable": "y", "type": "int*", "value": "3000" }], "output": "" },
+                  { "line": 4, "annotation": "temp = *x", "memory": [{ "variable": "temp", "type": "int", "value": "10" }], "output": "" },
+                  { "line": 5, "annotation": "*x = *y", "memory": [{ "variable": "a", "type": "int", "value": "20", "address": "2000" }], "output": "" },
+                  { "line": 6, "annotation": "*y = temp", "memory": [{ "variable": "b", "type": "int", "value": "10", "address": "3000" }], "output": "" },
+                  { "line": 7, "annotation": "swap() returns, back in main()", "memory": [], "output": "" },
+                  { "line": 13, "annotation": "printf executes", "memory": [], "output": "a=20 b=10\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan B.W. and Ritchie D.M., The C Programming Language, 2nd Edition, Prentice Hall",
                 "Balagurusamy E., Programming in ANSI C, 8th Edition, McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Department, Week 13",
@@ -5287,14 +5283,14 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
             }
           },
           {
-            id: "c-w13-2",
-            title: "String Copy using Pointer",
-            desc: "Copy a string using pointers.",
-            expected: "Copied string",
-            content: {
-              aim: {
-                text: "In this experiment the student will implement a custom string copy function using pointer arithmetic in C without using the built-in strcpy() function. The student will understand how pointers traverse character arrays one byte at a time and how the null terminator signals the end of a string. The student will:",
-                bullets: [
+            "id": "c-w13-2",
+            "title": "String Copy using Pointer",
+            "desc": "Copy a string using pointers.",
+            "expected": "Copied string",
+            "content": {
+              "aim": {
+                "text": "This experiment implements a character-by-character string copy function using pointer arithmetic, replicating the behaviour of strcpy() without calling it. Students will advance a source pointer through every character of the source string, copy each character to the corresponding position through a destination pointer, halt when the source pointer reaches the null terminator, and explicitly append '\\0' to terminate the destination string. The experiment reinforces how array names decay to pointers in C, how pointer increment replaces array index increment, why the null terminator must be manually added after the loop, and what happens if the destination buffer is too small — providing a concrete introduction to buffer overflow risk.",
+                "bullets": [
                   "Understand how strings are stored as character arrays ending with null character",
                   "Use pointer arithmetic to traverse source string character by character",
                   "Copy each character to the destination array using pointer dereferencing",
@@ -5302,38 +5298,38 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Understand why array names are already pointers in C"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "Strings in C",
-                  body: ["C does not have a built-in string type. Strings are stored as arrays of characters terminated by a null character written as backslash zero. Example: \"Hello\" is stored as H e l l o \\0 in memory occupying 6 bytes."]
+                  "title": "Strings in C",
+                  "body": ["C does not have a built-in string type. Strings are stored as arrays of characters terminated by a null character written as backslash zero. Example: \"Hello\" is stored as H e l l o \\0 in memory occupying 6 bytes."]
                 },
                 {
-                  title: "Pointer to a Character Array",
-                  body: ["When you declare char s[100] the name s is already a pointer to the first character. You can assign a char pointer to it: char *p = s makes p point to s[0]."]
+                  "title": "Pointer to a Character Array",
+                  "body": ["When you declare char s[100] the name s is already a pointer to the first character. You can assign a char pointer to it: char *p = s makes p point to s[0]."]
                 },
                 {
-                  title: "Pointer Arithmetic",
-                  body: ["Incrementing a char pointer with p++ moves it forward by one byte to the next character. This is how you traverse a string character by character without using an index."]
+                  "title": "Pointer Arithmetic",
+                  "body": ["Incrementing a char pointer with p++ moves it forward by one byte to the next character. This is how you traverse a string character by character without using an index."]
                 },
                 {
-                  title: "Dereferencing to Read and Write",
-                  body: ["*src reads the character at current position of src pointer.\n*dest = *src copies the character from src position to dest position."]
+                  "title": "Dereferencing to Read and Write",
+                  "body": ["*src reads the character at current position of src pointer.\n*dest = *src copies the character from src position to dest position."]
                 },
                 {
-                  title: "Null Terminator Check",
-                  body: ["The while loop condition while(*src) continues as long as the current character is not null. When src reaches the null terminator the loop ends."]
+                  "title": "Null Terminator Check",
+                  "body": ["The while loop condition while(*src) continues as long as the current character is not null. When src reaches the null terminator the loop ends."]
                 },
                 {
-                  title: "Appending Null Terminator",
-                  body: ["After the loop ends *dest = '\\0' must be explicitly added to terminate the destination string. Without this the destination array is not a valid C string."]
+                  "title": "Appending Null Terminator",
+                  "body": ["After the loop ends *dest = '\\0' must be explicitly added to terminate the destination string. Without this the destination array is not a valid C string."]
                 },
                 {
-                  title: "Why No & for Arrays",
-                  body: ["Array names decay to pointers automatically in C. char s[100] — s is already the address of s[0]. So strCopy(dest, src) passes the addresses directly without needing &."]
+                  "title": "Why No & for Arrays",
+                  "body": ["Array names decay to pointers automatically in C. char s[100] — s is already the address of s[0]. So strCopy(dest, src) passes the addresses directly without needing &."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read Theory and draw the memory layout of \"Hello\\0\" as boxes labeled H e l l o \\0",
                 "Draw two arrays src and dest side by side with pointer arrows",
                 "Trace on paper how src pointer moves and copies each character to dest",
@@ -5348,30 +5344,30 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Verify output: Copied: JNTUGV",
                 "Try with spaces in input using a different scanf format. Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nvoid strCopy(char *dest, char *src) {\n    while (*src != '\\0') {\n        *dest = *src;\n        dest++;\n        src++;\n    }\n    *dest = '\\0';\n}\n\nint main() {\n    char src[] = \"JNTU\";\n    char dest[10];\n    strCopy(dest, src);\n    printf(\"Copied: %s\\n\", dest);\n    return 0;\n}",
-                steps: [
-                  { line: 14, annotation: "Arrays declared, pointers initialized", memory: [{ variable: "src", type: "char[]", value: "\"JNTU\"", address: "1000" }, { variable: "dest", type: "char[]", value: "empty", address: "2000" }], output: "" },
-                  { line: 15, annotation: "strCopy(dest, src) called", memory: [], output: "" },
-                  { line: 4, annotation: "Loop iteration 1: *src = 'J'", memory: [], output: "" },
-                  { line: 5, annotation: "*dest = *src copies 'J'", memory: [{ variable: "dest[0]", type: "char", value: "'J'", address: "2000" }], output: "" },
-                  { line: 6, annotation: "dest++, src++", memory: [], output: "" },
-                  { line: 4, annotation: "Loop iteration 2: *src = 'N'", memory: [], output: "" },
-                  { line: 5, annotation: "*dest = *src copies 'N'", memory: [{ variable: "dest[1]", type: "char", value: "'N'", address: "2001" }], output: "" },
-                  { line: 6, annotation: "dest++, src++", memory: [], output: "" },
-                  { line: 4, annotation: "Loop iteration 3: *src = 'T'", memory: [], output: "" },
-                  { line: 5, annotation: "*dest = *src copies 'T'", memory: [{ variable: "dest[2]", type: "char", value: "'T'", address: "2002" }], output: "" },
-                  { line: 6, annotation: "dest++, src++", memory: [], output: "" },
-                  { line: 4, annotation: "Loop iteration 4: *src = 'U'", memory: [], output: "" },
-                  { line: 5, annotation: "*dest = *src copies 'U'", memory: [{ variable: "dest[3]", type: "char", value: "'U'", address: "2003" }], output: "" },
-                  { line: 6, annotation: "dest++, src++", memory: [], output: "" },
-                  { line: 4, annotation: "while(*src) fails — \\0 is falsy", memory: [], output: "" },
-                  { line: 9, annotation: "*dest = \\0 adds null terminator", memory: [{ variable: "dest[4]", type: "char", value: "'\\0'", address: "2004" }], output: "" },
-                  { line: 16, annotation: "printf executes", memory: [], output: "Copied: JNTU\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nvoid strCopy(char *dest, char *src) {\n    while (*src != '\\0') {\n        *dest = *src;\n        dest++;\n        src++;\n    }\n    *dest = '\\0';\n}\n\nint main() {\n    char src[] = \"JNTU\";\n    char dest[10];\n    strCopy(dest, src);\n    printf(\"Copied: %s\\n\", dest);\n    return 0;\n}",
+                "steps": [
+                  { "line": 14, "annotation": "Arrays declared, pointers initialized", "memory": [{ "variable": "src", "type": "char[]", "value": "\"JNTU\"", "address": "1000" }, { "variable": "dest", "type": "char[]", "value": "empty", "address": "2000" }], "output": "" },
+                  { "line": 15, "annotation": "strCopy(dest, src) called", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Loop iteration 1: *src = 'J'", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "*dest = *src copies 'J'", "memory": [{ "variable": "dest[0]", "type": "char", "value": "'J'", "address": "2000" }], "output": "" },
+                  { "line": 6, "annotation": "dest++, src++", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Loop iteration 2: *src = 'N'", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "*dest = *src copies 'N'", "memory": [{ "variable": "dest[1]", "type": "char", "value": "'N'", "address": "2001" }], "output": "" },
+                  { "line": 6, "annotation": "dest++, src++", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Loop iteration 3: *src = 'T'", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "*dest = *src copies 'T'", "memory": [{ "variable": "dest[2]", "type": "char", "value": "'T'", "address": "2002" }], "output": "" },
+                  { "line": 6, "annotation": "dest++, src++", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "Loop iteration 4: *src = 'U'", "memory": [], "output": "" },
+                  { "line": 5, "annotation": "*dest = *src copies 'U'", "memory": [{ "variable": "dest[3]", "type": "char", "value": "'U'", "address": "2003" }], "output": "" },
+                  { "line": 6, "annotation": "dest++, src++", "memory": [], "output": "" },
+                  { "line": 4, "annotation": "while(*src) fails — \\0 is falsy", "memory": [], "output": "" },
+                  { "line": 9, "annotation": "*dest = \\0 adds null terminator", "memory": [{ "variable": "dest[4]", "type": "char", "value": "'\\0'", "address": "2004" }], "output": "" },
+                  { "line": 16, "annotation": "printf executes", "memory": [], "output": "Copied: JNTU\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan B.W. and Ritchie D.M., The C Programming Language, 2nd Edition, Prentice Hall",
                 "Balagurusamy E., Programming in ANSI C, 8th Edition, McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Department, Week 13",
@@ -5380,14 +5376,14 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
             }
           },
           {
-            id: "c-w13-3",
-            title: "Count Characters using Pointer",
-            desc: "Count uppercase, lowercase, digits, and special characters using pointers.",
-            expected: "Character counts",
-            content: {
-              aim: {
-                text: "In this experiment the student will traverse a string using a pointer and classify each character into one of four categories — uppercase letters, lowercase letters, digits, and other characters — using ASCII value comparisons. The student will understand how pointer traversal replaces array indexing and how character classification works in C. The student will:",
-                bullets: [
+            "id": "c-w13-3",
+            "title": "Count Characters using Pointer",
+            "desc": "Count uppercase, lowercase, digits, and special characters using pointers.",
+            "expected": "Character counts",
+            "content": {
+              "aim": {
+                "text": "This experiment uses pointer traversal to scan a string character by character and classify each character into one of four categories — uppercase letters (A–Z, ASCII 65–90), lowercase letters (a–z, ASCII 97–122), decimal digits (0–9, ASCII 48–57), and other characters — incrementing the corresponding counter for each. Students will initialise a char pointer to the start of the string, loop until the pointer reaches the null terminator, apply ASCII range comparisons at each position, advance the pointer with p++, and print all four counts. The experiment demonstrates that pointer traversal and index-based traversal are functionally equivalent, and introduces character classification using ASCII arithmetic — a foundation for input validation and text processing programs.",
+                "bullets": [
                   "Traverse a character array using a pointer instead of index",
                   "Use ASCII range comparisons to classify each character",
                   "Count occurrences of each character category",
@@ -5395,30 +5391,30 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Display the four category counts as formatted output"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "ASCII Character Ranges",
-                  body: ["Every character in C is stored as an integer using ASCII encoding. The classification ranges are:\nUppercase letters: A to Z → ASCII 65 to 90\nLowercase letters: a to z → ASCII 97 to 122\nDigits: 0 to 9 → ASCII 48 to 57\nOther characters: anything outside the above ranges including spaces, punctuation, symbols"]
+                  "title": "ASCII Character Ranges",
+                  "body": ["Every character in C is stored as an integer using ASCII encoding. The classification ranges are:\nUppercase letters: A to Z → ASCII 65 to 90\nLowercase letters: a to z → ASCII 97 to 122\nDigits: 0 to 9 → ASCII 48 to 57\nOther characters: anything outside the above ranges including spaces, punctuation, symbols"]
                 },
                 {
-                  title: "Pointer Traversal of a String",
-                  body: ["Declaring char *p = s makes p point to the first character of string s. Using *p you read the current character. Using p++ you move to the next character. The loop continues while *p is not \\0."]
+                  "title": "Pointer Traversal of a String",
+                  "body": ["![Pointer visualization](pointer-string.webp)","Declaring char *p = s makes p point to the first character of string s. Using *p you read the current character. Using p++ you move to the next character. The loop continues while *p is not \\0."]
                 },
                 {
-                  title: "Character Comparison in C",
-                  body: ["You can directly compare characters using relational operators. *p >= 'A' && *p <= 'Z' checks if the current character is an uppercase letter. C compares the ASCII values behind the scenes."]
+                  "title": "Character Comparison in C",
+                  "body": ["You can directly compare characters using relational operators. *p >= 'A' && *p <= 'Z' checks if the current character is an uppercase letter. C compares the ASCII values behind the scenes."]
                 },
                 {
-                  title: "Why Pointer Instead of Index",
-                  body: ["Using an index variable i and s[i] is equivalent but pointer traversal is more idiomatic C. It demonstrates that strings are just memory sequences and pointers are the natural way to navigate them."]
+                  "title": "Why Pointer Instead of Index",
+                  "body": ["Using an index variable i and s[i] is equivalent but pointer traversal is more idiomatic C. It demonstrates that strings are just memory sequences and pointers are the natural way to navigate them."]
                 },
                 {
-                  title: "Counting Logic",
-                  body: ["Four integer counters upper lower digit other are initialized to zero. In each loop iteration exactly one counter is incremented based on which range the current character falls into. After the loop all four are printed."]
+                  "title": "Counting Logic",
+                  "body": ["Four integer counters upper lower digit other are initialized to zero. In each loop iteration exactly one counter is incremented based on which range the current character falls into. After the loop all four are printed."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read Theory and memorize the four ASCII ranges for classification",
                 "Write the input \"Hello123!\" on paper and manually classify each character",
                 "Count: Upper=1, Lower=4, Digit=3, Other=1 — verify your manual count",
@@ -5432,28 +5428,28 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Verify output: Upper=1 Lower=4 Digit=3 Other=1",
                 "Try with all digits: 9876 and verify Upper=0 Lower=0 Digit=4 Other=0. Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    char str[] = \"Hi9!\";\n    char *p = str;\n    int upper = 0, lower = 0, digit = 0, other = 0;\n    while (*p != '\\0') {\n        if (*p >= 'A' && *p <= 'Z') upper++;\n        else if (*p >= 'a' && *p <= 'z') lower++;\n        else if (*p >= '0' && *p <= '9') digit++;\n        else other++;\n        p++;\n    }\n    printf(\"Upper=%d Lower=%d Digit=%d Other=%d\\n\", upper, lower, digit, other);\n    return 0;\n}",
-                steps: [
-                  { line: 4, annotation: "p initialized, counters all zero", memory: [{ variable: "upper", type: "int", value: "0" }, { variable: "lower", type: "int", value: "0" }, { variable: "digit", type: "int", value: "0" }, { variable: "other", type: "int", value: "0" }], output: "" },
-                  { line: 7, annotation: "*p = H, ASCII 72 (uppercase)", memory: [], output: "" },
-                  { line: 8, annotation: "upper++", memory: [{ variable: "upper", type: "int", value: "1" }], output: "" },
-                  { line: 12, annotation: "p++ moves to i", memory: [], output: "" },
-                  { line: 7, annotation: "*p = i, ASCII 105 (lowercase)", memory: [], output: "" },
-                  { line: 9, annotation: "lower++", memory: [{ variable: "lower", type: "int", value: "1" }], output: "" },
-                  { line: 12, annotation: "p++ moves to 9", memory: [], output: "" },
-                  { line: 7, annotation: "*p = 9, ASCII 57 (digit)", memory: [], output: "" },
-                  { line: 10, annotation: "digit++", memory: [{ variable: "digit", type: "int", value: "1" }], output: "" },
-                  { line: 12, annotation: "p++ moves to !", memory: [], output: "" },
-                  { line: 7, annotation: "*p = !, ASCII 33 (other)", memory: [], output: "" },
-                  { line: 11, annotation: "other++", memory: [{ variable: "other", type: "int", value: "1" }], output: "" },
-                  { line: 12, annotation: "p++ moves to \\0", memory: [], output: "" },
-                  { line: 7, annotation: "*p = \\0, loop exits", memory: [], output: "" },
-                  { line: 14, annotation: "printf executes", memory: [], output: "Upper=1 Lower=1 Digit=1 Other=1\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    char str[] = \"Hi9!\";\n    char *p = str;\n    int upper = 0, lower = 0, digit = 0, other = 0;\n    while (*p != '\\0') {\n        if (*p >= 'A' && *p <= 'Z') upper++;\n        else if (*p >= 'a' && *p <= 'z') lower++;\n        else if (*p >= '0' && *p <= '9') digit++;\n        else other++;\n        p++;\n    }\n    printf(\"Upper=%d Lower=%d Digit=%d Other=%d\\n\", upper, lower, digit, other);\n    return 0;\n}",
+                "steps": [
+                  { "line": 4, "annotation": "p initialized, counters all zero", "memory": [{ "variable": "upper", "type": "int", "value": "0" }, { "variable": "lower", "type": "int", "value": "0" }, { "variable": "digit", "type": "int", "value": "0" }, { "variable": "other", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 7, "annotation": "*p = H, ASCII 72 (uppercase)", "memory": [], "output": "" },
+                  { "line": 8, "annotation": "upper++", "memory": [{ "variable": "upper", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 12, "annotation": "p++ moves to i", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "*p = i, ASCII 105 (lowercase)", "memory": [], "output": "" },
+                  { "line": 9, "annotation": "lower++", "memory": [{ "variable": "lower", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 12, "annotation": "p++ moves to 9", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "*p = 9, ASCII 57 (digit)", "memory": [], "output": "" },
+                  { "line": 10, "annotation": "digit++", "memory": [{ "variable": "digit", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 12, "annotation": "p++ moves to !", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "*p = !, ASCII 33 (other)", "memory": [], "output": "" },
+                  { "line": 11, "annotation": "other++", "memory": [{ "variable": "other", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 12, "annotation": "p++ moves to \\0", "memory": [], "output": "" },
+                  { "line": 7, "annotation": "*p = \\0, loop exits", "memory": [], "output": "" },
+                  { "line": 14, "annotation": "printf executes", "memory": [], "output": "Upper=1 Lower=1 Digit=1 Other=1\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan B.W. and Ritchie D.M., The C Programming Language, 2nd Edition, Prentice Hall",
                 "Balagurusamy E., Programming in ANSI C, 8th Edition, McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Department, Week 13",
@@ -5461,23 +5457,23 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
               ]
             }
           }
-        ],
+        ]
       },
       {
-        title: "WEEK 14",
-        objective: "File I/O, text and binary files, command-line args",
-        tutorial: "Tutorial 14: File Handling",
-        labTitle: "Lab 14: File operations",
-        experiments: [
+        "title": "WEEK 14",
+        "objective": "File I/O, text and binary files, command-line args",
+        "tutorial": "Tutorial 14: File Handling",
+        "labTitle": "Lab 14: File operations",
+        "experiments": [
           {
-            id: "c-w14-1",
-            title: "Write and Read Text File",
-            desc: "Simulate writing to and reading from a text file.",
-            expected: "Read: [input text]",
-            content: {
-              aim: {
-                text: "In this experiment the student will learn how to perform basic file operations in C using the FILE pointer, fopen(), fprintf(), fgets(), and fclose() functions. The student will write user input into a text file and then read it back and display it on screen. The student will:",
-                bullets: [
+            "id": "c-w14-1",
+            "title": "Write and Read Text File",
+            "desc": "Simulate writing to and reading from a text file.",
+            "expected": "Read: [input text]",
+            "content": {
+              "aim": {
+                "text": "This experiment introduces file I/O in C using the FILE pointer and the fopen/fprintf/fgets/fclose functions. Students will open a file in write mode (\"w\") using fopen(), write a user-supplied string to it with fprintf(), close the file with fclose() to flush the buffer and release the file handle, reopen the same file in read mode (\"r\"), read the content back using fgets(), close it again, and display the retrieved text on screen. The experiment establishes the complete open–write–close–open–read–close lifecycle that underpins all persistent data storage in C, and explains the consequences of skipping fclose() (data loss through unflushed buffers) and forgetting to check for NULL return from fopen() (crash on invalid path).",
+                "bullets": [
                   "Understand the FILE structure and file pointer in C",
                   "Open a file in write mode using fopen()",
                   "Write text to the file using fprintf()",
@@ -5485,38 +5481,38 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Read content back using fgets() and display it"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "What is a File in C?",
-                  body: ["A file is a named storage location on disk. Unlike variables which live in RAM and disappear when the program ends, files persist data permanently. C provides standard library functions for file operations through the stdio.h header."]
+                  "title": "What is a File in C?",
+                  "body": ["A file is a named storage location on disk. Unlike variables which live in RAM and disappear when the program ends, files persist data permanently. C provides standard library functions for file operations through the stdio.h header."]
                 },
                 {
-                  title: "FILE Pointer",
-                  body: ["FILE is a structure defined in stdio.h that holds all information about an open file. You always use a pointer to FILE: FILE *f. This pointer is returned by fopen() and used in all subsequent file operations."]
+                  "title": "FILE Pointer",
+                  "body": ["FILE is a structure defined in stdio.h that holds all information about an open file. You always use a pointer to FILE: FILE *f. This pointer is returned by fopen() and used in all subsequent file operations."]
                 },
                 {
-                  title: "fopen() — Opening a File",
-                  body: ["fopen(filename, mode) opens a file and returns a FILE pointer.\nCommon modes:\n\"w\" : Write — creates file or overwrites existing\n\"r\" : Read — opens existing file for reading\n\"a\" : Append — adds to end of existing file\n\"rb\" : Read binary\n\"wb\" : Write binary\nAlways check if fopen returned NULL — NULL means the file could not be opened."]
+                  "title": "fopen() — Opening a File",
+                  "body": ["fopen(filename, mode) opens a file and returns a FILE pointer.\nCommon modes:\n\"w\" : Write — creates file or overwrites existing\n\"r\" : Read — opens existing file for reading\n\"a\" : Append — adds to end of existing file\n\"rb\" : Read binary\n\"wb\" : Write binary\nAlways check if fopen returned NULL — NULL means the file could not be opened."]
                 },
                 {
-                  title: "fprintf() — Writing to File",
-                  body: ["Works exactly like printf() but writes to a file instead of screen. First argument is the FILE pointer."]
+                  "title": "fprintf() — Writing to File",
+                  "body": ["Works exactly like printf() but writes to a file instead of screen. First argument is the FILE pointer."]
                 },
                 {
-                  title: "fgets() — Reading from File",
-                  body: ["fgets(buffer, size, filepointer) reads one line from the file into buffer. Stops at newline or size-1 characters. Returns NULL at end of file."]
+                  "title": "fgets() — Reading from File",
+                  "body": ["fgets(buffer, size, filepointer) reads one line from the file into buffer. Stops at newline or size-1 characters. Returns NULL at end of file."]
                 },
                 {
-                  title: "fclose() — Closing a File",
-                  body: ["Always close files after use with fclose(). This flushes the write buffer to disk and releases the file handle. Not closing a file can cause data loss or corruption."]
+                  "title": "fclose() — Closing a File",
+                  "body": ["Always close files after use with fclose(). This flushes the write buffer to disk and releases the file handle. Not closing a file can cause data loss or corruption."]
                 },
                 {
-                  title: "Text File vs Binary File",
-                  body: ["Text files store data as human-readable ASCII characters. Binary files store raw bytes. For this experiment we use text mode."]
+                  "title": "Text File vs Binary File",
+                  "body": ["Text files store data as human-readable ASCII characters. Binary files store raw bytes. For this experiment we use text mode."]
                 }
               ],
-              pretest:[],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read Theory and understand the file operation sequence — open write close open read close",
                 "Note that you must close the file before reopening it in a different mode",
                 "Go to Simulation tab and observe the file being created on disk step by step",
@@ -5528,21 +5524,21 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Verify output: Read: Hello JNTUGV",
                 "Try with longer sentences and verify they are written and read back correctly. Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    FILE *f;\n    char text[100] = \"Hello JNTUGV\";\n    f = fopen(\"test.txt\", \"w\");\n    fprintf(f, \"%s\", text);\n    fclose(f);\n    \n    f = fopen(\"test.txt\", \"r\");\n    fgets(text, 100, f);\n    fclose(f);\n    printf(\"Read: %s\\n\", text);\n    return 0;\n}",
-                steps: [
-                  { line: 5, annotation: "Input stored in memory", memory: [{ variable: "text", type: "char[]", value: "\"Hello JNTUGV\"" }], output: "" },
-                  { line: 6, annotation: "fopen(\"test.txt\", \"w\") called", memory: [{ variable: "f", type: "FILE*", value: "file pointer" }], output: "" },
-                  { line: 7, annotation: "fprintf writes to test.txt", memory: [], output: "" },
-                  { line: 8, annotation: "fclose(f) called. Buffer flushed", memory: [], output: "" },
-                  { line: 10, annotation: "fopen(\"test.txt\", \"r\") called", memory: [{ variable: "f", type: "FILE*", value: "file pointer" }], output: "" },
-                  { line: 11, annotation: "fgets reads content into text[]", memory: [], output: "" },
-                  { line: 12, annotation: "fclose(f) called", memory: [], output: "" },
-                  { line: 13, annotation: "printf executes", memory: [], output: "Read: Hello JNTUGV\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    FILE *f;\n    char text[100] = \"Hello JNTUGV\";\n    f = fopen(\"test.txt\", \"w\");\n    fprintf(f, \"%s\", text);\n    fclose(f);\n    \n    f = fopen(\"test.txt\", \"r\");\n    fgets(text, 100, f);\n    fclose(f);\n    printf(\"Read: %s\\n\", text);\n    return 0;\n}",
+                "steps": [
+                  { "line": 5, "annotation": "Input stored in memory", "memory": [{ "variable": "text", "type": "char[]", "value": "\"Hello JNTUGV\"" }], "output": "" },
+                  { "line": 6, "annotation": "fopen(\"test.txt\", \"w\") called", "memory": [{ "variable": "f", "type": "FILE*", "value": "file pointer" }], "output": "" },
+                  { "line": 7, "annotation": "fprintf writes to test.txt", "memory": [], "output": "" },
+                  { "line": 8, "annotation": "fclose(f) called. Buffer flushed", "memory": [], "output": "" },
+                  { "line": 10, "annotation": "fopen(\"test.txt\", \"r\") called", "memory": [{ "variable": "f", "type": "FILE*", "value": "file pointer" }], "output": "" },
+                  { "line": 11, "annotation": "fgets reads content into text[]", "memory": [], "output": "" },
+                  { "line": 12, "annotation": "fclose(f) called", "memory": [], "output": "" },
+                  { "line": 13, "annotation": "printf executes", "memory": [], "output": "Read: Hello JNTUGV\n" }
                 ]
               },
-              posttest: [],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan B.W. and Ritchie D.M., The C Programming Language, 2nd Edition, Prentice Hall",
                 "Balagurusamy E., Programming in ANSI C, 8th Edition, McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Department, Week 14",
@@ -5551,14 +5547,14 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
             }
           },
           {
-            id: "c-w14-2",
-            title: "Count Lines Words Characters",
-            desc: "Read a file and output the count of lines, words, and characters.",
-            expected: "Lines=X Words=X Chars=X",
-            content: {
-              aim: {
-                text: "In this experiment the student will write text to a file and then read it back character by character using fgetc() to count the total number of lines, words, and characters. The student will understand how to detect word boundaries using space and newline characters and how fgetc() returns EOF at end of file. The student will:",
-                bullets: [
+            "id": "c-w14-2",
+            "title": "Count Lines Words Characters",
+            "desc": "Read a file and output the count of lines, words, and characters.",
+            "expected": "Lines=X Words=X Chars=X",
+            "content": {
+              "aim": {
+                "text": "This experiment implements a file analysis tool that mirrors the behaviour of the Unix wc command by counting the number of lines, words, and characters in a text file. Students will write sample text to a file, then read it back one character at a time using fgetc(), detecting EOF as the loop termination condition. Lines are counted by detecting '\\n' characters; words are counted by tracking transitions from whitespace to non-whitespace using a previous-character variable; characters are counted for every byte read. The experiment deepens understanding of fgetc()'s int return type (required to represent EOF = -1), the character-by-character file traversal pattern, and how simple state tracking with a single previous-character variable is sufficient to detect word boundaries.",
+                "bullets": [
                   "Write multi-line text to a file using fprintf()",
                   "Read the file character by character using fgetc()",
                   "Count lines by detecting newline characters",
@@ -5567,34 +5563,34 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                   "Display all three counts as formatted output"
                 ]
               },
-              theory: [
+              "theory": [
                 {
-                  title: "fgetc() — Reading One Character at a Time",
-                  body: ["fgetc(filepointer) reads one character from the file and advances the file position. Returns the character as an int. Returns EOF (End Of File) which is -1 when there are no more characters to read. This is why the return type is int not char — to accommodate EOF which is outside the char range."]
+                  "title": "fgetc() — Reading One Character at a Time",
+                  "body": ["fgetc(filepointer) reads one character from the file and advances the file position. Returns the character as an int. Returns EOF (End Of File) which is -1 when there are no more characters to read. This is why the return type is int not char — to accommodate EOF which is outside the char range."]
                 },
                 {
-                  title: "EOF Detection",
-                  body: ["The while loop condition while((c = fgetc(f)) != EOF) reads one character into c and continues as long as c is not EOF. This is the standard idiomatic pattern for reading files character by character in C."]
+                  "title": "EOF Detection",
+                  "body": ["The while loop condition while((c = fgetc(f)) != EOF) reads one character into c and continues as long as c is not EOF. This is the standard idiomatic pattern for reading files character by character in C."]
                 },
                 {
-                  title: "Counting Lines",
-                  body: ["Every time a newline character \\n is encountered increment the lines counter. If the file has content after the last newline an additional count may be needed. For simplicity we add 1 to lines if the file is non-empty to count the last line."]
+                  "title": "Counting Lines",
+                  "body": ["Every time a newline character \\n is encountered increment the lines counter. If the file has content after the last newline an additional count may be needed. For simplicity we add 1 to lines if the file is non-empty to count the last line."]
                 },
                 {
-                  title: "Counting Words",
-                  body: ["A word starts when a non-whitespace character follows a whitespace character or the beginning of file. Track the previous character as prev. When current character is not space or newline AND previous character was space or newline increment word counter."]
+                  "title": "Counting Words",
+                  "body": ["A word starts when a non-whitespace character follows a whitespace character or the beginning of file. Track the previous character as prev. When current character is not space or newline AND previous character was space or newline increment word counter."]
                 },
                 {
-                  title: "Counting Characters",
-                  body: ["Increment character counter for every character read including spaces and newlines. This gives total raw character count."]
+                  "title": "Counting Characters",
+                  "body": ["Increment character counter for every character read including spaces and newlines. This gives total raw character count."]
                 },
                 {
-                  title: "Difference from wc Command",
-                  body: ["This program mirrors the behavior of the Unix wc command which is used to count lines words and characters in files."]
+                  "title": "Difference from wc Command",
+                  "body": ["This program mirrors the behavior of the Unix wc command which is used to count lines words and characters in files."]
                 }
               ],
-              pretest: [],
-              procedure: [
+              "pretest": [],
+              "procedure": [
                 "Read Theory and understand how word detection works using the prev character technique",
                 "Write on paper: \"Hi JNTU\\nBye\\n\" and manually count lines=2, words=3, chars=13",
                 "Trace the loop character by character and verify your counts",
@@ -5609,23 +5605,23 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
                 "Verify output shows correct Lines Words Chars counts",
                 "Try multi-word input and recount manually to verify. Proceed to Posttest"
               ],
-              simulation: {
-                code: "#include <stdio.h>\n\nint main() {\n    FILE *f = fopen(\"temp.txt\", \"w\");\n    fprintf(f, \"Hi Bye\");\n    fclose(f);\n    \n    f = fopen(\"temp.txt\", \"r\");\n    int c, chars = 0, words = 0, lines = 0, prev = ' ';\n    while ((c = fgetc(f)) != EOF) {\n        chars++;\n        if (c == '\\n') lines++;\n        if (c != ' ' && c != '\\n' && (prev == ' ' || prev == '\\n')) words++;\n        prev = c;\n    }\n    if (chars > 0 && prev != '\\n') lines++;\n    fclose(f);\n    printf(\"Lines=%d Words=%d Chars=%d\\n\", lines, words, chars);\n    return 0;\n}",
-                steps: [
-                  { line: 5, annotation: "File written and closed", memory: [], output: "" },
-                  { line: 8, annotation: "File opened in read mode", memory: [], output: "" },
-                  { line: 9, annotation: "Ready to read", memory: [{ variable: "chars", type: "int", value: "0" }, { variable: "words", type: "int", value: "0" }, { variable: "lines", type: "int", value: "0" }], output: "" },
-                  { line: 10, annotation: "Read 'H'", memory: [{ variable: "chars", type: "int", value: "1" }, { variable: "words", type: "int", value: "1" }], output: "" },
-                  { line: 10, annotation: "Read 'i'", memory: [{ variable: "chars", type: "int", value: "2" }, { variable: "words", type: "int", value: "1" }], output: "" },
-                  { line: 10, annotation: "Read space", memory: [{ variable: "chars", type: "int", value: "3" }, { variable: "words", type: "int", value: "1" }], output: "" },
-                  { line: 10, annotation: "Read 'B'", memory: [{ variable: "chars", type: "int", value: "4" }, { variable: "words", type: "int", value: "2" }], output: "" },
-                  { line: 10, annotation: "Read 'y' and 'e'", memory: [{ variable: "chars", type: "int", value: "6" }, { variable: "words", type: "int", value: "2" }], output: "" },
-                  { line: 16, annotation: "fgetc returns EOF, loop exits", memory: [{ variable: "lines", type: "int", value: "1" }], output: "" },
-                  { line: 18, annotation: "printf executes", memory: [], output: "Lines=1 Words=2 Chars=6\n" }
+              "simulation": {
+                "code": "#include <stdio.h>\n\nint main() {\n    FILE *f = fopen(\"temp.txt\", \"w\");\n    fprintf(f, \"Hi Bye\");\n    fclose(f);\n    \n    f = fopen(\"temp.txt\", \"r\");\n    int c, chars = 0, words = 0, lines = 0, prev = ' ';\n    while ((c = fgetc(f)) != EOF) {\n        chars++;\n        if (c == '\\n') lines++;\n        if (c != ' ' && c != '\\n' && (prev == ' ' || prev == '\\n')) words++;\n        prev = c;\n    }\n    if (chars > 0 && prev != '\\n') lines++;\n    fclose(f);\n    printf(\"Lines=%d Words=%d Chars=%d\\n\", lines, words, chars);\n    return 0;\n}",
+                "steps": [
+                  { "line": 5, "annotation": "File written and closed", "memory": [], "output": "" },
+                  { "line": 8, "annotation": "File opened in read mode", "memory": [], "output": "" },
+                  { "line": 9, "annotation": "Ready to read", "memory": [{ "variable": "chars", "type": "int", "value": "0" }, { "variable": "words", "type": "int", "value": "0" }, { "variable": "lines", "type": "int", "value": "0" }], "output": "" },
+                  { "line": 10, "annotation": "Read 'H'", "memory": [{ "variable": "chars", "type": "int", "value": "1" }, { "variable": "words", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "Read 'i'", "memory": [{ "variable": "chars", "type": "int", "value": "2" }, { "variable": "words", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "Read space", "memory": [{ "variable": "chars", "type": "int", "value": "3" }, { "variable": "words", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 10, "annotation": "Read 'B'", "memory": [{ "variable": "chars", "type": "int", "value": "4" }, { "variable": "words", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 10, "annotation": "Read 'y' and 'e'", "memory": [{ "variable": "chars", "type": "int", "value": "6" }, { "variable": "words", "type": "int", "value": "2" }], "output": "" },
+                  { "line": 16, "annotation": "fgetc returns EOF, loop exits", "memory": [{ "variable": "lines", "type": "int", "value": "1" }], "output": "" },
+                  { "line": 18, "annotation": "printf executes", "memory": [], "output": "Lines=1 Words=2 Chars=6\n" }
                 ]
               },
-              posttest:[],
-              references: [
+              "posttest": [],
+              "references": [
                 "Kernighan B.W. and Ritchie D.M., The C Programming Language, 2nd Edition, Prentice Hall",
                 "Balagurusamy E., Programming in ANSI C, 8th Edition, McGraw Hill",
                 "JNTUGV C Programming Lab Syllabus, BS&HSS Department, Week 14",
@@ -5634,9 +5630,9 @@ Reversing a string is exactly like reversing an array of numbers. You swap the f
               ]
             }
           }
-        ],
-      },
-    ],
+        ]
+      }
+    ]
   },
   "python": pythonCourse,
   "dbms": dbmsCourse,
