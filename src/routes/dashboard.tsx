@@ -5,6 +5,8 @@ import { LearningJourney } from "@/components/LearningJourney";
 import { HeroAnimation } from "@/components/HeroAnimation";
 import { branches, metrics, runtimes } from "@/lib/lab-data";
 
+import { CourseCarousel } from "@/components/CourseCarousel";
+
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
@@ -61,7 +63,10 @@ function Dashboard() {
         </div>
       </section>
 
-
+      {/* Course Carousel Section */}
+      <section className="px-6 lg:px-10 py-6 border-b border-border bg-slate-500/5 backdrop-blur-sm">
+        <CourseCarousel />
+      </section>
 
       <LearningJourney />
 
