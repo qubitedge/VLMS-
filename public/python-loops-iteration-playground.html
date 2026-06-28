@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python Loops & Iteration Playground</title>
+<meta name="description" content="An interactive Python coding playground for learning loops, iteration, break, continue, and for-else constructs through step-by-step execution visualization.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#ffffff;--card:#f8f9fc;--card-border:#e8ecf4;
+    --accent-1:#6366f1;--accent-2:#8b5cf6;--accent-3:#a78bfa;
+    --accent-gradient:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#a78bfa 100%);
+    --code-bg:#1e1e2e;--code-text:#cdd6f4;
+    --text-primary:#1e293b;--text-secondary:#64748b;--text-muted:#94a3b8;
+    --success:#22c55e;--warning:#f59e0b;--error:#ef4444;--info:#3b82f6;
+    --line-highlight:rgba(99,102,241,0.12);
+    --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg:0 8px 32px rgba(0,0,0,0.1);
+    --radius:14px;--radius-sm:10px;--radius-xs:6px;
+    --font-body:'Inter',sans-serif;--font-code:'JetBrains Mono',monospace;
+    --transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);background:var(--bg);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+
+  /* ─── HEADER ─── */
+  .hero{
+    background:var(--accent-gradient);
+    padding:52px 24px 48px;text-align:center;color:#fff;
+    position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 20%,rgba(255,255,255,0.15) 0%,transparent 60%),
+               radial-gradient(circle at 80% 80%,rgba(139,92,246,0.3) 0%,transparent 50%);
+  }
+  .hero h1{font-size:2.4rem;font-weight:800;letter-spacing:-0.5px;position:relative;z-index:1}
+  .hero p{font-size:1.05rem;opacity:.88;margin-top:8px;position:relative;z-index:1;max-width:600px;margin-left:auto;margin-right:auto}
+  .hero .badge-row{display:flex;justify-content:center;gap:10px;margin-top:18px;flex-wrap:wrap;position:relative;z-index:1}
+  .hero .badge{
+    background:rgba(255,255,255,0.18);backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.22);border-radius:20px;
+    padding:5px 14px;font-size:.78rem;font-weight:600;letter-spacing:.3px;
+  }
+
+  /* ─── NAVIGATION ─── */
+  .step-nav{
+    position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--card-border);
+    padding:10px 24px;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
+  }
+  .step-nav a{
+    text-decoration:none;font-size:.8rem;font-weight:600;
+    padding:7px 16px;border-radius:20px;color:var(--text-secondary);
+    border:1px solid transparent;transition:var(--transition);
+  }
+  .step-nav a:hover,.step-nav a.active{
+    color:var(--accent-1);background:rgba(99,102,241,0.08);
+    border-color:rgba(99,102,241,0.2);
+  }
+
+  /* ─── CONTAINER ─── */
+  .container{max-width:1060px;margin:0 auto;padding:24px 20px 80px}
+
+  /* ─── SECTION / CARD ─── */
+  .step-section{margin-bottom:48px;scroll-margin-top:64px}
+  .step-header{
+    display:flex;align-items:center;gap:14px;margin-bottom:18px;
+  }
+  .step-number{
+    width:40px;height:40px;border-radius:12px;
+    background:var(--accent-gradient);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:1rem;flex-shrink:0;
+  }
+  .step-header h2{font-size:1.25rem;font-weight:700;color:var(--text-primary)}
+  .step-goal{
+    font-size:.88rem;color:var(--text-secondary);margin-bottom:16px;
+    padding-left:54px;
+  }
+
+  .card{
+    background:var(--card);border:1px solid var(--card-border);
+    border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow-sm);transition:var(--transition);
+  }
+  .card:hover{box-shadow:var(--shadow-md)}
+
+  /* ─── CODE BLOCK ─── */
+  .code-area{
+    background:var(--code-bg);border-radius:var(--radius-sm);
+    overflow:hidden;font-family:var(--font-code);font-size:.84rem;
+  }
+  .code-area .toolbar{
+    display:flex;align-items:center;gap:6px;padding:10px 14px;
+    background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .code-area .toolbar .dot{width:10px;height:10px;border-radius:50%}
+  .code-area .toolbar .dot.r{background:#ff5f57}
+  .code-area .toolbar .dot.y{background:#febc2e}
+  .code-area .toolbar .dot.g{background:#28c840}
+  .code-area .toolbar .title{
+    flex:1;text-align:center;font-size:.72rem;color:rgba(255,255,255,0.4);
+    font-family:var(--font-body);font-weight:500;letter-spacing:.5px;
+  }
+  .code-lines{padding:14px 0}
+  .code-line{
+    display:flex;padding:2px 16px;transition:background .2s;
+    line-height:1.7;min-height:1.7em;
+  }
+  .code-line.highlight{background:var(--line-highlight)}
+  .code-line.break-line{background:rgba(239,68,68,0.12)}
+  .code-line.continue-line{background:rgba(251,191,36,0.12)}
+  .code-line .ln{
+    width:30px;text-align:right;color:rgba(255,255,255,0.2);
+    margin-right:16px;user-select:none;flex-shrink:0;font-size:.78rem;
+  }
+  .code-line .code{color:var(--code-text);white-space:pre}
+  /* syntax colors */
+  .kw{color:#cba6f7} .fn{color:#89b4fa} .str{color:#a6e3a1}
+  .num{color:#fab387} .cm{color:#6c7086;font-style:italic}
+  .op{color:#89dceb} .var{color:#f5c2e7} .bi{color:#74c7ec}
+
+  /* ─── PANELS GRID ─── */
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  @media(max-width:640px){.panels{grid-template-columns:1fr}}
+
+  .panel{
+    background:var(--card);border:1px solid var(--card-border);
+    border-radius:var(--radius-sm);overflow:hidden;
+  }
+  .panel-head{
+    font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;
+    padding:10px 14px;color:var(--text-muted);
+    border-bottom:1px solid var(--card-border);
+    display:flex;align-items:center;gap:6px;
+  }
+  .panel-head .icon{font-size:.9rem}
+  .panel-body{padding:12px 14px;font-family:var(--font-code);font-size:.82rem;min-height:60px}
+  .panel-body .mem-var{
+    display:flex;justify-content:space-between;padding:4px 0;
+    border-bottom:1px solid rgba(0,0,0,0.04);
+  }
+  .panel-body .mem-var:last-child{border:none}
+  .panel-body .mem-var .name{color:var(--accent-1);font-weight:600}
+  .panel-body .mem-var .val{
+    color:var(--text-primary);font-weight:500;
+    background:rgba(99,102,241,0.08);padding:1px 8px;border-radius:4px;
+  }
+  .panel-body .val.updated{animation:pulse-val .5s}
+  @keyframes pulse-val{
+    0%{background:rgba(34,197,94,0.25);transform:scale(1.05)}
+    100%{background:rgba(99,102,241,0.08);transform:scale(1)}
+  }
+
+  .output-line{color:var(--text-primary);line-height:1.6}
+
+  .iter-badge{
+    display:inline-flex;align-items:center;gap:5px;
+    background:var(--accent-gradient);color:#fff;
+    padding:4px 12px;border-radius:16px;font-size:.76rem;font-weight:700;
+    font-family:var(--font-body);
+  }
+
+  /* ─── CONTROLS ─── */
+  .controls{
+    display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;align-items:center;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:9px 18px;border-radius:var(--radius-xs);border:none;
+    font-family:var(--font-body);font-size:.82rem;font-weight:600;
+    cursor:pointer;transition:var(--transition);
+  }
+  .btn:active{transform:scale(0.96)}
+  .btn-primary{background:var(--accent-gradient);color:#fff}
+  .btn-primary:hover{box-shadow:0 4px 16px rgba(99,102,241,0.35)}
+  .btn-secondary{background:rgba(99,102,241,0.08);color:var(--accent-1);border:1px solid rgba(99,102,241,0.15)}
+  .btn-secondary:hover{background:rgba(99,102,241,0.14)}
+  .btn-danger{background:rgba(239,68,68,0.08);color:var(--error);border:1px solid rgba(239,68,68,0.15)}
+  .btn-danger:hover{background:rgba(239,68,68,0.14)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
+
+  /* ─── STATUS MESSAGE ─── */
+  .status-msg{
+    margin-top:12px;padding:10px 16px;border-radius:var(--radius-xs);
+    font-size:.84rem;font-weight:600;display:none;
+    animation:fade-in .3s;
+  }
+  .status-msg.show{display:flex;align-items:center;gap:8px}
+  .status-msg.success{background:rgba(34,197,94,0.1);color:#16a34a;border:1px solid rgba(34,197,94,0.2)}
+  .status-msg.warn{background:rgba(245,158,11,0.1);color:#d97706;border:1px solid rgba(245,158,11,0.2)}
+  .status-msg.error{background:rgba(239,68,68,0.1);color:#dc2626;border:1px solid rgba(239,68,68,0.2)}
+  .status-msg.info{background:rgba(59,130,246,0.1);color:#2563eb;border:1px solid rgba(59,130,246,0.2)}
+  @keyframes fade-in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ─── INPUT FIELDS ─── */
+  .input-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .input-group label{font-size:.82rem;font-weight:600;color:var(--text-secondary)}
+  .input-field{
+    width:64px;padding:7px 10px;border-radius:var(--radius-xs);
+    border:1.5px solid var(--card-border);font-family:var(--font-code);
+    font-size:.88rem;text-align:center;transition:var(--transition);
+    background:var(--bg);
+  }
+  .input-field:focus{outline:none;border-color:var(--accent-1);box-shadow:0 0 0 3px rgba(99,102,241,0.12)}
+  .input-field.wide{width:80px}
+
+  /* ─── STRING POINTER ─── */
+  .string-visual{
+    display:flex;gap:4px;margin:14px 0;justify-content:center;flex-wrap:wrap;
+  }
+  .char-box{
+    width:44px;height:50px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;border-radius:8px;
+    border:2px solid var(--card-border);font-family:var(--font-code);
+    font-size:1.1rem;font-weight:700;transition:var(--transition);
+    position:relative;background:var(--bg);
+  }
+  .char-box.active{
+    border-color:var(--accent-1);background:rgba(99,102,241,0.08);
+    transform:translateY(-4px);box-shadow:0 4px 12px rgba(99,102,241,0.2);
+  }
+  .char-box.done{border-color:var(--success);background:rgba(34,197,94,0.06);color:var(--success)}
+  .char-box .idx{
+    position:absolute;bottom:-18px;font-size:.62rem;color:var(--text-muted);font-weight:500;
+  }
+
+  /* ─── CONDITION BADGE ─── */
+  .condition-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:8px 16px;border-radius:var(--radius-xs);
+    font-family:var(--font-code);font-size:.84rem;font-weight:600;
+    margin-top:10px;transition:var(--transition);
+  }
+  .condition-badge.true{background:rgba(34,197,94,0.1);color:#16a34a;border:1px solid rgba(34,197,94,0.2)}
+  .condition-badge.false{background:rgba(239,68,68,0.1);color:#dc2626;border:1px solid rgba(239,68,68,0.2)}
+
+  /* ─── TABS ─── */
+  .tab-row{display:flex;gap:4px;margin-bottom:14px}
+  .tab-btn{
+    padding:8px 20px;border:1.5px solid var(--card-border);
+    border-radius:var(--radius-xs);background:var(--bg);
+    font-family:var(--font-body);font-size:.82rem;font-weight:600;
+    cursor:pointer;transition:var(--transition);color:var(--text-secondary);
+  }
+  .tab-btn.active{border-color:var(--accent-1);color:var(--accent-1);background:rgba(99,102,241,0.06)}
+  .tab-content{display:none}
+  .tab-content.active{display:block;animation:fade-in .25s}
+
+  /* ─── SEQUENCE PANEL ─── */
+  .seq-panel{
+    display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;
+  }
+  .seq-item{
+    padding:4px 12px;border-radius:6px;font-family:var(--font-code);
+    font-size:.84rem;font-weight:600;background:rgba(99,102,241,0.08);
+    color:var(--accent-1);border:1px solid rgba(99,102,241,0.15);
+    transition:var(--transition);
+  }
+  .seq-item.active{background:var(--accent-1);color:#fff}
+  .seq-item.done{background:rgba(34,197,94,0.08);color:var(--success);border-color:rgba(34,197,94,0.2)}
+
+  /* ─── PLAYGROUND EDITOR ─── */
+  .playground-editor{
+    width:100%;min-height:200px;padding:16px;
+    background:var(--code-bg);color:var(--code-text);
+    font-family:var(--font-code);font-size:.88rem;
+    border:none;border-radius:var(--radius-sm);
+    resize:vertical;line-height:1.7;
+    tab-size:4;
+  }
+  .playground-editor:focus{outline:2px solid var(--accent-1);outline-offset:-2px}
+
+  /* ─── PRIME DIVISOR TABLE ─── */
+  .div-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.82rem}
+  .div-table th{
+    background:rgba(99,102,241,0.06);padding:8px 12px;
+    text-align:left;font-weight:700;color:var(--accent-1);
+    border-bottom:2px solid var(--card-border);
+  }
+  .div-table td{
+    padding:7px 12px;border-bottom:1px solid var(--card-border);
+    font-family:var(--font-code);
+  }
+  .div-table tr.active-row{background:var(--line-highlight)}
+  .div-table tr.break-row{background:rgba(239,68,68,0.08)}
+
+  /* ─── FOOTER ─── */
+  .footer{
+    text-align:center;padding:32px 24px;color:var(--text-muted);
+    font-size:.78rem;border-top:1px solid var(--card-border);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media(max-width:480px){
+    .hero h1{font-size:1.6rem}
+    .step-header h2{font-size:1.05rem}
+    .controls{gap:6px}
+    .btn{padding:7px 12px;font-size:.78rem}
+  }
+
+  /* ─── LAYOUT HELPERS ─── */
+  .layout-split{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:740px){.layout-split{grid-template-columns:1fr}}
+  .full-width{grid-column:1/-1}
+
+  .mb-sm{margin-bottom:8px}
+  .mb-md{margin-bottom:14px}
+  .mt-md{margin-top:14px}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<header class="hero">
+  <h1>🐍 Python Loops &amp; Iteration Playground</h1>
+  <p>Learn by coding — step through loops, watch variables change in real time, and master iteration visually.</p>
+  <div class="badge-row">
+    <span class="badge">🔁 Step-by-Step</span>
+    <span class="badge">💡 Real-Time Feedback</span>
+    <span class="badge">🧠 Memory Tracking</span>
+    <span class="badge">🖥️ Output Console</span>
+  </div>
+</header>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<nav class="step-nav" id="stepNav">
+  <a href="#step1">Step 1 · While</a>
+  <a href="#step2">Step 2 · For + Range</a>
+  <a href="#step3">Step 3 · Strings</a>
+  <a href="#step4">Step 4 · Break &amp; Continue</a>
+  <a href="#step5">Step 5 · Prime Checker</a>
+  <a href="#playground">Playground</a>
+</nav>
+
+<main class="container">
+
+<!-- ╔══════════════════════════════════════════════════════════╗ -->
+<!-- ║  STEP 1 — WHILE LOOP                                    ║ -->
+<!-- ╚══════════════════════════════════════════════════════════╝ -->
+<section class="step-section" id="step1">
+  <div class="step-header"><div class="step-number">1</div><h2>While Loop Execution</h2></div>
+  <p class="step-goal">Understand condition-controlled iteration — the loop body runs while the condition stays <code>True</code>.</p>
+
+  <div class="layout-split">
+    <!-- CODE -->
+    <div>
+      <div class="code-area" id="s1-code"></div>
+      <div class="controls">
+        <button class="btn btn-primary" id="s1-start" onclick="s1Start()">▶ Start</button>
+        <button class="btn btn-secondary" id="s1-next" onclick="s1Next()" disabled>▶ Next Iteration</button>
+        <button class="btn btn-secondary" id="s1-auto" onclick="s1Auto()">⏩ Auto Run</button>
+        <button class="btn btn-danger" id="s1-reset" onclick="s1Reset()">↺ Reset</button>
+      </div>
+      <div class="condition-badge" id="s1-cond" style="display:none"></div>
+      <div class="status-msg" id="s1-status"></div>
+    </div>
+    <!-- PANELS -->
+    <div>
+      <div class="panels" style="grid-template-columns:1fr">
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🧠</span> Memory State</div>
+          <div class="panel-body" id="s1-mem"><span style="color:var(--text-muted)">Press Start to begin</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🔄</span> Iteration Counter</div>
+          <div class="panel-body" id="s1-iter"><span style="color:var(--text-muted)">—</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🖥️</span> Output Console</div>
+          <div class="panel-body" id="s1-out" style="min-height:80px"><span style="color:var(--text-muted)">Waiting…</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════════════════════╗ -->
+<!-- ║  STEP 2 — FOR LOOP + RANGE                              ║ -->
+<!-- ╚══════════════════════════════════════════════════════════╝ -->
+<section class="step-section" id="step2">
+  <div class="step-header"><div class="step-number">2</div><h2>For Loop + Range Explorer</h2></div>
+  <p class="step-goal">Explore <code>range(start, stop, step)</code> — adjust the parameters and instantly see the generated sequence.</p>
+
+  <div class="layout-split">
+    <div>
+      <div class="input-group">
+        <label>start =</label><input class="input-field" id="s2-start" type="number" value="1">
+        <label>stop =</label><input class="input-field" id="s2-stop" type="number" value="10">
+        <label>step =</label><input class="input-field" id="s2-step" type="number" value="2">
+      </div>
+      <div class="code-area" id="s2-code"></div>
+      <div class="controls">
+        <button class="btn btn-primary" id="s2-run" onclick="s2Start()">▶ Start</button>
+        <button class="btn btn-secondary" id="s2-next" onclick="s2Next()" disabled>▶ Next Iteration</button>
+        <button class="btn btn-secondary" id="s2-auto" onclick="s2Auto()">⏩ Auto Run</button>
+        <button class="btn btn-danger" id="s2-reset" onclick="s2Reset()">↺ Reset</button>
+      </div>
+    </div>
+    <div>
+      <div class="panel mb-sm">
+        <div class="panel-head"><span class="icon">📋</span> Generated Sequence</div>
+        <div class="panel-body" id="s2-seq"></div>
+      </div>
+      <div class="panels" style="grid-template-columns:1fr">
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🧠</span> Memory State</div>
+          <div class="panel-body" id="s2-mem"><span style="color:var(--text-muted)">—</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🔄</span> Iteration Counter</div>
+          <div class="panel-body" id="s2-iter"><span style="color:var(--text-muted)">—</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🖥️</span> Output Console</div>
+          <div class="panel-body" id="s2-out" style="min-height:60px"><span style="color:var(--text-muted)">Waiting…</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════════════════════╗ -->
+<!-- ║  STEP 3 — ITERATING THROUGH STRINGS                     ║ -->
+<!-- ╚══════════════════════════════════════════════════════════╝ -->
+<section class="step-section" id="step3">
+  <div class="step-header"><div class="step-number">3</div><h2>Iterating Through Strings</h2></div>
+  <p class="step-goal">Learn sequence-controlled iteration — the loop visits each character in the string one by one.</p>
+
+  <div class="layout-split">
+    <div>
+      <div class="input-group">
+        <label>word =</label><input class="input-field" id="s3-word" type="text" value="PYTHON" style="width:140px;text-transform:uppercase">
+      </div>
+      <div class="string-visual" id="s3-visual"></div>
+      <div class="code-area" id="s3-code"></div>
+      <div class="controls">
+        <button class="btn btn-primary" id="s3-start" onclick="s3Start()">▶ Start</button>
+        <button class="btn btn-secondary" id="s3-next" onclick="s3Next()" disabled>▶ Next Iteration</button>
+        <button class="btn btn-secondary" id="s3-auto" onclick="s3Auto()">⏩ Auto Run</button>
+        <button class="btn btn-danger" id="s3-reset" onclick="s3Reset()">↺ Reset</button>
+      </div>
+      <div class="status-msg" id="s3-status"></div>
+    </div>
+    <div>
+      <div class="panels" style="grid-template-columns:1fr">
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🧠</span> Memory State</div>
+          <div class="panel-body" id="s3-mem"><span style="color:var(--text-muted)">—</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🔄</span> Iteration Counter</div>
+          <div class="panel-body" id="s3-iter"><span style="color:var(--text-muted)">—</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🖥️</span> Output Console</div>
+          <div class="panel-body" id="s3-out" style="min-height:80px"><span style="color:var(--text-muted)">Waiting…</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════════════════════╗ -->
+<!-- ║  STEP 4 — BREAK & CONTINUE                              ║ -->
+<!-- ╚══════════════════════════════════════════════════════════╝ -->
+<section class="step-section" id="step4">
+  <div class="step-header"><div class="step-number">4</div><h2>Break &amp; Continue Playground</h2></div>
+  <p class="step-goal">Observe flow control — <code>break</code> exits the loop; <code>continue</code> skips to the next iteration.</p>
+
+  <div class="tab-row">
+    <button class="tab-btn active" onclick="s4Tab('break')">🛑 break</button>
+    <button class="tab-btn" onclick="s4Tab('continue')">⏭️ continue</button>
+  </div>
+
+  <!-- BREAK TAB -->
+  <div class="tab-content active" id="s4-break-tab">
+    <div class="layout-split">
+      <div>
+        <div class="input-group">
+          <label>Break when i ==</label>
+          <input class="input-field" id="s4b-val" type="number" value="5" min="1" max="10">
+        </div>
+        <div class="code-area" id="s4b-code"></div>
+        <div class="controls">
+          <button class="btn btn-primary" onclick="s4bStart()">▶ Start</button>
+          <button class="btn btn-secondary" id="s4b-next" onclick="s4bNext()" disabled>▶ Next</button>
+          <button class="btn btn-secondary" onclick="s4bAuto()">⏩ Auto Run</button>
+          <button class="btn btn-danger" onclick="s4bReset()">↺ Reset</button>
+        </div>
+        <div class="status-msg" id="s4b-status"></div>
+      </div>
+      <div>
+        <div class="panels" style="grid-template-columns:1fr">
+          <div class="panel"><div class="panel-head"><span class="icon">🧠</span> Memory State</div><div class="panel-body" id="s4b-mem"><span style="color:var(--text-muted)">—</span></div></div>
+          <div class="panel"><div class="panel-head"><span class="icon">🔄</span> Iteration Counter</div><div class="panel-body" id="s4b-iter"><span style="color:var(--text-muted)">—</span></div></div>
+          <div class="panel"><div class="panel-head"><span class="icon">🖥️</span> Output Console</div><div class="panel-body" id="s4b-out" style="min-height:60px"><span style="color:var(--text-muted)">Waiting…</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTINUE TAB -->
+  <div class="tab-content" id="s4-continue-tab">
+    <div class="layout-split">
+      <div>
+        <div class="input-group">
+          <label>Skip when i ==</label>
+          <input class="input-field" id="s4c-val" type="number" value="5" min="1" max="10">
+        </div>
+        <div class="code-area" id="s4c-code"></div>
+        <div class="controls">
+          <button class="btn btn-primary" onclick="s4cStart()">▶ Start</button>
+          <button class="btn btn-secondary" id="s4c-next" onclick="s4cNext()" disabled>▶ Next</button>
+          <button class="btn btn-secondary" onclick="s4cAuto()">⏩ Auto Run</button>
+          <button class="btn btn-danger" onclick="s4cReset()">↺ Reset</button>
+        </div>
+        <div class="status-msg" id="s4c-status"></div>
+      </div>
+      <div>
+        <div class="panels" style="grid-template-columns:1fr">
+          <div class="panel"><div class="panel-head"><span class="icon">🧠</span> Memory State</div><div class="panel-body" id="s4c-mem"><span style="color:var(--text-muted)">—</span></div></div>
+          <div class="panel"><div class="panel-head"><span class="icon">🔄</span> Iteration Counter</div><div class="panel-body" id="s4c-iter"><span style="color:var(--text-muted)">—</span></div></div>
+          <div class="panel"><div class="panel-head"><span class="icon">🖥️</span> Output Console</div><div class="panel-body" id="s4c-out" style="min-height:60px"><span style="color:var(--text-muted)">Waiting…</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════════════════════╗ -->
+<!-- ║  STEP 5 — PRIME CHECKER (FOR-ELSE)                      ║ -->
+<!-- ╚══════════════════════════════════════════════════════════╝ -->
+<section class="step-section" id="step5">
+  <div class="step-header"><div class="step-number">5</div><h2>Prime Number Checker (for-else)</h2></div>
+  <p class="step-goal">Understand loop-else execution — the <code>else</code> block runs only when the loop finishes <em>without</em> hitting <code>break</code>.</p>
+
+  <div class="layout-split">
+    <div>
+      <div class="input-group">
+        <label>num =</label>
+        <input class="input-field wide" id="s5-num" type="number" value="7" min="2" max="1000">
+        <button class="btn btn-secondary" style="padding:7px 12px;font-size:.78rem" onclick="s5Try(7)">Try 7</button>
+        <button class="btn btn-secondary" style="padding:7px 12px;font-size:.78rem" onclick="s5Try(11)">Try 11</button>
+        <button class="btn btn-secondary" style="padding:7px 12px;font-size:.78rem" onclick="s5Try(15)">Try 15</button>
+        <button class="btn btn-secondary" style="padding:7px 12px;font-size:.78rem" onclick="s5Try(21)">Try 21</button>
+      </div>
+      <div class="code-area" id="s5-code"></div>
+      <div class="controls">
+        <button class="btn btn-primary" onclick="s5Start()">▶ Start</button>
+        <button class="btn btn-secondary" id="s5-next" onclick="s5Next()" disabled>▶ Next Step</button>
+        <button class="btn btn-secondary" onclick="s5Auto()">⏩ Auto Run</button>
+        <button class="btn btn-danger" onclick="s5Reset()">↺ Reset</button>
+      </div>
+      <div class="status-msg" id="s5-status"></div>
+    </div>
+    <div>
+      <div class="panel mb-sm">
+        <div class="panel-head"><span class="icon">📊</span> Divisibility Trace</div>
+        <div class="panel-body" id="s5-trace" style="max-height:200px;overflow-y:auto;padding:0">
+          <table class="div-table" id="s5-table">
+            <thead><tr><th>i</th><th>num % i</th><th>Result</th></tr></thead>
+            <tbody id="s5-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panels" style="grid-template-columns:1fr">
+        <div class="panel"><div class="panel-head"><span class="icon">🧠</span> Memory State</div><div class="panel-body" id="s5-mem"><span style="color:var(--text-muted)">—</span></div></div>
+        <div class="panel"><div class="panel-head"><span class="icon">🔄</span> Iteration Counter</div><div class="panel-body" id="s5-iter"><span style="color:var(--text-muted)">—</span></div></div>
+        <div class="panel"><div class="panel-head"><span class="icon">🖥️</span> Output Console</div><div class="panel-body" id="s5-out" style="min-height:50px"><span style="color:var(--text-muted)">Waiting…</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════════════════════╗ -->
+<!-- ║  MINI PLAYGROUND                                         ║ -->
+<!-- ╚══════════════════════════════════════════════════════════╝ -->
+<section class="step-section" id="playground">
+  <div class="step-header"><div class="step-number">✦</div><h2>Mini Playground — Write Your Own Loops</h2></div>
+  <p class="step-goal">Experiment freely — write while loops, for loops, range(), break, continue, and for-else constructs.</p>
+
+  <div class="layout-split">
+    <div>
+      <textarea class="playground-editor" id="pg-editor" spellcheck="false">
+# Try writing your own loops!
+# Examples you can try:
+
+# While loop
+count = 1
+while count <= 5:
+    print(count)
+    count += 1
+</textarea>
+      <div class="controls">
+        <button class="btn btn-primary" onclick="pgRun()">▶ Run Code</button>
+        <button class="btn btn-secondary" onclick="pgStep()">⏯ Step Execution</button>
+        <button class="btn btn-secondary" id="pg-next" onclick="pgNextStep()" disabled>▶ Next Line</button>
+        <button class="btn btn-danger" onclick="pgReset()">↺ Reset</button>
+      </div>
+      <div class="status-msg" id="pg-status"></div>
+    </div>
+    <div>
+      <div class="panels" style="grid-template-columns:1fr">
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🧠</span> Memory State</div>
+          <div class="panel-body" id="pg-mem"><span style="color:var(--text-muted)">—</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🔄</span> Iteration Counter</div>
+          <div class="panel-body" id="pg-iter"><span style="color:var(--text-muted)">—</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="icon">🖥️</span> Output Console</div>
+          <div class="panel-body" id="pg-out" style="min-height:120px"><span style="color:var(--text-muted)">Waiting…</span></div>
+        </div>
+      </div>
+      <div class="panel mt-md">
+        <div class="panel-head"><span class="icon">📌</span> Quick Snippets</div>
+        <div class="panel-body" style="display:flex;flex-wrap:wrap;gap:6px;font-family:var(--font-body)">
+          <button class="btn btn-secondary" style="font-size:.74rem;padding:5px 10px" onclick="pgSnippet('while')">while loop</button>
+          <button class="btn btn-secondary" style="font-size:.74rem;padding:5px 10px" onclick="pgSnippet('for')">for loop</button>
+          <button class="btn btn-secondary" style="font-size:.74rem;padding:5px 10px" onclick="pgSnippet('range')">range()</button>
+          <button class="btn btn-secondary" style="font-size:.74rem;padding:5px 10px" onclick="pgSnippet('break')">break</button>
+          <button class="btn btn-secondary" style="font-size:.74rem;padding:5px 10px" onclick="pgSnippet('continue')">continue</button>
+          <button class="btn btn-secondary" style="font-size:.74rem;padding:5px 10px" onclick="pgSnippet('forelse')">for-else</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Python Loops &amp; Iteration Playground · Interactive Coding Lab · Learn by Doing</p>
+</footer>
+
+<!-- ═══════════════════════ JAVASCRIPT ═══════════════════════ -->
+<script>
+/* ─────────── helpers ─────────── */
+const $=id=>document.getElementById(id);
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function renderCode(containerId,lines,highlightIdx,specialIdx,specialClass){
+  const el=$(containerId);
+  el.innerHTML=`<div class="toolbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">Python 3</span></div><div class="code-lines">${
+    lines.map((l,i)=>{
+      let cls='code-line';
+      if(i===highlightIdx) cls+=' highlight';
+      if(i===specialIdx) cls+=' '+specialClass;
+      return `<div class="${cls}"><span class="ln">${i+1}</span><span class="code">${l}</span></div>`;
+    }).join('')
+  }</div>`;
+}
+function showStatus(id,msg,type){
+  const el=$(id); el.className='status-msg show '+type; el.innerHTML=msg;
+}
+function hideStatus(id){ $(id).className='status-msg'; }
+function memHTML(vars){
+  return Object.entries(vars).map(([k,v])=>`<div class="mem-var"><span class="name">${esc(k)}</span><span class="val">${esc(String(v))}</span></div>`).join('');
+}
+
+/* syntax highlight helpers */
+function syn(code){
+  // escape first
+  let s=esc(code);
+  // keywords
+  s=s.replace(/\b(while|for|in|if|else|break|continue|range|print|def|return|True|False|not|and|or)\b/g,'<span class="kw">$1</span>');
+  // numbers
+  s=s.replace(/\b(\d+)\b/g,'<span class="num">$1</span>');
+  // strings
+  s=s.replace(/(["'])(?:(?!\1).)*\1/g,'<span class="str">$&</span>');
+  // comments
+  s=s.replace(/(#.*)$/gm,'<span class="cm">$1</span>');
+  // operators
+  s=s.replace(/(==|!=|&lt;=|&gt;=|&lt;|&gt;|\+=|-=|\*=|\/=|%)/g,'<span class="op">$1</span>');
+  return s;
+}
+
+/* ═══════════════ STEP 1 — While Loop ═══════════════ */
+const s1Lines=[
+  syn('count = 1'),
+  '',
+  syn('while count <= 5:'),
+  syn('    print(count)'),
+  syn('    count += 1'),
+];
+let s1={count:0,iteration:0,running:false,done:false,autoTimer:null,highlight:-1};
+
+function s1Render(){
+  renderCode('s1-code',s1Lines,s1.highlight);
+  if(s1.count>0){
+    $('s1-mem').innerHTML=memHTML({count:s1.count});
+  }
+}
+function s1Reset(){
+  clearInterval(s1.autoTimer);
+  s1={count:0,iteration:0,running:false,done:false,autoTimer:null,highlight:-1};
+  s1Render();
+  $('s1-mem').innerHTML='<span style="color:var(--text-muted)">Press Start to begin</span>';
+  $('s1-iter').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s1-out').innerHTML='<span style="color:var(--text-muted)">Waiting…</span>';
+  $('s1-next').disabled=true;
+  $('s1-start').disabled=false;
+  hideStatus('s1-status');
+  const c=$('s1-cond'); c.style.display='none';
+}
+function s1Start(){
+  s1Reset();
+  s1.count=1; s1.running=true; s1.highlight=0;
+  s1Render();
+  $('s1-out').innerHTML='';
+  $('s1-iter').innerHTML='<span class="iter-badge">Ready</span>';
+  $('s1-start').disabled=true;
+  $('s1-next').disabled=false;
+  // show condition
+  s1ShowCond();
+}
+function s1ShowCond(){
+  const c=$('s1-cond');
+  if(s1.count<=5){
+    c.className='condition-badge true'; c.innerHTML=`<span>count &lt;= 5 → ${s1.count} &lt;= 5 → <strong>True</strong> → Loop Continues</span>`;
+  } else {
+    c.className='condition-badge false'; c.innerHTML=`<span>count &lt;= 5 → ${s1.count} &lt;= 5 → <strong>False</strong> → Loop Ends</span>`;
+  }
+  c.style.display='inline-flex';
+}
+function s1Next(){
+  if(s1.done||!s1.running) return;
+  if(s1.count<=5){
+    s1.iteration++;
+    $('s1-out').innerHTML += `<div class="output-line">${s1.count}</div>`;
+    s1.highlight=3;
+    s1Render();
+    s1.count++;
+    setTimeout(()=>{
+      s1.highlight=4;
+      s1Render();
+      $('s1-iter').innerHTML=`<span class="iter-badge">Iteration ${s1.iteration}</span>`;
+      s1ShowCond();
+      if(s1.count>5){
+        s1.done=true;
+        $('s1-next').disabled=true;
+        s1.highlight=-1;
+        s1Render();
+        showStatus('s1-status','✅ Loop complete — condition became <strong>False</strong>','success');
+      }
+    },200);
+  }
+}
+function s1Auto(){
+  if(s1.done) return;
+  if(!s1.running) s1Start();
+  clearInterval(s1.autoTimer);
+  s1.autoTimer=setInterval(()=>{
+    if(s1.done){clearInterval(s1.autoTimer);return;}
+    s1Next();
+  },700);
+}
+
+/* init */
+s1Render();
+
+/* ═══════════════ STEP 2 — For + Range ═══════════════ */
+let s2={seq:[],idx:-1,running:false,done:false,autoTimer:null};
+
+function s2GenSeq(){
+  const start=parseInt($('s2-start').value)||0;
+  const stop=parseInt($('s2-stop').value)||0;
+  const step=parseInt($('s2-step').value)||1;
+  const arr=[];
+  if(step>0) for(let i=start;i<stop;i+=step) arr.push(i);
+  else if(step<0) for(let i=start;i>stop;i+=step) arr.push(i);
+  return arr;
+}
+function s2RenderSeq(){
+  const seq=s2.seq;
+  $('s2-seq').innerHTML=seq.length?`<div class="seq-panel">${seq.map((v,i)=>{
+    let cls='seq-item';
+    if(i<s2.idx) cls+=' done';
+    else if(i===s2.idx) cls+=' active';
+    return `<span class="${cls}">${v}</span>`;
+  }).join('')}</div>`:'<span style="color:var(--text-muted)">Empty sequence</span>';
+}
+function s2RenderCode(){
+  const start=$('s2-start').value, stop=$('s2-stop').value, step=$('s2-step').value;
+  const lines=[
+    syn(`for i in range(${start}, ${stop}, ${step}):`),
+    syn('    print(i)'),
+  ];
+  renderCode('s2-code',lines,s2.running&&!s2.done?(s2.idx>=0?1:0):-1);
+}
+function s2Reset(){
+  clearInterval(s2.autoTimer);
+  s2={seq:[],idx:-1,running:false,done:false,autoTimer:null};
+  s2RenderCode(); s2RenderSeq();
+  $('s2-mem').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s2-iter').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s2-out').innerHTML='<span style="color:var(--text-muted)">Waiting…</span>';
+  $('s2-next').disabled=true;
+}
+function s2Start(){
+  s2Reset();
+  s2.seq=s2GenSeq();
+  s2.running=true;
+  s2RenderSeq(); s2RenderCode();
+  $('s2-out').innerHTML='';
+  $('s2-iter').innerHTML='<span class="iter-badge">Ready</span>';
+  $('s2-next').disabled=false;
+}
+function s2Next(){
+  if(s2.done||!s2.running) return;
+  s2.idx++;
+  if(s2.idx<s2.seq.length){
+    const val=s2.seq[s2.idx];
+    $('s2-mem').innerHTML=memHTML({i:val});
+    $('s2-out').innerHTML+=`<div class="output-line">${val}</div>`;
+    $('s2-iter').innerHTML=`<span class="iter-badge">Iteration ${s2.idx+1}</span>`;
+    s2RenderSeq(); s2RenderCode();
+    if(s2.idx===s2.seq.length-1){
+      s2.done=true;
+      $('s2-next').disabled=true;
+      setTimeout(()=>{s2RenderCode()},250);
+    }
+  }
+}
+function s2Auto(){
+  if(s2.done) return;
+  if(!s2.running) s2Start();
+  clearInterval(s2.autoTimer);
+  s2.autoTimer=setInterval(()=>{
+    if(s2.done){clearInterval(s2.autoTimer);return;}
+    s2Next();
+  },500);
+}
+/* live update on input */
+['s2-start','s2-stop','s2-step'].forEach(id=>{
+  $(id).addEventListener('input',()=>{s2Reset();});
+});
+s2RenderCode();
+
+/* ═══════════════ STEP 3 — String Iteration ═══════════════ */
+let s3={word:'',idx:-1,running:false,done:false,autoTimer:null};
+
+function s3RenderVisual(){
+  const w=s3.word;
+  $('s3-visual').innerHTML=w.split('').map((c,i)=>{
+    let cls='char-box';
+    if(i<s3.idx) cls+=' done';
+    else if(i===s3.idx) cls+=' active';
+    return `<div class="${cls}">${esc(c)}<span class="idx">[${i}]</span></div>`;
+  }).join('');
+}
+function s3RenderCode(){
+  const lines=[
+    syn(`word = "${s3.word||$('s3-word').value.toUpperCase()}"`),
+    '',
+    syn('for ch in word:'),
+    syn('    print(ch)'),
+  ];
+  renderCode('s3-code',lines,s3.running&&!s3.done?(s3.idx>=0?3:2):-1);
+}
+function s3Reset(){
+  clearInterval(s3.autoTimer);
+  s3={word:'',idx:-1,running:false,done:false,autoTimer:null};
+  s3.word=$('s3-word').value.toUpperCase();
+  s3RenderVisual(); s3RenderCode();
+  $('s3-mem').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s3-iter').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s3-out').innerHTML='<span style="color:var(--text-muted)">Waiting…</span>';
+  $('s3-next').disabled=true;
+  hideStatus('s3-status');
+}
+function s3Start(){
+  s3Reset();
+  s3.word=$('s3-word').value.toUpperCase();
+  s3.running=true;
+  s3RenderVisual(); s3RenderCode();
+  $('s3-out').innerHTML='';
+  $('s3-iter').innerHTML='<span class="iter-badge">Ready</span>';
+  $('s3-next').disabled=false;
+}
+function s3Next(){
+  if(s3.done||!s3.running) return;
+  s3.idx++;
+  if(s3.idx<s3.word.length){
+    const ch=s3.word[s3.idx];
+    $('s3-mem').innerHTML=memHTML({word:s3.word,ch:ch});
+    $('s3-out').innerHTML+=`<div class="output-line">${esc(ch)}</div>`;
+    $('s3-iter').innerHTML=`<span class="iter-badge">Iteration ${s3.idx+1}</span>`;
+    s3RenderVisual(); s3RenderCode();
+    if(s3.idx===s3.word.length-1){
+      s3.done=true;
+      $('s3-next').disabled=true;
+      showStatus('s3-status','✅ All characters visited','success');
+    }
+  }
+}
+function s3Auto(){
+  if(s3.done) return;
+  if(!s3.running) s3Start();
+  clearInterval(s3.autoTimer);
+  s3.autoTimer=setInterval(()=>{
+    if(s3.done){clearInterval(s3.autoTimer);return;}
+    s3Next();
+  },500);
+}
+$('s3-word').addEventListener('input',()=>{s3Reset();});
+s3.word=$('s3-word').value.toUpperCase();
+s3RenderVisual(); s3RenderCode();
+
+/* ═══════════════ STEP 4 — Break & Continue ═══════════════ */
+function s4Tab(which){
+  document.querySelectorAll('#step4 .tab-btn').forEach((b,i)=>{
+    b.classList.toggle('active',which==='break'?i===0:i===1);
+  });
+  $('s4-break-tab').classList.toggle('active',which==='break');
+  $('s4-continue-tab').classList.toggle('active',which==='continue');
+}
+
+/* — BREAK — */
+let s4b={i:0,running:false,done:false,broke:false,autoTimer:null};
+
+function s4bRenderCode(){
+  const bv=$('s4b-val').value;
+  const lines=[
+    syn(`for i in range(1, 11):`),
+    syn(`    if i == ${bv}:`),
+    syn(`        break`),
+    syn(`    print(i)`),
+  ];
+  let hl=-1,sc=-1,scl='';
+  if(s4b.running&&!s4b.done){
+    if(s4b.broke){sc=2;scl='break-line';hl=2;}
+    else if(s4b.i==parseInt(bv)){hl=1;}
+    else{hl=3;}
+  }
+  renderCode('s4b-code',lines,hl,sc,scl);
+}
+function s4bReset(){
+  clearInterval(s4b.autoTimer);
+  s4b={i:0,running:false,done:false,broke:false,autoTimer:null};
+  s4bRenderCode();
+  $('s4b-mem').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s4b-iter').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s4b-out').innerHTML='<span style="color:var(--text-muted)">Waiting…</span>';
+  $('s4b-next').disabled=true;
+  hideStatus('s4b-status');
+}
+function s4bStart(){
+  s4bReset();
+  s4b.running=true; s4b.i=1;
+  s4bRenderCode();
+  $('s4b-out').innerHTML='';
+  $('s4b-iter').innerHTML='<span class="iter-badge">Ready</span>';
+  $('s4b-next').disabled=false;
+}
+function s4bNext(){
+  if(s4b.done||!s4b.running) return;
+  const bv=parseInt($('s4b-val').value);
+  if(s4b.i<=10){
+    $('s4b-mem').innerHTML=memHTML({i:s4b.i});
+    $('s4b-iter').innerHTML=`<span class="iter-badge">Iteration ${s4b.i}</span>`;
+    if(s4b.i===bv){
+      s4b.broke=true; s4b.done=true;
+      s4bRenderCode();
+      $('s4b-next').disabled=true;
+      showStatus('s4b-status','🛑 <strong>BREAK</strong> encountered at i = '+bv+' — Loop terminated.','error');
+      return;
+    }
+    $('s4b-out').innerHTML+=`<div class="output-line">${s4b.i}</div>`;
+    s4bRenderCode();
+    s4b.i++;
+    if(s4b.i>10){
+      s4b.done=true;$('s4b-next').disabled=true;
+      showStatus('s4b-status','✅ Loop completed without break','success');
+    }
+  }
+}
+function s4bAuto(){
+  if(s4b.done) return;
+  if(!s4b.running) s4bStart();
+  clearInterval(s4b.autoTimer);
+  s4b.autoTimer=setInterval(()=>{
+    if(s4b.done){clearInterval(s4b.autoTimer);return;}
+    s4bNext();
+  },400);
+}
+$('s4b-val').addEventListener('input',()=>s4bReset());
+s4bRenderCode();
+
+/* — CONTINUE — */
+let s4c={i:0,running:false,done:false,autoTimer:null};
+
+function s4cRenderCode(){
+  const cv=$('s4c-val').value;
+  const lines=[
+    syn(`for i in range(1, 11):`),
+    syn(`    if i == ${cv}:`),
+    syn(`        continue`),
+    syn(`    print(i)`),
+  ];
+  let hl=-1,sc=-1,scl='';
+  if(s4c.running&&!s4c.done){
+    if(s4c.i==parseInt(cv)){sc=2;scl='continue-line';hl=2;}
+    else{hl=3;}
+  }
+  renderCode('s4c-code',lines,hl,sc,scl);
+}
+function s4cReset(){
+  clearInterval(s4c.autoTimer);
+  s4c={i:0,running:false,done:false,autoTimer:null};
+  s4cRenderCode();
+  $('s4c-mem').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s4c-iter').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s4c-out').innerHTML='<span style="color:var(--text-muted)">Waiting…</span>';
+  $('s4c-next').disabled=true;
+  hideStatus('s4c-status');
+}
+function s4cStart(){
+  s4cReset();
+  s4c.running=true; s4c.i=1;
+  s4cRenderCode();
+  $('s4c-out').innerHTML='';
+  $('s4c-iter').innerHTML='<span class="iter-badge">Ready</span>';
+  $('s4c-next').disabled=false;
+}
+function s4cNext(){
+  if(s4c.done||!s4c.running) return;
+  const cv=parseInt($('s4c-val').value);
+  if(s4c.i<=10){
+    $('s4c-mem').innerHTML=memHTML({i:s4c.i});
+    $('s4c-iter').innerHTML=`<span class="iter-badge">Iteration ${s4c.i}</span>`;
+    if(s4c.i===cv){
+      s4cRenderCode();
+      showStatus('s4c-status',`⏭️ Iteration ${cv} <strong>skipped</strong> by continue`,'warn');
+      s4c.i++;
+      if(s4c.i>10){s4c.done=true;$('s4c-next').disabled=true;}
+      return;
+    }
+    hideStatus('s4c-status');
+    $('s4c-out').innerHTML+=`<div class="output-line">${s4c.i}</div>`;
+    s4cRenderCode();
+    s4c.i++;
+    if(s4c.i>10){
+      s4c.done=true;$('s4c-next').disabled=true;
+      showStatus('s4c-status','✅ Loop complete','success');
+    }
+  }
+}
+function s4cAuto(){
+  if(s4c.done) return;
+  if(!s4c.running) s4cStart();
+  clearInterval(s4c.autoTimer);
+  s4c.autoTimer=setInterval(()=>{
+    if(s4c.done){clearInterval(s4c.autoTimer);return;}
+    s4cNext();
+  },400);
+}
+$('s4c-val').addEventListener('input',()=>s4cReset());
+s4cRenderCode();
+
+/* ═══════════════ STEP 5 — Prime Checker ═══════════════ */
+let s5={num:7,i:2,running:false,done:false,broke:false,autoTimer:null};
+
+function s5RenderCode(){
+  const lines=[
+    syn(`num = ${s5.num}`),
+    '',
+    syn(`for i in range(2, ${s5.num}):`),
+    syn(`    if num % i == 0:`),
+    syn(`        print("Not Prime")`),
+    syn(`        break`),
+    syn(`else:`),
+    syn(`    print("Prime")`),
+  ];
+  let hl=-1;
+  if(s5.running&&!s5.done){
+    if(s5.i<s5.num) hl=3;
+    else hl=6;
+  }
+  if(s5.done&&s5.broke) hl=5;
+  if(s5.done&&!s5.broke) hl=7;
+  renderCode('s5-code',lines,hl);
+}
+function s5Reset(){
+  clearInterval(s5.autoTimer);
+  s5.num=parseInt($('s5-num').value)||7;
+  s5.i=2; s5.running=false; s5.done=false; s5.broke=false; s5.autoTimer=null;
+  s5RenderCode();
+  $('s5-tbody').innerHTML='';
+  $('s5-mem').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s5-iter').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('s5-out').innerHTML='<span style="color:var(--text-muted)">Waiting…</span>';
+  $('s5-next').disabled=true;
+  hideStatus('s5-status');
+}
+function s5Try(n){$('s5-num').value=n;s5Reset();}
+function s5Start(){
+  s5Reset();
+  s5.num=parseInt($('s5-num').value)||7;
+  s5.running=true; s5.i=2;
+  s5RenderCode();
+  $('s5-out').innerHTML='';
+  $('s5-iter').innerHTML='<span class="iter-badge">Ready</span>';
+  $('s5-next').disabled=false;
+  $('s5-mem').innerHTML=memHTML({num:s5.num,i:'—'});
+}
+function s5Next(){
+  if(s5.done||!s5.running) return;
+  if(s5.i<s5.num){
+    const rem=s5.num%s5.i;
+    const divides=rem===0;
+    $('s5-mem').innerHTML=memHTML({num:s5.num,i:s5.i});
+    $('s5-iter').innerHTML=`<span class="iter-badge">i = ${s5.i}</span>`;
+    // add to trace table
+    const row=document.createElement('tr');
+    row.className=divides?'break-row':'active-row';
+    row.innerHTML=`<td>${s5.i}</td><td>${s5.num} % ${s5.i} = ${rem}</td><td>${divides?'<span style="color:var(--error);font-weight:700">= 0 → BREAK</span>':'<span style="color:var(--success)">≠ 0 → Continue</span>'}</td>`;
+    $('s5-tbody').appendChild(row);
+    s5RenderCode();
+
+    if(divides){
+      s5.broke=true; s5.done=true;
+      $('s5-next').disabled=true;
+      $('s5-out').innerHTML='<div class="output-line" style="color:var(--error);font-weight:700">Not Prime</div>';
+      showStatus('s5-status','🛑 BREAK executed — else block <strong>skipped</strong> because break occurred.','error');
+      s5RenderCode();
+      return;
+    }
+    s5.i++;
+    if(s5.i>=s5.num){
+      // loop finished, else runs
+      s5.done=true;
+      $('s5-next').disabled=true;
+      $('s5-out').innerHTML='<div class="output-line" style="color:var(--success);font-weight:700">Prime</div>';
+      showStatus('s5-status','✅ Loop finished without break — <strong>else block executed</strong>','success');
+      s5RenderCode();
+    }
+  }
+}
+function s5Auto(){
+  if(s5.done) return;
+  if(!s5.running) s5Start();
+  clearInterval(s5.autoTimer);
+  s5.autoTimer=setInterval(()=>{
+    if(s5.done){clearInterval(s5.autoTimer);return;}
+    s5Next();
+  },500);
+}
+$('s5-num').addEventListener('input',()=>s5Reset());
+s5RenderCode();
+
+/* ═══════════════ MINI PLAYGROUND ═══════════════ */
+let pg={lines:[],pc:0,vars:{},output:[],running:false,iterCount:0,autoTimer:null,loopStack:[]};
+
+function pgReset(){
+  clearInterval(pg.autoTimer);
+  pg={lines:[],pc:0,vars:{},output:[],running:false,iterCount:0,autoTimer:null,loopStack:[]};
+  $('pg-mem').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('pg-iter').innerHTML='<span style="color:var(--text-muted)">—</span>';
+  $('pg-out').innerHTML='<span style="color:var(--text-muted)">Waiting…</span>';
+  $('pg-next').disabled=true;
+  hideStatus('pg-status');
+}
+
+/* simple Python interpreter for loops */
+function pgParse(code){
+  return code.split('\n').map(l=>l.replace(/\t/g,'    '));
+}
+
+function pgIndent(line){
+  const m=line.match(/^(\s*)/);
+  return m?m[1].length:0;
+}
+
+function pgEval(expr,vars){
+  /* safely evaluate simple Python expressions */
+  let e=expr.trim();
+  // replace Python-style operators
+  e=e.replace(/\bTrue\b/g,'true').replace(/\bFalse\b/g,'false');
+  e=e.replace(/\bnot\b/g,'!').replace(/\band\b/g,'&&').replace(/\bor\b/g,'||');
+  e=e.replace(/\bNone\b/g,'null');
+  // range function
+  e=e.replace(/range\(([^)]+)\)/g,(m,args)=>{
+    const parts=args.split(',').map(a=>pgEval(a.trim(),vars));
+    if(parts.length===1) return JSON.stringify([...Array(parts[0]).keys()]);
+    if(parts.length===2){const r=[];for(let i=parts[0];i<parts[1];i++)r.push(i);return JSON.stringify(r);}
+    if(parts.length===3){const r=[];if(parts[2]>0)for(let i=parts[0];i<parts[1];i+=parts[2])r.push(i);else if(parts[2]<0)for(let i=parts[0];i>parts[1];i+=parts[2])r.push(i);return JSON.stringify(r);}
+    return '[]';
+  });
+  // len function
+  e=e.replace(/len\(([^)]+)\)/g,(m,arg)=>{
+    const v=pgEval(arg,vars);
+    return typeof v==='string'?v.length:Array.isArray(v)?v.length:0;
+  });
+  // substitute variables
+  for(const [k,v] of Object.entries(vars)){
+    const re=new RegExp('\\b'+k+'\\b','g');
+    e=e.replace(re,typeof v==='string'?`"${v}"`:JSON.stringify(v));
+  }
+  try{return Function('"use strict";return ('+e+')')();}
+  catch(err){return undefined;}
+}
+
+function pgExecLine(){
+  if(pg.pc>=pg.lines.length){
+    /* check for pending else blocks on loop stack */
+    pg.running=false;
+    $('pg-next').disabled=true;
+    showStatus('pg-status','✅ Execution complete','success');
+    return;
+  }
+  const line=pg.lines[pg.pc];
+  const trimmed=line.trim();
+  const indent=pgIndent(line);
+
+  /* skip empty / comment lines */
+  if(!trimmed||trimmed.startsWith('#')){
+    pg.pc++;return pgExecLine();
+  }
+
+  /* assignment: x = expr */
+  const assignMatch=trimmed.match(/^(\w+)\s*=\s*(.+)$/);
+  if(assignMatch && !trimmed.startsWith('if ') && !trimmed.startsWith('for ') && !trimmed.startsWith('while ')){
+    const vname=assignMatch[1];
+    const val=pgEval(assignMatch[2],pg.vars);
+    pg.vars[vname]=val;
+    pg.pc++;
+    pgUpdateUI();
+    return;
+  }
+
+  /* augmented assignment: x += expr, x -= expr */
+  const augMatch=trimmed.match(/^(\w+)\s*(\+=|-=|\*=|\/=|%=)\s*(.+)$/);
+  if(augMatch){
+    const vname=augMatch[1];
+    const op=augMatch[2];
+    const val=pgEval(augMatch[3],pg.vars);
+    if(op==='+=')pg.vars[vname]+=val;
+    else if(op==='-=')pg.vars[vname]-=val;
+    else if(op==='*=')pg.vars[vname]*=val;
+    else if(op==='/=')pg.vars[vname]/=val;
+    else if(op==='%=')pg.vars[vname]%=val;
+    pg.pc++;
+    pgUpdateUI();
+    return;
+  }
+
+  /* print */
+  const printMatch=trimmed.match(/^print\((.+)\)$/);
+  if(printMatch){
+    let val=pgEval(printMatch[1],pg.vars);
+    if(val===undefined) val=printMatch[1];
+    pg.output.push(String(val).replace(/^"|"$/g,''));
+    pg.pc++;
+    pgUpdateUI();
+    return;
+  }
+
+  /* while loop */
+  const whileMatch=trimmed.match(/^while\s+(.+):$/);
+  if(whileMatch){
+    const cond=pgEval(whileMatch[1],pg.vars);
+    if(cond){
+      pg.iterCount++;
+      pg.loopStack.push({type:'while',condLine:pg.pc,bodyIndent:indent+4,start:pg.pc});
+      pg.pc++;
+      pgUpdateUI();
+      return;
+    } else {
+      // skip body
+      pg.pc++;
+      while(pg.pc<pg.lines.length && (pgIndent(pg.lines[pg.pc])>indent || !pg.lines[pg.pc].trim())) pg.pc++;
+      pgUpdateUI();
+      return;
+    }
+  }
+
+  /* for loop */
+  const forMatch=trimmed.match(/^for\s+(\w+)\s+in\s+(.+):$/);
+  if(forMatch){
+    const vname=forMatch[1];
+    let iterable=pgEval(forMatch[2],pg.vars);
+    if(typeof iterable==='string') iterable=iterable.split('');
+    if(!Array.isArray(iterable)) iterable=[];
+    if(iterable.length>0){
+      pg.vars[vname]=iterable[0];
+      pg.iterCount++;
+      pg.loopStack.push({type:'for',varName:vname,iterable:iterable,idx:0,loopLine:pg.pc,bodyIndent:indent+4});
+      pg.pc++;
+    } else {
+      // skip body — check for else
+      pg.pc++;
+      while(pg.pc<pg.lines.length && (pgIndent(pg.lines[pg.pc])>indent || !pg.lines[pg.pc].trim())) pg.pc++;
+      // check for else
+      if(pg.pc<pg.lines.length && pg.lines[pg.pc].trim()==='else:'){
+        pg.pc++; // enter else body
+      }
+    }
+    pgUpdateUI();
+    return;
+  }
+
+  /* if */
+  const ifMatch=trimmed.match(/^if\s+(.+):$/);
+  if(ifMatch){
+    const cond=pgEval(ifMatch[1],pg.vars);
+    if(cond){
+      pg.pc++;
+      pgUpdateUI();
+    } else {
+      // skip if body
+      pg.pc++;
+      while(pg.pc<pg.lines.length && pgIndent(pg.lines[pg.pc])>indent && pg.lines[pg.pc].trim()) pg.pc++;
+      pgUpdateUI();
+    }
+    return;
+  }
+
+  /* break */
+  if(trimmed==='break'){
+    // pop loop from stack
+    if(pg.loopStack.length>0){
+      const loop=pg.loopStack.pop();
+      const loopIndent=pgIndent(pg.lines[loop.type==='for'?loop.loopLine:loop.condLine]);
+      pg.pc++;
+      while(pg.pc<pg.lines.length && (pgIndent(pg.lines[pg.pc])>loopIndent || !pg.lines[pg.pc].trim())) pg.pc++;
+      // skip else block if present
+      if(pg.pc<pg.lines.length && pg.lines[pg.pc].trim()==='else:'){
+        pg.pc++;
+        while(pg.pc<pg.lines.length && (pgIndent(pg.lines[pg.pc])>loopIndent || !pg.lines[pg.pc].trim())) pg.pc++;
+      }
+    } else {
+      pg.pc++;
+    }
+    pgUpdateUI();
+    return;
+  }
+
+  /* continue */
+  if(trimmed==='continue'){
+    if(pg.loopStack.length>0){
+      const loop=pg.loopStack[pg.loopStack.length-1];
+      if(loop.type==='while'){
+        pg.pc=loop.condLine;
+        pgExecLine();
+      } else if(loop.type==='for'){
+        loop.idx++;
+        if(loop.idx<loop.iterable.length){
+          pg.vars[loop.varName]=loop.iterable[loop.idx];
+          pg.iterCount++;
+          pg.pc=loop.loopLine+1;
+        } else {
+          pg.loopStack.pop();
+          const loopIndent=pgIndent(pg.lines[loop.loopLine]);
+          pg.pc=loop.loopLine+1;
+          while(pg.pc<pg.lines.length && (pgIndent(pg.lines[pg.pc])>loopIndent || !pg.lines[pg.pc].trim())) pg.pc++;
+          // for-else: run else
+          if(pg.pc<pg.lines.length && pg.lines[pg.pc].trim()==='else:') pg.pc++;
+        }
+      }
+    } else { pg.pc++; }
+    pgUpdateUI();
+    return;
+  }
+
+  /* else: (standalone) */
+  if(trimmed==='else:'){
+    pg.pc++;
+    pgUpdateUI();
+    return;
+  }
+
+  /* end of loop body — check if we need to loop back */
+  if(pg.loopStack.length>0){
+    const loop=pg.loopStack[pg.loopStack.length-1];
+    const loopLine=loop.type==='for'?loop.loopLine:loop.condLine;
+    const loopIndent=pgIndent(pg.lines[loopLine]);
+    if(indent<=loopIndent){
+      // we've left the loop body
+      if(loop.type==='while'){
+        const cond=pgEval(pg.lines[loop.condLine].trim().match(/^while\s+(.+):$/)[1],pg.vars);
+        if(cond){
+          pg.iterCount++;
+          pg.pc=loop.condLine+1;
+          pgUpdateUI();
+          return;
+        } else {
+          pg.loopStack.pop();
+          pgUpdateUI();
+          return pgExecLine();
+        }
+      } else if(loop.type==='for'){
+        loop.idx++;
+        if(loop.idx<loop.iterable.length){
+          pg.vars[loop.varName]=loop.iterable[loop.idx];
+          pg.iterCount++;
+          pg.pc=loop.loopLine+1;
+          pgUpdateUI();
+          return;
+        } else {
+          pg.loopStack.pop();
+          // for-else: run else
+          if(pg.pc<pg.lines.length && pg.lines[pg.pc].trim()==='else:') pg.pc++;
+          pgUpdateUI();
+          return pgExecLine();
+        }
+      }
+    }
+  }
+
+  /* fallback — just advance */
+  pg.pc++;
+  pgUpdateUI();
+}
+
+/* check end of body between steps */
+function pgCheckLoopEnd(){
+  if(pg.pc>=pg.lines.length && pg.loopStack.length>0){
+    const loop=pg.loopStack[pg.loopStack.length-1];
+    if(loop.type==='while'){
+      pg.pc=loop.condLine;
+      return;
+    } else if(loop.type==='for'){
+      loop.idx++;
+      if(loop.idx<loop.iterable.length){
+        pg.vars[loop.varName]=loop.iterable[loop.idx];
+        pg.iterCount++;
+        pg.pc=loop.loopLine+1;
+      } else {
+        pg.loopStack.pop();
+      }
+    }
+  }
+  /* also check if current line is outside loop body */
+  if(pg.loopStack.length>0 && pg.pc<pg.lines.length){
+    const loop=pg.loopStack[pg.loopStack.length-1];
+    const loopLine=loop.type==='for'?loop.loopLine:loop.condLine;
+    const loopIndent=pgIndent(pg.lines[loopLine]);
+    const curIndent=pgIndent(pg.lines[pg.pc]);
+    const curTrimmed=pg.lines[pg.pc].trim();
+    if(curIndent<=loopIndent && curTrimmed && curTrimmed!=='else:'){
+      if(loop.type==='while'){
+        const cond=pgEval(pg.lines[loop.condLine].trim().match(/^while\s+(.+):$/)[1],pg.vars);
+        if(cond){
+          pg.iterCount++; pg.pc=loop.condLine+1;
+        } else { pg.loopStack.pop(); }
+      } else if(loop.type==='for'){
+        loop.idx++;
+        if(loop.idx<loop.iterable.length){
+          pg.vars[loop.varName]=loop.iterable[loop.idx];
+          pg.iterCount++; pg.pc=loop.loopLine+1;
+        } else { pg.loopStack.pop(); }
+      }
+    }
+  }
+}
+
+function pgUpdateUI(){
+  $('pg-mem').innerHTML=Object.keys(pg.vars).length?memHTML(pg.vars):'<span style="color:var(--text-muted)">No variables yet</span>';
+  $('pg-iter').innerHTML=pg.iterCount?`<span class="iter-badge">Iterations: ${pg.iterCount}</span>`:'<span style="color:var(--text-muted)">—</span>';
+  $('pg-out').innerHTML=pg.output.length?pg.output.map(o=>`<div class="output-line">${esc(o)}</div>`).join(''):'<span style="color:var(--text-muted)">No output yet</span>';
+}
+
+function pgRun(){
+  pgReset();
+  const code=$('pg-editor').value;
+  pg.lines=pgParse(code);
+  pg.running=true;
+  let safety=0;
+  while(pg.pc<pg.lines.length && safety<2000){
+    pgCheckLoopEnd();
+    if(pg.pc>=pg.lines.length) break;
+    pgExecLine();
+    safety++;
+  }
+  pg.running=false;
+  pgUpdateUI();
+  if(safety>=2000) showStatus('pg-status','⚠️ Execution limit reached (possible infinite loop)','warn');
+  else showStatus('pg-status','✅ Execution complete','success');
+}
+
+function pgStep(){
+  pgReset();
+  const code=$('pg-editor').value;
+  pg.lines=pgParse(code);
+  pg.running=true;
+  $('pg-next').disabled=false;
+  pgUpdateUI();
+  showStatus('pg-status','⏯ Step mode — press <strong>Next Line</strong> to advance','info');
+}
+
+function pgNextStep(){
+  if(!pg.running) return;
+  pgCheckLoopEnd();
+  if(pg.pc>=pg.lines.length){
+    pg.running=false;
+    $('pg-next').disabled=true;
+    showStatus('pg-status','✅ Execution complete','success');
+    return;
+  }
+  pgExecLine();
+  pgCheckLoopEnd();
+  if(pg.pc>=pg.lines.length && pg.loopStack.length===0){
+    pg.running=false;
+    $('pg-next').disabled=true;
+    showStatus('pg-status','✅ Execution complete','success');
+  }
+}
+
+/* snippets */
+const snippets={
+  'while':`count = 1\nwhile count <= 5:\n    print(count)\n    count += 1`,
+  'for':`for i in range(1, 6):\n    print(i)`,
+  'range':`for i in range(0, 20, 3):\n    print(i)`,
+  'break':`for i in range(1, 11):\n    if i == 6:\n        break\n    print(i)`,
+  'continue':`for i in range(1, 11):\n    if i == 5:\n        continue\n    print(i)`,
+  'forelse':`num = 13\nfor i in range(2, num):\n    if num % i == 0:\n        print("Not Prime")\n        break\nelse:\n    print("Prime")`,
+};
+function pgSnippet(key){
+  $('pg-editor').value=snippets[key];
+  pgReset();
+}
+
+/* ═══════════════ NAV HIGHLIGHT ═══════════════ */
+const sections=document.querySelectorAll('.step-section');
+const navLinks=document.querySelectorAll('.step-nav a');
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('active'));
+      const link=document.querySelector(`.step-nav a[href="#${e.target.id}"]`);
+      if(link) link.classList.add('active');
+    }
+  });
+},{threshold:0.3,rootMargin:'-60px 0px -40% 0px'});
+sections.forEach(s=>obs.observe(s));
+
+/* ═══════════════ KEYBOARD ACCESSIBILITY ═══════════════ */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Tab' && e.target.tagName==='TEXTAREA'){
+    e.preventDefault();
+    const start=e.target.selectionStart;
+    const end=e.target.selectionEnd;
+    e.target.value=e.target.value.substring(0,start)+'    '+e.target.value.substring(end);
+    e.target.selectionStart=e.target.selectionEnd=start+4;
+  }
+});
+</script>
+</body>
+</html>

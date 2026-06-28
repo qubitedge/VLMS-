@@ -1,0 +1,793 @@
+[
+  {
+    "question": "What does RAG stand for in AI development?",
+    "options": [
+      "Random Access Generation",
+      "Retrieval-Augmented Generation",
+      "Rapid Array Grouping",
+      "Real-time Authentication Gateway"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is the primary problem that a RAG pipeline solves for LLMs?",
+    "options": [
+      "It makes the text font look sharper",
+      "It provides the model with up-to-date, external company-specific knowledge, reducing hallucinations and avoiding retraining costs",
+      "It increases internet connection speeds",
+      "It reduces python script indentation bugs"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What are the three main conceptual stages of a basic RAG pipeline?",
+    "options": [
+      "Ingestion (Chunk/Embed), Retrieval (Search), and Generation (LLM Answer)",
+      "Start, Middle, Delete",
+      "Tokenize, Compile, Execute",
+      "Encryption, Decryption, Validation"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "In a RAG pipeline, where does the background context text come from?",
+    "options": [
+      "The pre-trained model weights directly",
+      "An external data source or vector database queried at runtime based on the user's question",
+      "A random text generator engine",
+      "The system operating system kernel data files"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What role does the LLM (Large Language Model) play in a RAG pipeline?",
+    "options": [
+      "It handles document storage partitioning mechanics",
+      "It reads the user question along with the fetched context documents and synthesizes a clean natural language answer",
+      "It creates database connection sockets strings",
+      "It calculates cosine similarity vectors values arrays"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "If you ask a standard pre-trained LLM about a confidential internal document written yesterday, it will fail unless you use RAG because:",
+    "options": [
+      "It is written in a programming language code style",
+      "The document was not part of its static pre-training dataset and it doesn't have real-time memory access to it otherwise",
+      "The text size has too many pages formatting lines",
+      "The model temperature parameter is set to zero metrics"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is \"Prompt Injection of Context\" in RAG?",
+    "options": [
+      "Hacking a remote server database table record asset",
+      "Automatically pasting the retrieved relevant text chunks straight into the system prompt window text box before passing it to the LLM",
+      "Changing the vocabulary definitions records list arrays",
+      "Running an automatic spellchecking script loop over data rows"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which of these blocks represents a typical developer prompt layout inside a RAG system?",
+    "options": [
+      "\"Answer the question using only this context. Context: {retrieved_text} Question: {user_question} Answer:\"",
+      "\"Let's think step by step to design a brand new database schema layout from scratch.\"",
+      "\"Input pair example: Cat -> Animal. Now translate this code block into French language blocks.\"",
+      "\"Strictly respond using a valid schema JSON object payload matching these key variables parameters arrays.\""
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What framework asset orchestrates RAG pipeline components out-of-the-box for Python applications?",
+    "options": [
+      "LlamaIndex or LangChain",
+      "Pygame game engine runtime layer",
+      "Matplotlib data graphing visuals tool",
+      "OpenPyXL spreadsheet configuration cell script"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "The quality of a RAG pipeline's final answer depends heavily on:",
+    "options": [
+      "The background color configuration options profiles of web portals interfaces",
+      "Both the absolute relevance of the retrieved context documents and the synthesis instruction capabilities of the LLM execution block",
+      "The file name character path lengths parameters used to track code files on storage drives",
+      "The brand name tier of the physical monitor screen used to write software scripts code"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "When setting up a simple RAG ingestion pipeline pipeline code script, what is the first operational task?",
+    "options": [
+      "Clearing the cloud vector index storage workspace partition tables records completely",
+      "Reading raw document files (like PDFs, markdown logs, or text sheets) and parsing them into clean plain text strings characters rows",
+      "Formatting python dictionary variables mappings models into JSON schemas structures definitions",
+      "Calling a generative chat API endpoint loop tool to test latency metrics responses throughput"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What does a \"Document Loader\" utility component do in a RAG pipeline architecture layout?",
+    "options": [
+      "Installs system device drivers for scanning papers",
+      "Connects to files sources (like Google Drive, local paths, or web scrapers) to extract raw text content assets",
+      "Compresses document files into zip formats archives blocks",
+      "Translates text rows into multiple languages dynamically layers"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Why must we chunk text before adding it to a RAG pipeline vector database index?",
+    "options": [
+      "Long documents exceed embedding model token constraints and dilute specific vector context profiles meaning across too many sentences boundaries",
+      "Chunking speeds up internet network routing packets transfers",
+      "Chunks convert text variables characters directly into integers values automatically maps",
+      "Untokenized plain paragraphs break markdown styling blocks rules options"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "If your RAG pipeline retrieval function is broken and returns completely irrelevant documents to the prompt injection layer, the LLM will likely:",
+    "options": [
+      "Self-correct the database records text using internal AI logic paths",
+      "Generate an inaccurate answer or a hallucination based on the bad context instructions provided (Garbage In, Garbage Out)",
+      "Throw a hard system compilation syntax exception crash error code",
+      "Format the local computer storage drive workspace partition files"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What configuration metric controls the exact text chunk length boundaries inside a text splitter helper asset function code call?",
+    "options": [
+      "chunk_size",
+      "temperature",
+      "learning_rate",
+      "top_p"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What does \"Grounding\" mean in a RAG context architecture?",
+    "options": [
+      "Running electrical wires to protect computer hardware components racks units",
+      "Ensuring the LLM's final generated statements are strictly derived from and supported by verified facts present inside the retrieved reference context text",
+      "Setting the vocabulary size parameters matrix index values to zero limits",
+      "Erasing old chat history tracking collections records logs"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "If a user query states \"What is our company refund policy for damaged clothing items?\", a RAG system retrieves:",
+    "options": [
+      "The entire handbook from page 1 to page 500 into context memory fields",
+      "The specific text chunk or paragraph block detailing terms for damaged returns from the policy knowledge base index",
+      "A list of all active employee profiles names records arrays",
+      "A blank template text dictionary structural object container"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which component acts as the connector link between a semantic search vector index match action and the prompt construction module?",
+    "options": [
+      "A data tokenizer module script line",
+      "A context injection retriever class function object method call",
+      "A secure authentication firewall proxy gateway block",
+      "An offline hardware driver compiler pipeline thread"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is a \"Naive RAG\" pipeline setup?",
+    "options": [
+      "An advanced multi-agent system executing self-correction loops trees of thought optimization workflows",
+      "A simple standard baseline RAG pipeline that directly indexes, embeds chunks, runs vector search, and pipes text into a prompt without advanced optimization layers",
+      "A pipeline that doesn't use any embedding models vectors calculations setups",
+      "An offline system configuration file reader script block"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "True or False: A RAG pipeline allows you to update your AI application's known knowledge base instantly by adding new text vectors to the vector index without retraining model parameter weights.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What is the \"Lost in the Middle\" phenomenon in RAG pipelines context loading?",
+    "options": [
+      "High-dimension embedding models vectors converting values data to zero limits parameters",
+      "LLMs frequently paying high attention to the very beginning and end of long injected context texts while overlooking details buried deep inside the middle parts",
+      "System network routing nodes dropping packet payloads rows files channels halfway",
+      "Databases collection indices losing track of text characters chunks mappings pathways"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "If your RAG system suffers from \"Lost in the Middle\" errors during evaluation workflows, a viable design fix is to:",
+    "options": [
+      "Shorten injected context lengths or use a Re-ranker to place the absolute highest relevance context chunks at the extreme top of the prompt field layout",
+      "Use a larger font profile style row sheet formatting template inside dashboards views",
+      "Turn off the model temperature parameter entirely to lock down generation patterns logic",
+      "Delete all punctuation characters tokens from user text arrays queries inputs completely"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What does a \"Context Window Overflow\" error code imply during a RAG pipeline step code run execution?",
+    "options": [
+      "The computer storage hardware workspace partitions have run out of free bytes limits",
+      "The combined length of the user prompt instruction, historical chat logs, and retrieved context texts tokens has exceeded the maximum sequence length limit the model is physically built to evaluate at once",
+      "The background web server process container has dropped its internet network socket channel pipeline",
+      "The data tokenizer index lookup map contains an unrecognized special characters structure code string"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is a \"hallucination\" inside a production RAG answer generation step response profile?",
+    "options": [
+      "The AI system sending email notifications logs data to incorrect target addresses accounts fields",
+      "The model generating facts or assertions that are completely missing from or explicitly contradicted by both its pre-trained weight maps and the provided retrieved document context sheets rows",
+      "An automatic switch from dark mode interfaces styles into light background configurations layers templates",
+      "A drop in generated tokens per second execution speed throughput performance scores metrics"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "How can you explicitly instruct an LLM in a RAG prompt configuration block to handle situations where the retriever finds NO relevant context data chunks to answer the user query?",
+    "options": [
+      "Tell it to write a creative story instead using general internet history knowledge bases paths",
+      "Add a strict instruction constraint stating: \"If the context does not contain the answer, say 'I do not have that information' and do not make up facts.\"",
+      "Leave the instruction blank and let it guess dynamically",
+      "Command the system layer pipeline to execute a remote data deletion routine across the vector database index space"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What does \"Query Rewriting\" (or Query Transformation) do in an advanced RAG pipeline?",
+    "options": [
+      "Erases user inputs completely if they contain syntax spelling grammar bugs errors strings",
+      "Uses a fast LLM step to rephrase a sloppy or ambiguous user query into an optimized, clear search query text profile before hitting the retrieval index step",
+      "Translates user questions into computer programming syntax blocks code scripts directly automatically",
+      "Changes the collection indexing properties schema models within database cloud workspaces configurations"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is \"Sentence Window Retrieval\"?",
+    "options": [
+      "Scanning an entire webpage document word-by-word slowly row line text path",
+      "A strategy where small text chunks (e.g., a single sentence) are used for vector similarity search matching steps, but a larger surrounding window of context sentences is retrieved and fed to the LLM prompt layer to ensure complete meaning",
+      "A data processing tool that deletes spacing blocks templates formats styles elements",
+      "An alignment tuning script parameter block model checkpoint path target"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What does \"Parent-Child Chunk Retrieval\" mean?",
+    "options": [
+      "Multi-threaded processing tasks handling file copy loops routines operations maps files partitions",
+      "Matching small child chunks during the vector similarity index search phase, but pulling their larger parent document text block container into the prompt synthesis frame to give the generation layer clean holistic data context",
+      "Sorting text variables strings alphabetically inside multi-level nested dictionaries layouts indices matrices",
+      "Running user login profile validation scripts layers across distinct network access privilege boundaries"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is an \"Advanced RAG\" system component that evaluates retrieved chunks to filter out low-relevance blocks before prompt building steps take place?",
+    "options": [
+      "A function calling tool agent proxy module route asset mapping table",
+      "A semantic context compressor or filter block module (e.g., LLMLingua or LongLLMLingua)",
+      "A regular expressions parsing template array lookup compiler script row line",
+      "An offline system hardware storage volume optimization routine script thread"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "To test if your RAG pipeline architecture works safely under heavy concurrency loads, you evaluate metrics like:",
+    "options": [
+      "User interface dashboard theme color hex values profiles lines matches parameters",
+      "Data token generation latency metrics, search retrieval accuracy recall scores, and overall correctness answers benchmarks validation tests",
+      "The count of characters found inside raw unparsed source text directory directories strings paths names",
+      "Computer fan hardware rotation speed parameters limits checks routines controls loops"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What framework tool specifically focuses on automated testing and evaluation of RAG pipeline components (like retrieval relevancy and faithfulness generation metrics)?",
+    "options": [
+      "Ragas (or TruLens)",
+      "Pygame game rendering asset toolkit",
+      "Formatting markdown code extensions layers",
+      "System task manager utility applications processes"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "In a RAG metric suite, \"Faithfulness\" checks:",
+    "options": [
+      "How fast the model completes processing token streams outputs items lines fields",
+      "Whether the generated answer is strictly grounded in the retrieved context documents text without adding outside unverified claims details facts",
+      "If the user query matches English spelling syntax layout rules templates conventions",
+      "The number of database records matching exact string names values indices"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "In a RAG metric suite, \"Answer Relevance\" checks:",
+    "options": [
+      "The file size footprint bytes of the text storage system space partition container",
+      "Whether the generated final answer actually addresses the core intent and specific question puzzle details asked by the user query block",
+      "The selection profile color settings options chosen inside dashboard views layouts schemas",
+      "If the data strings characters are converted into integers arrays lists tables rows"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What technique parses complex document data tables structures cleanly into text representations before RAG ingestion pipelines process them?",
+    "options": [
+      "Markdown tables conversions, HTML layouts scraping wrappers, or multimodal parsing vision steps models (e.g., Unstructured, LlamaParse)",
+      "Random space stripping functions tools loops scripts strings variables",
+      "Code compilation tree extraction parsing logic routines frameworks targets",
+      "Vector coordinates matrix inversion processing calculations layers units arrays"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "True or False: A RAG pipeline architecture completely removes the need for checking data safety privacy access controls lines because the vector database filters are completely automated behind the scenes.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which asset forms the final boundary bridge handling RAG pipeline generation workflow tracking internally for auditing?",
+    "options": [
+      "A markdown text style layout sheet template block parameter configuration",
+      "An application observability tracer logging tool framework asset (e.g., LangSmith, Phoenix, or Langfuse)",
+      "An offline database backup zip compression file stream process runner",
+      "A standard system network router hardware interface proxy loop control"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "When building a multi-source RAG layout routing infrastructure, if a user query requires financial market information but the system routes the query to an employee HR policy index workspace, what component is failing or misconfigured?",
+    "options": [
+      "The data output format validation serialization mapper block schema class model definitions",
+      "The query intent router classification routing layer component block of the RAG pipeline architecture",
+      "The system text tokenization vocabulary array lookups length indexing tables bounds",
+      "The frontend dashboard interface components layout CSS presentation layers templates rules"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What does a \"Graph RAG\" architecture system layout leverage to optimize context retrieval paths mechanics over interconnected reference texts sets data logs files?",
+    "options": [
+      "Linear single-dimension coordinate padding lines loops paths definitions records",
+      "Knowledge graphs combined with community text summaries extractions to surface holistic conceptual patterns structural linkages themes across massive records datasets collections",
+      "Simple static character matching patterns regular expressions scripts compilation frameworks strings",
+      "Automated memory management garbage collection loops configurations properties metrics rules parameters"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which component executes right after the Retriever block but right before the Prompt builder block in a highly tuned production RAG setup?",
+    "options": [
+      "The text document chunking ingestion workers task runners threads loops profiles",
+      "The Context Re-ranking / Filtering module block engine pipeline stage component layer",
+      "The final system output markdown text formatting pipeline module class model interface",
+      "The user authentication session credential validator handshake system security proxy"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "RAG pipeline solutions fundamentally combine the reliable data correctness tracking qualities of corporate knowledge databases search engines with the fluent natural language communication expression capabilities of:",
+    "options": [
+      "Unformatted assembly code execution script compiler blocks systems tools",
+      "Generative Large Language Models foundation context engines conversational checkpoints",
+      "Simple file extraction scripts utilities systems parameters tracks rules checks limits metrics properties boundaries configurations models frameworks loops controls operations validations fields strings vectors records objects methods targets logic options configurations parameters"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which python snippet abstract class workflow pattern matches a clean RAG generation route structure logic boundary design pattern step template?",
+    "options": [
+      "context = retrieve(query); prompt = build(query, context); answer = generate(prompt)",
+      "delete_all_files(); restart_server(); update_gpu_firmware(); check_system_latency_metrics()",
+      "for char in text: if char == ' ': count += 1; print(count); return count; exit()",
+      "schema = {\"key\": \"value\"}; validate_json(schema); compile_code_tree(); print(\"Success\")"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "If your production RAG application is returning cut-off sentences at the extreme end of the chat box window response field, you should change your model configuration parameter:",
+    "options": [
+      "learning_rate",
+      "max_tokens (or max_output_tokens)",
+      "chunk_overlap",
+      "vector_dimensions"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is an \"Inverted Index\" in a hybrid RAG pipeline context component block setting?",
+    "options": [
+      "A vector graph structure that travels backward through hidden attention layers matrix calculations",
+      "A core traditional database indexing layout mechanism mapping exact keyword term strings to lists of matching document ID locations (used for the BM25 keyword search branch)",
+      "A list of unauthorized user accounts blocked from accessing local cloud server storage frameworks",
+      "A text string formatting algorithm converting markdown documents into raw unspaced characters lists"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "When configuring database access parameters configurations within cloud server files for a secure corporate RAG pipeline tool deployment layout, developers store secrets tokens strings using:",
+    "options": [
+      "Plain open text documentation lines headers comments blocks code repositories strings variables",
+      "Secure environment variables configs parameters container vault managers values options tracks",
+      "Random numeric digits arrays written inside public application files paths configurations logs",
+      "Standard layout style definitions files sheets templates markdown blocks attributes keys"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which strategy passes summarized versions of historical chat conversation streams logs text along into new prompt context boxes boundaries to preserve multi-turn memory tracking profiles?",
+    "options": [
+      "Static vector indexing quantization parameters transformations fields metrics structures",
+      "Chat history compression summarizes memory management pipeline component routines setups maps",
+      "Deleting older conversation rows entries arrays collections text completely parameters files tracks",
+      "Reversing the character order array sequence matching strings loops workflows codes compilers"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is a \"Data Pipeline Ingestion Worker\" in an enterprise production RAG workflow setup architecture?",
+    "options": [
+      "A script component that runs on user devices dashboards pages checking dark mode themes choices",
+      "A background automation processing service task handling automated data scanning, document text parsing parsing, chunk partitioning, vector calculation embedding creation steps, and batch writing procedures straight into database collections systems indices",
+      "A secure browser proxy gateway firewall block checking network packet data encryption keys lines layers",
+      "An offline system hardware diagnostic thread tracker logging compute clock temperature performance metrics bounds"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "If your vector database retrieval step returns the exact same matching text block chunk multiple times inside the prompt building context variable string box field, you should check for:",
+    "options": [
+      "Incorrect color format style rules templates variables applied inside interface views presentation layouts",
+      "Missing deduplication verification steps filters logic loops checks inside data ingestion pipelines retrieval functions components scripts",
+      "Model dimension coordinate count size differences variables configurations mismatch parameters parameters profiles",
+      "Language selection rules translation layers scripts parameters configurations boundaries adjustments codes models"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which component forms the absolute final processing layer right before output text stream arrays hit user interfaces presentation panels fields inside a RAG ecosystem tool app container app layer?",
+    "options": [
+      "The document chunking splitting component worker service module class target script",
+      "The text stream generation decoding synthesis layer execution block engine endpoint API parameter method response channel",
+      "The data vector collection quantization parameter matrix recalculation utility step thread module",
+      "The network hardware routing packet encryption firewall proxy checker controller loop routine"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "When testing context relevancy scores using an automated appraisal benchmark metric pipeline frame tool script code run execution, a score value profile matching 0.0 means:",
+    "options": [
+      "Perfect maximum absolute relevance matching precision performance metrics output profile",
+      "Complete lack of document alignment semantic mapping intersection correctness data context value criteria relevance profiling matching (none of the fetched chunks are useful)",
+      "An internal code compilation crash bug error sequence trace log output structure file line target boundary",
+      "Active database connections socket parameters settings channels pipelines routes configurations allocations setups"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "RAG configurations enable software developers to build incredibly robust, audit-verifiable data exploration solutions because every generated claim answer sentence can link back cleanly to a traceable:",
+    "options": [
+      "Local system file layout directory name path text string pointer record tracking identifier source chunk asset context citation reference boundary",
+      "Model attention layer weight matrix calculation float index vector coordinate sequence variable identifier position key parameter"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What is the primary difference between Prompt Engineering and Fine-Tuning?",
+    "options": [
+      "Prompt engineering uses code; fine-tuning only uses plain English text instructions",
+      "Prompt engineering guides model behavior through text input context instructions without changing weights; fine-tuning structurally modifies the internal parameter weights of the neural network by training on a dataset",
+      "Fine-tuning is faster and cheaper to prototype than prompt engineering workflows",
+      "Prompt engineering changes the model's vocabulary size tracking metrics"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What does \"Fine-Tuning\" a model actually do?",
+    "options": [
+      "It tweaks the screen resolution font sizes on user devices dashboards layouts",
+      "It runs an optimization training loop across specialized domain dataset rows, adjusting model checkpoint weights so it adapts to specific formats, styles, or patterns natively",
+      "It deletes old tokens from memory index arrays systems fields databases parameters",
+      "It sets up an external vector search engine index cluster routing cloud server script channel"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is \"Prompt Engineering\"?",
+    "options": [
+      "The process of coding a new generative foundation architecture engine from scratch using hardware compilers",
+      "The art and science of design, structuring, and optimizing textual prompt instructions and context formats to get the best performance from a static pre-trained model",
+      "A network routing optimization protocol handling packet data transfer rate limits",
+      "An administrative database setup mapping schemas keys tables variables relations indexes"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which technique is best for rapid prototyping when you need to test a brand-new application concept idea within 5 minutes?",
+    "options": [
+      "Fine-Tuning a 70-Billion parameter foundation checkpoint model on cloud clusters hardware worker pipelines",
+      "Prompt Engineering via clear text instructions inside an interactive playground workspace chat frame",
+      "Writing a brand new tokenization algorithm script compiled in C++ binaries modules code paths",
+      "Converting unstructured documents records text collections rows directly to matrix coordinates transformations layers"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "If you need an AI model to write text matching your company's extremely specific tone of voice, formatting guidelines, and brand persona perfectly across every response, which path is the most reliable for permanent structural formatting consistency?",
+    "options": [
+      "Basic zero-shot unguided prompt questions execution routes lines variables scripts",
+      "Fine-Tuning the model on thousands of high-quality sample documents matching your brand communication style guide sheets rows datasets",
+      "Increasing the model generation context length parameter limits configuration tracking attributes values numbers",
+      "Changing the file directory storage paths assigned to system logs collections maps indices parameters"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is a \"Data Scaling Bottleneck\" of Fine-Tuning workflows?",
+    "options": [
+      "It requires thousands of high-quality, labeled example prompt-response pairs to train effectively, whereas prompt engineering requires zero or only a few examples",
+      "It shortens the available context length window limit size metrics processing parameters options strings characters",
+      "It demands immediate translation of all corporate datasets text rows into French files modules scripts repositories",
+      "It breaks standard markdown code block presentation guidelines rendering presentation templates schemas variables"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which approach is fundamentally cheaper from an initial upfront computing infrastructure investment standpoint?",
+    "options": [
+      "Fine-Tuning an open-source model checkpoint across a cluster of 8x H100 GPUs for three days continuous training loops runs",
+      "Prompt Engineering against a pre-deployed cloud API model using careful context design layout guidelines rules structures",
+      "Building a custom vector database indexing engine framework module binary compiler component line script from scratch",
+      "Quantizing neural network attention layers matrix calculations from float values to binary integer values targets tracking blocks"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "If a model needs to learn a massive set of brand-new, dynamically changing facts every single minute (like live real-time stock pricing swings values lines charts data metrics), which strategy is best?",
+    "options": [
+      "Fine-Tuning the model weights on a continuous training loop every 10 seconds across cloud node workers clusters pipelines",
+      "Prompt Engineering combined with Retrieval-Augmented Generation (RAG) to inject fresh, live database search metrics directly into the context window at runtime",
+      "Typing long natural language instructions commanding the model to guess stock prices values paths accurately using math intuition code",
+      "Setting the model temperature parameter limit to the maximum value score boundaries configurations tracks properties adjustments"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What does \"In-Context Learning\" refer to in this comparison ecosystem?",
+    "options": [
+      "The permanent weight modifications that occur when running backpropagation training steps across dataset rows files text blocks frames",
+      "The model's temporary ability to understand tasks, mimic patterns, and execute logic instructions based entirely on the text data currently written inside its prompt frame context window during a single inference call",
+      "The hard-coded system parameters loaded by system boot files parameters keys schemas models configuration drivers scripts paths",
+      "The process of building a knowledge graph connection array between distinct network database tables clusters partitions records storage volumes"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is a major downside of over-relying on massive few-shot prompts (Prompt Engineering) instead of fine-tuning for high-throughput production scale systems workflows?",
+    "options": [
+      "The prompt text consumes a massive chunk of the context window with every single request, increasing token processing costs and latency overhead drastically",
+      "The model completely loses its ability to generate text strings responses inside conversational frameworks routes interfaces layouts",
+      "The system requires hard system reboots routines loops controls sequences every time a new user logs into active dashboard views",
+      "The vocabulary tokenizer lookup index mapping limits parameters files grow completely unstable numerical values coordinates matrices arrays"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What does LoRA stand for in fine-tuning methodologies architectures?",
+    "options": [
+      "Localized Routing Allocation",
+      "Low-Rank Adaptation",
+      "Linear Optimization Rule Algorithm",
+      "Long Range Attention"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Why is Low-Rank Adaptation (LoRA) popular for parameter-efficient fine-tuning (PEFT)?",
+    "options": [
+      "It deletes the model's base layer weights completely to save space partitions storage volumes bytes records files",
+      "It freezes the original pre-trained model weights and inserts small, trainable rank decomposition matrices into the attention layers, drastically reducing compute costs and VRAM training footprint metrics requirements",
+      "It changes text words inputs directly into programming code files scripts parameters configurations targets lines checks loops",
+      "It bypasses data tokenization preprocessing workflows routines entirely automatically maps paths models blocks checkpoints fields"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is \"Catastrophic Forgetting\" in fine-tuning settings contexts?",
+    "options": [
+      "The system clearing user credentials records history tables data due to a cloud network connection drop timeout failure error code exception",
+      "A risk where fine-tuning a model heavily on a narrow specialized dataset causes it to degrade or lose its general knowledge, reasoning capabilities, or instruction-following skills learned during pre-training",
+      "An automatic memory dump process running across GPU hardware setups components lines blocks units clusters frames layers",
+      "A formatting bug string translation error that switches text lines output patterns randomly into uppercase letters blocks formats rows"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which technique is explicitly a Parameter-Efficient Fine-Tuning (PEFT) methodology variant?",
+    "options": [
+      "LoRA / QLoRA / Prefix Tuning",
+      "System Role Persona Prompting",
+      "Re-ranking Cross-Encoder Retrieval",
+      "Recursive Character Chunk Partitioning"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "What does QLoRA add to the standard LoRA fine-tuning approach optimization?",
+    "options": [
+      "Massive automated question generation templates text data scripts datasets paths frameworks models",
+      "Quantization of the base model weights to 4-bit precision before applying low-rank matrices adapters, allowing fine-tuning of massive models on significantly cheaper consumer GPU hardware units setup profiles",
+      "High speed network packet routing encryption tools modules gateway protocols firewalls targets fields controls",
+      "Automated markdown documentation formatting script loops checkers validations bounds rows cells lines properties"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "If you use Prompt Engineering to guide an LLM, the model parameters are considered:",
+    "options": [
+      "Continuously updating via gradient descent updates variables calculations steps runs trajectories loops",
+      "Static / Frozen (unmodified weights context tracking boundary)",
+      "Completely randomized values configurations transformations metrics layers units models",
+      "Hidden behind file access encryption proxy systems security policies settings"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What fine-tuning stage aligns a raw pre-trained base model checkpoint to become a helpful, safe conversational chatbot assistant profile matching human preferences?",
+    "options": [
+      "Linear regression matrix alignment calculation normalization processing steps runs loops",
+      "Instruction Fine-Tuning (IFT) combined with Reinforcement Learning from Human Feedback (RLHF) / Direct Preference Optimization (DPO)",
+      "Tokenizer vocabulary dictionary character extraction splitting rules scripts frameworks arrays paths",
+      "Offline hardware file volume defragmentation routines log optimization indices tracking tables setups"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What does RLHF stand for in model tuning pipelines architectures alignment?",
+    "options": [
+      "Random Layer High Frequency",
+      "Reinforcement Learning from Human Feedback",
+      "Recursive Logic Hardware Framework",
+      "Rapid Language Heterogeneous Function"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What does DPO stand for in modern alignment fine-tuning recipes setups alternatives?",
+    "options": [
+      "Direct Preference Optimization",
+      "Dynamic Prompt Organization",
+      "Dense Pattern Output",
+      "Distributed Parameter Operation"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "question": "Which method should you choose if you need to alter how a model fundamentally parses language math logic structures or matches complex semantic syntax natively across all outputs without input overhead?",
+    "options": [
+      "Light conversational prompt engineering roleplay descriptions modifications strings lines options",
+      "Deep domain weight architecture Fine-Tuning (Full parameter tuning or target PEFT adapter training loops models)",
+      "Shortening the context window tracking variable size metrics properties bounds indices records",
+      "Changing the presentation color themes properties used inside user dashboards analytics portals scripts"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "If your prompt engineering attempts are growing highly complex, requiring a 4,000-word prompt detailing 50 distinct edge-case classification rules to work, you should consider transitioning to:",
+    "options": [
+      "Adding even more text instructions sentences guidelines notes exclamation marks blocks rows lines",
+      "Distilling those rules into a clean training dataset to Fine-Tune a dedicated model custom adapter checkpoint matching the task profile natively",
+      "Deleting all examples and letting the zero-shot baseline guess randomly without tracking rules data parameters",
+      "Switching the local backend python file extension format into alternative system configuration structural script options"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What is an advantage of a Fine-Tuned model deployment when looking at real-time endpoint latency speeds under massive customer traffic loads?",
+    "options": [
+      "Every API call finishes instantly with 0 tokens generated automatically profiles maps routes arrays",
+      "You save significant time and computation processing latency during the prompt processing (pre-fill) phase because you don't need to pass massive few-shot instruction strings into the context box for every single transaction request",
+      "The model automatically translates its internal architecture calculations code directly into low level assembly wiring scripts instructions",
+      "VRAM memory tracking blocks usage optimization dropped completely zero boundaries configurations targets variables levels metrics"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "True or False: A successfully fine-tuned model checkpoint entirely eliminates the risk of logical hallucinations or factual mistakes, ensuring absolute 100% deterministic code accuracy output metrics values profiles.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "When compiling a fine-tuning dataset collection pipeline task, what format structural pattern is standard for instruction tuning rows pairs configurations mappings definitions templates?",
+    "options": [
+      "Unstructured plain paragraphs sequences lines files containing generic text documentation blocks logs datasets webs",
+      "JSONL objects structuring clear keys boundaries like {\"messages\": [{\"role\": \"system\", \"content\": \"...\"}, {\"role\": \"user\", \"content\": \"...\"}, {\"role\": \"assistant\", \"content\": \"...\"}]}",
+      "Relational SQL table database file schema dump commands scripts strings creations modifications lines drops updates",
+      "Raw binary byte codes stream tracking coordinates files arrays directories partitions workspaces data components"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What optimization danger arises if you train a fine-tuning adapter model loop for too many epochs across a tiny dataset sample size collection rows profile?",
+    "options": [
+      "Underfitting parameters loss reduction calculation paths configurations metrics lines logs errors tracks",
+      "Overfitting (the model memorizes the exact dataset rows text perfectly but fails to generalize accurately to new unseen user inputs phrases questions)",
+      "The model dimensions coordinate values count changes size count values transformations models blocks grids boundaries",
+      "The tokenizer deletes standard language vocabulary token strings from system reference dictionary structures tables"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Which asset forms the final deployment outcome of a successful prompt engineering design workflow?",
+    "options": [
+      "A newly compiled binary foundation model weight architecture checkpoint file storage path disk target",
+      "An optimized system prompt string template file integrated into your application code layer configurations files assets parameters options",
+      "A new cloud cluster database schema layout design script creation table command lines mapping paths models",
+      "An offline system hardware driver optimization routine tracker logging microcode updates processing logs records"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "When evaluating project development costs timelines, Prompt Engineering is characterized as:",
+    "options": [
+      "High initial development cost, requiring weeks of machine clusters cloud training infrastructure budget before testing lines queries fields",
+      "Low initial cost, high agility, enabling instant automation through text field string modifications inside code setup configs files parameters",
+      "Extremely slow deployment iteration validation lifecycles matching low speed networking pipelines routing metrics constraints bounds",
+      "Incompatible with standard generative LLM API infrastructure endpoints deployment services setups models channels"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "What does \"Full Parameter Fine-Tuning\" imply compared to PEFT techniques like LoRA?",
+    "options": [
+      "Modifying only the final softmax activation output classifier layer block metrics properties parameters rules structures",
+      "Updating every single weight layer parameter throughout the entire deep neural network architecture during backpropagation training loops calculation steps execution runs runs (highly resource intensive)",
+      "Deleting all text token strings arrays list models dictionary collections indices components files partitions data",
+      "Running user session login validation loops routines processes across local device frameworks drivers scripts code boundaries"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "If you find a model's writing style is correct but its accuracy on domain knowledge dates, specific project references, and names is low, you should solve this by pairing your prompt design configuration with:",
+    "options": [
+      "A larger model tokenizer vocabulary list expansion script array compiler mapping path lines codes variables",
+      "A Retrieval-Augmented Generation (RAG) pipeline to feed accurate search context documents text straight to the model prompt window at query execution time",
+      "Natural language instruction descriptions written completely in block capitals letters formats templates structures files records",
+      "A hardware server memory infrastructure reboot execution sequence checking cooling performance tracking bounds metrics parameters"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "question": "Prompt engineering and fine-tuning form a complementary spectrum of AI optimization capabilities. A wise production engineering design pattern is to first freeze your model architecture selection and optimize workflows using ____, and then move to ____ if you need to scale up format consistency, save token costs, or lock down specialized behavioral performance benchmarks.",
+    "options": [
+      "Brute force code rewrites / manual integer data matching algorithms transformations fields strings variables lines paths",
+      "Prompt Engineering and RAG pipelines architectures frameworks / dedicated targeted model Adapter Fine-Tuning recipes datasets systems tracks",
+      "File compression zip drivers utilities settings formats / hard-coded keyword indexing collection mappings models databases frameworks configurations",
+      "High precision dimension coordinates transformations matrix layers / zero-shot unguided conversational guess patterns testing loops boundaries checks"
+    ],
+    "answerIndex": 1
+  }
+]

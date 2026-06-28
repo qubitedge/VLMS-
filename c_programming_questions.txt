@@ -1,0 +1,3538 @@
+C Programming Pre-test and Post-test Questions
+
+========================================================
+Module: WEEK 1 - Getting familiar with programming environment and writing first program
+========================================================
+
+Experiment: Hello World
+--------------------------------------------------------
+[Pre-test Questions]
+1. Which of the following is the correct extension for a C source file?
+   a) .cp
+   b) .c
+   c) .cpp
+   d) .cv
+   Answer: .c
+
+2. Which header file is required to use printf() in C?
+   a) math.h
+   b) string.h
+   c) stdio.h
+   d) stdlib.h
+   Answer: stdio.h
+
+3. What is the entry point of every C program?
+   a) start()
+   b) begin()
+   c) main()
+   d) run()
+   Answer: main()
+
+4. What does \n do inside printf()?
+   a) Prints the letter n
+   b) Adds a tab space
+   c) Moves to the next line
+   d) Ends the program
+   Answer: Moves to the next line
+
+5. What value should main() return to indicate successful execution?
+   a) 1
+   b) -1
+   c) 0
+   d) NULL
+   Answer: 0
+
+[Post-test Questions]
+1. What is the output of printf("Hello\nWorld");?
+   a) Hello World
+   b) Hello\nWorld (on two lines)
+   c) HelloWorld
+   d) Error
+   Answer: Hello\nWorld (on two lines)
+
+2. Which of the following correctly prints "JNTUGV" in C?
+   a) print("JNTUGV")
+   b) printf[JNTUGV]
+   c) printf("JNTUGV");
+   d) Printf("JNTUGV");
+   Answer: printf("JNTUGV");
+
+3. What happens if you remove #include<stdio.h> from the Hello World program?
+   a) Program still runs normally
+   b) printf() will not be recognized, compiler error
+   c) Program prints nothing
+   d) Program crashes at runtime
+   Answer: printf() will not be recognized, compiler error
+
+4. What does int before main() indicate?
+   a) main() takes integer arguments
+   b) main() returns an integer value
+   c) main() is an integer variable
+   d) Nothing, it is optional
+   Answer: main() returns an integer value
+
+5. Which of the following will print Hello World with a newline at the end?
+   a) printf("Hello World")
+   b) printf("Hello World\n")
+   c) printf(\nHello World)
+   d) printf("Hello World\t")
+   Answer: printf("Hello World\n")
+
+Experiment: Basic Input Output
+--------------------------------------------------------
+[Pre-test Questions]
+1. Which function is used to take input from the user in C?
+   a) input()
+   b) cin()
+   c) scanf()
+   d) read()
+   Answer: scanf()
+
+2. What is the format specifier for an integer in C?
+   a) %i
+   b) %d
+   c) %int
+   d) %n
+   Answer: %d
+
+3. What does the & symbol do in scanf("%d", &age)?
+   a) It is the AND operator
+   b) It passes the address of the variable
+   c) It multiplies the value
+   d) It is not required
+   Answer: It passes the address of the variable
+
+4. To store a person's name in C, which data type is used?
+   a) string name
+   b) char name[]
+   c) text name[]
+   d) varchar name
+   Answer: char name[]
+
+5. What is the format specifier for a string in printf()?
+   a) %c
+   b) %str
+   c) %s
+   d) %ch
+   Answer: %s
+
+[Post-test Questions]
+1. What will be the output of the program if input is Ram 25?
+   a) Name: Ram Age: 25
+   b) Ram 25
+   c) Name=Ram Age=25
+   d) Error
+   Answer: Name: Ram Age: 25
+
+2. Why is & not used with char arrays in scanf()?
+   a) It is a syntax error
+   b) char arrays already represent memory addresses
+   c) scanf() does not support strings
+   d) & is only for float variables
+   Answer: char arrays already represent memory addresses
+
+3. What is the size of char name[50]?
+   a) 50 integers
+   b) 50 characters including null terminator
+   c) 50 bytes of float
+   d) 50 bits
+   Answer: 50 characters including null terminator
+
+4. Which format specifier is used to print a float value?
+   a) %d
+   b) %s
+   c) %f
+   d) %fl
+   Answer: %f
+
+5. What happens if you forget & before an int variable in scanf()?
+   a) Program prints 0
+   b) Program compiles but may crash at runtime (undefined behavior)
+   c) Program prints garbage value
+   d) Compiler gives a warning but runs fine
+   Answer: Program compiles but may crash at runtime (undefined behavior)
+
+========================================================
+Module: WEEK 2 - Converting algorithms/flowcharts into C source code
+========================================================
+
+Experiment: Sum & Average
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the result of 7 / 2 in C when both are int?
+   a) 3.5
+   b) 3
+   c) 4
+   d) Error
+   Answer: 3
+
+2. Which format specifier prints a float to 2 decimal places?
+   a) %d
+   b) %f
+   c) %.2f
+   d) %2d
+   Answer: %.2f
+
+3. To get float division from two int variables a and b, you write:
+   a) a / b
+   b) (float)a / b
+   c) float(a / b)
+   d) a % b
+   Answer: (float)a / b
+
+4. What operator computes the remainder of division?
+   a) /
+   b) //
+   c) %
+   d) **
+   Answer: %
+
+5. If a = 10 and b = 4, what is (float)(a + b) / 2?
+   a) 7
+   b) 7.00
+   c) 7.5
+   d) 3.0
+   Answer: 7.00
+
+[Post-test Questions]
+1. What will printf("Sum: %d", 10+4); print?
+   a) Sum: 14
+   b) Sum: 10+4
+   c) 14
+   d) Error
+   Answer: Sum: 14
+
+2. Which variable type is best for storing the average of two integers?
+   a) int
+   b) float
+   c) char
+   d) double
+   Answer: float
+
+3. For inputs 7 and 3, what is the average printed with %.2f?
+   a) 5.00
+   b) 5
+   c) 5.5
+   d) 4.00
+   Answer: 5.00
+
+4. What is the purpose of type casting in (float)sum / 2?
+   a) Changes sum permanently to float
+   b) Temporarily treats sum as float for division
+   c) Rounds sum to nearest float
+   d) No effect
+   Answer: Temporarily treats sum as float for division
+
+5. What is 13 % 4?
+   a) 3.25
+   b) 1
+   c) 3
+   d) 4
+   Answer: 1
+
+Experiment: Fahrenheit to Celsius
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the correct formula to convert Fahrenheit to Celsius?
+   a) C = (F + 32) * 5 / 9
+   b) C = (F - 32) * 9 / 5
+   c) C = (F - 32) * 5 / 9
+   d) C = F - 32 / 5 * 9
+   Answer: C = (F - 32) * 5 / 9
+
+2. What data type should be used to store a temperature like 98.6?
+   a) int
+   b) char
+   c) float
+   d) long
+   Answer: float
+
+3. What is 98.6°F converted to Celsius (approx)?
+   a) 32.00
+   b) 37.00
+   c) 66.60
+   d) 45.30
+   Answer: 37.00
+
+4. Why are parentheses needed in (F - 32) * 5 / 9?
+   a) They are not needed
+   b) To ensure subtraction happens before multiplication
+   c) To convert F to an integer
+   d) To print the result
+   Answer: To ensure subtraction happens before multiplication
+
+5. What will %.2f do when printing 37.0?
+   a) Print 37
+   b) Print 37.0
+   c) Print 37.00
+   d) Print 37.000
+   Answer: Print 37.00
+
+[Post-test Questions]
+1. What is 0°C in Fahrenheit?
+   a) 0
+   b) 32
+   c) 100
+   d) 212
+   Answer: 32
+
+2. What output does the program print for input 32?
+   a) Celsius: 0.00
+   b) Celsius: 32.00
+   c) Celsius: 1.00
+   d) Celsius: -1.00
+   Answer: Celsius: 0.00
+
+3. What happens if fahrenheit is declared as int instead of float?
+   a) No difference
+   b) Decimal part of input is lost
+   c) Program crashes
+   d) Output doubles
+   Answer: Decimal part of input is lost
+
+4. Which of the following correctly computes Celsius in C?
+   a) celsius = F - 32 * 5 / 9;
+   b) celsius = (F - 32) * 5 / 9;
+   c) celsius = F * 5 / 9 - 32;
+   d) celsius = (F / 9) * 5 - 32;
+   Answer: celsius = (F - 32) * 5 / 9;
+
+5. For input 212°F, what is the expected Celsius output?
+   a) 180.00
+   b) 100.00
+   c) 37.00
+   d) 0.00
+   Answer: 100.00
+
+Experiment: Simple Interest
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the formula for Simple Interest?
+   a) SI = P + R + T
+   b) SI = (P * R * T) / 100
+   c) SI = (P + R) * T / 100
+   d) SI = P / (R * T)
+   Answer: SI = (P * R * T) / 100
+
+2. What data type is most appropriate for storing principal and rate?
+   a) int
+   b) char
+   c) float
+   d) void
+   Answer: float
+
+3. If P = 1000, R = 5, T = 2, what is SI?
+   a) 10.00
+   b) 100.00
+   c) 1000.00
+   d) 50.00
+   Answer: 100.00
+
+4. Why is dividing by 100 necessary in the SI formula?
+   a) To convert years to months
+   b) Because rate is given as a percentage
+   c) To round the result
+   d) It is not necessary
+   Answer: Because rate is given as a percentage
+
+5. Which printf format specifier prints a float to 2 decimal places?
+   a) %d
+   b) %f
+   c) %.2f
+   d) %s
+   Answer: %.2f
+
+[Post-test Questions]
+1. For P = 500, R = 10, T = 3, what is SI?
+   a) 15.00
+   b) 150.00
+   c) 1500.00
+   d) 50.00
+   Answer: 150.00
+
+2. What happens if T is declared as int and the user enters 1.5?
+   a) SI is computed correctly
+   b) T stores 1, losing the 0.5
+   c) Program crashes
+   d) T becomes 2
+   Answer: T stores 1, losing the 0.5
+
+3. Which line correctly computes simple interest in C?
+   a) si = P + R + T / 100;
+   b) si = (P * R * T) / 100;
+   c) si = P * R / T * 100;
+   d) si = (P / 100) * R + T;
+   Answer: si = (P * R * T) / 100;
+
+4. What is the output for P = 2000, R = 3.5, T = 4?
+   a) 28.00
+   b) 280.00
+   c) 2800.00
+   d) 700.00
+   Answer: 280.00
+
+5. Why should SI be declared as float rather than int?
+   a) int cannot store numbers above 100
+   b) SI may have a decimal part
+   c) float is faster to compute
+   d) printf requires float for all output
+   Answer: SI may have a decimal part
+
+========================================================
+Module: WEEK 3 - Variables, data types, arithmetic operators
+========================================================
+
+Experiment: Square Root
+--------------------------------------------------------
+[Pre-test Questions]
+1. Which header file must be included to use sqrt() in C?
+   a) stdio.h
+   b) stdlib.h
+   c) math.h
+   d) string.h
+   Answer: math.h
+
+2. What does sqrt(144) return?
+   a) 14.00
+   b) 12.00
+   c) 72.00
+   d) 1.44
+   Answer: 12.00
+
+3. What is the return type of the sqrt() function?
+   a) int
+   b) float
+   c) double
+   d) char
+   Answer: double
+
+4. What happens if you pass a negative value to sqrt()?
+   a) Program crashes
+   b) Returns 0
+   c) Returns NaN
+   d) Returns the absolute value
+   Answer: Returns NaN
+
+5. Which compilation command correctly links the math library?
+   a) gcc program.c -o program
+   b) gcc program.c -o program -lm
+   c) gcc program.c -math -o program
+   d) gcc -sqrt program.c -o program
+   Answer: gcc program.c -o program -lm
+
+[Post-test Questions]
+1. What is the output for input 2?
+   a) 1.00
+   b) 1.41
+   c) 4.00
+   d) 2.00
+   Answer: 1.41
+
+2. What is sqrt(0)?
+   a) 1.00
+   b) Undefined
+   c) 0.00
+   d) NaN
+   Answer: 0.00
+
+3. Which of the following correctly calls the square root function in C?
+   a) squareroot(n)
+   b) sqrt[n]
+   c) sqrt(n)
+   d) Math.sqrt(n)
+   Answer: sqrt(n)
+
+4. What error occurs if you forget -lm during compilation?
+   a) Syntax error
+   b) Runtime crash
+   c) Linker error
+   d) Logical error
+   Answer: Linker error
+
+5. If the user enters 50, what is the approximate output?
+   a) 25.00
+   b) 10.00
+   c) 5.00
+   d) 7.07
+   Answer: 7.07
+
+Experiment: Compound Interest
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the formula for the Amount in compound interest?
+   a) A = P + R * T / 100
+   b) A = P * pow(1 + R/100, T)
+   c) A = P * R * T / 100
+   d) A = P / pow(R, T)
+   Answer: A = P * pow(1 + R/100, T)
+
+2. Which function is used to raise a number to a power in C?
+   a) sqrt()
+   b) exp()
+   c) pow()
+   d) log()
+   Answer: pow()
+
+3. What is the Compound Interest itself (not the Amount)?
+   a) CI = P * pow(1 + R/100, T)
+   b) CI = A + P
+   c) CI = A - P
+   d) CI = P - A
+   Answer: CI = A - P
+
+4. For P = 1000, R = 10, T = 1, what is the compound interest?
+   a) 110.00
+   b) 10.00
+   c) 100.00
+   d) 1100.00
+   Answer: 100.00
+
+5. Why is pow() preferred over repeated multiplication for compound interest?
+   a) It is faster for small T
+   b) It correctly handles any value of T including non-integers
+   c) It avoids the need for float variables
+   d) It rounds the result automatically
+   Answer: It correctly handles any value of T including non-integers
+
+[Post-test Questions]
+1. For P = 1000, R = 10, T = 2, what is the Amount?
+   a) 1100.00
+   b) 1200.00
+   c) 1210.00
+   d) 1020.00
+   Answer: 1210.00
+
+2. What is the Compound Interest for P = 1000, R = 10, T = 2?
+   a) 200.00
+   b) 210.00
+   c) 100.00
+   d) 220.00
+   Answer: 210.00
+
+3. How does compound interest differ from simple interest for the same inputs?
+   a) They are always equal
+   b) Simple interest is always greater
+   c) Compound interest grows faster because interest is earned on interest
+   d) Compound interest only applies to integers
+   Answer: Compound interest grows faster because interest is earned on interest
+
+4. What header and flag are required to use pow() in C?
+   a) stdlib.h, no flag needed
+   b) math.h, -lm
+   c) stdio.h, -lm
+   d) math.h, -lmath
+   Answer: math.h, -lm
+
+5. For P = 500, R = 5, T = 3, what is CI approximately?
+   a) 75.00
+   b) 78.81
+   c) 57.88
+   d) 100.00
+   Answer: 78.81
+
+Experiment: Heron's Formula
+--------------------------------------------------------
+[Pre-test Questions]
+1. For P = 1000, R = 10, T = 2, what is the Amount?
+   a) 1100.00
+   b) 1200.00
+   c) 1210.00
+   d) 1020.00
+   Answer: 1210.00
+
+2. What is the Compound Interest for P = 1000, R = 10, T = 2?
+   a) 200.00
+   b) 210.00
+   c) 100.00
+   d) 220.00
+   Answer: 210.00
+
+3. How does compound interest differ from simple interest for the same inputs?
+   a) They are always equal
+   b) Simple interest is always greater
+   c) Compound interest grows faster because interest is earned on interest
+   d) Compound interest only applies to integers
+   Answer: Compound interest grows faster because interest is earned on interest
+
+4. What header and flag are required to use pow() in C?
+   a) stdlib.h, no flag needed
+   b) math.h, -lm
+   c) stdio.h, -lm
+   d) math.h, -lmath
+   Answer: math.h, -lm
+
+5. For P = 500, R = 5, T = 3, what is CI approximately?
+   a) 75.00
+   b) 78.81
+   c) 57.88
+   d) 100.00
+   Answer: 78.81
+
+[Post-test Questions]
+1. For sides 5, 5, 5, what is the semi-perimeter?
+   a) 5.00
+   b) 15.00
+   c) 7.50
+   d) 10.00
+   Answer: 7.50
+
+2. What is the area of an equilateral triangle with side 6?
+   a) 36.00
+   b) 18.00
+   c) 15.59
+   d) 12.00
+   Answer: 15.59
+
+3. For sides 1, 2, 10, what does the program output?
+   a) Area: 0.00
+   b) Area: NaN or invalid result
+   c) Area: 5.00
+   d) Compilation error
+   Answer: Area: NaN or invalid result
+
+4. Which intermediate value must be computed before the area in Heron's Formula?
+   a) The height of the triangle
+   b) The perimeter only
+   c) The semi-perimeter s
+   d) The largest angle
+   Answer: The semi-perimeter s
+
+5. For sides 6, 8, 10, what is the area?
+   a) 48.00
+   b) 20.00
+   c) 30.00
+   d) 24.00
+   Answer: 30.00
+
+Experiment: Distance Traveled
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the kinematic formula for distance traveled under uniform acceleration?
+   a) s = u + a * t
+   b) s = u*t + 0.5 * a * t * t
+   c) s = 0.5 * u * t * t + a
+   d) s = (u + a) * t / 2
+   Answer: s = u*t + 0.5 * a * t * t
+
+2. What does 1/2 evaluate to in C when both are integer literals?
+   a) 0.5
+   b) 1
+   c) 0
+   d) 2
+   Answer: 0
+
+3. How should the half factor be correctly written in C?
+   a) 1/2
+   b) 1//2
+   c) 0.5
+   d) half
+   Answer: 0.5
+
+4. If u = 0, a = 10, t = 2, what is the distance?
+   a) 40.00
+   b) 10.00
+   c) 20.00
+   d) 5.00
+   Answer: 20.00
+
+5. Which operator computes t squared in C?
+   a) t^2
+   b) t**2
+   c) pow(t,2) or t*t
+   d) sq(t)
+   Answer: pow(t,2) or t*t
+
+[Post-test Questions]
+1. For u = 5, a = 2, t = 3, what is the distance?
+   a) 20.00
+   b) 21.00
+   c) 24.00
+   d) 30.00
+   Answer: 24.00
+
+2. What is the distance when u = 10, a = 0, t = 5?
+   a) 0.00
+   b) 25.00
+   c) 50.00
+   d) 100.00
+   Answer: 50.00
+
+3. Why is t*t preferred over pow(t,2) for squaring in simple programs?
+   a) pow() gives wrong results for integers
+   b) t*t avoids including math.h and is simpler
+   c) pow() only works for doubles
+   d) t*t is always more accurate
+   Answer: t*t avoids including math.h and is simpler
+
+4. What is the output for u = 0, a = 0, t = 10?
+   a) 10.00
+   b) 100.00
+   c) 0.00
+   d) 50.00
+   Answer: 0.00
+
+5. For u = 20, a = -5, t = 4, what is the distance?
+   a) 80.00
+   b) 40.00
+   c) 60.00
+   d) 20.00
+   Answer: 40.00
+
+========================================================
+Module: WEEK 4 - Expressions, operator precedence and associativity
+========================================================
+
+Experiment: Expression Evaluation
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the result of 2 + 3 * 4 in C?
+   a) 20
+   b) 14
+   c) 24
+   d) 9
+   Answer: 14
+
+2. What is the result of 10 - 3 - 2 in C?
+   a) 9
+   b) 5
+   c) 7
+   d) 3
+   Answer: 5
+
+3. What is 17 % 5?
+   a) 3
+   b) 2
+   c) 1
+   d) 0
+   Answer: 2
+
+4. What is the value of x after: int x = 5; int y = x++;?
+   a) x = 6, y = 6
+   b) x = 5, y = 5
+   c) x = 6, y = 5
+   d) x = 5, y = 6
+   Answer: x = 6, y = 5
+
+5. What is the result of (2 + 3) * (8 - 4) / 2?
+   a) 14
+   b) 8
+   c) 10
+   d) 20
+   Answer: 10
+
+[Post-test Questions]
+1. What is the result of 100 / 4 * 5 in C?
+   a) 5
+   b) 20
+   c) 125
+   d) 500
+   Answer: 125
+
+2. What is the value of 5 + 3 * 2 - 8 / 4?
+   a) 7
+   b) 9
+   c) 8
+   d) 4
+   Answer: 9
+
+3. What does ++x do differently from x++?
+   a) No difference
+   b) ++x increments after use; x++ increments before use
+   c) ++x increments before use; x++ increments after use
+   d) ++x works only on float
+   Answer: ++x increments before use; x++ increments after use
+
+4. What is the result of 2 * 3 + 4 * 5 - 6 / 2?
+   a) 20
+   b) 23
+   c) 18
+   d) 30
+   Answer: 23
+
+5. Which expression evaluates to 1 in C?
+   a) 5 / 2 * 2
+   b) 5 % 2
+   c) 5 - 2 * 2
+   d) 5 * 0 + 1 / 2
+   Answer: 5 % 2
+
+Experiment: Max of Three
+--------------------------------------------------------
+[Pre-test Questions]
+1. What does the relational operator > return when the condition is false?
+   a) -1
+   b) 0
+   c) 1
+   d) NULL
+   Answer: 0
+
+2. What is the result of (10 > 5) ? 10 : 5?
+   a) 5
+   b) 0
+   c) 1
+   d) 10
+   Answer: 10
+
+3. Which operator is the ternary operator in C?
+   a) ::
+   b) ?:
+   c) ??
+   d) ->
+   Answer: ?:
+
+4. For a = 3, b = 7, c = 5, what does (a > b) ? a : b evaluate to?
+   a) 3
+   b) 5
+   c) 7
+   d) 0
+   Answer: 7
+
+5. What is the difference between = and == in C?
+   a) No difference
+   b) = compares, == assigns
+   c) = assigns a value; == tests equality
+   d) == is only for floats
+   Answer: = assigns a value; == tests equality
+
+[Post-test Questions]
+1. For inputs 4, 4, 4, what is the output?
+   a) 0
+   b) Error
+   c) 4
+   d) Undefined
+   Answer: 4
+
+2. Which expression correctly finds the max of a and b?
+   a) max = a > b ? b : a
+   b) max = (a > b) ? a : b
+   c) max = a < b ? a : b
+   d) max = a == b ? a : b
+   Answer: max = (a > b) ? a : b
+
+3. For inputs -5, -1, -9, what is the maximum?
+   a) -9
+   b) -5
+   c) -1
+   d) 0
+   Answer: -1
+
+4. What is the precedence order (highest to lowest) relevant here?
+   a) Ternary → Relational → Arithmetic
+   b) Arithmetic → Ternary → Relational
+   c) Arithmetic → Relational → Ternary
+   d) Relational → Arithmetic → Ternary
+   Answer: Arithmetic → Relational → Ternary
+
+5. For a = 10, b = 20, c = 15, what does the following evaluate to? (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c)
+   a) 10
+   b) 15
+   c) 20
+   d) 0
+   Answer: 20
+
+Experiment: Marks Average
+--------------------------------------------------------
+[Pre-test Questions]
+1. What does the += operator do?
+   a) Compares two values
+   b) Adds the right operand to the left and assigns the result
+   c) Always increments by 1
+   d) Performs modulus and assigns
+   Answer: Adds the right operand to the left and assigns the result
+
+2. For 5 subject marks totalling 375, what is the average?
+   a) 70.00
+   b) 75.00
+   c) 80.00
+   d) 65.00
+   Answer: 75.00
+
+3. Which logical operator means AND in C?
+   a) &
+   b) |
+   c) &&
+   d) ||
+   Answer: &&
+
+4. What is the correct way to check if average is between 60 and 75 (inclusive of 60)?
+   a) 60 < average < 75
+   b) average >= 60 || average < 75
+   c) average >= 60 && average < 75
+   d) average == 60 && 75
+   Answer: average >= 60 && average < 75
+
+5. Why cast total to float before dividing by number of subjects?
+   a) To make the code longer
+   b) To avoid integer truncation and get a decimal average
+   c) Because printf requires float
+   d) Because += only works with float
+   Answer: To avoid integer truncation and get a decimal average
+
+[Post-test Questions]
+1. For marks 70 80 90 60 50, what is the total?
+   a) 340
+   b) 360
+   c) 350
+   d) 370
+   Answer: 350
+
+2. For the same marks above (total 350), what is the average?
+   a) 75.00
+   b) 70.00
+   c) 65.00
+   d) 80.00
+   Answer: 70.00
+
+3. With average 70.00, which grade is awarded?
+   a) A
+   b) B
+   c) C
+   d) D
+   Answer: C
+
+4. Which compound operator correctly accumulates marks into total?
+   a) total == total + marks
+   b) total = marks
+   c) total += marks
+   d) total =+ marks
+   Answer: total += marks
+
+5. For marks 30 35 28 40 32, what is the grade?
+   a) D
+   b) C
+   c) F
+   d) B
+   Answer: F
+
+========================================================
+Module: WEEK 5 - if-else, switch-case, nested-if, relational and logical operators
+========================================================
+
+Experiment: Max and Min of Four Numbers
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the correct initial assumption when finding the maximum of four numbers?
+   a) Assume max = 0
+   b) Assume max = first number
+   c) Assume max = last number
+   d) Assume max = average
+   Answer: Assume max = first number
+
+2. For inputs 3, 9, 1, 7, what is the maximum?
+   a) 3
+   b) 7
+   c) 1
+   d) 9
+   Answer: 9
+
+3. For inputs 3, 9, 1, 7, what is the minimum?
+   a) 3
+   b) 1
+   c) 7
+   d) 9
+   Answer: 1
+
+4. What does the condition (b > max) check?
+   a) Whether b equals max
+   b) Whether b is strictly greater than the current max
+   c) Whether b is less than max
+   d) Whether b is not zero
+   Answer: Whether b is strictly greater than the current max
+
+5. What relational operator is used to find the smallest value?
+   a) >
+   b) >=
+   c) <
+   d) ==
+   Answer: <
+
+[Post-test Questions]
+1. For inputs -3, -8, -1, -5, what is the maximum?
+   a) -8
+   b) -5
+   c) -3
+   d) -1
+   Answer: -1
+
+2. For inputs -3, -8, -1, -5, what is the minimum?
+   a) -1
+   b) -3
+   c) -8
+   d) -5
+   Answer: -8
+
+3. What is wrong with initialising max = 0 when all inputs are negative?
+   a) Nothing, it always works
+   b) max would remain 0, which is larger than all inputs — giving a wrong result
+   c) It causes a compilation error
+   d) It only fails when inputs are floats
+   Answer: max would remain 0, which is larger than all inputs — giving a wrong result
+
+4. How many comparisons are needed to find max from four numbers using the sequential update method?
+   a) 2
+   b) 4
+   c) 3
+   d) 6
+   Answer: 3
+
+5. For inputs 5, 5, 5, 5, what are max and min?
+   a) max = 0, min = 0
+   b) max = 5, min = 0
+   c) max = 5, min = 5
+   d) Undefined
+   Answer: max = 5, min = 5
+
+Experiment: Electricity Bill Generator
+--------------------------------------------------------
+[Pre-test Questions]
+1. What kind of conditional structure is best for multi-slab billing?
+   a) Nested ternary operators
+   b) switch-case
+   c) if-else if-else chain
+   d) while loop
+   Answer: if-else if-else chain
+
+2. A customer uses 150 units. How many units are billed at Rs. 2.50/unit?
+   a) 150
+   b) 100
+   c) 50
+   d) 200
+   Answer: 50
+
+3. What is the bill for 100 units at Rs. 1.50 per unit?
+   a) 100.00
+   b) 200.00
+   c) 150.00
+   d) 50.00
+   Answer: 150.00
+
+4. For 250 units using the slab above, what is the bill (excluding service charge)?
+   a) 500.00
+   b) 625.00
+   c) 600.00
+   d) 550.00
+   Answer: 600.00
+
+5. Once a true condition is found in an if-else if chain, what happens to the rest?
+   a) They are all evaluated
+   b) They are skipped
+   c) They cause an error
+   d) They are evaluated only if the first is false
+   Answer: They are skipped
+
+[Post-test Questions]
+1. For 100 units, what is the bill (excluding service charge)?
+   a) 200.00
+   b) 100.00
+   c) 250.00
+   d) 150.00
+   Answer: 150.00
+
+2. For 200 units, what is the bill (excluding service charge)?
+   a) 300.00
+   b) 400.00
+   c) 500.00
+   d) 350.00
+   Answer: 500.00
+
+3. For 350 units, what is the bill (excluding service charge)?
+   a) 900.00
+   b) 1100.00
+   c) 1050.00
+   d) 1150.00
+   Answer: 1150.00
+
+4. What is the role of the else block in the slab billing program?
+   a) Handles units equal to 300
+   b) Handles zero units
+   c) Handles units greater than 300
+   d) Is never executed
+   Answer: Handles units greater than 300
+
+5. Why is a service charge added separately rather than inside each slab?
+   a) It makes the program longer
+   b) It is a fixed charge applied regardless of units consumed
+   c) It only applies to high consumers
+   d) It is required by the C standard
+   Answer: It is a fixed charge applied regardless of units consumed
+
+Experiment: Quadratic Roots
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the discriminant of a quadratic equation?
+   a) b² + 4ac
+   b) b² - 4ac
+   c) 2a - b
+   d) -b / 2a
+   Answer: b² - 4ac
+
+2. If D > 0, the roots are:
+   a) Complex
+   b) Equal
+   c) Two distinct real roots
+   d) Zero
+   Answer: Two distinct real roots
+
+3. If D = 0, what can be said about the roots?
+   a) No real roots exist
+   b) Two distinct real roots
+   c) Two equal real roots
+   d) One root is always zero
+   Answer: Two equal real roots
+
+4. For a = 1, b = -5, c = 6, what is the discriminant?
+   a) 1
+   b) 49
+   c) 25
+   d) 1
+   Answer: 1
+
+5. Why must a = 0 be handled separately before computing roots?
+   a) It causes a syntax error
+   b) It makes D negative
+   c) It results in division by zero in the quadratic formula
+   d) sqrt() fails when a = 0
+   Answer: It results in division by zero in the quadratic formula
+
+[Post-test Questions]
+1. For a=1, b=2, c=1, what is the discriminant and nature of roots?
+   a) D=8, distinct real
+   b) D=0, equal real roots
+   c) D=-4, complex
+   d) D=4, distinct real
+   Answer: D=0, equal real roots
+
+2. For a=1, b=1, c=1, what is the nature of roots?
+   a) Distinct real
+   b) Equal real
+   c) Complex
+   d) Zero
+   Answer: Complex
+
+3. For a=1, b=-5, c=6, what are the roots?
+   a) 1 and 6
+   b) 2 and 3
+   c) -2 and -3
+   d) 5 and 1
+   Answer: 2 and 3
+
+4. What is the real part of complex roots when D < 0?
+   a) sqrt(-D) / (2a)
+   b) b / (2a)
+   c) -b / (2a)
+   d) -b / a
+   Answer: -b / (2a)
+
+5. For a=0, b=2, c=4, what should the program output?
+   a) Roots: -2.00 and 2.00
+   b) Not a quadratic — linear equation, x = -2.00
+   c) Division by zero error
+   d) Complex roots
+   Answer: Not a quadratic — linear equation, x = -2.00
+
+Experiment: Calculator Using Switch
+--------------------------------------------------------
+[Pre-test Questions]
+1. Which statement prevents fall-through in a switch-case block?
+   a) continue
+   b) exit
+   c) return
+   d) break
+   Answer: break
+
+2. What is executed when no case matches in a switch statement?
+   a) The first case
+   b) Nothing — program exits
+   c) The default case
+   d) An error is thrown
+   Answer: The default case
+
+3. What format specifier reads a character in scanf?
+   a) %s
+   b) %d
+   c) %c
+   d) %ch
+   Answer: %c
+
+4. For inputs 10, 0, and operator /, what should the program output?
+   a) 0.00
+   b) Infinity
+   c) Error: Division by zero
+   d) 10.00
+   Answer: Error: Division by zero
+
+5. What happens if break is omitted from a case in switch?
+   a) Compilation error
+   b) That case is skipped
+   c) Execution falls through to the next case
+   d) switch exits immediately
+   Answer: Execution falls through to the next case
+
+[Post-test Questions]
+1. For inputs 15, 4, and operator *, what is the output?
+   a) 11.00
+   b) 3.75
+   c) 19.00
+   d) 60.00
+   Answer: 60.00
+
+2. For inputs 9, 4, and operator -, what is the output?
+   a) 13.00
+   b) 2.25
+   c) 5.00
+   d) 36.00
+   Answer: 5.00
+
+3. For inputs 7, 2, and operator /, what is the output?
+   a) 3.00
+   b) 3.50
+   c) 4.00
+   d) 14.00
+   Answer: 3.50
+
+4. What does the default case in this calculator program do?
+   a) Performs addition as a fallback
+   b) Exits the program silently
+   c) Prints an invalid operator message
+   d) Repeats the last valid operation
+   Answer: Prints an invalid operator message
+
+5. Why is " %c" (with a leading space) used instead of "%c" for reading the operator?
+   a) %c cannot read symbols
+   b) The leading space flushes the newline left in the input buffer
+   c) Symbols require a space before them in scanf
+   d) It makes the output prettier
+   Answer: The leading space flushes the newline left in the input buffer
+
+Experiment: Leap Year Check
+--------------------------------------------------------
+[Pre-test Questions]
+1. Which of the following is the correct leap year condition in C?
+   a) year % 4 == 0
+   b) (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
+   c) year % 100 == 0 || year % 4 == 0
+   d) year % 400 == 0 && year % 4 == 0
+   Answer: (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
+
+2. Is 1900 a leap year?
+   a) Yes
+   b) No
+   c) Only in some calendars
+   d) Depends on the compiler
+   Answer: No
+
+3. Is 2000 a leap year?
+   a) No
+   b) Yes
+   c) Only if divisible by 100
+   d) Cannot be determined
+   Answer: Yes
+
+4. What does year % 4 == 0 check?
+   a) Whether year is greater than 4
+   b) Whether year divided by 4 leaves no remainder
+   c) Whether year is a multiple of 100
+   d) Whether year is odd
+   Answer: Whether year divided by 4 leaves no remainder
+
+5. Why is the divisible-by-100 rule needed in addition to divisible-by-4?
+   a) To handle negative years
+   b) Because century years are not leap years unless divisible by 400
+   c) To speed up computation
+   d) To handle float years
+   Answer: Because century years are not leap years unless divisible by 400
+
+[Post-test Questions]
+1. Is 1600 a leap year?
+   a) No
+   b) Yes
+   c) Only if % 4 == 0
+   d) Cannot be determined
+   Answer: Yes
+
+2. Is 2100 a leap year?
+   a) Yes, divisible by 4
+   b) No — divisible by 100 but not 400
+   c) Yes, divisible by 400
+   d) Yes, all future years are leap years
+   Answer: No — divisible by 100 but not 400
+
+3. What is the output for year = 2023?
+   a) 2023 is a Leap Year
+   b) 2023 is not a Leap Year
+   c) Compilation error
+   d) Undefined
+   Answer: 2023 is not a Leap Year
+
+4. Which logical operator is used to combine the two main leap year conditions?
+   a) &&
+   b) !
+   c) ||
+   d) ^
+   Answer: ||
+
+5. How many leap years are there between 1900 and 2000 inclusive?
+   a) 25
+   b) 24
+   c) 26
+   d) 23
+   Answer: 24
+
+========================================================
+Module: WEEK 6 - while, do-while, for loops, break and continue
+========================================================
+
+Experiment: Factorial
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is 0! equal to?
+   a) 0
+   b) Undefined
+   c) 1
+   d) -1
+   Answer: 1
+
+2. What is 5!?
+   a) 25
+   b) 60
+   c) 100
+   d) 120
+   Answer: 120
+
+3. Why is long long preferred over int for storing factorial results?
+   a) int cannot store numbers above 100
+   b) Factorials grow rapidly and overflow 32-bit int beyond 12!
+   c) long long is faster to compute
+   d) printf requires long long for all loops
+   Answer: Factorials grow rapidly and overflow 32-bit int beyond 12!
+
+4. What format specifier is used to print a long long value?
+   a) %ld
+   b) %lld
+   c) %ll
+   d) %Ld
+   Answer: %lld
+
+5. What is the correct initial value of the factorial accumulator before the loop?
+   a) 0
+   b) n
+   c) 1
+   d) -1
+   Answer: 1
+
+[Post-test Questions]
+1. What is 10!?
+   a) 100
+   b) 1000
+   c) 3628800
+   d) 362880
+   Answer: 3628800
+
+2. What is the output of the program for n = 0?
+   a) 0
+   b) Undefined
+   c) Error
+   d) 1
+   Answer: 1
+
+3. How many iterations does the for loop execute for n = 6?
+   a) 5
+   b) 7
+   c) 6
+   d) 0
+   Answer: 6
+
+4. What happens to the accumulator if it is initialised to 0 instead of 1?
+   a) Output doubles
+   b) Output is always 0
+   c) Output is always 1
+   d) No change
+   Answer: Output is always 0
+
+5. What is the maximum n for which factorial fits in a long long (64-bit)?
+   a) 15
+   b) 25
+   c) 20
+   d) 12
+   Answer: 20
+
+Experiment: Prime Number Check
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the definition of a prime number?
+   a) Divisible by 2
+   b) Greater than 1 with no divisors other than 1 and itself
+   c) An odd number
+   d) Divisible only by itself
+   Answer: Greater than 1 with no divisors other than 1 and itself
+
+2. Why is it sufficient to check divisors up to sqrt(n)?
+   a) To make the code shorter
+   b) Any factor larger than sqrt(n) pairs with one smaller than sqrt(n)
+   c) sqrt(n) is always prime
+   d) Divisors above sqrt(n) are always even
+   Answer: Any factor larger than sqrt(n) pairs with one smaller than sqrt(n)
+
+3. What is the loop condition using the sqrt optimisation?
+   a) i <= n
+   b) i < n
+   c) i * i <= n
+   d) i <= n / 2
+   Answer: i * i <= n
+
+4. What does the break statement do inside the prime-checking loop?
+   a) Skips the current iteration
+   b) Exits the entire program
+   c) Exits the loop immediately when a factor is found
+   d) Restarts the loop from i = 2
+   Answer: Exits the loop immediately when a factor is found
+
+5. Is 1 a prime number?
+   a) Yes
+   b) No
+   c) Only in some definitions
+   d) Depends on the compiler
+   Answer: No
+
+[Post-test Questions]
+1. How many iterations does the optimised loop perform for n = 36?
+   a) 35
+   b) 18
+   c) 6
+   d) 4
+   Answer: 6
+
+2. What is the output for n = 2?
+   a) 2 is not a Prime Number
+   b) 2 is a Prime Number
+   c) Undefined
+   d) 0
+   Answer: 2 is a Prime Number
+
+3. What is the output for n = 1?
+   a) 1 is a Prime Number
+   b) 1 is not a Prime Number
+   c) Error
+   d) 0
+   Answer: 1 is not a Prime Number
+
+4. For n = 49, what factor is found first and at which iteration?
+   a) i = 7, n % 7 == 0
+   b) i = 2, n % 2 == 0
+   c) i = 3, n % 3 == 0
+   d) i = 49, n % 49 == 0
+   Answer: i = 7, n % 7 == 0
+
+5. What is the purpose of initialising isPrime = 1 before the loop?
+   a) To set the default output to "not prime"
+   b) To assume the number is prime unless a factor is found
+   c) To avoid a compilation warning
+   d) Required by C standard for flag variables
+   Answer: To assume the number is prime unless a factor is found
+
+Experiment: Sine Series
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the first term of the sine series?
+   a) x³/3!
+   b) x²/2!
+   c) x
+   d) 1
+   Answer: x
+
+2. What is the correct degree-to-radian conversion formula?
+   a) rad = deg / 180
+   b) rad = deg * 180 / PI
+   c) rad = deg * PI / 180
+   d) rad = deg * PI
+   Answer: rad = deg * PI / 180
+
+3. What is the sign pattern of the sine series terms?
+   a) All positive
+   b) All negative
+   c) Alternating starting positive: +, -, +, -, ...
+   d) Alternating starting negative: -, +, -, +, ...
+   Answer: Alternating starting positive: +, -, +, -, ...
+
+4. Why is the iterative term-building method preferred over computing pow() and factorial separately each iteration?
+   a) It gives a different result
+   b) It avoids repeated expensive computations and is more efficient
+   c) pow() does not work inside loops
+   d) Factorial is undefined for large n
+   Answer: It avoids repeated expensive computations and is more efficient
+
+5. For x = 0 degrees, what should sin(0) return?
+   a) 1.000000
+   b) Undefined
+   c) 3.141593
+   d) 0.000000
+   Answer: 0.000000
+
+[Post-test Questions]
+1. What is sin(90°) expected to be?
+   a) 0.000000
+   b) 0.500000
+   c) 1.000000
+   d) 3.141593
+   Answer: 1.000000
+
+2. What is sin(0°)?
+   a) 1.000000
+   b) 0.000000
+   c) -1.000000
+   d) Undefined
+   Answer: 0.000000
+
+3. What happens to accuracy as the number of terms increases?
+   a) Accuracy decreases
+   b) No change
+   c) Accuracy increases toward the true value
+   d) The program crashes
+   Answer: Accuracy increases toward the true value
+
+4. In the iterative term update, what is multiplied to get the next term from the current term?
+   a) x / (2n+1)
+   b) -x² / ((2n)(2n+1))
+   c) x² * (2n+1)
+   d) -1 / (2n * x)
+   Answer: -x² / ((2n)(2n+1))
+
+5. For x = 180°, what is sin(180°) approximately?
+   a) 1.000000
+   b) -1.000000
+   c) 0.000000
+   d) 3.141593
+   Answer: 0.000000
+
+Experiment: Palindrome Check
+--------------------------------------------------------
+[Pre-test Questions]
+1. What does n % 10 return for n = 1234?
+   a) 1
+   b) 12
+   c) 123
+   d) 4
+   Answer: 4
+
+2. What does n / 10 (integer division) return for n = 1234?
+   a) 123.4
+   b) 4
+   c) 123
+   d) 12
+   Answer: 123
+
+3. Is 121 a palindrome?
+   a) No
+   b) Yes
+   c) Only if entered as a string
+   d) Depends on the number of digits
+   Answer: Yes
+
+4. What is the initial value of reversed before the while loop?
+   a) n
+   b) 1
+   c) -1
+   d) 0
+   Answer: 0
+
+5. Why must the original value of n be saved before the loop?
+   a) Because printf requires it
+   b) Because n is modified (divided by 10) during reversal and must be compared afterward
+   c) Because reversed is also modified
+   d) It does not need to be saved
+   Answer: Because n is modified (divided by 10) during reversal and must be compared afterward
+
+[Post-test Questions]
+1. Is 1001 a palindrome?
+   a) No
+   b) Yes
+   c) Undefined
+   d) Only for even digits
+   Answer: Yes
+
+2. What is the reversed number for n = 4567?
+   a) 7564
+   b) 7654
+   c) 4567
+   d) 6754
+   Answer: 7654
+
+3. For n = 10, what is the reversed number and is it a palindrome?
+   a) reversed = 10, Yes
+   b) reversed = 1, No
+   c) reversed = 01, Yes
+   d) reversed = 10, No
+   Answer: reversed = 1, No
+
+4. How many iterations does the while loop execute for n = 1234?
+   a) 3
+   b) 5
+   c) 2
+   d) 4
+   Answer: 4
+
+5. What is the output for n = 7?
+   a) 7 is not a Palindrome
+   b) 7 is a Palindrome
+   c) 0
+   d) Undefined
+   Answer: 7 is a Palindrome
+
+Experiment: Number Pyramid
+--------------------------------------------------------
+[Pre-test Questions]
+1. How many inner loops are typically needed to print a centred number pyramid?
+   a) One — for numbers only
+   b) Two — one for spaces, one for numbers
+   c) Three — for spaces, numbers, and newlines
+   d) None — printf handles it automatically
+   Answer: Two — one for spaces, one for numbers
+
+2. For n = 5, how many leading spaces are printed on row 3?
+   a) 3
+   b) 1
+   c) 2
+   d) 5
+   Answer: 2
+
+3. For n = 5, how many numbers are printed on row 4?
+   a) 5
+   b) 1
+   c) 3
+   d) 4
+   Answer: 4
+
+4. What does the continue statement do inside a loop?
+   a) Exits the loop entirely
+   b) Skips the rest of the current iteration and moves to the next
+   c) Restarts the loop from the beginning
+   d) Pauses execution
+   Answer: Skips the rest of the current iteration and moves to the next
+
+5. What printf() call moves output to the next line after each row?
+   a) printf(" ");
+   b) printf("\t");
+   c) printf("\n");
+   d) printf("\\n");
+   Answer: printf("\n");
+
+[Post-test Questions]
+1. For n = 5, how many total numbers are printed across all rows?
+   a) 10
+   b) 25
+   c) 5
+   d) 15
+   Answer: 15
+
+2. For n = 4, how many leading spaces are on the first row?
+   a) 1
+   b) 2
+   c) 4
+   d) 3
+   Answer: 3
+
+3. What change to the number loop would print only odd numbers in each row?
+   a) Replace j++ with j += 2 and start at j = 1
+   b) Replace j++ with j--
+   c) Add break when j is even
+   d) Use j % 2 inside printf
+   Answer: Replace j++ with j += 2 and start at j = 1
+
+4. What is the total number of iterations of the outer loop for n = 6?
+   a) 36
+   b) 21
+   c) 6
+   d) 12
+   Answer: 6
+
+5. Which loop variable directly determines the count of numbers on each row?
+   a) The space loop counter
+   b) The outer loop variable i, which equals the count of numbers on row i
+   c) A fixed constant
+   d) The newline counter
+   Answer: The outer loop variable i, which equals the count of numbers on row i
+
+========================================================
+Module: WEEK 7 - 1D array definition, initialization, linear search
+========================================================
+
+Experiment: Min and Max of Array
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the valid index range for an array declared as int arr[10]?
+   a) 1 to 10
+   b) 0 to 10
+   c) 0 to 9
+   d) 1 to 9
+   Answer: 0 to 9
+
+2. Why should min and max be initialised to arr[0] rather than 0?
+   a) 0 causes a compilation error
+   b) Initialising to 0 fails when all elements are negative
+   c) arr[0] is always the minimum
+   d) The loop starts at index 0
+   Answer: Initialising to 0 fails when all elements are negative
+
+3. For array {5, 3, 9, 1, 7}, what is the minimum?
+   a) 5
+   b) 3
+   c) 7
+   d) 1
+   Answer: 1
+
+4. For array {5, 3, 9, 1, 7}, what is the maximum?
+   a) 7
+   b) 5
+   c) 9
+   d) 3
+   Answer: 9
+
+5. What is the time complexity of finding min and max in a single traversal?
+   a) O(n²)
+   b) O(log n)
+   c) O(1)
+   d) O(n)
+   Answer: O(n)
+
+[Post-test Questions]
+1. For array {-4, -1, -8, -2}, what is the minimum?
+   a) -1
+   b) -2
+   c) -4
+   d) -8
+   Answer: -8
+
+2. For array {-4, -1, -8, -2}, what is the maximum?
+   a) -8
+   b) -4
+   c) -2
+   d) -1
+   Answer: -1
+
+3. For array {7, 7, 7, 7}, what are min and max?
+   a) min = 0, max = 7
+   b) min = 7, max = 7
+   c) min = 7, max = 0
+   d) Undefined
+   Answer: min = 7, max = 7
+
+4. What is the result of accessing arr[n] for an array of size n?
+   a) Returns 0
+   b) Returns the last valid element
+   c) Undefined behaviour
+   d) Compilation error
+   Answer: Undefined behaviour
+
+5. How many comparisons are made in total to find both min and max for an array of 10 elements using the single-pass method?
+   a) 10
+   b) 20
+   c) 18
+   d) 9
+   Answer: 9
+
+Experiment: Linear Search
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the worst-case time complexity of linear search?
+   a) O(1)
+   b) O(log n)
+   c) O(n)
+   d) O(n²)
+   Answer: O(n)
+
+2. What is the best-case scenario for linear search?
+   a) Target is at the last index
+   b) Array is sorted
+   c) Target is at the first index — one comparison
+   d) Array has no duplicates
+   Answer: Target is at the first index — one comparison
+
+3. What value is pos conventionally set to before searching, to indicate "not found"?
+   a) 0
+   b) n
+   c) -1
+   d) 999
+   Answer: -1
+
+4. What does break do when the target is found inside the search loop?
+   a) Skips the current element
+   b) Exits the loop immediately to avoid further comparisons
+   c) Restarts the search from index 0
+   d) Sets found = 0
+   Answer: Exits the loop immediately to avoid further comparisons
+
+5. Does linear search require the array to be sorted?
+   a) Yes, always
+   b) Only for even-sized arrays
+   c) No — it works on unsorted arrays
+   d) Only for integer arrays
+   Answer: No — it works on unsorted arrays
+
+[Post-test Questions]
+1. For array {10, 30, 20, 50, 40} and key = 50, at which 0-based index is it found?
+   a) 3
+   b) 4
+   c) 2
+   d) 1
+   Answer: 3
+
+2. For array {10, 30, 20, 50, 40} and key = 99, what is the output?
+   a) Found at index 0
+   b) Found at index -1
+   c) Element not found
+   d) Compilation error
+   Answer: Element not found
+
+3. How many comparisons are made for key = 10 in array {10, 30, 20, 50, 40}?
+   a) 5
+   b) 3
+   c) 2
+   d) 1
+   Answer: 1
+
+4. How many comparisons are made for key = 99 in array {10, 30, 20, 50, 40}?
+   a) 1
+   b) 3
+   c) 5
+   d) 0
+   Answer: 5
+
+5. What modification allows linear search to find and print ALL occurrences of a key rather than just the first?
+   a) Replace == with !=
+   b) Remove break so the loop continues after a match
+   c) Sort the array first
+   d) Use a while loop instead of for
+   Answer: Remove break so the loop continues after a match
+
+Experiment: Reverse Array
+--------------------------------------------------------
+[Pre-test Questions]
+1. For array {1, 2, 3, 4, 5}, what is the reversed array?
+   a) {5, 4, 3, 2, 1}
+   b) {1, 2, 3, 4, 5}
+   c) {2, 4, 1, 3, 5}
+   d) {5, 3, 1, 4, 2}
+   Answer: {5, 4, 3, 2, 1}
+
+2. How many swaps are needed to reverse an array of 7 elements?
+   a) 7
+   b) 4
+   c) 6
+   d) 3
+   Answer: 3
+
+3. What is the purpose of the temp variable during a swap?
+   a) To count the number of swaps
+   b) To temporarily hold one value so it is not overwritten
+   c) To store the reversed array
+   d) To compare two elements
+   Answer: To temporarily hold one value so it is not overwritten
+
+4. What are the initial values of left and right for an array of size n?
+   a) left = 1, right = n
+   b) left = 0, right = n
+   c) left = 0, right = n - 1
+   d) left = 1, right = n - 1
+   Answer: left = 0, right = n - 1
+
+5. What is the space complexity of the in-place two-pointer reversal?
+   a) O(n)
+   b) O(n²)
+   c) O(log n)
+   d) O(1)
+   Answer: O(1)
+
+[Post-test Questions]
+1. For array {10, 20, 30, 40}, what is the reversed array?
+   a) {10, 30, 20, 40}
+   b) {40, 20, 30, 10}
+   c) {40, 30, 20, 10}
+   d) {20, 10, 40, 30}
+   Answer: {40, 30, 20, 10}
+
+2. For array {7}, what is the reversed array?
+   a) {}
+   b) {0}
+   c) {7}
+   d) Undefined
+   Answer: {7}
+
+3. After how many swaps does the while loop terminate for n = 6?
+   a) 6
+   b) 2
+   c) 4
+   d) 3
+   Answer: 3
+
+4. At the start of swap 2 for array {1, 2, 3, 4, 5}, what are left and right?
+   a) left = 0, right = 4
+   b) left = 2, right = 3
+   c) left = 1, right = 3
+   d) left = 2, right = 2
+   Answer: left = 1, right = 3
+
+5. What is the result of reversing an already-reversed array {5, 4, 3, 2, 1}?
+   a) {5, 4, 3, 2, 1}
+   b) {1, 1, 1, 1, 1}
+   c) {1, 2, 3, 4, 5}
+   d) Undefined
+   Answer: {1, 2, 3, 4, 5}
+
+Experiment: Remove Duplicates
+--------------------------------------------------------
+[Pre-test Questions]
+1. For array {1, 3, 2, 3, 1, 5}, what is the deduplicated array?
+   a) {1, 2, 3, 5}
+   b) {1, 3, 2, 5}
+   c) {3, 1, 5, 2}
+   d) {5, 3, 2, 1}
+   Answer: {1, 3, 2, 5}
+
+2. What does the flag isDuplicate = 1 signal?
+   a) The element should be kept
+   b) The element has already appeared earlier in the array
+   c) The element is negative
+   d) The inner loop should restart
+   Answer: The element has already appeared earlier in the array
+
+3. For array {5, 5, 5, 5}, what is the deduplicated array and new size?
+   a) {5, 5}, size 2
+   b) {}, size 0
+   c) {5}, size 1
+   d) {5, 5, 5, 5}, size 4
+   Answer: {5}, size 1
+
+4. What is the time complexity of the nested loop duplicate removal?
+   a) O(1)
+   b) O(n log n)
+   c) O(n²)
+   d) O(n)
+   Answer: O(n²)
+
+5. Which occurrence of a duplicate value is retained in this algorithm?
+   a) The last occurrence
+   b) The middle occurrence
+   c) A random occurrence
+   d) The first occurrence
+   Answer: The first occurrence
+
+[Post-test Questions]
+1. For array {4, 4, 4, 4, 4}, what is the output?
+   a) Unique: 4 4  New size: 2
+   b) Unique: 4  New size: 1
+   c) Unique:    New size: 0
+   d) Unique: 4 4 4 4 4  New size: 5
+   Answer: Unique: 4  New size: 1
+
+2. For array {1, 2, 3, 4, 5}, what is the output?
+   a) Unique: 1 2 3  New size: 3
+   b) Unique: 5 4 3 2 1  New size: 5
+   c) Unique: 1 2 3 4 5  New size: 5
+   d) Unique: 1 3 5  New size: 3
+   Answer: Unique: 1 2 3 4 5  New size: 5
+
+3. For array {7, 3, 7, 3, 7}, what is the deduplicated array?
+   a) {3, 7}
+   b) {7}
+   c) {7, 3}
+   d) {3}
+   Answer: {7, 3}
+
+4. At which step does the inner loop first break early for array {1, 3, 2, 3, 1, 5}?
+   a) i = 1 (checking 3)
+   b) i = 2 (checking 2)
+   c) i = 3 (checking second 3)
+   d) i = 5 (checking 5)
+   Answer: i = 3 (checking second 3)
+
+5. What modification would make the algorithm retain the LAST occurrence instead of the first?
+   a) Sort the array before processing
+   b) Traverse the array from right to left (i from n-1 to 0)
+   c) Use >= instead of ==
+   d) Remove the break inside the inner loop
+   Answer: Traverse the array from right to left (i from n-1 to 0)
+
+========================================================
+Module: WEEK 8 - 2D arrays, string operations, bubble sort
+========================================================
+
+Experiment: Matrix Addition
+--------------------------------------------------------
+[Pre-test Questions]
+1. How is element at row 2, column 3 of a 2D array A accessed in C?
+   a) A[3][2]
+   b) A[2, 3]
+   c) A[2][3]
+   d) A(2)(3)
+   Answer: A[2][3]
+
+2. What is the condition for two matrices to be added?
+   a) They must be square
+   b) They must have the same number of rows only
+   c) They must have identical dimensions (same rows and columns)
+   d) They must contain only positive integers
+   Answer: They must have identical dimensions (same rows and columns)
+
+3. For A = {{1,2},{3,4}} and B = {{5,6},{7,8}}, what is C[1][0]?
+   a) 8
+   b) 12
+   c) 10
+   d) 6
+   Answer: 10
+
+4. In what order does C store elements of a 2D array in memory?
+   a) Column-major order
+   b) Diagonal order
+   c) Random order
+   d) Row-major order
+   Answer: Row-major order
+
+5. What is the time complexity of adding two m × n matrices?
+   a) O(m + n)
+   b) O(m²)
+   c) O(m × n)
+   d) O(n²)
+   Answer: O(m × n)
+
+[Post-test Questions]
+1. For A = {{1,0},{0,1}} and B = {{4,5},{6,7}}, what is C?
+   a) {{5,5},{6,8}}
+   b) {{4,0},{0,7}}
+   c) {{5,6},{7,8}}
+   d) {{5,5},{6,8}}
+   Answer: {{5,5},{6,8}}
+
+2. Can you add a 2×3 matrix to a 3×2 matrix?
+   a) Yes, element-wise
+   b) Yes, after transposing one
+   c) No — dimensions do not match
+   d) Yes, by padding with zeros
+   Answer: No — dimensions do not match
+
+3. What does %4d do in printf when printing a matrix?
+   a) Prints only 4-digit numbers
+   b) Prints the number right-aligned in a 4-character wide field
+   c) Limits the number to 4 bits
+   d) Adds 4 to the number before printing
+   Answer: Prints the number right-aligned in a 4-character wide field
+
+4. For a 3×3 matrix, how many iterations does the nested loop execute in total?
+   a) 6
+   b) 3
+   c) 27
+   d) 9
+   Answer: 9
+
+5. What is the result of adding a matrix A to a zero matrix of the same size?
+   a) A zero matrix
+   b) A doubled
+   c) A itself
+   d) Undefined
+   Answer: A itself
+
+Experiment: Matrix Multiplication
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the required condition for multiplying matrix A (m×p) by matrix B (r×n)?
+   a) m == n
+   b) p == r
+   c) m == r
+   d) p == n
+   Answer: p == r
+
+2. For A of size 2×3 and B of size 3×4, what is the size of C = A × B?
+   a) 3×3
+   b) 2×4
+   c) 4×2
+   d) 3×2
+   Answer: 2×4
+
+3. Why must C[i][j] be initialised to 0 before the innermost loop?
+   a) To avoid a compilation warning
+   b) To ensure accumulation starts from zero, not from garbage memory
+   c) Because += only works when the variable is 0
+   d) It does not need to be initialised
+   Answer: To ensure accumulation starts from zero, not from garbage memory
+
+4. What is the time complexity of multiplying two n × n matrices using the standard three-loop algorithm?
+   a) O(n)
+   b) O(n²)
+   c) O(n³)
+   d) O(2ⁿ)
+   Answer: O(n³)
+
+5. For A = {{1,2},{3,4}} and B = {{5,6},{7,8}}, what is C[0][0]?
+   a) 12
+   b) 17
+   c) 19
+   d) 22
+   Answer: 19
+
+[Post-test Questions]
+1. For A = {{1,2},{3,4}} and B = {{5,6},{7,8}}, what is C[1][1]?
+   a) 44
+   b) 46
+   c) 48
+   d) 50
+   Answer: 50
+
+2. What is the result of multiplying any matrix A by the identity matrix I of compatible size?
+   a) A zero matrix
+   b) The transpose of A
+   c) A itself
+   d) Undefined
+   Answer: A itself
+
+3. Is matrix multiplication commutative? (Does A×B always equal B×A?)
+   a) Yes always
+   b) No — in general A×B ≠ B×A
+   c) Yes for square matrices only
+   d) Yes if all elements are positive
+   Answer: No — in general A×B ≠ B×A
+
+4. For A of size 3×2 and B of size 2×4, how many multiplications does the innermost loop perform in total?
+   a) 8
+   b) 24
+   c) 12
+   d) 6
+   Answer: 24
+
+5. What is the size of the result when a 1×n matrix is multiplied by an n×1 matrix?
+   a) n×n
+   b) 1×n
+   c) n×1
+   d) 1×1
+   Answer: 1×1
+
+Experiment: Bubble Sort
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the worst-case time complexity of Bubble Sort?
+   a) O(n)
+   b) O(n log n)
+   c) O(n²)
+   d) O(n³)
+   Answer: O(n²)
+
+2. After the first complete pass over array {5, 3, 1, 4, 2}, which element is guaranteed to be in its final position?
+   a) 1
+   b) 3
+   c) 2
+   d) 5
+   Answer: 5
+
+3. Why does the inner loop run up to n-1-i in pass i?
+   a) To avoid accessing negative indices
+   b) Because the last i elements are already sorted and need not be re-checked
+   c) Because the first i elements are unsorted
+   d) To reduce the swap count
+   Answer: Because the last i elements are already sorted and need not be re-checked
+
+4. What does the swapped flag enable?
+   a) Counting total swaps
+   b) Printing swapped pairs
+   c) Early termination when the array is already sorted
+   d) Detecting duplicate elements
+   Answer: Early termination when the array is already sorted
+
+5. Is Bubble Sort a stable sorting algorithm?
+   a) No — equal elements are always swapped
+   b) Yes — equal elements retain their relative order because only > triggers a swap
+   c) Only for integer arrays
+   d) Only when the optimisation flag is used
+   Answer: Yes — equal elements retain their relative order because only > triggers a swap
+
+[Post-test Questions]
+1. How many passes does Bubble Sort require in the worst case for n elements?
+   a) 1
+   b) n
+   c) n-1
+   d) n/2
+   Answer: n-1
+
+2. For array {1, 2, 3, 4, 5} (already sorted), how many passes does the optimised Bubble Sort perform?
+   a) 4
+   b) 0
+   c) 1
+   d) 5
+   Answer: 1
+
+3. For array {4, 3, 2, 1}, how many swaps occur in the first pass?
+   a) 1
+   b) 2
+   c) 4
+   d) 3
+   Answer: 3
+
+4. What is the space complexity of Bubble Sort?
+   a) O(n)
+   b) O(n²)
+   c) O(log n)
+   d) O(1)
+   Answer: O(1)
+
+5. After 2 complete passes over array {5, 3, 1, 4, 2}, which elements are guaranteed in their final positions?
+   a) 5 and 4
+   b) 1 and 2
+   c) 3 and 5
+   d) 4 and 2
+   Answer: 5 and 4
+
+Experiment: String Concatenation
+--------------------------------------------------------
+[Pre-test Questions]
+1. How many passes does Bubble Sort require in the worst case for n elements?
+   a) 1
+   b) n
+   c) n-1
+   d) n/2
+   Answer: n-1
+
+2. For array {1, 2, 3, 4, 5} (already sorted), how many passes does the optimised Bubble Sort perform?
+   a) 4
+   b) 0
+   c) 1
+   d) 5
+   Answer: 1
+
+3. For array {4, 3, 2, 1}, how many swaps occur in the first pass?
+   a) 1
+   b) 2
+   c) 4
+   d) 3
+   Answer: 3
+
+4. What is the space complexity of Bubble Sort?
+   a) O(n)
+   b) O(n²)
+   c) O(log n)
+   d) O(1)
+   Answer: O(1)
+
+5. After 2 complete passes over array {5, 3, 1, 4, 2}, which elements are guaranteed in their final positions?
+   a) 5 and 4
+   b) 1 and 2
+   c) 3 and 5
+   d) 4 and 2
+   Answer: 5 and 4
+
+[Post-test Questions]
+1. For s1 = "abc" and s2 = "def", what is the result of concatenation?
+   a) "abcdef"
+   b) "defabc"
+   c) "abc def"
+   d) "abc\0def"
+   Answer: "abcdef"
+
+2. What index does appending s2 start at in s1?
+   a) 0
+   b) strlen(s2)
+   c) strlen(s1)
+   d) strlen(s1) + strlen(s2)
+   Answer: strlen(s1)
+
+3. What is the length of "abcdef" after concatenating "abc" and "def"?
+   a) 3
+   b) 8
+   c) 7
+   d) 6
+   Answer: 6
+
+4. What happens if s1 is not large enough to hold the concatenated result?
+   a) strcat automatically resizes the array
+   b) The program prints an error
+   c) Buffer overflow — undefined behaviour
+   d) The extra characters are silently discarded
+   Answer: Buffer overflow — undefined behaviour
+
+5. Which standard library function performs string concatenation automatically?
+   a) strcpy()
+   b) strcmp()
+   c) strcat()
+   d) strlen()
+   Answer: strcat()
+
+Experiment: Reverse String
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the reverse of the string "hello"?
+   a) "hello"
+   b) "lelho"
+   c) "olleh"
+   d) "hlleo"
+   Answer: "olleh"
+
+2. For str = "hello" (length 5), what is the initial value of right in the two-pointer method?
+   a) 5
+   b) 4
+   c) 3
+   d) 0
+   Answer: 4
+
+3. Why is right set to strlen(str) - 1 rather than strlen(str)?
+   a) strlen counts from 1
+   b) To avoid swapping the null terminator
+   c) strlen includes the null terminator in its count
+   d) right must always be even
+   Answer: To avoid swapping the null terminator
+
+4. How many swaps are needed to reverse "program" (length 7)?
+   a) 7
+   b) 4
+   c) 6
+   d) 3
+   Answer: 3
+
+5. Is "madam" a palindrome?
+   a) No
+   b) Yes
+   c) Only when lowercase
+   d) Depends on the compiler
+   Answer: Yes
+
+[Post-test Questions]
+1. What is the reverse of "abcde"?
+   a) "abcde"
+   b) "edabc"
+   c) "edcba"
+   d) "aedcb"
+   Answer: "edcba"
+
+2. What is the reverse of a single character "z"?
+   a) ""
+   b) "zz"
+   c) "z"
+   d) Undefined
+   Answer: "z"
+
+3. For str = "abcd", what are the characters swapped in the second swap?
+   a) a and d
+   b) b and c
+   c) a and c
+   d) b and d
+   Answer: b and c
+
+4. After reversing "Hello", is the null terminator still at the correct position?
+   a) No — it gets swapped to index 0
+   b) No — it is lost
+   c) Yes — strlen-1 ensures '\0' at index len is never swapped
+   d) Yes, but only if len is even
+   Answer: Yes — strlen-1 ensures '\0' at index len is never swapped
+
+5. Which modification to the reversal algorithm also checks if the result is a palindrome?
+   a) Print str before and after reversal and compare them visually
+   b) Save a copy of str before reversal, reverse str in-place, then compare the copy with the reversed str using strcmp()
+   c) Check if left == right after the loop
+   d) Count the number of swaps; if 0, it is a palindrome
+   Answer: Save a copy of str before reversal, reverse str in-place, then compare the copy with the reversed str using strcmp()
+
+========================================================
+Module: WEEK 9 - malloc, calloc, realloc, free, command-line args
+========================================================
+
+Experiment: Array Sum using malloc
+--------------------------------------------------------
+[Pre-test Questions]
+1. Which header file must be included to use malloc() and free()?
+   a) stdio.h
+   b) string.h
+   c) stdlib.h
+   d) malloc.h
+   Answer: stdlib.h
+
+2. What does malloc() return if memory allocation fails?
+   a) 0
+   b) -1
+   c) NULL
+   d) A garbage pointer
+   Answer: NULL
+
+3. How many bytes does malloc(n * sizeof(int)) allocate for n = 5 on a system where sizeof(int) = 4?
+   a) 5
+   b) 4
+   c) 10
+   d) 20
+   Answer: 20
+
+4. What is the content of memory allocated by malloc()?
+   a) All zeros
+   b) All ones
+   c) Uninitialised — contains garbage values
+   d) The address of the next free block
+   Answer: Uninitialised — contains garbage values
+
+5. What happens if free() is never called after malloc()?
+   a) The program crashes immediately
+   b) Memory is automatically freed when each variable goes out of scope
+   c) The allocated block remains reserved until the program exits — memory leak
+   d) The OS reclaims memory after each malloc() call
+   Answer: The allocated block remains reserved until the program exits — memory leak
+
+[Post-test Questions]
+1. For input {5, 10, 20, 30, 40, 50}, what is the average?
+   a) 25.00
+   b) 150.00
+   c) 30.00
+   d) 50.00
+   Answer: 30.00
+
+2. What is a dangling pointer?
+   a) A pointer that has never been initialised
+   b) A pointer that still holds the address of memory that has been freed
+   c) A pointer to a NULL value
+   d) A pointer declared inside a function
+   Answer: A pointer that still holds the address of memory that has been freed
+
+3. Which of the following correctly allocates memory for 10 floats?
+   a) float *p = malloc(10);
+   b) float *p = malloc(10 * sizeof(float));
+   c) float *p = malloc(sizeof(10));
+   d) float *p = calloc(sizeof(float));
+   Answer: float *p = malloc(10 * sizeof(float));
+
+4. After calling free(arr), what should be done immediately to avoid a dangling pointer?
+   a) Reallocate arr with the same size
+   b) Call malloc() again
+   c) Set arr = NULL
+   d) Decrement arr by 1
+   Answer: Set arr = NULL
+
+5. What is the difference between arr[i] and *(arr + i)?
+   a) arr[i] is faster
+   b) *(arr + i) only works for dynamic arrays
+   c) They are exactly equivalent in C
+   d) arr[i] only works for static arrays
+   Answer: They are exactly equivalent in C
+
+Experiment: Student Average using Structures
+--------------------------------------------------------
+[Pre-test Questions]
+1. How is a struct field accessed through a pointer ptr in C?
+   a) ptr.field
+   b) *ptr.field
+   c) ptr->field
+   d) &ptr.field
+   Answer: ptr->field
+
+2. Which function allocates memory for an array of structures at runtime?
+   a) sizeof()
+   b) calloc() or malloc()
+   c) struct()
+   d) alloc()
+   Answer: calloc() or malloc()
+
+3. For a struct of size 60 bytes, how many bytes does malloc(5 * sizeof(struct Student)) allocate?
+   a) 5
+   b) 60
+   c) 65
+   d) 300
+   Answer: 300
+
+4. What is the correct order to free nested dynamic memory (struct array with inner dynamic marks arrays)?
+   a) Free the outer array first, then inner arrays
+   b) Free inner arrays first, then the outer array
+   c) Free them simultaneously
+   d) Only the outer array needs to be freed
+   Answer: Free inner arrays first, then the outer array
+
+5. What is the difference between the dot (.) and arrow (->) operators?
+   a) . is for pointers; -> is for variables
+   b) . accesses fields of a struct variable; -> accesses fields through a pointer
+   c) They are interchangeable in all contexts
+   d) -> only works with malloc-allocated structs
+   Answer: . accesses fields of a struct variable; -> accesses fields through a pointer
+
+[Post-test Questions]
+1. For marks {80, 90, 85} across 3 subjects, what is the average?
+   a) 80.00
+   b) 83.00
+   c) 85.00
+   d) 90.00
+   Answer: 85.00
+
+2. For marks {70, 60, 75} across 3 subjects, what is the average?
+   a) 70.00
+   b) 65.00
+   c) 68.33
+   d) 75.00
+   Answer: 68.33
+
+3. What does sizeof(struct Student) return if the struct contains char name[50], int marks[5], and float average?
+   a) 56
+   b) 70
+   c) 74
+   d) 60
+   Answer: 74
+
+4. What happens if inner marks arrays are not freed before freeing the outer students array?
+   a) The program crashes immediately
+   b) The inner pointers are lost, causing a memory leak
+   c) The OS automatically frees them
+   d) free() handles nested allocation automatically
+   Answer: The inner pointers are lost, causing a memory leak
+
+5. Which operator is used to access struct fields when iterating with a pointer students[i]?
+   a) ->
+   b) .
+   c) *
+   d) &
+   Answer: .
+
+Experiment: Failed Students using calloc
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the key difference between malloc() and calloc()?
+   a) malloc() is faster and always preferred
+   b) calloc() takes two arguments and zero-initialises memory; malloc() does not
+   c) calloc() only works for structures
+   d) malloc() zero-initialises; calloc() does not
+   Answer: calloc() takes two arguments and zero-initialises memory; malloc() does not
+
+2. Which calloc() call correctly allocates memory for 8 integers?
+   a) calloc(8);
+   b) calloc(sizeof(int), sizeof(int));
+   c) calloc(8, sizeof(int));
+   d) calloc(8 * sizeof(int));
+   Answer: calloc(8, sizeof(int));
+
+3. What does realloc(ptr, 0) do?
+   a) Doubles the allocation
+   b) Allocates a fresh block of default size
+   c) Has no effect
+   d) Frees the memory pointed to by ptr
+   Answer: Frees the memory pointed to by ptr
+
+4. For n = 5 students with marks {55, 32, 48, 27, 61} and pass mark 40, how many students failed?
+   a) 1
+   b) 3
+   c) 2
+   d) 4
+   Answer: 2
+
+5. Why should realloc's return value be assigned to a temporary pointer rather than directly back to the original?
+   a) realloc always returns a different address
+   b) If realloc returns NULL, the original pointer is not lost
+   c) The original pointer is automatically freed by realloc
+   d) Temporary pointers are faster to dereference
+   Answer: If realloc returns NULL, the original pointer is not lost
+
+[Post-test Questions]
+1. For marks {40, 39, 40, 41, 38} with pass mark 40, how many students failed?
+   a) 1
+   b) 3
+   c) 4
+   d) 2
+   Answer: 2
+
+2. What is the initial value of every element in a calloc-allocated array before any data is entered?
+   a) -1
+   b) Garbage
+   c) 1
+   d) 0
+   Answer: 0
+
+3. For marks {55, 32, 48, 27, 61}, which roll numbers failed (1-based index)?
+   a) Roll 1 and Roll 3
+   b) Roll 2 and Roll 4
+   c) Roll 3 and Roll 5
+   d) Roll 1 and Roll 5
+   Answer: Roll 2 and Roll 4
+
+4. Which sequence of operations correctly resizes a calloc array from n to 2n elements safely?
+   a) free(ptr); ptr = calloc(2*n, sizeof(int));
+   b) ptr = realloc(ptr, 2*n * sizeof(int));
+   c) int *tmp = realloc(ptr, 2*n * sizeof(int));
+   if (tmp != NULL) ptr = tmp;
+   d) ptr = malloc(2*n * sizeof(int));
+   Answer: int *tmp = realloc(ptr, 2*n * sizeof(int));
+   if (tmp != NULL) ptr = tmp;
+
+5. What is printed for n = 3 with all marks above pass mark?
+   a) Failed Students: (none listed)  Total failed: 0
+   b) Failed Students: all three  Total failed: 3
+   c) Segmentation fault
+   d) Total failed: -1
+   Answer: Failed Students: (none listed)  Total failed: 0
+
+========================================================
+Module: WEEK 10 - Structures, Unions, bit fields, singly linked list
+========================================================
+
+Experiment: Singly Linked List
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is a self-referential structure in C?
+   a) A structure that calls itself like a function
+   b) A structure that contains a pointer to its own type
+   c) A structure inside another structure
+   d) A structure with recursive fields
+   Answer: A structure that contains a pointer to its own type
+
+2. Which function is used to dynamically allocate memory for a node?
+   a) alloc()
+   b) new()
+   c) malloc()
+   d) create()
+   Answer: malloc()
+
+3. What does the next pointer of the last node in a singly linked list contain?
+   a) Address of the first node
+   b) Garbage value
+   c) -1
+   d) NULL
+   Answer: NULL
+
+4. What does the head pointer represent in a linked list?
+   a) The middle node
+   b) The last node
+   c) The first node
+   d) The size of the list
+   Answer: The first node
+
+5. What is the time complexity of traversing a singly linked list of n nodes?
+   a) O(1)
+   b) O(log n)
+   c) O(n)
+   d) O(n²)
+   Answer: O(n)
+
+[Post-test Questions]
+1. What will be the output if input is n=4 and values are 5 15 25 35?
+   a) 5-15-25-35-NULL
+   b) 5->15->25->35->NULL
+   c) 35->25->15->5->NULL
+   d) 5 15 25 35
+   Answer: 5->15->25->35->NULL
+
+2. What happens to the memory allocated by malloc() if free() is never called?
+   a) It is automatically returned to OS when program ends on all systems
+   b) It causes a memory leak
+   c) The compiler frees it during compilation
+   d) It gets reused automatically
+   Answer: It causes a memory leak
+
+3. In a singly linked list, which direction can you traverse?
+   a) Both forward and backward
+   b) Only backward
+   c) Only forward from head to NULL
+   d) Random access like arrays
+   Answer: Only forward from head to NULL
+
+4. What is the value of head after inserting the very first node?
+   a) NULL
+   b) Address of the new node
+   c) Address of tail
+   d) 0
+   Answer: Address of the new node
+
+5. If you want to insert a node at the beginning instead of end, which pointer needs to change?
+   a) tail->next
+   b) head
+   c) cur
+   d) NULL pointer
+   Answer: head
+
+Experiment: Structure vs Union Demo
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the size of a union containing int (4 bytes), float (4 bytes), and char (1 byte)?
+   a) 9 bytes
+   b) 1 byte
+   c) 4 bytes
+   d) 12 bytes
+   Answer: 4 bytes
+
+2. In a union, what happens when you write a value to one member and then read another member?
+   a) Both members hold correct values
+   b) The other member gives undefined or overwritten value
+   c) The program crashes
+   d) Compiler gives error
+   Answer: The other member gives undefined or overwritten value
+
+3. Which operator is used to find the memory size of a structure or union?
+   a) length()
+   b) size()
+   c) sizeof()
+   d) memsize()
+   Answer: sizeof()
+
+4. Why does a structure sometimes have a larger size than the sum of its members?
+   a) Extra security bytes added
+   b) Compiler adds padding for memory alignment
+   c) Member names take extra space
+   d) typedef adds overhead
+   Answer: Compiler adds padding for memory alignment
+
+5. Which of the following is a correct use case for a union?
+   a) Storing student name, roll number, and marks together
+   b) Storing either an int or float value at a time to save memory
+   c) Creating a linked list node
+   d) Storing multiple strings
+   Answer: Storing either an int or float value at a time to save memory
+
+[Post-test Questions]
+1. On a system where int=4, float=4, char=1, what is the minimum possible size of a union containing all three?
+   a) 9 bytes
+   b) 1 byte
+   c) 4 bytes
+   d) Depends on compiler
+   Answer: 4 bytes
+
+2. If you assign 65 to the int member of a union and then read the char member, what do you most likely get?
+   a) 0
+   b) Compiler error
+   c) 'A' (ASCII 65)
+   d) Garbage always
+   Answer: 'A' (ASCII 65)
+
+3. What is padding in a structure?
+   a) Extra fields added by programmer
+   b) Empty bytes added by compiler for alignment
+   c) Security bits added by OS
+   d) Null terminators between members
+   Answer: Empty bytes added by compiler for alignment
+
+4. Can a structure and union have the same member names?
+   a) No, names must be globally unique
+   b) Yes, member names are scoped to their type
+   c) Only if they are in different files
+   d) Only for primitive types
+   Answer: Yes, member names are scoped to their type
+
+5. Which of the following statements is TRUE about unions?
+   a) All members can be used simultaneously
+   b) Union size equals sum of all members
+   c) Only the most recently written member holds a valid value
+   d) Unions cannot contain float members
+   Answer: Only the most recently written member holds a valid value
+
+========================================================
+Module: WEEK 11 - Functions, call by value, scope, Euler's method
+========================================================
+
+Experiment: NCR Value
+--------------------------------------------------------
+[Pre-test Questions]
+1. What does call by value mean in C?
+   a) The function receives the address of the variable
+   b) The function receives a copy of the variable's value
+   c) The caller's variable is modified by the function
+   d) Values are passed through global variables
+   Answer: The function receives a copy of the variable's value
+
+2. What is 5C2?
+   a) 20
+   b) 10
+   c) 5
+   d) 120
+   Answer: 10
+
+3. What is the formula for nCr?
+   a) n! / r!
+   b) n! / (r! * (n+r)!)
+   c) n! / (r! * (n-r)!)
+   d) (n-r)! / (n! * r!)
+   Answer: n! / (r! * (n-r)!)
+
+4. What is the scope of a variable declared inside a function?
+   a) Global — accessible everywhere in the program
+   b) Local — accessible only within that function
+   c) Accessible in all functions called after it
+   d) Accessible in main() only
+   Answer: Local — accessible only within that function
+
+5. What is 0!?
+   a) 0
+   b) Undefined
+   c) -1
+   d) 1
+   Answer: 1
+
+[Post-test Questions]
+1. What is 10C3?
+   a) 100
+   b) 720
+   c) 120
+   d) 210
+   Answer: 120
+
+2. What is nC0 for any non-negative n?
+   a) n
+   b) 0
+   c) n!
+   d) 1
+   Answer: 1
+
+3. What is nCn for any non-negative n?
+   a) 0
+   b) n
+   c) 1
+   d) n!
+   Answer: 1
+
+4. If a function modifies its local copy of parameter x, what happens to the original variable passed by the caller?
+   a) It is also modified
+   b) It is set to 0
+   c) It is unchanged
+   d) It is incremented by 1
+   Answer: It is unchanged
+
+5. What is 6C4?
+   a) 30
+   b) 20
+   c) 360
+   d) 15
+   Answer: 15
+
+Experiment: String Length without strlen
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the length of the string "Hello"?
+   a) 6
+   b) 4
+   c) 5
+   d) 0
+   Answer: 5
+
+2. What character marks the end of a C string?
+   a) '.'
+   b) ' '
+   c) '\n'
+   d) '\0'
+   Answer: '\0'
+
+3. What is the length of an empty string ""?
+   a) 1
+   b) -1
+   c) 0
+   d) Undefined
+   Answer: 0
+
+4. When a char* pointer is passed to a function by value, what is copied?
+   a) The entire string contents
+   b) Only the first character
+   c) The memory address stored in the pointer
+   d) The null terminator
+   Answer: The memory address stored in the pointer
+
+5. What does the expression (p - str) return when p has advanced past n characters from str?
+   a) The address of p
+   b) n — the number of characters traversed
+   c) The value at *p
+   d) sizeof(char*)
+   Answer: n — the number of characters traversed
+
+[Post-test Questions]
+1. What is the length of "C Programming"?
+   a) 12
+   b) 14
+   c) 13
+   d) 15
+   Answer: 13
+
+2. What is the length of " " (a single space)?
+   a) 0
+   b) 2
+   c) 1
+   d) Undefined
+   Answer: 1
+
+3. What is the length of "\\0" (backslash followed by zero as characters)?
+   a) 0
+   b) 1
+   c) 2
+   d) Undefined
+   Answer: 2
+
+4. What does the function return for input "abcde\0fg" (where \0 is an actual null byte in the middle)?
+   a) 8
+   b) 7
+   c) 3
+   d) 5
+   Answer: 5
+
+5. Why is strlen() not used in this experiment?
+   a) strlen() is incorrect for long strings
+   b) To practice implementing string traversal manually using a user-defined function, demonstrating loop logic and null terminator detection
+   c) strlen() requires math.h
+   d) strlen() counts the null terminator
+   Answer: To practice implementing string traversal manually using a user-defined function, demonstrating loop logic and null terminator detection
+
+Experiment: Matrix Transpose
+--------------------------------------------------------
+[Pre-test Questions]
+1. If A is a 3×4 matrix, what are the dimensions of its transpose?
+   a) 3×4
+   b) 4×4
+   c) 3×3
+   d) 4×3
+   Answer: 4×3
+
+2. What is the relationship between A[i][j] and its transpose B[j][i]?
+   a) B[j][i] = A[i][j] + 1
+   b) B[j][i] = A[j][i]
+   c) B[j][i] = A[i][j]
+   d) B[i][j] = A[j][i] + A[i][j]
+   Answer: B[j][i] = A[i][j]
+
+3. For A = {{1,2,3},{4,5,6}}, what is B[2][0] (0-based)?
+   a) 6
+   b) 4
+   c) 2
+   d) 3
+   Answer: 3
+
+4. Why must the column dimension MAX be specified in the function parameter for a 2D array?
+   a) So the compiler can calculate the address of A[i][j] using row-major layout
+   b) Because rows are stored separately
+   c) To avoid stack overflow
+   d) Because C does not support 2D arrays in functions
+   Answer: So the compiler can calculate the address of A[i][j] using row-major layout
+
+5. Can the in-place transpose (swapping A[i][j] and A[j][i]) be applied to a non-square matrix?
+   a) Yes, always
+   b) Yes, but only for even dimensions
+   c) No — the dimensions change, so a second array is required
+   d) Yes, by swapping with a temporary variable
+   Answer: No — the dimensions change, so a second array is required
+
+[Post-test Questions]
+1. For matrix A = {{1,2},{3,4},{5,6}} (3×2), what is the transpose?
+   a) {{1,3,5},{2,4,6}}
+   b) {{1,2,3},{4,5,6}}
+   c) {{6,5},{4,3},{2,1}}
+   d) {{2,4,6},{1,3,5}}
+   Answer: {{1,3,5},{2,4,6}}
+
+2. What is the transpose of an identity matrix?
+   a) A zero matrix
+   b) The matrix doubled
+   c) The identity matrix itself
+   d) Undefined
+   Answer: The identity matrix itself
+
+3. For a 1×5 matrix {10, 20, 30, 40, 50}, what is its transpose?
+   a) {50, 40, 30, 20, 10}
+   b) A 5×1 column matrix with the same values
+   c) A 5×5 matrix
+   d) {10, 20, 30, 40, 50} unchanged
+   Answer: A 5×1 column matrix with the same values
+
+4. In the in-place square matrix transpose, why does the inner loop start at j = i+1?
+   a) To skip the diagonal elements and avoid double-swapping
+   b) Because row 0 never needs transposing
+   c) To sort the elements
+   d) Because j = i would cause division by zero
+   Answer: To skip the diagonal elements and avoid double-swapping
+
+5. What is the time complexity of transposing an m × n matrix into a second matrix B?
+   a) O(m + n)
+   b) O(m²)
+   c) O(m × n)
+   d) O(n²)
+   Answer: O(m × n)
+
+========================================================
+Module: WEEK 12 - Recursive functions for naturally recursive problems
+========================================================
+
+Experiment: Fibonacci Series
+--------------------------------------------------------
+[Pre-test Questions]
+1. What are the two base cases in the recursive Fibonacci function?
+   a) fib(0)=1 and fib(1)=1
+   b) fib(0)=0 and fib(1)=1
+   c) fib(1)=0 and fib(2)=1
+   d) fib(0)=0 and fib(2)=1
+   Answer: fib(0)=0 and fib(1)=1
+
+2. What is fib(6) in the Fibonacci series starting from fib(0)=0?
+   a) 5
+   b) 13
+   c) 8
+   d) 21
+   Answer: 8
+
+3. What happens if a recursive function has no base case?
+   a) It returns 0 automatically
+   b) It runs once and stops
+   c) It causes infinite recursion and stack overflow
+   d) Compiler gives syntax error
+   Answer: It causes infinite recursion and stack overflow
+
+4. In recursion, what is a call stack?
+   a) A queue of function calls waiting to execute
+   b) Memory that stores each active function call frame
+   c) A list of return values
+   d) The heap memory used by malloc
+   Answer: Memory that stores each active function call frame
+
+5. For fib(5), what is the correct value?
+   a) 3
+   b) 8
+   c) 5
+   d) 13
+   Answer: 5
+
+[Post-test Questions]
+1. What is the output of the program when n=1?
+   a) 0 1
+   b) 1
+   c) 0
+   d) Error
+   Answer: 0
+
+2. How many times is fib(2) called when computing fib(5)?
+   a) 1
+   b) 3
+   c) 2
+   d) 5
+   Answer: 2
+
+3. What is the maximum call stack depth when computing fib(6)?
+   a) 3
+   b) 4
+   c) 6
+   d) 12
+   Answer: 6
+
+4. Which modification would make Fibonacci use iteration instead of recursion?
+   a) Add another base case
+   b) Replace recursive calls with a for loop storing previous two values
+   c) Use malloc to store values
+   d) Call fib() from a different function
+   Answer: Replace recursive calls with a for loop storing previous two values
+
+5. What happens when you call fib(50) with naive recursion?
+   a) Returns answer instantly
+   b) Takes extremely long due to repeated subproblem recalculation
+   c) Causes compile error
+   d) Returns wrong answer always
+   Answer: Takes extremely long due to repeated subproblem recalculation
+
+Experiment: Factorial Recursive
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the base case for the recursive factorial function?
+   a) fact(1) = 1
+   b) fact(0) = 1
+   c) fact(0) = 0
+   d) fact(n) = 0
+   Answer: fact(0) = 1
+
+2. What is the value of fact(5)?
+   a) 60
+   b) 100
+   c) 120
+   d) 24
+   Answer: 120
+
+3. How many recursive calls does fact(4) make before reaching the base case?
+   a) 3
+   b) 4
+   c) 5
+   d) 2
+   Answer: 4
+
+4. What is the return type of the factorial function for large inputs?
+   a) int is always sufficient
+   b) long or long long to avoid overflow
+   c) float
+   d) char
+   Answer: long or long long to avoid overflow
+
+5. What is fact(0)?
+   a) 0
+   b) Undefined
+   c) 1
+   d) Error
+   Answer: 1
+
+[Post-test Questions]
+1. What does fact(4) return?
+   a) 12
+   b) 16
+   c) 24
+   d) 48
+   Answer: 24
+
+2. What is the call stack depth when computing fact(6)?
+   a) 5
+   b) 7
+   c) 6
+   d) 12
+   Answer: 6
+
+3. What is the difference between linear recursion (factorial) and tree recursion (fibonacci)?
+   a) Linear makes one recursive call per step, tree recursion makes two
+   b) Linear is always faster
+   c) Tree recursion uses less memory
+   d) There is no difference
+   Answer: Linear makes one recursive call per step, tree recursion makes two
+
+4. What will happen if you call fact(-1) without a guard condition?
+   a) Returns 1
+   b) Returns 0
+   c) Infinite recursion and stack overflow
+   d) Compiler error
+   Answer: Infinite recursion and stack overflow
+
+5. Which data type should be used to correctly store fact(20)?
+   a) int
+   b) float
+   c) long long
+   d) double
+   Answer: long long
+
+Experiment: Ackermann Function
+--------------------------------------------------------
+[Pre-test Questions]
+1. What does ack(0, n) return according to the Ackermann definition?
+   a) n
+   b) n+1
+   c) n-1
+   d) 0
+   Answer: n+1
+
+2. What is ack(1, 1)?
+   a) 2
+   b) 4
+   c) 3
+   d) 1
+   Answer: 3
+
+3. Why is the Ackermann function significant in computer science?
+   a) It is the fastest sorting algorithm
+   b) It proves not all computable functions are primitive recursive
+   c) It computes Fibonacci efficiently
+   d) It is used in operating system scheduling
+   Answer: It proves not all computable functions are primitive recursive
+
+4. What happens when you try to compute ack(5, 5)?
+   a) Returns a small number quickly
+   b) Causes stack overflow due to extreme recursion depth
+   c) Returns 0
+   d) Compiler optimizes it automatically
+   Answer: Causes stack overflow due to extreme recursion depth
+
+5. What is ack(2, 2)?
+   a) 5
+   b) 9
+   c) 7
+   d) 4
+   Answer: 7
+
+[Post-test Questions]
+1. How many total function calls does ack(1,1) make?
+   a) 3
+   b) 4
+   c) 5
+   d) 7
+   Answer: 4
+
+2. Which case of Ackermann handles when both m and n are greater than zero?
+   a) Case 1: return n+1
+   b) Case 2: return ack(m-1, 1)
+   c) Case 3: return ack(m-1, ack(m, n-1))
+   d) Case 4: return ack(m, n-1)
+   Answer: Case 3: return ack(m-1, ack(m, n-1))
+
+3. What is ack(3,2)?
+   a) 9
+   b) 61
+   c) 29
+   d) 13
+   Answer: 29
+
+4. Why should you never test ack(4,2) in a normal C program?
+   a) It returns a negative number
+   b) The result has 19,728 digits and requires astronomically many recursive calls
+   c) Compiler cannot parse the function
+   d) It always returns 0
+   Answer: The result has 19,728 digits and requires astronomically many recursive calls
+
+5. What type of recursion does Case 3 of Ackermann represent?
+   a) Linear recursion like factorial
+   b) Tail recursion
+   c) Double or nested recursion where a recursive call is inside another recursive call's argument
+   d) Mutual recursion between two functions
+   Answer: Double or nested recursion where a recursive call is inside another recursive call's argument
+
+========================================================
+Module: WEEK 13 - Pointers, call by reference, dangling pointers
+========================================================
+
+Experiment: Swap using Call by Reference
+--------------------------------------------------------
+[Pre-test Questions]
+1. What does the & operator do when used before a variable in C?
+   a) Performs bitwise AND
+   b) Returns the memory address of the variable
+   c) Dereferences a pointer
+   d) Declares a reference variable
+   Answer: Returns the memory address of the variable
+
+2. What does *ptr do when ptr is a pointer variable?
+   a) Declares a new pointer
+   b) Gives the address stored in ptr
+   c) Accesses the value at the memory address stored in ptr
+   d) Multiplies ptr by something
+   Answer: Accesses the value at the memory address stored in ptr
+
+3. Why does swap(a, b) using call by value not work?
+   a) C does not allow functions with two parameters
+   b) The function gets copies so original variables are unchanged
+   c) Swapping is not possible in C
+   d) Variables cannot be passed to functions
+   Answer: The function gets copies so original variables are unchanged
+
+4. What should the parameter type be for a function that modifies an int using call by reference?
+   a) int
+   b) int*
+   c) int&
+   d) &int
+   Answer: int*
+
+5. What is a dangling pointer?
+   a) A pointer with value zero
+   b) A pointer declared but never initialized
+   c) A pointer pointing to memory that is freed or out of scope
+   d) A pointer to a pointer
+   Answer: A pointer pointing to memory that is freed or out of scope
+
+[Post-test Questions]
+1. After swap(&a, &b) with a=5 and b=9, what are the values of a and b?
+   a) a=5 b=9
+   b) a=9 b=5
+   c) a=0 b=0
+   d) a=9 b=9
+   Answer: a=9 b=5
+
+2. What is the correct function signature for a swap function using pointers?
+   a) void swap(int a, int b)
+   b) void swap(int *a, int *b)
+   c) int swap(&a, &b)
+   d) void swap(int &a, int &b)
+   Answer: void swap(int *a, int *b)
+
+3. Inside the swap function, what does *a = *b do?
+   a) Copies the address of b into a
+   b) Copies the value at address b into the location pointed by a
+   c) Swaps the pointers themselves
+   d) Nothing useful
+   Answer: Copies the value at address b into the location pointed by a
+
+4. If ptr points to variable x, which statement correctly changes x to 50?
+   a) ptr = 50
+   b) &ptr = 50
+   c) *ptr = 50
+   d) ptr* = 50
+   Answer: *ptr = 50
+
+5. What is the output if you pass the same variable twice: swap(&a, &a)?
+   a) a becomes 0
+   b) a remains unchanged
+   c) Program crashes
+   d) Compiler error
+   Answer: a remains unchanged
+
+Experiment: String Copy using Pointer
+--------------------------------------------------------
+[Pre-test Questions]
+1. How is a string terminated in C?
+   a) With a period character
+   b) With a null character \0
+   c) With a newline \n
+   d) With a space character
+   Answer: With a null character \0
+
+2. What does p++ do when p is a char pointer?
+   a) Increments the value at p by 1
+   b) Moves p to point to the next character in memory
+   c) Doubles the address in p
+   d) Creates a new pointer
+   Answer: Moves p to point to the next character in memory
+
+3. What does *src return when src points to the letter 'A'?
+   a) The address of A
+   b) The ASCII value 65 as an integer OR the character 'A'
+   c) A pointer to the next character
+   d) NULL
+   Answer: The ASCII value 65 as an integer OR the character 'A'
+
+4. Why must you add \0 at the end of the destination string after copying?
+   a) To save memory
+   b) To mark the valid end of the string for C string functions and printf
+   c) It is added automatically
+   d) To avoid dangling pointers
+   Answer: To mark the valid end of the string for C string functions and printf
+
+5. If src = "JNTU" and you copy it to dest, what is the size of dest that is needed?
+   a) 4 bytes
+   b) 5 bytes including null terminator
+   c) 3 bytes
+   d) 10 bytes always
+   Answer: 5 bytes including null terminator
+
+[Post-test Questions]
+1. What is the output when input is "Hello"?
+   a) Copied: hello
+   b) Copied: Hello
+   c) Hello
+   d) Error
+   Answer: Copied: Hello
+
+2. What happens if you forget to add \0 after the copy loop?
+   a) Nothing changes
+   b) printf may print garbage characters beyond the string
+   c) Program gives compile error
+   d) dest automatically gets \0
+   Answer: printf may print garbage characters beyond the string
+
+3. Which condition correctly checks for end of string in a pointer-based loop?
+   a) while(src != 0)
+   b) while(*src != '\0') or equivalently while(*src)
+   c) while(src == NULL)
+   d) while(*src > 0)
+   Answer: while(*src != '\0') or equivalently while(*src)
+
+4. What is the key difference between strcpy() and the custom strCopy() you implemented?
+   a) strcpy() is faster always
+   b) They are functionally identical but strcpy() has error handling built in
+   c) strCopy() cannot handle strings longer than 10 characters
+   d) strcpy() does not add null terminator
+   Answer: They are functionally identical but strcpy() has error handling built in
+
+5. If char *p = s where s is a char array, what does p+3 point to?
+   a) The value s[3] directly
+   b) The memory address of the 4th character s[3]
+   c) s multiplied by 3
+   d) Garbage address
+   Answer: The memory address of the 4th character s[3]
+
+Experiment: Count Characters using Pointer
+--------------------------------------------------------
+[Pre-test Questions]
+1. What is the ASCII value of character 'A'?
+   a) 97
+   b) 65
+   c) 48
+   d) 90
+   Answer: 65
+
+2. Which condition correctly checks if a character pointed by p is a digit?
+   a) *p >= 0 && *p <= 9
+   b) *p >= '0' && *p <= '9'
+   c) *p >= 48 || *p <= 57
+   d) isDigit(*p)
+   Answer: *p >= '0' && *p <= '9'
+
+3. What does p++ do inside a string traversal loop?
+   a) Increments the character value at p
+   b) Moves the pointer to the next character
+   c) Copies the character to a new location
+   d) Resets p to the start of the string
+   Answer: Moves the pointer to the next character
+
+4. For input "Hello123!" how many uppercase letters are there?
+   a) 0
+   b) 1
+   c) 5
+   d) 3
+   Answer: 1
+
+5. What category does a space character fall into?
+   a) Lowercase
+   b) Digit
+   c) Uppercase
+   d) Other
+   Answer: Other
+
+[Post-test Questions]
+1. For input "JNTUGV2026" what is the digit count?
+   a) 3
+   b) 4
+   c) 6
+   d) 2
+   Answer: 4
+
+2. What is the lowercase count for input "HELLO"?
+   a) 5
+   b) 0
+   c) 1
+   d) 3
+   Answer: 0
+
+3. Which header file provides built-in character classification functions like isupper() and isdigit()?
+   a) stdio.h
+   b) string.h
+   c) ctype.h
+   d) math.h
+   Answer: ctype.h
+
+4. What is the output for input "aB3 "?
+   a) Upper=1 Lower=1 Digit=1 Other=1
+   b) Upper=1 Lower=1 Digit=1 Other=0
+   c) Upper=0 Lower=2 Digit=1 Other=1
+   d) Upper=1 Lower=2 Digit=0 Other=1
+   Answer: Upper=1 Lower=1 Digit=1 Other=1
+
+5. Why is pointer traversal preferred over index traversal for strings in systems programming?
+   a) It is always faster on all machines
+   b) It directly models memory layout and avoids redundant index arithmetic
+   c) Indexes cause compilation errors in C
+   d) Pointers use less RAM
+   Answer: It directly models memory layout and avoids redundant index arithmetic
+
+========================================================
+Module: WEEK 14 - File I/O, text and binary files, command-line args
+========================================================
+
+Experiment: Write and Read Text File
+--------------------------------------------------------
+[Pre-test Questions]
+1. Which function is used to open a file in C?
+   a) fileopen()
+   b) open()
+   c) fopen()
+   d) openFile()
+   Answer: fopen()
+
+2. What does fopen() return if the file cannot be opened?
+   a) 0
+   b) -1
+   c) NULL
+   d) Empty string
+   Answer: NULL
+
+3. Which mode opens a file for writing and creates it if it does not exist?
+   a) "r"
+   b) "a"
+   c) "w"
+   d) "rw"
+   Answer: "w"
+
+4. What is the purpose of fclose()?
+   a) Deletes the file from disk
+   b) Flushes buffer and releases the file handle
+   c) Reads the last line of the file
+   d) Rewinds the file to beginning
+   Answer: Flushes buffer and releases the file handle
+
+5. Which function reads a line from a file into a character array?
+   a) fscanf()
+   b) fread()
+   c) fgets()
+   d) fgetchar()
+   Answer: fgets()
+
+[Post-test Questions]
+1. What is the correct sequence of file operations in C?
+   a) Read → Open → Write → Close
+   b) Open → Write/Read → Close
+   c) Write → Open → Read → Close
+   d) Open → Close → Write → Read
+   Answer: Open → Write/Read → Close
+
+2. What happens if you open a file in "w" mode and the file already exists?
+   a) Error is returned
+   b) Existing content is preserved and new content is appended
+   c) Existing content is erased and file is overwritten
+   d) Program crashes
+   Answer: Existing content is erased and file is overwritten
+
+3. Why must you call fclose() before reopening a file in a different mode?
+   a) fopen() requires it as a parameter
+   b) To flush write buffer to disk and release the file handle
+   c) C only allows one file open at a time always
+   d) fgets() only works on closed files
+   Answer: To flush write buffer to disk and release the file handle
+
+4. Which function writes formatted text to a file in C?
+   a) printf()
+   b) sprintf()
+   c) fprintf()
+   d) fwrite()
+   Answer: fprintf()
+
+5. What does fgets() return when it reaches the end of file?
+   a) 0
+   b) Empty string
+   c) NULL
+   d) -1
+   Answer: NULL
+
+Experiment: Count Lines Words Characters
+--------------------------------------------------------
+[Pre-test Questions]
+1. What does fgetc() return when the end of file is reached?
+   a) 0
+   b) NULL
+   c) EOF which is -1
+   d) \0
+   Answer: EOF which is -1
+
+2. Why is the return type of fgetc() int and not char?
+   a) char cannot be stored in a variable
+   b) To accommodate EOF value which is outside the char range
+   c) int is the default type in C
+   d) fgetc() returns line numbers
+   Answer: To accommodate EOF value which is outside the char range
+
+3. How do you detect a new line while reading character by character?
+   a) Check if c == ' '
+   b) Check if c == '\n'
+   c) Check if c == EOF
+   d) Check if c == '\0'
+   Answer: Check if c == '\n'
+
+4. What is a word boundary in the context of this counting program?
+   a) Any character that is a letter
+   b) Transition from whitespace to non-whitespace character
+   c) Every space character encountered
+   d) Start and end of each line
+   Answer: Transition from whitespace to non-whitespace character
+
+5. Which Unix command does this program replicate?
+   a) ls
+   b) cat
+   c) grep
+   d) wc
+   Answer: wc
+
+[Post-test Questions]
+1. For input "Good Morning\nJNTUGV\n" what is the line count?
+   a) 1
+   b) 3
+   c) 2
+   d) 0
+   Answer: 2
+
+2. What is the word count for input "The   quick brown"?
+   a) 2
+   b) 4
+   c) 3
+   d) 5
+   Answer: 3
+
+3. What does the condition while((c = fgetc(f)) != EOF) do?
+   a) Reads the whole file at once
+   b) Reads one character per iteration and stops at end of file
+   c) Reads until a newline is found
+   d) Reads only the first line
+   Answer: Reads one character per iteration and stops at end of file
+
+4. Which of the following correctly detects a word boundary?
+   a) If current char is a letter
+   b) If current is non-whitespace and previous was whitespace
+   c) If current char is a space
+   d) If line counter changes
+   Answer: If current is non-whitespace and previous was whitespace
+
+5. Why is fgetc() preferred over fgets() for counting individual characters?
+   a) fgets() is slower
+   b) fgetc() gives one character at a time allowing precise counting of every byte
+   c) fgets() cannot read from files
+   d) fgetc() uses less memory
+   Answer: fgetc() gives one character at a time allowing precise counting of every byte
+

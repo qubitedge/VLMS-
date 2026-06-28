@@ -1,0 +1,11 @@
+const { Project } = require('ts-morph');
+const project = new Project();
+project.addSourceFileAtPath('src/lib/course-data.ts');
+const sourceFile = project.getSourceFile('course-data.ts');
+const obj = sourceFile.getVariableDeclaration('courses').getInitializer();
+const cProg = obj.getProperty('"c-programming"').getInitializer();
+const weeks = cProg.getProperty('weeks').getInitializer();
+const week1 = weeks.getElements()[0];
+const exps = week1.getProperty('experiments').getInitializer().getElements();
+console.log(`Week 1 has ${exps.length} experiments`);
+exps.forEach(e => console.log(e.getProperty('title').getInitializer().getText()));

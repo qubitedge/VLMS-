@@ -1,0 +1,61 @@
+<USER_REQUEST>
+Kid-Friendly Additions — Weeks 11–14WEEK 10 — Experiment 31: Singly Linked ListAdd before the theory:
+🚂 A linked list is like a treasure hunt chain!
+
+Imagine a treasure hunt where the first clue tells you where to find the second clue, the second clue tells you where to find the third, and so on. Each clue (node) has two things: the actual treasure hint (data) and the location of the next clue (pointer). The last clue says "THE END" (NULL). That's exactly a linked list!
+Unlike an array where all items sit in a neat row, linked list nodes can be anywhere in memory — they just hold each other's hand (via pointers) to stay connected.
+🖼️ Image idea: Treasure map with connected dots:
+
+https://images.unsplash.com/photo-1577495508326-19a1b3cf65b9?w=400
+Add after "why linked list over array":
+📏 The key difference — flexibility!
+
+Arrays are like a fixed-size parking lot — built for exactly 100 cars, even if only 3 show up today. Linked lists are like a valet service — you add a parking spot whenever a new car arrives, and remove one when a car leaves. No wasted space, no size limits declared upfront. The trade-off: finding a specific car takes longer (you must walk the chain), while arrays let you jump directly to any spot.
+WEEK 10 — Experiment 32: Structure vs Union DemoAdd before the theory:
+🏠 Structure = a house with separate rooms. Union = one room that changes purpose!
+
+A struct is like a house with a bedroom, kitchen, and living room — all existing at the same time, each with its own space. You can use all rooms simultaneously.
+A union is like a studio apartment with ONE room. Sometimes it's a bedroom, sometimes it's a gym, sometimes it's an office — but it can only be ONE thing at a time. The room is always the same size (the biggest version needed), but only the last use matters.
+🖼️ Image idea: House floor plan / apartment studio:
+
+https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400
+Add after the key difference table:
+💾 When would you actually us
+<truncated 15668 bytes>
+
+🖼️ Image idea: Terminal / command line interface:
+
+https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400
+Add after fgetc() explanation:
+🔍 Why does fgetc() return int and not char?
+
+A char can hold values 0 to 255 (or -128 to 127 signed). But EOF is defined as -1. If fgetc() returned a char, the value -1 might accidentally match a valid character in some encodings — you'd never know when the file actually ended! By returning an int (which is larger), EOF (-1) is clearly distinguishable from any valid character value (0-255). Always store the return of fgetc() in an int, never a char!
+Add after word counting logic:
+💡 The word-counting logic broken down simply:
+
+A new word starts when you see a non-space character AFTER a space (or at the beginning). Think of it like counting the number of times you "step onto a word" while walking through text:
+
+You're walking through: "  hello   world  "
+Walking through spaces: not a word
+First non-space after spaces → stepped onto "hello" → count!
+More letters of "hello": still on the same word, don't count
+Spaces again: stepped off the word
+Non-space again → stepped onto "world" → count!
+
+The prev variable remembers whether the last character was a space — that's the entire trick!
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-13T16:22:50+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\Likhith Kumar\Downloads\virtuallab2332\extract_theories.ts (LANGUAGE_TYPESCRIPT)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\Likhith Kumar\Downloads\virtuallab2332\extract_theories.ts (LANGUAGE_TYPESCRIPT)
+- c:\Users\Likhith Kumar\Downloads\virtuallab2332\temp_courses.tsx (LANGUAGE_TSX)
+- c:\Users\Likhith Kumar\Downloads\virtuallab2332\src\routes\__root.tsx (LANGUAGE_TSX)
+- c:\Users\Likhith Kumar\Downloads\virtuallab2332\src\lib\course-data.ts (LANGUAGE_TYPESCRIPT)
+Running terminal commands:
+- npm run dev (in c:\Users\Likhith Kumar\Downloads\virtuallab2332, running for 36m45s)
+</ADDITIONAL_METADATA>

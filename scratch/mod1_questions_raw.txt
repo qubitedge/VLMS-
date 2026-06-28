@@ -1,0 +1,1698 @@
+MODULE 1: Foundations of LLMs
+Experiment 1: Tokenization and Text Encoding (Byte-Pair Encoding)
+PRETEST (20 Questions – Basic)
+
+What is tokenization in NLP?
+
+A) Encrypting text B) Breaking text into smaller units C) Translating text D) Compressing files
+
+Answer: B
+BPE stands for:
+
+A) Binary Pair Encoding B) Byte-Pair Encoding C) Basic Phrase Extraction D) Block Processing Engine
+
+Answer: B
+What is the smallest unit produced by tokenization called?
+
+A) Sentence B) Paragraph C) Token D) Document
+
+Answer: C
+Which of these is an example of a token?
+
+A) An entire book B) A word or subword unit C) A whole paragraph D) A file extension
+
+Answer: B
+Why do we tokenize text before feeding it to a model?
+
+A) Models can only process numerical/structured input, not raw text
+
+B) To make the text longer
+
+C) To translate the text
+
+D) To delete unwanted words
+
+Answer: A
+What does "encoding" mean in the context of text processing?
+
+A) Converting tokens into numerical representations
+
+B) Deleting tokens
+
+C) Compressing images
+
+D) Encrypting passwords
+
+Answer: A
+Which is a common tokenization approach?
+
+A) Word-level tokenization B) Pixel-level tokenization C) Audio-level tokenization D) File-level tokenization
+
+Answer: A
+What problem can word-level tokenization face with rare words?
+
+A) Out-of-vocabulary (OOV) issues B) Too much memory savings C) Faster training D) No issues at all
+
+Answer: A
+What is a "vocabulary" in tokenization?
+
+A) The set of all unique tokens a model recognizes
+
+B) A dictionary of synonyms
+
+C) A grammar rulebook
+
+D) A type of neural network
+
+Answer: A
+Character-level tokenization breaks text into:
+
+A) Individual characters B) Whole sentences C) Whole documents D) Random chunks
+
+Answer: A
+What is a key advantage of subword tokenization over word-level tokenization?
+
+A) It can represent rare or unseen words using known subword units
+
+B) It removes all punctuation
+
+C) It only works for numbers
+
+D) It eliminates the need for a vocabulary
+
+Answer: A
+In BPE, what does the algorithm initially treat as the base units?
+
+A) Individual characters B) Whole words only C) Sentences D) Paragraphs
+
+Answer: A
+BPE was originally developed for:
+
+A) Data compression B) Image processing C) Audio encoding D) Video streaming
+
+Answer: A
+What does BPE do iteratively during training?
+
+A) Merges the most frequent pair of adjacent symbols
+
+B) Deletes the least frequent words
+
+C) Randomly shuffles characters
+
+D) Translates text to another language
+
+Answer: A
+Which of the following models commonly uses BPE or similar subword tokenization?
+
+A) GPT B) A spreadsheet calculator C) A database engine D) An image viewer
+
+Answer: A
+What happens to tokenization vocabulary size as more BPE merges are performed?
+
+A) It generally increases up to a set limit
+
+B) It decreases to zero
+
+C) It stays exactly the same
+
+D) It becomes infinite
+
+Answer: A
+Why is tokenization considered a crucial preprocessing step for LLMs?
+
+A) It directly affects how well the model understands input text
+
+B) It has no effect on model performance
+
+C) It only matters for image models
+
+D) It removes the need for training
+
+Answer: A
+What type of text encoding converts tokens to unique integer IDs?
+
+A) Numerical/integer encoding B) Audio encoding C) Color encoding D) Binary image encoding
+
+Answer: A
+Which statement about tokenization is true?
+
+A) Different tokenizers can split the same text differently
+
+B) All tokenizers always produce identical results
+
+C) Tokenization is unnecessary for LLMs
+
+D) Tokenization only works on numbers
+
+Answer: A
+What does "detokenization" mean?
+
+A) Converting tokens back into readable text
+
+B) Deleting all tokens
+
+C) Compressing tokens into images
+
+D) Encrypting tokens
+
+Answer: A
+
+
+POSTTEST (20 Questions – Medium)
+
+In Byte-Pair Encoding, merge decisions are based on:
+
+A) Frequency of adjacent symbol pairs in the training corpus
+
+B) Random selection
+
+C) Alphabetical order
+
+D) Length of the word
+
+Answer: A
+What is the main problem BPE solves regarding vocabulary?
+
+A) Balancing vocabulary size with the ability to handle rare/unseen words
+
+B) Eliminating the need for any vocabulary
+
+C) Making vocabulary infinite
+
+D) Removing punctuation entirely
+
+Answer: A
+In BPE, a word that doesn't exist in the trained vocabulary is typically handled by:
+
+A) Breaking it into known subword units or characters
+
+B) Discarding it entirely
+
+C) Replacing it with a random word
+
+D) Crashing the tokenizer
+
+Answer: A
+Which of the following is a known limitation of word-level tokenization that BPE addresses?
+
+A) Large vocabulary size and inability to handle unseen words
+
+B) Too few tokens generated
+
+C) Inability to handle short words
+
+D) Excessive use of subwords
+
+Answer: A
+How does BPE typically initialize its vocabulary before merging begins?
+
+A) As individual characters plus an end-of-word marker
+
+B) As complete sentences
+
+C) As randomly generated symbols
+
+D) As whole paragraphs
+
+Answer: A
+If "low", "lower", and "lowest" share a common subword after BPE, this demonstrates:
+
+A) BPE's ability to capture morphological similarity between related words
+
+B) A tokenization error
+
+C) Random merging with no pattern
+
+D) Complete failure of the algorithm
+
+Answer: A
+What is a trade-off when choosing a very large vocabulary size in BPE?
+
+A) Larger embedding tables and increased memory/computation cost
+
+B) Always faster training with no downsides
+
+C) Smaller model size
+
+D) No effect on the model at all
+
+Answer: A
+What is a trade-off when choosing a very small vocabulary size in BPE?
+
+A) Longer token sequences since words get split into more pieces
+
+B) Always better semantic understanding
+
+C) Reduced memory usage with no downsides
+
+D) Elimination of the need for embeddings
+
+Answer: A
+Which tokenization-related algorithm is closely related to BPE and used in models like BERT?
+
+A) WordPiece B) JPEG compression C) RSA encryption D) FFT (Fast Fourier Transform)
+
+Answer: A
+Why might two different LLMs produce different token counts for the same sentence?
+
+A) They may use different tokenizers/vocabularies trained on different data
+
+B) All LLMs use identical tokenizers
+
+C) Token count is unrelated to the tokenizer used
+
+D) Sentences always have a fixed token count
+
+Answer: A
+In practice, why does tokenization affect the cost of using an LLM API?
+
+A) Many APIs charge based on the number of tokens processed/generated
+
+B) Tokenization has no relation to API cost
+
+C) APIs charge per character only, never per token
+
+D) Tokenization determines the model's accuracy only, not cost
+
+Answer: A
+What does it mean if a BPE tokenizer has a "merge rule" like ("e", "s") → "es"?
+
+A) Whenever "e" and "s" appear adjacently as the most frequent pair, they are combined into "es"
+
+B) The letters "e" and "s" are deleted from the vocabulary
+
+C) All words containing "es" are removed
+
+D) "es" becomes a stop word
+
+Answer: A
+Which scenario best illustrates an out-of-vocabulary (OOV) problem that subword tokenization helps mitigate?
+
+A) A newly coined word not seen during training can still be encoded using known subwords
+
+B) A common word appearing thousands of times in training
+
+C) A single-character token
+
+D) A blank input string
+
+Answer: A
+Why is tokenization considered language-dependent in its effectiveness?
+
+A) Different languages have different morphological structures, affecting how well subword tokenization performs
+
+B) Tokenization works identically for every language with no variation
+
+C) Tokenization only applies to English
+
+D) Language has no impact on tokenization
+
+Answer: A
+What is the relationship between tokenization and context window/sequence length limits in LLMs?
+
+A) Context limits are measured in tokens, so tokenization directly determines how much text fits
+
+B) Context limits are measured in characters only
+
+C) Tokenization has no relation to context limits
+
+D) Context limits are unrelated to text length
+
+Answer: A
+Which of these would likely produce the MOST tokens for the same input text?
+
+A) A character-level tokenizer
+
+B) A well-trained BPE tokenizer with a large vocabulary
+
+C) A whole-word tokenizer with no splitting
+
+D) A sentence-level tokenizer
+
+Answer: A
+In SentencePiece (a tokenization library), what is a notable feature compared to traditional BPE?
+
+A) It can operate directly on raw text without requiring pre-tokenization into words
+
+B) It only works on images
+
+C) It removes the need for any vocabulary
+
+D) It cannot handle subwords
+
+Answer: A
+Why might special tokens (like <|endoftext|> or [PAD]) be added to a tokenizer's vocabulary?
+
+A) To mark sequence boundaries, padding, or special model functions
+
+B) To increase random noise in training
+
+C) They serve no functional purpose
+
+D) To replace all punctuation
+
+Answer: A
+What is the effect of using a pretrained tokenizer on a domain very different from its training data (e.g., medical text vs. general text)?
+
+A) It may produce inefficient or excessive subword splits for domain-specific terms
+
+B) It will always perform perfectly regardless of domain
+
+C) It cannot process the text at all
+
+D) It automatically retrains itself
+
+Answer: A
+Which best describes the overall goal of Byte-Pair Encoding in modern LLMs?
+
+A) To create an efficient, fixed-size vocabulary that balances handling rare words with manageable sequence lengths
+
+B) To eliminate all numerical representations of text
+
+C) To make every word a single unique token regardless of frequency
+
+D) To remove the need for a vocabulary entirely
+
+Answer: A
+Experiment 2: Word Embeddings and Vector RepresentationsPRETEST (20 Questions – Basic)
+What is a word embedding?
+
+A) A numerical vector representation of a word
+
+B) An image of a word
+
+C) A type of font
+
+D) A grammar rule
+
+Answer: A
+Why are word embeddings used in NLP?
+
+A) To represent words in a way machines can process mathematically
+
+B) To make text look colorful
+
+C) To delete unnecessary words
+
+D) To translate text instantly
+
+Answer: A
+Which of these is a popular word embedding technique?
+
+A) Word2Vec
+
+B) JPEG
+
+C) HTML
+
+D) SQL
+
+Answer: A
+In vector space, similar words are typically:
+
+A) Far apart B) Close together C) Always identical D) Represented by zero
+
+Answer: B
+What does "dimension" mean in a word embedding vector?
+
+A) One of the numerical values that make up the vector
+
+B) The font size of the word
+
+C) The number of letters in the word
+
+D) The color of the word
+
+Answer: A
+Which of the following best describes "semantic similarity"?
+
+A) Words with similar meanings having similar vector representations
+
+B) Words with the same number of letters
+
+C) Words that rhyme
+
+D) Words starting with the same letter
+
+Answer: A
+What type of learning is typically used to train word embeddings like Word2Vec?
+
+A) Unsupervised/self-supervised learning from text data
+
+B) Manual labeling of every word
+
+C) Random number generation
+
+D) Image classification
+
+Answer: A
+Which of these is NOT a word embedding technique?
+
+A) GloVe
+
+B) Word2Vec
+
+C) FastText
+
+D) Photoshop
+
+Answer: D
+A one-hot encoding represents a word as:
+
+A) A vector with a single 1 and the rest 0s
+
+B) A sentence
+
+C) An image
+
+D) A sound wave
+
+Answer: A
+What is a major limitation of one-hot encoding compared to embeddings?
+
+A) It does not capture semantic relationships between words
+
+B) It uses very little memory
+
+C) It always captures meaning perfectly
+
+D) It compresses text automatically
+
+Answer: A
+Word embeddings are typically represented in how many dimensions?
+
+A) Tens to hundreds of dimensions
+
+B) Exactly 1 dimension
+
+C) Exactly 2 dimensions
+
+D) Infinite dimensions
+
+Answer: A
+What does it mean if two word vectors have a high cosine similarity?
+
+A) The words are semantically similar
+
+B) The words are spelled the same
+
+C) The words are antonyms
+
+D) The words have no relationship
+
+Answer: A
+Which famous example shows vector arithmetic capturing relationships?
+
+A) king - man + woman ≈ queen
+
+B) cat + dog = bird
+
+C) red + blue = green
+
+D) sun - moon = star
+
+Answer: A
+What kind of data is typically used to train word embeddings?
+
+A) Large text corpora
+
+B) Image datasets
+
+C) Audio recordings
+
+D) Spreadsheets
+
+Answer: A
+Pretrained embeddings (like GloVe) are useful because:
+
+A) They save time by providing ready-made vector representations
+
+B) They eliminate the need for any model
+
+C) They only work for one specific sentence
+
+D) They require no training data at all
+
+Answer: A
+What does "context window" mean in word embedding training (e.g., Word2Vec)?
+
+A) The set of neighboring words considered when learning a word's representation
+
+B) The size of the screen display
+
+C) The number of total documents
+
+D) The font window in a text editor
+
+Answer: A
+Which Word2Vec architecture predicts a target word from its surrounding context?
+
+A) CBOW (Continuous Bag of Words)
+
+B) Skip-gram
+
+C) Decision Tree
+
+D) Random Forest
+
+Answer: A
+Which Word2Vec architecture predicts surrounding context words from a target word?
+
+A) Skip-gram
+
+B) CBOW
+
+C) Linear Regression
+
+D) K-Means
+
+Answer: A
+Why might embeddings be visualized using techniques like t-SNE or PCA?
+
+A) To reduce dimensions and visualize word relationships in 2D/3D
+
+B) To increase the number of dimensions
+
+C) To delete unwanted words
+
+D) To compress images
+
+Answer: A
+What is a "vector space model" in NLP?
+
+A) A mathematical model representing words/text as vectors in a multi-dimensional space
+
+B) A model for compressing audio
+
+C) A grammar correction tool
+
+D) A type of image filter
+
+Answer: A
+POSTTEST (20 Questions – Medium)
+Why do embeddings generally outperform one-hot encoding in capturing word meaning?
+
+A) Embeddings encode semantic relationships in a dense, lower-dimensional space, unlike sparse one-hot vectors
+
+B) One-hot encoding always uses fewer dimensions
+
+C) Embeddings cannot represent any relationships
+
+D) One-hot encoding captures more semantic detail
+
+Answer: A
+In Word2Vec's Skip-gram model, the training objective is to:
+
+A) Predict context words given a center word
+
+B) Predict the entire sentence given one word
+
+C) Classify images based on text
+
+D) Predict the next image frame
+
+Answer: A
+Which factor most directly affects the quality of learned word embeddings?
+
+A) The size and quality of the training corpus
+
+B) The color scheme of the text editor
+
+C) The font used in training documents
+
+D) The number of vowels in each word
+
+Answer: A
+What does the analogy "Paris - France + Italy ≈ Rome" demonstrate about embeddings?
+
+A) Embeddings can capture relational/analogical structure between concepts
+
+B) Embeddings only work for capital cities
+
+C) This is a coincidence with no underlying pattern
+
+D) Embeddings cannot represent geography
+
+Answer: A
+Why might static word embeddings (like Word2Vec) struggle with polysemy (words with multiple meanings)?
+
+A) They assign a single fixed vector per word regardless of context
+
+B) They generate infinite vectors per word
+
+C) They only work with one meaning by design intentionally and accurately
+
+D) Polysemy does not exist in real language
+
+Answer: A
+How do contextual embeddings (e.g., from BERT) differ from static embeddings (e.g., Word2Vec)?
+
+A) Contextual embeddings generate different vectors for the same word depending on surrounding context
+
+B) Contextual embeddings always produce identical vectors regardless of context
+
+C) Static embeddings change vectors based on sentence meaning
+
+D) There is no difference between them
+
+Answer: A
+What does negative sampling in Word2Vec training help achieve?
+
+A) Efficient training by updating only a small number of "negative" word pairs instead of the full vocabulary
+
+B) Increasing vocabulary size infinitely
+
+C) Removing the need for any training data
+
+D) Deleting frequent words from the corpus
+
+Answer: A
+In GloVe (Global Vectors), embeddings are learned based primarily on:
+
+A) Global word co-occurrence statistics across the entire corpus
+
+B) Random initialization with no training
+
+C) Only the first sentence of a document
+
+D) Manual human labeling
+
+Answer: A
+What is a common evaluation method for word embedding quality?
+
+A) Word analogy and similarity benchmark tasks
+
+B) Counting the number of letters in each word
+
+C) Measuring font size consistency
+
+D) Checking spelling accuracy only
+
+Answer: A
+Why is dimensionality reduction (e.g., PCA, t-SNE) often applied to embeddings before visualization?
+
+A) Embeddings typically have too many dimensions to plot directly, so reduction maps them to 2D/3D
+
+B) It increases the number of dimensions for better plotting
+
+C) It removes all numerical values from the vectors
+
+D) It is required to train the embeddings initially
+
+Answer: A
+What potential issue can arise if word embeddings are trained on biased text data?
+
+A) The embeddings can encode and reflect societal biases present in the data
+
+B) Embeddings automatically remove all bias
+
+C) Bias only affects image models, not text
+
+D) Embeddings are immune to training data characteristics
+
+Answer: A
+Subword-based embeddings (like FastText) offer an advantage over Word2Vec because they:
+
+A) Can generate embeddings for out-of-vocabulary words using subword information
+
+B) Cannot handle misspelled words at all
+
+C) Require significantly more labeled data
+
+D) Eliminate the concept of vectors entirely
+
+Answer: A
+In the context of embeddings, what does "cosine similarity" actually measure?
+
+A) The cosine of the angle between two vectors, indicating directional similarity
+
+B) The literal length difference between two vectors
+
+C) The number of shared letters between two words
+
+D) The frequency of a word in a document
+
+Answer: A
+Why might embedding dimensionality (e.g., 100 vs. 300) be treated as a hyperparameter to tune?
+
+A) Higher dimensions can capture more nuance but increase computation and risk of overfitting
+
+B) Dimensionality has no effect on model performance
+
+C) All embeddings must use exactly 50 dimensions
+
+D) Dimensionality only affects training speed, never quality
+
+Answer: A
+How are word embeddings typically integrated into a downstream LLM or neural network?
+
+A) As an initial embedding layer that converts token IDs into dense vectors
+
+B) As the final output layer only
+
+C) They are not used in neural networks at all
+
+D) Only as a visualization tool, never as model input
+
+Answer: A
+What does it mean if two unrelated words accidentally have high cosine similarity in a trained embedding space?
+
+A) It may indicate noise, insufficient training data, or co-occurrence patterns not reflecting true semantic similarity
+
+B) The embedding model has failed completely and is unusable
+
+C) This always indicates a bug in the code
+
+D) This is expected and desired behavior for all word pairs
+
+Answer: A
+Why can embeddings trained on one domain (e.g., news articles) underperform when applied to another domain (e.g., medical text)?
+
+A) Word usage and context differ across domains, so learned relationships may not transfer well
+
+B) Embeddings are universal and domain-independent by design
+
+C) Domain has no effect on embedding quality
+
+D) Medical text contains no words
+
+Answer: A
+What role does the "context window size" hyperparameter play in Word2Vec training?
+
+A) It determines how many neighboring words are considered when learning relationships, affecting captured semantic vs. syntactic patterns
+
+B) It sets the total vocabulary size
+
+C) It has no impact on the resulting embeddings
+
+D) It only affects training speed, not quality
+
+Answer: A
+Why might embeddings of antonyms (e.g., "hot" and "cold") sometimes be close together in vector space?
+
+A) They often appear in similar contexts despite opposite meanings, since co-occurrence-based training captures contextual similarity, not strict meaning
+
+B) Antonyms are mathematically identical
+
+C) This never happens in practice
+
+D) Embeddings always separate antonyms perfectly
+
+Answer: A
+Which statement best summarizes the core purpose of word embeddings in modern NLP/LLM pipelines?
+
+A) To convert discrete text tokens into continuous numerical vectors that capture semantic and syntactic relationships for downstream processing
+
+B) To compress images for faster loading
+
+C) To replace the need for any tokenization
+
+D) To generate audio from text
+
+Answer: A
+Experiment 3: Exploring the Transformer ArchitecturePRETEST (20 Questions – Basic)
+What is the Transformer architecture primarily used for?
+
+A) Processing sequential data like text
+
+B) Editing images
+
+C) Compressing audio files
+
+D) Managing databases
+
+Answer: A
+The Transformer was introduced in which research paper?
+
+A) "Attention Is All You Need"
+
+B) "Deep Learning Basics"
+
+C) "Word2Vec Explained"
+
+D) "Neural Networks 101"
+
+Answer: A
+What is the main building block of the Transformer model?
+
+A) Self-Attention mechanism
+
+B) Convolution layer
+
+C) Decision tree
+
+D) Recurrent loop only
+
+Answer: A
+A Transformer model typically consists of which two main components?
+
+A) Encoder and Decoder
+
+B) Compressor and Decompressor
+
+C) Sender and Receiver
+
+D) Reader and Writer
+
+Answer: A
+What is the role of the encoder in a Transformer?
+
+A) To process and represent the input sequence
+
+B) To generate random numbers
+
+C) To delete tokens
+
+D) To compress images
+
+Answer: A
+What is the role of the decoder in a Transformer?
+
+A) To generate the output sequence
+
+B) To tokenize input only
+
+C) To train word embeddings
+
+D) To remove attention layers
+
+Answer: A
+Why was the Transformer architecture considered a major advancement over RNNs?
+
+A) It allows parallel processing of sequences
+
+B) It is slower than RNNs
+
+C) It cannot handle long sentences
+
+D) It removes the need for any training
+
+Answer: A
+What does "positional encoding" provide to a Transformer model?
+
+A) Information about the order/position of tokens in a sequence
+
+B) The color of each token
+
+C) The frequency of each token in the corpus
+
+D) The font style of the text
+
+Answer: A
+Why is positional encoding necessary in Transformers?
+
+A) Because Transformers process tokens in parallel and have no inherent sense of order
+
+B) Because Transformers process tokens one at a time like RNNs
+
+C) Because positional encoding improves image quality
+
+D) Because it removes the need for embeddings
+
+Answer: A
+What is a "feed-forward network" in the context of a Transformer layer?
+
+A) A fully connected neural network applied after the attention mechanism
+
+B) A network used only for image processing
+
+C) A type of database query
+
+D) A network with no learnable parameters
+
+Answer: A
+Which famous LLM architectures are based on the Transformer?
+
+A) GPT and BERT
+
+B) Excel and Word
+
+C) MySQL and PostgreSQL
+
+D) Photoshop and Illustrator
+
+Answer: A
+
+
+What does "layer normalization" help with in Transformers?
+
+A) Stabilizing and speeding up training
+
+B) Compressing the vocabulary
+
+C) Translating text between languages
+
+D) Generating images
+
+Answer: A
+What is a "residual connection" (skip connection) in a Transformer?
+
+A) A shortcut that adds the input of a layer to its output to help gradient flow
+
+B) A connection that deletes layers
+
+C) A type of tokenization method
+
+D) A way to compress text files
+
+Answer: A
+How many encoder/decoder layers does the original Transformer paper typically stack?
+
+A) Multiple identical layers stacked on top of each other (e.g., 6)
+
+B) Exactly one layer
+
+C) Zero layers
+
+D) An unlimited, undefined number always
+
+Answer: A
+What type of model is BERT, based on the Transformer?
+
+A) An encoder-only model
+
+B) A decoder-only model
+
+C) An image generation model
+
+D) A database model
+
+Answer: A
+What type of model is GPT, based on the Transformer?
+
+A) A decoder-only model
+
+B) An encoder-only model
+
+C) A convolutional model
+
+D) A spreadsheet model
+
+Answer: A
+What does "scalability" mean in the context of Transformer models?
+
+A) The ability to improve performance as model size and data increase
+
+B) The ability to shrink infinitely
+
+C) The ability to work without any data
+
+D) The ability to run only on one specific device
+
+Answer: A
+Why are Transformers well-suited for transfer learning?
+
+A) Pretrained Transformer models can be fine-tuned on new tasks with relatively little data
+
+B) They cannot be reused for any other task
+
+C) They require retraining from scratch every time
+
+D) They only work for one specific language
+
+Answer: A
+What is the purpose of "masking" in the Transformer decoder during training?
+
+A) To prevent the model from seeing future tokens when predicting the next one
+
+B) To hide all training data permanently
+
+C) To remove punctuation
+
+D) To compress the vocabulary
+
+Answer: A
+Which of the following best describes a Transformer block/layer?
+
+A) A combination of self-attention and feed-forward sub-layers
+
+B) A single neuron with no connections
+
+C) A purely random function
+
+D) A database table
+
+Answer: A
+POSTTEST (20 Questions – Medium)
+Why is positional encoding typically added (rather than concatenated) to input embeddings in Transformers?
+
+A) To preserve the embedding dimensionality while injecting position information
+
+B) To double the size of every vector unnecessarily
+
+C) Addition has no effect on the resulting representation
+
+D) Concatenation is mathematically impossible with embeddings
+
+Answer: A
+What mathematical functions does the original Transformer paper use for positional encoding?
+
+A) Sine and cosine functions at varying frequencies
+
+B) Only random numbers
+
+C) Logarithmic functions exclusively
+
+D) Polynomial regression
+
+Answer: A
+In a Transformer encoder layer, in what order are sub-layers typically applied?
+
+A) Self-attention followed by a feed-forward network, each with residual connections and normalization
+
+B) Feed-forward network only, with no attention
+
+C) Normalization only, with no attention or feed-forward layers
+
+D) Attention is applied after the entire model finishes training
+
+Answer: A
+Why do Transformers use multiple stacked layers instead of just one?
+
+A) Stacking layers allows the model to learn increasingly abstract and complex representations
+
+B) A single layer always performs better than multiple layers
+
+C) Stacking layers removes the need for attention
+
+D) Multiple layers are used only to slow down inference
+
+Answer: A
+What is the computational complexity of self-attention with respect to sequence length (n)?
+
+A) O(n²), since each token attends to every other token
+
+B) O(1), constant regardless of sequence length
+
+C) O(log n)
+
+D) It decreases as sequence length increases
+
+Answer: A
+Why can long sequences be computationally expensive for standard Transformer models?
+
+A) Self-attention's quadratic complexity with sequence length increases compute and memory needs
+
+B) Long sequences always reduce computation needs
+
+C) Transformers cannot process sequences longer than 10 tokens
+
+D) Sequence length has no effect on computation
+
+Answer: A
+What is the purpose of "cross-attention" in an encoder-decoder Transformer?
+
+A) Allowing the decoder to attend to relevant parts of the encoder's output
+
+B) Allowing the encoder to attend to itself only
+
+C) Removing attention between encoder and decoder entirely
+
+D) Compressing the vocabulary during inference
+
+Answer: A
+In decoder-only models like GPT, what type of attention is primarily used?
+
+A) Masked (causal) self-attention, restricting attention to previous tokens only
+
+B) Bidirectional attention with no restrictions
+
+C) No attention mechanism at all
+
+D) Attention only on the final token
+
+Answer: A
+Why does BERT use bidirectional attention while GPT uses unidirectional (causal) attention?
+
+A) BERT is designed for understanding tasks using full context, while GPT is designed for autoregressive text generation
+
+B) BERT cannot process any context at all
+
+C) GPT is incapable of understanding context
+
+D) There is no architectural difference between BERT and GPT
+
+Answer: A
+What does "layer normalization" specifically normalize within a Transformer?
+
+A) The activations across the feature dimension for each individual training example
+
+B) The entire dataset across all examples simultaneously
+
+C) Only the input text characters
+
+D) The vocabulary size
+
+Answer: A
+Why are residual (skip) connections particularly important in deep Transformer stacks?
+
+A) They help mitigate the vanishing gradient problem, enabling effective training of deep networks
+
+B) They eliminate the need for any backpropagation
+
+C) They double the model's vocabulary size
+
+D) They have no effect on training stability
+
+Answer: A
+What advantage does parallelization during training give Transformers over RNNs?
+
+A) All tokens in a sequence can be processed simultaneously rather than sequentially, speeding up training
+
+B) Parallelization is only possible with RNNs, not Transformers
+
+C) Transformers must process one token at a time like RNNs
+
+D) Parallelization has no effect on training speed
+
+Answer: A
+What is a known limitation of fixed-length positional encodings used in the original Transformer?
+
+A) They may not generalize well to sequence lengths longer than those seen during training
+
+B) They work perfectly for any sequence length without limitation
+
+C) They eliminate the need for any attention mechanism
+
+D) They only function with image data
+
+Answer: A
+How does multi-head attention differ from single-head attention?
+
+A) Multi-head attention runs several attention computations in parallel, each potentially capturing different relationships, then combines results
+
+B) Multi-head attention uses only one attention computation, just repeated
+
+C) Multi-head attention removes the need for Query, Key, and Value vectors
+
+D) Multi-head attention is identical to single-head attention in every way
+
+Answer: A
+Why might an encoder-decoder Transformer (like the original translation model) be more suitable for tasks like machine translation than a decoder-only model?
+
+A) The encoder can fully process the entire source sentence with bidirectional context before generation begins
+
+B) Decoder-only models cannot generate any text
+
+C) Encoder-decoder models cannot process sequences at all
+
+D) There is no meaningful difference for translation tasks
+
+Answer: A
+What does "model depth" (number of stacked layers) generally trade off against in Transformer design?
+
+A) Increased representational power versus higher computational cost and training difficulty
+
+B) Depth has no effect on either performance or cost
+
+C) Increasing depth always reduces computational cost
+
+D) Depth only affects vocabulary size
+
+Answer: A
+In the Transformer's feed-forward sub-layer, what is typically applied between the two linear transformations?
+
+A) A non-linear activation function (e.g., ReLU or GELU)
+
+B) Another full attention mechanism
+
+C) A second tokenizer
+
+D) An image convolution
+
+Answer: A
+Why is the Transformer often described as more "interpretable" in some respects than RNNs, due to attention weights?
+
+A) Attention weights can show which tokens the model focused on, offering some insight into its decisions
+
+B) Attention weights are always random and meaningless
+
+C) Transformers provide no information about internal decision-making
+
+D) RNNs are inherently more interpretable in every case
+
+Answer: A
+What is a key reason Transformers scale well with large datasets and model sizes (as seen in modern LLMs)?
+
+A) Their parallelizable architecture and attention mechanism allow efficient training on massive data with increasing model capacity
+
+B) Transformers cannot be scaled beyond a fixed size
+
+C) Larger datasets always degrade Transformer performance
+
+D) Scaling has no relationship to architecture design
+
+Answer: A
+Which statement best captures why the Transformer replaced RNN/LSTM-based architectures as the dominant approach for LLMs?
+
+A) Transformers combine effective long-range dependency modeling with efficient parallel training, leading to better scalability and performance
+
+B) Transformers cannot model long-range dependencies at all
+
+C) RNNs are always faster to train than Transformers
+
+D) There is no meaningful performance difference between RNNs and Transformers
+
+Answer: A
+Experiment 4: Understanding Self-AttentionPRETEST (20 Questions – Basic)
+What is self-attention in the context of Transformers?
+
+A) A mechanism that allows a model to focus on relationships between words in a sequence
+
+B) A method to compress images
+
+C) A way to delete unimportant words
+
+D) A type of database query
+
+Answer: A
+Self-attention computes relevance using which three vectors?
+
+A) Query, Key, Value
+
+B) Input, Output, Hidden
+
+C) Encoder, Decoder, Token
+
+D) Weight, Bias, Gradient
+
+Answer: A
+What does the "Query" vector represent in self-attention?
+
+A) What the current token is looking for in other tokens
+
+B) The final output of the model
+
+C) The total vocabulary size
+
+D) The position of a token in the sentence
+
+Answer: A
+What does the "Key" vector represent in self-attention?
+
+A) A representation used to match against queries
+
+B) The final answer of the model
+
+C) A random number
+
+D) The length of the sentence
+
+Answer: A
+What does the "Value" vector represent in self-attention?
+
+A) The actual information/content carried by a token
+
+B) The position index of a token
+
+C) The vocabulary size
+
+D) A type of tokenizer
+
+Answer: A
+What is the purpose of attention scores in self-attention?
+
+A) To determine how much focus to give to each token relative to others
+
+B) To delete unimportant tokens permanently
+
+C) To compress the vocabulary
+
+D) To generate images
+
+Answer: A
+What mathematical function is commonly used to convert attention scores into probabilities?
+
+A) Softmax
+
+B) Square root
+
+C) Logarithm
+
+D) Factorial
+
+Answer: A
+Why is self-attention called "self" attention?
+
+A) Because each token attends to other tokens within the same sequence
+
+B) Because it only attends to itself and no other tokens
+
+C) Because it requires no input
+
+D) Because it is unrelated to the input sequence
+
+Answer: A
+What is "multi-head attention"?
+
+A) Running multiple attention mechanisms in parallel to capture different relationships
+
+B) Running attention only once per sentence
+
+C) A method to delete attention layers
+
+D) A way to compress text files
+
+Answer: A
+In self-attention, what happens after attention scores are calculated?
+
+A) They are used to create a weighted sum of value vectors
+
+B) They are immediately deleted
+
+C) They are converted into images
+
+D) They replace the original input text
+
+Answer: A
+Why is self-attention useful for understanding long-range dependencies in text?
+
+A) It allows any token to directly relate to any other token, regardless of distance
+
+B) It only allows tokens to relate to their immediate neighbors
+
+C) It removes the need to consider word order
+
+D) It only works on short sentences
+
+Answer: A
+What does it mean if a word receives a high attention score from another word in a sentence?
+
+A) The model considers that word highly relevant to understanding the other word
+
+B) The word is irrelevant
+
+C) The word will be deleted
+
+D) The word is a duplicate
+
+Answer: A
+In the sentence "The cat sat because it was tired," what might self-attention help the model determine?
+
+A) That "it" refers to "the cat"
+
+B) The total number of letters in the sentence
+
+C) The font size of each word
+
+D) The color of "cat"
+
+Answer: A
+What is the benefit of self-attention over traditional recurrent (step-by-step) processing?
+
+A) It enables parallel computation and easier modeling of long-range relationships
+
+B) It only works for very short sentences
+
+C) It removes the need for any training
+
+D) It eliminates the need for any input text
+
+Answer: A
+What does "scaling" refer to in scaled dot-product attention?
+
+A) Dividing attention scores by the square root of the key vector's dimension for stability
+
+B) Increasing the size of the dataset
+
+C) Resizing input images
+
+D) Compressing the vocabulary
+
+Answer: A
+Why might attention weights be visualized as a heatmap?
+
+A) To show which tokens the model focuses on relative to others
+
+B) To display the model's training time
+
+C) To show the file size of the model
+
+D) To represent audio frequencies
+
+Answer: A
+What is "causal" or "masked" self-attention typically used for?
+
+A) Preventing a model from attending to future tokens during generation
+
+B) Allowing access to all future tokens
+
+C) Deleting past tokens from memory
+
+D) Compressing the vocabulary size
+
+Answer: A
+In self-attention, are Query, Key, and Value vectors typically the same or different from each other?
+
+A) They are different learned projections of the same input embedding
+
+B) They are always identical vectors
+
+C) They are unrelated to the input at all
+
+D) They are randomly generated and never learned
+
+Answer: A
+What advantage does self-attention provide for handling ambiguous pronouns (like "it" or "they")?
+
+A) It helps the model link pronouns to the correct earlier reference based on context
+
+B) It removes all pronouns from text
+
+C) It always assumes pronouns refer to the first word in a sentence
+
+D) It has no effect on pronoun resolution
+
+Answer: A
+Why is self-attention considered a foundational mechanism in modern LLMs?
+
+A) It enables models to weigh and combine contextual information from across a sequence effectively
+
+B) It was only used in early rule-based systems
+
+C) It eliminates the need for any neural network
+
+D) It only applies to image classification tasks
+
+Answer: A
+POSTTEST (20 Questions – Medium)
+In scaled dot-product attention, why is the dot product of Query and Key vectors divided by √d_k?
+
+A) To prevent excessively large values that could destabilize softmax gradients, especially with high-dimensional vectors
+
+B) To make the computation slower intentionally
+
+C) To eliminate the need for a Value vector
+
+D) To increase the vocabulary size
+
+Answer: A
+What does each "head" in multi-head attention learn to potentially capture?
+
+A) Different types of relationships or patterns between tokens (e.g., syntactic vs. semantic)
+
+B) The exact same information as every other head
+
+C) Nothing meaningful; heads are purely decorative
+
+D) Only positional information, never semantic information
+
+Answer: A
+After computing outputs from multiple attention heads, how are they typically combined?
+
+A) Concatenated and passed through a linear transformation
+
+B) Averaged with no further processing
+
+C) Discarded except for the first head
+
+D) Converted directly into the final output text
+
+Answer: A
+Why is masked self-attention essential in autoregressive language models like GPT during training?
+
+A) It ensures the model only uses past and current tokens, preventing "cheating" by seeing future tokens
+
+B) It allows the model to see the entire sequence at once including future tokens
+
+C) It removes the need for any Query or Key vectors
+
+D) It has no impact on how the model learns to predict next tokens
+
+Answer: A
+What is a key computational drawback of self-attention as sequence length grows?
+
+A) Its quadratic time and memory complexity (O(n²)) with respect to sequence length
+
+B) It becomes linear and increasingly efficient with longer sequences
+
+C) It requires no additional computation regardless of length
+
+D) Self-attention complexity is unrelated to sequence length
+
+Answer: A
+How does cross-attention differ from self-attention in an encoder-decoder model?
+
+A) Cross-attention computes Queries from the decoder and Keys/Values from the encoder output, rather than all from the same sequence
+
+B) Cross-attention and self-attention are mathematically identical with no differences
+
+C) Cross-attention never uses Key or Value vectors
+
+D) Cross-attention only operates on a single token at a time
+
+Answer: A
+Why might certain attention heads specialize in capturing syntactic relationships (e.g., subject-verb agreement) while others capture semantic relationships?
+
+A) Different heads can learn to focus on different aspects of token relationships during training, given the model has freedom to specialize
+
+B) All heads are forced to learn identical patterns by design
+
+C) Attention heads cannot specialize; they are mathematically constrained to be the same
+
+D) Specialization is impossible in neural networks
+
+Answer: A
+What does it mean if the attention distribution (after softmax) for a token is very "peaked" (concentrated on one other token)?
+
+A) The model is assigning most of its focus to that one specific token when forming the representation
+
+B) The model is ignoring all tokens equally
+
+C) The attention mechanism has failed
+
+D) The token has no relationship with any other token
+
+Answer: A
+In self-attention, why are Query, Key, and Value derived from learned weight matrices rather than being fixed/static?
+
+A) Learnable projections allow the model to adapt what aspects of a token's representation are emphasized for queries, keys, and values during training
+
+B) Fixed values would always produce better results
+
+C) Learnable weights have no impact on the resulting attention patterns
+
+D) Query, Key, and Value vectors are never actually learned; they are predefined constants
+
+Answer: A
+How does the use of attention allow Transformers to model dependencies that span very long distances in a sequence, unlike vanilla RNNs?
+
+A) Every token can directly attend to every other token in a single layer, avoiding the gradual information decay seen in sequential RNN processing
+
+B) Attention only allows tokens to look at their immediate neighbor, just like RNNs
+
+C) Long-range dependencies are impossible to model with attention
+
+D) RNNs handle long-range dependencies better than attention by design
+
+Answer: A
+What role does positional information play in self-attention, given that the raw attention mechanism itself is permutation-invariant?
+
+A) Positional encodings must be added to embeddings beforehand since attention alone has no inherent sense of token order
+
+B) Self-attention inherently understands word order without any additional input
+
+C) Position has no relevance to language understanding tasks
+
+D) Positional encoding is only used in image-based attention models
+
+Answer: A
+Why can interpreting attention weights as a complete explanation of model behavior be misleading?
+
+A) High attention weight doesn't necessarily mean that token was the sole or primary cause of the model's output decision; other components also contribute
+
+B) Attention weights perfectly and completely explain all model decisions, with no caveats
+
+C) Attention weights are always equal to the gradient of the loss function
+
+D) Models never use any information other than attention weights
+
+Answer: A
+What is the purpose of an attention "mask" beyond causal masking, such as padding masks?
+
+A) To prevent the model from attending to padding tokens added to make sequences uniform length in a batch
+
+B) To make all padding tokens have maximum attention weight
+
+C) Padding masks serve no functional purpose in batched training
+
+D) To force the model to attend only to padding tokens
+
+Answer: A
+Why might increasing the number of attention heads not always improve model performance indefinitely?
+
+A) Beyond a certain point, additional heads may not capture meaningfully distinct patterns and increase computational cost without proportional benefit
+
+B) More heads always linearly improve performance with no diminishing returns
+
+C) The number of heads has no effect on computational cost
+
+D) Attention heads are unrelated to model capacity
+
+Answer: A
+In practice, how is the dimensionality of Query, Key, and Value vectors typically related to the model's overall hidden dimension when using multi-head attention?
+
+A) The model's hidden dimension is typically split across multiple heads, so each head operates on a smaller sub-dimension
+
+B) Each head always uses the full hidden dimension with no splitting
+
+C) Query, Key, and Value dimensions are unrelated to the model's hidden dimension
+
+D) Multi-head attention uses only a single shared dimension of size 1
+
+Answer: A
+Why does self-attention's ability to weigh all tokens simultaneously make it particularly effective for tasks like coreference resolution (e.g., linking "it" to its referent)?
+
+A) The model can directly compute relevance scores between the pronoun and all candidate referents in the sequence, regardless of their distance
+
+B) Self-attention can only consider the immediately preceding word
+
+C) Coreference resolution is impossible with attention-based models
+
+D) Self-attention ignores pronouns entirely during processing
+
+Answer: A
+What is a key difference between "global" self-attention (as in the original Transformer) and more efficient attention variants (e.g., sparse or local attention)?
+
+A) Efficient variants restrict which tokens can attend to each other to reduce the O(n²) computational cost, trading some flexibility for efficiency
+
+B) Global and local attention are mathematically identical in every respect
+
+C) Sparse attention always increases computational cost compared to global attention
+
+D) Local attention allows every token to attend to every other token without restriction
+
+Answer: A
+How does the concept of "attention as a weighted average of Value vectors" help explain what the output of self-attention represents?
+
+A) The output for each token is a context-aware blend of information from relevant tokens, weighted by their computed attention scores
+
+B) The output is simply a copy of the original input token with no transformation
+
+C) The output ignores all Value vectors and uses only Query vectors
+
+D) Attention output is always identical across all tokens regardless of weighting
+
+Answer: A
+Why might gradient-based attribution methods be used alongside raw attention weights when analyzing model decisions?
+
+A) They can provide a complementary or more accurate view of which inputs causally influenced the output, since attention weights alone may not fully reflect importance
+
+B) Gradient methods are identical to attention weights in every case
+
+C) Attention weights alone are always sufficient and need no supplementary analysis
+
+D) Gradients have no relevance to understanding model behavior
+
+Answer: A
+Which statement best summarizes why self-attention is considered a flexible and powerful mechanism compared to fixed-window approaches (e.g., convolution) for sequence modeling?
+
+A) Self-attention dynamically determines which tokens are relevant to each other regardless of their position, rather than relying on a fixed local window
+
+B) Self-attention can only consider a fixed number of nearby tokens, similar to convolution
+
+C) Fixed-window approaches always outperform self-attention on all tasks
+
+D) Self-attention and convolution are mathematically identical operations
+
+Answer: A

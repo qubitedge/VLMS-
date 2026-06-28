@@ -1,0 +1,1100 @@
+=== PAGE 1 ===
+AI Tools Virtual Lab
+ Complete Syllabus Reference
+ 5 Weeks  5 Modules  20 Experiments
+ Image Generation  Writing  Coding  Web Design  Research & Productivity
+ Aims  ELI5 Theory  Flows  Comparison Tables  Image Prompts
+ Designed so anyone — from school student to professional — can understand it.
+
+
+=== PAGE 2 ===
+Table of Contents
+W1
+Image
+Generation
+Lab
+Exp 1
+Gemini Imagen Photorealism
+Exp 2
+DALL-E Concept Art
+Exp 3
+Leonardo AI Character Design
+Exp 4
+Midjourney Artistic Composition
+W2
+Writing Lab
+Exp 1
+ChatGPT Persuasive Essay
+Exp 2
+Claude Paper Summary
+Exp 3
+Gemini Blog Post
+Exp 4
+Perplexity Research Query
+W3
+Coding Lab
+Exp 1
+Claude Code Mini-Project
+Exp 2
+Cursor AI Refactoring
+Exp 3
+GitHub Copilot Productivity
+Exp 4
+Replit Agent Prototyping
+W4
+Web Design
+Lab
+Exp 1
+Lovable Landing Page
+Exp 2
+Bolt.new Web App
+Exp 3
+v0 Component Library
+Exp 4
+Figma AI Layouts
+W5
+Research &
+Productivity
+Lab
+Exp 1
+NotebookLM Document Chat
+Exp 2
+Gamma Presentation Deck
+Exp 3
+Napkin AI Diagrams
+Exp 4
+Elicit Literature Review
+
+
+=== PAGE 3 ===
+Week 1 ■ Image Generation Lab
+Module 1: Visual AI Basics | Lab 1: Concept to Canvas
+■ MODULE OVERVIEW
+Text-to-image AI models take plain English descriptions (called prompts) and generate photorealistic or artistic
+images in seconds. Each tool has a different strength — photorealism, concept art, characters, or painterly styles.
+In this lab we explore four of the best.
+ You write a
+text prompt
+ →
+ AI model
+ reads it
+ →
+ Neural
+network
+generates
+ pixels
+ →
+ Image
+appears in
+ seconds
+Experiment 1: Gemini Imagen Photorealism
+■ AIM
+To use Google's Imagen model via the Gemini platform to generate highly photorealistic images from
+detailed text prompts, exploring how prompt specificity, lighting descriptors, and subject detail directly
+influence output quality and realism.
+■ THEORY
+What Makes Imagen Special?
+Imagen is Google's text-to-image model built for photorealism — outputs that look like actual photographs rather
+than illustrations. It was trained on billions of image-text pairs, learning to connect words like 'golden hour lighting'
+or 'shallow depth of field' to real visual qualities.
+Prompt Element
+What It Controls
+Example
+Subject
+What is in the image
+'A golden retriever sitting on grass'
+Lighting
+Mood and atmosphere
+'soft morning light', 'studio lighting'
+Camera style
+Depth and framing
+'shallow depth of field', '35mm lens'
+Quality tag
+Forces high detail
+'ultra-realistic', '8K', 'DSLR photo'
+Prompt Engineering for Images
+ Basic
+prompt 'a
+ dog'
+ →
+ Add
+subject
+ detail
+ →
+ Add
+lighting &
+ style
+ →
+ Add
+quality
+ tags
+ →
+Photoreali
+stic result
+■ IMAGE PROMPT
+Soft pastel flat infographic: left side shows a simple text box with 'a dog' producing a blurry sketch; right side shows a detailed
+prompt with lighting and quality tags producing a sharp photo; arrow flow between them labeled 'prompt engineering'; checklist
+of prompt elements on the side; cream background; minimal text; friendly educational style.
+Experiment 2: DALL-E Concept Art
+■ AIM
+
+
+=== PAGE 4 ===
+To leverage OpenAI's DALL-E model to generate stylised concept art by experimenting with artistic style
+descriptors, medium references, and compositional framing instructions, understanding how abstract creative
+direction translates into visual output.
+■ THEORY
+DALL-E and Artistic Styles
+DALL-E excels at concept art and stylised illustration. You can tell it to paint like a specific era, medium, or artistic
+movement and it will blend those aesthetics into a single image.
+Style Descriptor
+What You Get
+'watercolour illustration'
+Soft, blended painterly look
+'oil painting, baroque style'
+Rich, dramatic, classical art
+'flat vector art'
+Clean minimal graphic design
+'cyberpunk concept art'
+Neon, futuristic, gritty urban scenes
+'Studio Ghibli style'
+Warm, hand-drawn anime aesthetic
+The Concept Art Workflow
+Define the
+ concept /
+ idea
+ →
+ Choose
+an artistic
+ style
+ →
+Add mood
+& compos
+ ition
+ →
+ Iterate
+ with
+variations
+ →
+ Final
+concept
+ art
+■ IMAGE PROMPT
+Soft pastel infographic: four small image frame boxes each showing a different art style label (watercolour, oil painting, vector,
+cyberpunk); arrows pointing from one text prompt to all four frames; label 'same prompt, different style'; cream background;
+minimal text; flat educational style.
+Experiment 3: Leonardo AI Character Design
+■ AIM
+To use Leonardo AI's fine-tuned models to design consistent, detailed characters by crafting structured
+character description prompts covering appearance, costume, emotion, and pose — and to explore how
+model selection affects stylistic consistency across multiple character renders.
+■ THEORY
+Why Leonardo for Characters?
+Leonardo AI offers specialised fine-tuned models — versions trained specifically on character art, game assets, or
+anime. This means you get much more consistent results for the same character across multiple images compared
+to general-purpose models.
+Character Prompt Layer
+What to Describe
+Appearance
+Hair colour, eye colour, skin tone, age, body type
+Costume
+Clothing style, colours, materials, accessories
+Emotion
+'Determined expression', 'joyful smile', 'fierce gaze'
+Pose
+'Standing heroically', 'crouching', 'arms crossed'
+Background
+'Plain white', 'fantasy forest', 'studio backdrop'
+
+
+=== PAGE 5 ===
+Consistency Across Renders
+ Write
+detailed
+character
+ sheet
+ →
+ Select a
+consistent
+ model
+ →
+Lock style
+descriptor
+ s
+ →
+ Generate
+ multiple
+ poses
+ →
+ Same
+character
+every time
+■ IMAGE PROMPT
+Soft pastel infographic: a character design sheet showing the same character in three poses (standing, action, close-up portrait)
+with labels pointing to appearance, costume, emotion, pose; flat illustration style; cream background; minimal text; educational
+poster layout.
+Experiment 4: Midjourney Artistic Composition
+■ AIM
+To use Midjourney's advanced compositional controls — including aspect ratio flags, stylisation parameters,
+and negative prompts — to craft intentional artistic compositions that demonstrate mastery of visual balance,
+colour palette direction, and aesthetic coherence.
+■ THEORY
+Midjourney's Unique Parameters
+Midjourney uses special command flags alongside your prompt to control the technical and artistic properties of the
+output.
+Parameter
+What It Does
+Example
+--ar
+Sets aspect ratio
+--ar 16:9 (widescreen), --ar 1:1 (square)
+--stylize
+Controls artistic intensity
+--stylize 100 (subtle) to 1000 (very painterly)
+--no
+Negative prompt — excludes
+--no text, --no people, --no blur
+--v
+Model version
+--v 6 (latest, most detailed)
+--chaos
+Variation randomness
+--chaos 0 (consistent) to 100 (wild)
+Building a Composed Prompt
+ Subject +
+ scene
+ →
+ Mood &
+ colour
+palette
+ →
+ Art style
+descriptor
+ →
+ Add --ar
+--stylize
+ --no
+ →
+ Coherent
+compositi
+ on
+■ IMAGE PROMPT
+Soft pastel flat infographic: a prompt formula diagram showing subject plus mood plus style plus parameters all combining with
+plus signs into one final image frame; parameter cheat sheet in a side box (ar, stylize, no, chaos); cream background; minimal
+text; clean educational layout.
+
+
+=== PAGE 6 ===
+Week 2 ✍■ Writing Lab
+Module 2: Generative Text | Lab 2: The AI Co-Writer
+■ MODULE OVERVIEW
+AI writing tools can draft essays, summarise papers, write blog posts, and search the web for research — in
+seconds. Each tool has a personality: ChatGPT is creative, Claude is precise, Gemini is structured, Perplexity cites
+sources.
+Tool
+Best At
+Style
+ChatGPT
+Persuasive and creative writing
+Engaging, conversational
+Claude
+Summarisation and analysis
+Precise, careful, structured
+Gemini
+Long-form drafting and research
+Clear, Google-powered
+Perplexity
+Research with live web citations
+Factual, source-linked
+Experiment 1: ChatGPT Persuasive Essay
+■ AIM
+To use ChatGPT to draft, refine, and strengthen a persuasive essay by designing targeted prompts that
+specify audience, argument stance, tone, and structural requirements — demonstrating how iterative prompt
+refinement improves argument quality and rhetorical impact.
+■ THEORY
+What Makes Writing Persuasive?
+Rhetorical Element
+What It Means
+Prompt Instruction
+Ethos
+Build credibility
+'Use expert evidence and statistics'
+Pathos
+Appeal to emotion
+'Include a relatable human story'
+Logos
+Use logic and reason
+'Structure argument with clear evidence'
+Kairos
+Right time / urgency
+'Highlight why this matters right now'
+The Iterative Writing Flow
+Give topic
+ + stance
+ →
+ First draft
+generated
+ →
+ Ask: 'stre
+ ngthen
+ the
+argument'
+ →
+ Ask: 'add
+statistics'
+ →
+ Final
+polished
+ essay
+■ IMAGE PROMPT
+Soft pastel infographic: a document icon being refined through three iterations with checkmarks; side panel showing the three
+rhetorical elements (ethos pathos logos) as labelled building blocks; arrow loop showing iterative prompting; cream background;
+minimal text; friendly flat style.
+Experiment 2: Claude Paper Summary
+■ AIM
+
+
+=== PAGE 7 ===
+To use Claude to produce accurate, structured summaries of academic papers by constructing prompts that
+specify summary depth, target audience, and output format — evaluating Claude's ability to extract key
+findings, methodology, and implications without distortion or hallucination.
+■ THEORY
+Why Claude for Academic Summarisation?
+Claude is trained to be precise and faithful to source material. It is less likely to add information that wasn't in the
+paper, making it safer for academic use than more creative models.
+Summary Type
+Prompt Instruction
+Output
+Executive
+'Summarise in 3 bullet points for a manager'
+Quick top-level overview
+Technical
+'Summarise the methodology and results for a researcher'
+Deep, precise, jargon-intact
+Plain English
+'Explain this paper to a 16-year-old student'
+Simple, analogies, no jargon
+The Summarisation Flow
+ Paste the
+ paper /
+abstract
+ →
+ Specify
+audience
+ & depth
+ →
+ Claude
+extracts
+ key
+findings
+ →
+ Ask
+follow-up
+questions
+ →
+ Structure
+ d
+summary
+ done
+■ IMAGE PROMPT
+Soft pastel: a dense academic paper on the left being fed into a robot (Claude) who outputs three clean summary cards labeled
+executive, technical, plain English; magnifying glass icon showing faithful extraction not invention; cream background; minimal
+text.
+Experiment 3: Gemini Blog Post
+■ AIM
+To use Google Gemini to generate a well-structured, SEO-aware blog post by providing prompts that define
+topic, target keyword, reader persona, tone, and desired word count — and to iteratively refine headings,
+introductions, and calls-to-action for maximum engagement.
+■ THEORY
+Anatomy of a Great Blog Post
+Section
+Purpose
+Prompt Instruction
+Hook / Intro
+Grab attention immediately
+'Start with a surprising statistic or question'
+H2 Headings
+Structure for scanning readers
+'Use 4 H2 subheadings with keyword'
+Body Paragraphs
+Deliver the value
+'Each section: explain, example, takeaway'
+Call to Action
+Tell reader what to do next
+'End with a clear CTA for the reader'
+SEO Awareness in Prompts
+SEO = Search Engine Optimisation. A well-prompted blog post naturally includes the target keyword in the title,
+first paragraph, and subheadings — making it more likely to appear in Google search results.
+
+
+=== PAGE 8 ===
+Define
+topic +
+keyword
+ →
+Set reader
+persona &
+ tone
+ →
+ Generate
+ full draft
+ →
+ Refine
+intro &
+headings
+ →
+ SEO-read
+ y blog
+ post
+■ IMAGE PROMPT
+Soft pastel infographic: a blog post wireframe with labeled sections (hook, H2 headings, body, CTA); keyword highlighted with a
+magnifying glass labeled SEO; robot writing at a desk; iteration arrows showing refinement; cream background; minimal text; flat
+friendly style.
+Experiment 4: Perplexity Research Query
+■ AIM
+To use Perplexity AI as an AI-powered research engine by formulating precise research queries that
+leverage its live web search capability, evaluating source citation quality, assessing answer accuracy across
+factual and contested topics, and comparing its research output to traditional search engine results.
+■ THEORY
+Perplexity vs Google — What's Different?
+Google Search
+Perplexity AI
+What you get
+List of links to click
+Synthesised answer with citations
+Time to insight
+You read multiple articles
+Instant summary from multiple sources
+Citations
+Implicit (you check yourself)
+Explicit inline source links
+Best for
+Finding specific pages
+Research questions needing synthesis
+Writing a Good Research Query
+ Specific
+question
+ (not
+vague)
+ →
+Perplexity
+ searches
+ live web
+ →
+ Synthesis
+ es
+multiple
+sources
+ →
+ Answer
+ with
+citations
+ →
+ Follow-up
+questions
+■ IMAGE PROMPT
+Soft pastel infographic: left side shows Google returning a list of blue links; right side shows Perplexity returning one clear
+answer with numbered citation bubbles; label 'links vs synthesis'; a magnifying glass over the web at the top; cream background;
+minimal text; flat educational style.
+
+
+=== PAGE 9 ===
+Week 3 ■ Coding Lab
+Module 3: AI in Software Development | Lab 3: The AI Pair Programmer
+■ MODULE OVERVIEW
+AI coding assistants can write code from scratch, fix bugs, refactor messy code, and prototype full apps in minutes.
+They act as a tireless pair programmer who knows every programming language and framework.
+Tool
+Best At
+How It Works
+Claude Code
+Full project reasoning & architecture
+Chat-based, file-aware coding agent
+Cursor AI
+Refactoring and editing existing code
+VS Code fork with AI deeply embedded
+GitHub Copilot
+Line-by-line autocomplete as you type
+Inline suggestion inside your editor
+Replit Agent
+Full-stack prototyping in the browser
+Build and run apps without any setup
+Experiment 1: Claude Code Mini-Project
+■ AIM
+To use Claude as an AI software architect by providing high-level project briefs and iteratively decomposing
+them into working code — covering file structure planning, function-by-function implementation, and
+debugging cycles — demonstrating end-to-end AI-assisted software development from specification to
+running output.
+■ THEORY
+Claude as a Software Architect
+Unlike autocomplete tools, Claude understands the full context of your project. You describe what you want to build
+in plain English and Claude plans the structure, writes each part, and explains every decision.
+ Describe
+ the
+project in
+ plain
+English
+ →
+ Claude
+plans file
+structure
+ →
+ Claude
+ writes
+ each
+function
+ →
+You test it
+ & report
+ bugs
+ →
+ Claude
+fixes &
+explains
+Effective Project Prompting
+Prompt Element
+Example
+Goal
+'Build a Python script that reads a CSV and outputs a summary'
+Constraints
+'Use only standard libraries, no pip installs'
+Output form
+'Show me the file structure first, then write each file'
+Debug style
+'Here is the error message — explain what went wrong'
+■ IMAGE PROMPT
+Soft pastel: a human at a desk with a speech bubble describing a project; Claude robot outputting a file tree diagram with arrows
+to individual code files; then a bug icon with a wrench showing the fix cycle; cream background; minimal text; flat style.
+Experiment 2: Cursor AI Refactoring
+
+
+=== PAGE 10 ===
+■ AIM
+To use Cursor AI's editor-integrated AI to refactor existing codebases by applying targeted AI instructions for
+improving code readability, reducing duplication, enforcing naming conventions, and splitting monolithic
+functions — measuring before-and-after code quality improvements.
+■ THEORY
+What Is Refactoring?
+Refactoring means improving the structure of existing code without changing what it does. Think of it like
+reorganising a messy room — everything still works, but it's now clean and easy to navigate.
+Refactoring Task
+Before
+After
+Rename variables
+'x', 'temp', 'data2'
+Descriptive names: 'user_age', 'invoice_total'
+Split long function
+One 200-line function
+10 focused 20-line functions
+Remove duplication
+Same logic copy-pasted 5 times
+One reusable function called 5 times
+Add comments
+No explanations in code
+Every function has a clear docstring
+Cursor AI Refactoring Flow
+ Open
+messy
+code in
+Cursor
+ →
+ Select a
+section &
+ press
+Cmd+K
+ →
+ 'Refactor
+this: make
+ it cleaner'
+ →
+ AI
+rewrites
+in-place
+ →
+ Review &
+ accept
+changes
+■ IMAGE PROMPT
+Soft pastel: left side shows tangled spaghetti code lines in a box labeled 'before'; right side shows neat organised code blocks
+labeled 'after'; a magic wand between them labeled 'Cursor AI refactor'; checklist of refactoring tasks on the side; cream
+background; minimal text.
+Experiment 3: GitHub Copilot Productivity
+■ AIM
+To measure the productivity impact of GitHub Copilot's inline code completion by completing a set of timed
+coding tasks with and without Copilot enabled — documenting keystrokes saved, time reduction, and
+accuracy of suggestions across different programming languages and task types.
+■ THEORY
+How GitHub Copilot Works
+Copilot watches what you type in real time. As you write a function name or a comment describing what you need,
+it predicts the entire code block and shows it in grey text. Press Tab to accept. It's like autocomplete on steroids.
+Trigger Type
+What You Type
+What Copilot Generates
+Comment trigger
+# sort this list in descending order
+Full sort function with return
+Function name
+def calculate_tax(
+Parameters, logic, docstring
+Pattern repeat
+First item in a list pattern
+All remaining items automatically
+Test generation
+# write unit tests for this function
+Full pytest test file
+■ IMAGE PROMPT
+
+
+=== PAGE 11 ===
+Soft pastel: a code editor showing a comment in dark text and ghost grey suggestion appearing below; Tab key highlighted with
+arrow labeled 'accept'; side bar showing productivity stats (time saved, keystrokes reduced); cream background; minimal text;
+flat style.
+Experiment 4: Replit Agent Prototyping
+■ AIM
+To use Replit Agent to build, run, and iterate on a full-stack web application prototype entirely in the browser
+— from natural language specification through to a live deployed URL — without any local environment
+setup, demonstrating AI-powered zero-configuration rapid prototyping.
+■ THEORY
+Why Replit Agent Is Different
+Most coding tools just write code — you still need to install software, set up a server, and figure out deployment
+yourself. Replit Agent handles everything: it writes the code, runs it, fixes errors, and gives you a live URL — all in
+one place.
+Step
+Traditional Dev
+Replit Agent
+Environment setup
+Install Node, Python, DB — hours
+Zero setup — runs in browser
+Write code
+You write everything manually
+Agent writes from your description
+Fix errors
+You debug line by line
+Agent detects and fixes automatically
+Deploy to web
+Configure servers, DNS, hosting
+One click — instant live URL
+ Describe
+your app
+in English
+ →
+ Agent
+writes all
+the code
+ →
+Runs it au
+tomaticall
+ y
+ →
+ Fixes any
+ errors
+ itself
+ →
+ Live URL
+in minutes
+■ IMAGE PROMPT
+Soft pastel: a person typing a plain English description into a chat box; Replit robot outputting code files, a terminal window, and
+a phone showing a live website; timeline below showing traditional dev (many steps, many hours) vs Replit agent (few steps,
+minutes); cream background; minimal text; flat educational style.
+
+
+=== PAGE 12 ===
+Week 4 ■ Web Design Lab
+Module 4: Generative UI | Lab 4: Zero to Website
+■ MODULE OVERVIEW
+AI web design tools let you go from an idea to a live, styled website or UI component using plain English — no
+design degree or coding knowledge required. Each tool targets a different part of the process.
+Tool
+Best For
+Output
+Lovable
+Full landing pages
+Complete hosted website from a brief
+Bolt.new
+Full-stack web apps
+Working app with backend and database
+v0
+React UI components
+Copy-pasteable component code
+Figma AI
+Design mockups & layouts
+Design file with AI-generated layouts
+Experiment 1: Lovable Landing Page
+■ AIM
+To use Lovable to generate a complete, styled landing page from a single product brief prompt — iterating on
+layout, copy, colour scheme, and section structure through natural language instructions — and publish it to
+a live URL without writing any code.
+■ THEORY
+Anatomy of a Landing Page
+Section
+Purpose
+What to Tell Lovable
+Hero
+First impression — hook the visitor
+'Bold headline + subheading + CTA button'
+Features
+Show what it does
+'3 feature cards with icons'
+Social Proof
+Build trust
+'Testimonials section with 3 quotes'
+Pricing
+Convert visitors
+'3-tier pricing table'
+Footer
+Links and legal
+'Links, social icons, copyright'
+ Write
+product
+ brief in
+ chat
+ →
+ Lovable
+generates
+ full page
+ →
+ Ask:
+'change
+colour to
+ blue'
+ →
+ Ask: 'add
+testimonia
+ ls'
+ →
+Publish to
+ live URL
+■ IMAGE PROMPT
+Soft pastel: a chat box with a product description on the left; on the right a rendered landing page wireframe with labeled
+sections (hero, features, pricing, footer); iteration arrows between chat and page showing refinement; cream background;
+minimal text.
+Experiment 2: Bolt.new Web App
+■ AIM
+To use Bolt.new to build a complete full-stack web application from a natural language specification —
+including frontend UI, backend logic, and data persistence — deployed live in the browser, demonstrating
+
+
+=== PAGE 13 ===
+AI-driven full-stack development without any local environment configuration.
+■ THEORY
+Full-Stack vs Landing Page
+Landing Page (Lovable)
+Full-Stack App (Bolt.new)
+Stores data?
+No
+Yes — database included
+User accounts?
+No
+Yes — auth supported
+Dynamic?
+Static content only
+Changes based on user actions
+Examples
+Marketing site, portfolio
+Todo app, booking system, dashboard
+ Describe
+the app &
+ features
+ →
+ Bolt
+builds
+frontend
+ →
+ Bolt adds
+ backend
+ & DB
+ →
+ Test in
+browser
+ →
+ Deploy &
+share link
+■ IMAGE PROMPT
+Soft pastel: three-layer stack diagram showing frontend (UI), backend (logic), database (data) all being assembled by a robot
+from one text prompt; browser window showing the live app; comparison box: landing page (flat) vs web app (layered); cream
+background; minimal text.
+Experiment 3: v0 Component Library
+■ AIM
+To use Vercel's v0 to generate production-ready React UI components from natural language descriptions —
+including forms, navigation bars, cards, and modals — and evaluate the generated Tailwind CSS and
+shadcn/ui code for direct integration into existing React projects.
+■ THEORY
+What Is a UI Component?
+A UI component is a reusable building block of a website — like a button, a login form, or a navigation bar. v0
+generates these as clean React code you can copy and paste directly into your project.
+Component Type
+What You Describe
+What v0 Generates
+Form
+'Sign-up form with name, email, password, submit button'
+Full React form with validation
+Nav bar
+'Dark navbar with logo left, links centre, CTA right'
+Responsive navbar component
+Card
+'Product card with image, title, price, add-to-cart button'
+Styled card component
+Modal
+'Confirmation dialog with cancel and confirm buttons'
+Accessible modal with overlay
+■ IMAGE PROMPT
+Soft pastel: a row of four UI component boxes (form, navbar, card, modal) each labeled; above them a single chat prompt arrow
+pointing to all four; below each component a code snippet icon showing React output; cream background; minimal text; flat
+educational layout.
+Experiment 4: Figma AI Layouts
+■ AIM
+
+
+=== PAGE 14 ===
+To use Figma's AI-powered design features to auto-generate layout variations, apply design system
+constraints, and produce responsive grid structures from content briefs — evaluating AI-generated designs
+against established UX heuristics for usability, visual hierarchy, and accessibility.
+■ THEORY
+What Figma AI Can Do
+Figma AI Feature
+What It Does
+Auto Layout AI
+Generates responsive frames that adapt to content size
+Design Suggestions
+Proposes layout variations based on your content
+Component Matching
+Finds the right component from your design system automatically
+Copy Generation
+Fills placeholder text with contextually relevant content
+Evaluating AI Designs — UX Heuristics
+Heuristic
+What to Check
+Visual Hierarchy
+Is the most important element largest / most prominent?
+Whitespace
+Is there breathing room or is it too cluttered?
+Consistency
+Do fonts, colours and spacing match the design system?
+Accessibility
+Is contrast ratio above 4.5:1? Are tap targets large enough?
+■ IMAGE PROMPT
+Soft pastel: a Figma canvas frame with AI-generated layout grid; four labelled arrows pointing to design elements labeled
+hierarchy, whitespace, consistency, accessibility; small checklist box on the side with tick marks; cream background; minimal
+text; flat style.
+
+
+=== PAGE 15 ===
+Week 5 ■ Research & Productivity Lab
+Module 5: AI Workflows | Lab 5: The Augmented Knowledge Worker
+■ MODULE OVERVIEW
+AI productivity tools augment knowledge work — turning hours of reading, slide-making, diagram-drawing, and
+literature searching into minutes. These tools don't replace thinking — they accelerate it.
+Tool
+Superpower
+Time Saved
+NotebookLM
+Chat with your own documents
+Hours of re-reading
+Gamma
+Instant presentation decks
+Hours of slide design
+Napkin AI
+Text to diagrams automatically
+Hours of diagramming
+Elicit
+AI literature search with paper analysis
+Days of manual review
+Experiment 1: NotebookLM Document Chat
+■ AIM
+To use Google NotebookLM to ingest multiple source documents and conduct an interactive
+question-answering session that extracts, cross-references, and synthesises information across sources —
+evaluating the accuracy of grounded citations and the tool's ability to surface non-obvious connections
+between documents.
+■ THEORY
+NotebookLM — Your Personal Research Assistant
+NotebookLM works like a very smart friend who has read all your documents. You upload PDFs, notes, or links.
+Then you ask questions and it answers — citing the exact source and page so you can verify everything.
+Feature
+What It Does
+Grounded answers
+Every answer cites the exact document and passage it came from
+Cross-referencing
+Finds connections between multiple documents automatically
+No hallucination
+Will not answer from outside your uploaded sources
+Audio overview
+Generates a podcast-style summary of your documents
+ Upload
+PDFs &
+ notes
+ →
+ Notebook
+ LM
+indexes
+ them
+ →
+ Ask a
+question
+ in chat
+ →
+Grounded
+ answer
+ with
+citation
+ →
+ Follow-up
+ and
+explore
+■ IMAGE PROMPT
+Soft pastel: multiple PDF document icons being fed into a notebook robot; user asking a question in a chat bubble; robot
+responding with an answer and a citation tag linking back to a specific document; cross-reference arrows between two
+documents; cream background; minimal text; flat educational style.
+Experiment 2: Gamma Presentation Deck
+■ AIM
+
+
+=== PAGE 16 ===
+To use Gamma to transform a structured content outline into a visually polished presentation deck in under
+five minutes — evaluating the AI's slide structuring logic, visual theme selection, and content distribution —
+and iterating on specific slides through natural language editing instructions.
+■ THEORY
+What Gamma Does Differently
+Traditional slide tools (PowerPoint, Google Slides) give you a blank canvas. Gamma gives you an AI that designs,
+writes, and layouts each slide for you — you just provide the topic or outline.
+Traditional (PowerPoint)
+AI-Powered (Gamma)
+Starting point
+Blank slide
+AI-generated full deck from outline
+Design time
+Hours choosing fonts and layouts
+Seconds — AI picks everything
+Content
+You write every word
+AI drafts, you refine
+Editing
+Manual drag and drop
+Natural language: 'make slide 3 shorter'
+ Enter
+topic or
+ paste
+outline
+ →
+ Gamma
+generates
+ all slides
+ →
+ AI picks
+theme &
+ layout
+ →
+ 'Make
+slide 2
+ more
+visual'
+ →
+ Export or
+share link
+■ IMAGE PROMPT
+Soft pastel: a plain text outline on the left transforming via a magic wand into a row of styled presentation slide thumbnails on the
+right; chat bubble showing 'make it more colourful'; timer icon showing 5 minutes; cream background; minimal text; flat friendly
+style.
+Experiment 3: Napkin AI Diagrams
+■ AIM
+To use Napkin AI to automatically convert written explanations and structured text into clear visual diagrams
+— including flowcharts, comparison frameworks, and process maps — evaluating the semantic accuracy of
+AI-generated visuals and iterating on diagram type and layout through natural language instructions.
+■ THEORY
+Why Diagrams Matter
+Research shows people understand and remember information 6x better when it's presented visually. But drawing
+diagrams manually in tools like Lucidchart or draw.io takes time. Napkin AI generates them from your text in
+seconds.
+Diagram Type
+Best For
+Example Text Input
+Flowchart
+Processes and decisions
+'User logs in → check password → success or retry'
+Comparison
+Side-by-side evaluation
+'RAG vs Fine-tuning: cost, speed, accuracy'
+Timeline
+Sequential events
+'Phase 1: Research, Phase 2: Build, Phase 3: Test'
+Mind Map
+Brainstorming relationships
+'AI Tools: Writing, Coding, Design, Research'
+
+
+=== PAGE 17 ===
+Paste or
+write your
+explanatio
+ n
+ →
+ Napkin
+reads the
+structure
+ →
+ Selects
+ best
+diagram
+ type
+ →
+Generates
+ visual
+ →
+ Export as
+ SVG /
+ PNG
+■ IMAGE PROMPT
+Soft pastel: a paragraph of plain text on the left with a magic wand arrow pointing to four different diagram types on the right
+(flowchart, comparison table, timeline, mind map); label 'text in, diagram out'; cream background; minimal text; flat educational
+style.
+Experiment 4: Elicit Literature Review
+■ AIM
+To use Elicit as an AI research assistant for conducting a structured literature review by submitting targeted
+research questions, evaluating the relevance ranking of returned papers, extracting key findings across
+multiple studies using Elicit's column-based extraction system, and synthesising a coherent evidence
+summary from the results.
+■ THEORY
+What Is a Literature Review?
+A literature review means reading many academic papers on a topic to understand what researchers have already
+discovered. Traditionally this takes days or weeks. Elicit automates the search and extracts key findings for you.
+Traditional Literature Review
+Elicit AI Review
+Search
+Manual Google Scholar, keyword hunting
+One research question → Elicit finds papers
+Screening
+Read abstract of every paper manually
+AI ranks by relevance automatically
+Extraction
+Copy key facts from each paper manually
+AI fills columns: methods, results, sample size
+Synthesis
+Write summary from notes
+AI drafts synthesis across all papers
+ Enter
+research
+question
+ →
+ Elicit
+finds
+relevant
+ papers
+ →
+ AI ranks
+ by
+relevance
+ →
+ Extract
+findings
+ across
+papers
+ →
+ Synthesis
+ e
+evidence
+summary
+■ IMAGE PROMPT
+Soft pastel: a research question in a search box at the top; below it a grid of paper cards ranked by relevance score; columns
+extracting methods, results, sample size from each paper; at the bottom a synthesis paragraph being assembled; cream
+background; minimal text; flat style.
+
+
