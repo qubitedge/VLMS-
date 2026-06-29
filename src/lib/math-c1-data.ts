@@ -1,16 +1,18 @@
 // lib/math-data.ts
 
 import { Course } from './course-data';
+import { mathShortNotes } from './math-c1-short-notes';
 
 export const mathFoundationsCourse: Course = {
   id: "mathematics-for-emerging-technologies",
   title: "Mathematics for Emerging Technologies",
+  shortNotes: mathShortNotes,
   objectives: [
     "To understand vectors, vector spaces, and linear transformations as fundamental mathematical tools",
     "To master eigenvalues, eigenvectors, and diagonalization with applications to quantum computing",
     "To develop a strong foundation in probability theory and random variables",
     "To understand the central limit theorem and its importance in statistics",
-    "To apply linear algebra and probability concepts to emerging technologies like quantum computing and AI"
+    "To apply linear algebra and probability concepts to emerging technologies like quantum computing & AI"
   ],
   introduction: [
     "Linear algebra and probability form the mathematical bedrock of modern emerging technologies. From the quantum states in a quantum computer to the probability distributions that power machine learning algorithms, these mathematical tools are everywhere.",
@@ -77,7 +79,7 @@ export const mathFoundationsCourse: Course = {
                 body: [
                   "When you hear 'vector', what comes to mind? An arrow pointing from one place to another? That's a good start—but vectors are so much more.",
                   "In the world of mathematics, a vector is any object that obeys two simple rules: you can add two vectors together, and you can multiply a vector by a number (scalar). That's it!",
-                  "![Vector Visualization](/vector_visualization.webp)",
+                  "![Vector Visualization](/vector_space_basics.webp)",
                   "Think of a shopping cart: you have a list of items and each item has a price and a quantity. The total cost is a linear combination of (price × quantity). Each item is like a 'basis vector' and the quantity is the scalar multiplier.",
                   "In machine learning, a patient's medical record might be a vector: [age, blood_pressure, cholesterol, heart_rate]. Adding two patients' vectors just adds their measurements—that might not make sense, but it shows how vectors are just organized lists of numbers.",
                   "In quantum computing, a particle's state is a vector—a list of complex numbers where each number is the probability amplitude of finding the particle in a particular state."
@@ -88,7 +90,6 @@ export const mathFoundationsCourse: Course = {
                 body: [
                   "Imagine you have two vectors in 2D space: v = (2, 3) and w = (1, 4).",
                   "Vector Addition: v + w = (2+1, 3+4) = (3, 7). Simple—add component by component.",
-                  "![Vector Addition](/vector_addition.webp)",
                   "Scalar Multiplication: 3 × v = (3×2, 3×3) = (6, 9). Each component gets multiplied by the scalar.",
                   "These two operations—addition and scalar multiplication—are the only rules that define a vector. If a set of objects follows these rules, it's a vector space.",
                   "Why are these operations important? Because they're the foundation of linear algebra. Every matrix multiplication, every transformation, every quantum operation is built from these two simple operations."
@@ -202,7 +203,6 @@ export const mathFoundationsCourse: Course = {
                   "Example: Rotation by 90° counterclockwise in 2D:",
                   "î = (1,0) → (0,1), ĵ = (0,1) → (-1,0)",
                   "Matrix: [[0, -1], [1, 0]]",
-                  "![Rotation Matrix](/rotation_matrix.webp)",
                   "Apply to vector v = (x, y): [0×x + (-1)×y, 1×x + 0×y] = (-y, x)—that's a 90° rotation!",
                   "Every matrix multiplication Ax is a linear transformation: Ax = b."
                 ]
@@ -244,7 +244,6 @@ export const mathFoundationsCourse: Course = {
                   "Complex Matrix: A matrix with complex entries.",
                   "Why complex numbers? In quantum mechanics, probability amplitudes are complex—they have both magnitude and phase.",
                   "The phase allows quantum interference: two probability amplitudes can add or cancel depending on their relative phase.",
-                  "![Complex Vectors](/complex_vectors.webp)",
                   "Operations work the same way: complex vector addition, scalar multiplication (with complex scalars), and matrix multiplication—just with complex arithmetic.",
                   "The conjugate transpose (or Hermitian conjugate) of a complex matrix is key: take transpose, then replace each entry with its complex conjugate.",
                   "A matrix U is unitary if U†U = I. Unitary matrices preserve inner products and represent quantum gates (they're reversible and preserve probability)."
@@ -299,7 +298,6 @@ export const mathFoundationsCourse: Course = {
                 body: [
                   "Imagine you're a king standing in a hall of mirrors. Most mirrors reflect your image at a new angle. But some mirrors reflect your image straight back at you—the image only gets bigger or smaller, but the direction stays the same.",
                   "Eigenvectors are like those special mirrors. When a linear transformation A acts on an eigenvector v, the result is a scaled version of v: Av = λv, where λ is the eigenvalue.",
-                  "![Eigenvector Visualization](/eigenvector_visualization.webp)",
                   "The word 'eigen' comes from German, meaning 'own' or 'characteristic'—these vectors are the transformation's own characteristic directions.",
                   "If λ > 1, the vector stretches. If 0 < λ < 1, it shrinks. If λ = 0, the vector gets mapped to zero. If λ is negative, the vector flips direction.",
                   "In quantum mechanics, the Schrdinger equation is an eigenvalue equation: H|ψ⟩ = E|ψ⟩. The eigenvalues E are the energy levels, and the eigenvectors |ψ⟩ are the energy states!"
@@ -311,7 +309,6 @@ export const mathFoundationsCourse: Course = {
                   "How do we find these special vectors? We solve Av = λv. Rearranging: (A - λI)v = 0.",
                   "For this equation to have a non-zero solution (v ≠ 0), the matrix (A - λI) must be singular (not invertible). That means its determinant must be zero.",
                   "det(A - λI) = 0 is called the characteristic equation.",
-                  "![Eigenvalue Calculation](/eigenvalue_calculation.webp)",
                   "Example: A = [[2, 1], [1, 2]]",
                   "A - λI = [[2-λ, 1], [1, 2-λ]]",
                   "det = (2-λ)(2-λ) - 1 = λ² - 4λ + 3 = (λ-3)(λ-1) = 0",
@@ -326,7 +323,7 @@ export const mathFoundationsCourse: Course = {
                 body: [
                   "In 2D, a matrix with two distinct eigenvectors acts like a stretching machine:",
                   "It stretches space along one direction by λ₁ and along another direction by λ₂.",
-                  "![Eigenvector Geometric](/eigenvector_geometric.webp)",
+                  "![Eigenvector Geometric](/eigenvectors_geometric.webp)",
                   "If λ₁ and λ₂ are both positive: the transformation stretches along both axes.",
                   "If one is negative: the transformation flips along that axis and stretches.",
                   "If λ₁ = λ₂: all vectors are eigenvectors (like uniform scaling).",
@@ -341,7 +338,6 @@ export const mathFoundationsCourse: Course = {
                   "Every observable quantity (energy, position, spin) is represented by a Hermitian matrix (an 'operator').",
                   "The eigenvalues of this operator are the possible results of measurement.",
                   "The eigenvectors are the states in which you get that result with probability 1.",
-                  "![Quantum Eigenstates](/quantum_eigenstates.webp)",
                   "Example: The Pauli-Z matrix for qubit spin: Z = [[1, 0], [0, -1]]",
                   "Eigenvalues: +1 (spin up) and -1 (spin down).",
                   "Eigenvectors: |0⟩ = (1, 0) for spin up, |1⟩ = (0, 1) for spin down.",
@@ -354,7 +350,6 @@ export const mathFoundationsCourse: Course = {
                 body: [
                   "If a matrix has enough linearly independent eigenvectors, we can diagonalize it.",
                   "Diagonalization means: A = PDP⁻¹, where D is diagonal and contains the eigenvalues, and P contains the eigenvectors as columns.",
-                  "![Diagonalization](/diagonalization.webp)",
                   "Why diagonalize? It makes powers of matrices easy: A^n = PD^nP⁻¹.",
                   "Computing e^A is also easy: e^A = P e^D P⁻¹, where e^D is just the exponential of each diagonal entry.",
                   "In quantum mechanics, the time evolution operator U(t) = e^{-iHt/ℏ} is computed using diagonalization of the Hamiltonian H.",
@@ -404,7 +399,6 @@ export const mathFoundationsCourse: Course = {
                   "So far we've had vectors and we know how to add and scale them. But we can't yet measure how similar two vectors are, or how long a vector is.",
                   "The inner product gives us that ability. For real vectors, the dot product is the inner product: v·w = v₁w₁ + v₂w₂ + ... + vₙwₙ.",
                   "For complex vectors, the inner product is: ⟨v|w⟩ = v₁* w₁ + v₂* w₂ + ... + vₙ* wₙ, where * means complex conjugate.",
-                  "![Inner Product](/inner_product.webp)",
                   "The inner product has three key properties:",
                   "1. Conjugate symmetry: ⟨v|w⟩ = ⟨w|v⟩*",
                   "2. Linearity in the second argument: ⟨v| (aw + bz)⟩ = a⟨v|w⟩ + b⟨v|z⟩",
@@ -429,7 +423,6 @@ export const mathFoundationsCourse: Course = {
                 title: "Orthogonality—When Vectors Are Perpendicular",
                 body: [
                   "Two vectors are orthogonal (perpendicular) if their inner product is zero: ⟨v|w⟩ = 0.",
-                  "![Orthogonal Vectors](/orthogonal_vectors.webp)",
                   "An orthonormal basis is a set of vectors that are all mutually orthogonal and each has norm 1.",
                   "The standard basis {(1,0,0), (0,1,0), (0,0,1)} is orthonormal.",
                   "In quantum computing, {|0⟩, |1⟩} is an orthonormal basis.",
@@ -520,7 +513,6 @@ export const mathFoundationsCourse: Course = {
                   "Mean (average): Add all scores and divide by n. (75+80+85+85+90+90+95+95+100+100)/10 = 89.5.",
                   "Median (middle value): Sort the data and find the middle. With 10 scores, the median is the average of the 5th and 6th values: (90+90)/2 = 90.",
                   "Mode (most frequent): The value that appears most often. 85, 90, 95, and 100 each appear twice—tie! This dataset has no unique mode.",
-                  "![Mean Median Mode](/mean_median_mode.webp)",
                   "When to use each:",
                   "• Mean: Best for symmetric data without outliers.",
                   "• Median: Best for skewed data (like income data—the mean gets pulled by billionaires!).",
@@ -539,7 +531,6 @@ export const mathFoundationsCourse: Course = {
                   "σ² = (1/n)Σ(xᵢ - μ)² for a population.",
                   "s² = (1/(n-1))Σ(xᵢ - x̄)² for a sample (uses n-1 to correct bias).",
                   "Standard Deviation: √variance. Same units as the data.",
-                  "![Standard Deviation](/standard_deviation.webp)",
                   "Dataset A: variance = 0, σ = 0.",
                   "Dataset B: variance = (2500+625+0+625+2500)/5 = 1250, σ = 35.36.",
                   "The standard deviation tells us: about 68% of data lies within 1σ of the mean, 95% within 2σ (for normal distributions)."
@@ -556,7 +547,6 @@ export const mathFoundationsCourse: Course = {
                   "Population variance: σ² = (1/N)Σ(xᵢ - μ)²",
                   "Sample variance: s² = (1/(n-1))Σ(xᵢ - x̄)² — note the n-1!",
                   "Why n-1? Because x̄ is estimated from the same data, which reduces the degrees of freedom by 1. Using n-1 makes s² an unbiased estimate of σ².",
-                  "![Population vs Sample](/population_vs_sample.webp)",
                   "In practice: Use population statistics when you have all the data. Use sample statistics when you're inferring about a larger group from a smaller sample."
                 ]
               },
@@ -633,7 +623,6 @@ export const mathFoundationsCourse: Course = {
                   "The sample space (S) is all possible outcomes. For a coin: S = {Heads, Tails}.",
                   "An event (E) is a set of outcomes we're interested in. Example: E = {Heads}.",
                   "The probability of event E is written as P(E). It's a number between 0 and 1.",
-                  "![Probability Space](/probability_space.webp)",
                   "Three axioms of probability:",
                   "1. P(E) ≥ 0 for any event E.",
                   "2. P(S) = 1 (something must happen).",
@@ -690,7 +679,6 @@ export const mathFoundationsCourse: Course = {
                 body: [
                   "The Law of Large Numbers (LLN) is the reason statistics works:",
                   "As the number of trials n grows, the sample average x̄_n converges to the true mean μ.",
-                  "![Law of Large Numbers](/law_large_numbers.webp)",
                   "If you flip a coin 10 times, you might get 70% heads. Flip it 1000 times, you'll be very close to 50%.",
                   "This is why polls work: with a large enough sample, the sample average approximates the population average.",
                   "In quantum computing, we need to run many shots (measurements) to estimate probabilities—the Law of Large Numbers tells us that with enough shots, our estimates converge to the true probabilities.",
@@ -771,7 +759,7 @@ export const mathFoundationsCourse: Course = {
                 title: "The Normal Distribution—The Bell Curve",
                 body: [
                   "The Normal (or Gaussian) distribution is the most important distribution in statistics. It's the bell curve that appears everywhere.",
-                  "![Normal Distribution](/normal_distribution.webp)",
+                  "![Normal Distribution](/standard_normal.webp)",
                   "Probability density function: f(x) = (1/(σ√2π)) × e^(-(x-μ)²/(2σ²))",
                   "Parameters: μ (mean, where the peak is) and σ (standard deviation, how spread out it is).",
                   "The 68-95-99.7 Rule:",
@@ -787,7 +775,6 @@ export const mathFoundationsCourse: Course = {
                 body: [
                   "The standard normal distribution has μ = 0 and σ = 1. We denote it as Z ~ N(0,1).",
                   "Any normal variable X ~ N(μ, σ) can be standardized: Z = (X - μ)/σ.",
-                  "![Standard Normal](/standard_normal.webp)",
                   "The Z-score tells you how many standard deviations a value is from the mean.",
                   "Z = +1: one standard deviation above the mean.",
                   "Z = -1.5: one and a half standard deviations below the mean.",
@@ -866,7 +853,6 @@ export const mathFoundationsCourse: Course = {
                   "1. It tells us the sampling distribution of the mean is normal, so we can construct confidence intervals.",
                   "2. It justifies using normal-based tests even when the data isn't normal (as long as the sample size is large enough).",
                   "3. It explains why the normal distribution appears everywhere in nature.",
-                  "![CLT Application](/clt_application.webp)",
                   "Examples:",
                   "• Opinion polls: Sample 1000 voters; the sample proportion is approximately normal.",
                   "• Quality control: Average diameter of 100 machine parts is approximately normal.",

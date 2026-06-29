@@ -519,6 +519,17 @@ function CoursePage() {
                     </div>
                   )}
 
+                  {course.id === "mathematics-for-emerging-technologies" && (
+                    <div className="mb-8 max-w-2xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
+                      <img
+                        src="/math-flowchart.webp"
+                        alt="Mathematics for emerging technologiescurriculum"
+                        className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700"
+                      />
+                    </div>
+                  )}
+
+
 
                   {course.id === "java" && (
                     <div className="mb-8 max-w-2xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
