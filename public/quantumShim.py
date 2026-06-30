@@ -77,8 +77,6 @@ def _permutation_matrix_for_order(order, n):
         orig_index = int(''.join(orig_bits), 2)
         P[orig_index, new_index] = 1
     return P
-
-
 def _embed_operator(op, other_n, self_n, qubit_map):
     """
     Correctly embed an `other_n`-qubit operator `op` into a `self_n`-qubit
@@ -99,7 +97,7 @@ def _embed_operator(op, other_n, self_n, qubit_map):
 
     if other_n == self_n:
         if list(qubit_map) == list(range(self_n)):
-            return op  # identity mapping — no permutation needed
+            return op
         P = _permutation_matrix_for_order(list(qubit_map), self_n)
         return P @ op @ P.conj().T
 
@@ -109,17 +107,6 @@ def _embed_operator(op, other_n, self_n, qubit_map):
     full_op = np.kron(op, np.eye(2 ** extra, dtype=complex))
     P = _permutation_matrix_for_order(order, self_n)
     return P @ full_op @ P.conj().T
-    """Embed an operator from a small_n-qubit space into a big_n-qubit space
-    by tensoring with identity on the untouched qubits, respecting qubit_map."""
-    dim_big = 2 ** big_n
-    result = np.eye(dim_big, dtype=complex)
-    # Simple correct case: qubit_map covers the first len(qubit_map) qubits in order
-    full_op = op
-    if small_n < big_n:
-        pad = np.eye(2 ** (big_n - small_n), dtype=complex)
-        full_op = np.kron(pad, op)
-    result = full_op
-    return result
 
 def _cnot_matrix(control, target, n):
     dim = 2 ** n
