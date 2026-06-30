@@ -1,115 +1,114 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, TerminalSquare, LayoutTemplate, FlaskConical, Code2, Globe, ChevronDown } from "lucide-react";
-import { CourseCarousel } from "@/components/CourseCarousel";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import footerImg from "../footer (2).jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Welcome — VLMS Virtual Lab" },
-      { name: "description", content: "The Next-Generation Virtual Computing Laboratory." },
+      { title: "JNTUGV • Virtual Labs Portal" },
     ],
   }),
   component: LandingPage,
 });
 
 function LandingPage() {
-  const scrollToCarousel = () => {
-    document.getElementById("courses-carousel-section")?.scrollIntoView({ behavior: "smooth" });
+  const navigate = useNavigate();
+
+  const handleEnterDashboard = () => {
+      navigate({ to: "/dashboard" });
+  };
+
+  const handleLabClick = (labName: string) => {
+      alert(`Loading ${labName} Node...`);
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden bg-white text-slate-900">
-      {/* Full Screen Background Image (User should upload 'bg-landing.webp' to public folder) */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90"
-        style={{ backgroundImage: "url('/bg-landing.webp'), linear-gradient(to bottom, #f8fafc, #e2e8f0)" }}
-      />
+    <div className="w-full min-h-screen bg-[#010a10] flex flex-col overflow-x-hidden">
       
-      {/* Light Overlay for readability */}
-      <div className="absolute inset-0 z-0 bg-white/40 backdrop-blur-[2px]" />
-      
-      {/* Top Navigation Bar */}
-      <header className="relative z-20 w-full px-6 lg:px-12 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="size-10 rounded-xl bg-gradient-to-br from-[#0f172a] to-[#334155] flex items-center justify-center shadow-lg">
-            <FlaskConical className="size-5 text-white" />
-          </div>
-          <span className="font-display font-bold text-xl tracking-tight text-slate-900">
-            VLMS<span className="text-purple-600">.</span>
-          </span>
-        </div>
-        <div className="hidden sm:flex items-center gap-6 text-sm font-semibold text-slate-600">
-          <span className="hover:text-purple-600 transition-colors cursor-default flex items-center gap-2"><Code2 className="size-4" /> Next-Gen Environments</span>
-          <span className="hover:text-purple-600 transition-colors cursor-default flex items-center gap-2"><Globe className="size-4" /> Zero Setup</span>
-        </div>
-        <Link
-          to="/dashboard"
-          className="text-sm font-bold text-purple-600 hover:text-purple-800 transition-colors"
+      {/* 
+        Responsive Container (Stretch to Fill)
+        This stretches the video to perfectly fill the screen without cropping.
+        All hotspot percentages will stretch proportionally!
+      */}
+      <div className="relative w-screen h-screen">
+        
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-fill z-0 pointer-events-none"
         >
-          Skip to Dashboard
-        </Link>
-      </header>
+          <source src="/landingpage.mp4" type="video/mp4" />
+        </video>
 
-      {/* Main Hero Content */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 lg:px-10 text-center pb-12 pt-6">
-        
-        {/* Eyebrow Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan/10 text-xs font-bold text-cyan mb-8 opacity-0 animate-fade-in-up backdrop-blur-md border border-cyan/20 shadow-sm">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan"></span>
-          </span>
-          System Online • v2.0
-        </div>
+        {/* 
+          Interactive Hotspots 
+        */}
 
-        {/* Hero Title - Solid Purple like Mockup */}
-        <h1 className="font-display text-5xl sm:text-6xl lg:text-[5.5rem] font-black leading-[1.1] tracking-tight opacity-0 animate-fade-in-up delay-100 max-w-5xl mx-auto text-[#7c3aed] drop-shadow-sm">
-          The Future of <br className="hidden sm:block" />
-          Computer Science <br className="hidden sm:block" /> Labs.
-        </h1>
-        
-        {/* Hero Subtitle */}
-        <p className="mt-8 text-lg sm:text-xl text-slate-800 max-w-3xl mx-auto opacity-0 animate-fade-in-up delay-200 font-medium leading-relaxed drop-shadow-sm">
-          Experience an authoritative, zero-friction virtual laboratory framework. <br className="hidden md:block" /> Launch instant runtimes, execute complex data structures, and train <br className="hidden md:block" /> ML models directly in your browser.
-        </p>
-
-        {/* Primary CTA */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 opacity-0 animate-fade-in-up delay-300">
-          <Link
-            to="/dashboard"
-            className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-[#7c3aed] px-10 font-medium text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl hover:shadow-purple-500/30"
-          >
-            <span className="mr-2 text-base font-bold tracking-wide">Enter Platform</span>
-            <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
-            <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-          </Link>
-        </div>
-
-        {/* Animated Scroll Down Indicator */}
+        {/* Activate Platform (Robot Area) */}
         <button 
-          onClick={scrollToCarousel}
-          className="mt-16 flex flex-col items-center gap-2 text-xs font-semibold text-[#7c3aed] hover:opacity-85 transition-opacity cursor-pointer focus:outline-none opacity-0 animate-fade-in-up delay-500"
-        >
-          <span>Scroll to Courses</span>
-          <ChevronDown className="size-4 animate-bounce" />
-        </button>
-      </main>
+          onClick={handleEnterDashboard}
+          className="absolute top-[55%] left-[62%] w-[12%] h-[30%] rounded-full cursor-pointer hover:bg-cyan-500/20 hover:shadow-[0_0_50px_rgba(0,240,255,0.4)] transition-all duration-300 z-10"
+          title="Activate Platform"
+          aria-label="Activate Platform"
+        />
 
-      {/* Floating Robot Icon (Bottom Right) */}
-      <div className="absolute bottom-8 right-8 z-50 opacity-0 animate-fade-in-up delay-500 animate-float">
-        <div className="size-16 rounded-full bg-blue-500/10 backdrop-blur-md border border-blue-200/50 flex items-center justify-center shadow-lg cursor-pointer hover:bg-blue-500/20 transition-colors">
-           <img src="/robot-icon.webp" alt="Bot" className="size-12 object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-        </div>
+        {/* Center Cube Area */}
+        <button 
+          onClick={handleEnterDashboard}
+          className="absolute top-[25%] left-[32%] w-[25%] h-[55%] rounded-full cursor-pointer hover:bg-cyan-500/10 hover:shadow-[0_0_50px_rgba(0,240,255,0.2)] transition-all duration-300 z-10"
+          title="Enter Core"
+          aria-label="Enter Core"
+        />
+
+        {/* Launch Portal Button (Bottom Center) */}
+        <button 
+          onClick={handleEnterDashboard}
+          className="absolute top-[85%] left-[42%] w-[16%] h-[8%] rounded-full cursor-pointer hover:bg-cyan-500/30 hover:shadow-[0_0_50px_rgba(0,240,255,0.6)] transition-all duration-300 z-10"
+          title="Launch Portal"
+          aria-label="Launch Portal"
+        />
+
+        {/* Engineering Physics Lab Globe (Top Right) */}
+        <button 
+          onClick={() => handleLabClick('Engineering Physics')}
+          className="absolute top-[10%] right-[10%] w-[15%] h-[28%] rounded-full cursor-pointer hover:bg-cyan-500/20 hover:shadow-[0_0_40px_rgba(0,240,255,0.5)] transition-all duration-300 z-10"
+          title="Engineering Physics Lab"
+          aria-label="Engineering Physics Lab"
+        />
+
+        {/* Analog Electronics Lab Globe (Middle Right) */}
+        <button 
+          onClick={() => handleLabClick('Analog Electronics')}
+          className="absolute top-[38%] right-[2%] w-[15%] h-[28%] rounded-full cursor-pointer hover:bg-cyan-500/20 hover:shadow-[0_0_40px_rgba(0,240,255,0.5)] transition-all duration-300 z-10"
+          title="Analog Electronics Lab"
+          aria-label="Analog Electronics Lab"
+        />
+
+        {/* Advanced Python Lab Globe (Bottom Right) */}
+        <button 
+          onClick={() => handleLabClick('Advanced Python')}
+          className="absolute top-[68%] right-[12%] w-[15%] h-[28%] rounded-full cursor-pointer hover:bg-cyan-500/20 hover:shadow-[0_0_40px_rgba(0,240,255,0.5)] transition-all duration-300 z-10"
+          title="Advanced Python Lab"
+          aria-label="Advanced Python Lab"
+        />
+
       </div>
 
-      {/* Scroll Down Carousel Section */}
-      <section 
-        id="courses-carousel-section"
-        className="relative z-10 w-full max-w-[1250px] mx-auto px-6 lg:px-10 py-20 border-t border-slate-200/50 dark:border-slate-800/50"
-      >
-        <CourseCarousel />
-      </section>
+      {/* Footer Section */}
+      <div className="w-full bg-[#010a10] shrink-0 flex justify-center">
+        <img 
+          src={footerImg} 
+          alt="Virtual Labs Footer" 
+          className="w-full max-w-[1920px] h-auto object-contain drop-shadow-2xl" 
+          style={{ 
+            imageRendering: "crisp-edges", 
+            transform: "translateZ(0)",
+            backfaceVisibility: "hidden"
+          }} 
+        />
+      </div>
     </div>
   );
 }
-
