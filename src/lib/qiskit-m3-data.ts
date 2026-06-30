@@ -123,11 +123,6 @@ from qiskit.quantum_info import Statevector
 import numpy as np
 
 # Born Rule Demonstration
-qc = QuantumCircuit(1, 1)
-qc.ry(np.pi/3, 0)  # Rotate to create unequal superposition
-sv = Statevector.from_instruction(QuantumCircuit(1).compose(QuantumCircuit(1).compose(
-    QuantumCircuit(1).ry(np.pi/3, 0))))
-
 qc_simple = QuantumCircuit(1)
 qc_simple.ry(np.pi/3, 0)
 sv = Statevector.from_instruction(qc_simple)
