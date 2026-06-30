@@ -540,6 +540,15 @@ function CoursePage() {
                     </div>
                   )}
 
+                  {course.id === "computer-architecture-and-digital-logic" && (
+                    <div className="mb-8 max-w-2xl mx-auto overflow-hidden rounded-xl border border-border/50 bg-secondary/10 shadow-lg">
+                      <img
+                        src="/comp_arch_flowchart.png"
+                        alt="Computer Architecture and Digital Logic Curriculum Flowchart"
+                        className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700"
+                      />
+                    </div>
+                  )}
                   
 
                   {course.id === "iot" && (

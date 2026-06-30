@@ -1,18 +1,21 @@
 // lib/comp-arch-data.ts
 
 import { Course } from './course-data';
+import { compArchShortNotes } from './math-c3-short-notes';
 
 export const compArchCourse: Course = {
   id: "computer-architecture-and-digital-logic",
   title: "Computer Architecture and Digital Logic",
   objectives: [
-    "To understand number systems and binary arithmetic as the foundation of computing",
-    "To master computer architecture fundamentals including datapath and control",
-    "To understand microprocessor architectures and assembly language programming",
-    "To explore the memory hierarchy from cache to virtual memory",
-    "To understand digital logic gates and Boolean algebra",
-    "To design combinational circuits using Karnaugh maps"
+    "To establish a strong foundation in number systems, binary arithmetic, and data representation techniques.",
+    "To master the fundamentals of computer architecture, including the intricate workings of the datapath and the control unit.",
+    "To delve deep into the internal architecture of modern microprocessors, understanding how they fetch, decode, and execute instructions.",
+    "To explore the intricacies of memory hierarchy, from ultra-fast cache mechanisms and main memory to virtual memory mapping.",
+    "To comprehensively understand digital logic gates, universal gates, and the application of Boolean algebra for circuit optimization.",
+    "To design and analyze complex combinational and arithmetic circuits using practical methods like Karnaugh maps and multiplexers.",
+    "To gain hands-on insights into input-output organization, addressing modes, and the execution of fundamental assembly language programming."
   ],
+  shortNotes: compArchShortNotes,
   introduction: [
     "Computer architecture and digital logic form the foundation of modern computing. From the binary digits that represent all data to the complex instruction pipelines of modern processors, every computer is built on these fundamental concepts.",
     "This course starts at the very bottom—number systems and binary arithmetic—and builds up through logic gates, combinational circuits, and finally to full computer architecture.",
