@@ -144,7 +144,23 @@ export const compArchCourse: Course = {
                 ]
               }
             ],
-            pretest: [],
+            pretest: [
+              { question: "Why do computers use binary?", options: ["It stores more data than decimal", "It requires 10 switch states", "It is easier to build reliable two-state switches", "It uses fewer digits"], answerIndex: 2 },
+              { question: "A binary digit is called a:", options: ["Byte", "Nibble", "Word", "Bit"], answerIndex: 3 },
+              { question: "Which digits are used in the binary number system?", options: ["0–7", "0 and 1", "0–9", "A–F"], answerIndex: 1 },
+              { question: "What does the binary number 1011₂ equal in decimal?", options: ["9", "10", "11", "13"], answerIndex: 2 },
+              { question: "In binary, each position represents a power of:", options: ["8", "16", "10", "2"], answerIndex: 3 },
+              { question: "Which binary digit represents an OFF switch?", options: ["0", "1", "2", "A"], answerIndex: 0 },
+              { question: "Which method is commonly used to convert decimal to binary?", options: ["Multiplication by 10", "Repeated division by 2", "Subtraction by 2", "Addition by 2"], answerIndex: 1 },
+              { question: "What is the binary equivalent of 13₁₀?", options: ["1010", "1110", "1001", "1101"], answerIndex: 3 },
+              { question: "While converting decimal to binary using division, the binary number is obtained by reading the remainders:", options: ["Left to right", "Top to bottom", "Bottom to top", "Right to left"], answerIndex: 2 },
+              { question: "Which remainder forms the least significant bit (LSB)?", options: ["The first remainder", "The last remainder", "The middle remainder", "None of these"], answerIndex: 0 },
+              { question: "Which number system groups binary digits into groups of 3?", options: ["Decimal", "Hexadecimal", "Binary", "Octal"], answerIndex: 3 },
+              { question: "Which number system groups binary digits into groups of 4?", options: ["Decimal", "Hexadecimal", "Octal", "Binary"], answerIndex: 1 },
+              { question: "Which of the following is a valid hexadecimal digit?", options: ["G", "H", "F", "Z"], answerIndex: 2 },
+              { question: "The hexadecimal digit A represents:", options: ["8", "9", "11", "10"], answerIndex: 3 },
+              { question: "The hexadecimal digit F represents:", options: ["14", "15", "16", "13"], answerIndex: 1 }
+            ],
             procedure: [
               "Open the number systems workspace",
               "Convert decimal numbers to binary using the division method",
@@ -153,7 +169,23 @@ export const compArchCourse: Course = {
               "Practice conversions between all systems",
               "Complete the quiz to test your understanding"
             ],
-            posttest: [],
+            posttest: [
+              { question: "What is the hexadecimal equivalent of 11111111₂?", options: ["EE", "FF", "AA", "FE"], answerIndex: 1 },
+              { question: "What is the octal equivalent of 11111111₂?", options: ["255", "277", "377", "357"], answerIndex: 2 },
+              { question: "Which statement about hexadecimal is correct?", options: ["It uses digits 0–7 only.", "It uses digits 1–16 only.", "It uses digits 0–9 and letters A–F.", "It uses only letters A–Z."], answerIndex: 2 },
+              { question: "Which number system is commonly used in memory dumps?", options: ["Binary", "Decimal", "Octal", "Hexadecimal"], answerIndex: 3 },
+              { question: "Which number system is commonly used for Unix file permissions?", options: ["Binary", "Decimal", "Octal", "Hexadecimal"], answerIndex: 2 },
+              { question: "The hexadecimal number 2A₁₆ is equal to:", options: ["40", "41", "42", "43"], answerIndex: 2 },
+              { question: "The octal equivalent of 42₁₀ is:", options: ["51", "52", "62", "54"], answerIndex: 1 },
+              { question: "Which is the easiest method to convert between different number systems?", options: ["Guess the value", "Convert through decimal first", "Multiply by 2", "Divide by 10"], answerIndex: 1 },
+              { question: "In shortcut conversion, one hexadecimal digit equals:", options: ["2 bits", "3 bits", "4 bits", "8 bits"], answerIndex: 2 },
+              { question: "Why are octal and hexadecimal considered human-friendly?", options: ["They use fewer symbols than binary.", "They are compact and easy to convert to binary.", "They are faster than binary.", "They eliminate binary completely."], answerIndex: 1 },
+              { question: "Which of the following is NOT listed as an application of number systems?", options: ["Cryptography", "Assembly language", "Address decoding", "Video editing"], answerIndex: 3 },
+              { question: "Which web color code is written in hexadecimal?", options: ["#2550000", "#FF0000", "#7777777", "#101010"], answerIndex: 1 },
+              { question: "Understanding number systems helps in:", options: ["Machine code and instruction formats", "Cooking recipes", "Music composition only", "Weather forecasting"], answerIndex: 0 },
+              { question: "Which statement about binary is correct?", options: ["It uses digits 0–9.", "It uses eight symbols.", "It is a positional number system based on powers of 2.", "It uses letters A–F."], answerIndex: 2 },
+              { question: "Why is understanding number systems important in computing?", options: ["It helps understand data storage, hardware, and debugging.", "It replaces programming languages.", "It eliminates the need for memory.", "It reduces electricity consumption."], answerIndex: 0 }
+            ],
             references: [
               "Stallings, W. - 'Computer Organization and Architecture', 10th Edition, Chapter 2 on Number Systems",
               "Mano, M.M. - 'Digital Design', 6th Edition, Chapter 1 on Number Systems"
@@ -251,7 +283,23 @@ export const compArchCourse: Course = {
                 ]
               }
             ],
-            pretest: [],
+            pretest: [
+              { question: "Which signed number representation uses the first bit as the sign bit?", options: ["Two's complement", "Sign-magnitude", "Binary-coded decimal", "Gray code"], answerIndex: 1 },
+              { question: "In sign-magnitude representation, a sign bit of 1 indicates:", options: ["Positive number", "Zero", "Negative number", "Overflow"], answerIndex: 2 },
+              { question: "What is the 4-bit sign-magnitude representation of −3?", options: ["0011", "1100", "1101", "1011"], answerIndex: 3 },
+              { question: "What is the main disadvantage of sign-magnitude representation?", options: ["No negative numbers", "Two representations for zero", "Cannot perform addition", "Uses extra memory"], answerIndex: 1 },
+              { question: "In one's complement, a negative number is obtained by:", options: ["Adding 1 only", "Dividing by 2", "Taking the bitwise complement", "Multiplying by −1"], answerIndex: 2 },
+              { question: "What is the one's complement representation of −3 (4 bits)?", options: ["1011", "1100", "1110", "1001"], answerIndex: 1 },
+              { question: "Which representation is the standard in modern computers?", options: ["Sign-magnitude", "One's complement", "Excess-3", "Two's complement"], answerIndex: 3 },
+              { question: "In two's complement, a negative number is obtained by:", options: ["Multiplying by 2", "Reversing the digits", "Flipping all bits and adding 1", "Shifting left"], answerIndex: 2 },
+              { question: "What is the two's complement representation of −3 (4 bits)?", options: ["1101", "1011", "1110", "1000"], answerIndex: 0 },
+              { question: "Which representation has only one representation of zero?", options: ["Sign-magnitude", "One's complement", "Two's complement", "Binary-coded decimal"], answerIndex: 2 },
+              { question: "What is the positive zero in two's complement?", options: ["0000", "1111", "1000", "0111"], answerIndex: 0 },
+              { question: "Which advantage makes two's complement widely used?", options: ["Requires two sign bits", "Uses decimal arithmetic", "Same hardware performs addition and subtraction", "Eliminates binary numbers"], answerIndex: 2 },
+              { question: "The range of a 4-bit two's complement number is:", options: ["−7 to +8", "−8 to +7", "−15 to +15", "0 to 15"], answerIndex: 1 },
+              { question: "The range of an 8-bit two's complement number is:", options: ["−255 to +255", "−64 to +63", "−128 to +127", "−127 to +128"], answerIndex: 2 },
+              { question: "The range of an n-bit two's complement number is:", options: ["−2ⁿ to 2ⁿ−1", "−2ⁿ⁻¹ to 2ⁿ⁻¹−1", "0 to 2ⁿ−1", "−2ⁿ⁻¹ to 2ⁿ"], answerIndex: 1 }
+            ],
             procedure: [
               "Open the arithmetic workspace",
               "Practice sign-magnitude, one's complement, and two's complement",
@@ -261,7 +309,23 @@ export const compArchCourse: Course = {
               "Understand IEEE 754 floating point",
               "Complete the quiz to test your understanding"
             ],
-            posttest: [],
+            posttest: [
+              { question: "To negate a number in two's complement, you should:", options: ["Shift left by one bit", "Reverse the digits", "Add 2", "Flip all bits and add 1"], answerIndex: 3 },
+              { question: "Binary subtraction is performed using:", options: ["Decimal conversion", "Repeated subtraction", "Two's complement addition", "Gray code"], answerIndex: 2 },
+              { question: "Which expression correctly represents binary subtraction?", options: ["A + B", "A − B = A + (~B + 1)", "A × B", "A ÷ B"], answerIndex: 1 },
+              { question: "What is the binary sum of 0101 + 0011?", options: ["0110", "0111", "1000", "1010"], answerIndex: 2 },
+              { question: "The binary result of 5 − 3 is:", options: ["0001", "0010", "0011", "0100"], answerIndex: 1 },
+              { question: "Overflow occurs when:", options: ["A number becomes negative", "Division by zero occurs", "Result exceeds the representable range", "A carry is generated"], answerIndex: 2 },
+              { question: "Which operation causes overflow in 4-bit two's complement?", options: ["2 + 2", "5 + 4", "3 + 1", "4 − 2"], answerIndex: 1 },
+              { question: "Overflow is detected when:", options: ["Carry into sign bit equals carry out", "Carry into sign bit differs from carry out", "Result is zero", "Sign bit is zero"], answerIndex: 1 },
+              { question: "In many programming languages, integer overflow usually:", options: ["Stops program execution", "Generates a syntax error", "Wraps around to another value", "Deletes memory"], answerIndex: 2 },
+              { question: "IEEE 754 is the standard for:", options: ["Binary addition", "Floating-point representation", "Memory addressing", "Logic gates"], answerIndex: 1 },
+              { question: "A single-precision floating-point number uses:", options: ["16 bits", "32 bits", "48 bits", "64 bits"], answerIndex: 1 },
+              { question: "In IEEE 754 single precision, how many bits are used for the exponent?", options: ["23", "11", "8", "16"], answerIndex: 2 },
+              { question: "In IEEE 754 double precision, how many bits are used for the mantissa?", options: ["23", "64", "32", "52"], answerIndex: 3 },
+              { question: "What is the exponent bias for IEEE 754 single precision?", options: ["63", "255", "127", "1023"], answerIndex: 2 },
+              { question: "Which statement about floating-point numbers is correct?", options: ["They represent every decimal number exactly.", "They cannot represent negative values.", "They provide a large range but may approximate some values.", "They use only integer arithmetic."], answerIndex: 2 }
+            ],
             references: [
               "Stallings, W. - 'Computer Organization and Architecture', 10th Edition, Chapter 2 on Number Systems",
               "Mano, M.M. - 'Digital Design', 6th Edition, Chapter 1 on Number Systems"
@@ -363,7 +427,23 @@ export const compArchCourse: Course = {
                 ]
               }
             ],
-            pretest: [],
+            pretest: [
+              { question: "Who proposed the architecture that is followed by most modern computers?", options: ["John von Neumann", "Charles Babbage", "Alan Turing", "Blaise Pascal"], answerIndex: 0 },
+              { question: "In the Von Neumann Architecture, what is stored in the same memory?", options: ["CPU and ALU", "Data and programs", "Input and output devices", "Registers and cache"], answerIndex: 1 },
+              { question: "Which of the following is not one of the four main components of the Von Neumann Architecture?", options: ["Memory", "CPU", "Compiler", "Output"], answerIndex: 2 },
+              { question: "Which component is responsible for executing instructions?", options: ["Cache", "Memory", "Input Unit", "CPU"], answerIndex: 3 },
+              { question: "The main reason for the Von Neumann bottleneck is:", options: ["Small register size", "Single communication path between CPU and memory", "Slow keyboard input", "Large hard disk"], answerIndex: 1 },
+              { question: "Modern processors reduce the Von Neumann bottleneck mainly by using:", options: ["Registers", "DMA", "Cache memory", "Printers"], answerIndex: 2 },
+              { question: "Which CPU component performs arithmetic operations like addition and subtraction?", options: ["ALU", "Control Unit", "Cache", "Register"], answerIndex: 0 },
+              { question: "Which CPU component temporarily stores data during execution?", options: ["RAM", "Registers", "Disk", "Bus"], answerIndex: 1 },
+              { question: "Which part of the CPU controls the movement of data and interprets instructions?", options: ["Memory", "ALU", "Control Unit", "Cache"], answerIndex: 2 },
+              { question: "Which sequence correctly represents the instruction cycle?", options: ["Decode → Execute → Fetch", "Execute → Fetch → Decode", "Fetch → Execute → Decode", "Fetch → Decode → Execute"], answerIndex: 3 },
+              { question: "Which memory is located inside the CPU?", options: ["Registers", "RAM", "Disk", "SSD"], answerIndex: 0 },
+              { question: "Which memory level is placed between registers and RAM?", options: ["Disk", "Cache", "ROM", "Flash Memory"], answerIndex: 1 },
+              { question: "Which memory in the hierarchy has the largest storage capacity?", options: ["Registers", "Cache", "RAM", "Disk"], answerIndex: 3 },
+              { question: "Why is memory organized into a hierarchy?", options: ["To increase monitor resolution", "Faster memory costs more per bit", "To reduce CPU instructions", "To eliminate RAM"], answerIndex: 1 },
+              { question: "Which type of memory provides the fastest access to data?", options: ["Registers", "Cache", "RAM", "Disk"], answerIndex: 0 }
+            ],
             procedure: [
               "Open the architecture workspace",
               "Review the Von Neumann architecture",
@@ -372,7 +452,23 @@ export const compArchCourse: Course = {
               "Explore I/O systems",
               "Complete the quiz to test your understanding"
             ],
-            posttest: [],
+            posttest: [
+              { question: "Which memory stores frequently accessed data to improve system performance?", options: ["RAM", "ROM", "Cache", "Disk"], answerIndex: 2 },
+              { question: "Which of the following is an input device?", options: ["Printer", "Speaker", "Keyboard", "Monitor"], answerIndex: 2 },
+              { question: "Which of the following is an output device?", options: ["Mouse", "Camera", "Microphone", "Printer"], answerIndex: 3 },
+              { question: "Which device can act as both an input and an output device?", options: ["Keyboard", "Network Interface", "Scanner", "Webcam"], answerIndex: 1 },
+              { question: "In Programmed I/O, the CPU communicates with a device by:", options: ["Polling its status repeatedly", "Using DMA", "Using cache memory", "Using virtual memory"], answerIndex: 0 },
+              { question: "Which I/O technique allows the CPU to continue working until a device requests attention?", options: ["Programmed I/O", "Interrupt-driven I/O", "Polling", "Memory Mapping"], answerIndex: 1 },
+              { question: "Which I/O method is most efficient for transferring large amounts of data?", options: ["Interrupt-driven I/O", "Programmed I/O", "DMA", "Polling"], answerIndex: 2 },
+              { question: "DMA transfers data directly between:", options: ["CPU and ALU", "Register and Cache", "Input and Output devices only", "Device and Main Memory"], answerIndex: 3 },
+              { question: "Which bus transfers actual data among computer components?", options: ["Data Bus", "Address Bus", "Control Bus", "Expansion Bus"], answerIndex: 0 },
+              { question: "Which bus carries memory location information?", options: ["Control Bus", "Address Bus", "Data Bus", "System Bus"], answerIndex: 1 },
+              { question: "Which bus carries signals such as read, write, interrupt, and clock?", options: ["Data Bus", "Address Bus", "Control Bus", "Memory Bus"], answerIndex: 2 },
+              { question: "What does the width of a bus determine?", options: ["Memory capacity", "Number of instructions", "Amount of data transferred at one time", "CPU temperature"], answerIndex: 2 },
+              { question: "A 32-bit data bus transfers how many bits simultaneously?", options: ["16 bits", "32 bits", "64 bits", "128 bits"], answerIndex: 1 },
+              { question: "Which statement best explains why caches improve computer performance?", options: ["They increase hard disk capacity.", "They store operating systems permanently.", "They keep frequently used data close to the CPU.", "They replace RAM completely."], answerIndex: 2 },
+              { question: "Why do modern computers use multiple buses instead of a single bus?", options: ["To reduce communication bottlenecks and improve performance.", "To increase the number of CPUs.", "To replace the memory hierarchy.", "To eliminate input and output devices."], answerIndex: 0 }
+            ],
             references: [
               "Stallings, W. - 'Computer Organization and Architecture', 10th Edition, Chapter 1 on Basic Concepts",
               "Patterson, D.A. and Hennessy, J.L. - 'Computer Organization and Design', 5th Edition, Chapter 1 on Computer Architecture"
@@ -466,7 +562,23 @@ export const compArchCourse: Course = {
                 ]
               }
             ],
-            pretest: [],
+            pretest: [
+              { question: "What is the first stage of the instruction cycle?", options: ["Decode", "Execute", "Interrupt", "Fetch"], answerIndex: 3 },
+              { question: "Which stage interprets the instruction before execution?", options: ["Decode", "Fetch", "Interrupt", "Memory"], answerIndex: 0 },
+              { question: "During which stage does the CPU perform the required operation?", options: ["Decode", "Fetch", "Execute", "Interrupt"], answerIndex: 2 },
+              { question: "Which stage of the instruction cycle is optional?", options: ["Fetch", "Decode", "Execute", "Interrupt"], answerIndex: 3 },
+              { question: "Which register stores the address of the next instruction?", options: ["Instruction Register", "Program Counter", "Memory Register", "Accumulator"], answerIndex: 1 },
+              { question: "The instruction cycle repeats:", options: ["Once every minute", "Only during system startup", "Billions of times per second", "Only when interrupts occur"], answerIndex: 2 },
+              { question: "During the fetch phase, the CPU places the address on the:", options: ["Data bus", "Address bus", "Control bus", "System bus"], answerIndex: 1 },
+              { question: "Which component reads the instruction after receiving the address?", options: ["ALU", "Registers", "Memory", "Cache Controller"], answerIndex: 2 },
+              { question: "After reading the instruction, memory places it on the:", options: ["Address bus", "Control bus", "Interrupt bus", "Data bus"], answerIndex: 3 },
+              { question: "Which register stores the fetched instruction?", options: ["Program Counter", "Instruction Register", "Status Register", "Index Register"], answerIndex: 1 },
+              { question: "After fetching an instruction, the Program Counter is:", options: ["Cleared", "Incremented", "Decremented", "Shifted"], answerIndex: 1 },
+              { question: "Why is the Program Counter incremented?", options: ["To restart execution", "To point to the next instruction", "To clear memory", "To reset the CPU"], answerIndex: 1 },
+              { question: "During the decode phase, the CPU identifies the:", options: ["Cache size", "Memory capacity", "Opcode and operands", "Bus width"], answerIndex: 2 },
+              { question: "The opcode specifies:", options: ["Memory address", "Operation to be performed", "Register size", "Interrupt priority"], answerIndex: 1 },
+              { question: "The operands in an instruction represent:", options: ["Clock signals", "Bus addresses", "Input devices", "Data or register values used in the operation"], answerIndex: 3 }
+            ],
             procedure: [
               "Open the architecture workspace",
               "Review the instruction cycle steps",
@@ -475,7 +587,23 @@ export const compArchCourse: Course = {
               "Explore interrupt handling",
               "Complete the quiz to test your understanding"
             ],
-            posttest: [],
+            posttest: [
+              { question: "Which CPU component generates control signals during decoding?", options: ["ALU", "Control Unit", "Cache", "Memory"], answerIndex: 1 },
+              { question: "The instruction ADD R1, R2, R3 performs:", options: ["R2 = R1 + R3", "R3 = R1 + R2", "R1 = R2 + R3", "R1 = R1 + R2"], answerIndex: 2 },
+              { question: "Which CPU component is often called the \"conductor\" of the CPU?", options: ["ALU", "Register", "Cache", "Control Unit"], answerIndex: 3 },
+              { question: "Which component performs arithmetic and logic operations during execution?", options: ["Memory", "ALU", "Program Counter", "Instruction Register"], answerIndex: 1 },
+              { question: "During execution, results are typically stored in:", options: ["Registers or memory", "Address bus", "Control bus", "Cache only"], answerIndex: 0 },
+              { question: "Which operation generally requires the fewest CPU cycles?", options: ["Multiplication", "Memory-to-register addition", "Register-to-register addition", "Interrupt handling"], answerIndex: 2 },
+              { question: "Which operation usually requires the most CPU cycles?", options: ["Register-to-register addition", "Multiplication", "Instruction fetch", "Program Counter update"], answerIndex: 1 },
+              { question: "Why does minimizing memory access improve performance?", options: ["Memory access is slower than register access", "Memory increases bus width", "Registers are slower than RAM", "Memory disables interrupts"], answerIndex: 0 },
+              { question: "What is the primary purpose of an interrupt?", options: ["To increase memory size", "To stop the CPU permanently", "To allow the CPU to respond to external events", "To reduce cache usage"], answerIndex: 2 },
+              { question: "Which of the following is an example of an I/O interrupt?", options: ["Key pressed on a keyboard", "CPU startup", "Memory allocation", "Register reset"], answerIndex: 0 },
+              { question: "Timer interrupts are mainly used for:", options: ["Data encryption", "Time-slicing in multitasking", "Increasing RAM", "Register allocation"], answerIndex: 1 },
+              { question: "Which of the following is a hardware interrupt example?", options: ["Mouse movement", "Division by zero", "Saving a file", "Opening a browser"], answerIndex: 1 },
+              { question: "Before servicing an interrupt, the CPU first:", options: ["Clears all memory", "Restarts the operating system", "Finishes the current instruction", "Deletes the interrupt"], answerIndex: 2 },
+              { question: "Before jumping to the interrupt handler, the CPU saves its current state to the:", options: ["Cache", "Stack", "ROM", "Hard Disk"], answerIndex: 1 },
+              { question: "After completing the Interrupt Service Routine (ISR), the CPU:", options: ["Shuts down", "Starts a new program", "Clears all registers", "Restores the saved state and resumes execution"], answerIndex: 3 }
+            ],
             references: [
               "Stallings, W. - 'Computer Organization and Architecture', 10th Edition, Chapter 3 on Instruction Cycle",
               "Patterson, D.A. and Hennessy, J.L. - 'Computer Organization and Design', 5th Edition, Chapter 4 on Instruction Execution"
@@ -585,7 +713,23 @@ export const compArchCourse: Course = {
                 ]
               }
             ],
-            pretest: [],
+            pretest: [
+              { question: "Which was the world's first microprocessor?", options: ["Intel 4004", "Intel 8085", "Intel 8086", "Intel Pentium"], answerIndex: 0 },
+              { question: "The Intel 4004 was introduced in:", options: ["1974", "1971", "1976", "1978"], answerIndex: 1 },
+              { question: "Which microprocessor was used in the Altair 8800?", options: ["Intel 8085", "Intel 8086", "Intel 8080", "Intel 80386"], answerIndex: 2 },
+              { question: "Which processor is an improved version of the Intel 8080?", options: ["Intel Pentium", "Intel Core", "Intel 8086", "Intel 8085"], answerIndex: 3 },
+              { question: "Which processor was the first member of the x86 family?", options: ["Intel 8086", "Intel 80286", "Intel 80386", "Intel Core"], answerIndex: 0 },
+              { question: "Which processor introduced 32-bit architecture according to the timeline?", options: ["Intel 80286", "Intel 80386", "Intel Pentium", "Apple M3"], answerIndex: 1 },
+              { question: "Which processor had approximately 3.1 million transistors?", options: ["Intel Core", "Intel Pentium", "Intel 8086", "Intel 8085"], answerIndex: 1 },
+              { question: "Which processor mentioned in the notes is built using 3 nm technology?", options: ["Intel Pentium", "Intel Core", "Apple M3", "Intel 80386"], answerIndex: 2 },
+              { question: "ARM processors mainly follow which architecture philosophy?", options: ["CISC", "RISC", "EPIC", "SIMD"], answerIndex: 1 },
+              { question: "RISC stands for:", options: ["Reduced Instruction Set Computer", "Random Integrated System Computer", "Register Instruction System Controller", "Reduced Integrated Storage Circuit"], answerIndex: 0 },
+              { question: "Which component performs arithmetic and logical operations?", options: ["Register File", "Control Unit", "ALU", "Cache"], answerIndex: 2 },
+              { question: "Which component stores high-speed temporary data inside the CPU?", options: ["Register File", "RAM", "Hard Disk", "ROM"], answerIndex: 0 },
+              { question: "Which unit decodes instructions and generates control signals?", options: ["Cache", "ALU", "Bus", "Control Unit"], answerIndex: 3 },
+              { question: "Which memory is considered the fastest in a computer?", options: ["Cache", "Registers", "RAM", "SSD"], answerIndex: 1 },
+              { question: "How many general-purpose registers does the 8085 have?", options: ["4", "6", "8", "16"], answerIndex: 1 }
+            ],
             procedure: [
               "Open the microprocessor workspace",
               "Review the evolution of microprocessors",
@@ -594,7 +738,23 @@ export const compArchCourse: Course = {
               "Write simple assembly programs",
               "Complete the quiz to test your understanding"
             ],
-            posttest: [],
+            posttest: [
+              { question: "How many general-purpose registers are available in ARM?", options: ["8", "12", "16", "32"], answerIndex: 2 },
+              { question: "In ARM architecture, which register acts as the Stack Pointer?", options: ["R15", "R14", "R13", "R12"], answerIndex: 2 },
+              { question: "In ARM architecture, the Program Counter is:", options: ["R13", "R14", "R10", "R15"], answerIndex: 3 },
+              { question: "Which addressing mode stores the operand directly inside the instruction?", options: ["Immediate Addressing", "Direct Addressing", "Indexed Addressing", "Indirect Addressing"], answerIndex: 0 },
+              { question: "In MOV R1, [1000], the address is provided directly in the instruction. This is:", options: ["Indexed Addressing", "Direct Addressing", "Immediate Addressing", "Indirect Addressing"], answerIndex: 1 },
+              { question: "In MOV R1, [R2], the register contains the operand address. This is:", options: ["Immediate Addressing", "Indexed Addressing", "Indirect Addressing", "Direct Addressing"], answerIndex: 2 },
+              { question: "Which addressing mode uses Base + Offset?", options: ["Direct Addressing", "Indexed Addressing", "Immediate Addressing", "Indirect Addressing"], answerIndex: 1 },
+              { question: "Assembly language is best described as:", options: ["A high-level programming language", "A scripting language", "A human-readable form of machine code", "A database language"], answerIndex: 2 },
+              { question: "In the 8085 program, which instruction stores the result into memory?", options: ["LDA", "ADD", "MOV", "STA"], answerIndex: 3 },
+              { question: "In the ARM example, which instruction performs the addition?", options: ["STR", "ADD", "LDR", "MOV"], answerIndex: 1 },
+              { question: "Which of the following is a common application of assembly language?", options: ["Operating system kernels", "Word processing", "Spreadsheet creation", "Web browsing"], answerIndex: 0 },
+              { question: "Which factor directly affects instruction execution time?", options: ["Screen resolution", "Clock speed", "Monitor size", "Keyboard layout"], answerIndex: 1 },
+              { question: "According to the notes, which 8085 instruction requires 4 cycles?", options: ["ADD B", "MOV A, B", "LDA 1000H", "HLT"], answerIndex: 2 },
+              { question: "Which technique allows multiple instructions to be in different execution stages simultaneously?", options: ["Out-of-order execution", "Superscalar", "Pipelining", "DMA"], answerIndex: 2 },
+              { question: "Which modern processor feature executes multiple instructions in a single clock cycle?", options: ["Pipelining", "Cache Memory", "Interrupt Handling", "Superscalar"], answerIndex: 3 }
+            ],
             references: [
               "Stallings, W. - 'Computer Organization and Architecture', 10th Edition, Chapter 7 on Microprocessors",
               "Mazidi, M.A. - 'The 8051 Microcontroller and Embedded Systems', 2nd Edition, Chapters 1-3 on Microprocessor Architecture"
@@ -705,7 +865,23 @@ export const compArchCourse: Course = {
                 ]
               }
             ],
-            pretest: [],
+            pretest: [
+              { question: "Why is a memory hierarchy used in computers?", options: ["To satisfy speed, size, and cost requirements simultaneously.", "To eliminate RAM completely.", "To increase processor clock speed.", "To reduce the number of registers."], answerIndex: 0 },
+              { question: "Which level of the memory hierarchy is the fastest?", options: ["Main Memory", "Cache", "Registers", "Disk"], answerIndex: 2 },
+              { question: "Which memory level provides the largest storage capacity?", options: ["Registers", "Disk", "Cache", "Main Memory"], answerIndex: 1 },
+              { question: "Which memory level is located directly below registers in the hierarchy?", options: ["Cache", "Disk", "ROM", "Main Memory"], answerIndex: 0 },
+              { question: "The primary purpose of cache memory is to:", options: ["Store the operating system permanently.", "Store copies of frequently used data.", "Replace RAM.", "Increase disk capacity."], answerIndex: 1 },
+              { question: "A cache hit occurs when:", options: ["Data is found in the cache.", "Data is stored on disk.", "Data is removed from memory.", "Cache memory becomes full."], answerIndex: 0 },
+              { question: "A cache miss means:", options: ["Data is available in registers.", "The CPU must fetch data from main memory.", "The cache has been deleted.", "Memory is corrupted."], answerIndex: 1 },
+              { question: "Which cache mapping technique assigns each memory block to exactly one cache location?", options: ["Fully Associative Mapping", "Set-Associative Mapping", "Direct Mapping", "Random Mapping"], answerIndex: 2 },
+              { question: "Which cache mapping technique allows a memory block to be placed anywhere in the cache?", options: ["Direct Mapping", "Fully Associative Mapping", "Indexed Mapping", "Set Mapping"], answerIndex: 1 },
+              { question: "Which cache mapping method is a compromise between direct and fully associative mapping?", options: ["Sequential Mapping", "Circular Mapping", "Set-Associative Mapping", "Random Mapping"], answerIndex: 2 },
+              { question: "Which cache replacement policy removes the least recently used block?", options: ["LRU", "FIFO", "Random", "MRU"], answerIndex: 0 },
+              { question: "Which replacement policy removes the oldest block first?", options: ["Random", "FIFO", "Clock", "LRU"], answerIndex: 1 },
+              { question: "Which replacement policy selects a block randomly for removal?", options: ["FIFO", "LRU", "Random", "Clock"], answerIndex: 2 },
+              { question: "RAM is classified as:", options: ["Non-volatile memory", "Permanent memory", "Read-only memory", "Volatile memory"], answerIndex: 3 },
+              { question: "What happens to RAM contents when power is turned off?", options: ["They are permanently stored.", "They are transferred to ROM.", "They are lost.", "They are copied to cache."], answerIndex: 2 }
+            ],
             procedure: [
               "Open the memory workspace",
               "Review the memory hierarchy",
@@ -714,7 +890,23 @@ export const compArchCourse: Course = {
               "Explore virtual memory concepts",
               "Complete the quiz to test your understanding"
             ],
-            posttest: [],
+            posttest: [
+              { question: "Which type of RAM requires periodic refreshing?", options: ["SRAM", "DRAM", "PROM", "EEPROM"], answerIndex: 1 },
+              { question: "Which type of RAM does not require periodic refresh?", options: ["DRAM", "SDRAM", "SRAM", "DDR RAM"], answerIndex: 2 },
+              { question: "ROM is mainly used to store:", options: ["Temporary variables", "Firmware", "Cache data", "Virtual memory"], answerIndex: 1 },
+              { question: "Which type of ROM can be programmed only once?", options: ["EEPROM", "EPROM", "PROM", "Flash ROM"], answerIndex: 2 },
+              { question: "Which ROM type can be erased electrically?", options: ["Mask ROM", "EEPROM", "PROM", "DRAM"], answerIndex: 1 },
+              { question: "Virtual memory allows a computer to:", options: ["Increase processor speed.", "Appear to have more memory than physically available.", "Replace cache memory.", "Remove the need for RAM."], answerIndex: 1 },
+              { question: "Which hardware unit translates virtual addresses into physical addresses?", options: ["ALU", "Control Unit", "MMU", "Register File"], answerIndex: 2 },
+              { question: "In virtual memory, pages are typically:", options: ["Variable-sized blocks", "Fixed-sized blocks", "Unlimited in size", "Equal to disk sectors"], answerIndex: 1 },
+              { question: "Which memory management technique divides memory into variable-sized segments?", options: ["Paging", "Segmentation", "Swapping", "Caching"], answerIndex: 1 },
+              { question: "Which page replacement algorithm is a variation of LRU?", options: ["FIFO", "Random", "Clock Algorithm", "Stack Algorithm"], answerIndex: 2 },
+              { question: "Which storage device uses magnetic technology?", options: ["SSD", "HDD", "Blu-ray Disc", "EEPROM"], answerIndex: 1 },
+              { question: "Which secondary storage device uses flash memory?", options: ["HDD", "CD", "SSD", "DVD"], answerIndex: 2 },
+              { question: "Which of the following is an example of optical storage?", options: ["SSD", "RAM", "Blu-ray Disc", "Cache"], answerIndex: 2 },
+              { question: "Persistent memory aims to combine:", options: ["Large capacity with magnetic storage", "RAM speed with storage persistence", "Cache with ROM", "HDD with optical storage"], answerIndex: 1 },
+              { question: "Storage Class Memory is intended to:", options: ["Replace registers completely.", "Replace the CPU.", "Remove virtual memory.", "Create a new layer between main memory and storage."], answerIndex: 3 }
+            ],
             references: [
               "Stallings, W. - 'Computer Organization and Architecture', 10th Edition, Chapters 4-5 on Memory",
               "Patterson, D.A. and Hennessy, J.L. - 'Computer Organization and Design', 5th Edition, Chapter 5 on Memory Hierarchy"
@@ -831,7 +1023,23 @@ export const compArchCourse: Course = {
                 ]
               }
             ],
-            pretest: [],
+            pretest: [
+              { question: "A logic gate is an electronic circuit that performs a:", options: ["Arithmetic operation", "Boolean function", "Memory operation", "Storage operation"], answerIndex: 1 },
+              { question: "Which logic gate produces an output of 1 only when all inputs are 1?", options: ["OR", "XOR", "AND", "NOR"], answerIndex: 2 },
+              { question: "Which logic gate produces an output of 1 if at least one input is 1?", options: ["OR", "AND", "NAND", "XNOR"], answerIndex: 0 },
+              { question: "Which gate outputs the complement of its input?", options: ["XOR", "NAND", "OR", "NOT"], answerIndex: 3 },
+              { question: "Which gate is obtained by applying a NOT operation to an AND gate?", options: ["NOR", "XOR", "NAND", "XNOR"], answerIndex: 2 },
+              { question: "Which gate is obtained by applying a NOT operation to an OR gate?", options: ["XNOR", "NOR", "NAND", "XOR"], answerIndex: 1 },
+              { question: "Which logic gate gives an output of 1 when the inputs are different?", options: ["XOR", "AND", "NOR", "OR"], answerIndex: 0 },
+              { question: "Which logic gate gives an output of 1 when both inputs are the same?", options: ["XOR", "XNOR", "NAND", "AND"], answerIndex: 1 },
+              { question: "Which two gates are known as universal gates?", options: ["AND and OR", "XOR and XNOR", "NAND and NOR", "AND and NOT"], answerIndex: 2 },
+              { question: "The Boolean operator '+' represents:", options: ["NOT", "OR", "XOR", "AND"], answerIndex: 1 },
+              { question: "The Boolean operator '·' represents:", options: ["AND", "OR", "NAND", "NOT"], answerIndex: 0 },
+              { question: "In Boolean algebra, the complement of 1 is:", options: ["2", "1", "0", "Undefined"], answerIndex: 2 },
+              { question: "Which theorem states A · A = A?", options: ["Absorption", "Idempotent", "De Morgan's", "Double Negation"], answerIndex: 1 },
+              { question: "Which theorem states ¬(¬A) = A?", options: ["Idempotent", "De Morgan's", "Absorption", "Double Negation"], answerIndex: 3 },
+              { question: "Which theorem is represented by A + (A · B) = A?", options: ["Absorption", "Idempotent", "De Morgan's", "Complement"], answerIndex: 0 }
+            ],
             procedure: [
               "Open the digital logic workspace",
               "Review the basic logic gates and truth tables",
@@ -840,7 +1048,23 @@ export const compArchCourse: Course = {
               "Implement logic functions using gates",
               "Complete the quiz to test your understanding"
             ],
-            posttest: [],
+            posttest: [
+              { question: "Which theorem states ¬(A · B) = ¬A + ¬B?", options: ["Complement", "Absorption", "De Morgan's", "Idempotent"], answerIndex: 2 },
+              { question: "A truth table is used to:", options: ["Store binary numbers", "Display all input combinations and outputs", "Increase processor speed", "Simplify assembly programs"], answerIndex: 1 },
+              { question: "In a half adder, the Sum output is generated using:", options: ["OR", "XOR", "NAND", "AND"], answerIndex: 1 },
+              { question: "In a half adder, the Carry output is generated using:", options: ["AND", "OR", "XOR", "NOR"], answerIndex: 0 },
+              { question: "What are the outputs of a half adder when A = 1 and B = 1?", options: ["Sum = 1, Carry = 0", "Sum = 1, Carry = 1", "Sum = 0, Carry = 1", "Sum = 0, Carry = 0"], answerIndex: 2 },
+              { question: "Which method of simplification is introduced in the next experiment?", options: ["Quine–McCluskey", "Boolean Algebra", "Karnaugh Map (K-map)", "Binary Tree"], answerIndex: 2 },
+              { question: "Which simplification technique is also known as the tabular method?", options: ["K-map", "Boolean Algebra", "Truth Table", "Quine–McCluskey"], answerIndex: 3 },
+              { question: "The primary goal of Boolean simplification is to:", options: ["Increase memory size", "Reduce the number of logic gates", "Increase CPU frequency", "Expand storage capacity"], answerIndex: 1 },
+              { question: "Simplifying Boolean expressions mainly reduces:", options: ["Screen resolution", "Processor temperature only", "Network bandwidth", "Cost, size, and power consumption"], answerIndex: 3 },
+              { question: "Combinational circuits are formed by combining:", options: ["Registers", "Logic gates", "RAM modules", "Processors"], answerIndex: 1 },
+              { question: "Which of the following is an example of a combinational circuit?", options: ["Register", "Flip-flop", "Adder", "Counter"], answerIndex: 2 },
+              { question: "Which type of circuit includes flip-flops and registers?", options: ["Combinational circuits", "Sequential circuits", "Arithmetic circuits", "Memory buses"], answerIndex: 1 },
+              { question: "Functional units such as the ALU and Control Unit are formed from:", options: ["Sequential circuits", "Optical devices", "Cache memory", "Hard disks"], answerIndex: 0 },
+              { question: "Functional units combine to form the:", options: ["Memory hierarchy", "CPU", "Bus system", "Input devices"], answerIndex: 1 },
+              { question: "Modern CPUs contain billions of:", options: ["Capacitors", "Resistors", "Logic gates implemented using transistors", "Relays"], answerIndex: 2 }
+            ],
             references: [
               "Mano, M.M. - 'Digital Design', 6th Edition, Chapter 2 on Boolean Algebra",
               "Roth, C.H. - 'Fundamentals of Logic Design', 7th Edition, Chapter 2 on Boolean Algebra"
@@ -957,7 +1181,23 @@ export const compArchCourse: Course = {
                 ]
               }
             ],
-            pretest: [],
+            pretest: [
+              { question: "What is the primary purpose of a Karnaugh Map (K-map)?", options: ["Increase memory capacity", "Simplify Boolean expressions graphically", "Perform arithmetic operations", "Store binary data"], answerIndex: 1 },
+              { question: "A K-map for 2 variables consists of:", options: ["2 × 2 grid", "2 × 4 grid", "4 × 4 grid", "8 × 8 grid"], answerIndex: 0 },
+              { question: "A K-map for 3 variables is arranged as:", options: ["2 × 2", "4 × 4", "2 × 4", "8 × 2"], answerIndex: 2 },
+              { question: "A K-map for 4 variables contains:", options: ["2 × 4 cells", "4 × 4 cells", "8 × 8 cells", "2 × 8 cells"], answerIndex: 1 },
+              { question: "The first step in K-map simplification is to:", options: ["Draw logic gates", "Fill the map with 1s for the given minterms", "Convert to hexadecimal", "Perform binary addition"], answerIndex: 1 },
+              { question: "Adjacent 1s in a K-map should be grouped in powers of:", options: ["10", "4", "2", "8 only"], answerIndex: 2 },
+              { question: "Larger groups in a K-map generally produce:", options: ["More complex expressions", "Simpler Boolean expressions", "Larger truth tables", "More variables"], answerIndex: 1 },
+              { question: "After forming groups in a K-map, each group produces a:", options: ["Memory address", "Product term", "Sum output", "Register value"], answerIndex: 1 },
+              { question: "The final simplified Boolean expression is obtained by:", options: ["ANDing all product terms", "ORing all product terms", "XORing all product terms", "Complementing all product terms"], answerIndex: 1 },
+              { question: "Which circuit performs binary addition in an ALU?", options: ["Decoder", "Multiplexer", "Adder", "Encoder"], answerIndex: 2 },
+              { question: "A Half Adder adds:", options: ["Two bits", "Three bits", "Four bits", "Eight bits"], answerIndex: 0 },
+              { question: "The Sum output of a Half Adder is:", options: ["A · B", "A + B", "A ⊕ B", "A'"], answerIndex: 2 },
+              { question: "The Carry output of a Half Adder is:", options: ["A · B", "A ⊕ B", "A + B", "A'"], answerIndex: 0 },
+              { question: "A Full Adder adds:", options: ["Two inputs only", "Three inputs including carry-in", "Four inputs", "Two carry bits"], answerIndex: 1 },
+              { question: "Which input is present in a Full Adder but not in a Half Adder?", options: ["Sum", "Carry-out", "Carry-in", "Overflow"], answerIndex: 2 }
+            ],
             procedure: [
               "Open the digital logic workspace",
               "Use K-maps to simplify Boolean expressions",
@@ -967,7 +1207,23 @@ export const compArchCourse: Course = {
               "Design a simple ALU",
               "Complete the quiz to test your understanding"
             ],
-            posttest: [],
+            posttest: [
+              { question: "Binary subtraction is commonly performed using:", options: ["Gray code", "One's complement only", "Two's complement", "BCD"], answerIndex: 2 },
+              { question: "Which type of adder is simple but slower because the carry propagates through all bits?", options: ["Carry-lookahead adder", "Ripple-carry adder", "Half Adder", "Parallel adder"], answerIndex: 1 },
+              { question: "Which adder computes carries in parallel for higher speed?", options: ["Ripple-carry adder", "Half Adder", "Full Adder", "Carry-lookahead adder"], answerIndex: 3 },
+              { question: "A Multiplexer (MUX) is used to:", options: ["Store data permanently", "Select one input and send it to a single output", "Perform subtraction", "Expand data"], answerIndex: 1 },
+              { question: "A 4-to-1 Multiplexer requires:", options: ["1 select line", "2 select lines", "3 select lines", "4 select lines"], answerIndex: 1 },
+              { question: "An 8-to-1 Multiplexer requires:", options: ["1 select line", "2 select lines", "3 select lines", "4 select lines"], answerIndex: 2 },
+              { question: "Which application commonly uses Multiplexers?", options: ["ALU operation selection", "Permanent storage", "Memory refresh", "Disk formatting"], answerIndex: 0 },
+              { question: "A Demultiplexer (DEMUX) routes:", options: ["Many inputs to one output", "One input to one of several outputs", "Many outputs to one input", "Multiple outputs to multiple inputs"], answerIndex: 1 },
+              { question: "A 1-to-4 DEMUX uses:", options: ["One select line", "Two select lines", "Three select lines", "Four select lines"], answerIndex: 1 },
+              { question: "An Encoder is used to:", options: ["Expand data", "Compress input information into fewer output bits", "Store binary numbers", "Perform addition"], answerIndex: 1 },
+              { question: "Which encoder outputs the highest-priority active input when multiple inputs are active?", options: ["Binary encoder", "Priority encoder", "Decimal encoder", "Gray encoder"], answerIndex: 1 },
+              { question: "A 3-to-8 Decoder converts:", options: ["8 inputs into 3 outputs", "3-bit input into 8 outputs", "3 outputs into 8 inputs", "8 outputs into 3 inputs"], answerIndex: 1 },
+              { question: "Which of the following is a common application of a decoder?", options: ["Memory address decoding", "Cache replacement", "Program execution", "Data compression"], answerIndex: 0 },
+              { question: "In the simple 4-bit ALU described, which component selects the required operation output?", options: ["Decoder", "Encoder", "4-to-1 Multiplexer", "Register"], answerIndex: 2 },
+              { question: "The ALU operations described in the design example are selected using:", options: ["One control line", "Two control lines", "Three control lines", "Four control lines"], answerIndex: 1 }
+            ],
             references: [
               "Mano, M.M. - 'Digital Design', 6th Edition, Chapters 3-4 on Combinational Logic",
               "Roth, C.H. - 'Fundamentals of Logic Design', 7th Edition, Chapters 4-6 on Combinational Circuits"
