@@ -27,34 +27,46 @@ print("\\nCircuit Diagram:")
 print(qc.draw())`,
       content: {
         aim: {
-          text: "To explore the major quantum computing platforms — IBM Quantum Composer, Qiskit, PennyLane, and QSim — and understand their capabilities for designing, simulating, and executing quantum circuits.",
+          text: "To explore quantum computing platforms using Qiskit and understand the workflow of designing, simulating, and executing quantum circuits on IBM Quantum systems.",
           bullets: [
-            "Navigate the IBM Quantum Composer drag-and-drop interface",
-            "Write and execute simple Qiskit programs",
-            "Compare PennyLane and QSim for quantum algorithm development",
-            "Build and simulate basic quantum circuits"
+            "Understand the fundamentals of quantum computing platforms and the Qiskit framework.",
+            "Set up and explore the Qiskit development environment.",
+            "Create and simulate basic quantum circuits using Qiskit.",
+            "Execute quantum circuits on IBM Quantum simulators and real quantum hardware.",
+            "Analyze the measurement results and understand the quantum circuit execution process."
           ]
         },
         theory: [
           {
-            title: "IBM Quantum Composer",
+            title: "Quantum Computing Fundamentals",
             body: [
-              "IBM Quantum Composer is a cloud-based graphical tool that allows users to build quantum circuits by dragging and dropping gates onto qubit wires. It provides real-time visualization of quantum state probabilities and supports execution on both simulators and real quantum hardware via the IBM Quantum Network.",
-              "Key Features: Visual circuit builder, real-time statevector display, access to real quantum processors, integration with Qiskit for programmatic control."
+              "Quantum computing is a new computing technology based on the principles of quantum mechanics. Unlike classical computers, which use bits that can store only 0 or 1, quantum computers use quantum bits (qubits). A qubit can exist in the state |0⟩, |1⟩, or a combination of both states at the same time, known as superposition. This property allows quantum computers to process information differently from classical computers.",
+              "Another important property of quantum computing is entanglement, where two or more qubits become connected in such a way that the state of one qubit depends on the state of another, even when they are far apart. Quantum computers also use interference, which helps increase the probability of correct outcomes while reducing incorrect ones. These properties enable quantum computers to solve certain complex problems more efficiently than classical computers."
             ]
           },
           {
-            title: "Qiskit — IBM's Quantum SDK",
+            title: "Qiskit — The Quantum Computing Platform",
             body: [
-              "Qiskit is an open-source software development kit for working with quantum computers at the level of pulses, circuits, and algorithms. It is written in Python and provides tools for creating and manipulating quantum programs and running them on prototype quantum devices and simulators.",
-              "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Component</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Purpose</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Qiskit Terra</td><td class=\"p-3 text-muted-foreground\">Core circuits and transpilation</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Qiskit Aer</td><td class=\"p-3 text-muted-foreground\">High-performance simulators</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Qiskit Machine Learning</td><td class=\"p-3 text-muted-foreground\">Quantum ML algorithms</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Qiskit Nature</td><td class=\"p-3 text-muted-foreground\">Chemistry and physics simulations</td></tr></tbody></table>"
+              "To program quantum computers, developers use software frameworks known as quantum computing platforms. One of the most popular platforms is Qiskit, an open-source Python Software Development Kit (SDK) developed by IBM. Qiskit allows users to design quantum circuits, simulate them on a classical computer, and execute them on real IBM Quantum processors through the cloud."
             ]
           },
           {
-            title: "PennyLane & QSim",
+            title: "Typical Qiskit Workflow",
             body: [
-              "PennyLane is a cross-platform Python library for differentiable programming of quantum computers, enabling quantum machine learning, optimization, and quantum chemistry. It integrates seamlessly with popular ML frameworks like TensorFlow and PyTorch.",
-              "QSim is India's first quantum computing simulator, developed to support quantum algorithm research and education. It allows users to simulate quantum circuits with up to 30+ qubits on classical hardware."
+              "A typical workflow in Qiskit consists of the following steps:",
+              "1. Create a quantum circuit by defining qubits and classical bits.",
+              "2. Apply quantum gates such as X, H, or CX to manipulate the qubits.",
+              "3. Measure the qubits to obtain the output.",
+              "4. Execute the circuit on a simulator or a real quantum device.",
+              "5. Analyze the measurement results."
+            ]
+          },
+          {
+            title: "IBM Quantum Execution Options",
+            body: [
+              "IBM Quantum provides two execution options:",
+              "Quantum Simulators: These run quantum circuits on a classical computer and are useful for testing and learning.",
+              "Real Quantum Hardware: These execute circuits on actual quantum processors, allowing users to observe the behavior of real qubits."
             ]
           }
         ],
@@ -123,29 +135,42 @@ print(rho_mixed)
 print("Purity:", rho_mixed.purity())`,
       content: {
         aim: {
-          text: "To study and differentiate between various quantum state representations including pure states, superposition, entangled states, and mixed states, and understand how quantum information differs fundamentally from classical bits.",
+          text: "To understand the concept of quantum states and learn how qubits are represented and manipulated using Qiskit.",
           bullets: [
-            "Differentiate between pure and mixed quantum states",
-            "Understand density matrices and their physical interpretation",
-            "Analyze superposition and entangled state representations",
-            "Interpret qubit behavior under measurement"
+            "Understand the difference between classical bits and quantum bits (qubits).",
+            "Explore the concepts of quantum states, superposition, and state vectors.",
+            "Represent single-qubit states using Dirac (bra-ket) notation.",
+            "Create and visualize different quantum states using Qiskit.",
+            "Analyze the effect of quantum gates on qubit states."
           ]
         },
         theory: [
           {
-            title: "Pure States and Superposition",
+            title: "Quantum States and Qubits",
             body: [
-              "A pure quantum state represents maximum knowledge about a quantum system. It can be described by a single state vector |ψ⟩ in Hilbert space. A qubit in a pure state can be written as |ψ⟩ = α|0⟩ + β|1⟩, where |α|² + |β|² = 1.",
-              "Superposition is the ability of a quantum system to exist in multiple states simultaneously. Unlike a classical bit which is either 0 or 1, a qubit in superposition carries information about both outcomes until measured.",
-              "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">State Type</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Description</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Example</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">|0⟩ (Ground)</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Definite state — always measures 0</td><td class=\"p-3 text-muted-foreground\">[1, 0]</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">|+⟩ (Plus)</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Equal superposition — 50/50 outcome</td><td class=\"p-3 text-muted-foreground\">[1/√2, 1/√2]</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">|Φ+⟩ (Bell)</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Maximally entangled two-qubit state</td><td class=\"p-3 text-muted-foreground\">[1/√2, 0, 0, 1/√2]</td></tr></tbody></table>"
+              "A quantum state describes the condition of a qubit at any given time. In classical computing, a bit can have only one of two values: 0 or 1. In contrast, a qubit (quantum bit) can exist in the state |0⟩, |1⟩, or in a combination of both states simultaneously. This unique property is called superposition.",
+              "A general quantum state of a single qubit is represented as: |ψ⟩ = α|0⟩ + β|1⟩, where α (alpha) and β (beta) are complex probability amplitudes. The values of α and β determine the probability of measuring the qubit in either the |0⟩ or |1⟩ state. Since the total probability must always equal 1, they satisfy the condition: |α|² + |β|² = 1."
             ]
           },
           {
-            title: "Entangled and Mixed States",
+            title: "Dirac (Bra-Ket) Notation",
             body: [
-              "Entangled states are multi-qubit states that cannot be factored into individual qubit states. The most famous examples are the four Bell states. When two qubits are entangled, measuring one instantly determines the state of the other, regardless of distance.",
-              "Mixed states represent statistical ensembles of pure states and arise when there is classical uncertainty about which quantum state the system is in. They are described using density matrices ρ rather than state vectors. A maximally mixed state ρ = I/2 represents complete ignorance about the qubit's state.",
-              "The purity Tr(ρ²) ranges from 1/d (maximally mixed) to 1 (pure state), where d is the dimension of the Hilbert space."
+              "Quantum states are commonly written using Dirac (bra-ket) notation, where:",
+              "|0⟩ represents the basis state corresponding to classical 0.",
+              "|1⟩ represents the basis state corresponding to classical 1."
+            ]
+          },
+          {
+            title: "Quantum Gates and State Manipulation",
+            body: [
+              "Unlike classical bits, qubits can be manipulated using quantum gates. Gates such as the Hadamard (H) gate, Pauli-X (X) gate, and Pauli-Z (Z) gate change the state of a qubit. For example, applying the Hadamard gate to |0⟩ creates an equal superposition of |0⟩ and |1⟩, meaning the qubit has an equal probability of being measured as either 0 or 1."
+            ]
+          },
+          {
+            title: "Exploring Quantum States with Qiskit",
+            body: [
+              "The Qiskit framework provides tools to create quantum circuits, initialize qubits, apply quantum gates, simulate quantum states, and visualize them using state vectors and measurement results. This allows learners to understand how quantum states evolve during computation and how different quantum operations affect the behavior of qubits.",
+              "In this experiment, students will explore the representation of quantum states, create basic quantum circuits in Qiskit, apply quantum gates to manipulate qubits, and observe how the state of a qubit changes before and after measurement. This forms the foundation for understanding more advanced concepts such as entanglement, interference, and quantum algorithms."
             ]
           }
         ],
