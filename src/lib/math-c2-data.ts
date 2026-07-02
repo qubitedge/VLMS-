@@ -1,10 +1,12 @@
 // lib/classical-mech-data.ts
 
 import { Course } from './course-data';
+import { classicalMechShortNotes } from './classical-mech-short-notes';
 
 export const classicalMechCourse: Course = {
   id: "classical-mechanics-and-electromagnetism",
   title: "Classical Mechanics and Electromagnetism",
+  shortNotes: classicalMechShortNotes,
   objectives: [
     "To understand the fundamental principles of classical mechanics from Newton to Lagrange to Hamilton",
     "To appreciate the connection between classical mechanics and quantum mechanics",
