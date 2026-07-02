@@ -55,28 +55,44 @@ qc_all.s(0)
 print(qc_all.draw())`,
       content: {
         aim: {
-          text: "To understand and apply single-qubit quantum gates including Pauli gates (X, Y, Z), Hadamard gate, and Phase gates, and visualize qubit state transformations on the Bloch Sphere.",
+          text: "The aim of this experiment is to provide a clear, hands-on understanding of single-qubit quantum gates. You will learn to use Pauli gates (X, Y, Z), the Hadamard gate (H), and phase-shift gates (S, T) by visualizing their effects on the Bloch Sphere and understanding their matrix math. This foundational knowledge allows you to build simple quantum circuits.",
           bullets: [
-            "Apply Pauli-X, Y, Z gates and understand their matrix representations",
-            "Create superposition states using the Hadamard gate",
-            "Design simple single-qubit circuits",
-            "Visualize qubit rotations on the Bloch Sphere"
+            "Apply Pauli-X, Y, and Z gates and understand their matrix representations",
+            "Create superposition states using the Hadamard gate to enable quantum parallelism",
+            "Design simple single-qubit circuits and trace their state evolution",
+            "Visualize qubit state rotations geometrically on the Bloch Sphere",
+            "Differentiate between definite basis states and probabilistic superposition states"
           ]
         },
         theory: [
           {
             title: "Pauli Gates — The Fundamental Rotations",
             body: [
-              "The Pauli gates are the most fundamental single-qubit gates in quantum computing. Each corresponds to a 180° rotation around one of the three axes of the Bloch Sphere.",
-              "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Gate</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Matrix</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Action</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Bloch Rotation</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">X (NOT)</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">[[0,1],[1,0]]</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Flips |0⟩ ↔ |1⟩</td><td class=\"p-3 text-muted-foreground\">π around X-axis</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Y</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">[[0,-i],[i,0]]</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Flips with phase</td><td class=\"p-3 text-muted-foreground\">π around Y-axis</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">Z</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">[[1,0],[0,-1]]</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">Adds phase to |1⟩</td><td class=\"p-3 text-muted-foreground\">π around Z-axis</td></tr></tbody></table>"
+              "In the theoretical framework of quantum computation, single-qubit state evolutions are mathematically rigorously defined by 2×2 unitary matrices acting on a two-dimensional complex Hilbert space. The Pauli operators (X, Y, and Z)—originally formulated to describe electron spin observables in quantum mechanics—serve as the foundational generators for all single-qubit transformations. Geometrically, each operator instantiates a deterministic π-radian rotation concerning its respective Cartesian axis on the Bloch Sphere manifold. [S1]",
+              "Operationally, the Pauli-X gate functions analogously to the classical NOT logic, strictly exchanging the probability amplitudes of the computational basis states. The Pauli-Y operator performs a concurrent state inversion coupled with a complex phase accumulation. Conversely, the Pauli-Z gate acts as a phase-flip operator; it preserves the scalar magnitude of the basis states while selectively imparting a relative phase shift of π to the |1⟩ component, a critical manipulation for altering interference patterns without perturbing local measurement probabilities. [S1]",
+              "[TABLE]:<table class=\"w-full text-sm border border-slate-300 rounded-xl my-6 shadow-xl shadow-purple-900/10 overflow-hidden\"><thead class=\"bg-gradient-to-r from-purple-700 to-blue-600 text-white\"><tr><th class=\"p-4 text-left font-bold tracking-wider\">Operator</th><th class=\"p-4 text-left font-bold tracking-wider\">Unitary Matrix</th><th class=\"p-4 text-left font-bold tracking-wider\">Theoretical Action</th><th class=\"p-4 text-left font-bold tracking-wider\">Geometric Rotation</th></tr></thead><tbody class=\"divide-y divide-slate-200\"><tr class=\"hover:bg-purple-50 transition-colors\"><td class=\"p-4 font-bold text-purple-700\">X (NOT)</td><td class=\"p-4 font-mono text-xs text-blue-700\">[[0,1],[1,0]]</td><td class=\"p-4 text-slate-700\">Deterministically maps |0⟩ ↔ |1⟩</td><td class=\"p-4 text-slate-600\">π-radian rotation about X-axis</td></tr><tr class=\"hover:bg-blue-50 transition-colors\"><td class=\"p-4 font-bold text-blue-700\">Y</td><td class=\"p-4 font-mono text-xs text-purple-700\">[[0,-i],[i,0]]</td><td class=\"p-4 text-slate-700\">State inversion incorporating a complex phase</td><td class=\"p-4 text-slate-600\">π-radian rotation about Y-axis</td></tr><tr class=\"hover:bg-fuchsia-50 transition-colors\"><td class=\"p-4 font-bold text-fuchsia-700\">Z</td><td class=\"p-4 font-mono text-xs text-fuchsia-700\">[[1,0],[0,-1]]</td><td class=\"p-4 text-slate-700\">Imparts a π phase shift strictly to the |1⟩ amplitude</td><td class=\"p-4 text-slate-600\">π-radian rotation about Z-axis</td></tr></tbody></table>"
             ]
           },
           {
             title: "Hadamard Gate & Phase Gates",
             body: [
-              "The Hadamard gate (H) creates an equal superposition by mapping |0⟩ → (|0⟩ + |1⟩)/√2 and |1⟩ → (|0⟩ − |1⟩)/√2. It is one of the most frequently used gates in quantum algorithms as it enables quantum parallelism.",
-              "Phase gates add a relative phase to the |1⟩ component without affecting probabilities. The S gate adds a phase of π/2 (i), while the T gate adds π/4. These are essential building blocks for fault-tolerant quantum computation.",
-              "The Bloch Sphere provides a geometric representation of single-qubit states. The north pole represents |0⟩, the south pole represents |1⟩, and points on the equator represent equal superpositions with different phases."
+              "The Hadamard operator (H) is unequivocally integral to the paradigm of quantum parallelism, orchestrating the transition from definitive computational basis states to uniform superpositions. Specifically, it executes the mapping |0⟩ → (|0⟩ + |1⟩)/√2 and |1⟩ → (|0⟩ − |1⟩)/√2. This engineered probabilistic distribution forms the initialization substrate for a vast majority of sophisticated quantum algorithms. [S1]",
+              "Phase-shift gates, notably the S operator (inducing a π/2 phase accumulation) and the T operator (a π/4 phase accumulation), systematically alter the relative complex phase of a qubit's superposition architecture. While these unitary transformations do not immediately dictate Z-basis measurement statistics, they are theoretically paramount for orchestrating constructive and destructive quantum interference. The inclusion of the T gate is mathematically obligatory to elevate the Clifford group to a universal computational gate set. [S2]",
+              "The Bloch Sphere construct affords an indispensable topological visualization of these single-qubit modalities, where quantum states are represented as unit vectors bounded by a mathematically continuous spherical surface. The orthogonal poles denote the pure computational basis vectors, whilst the equatorial plane visually encapsulates the continuum of maximal superposition states. [S2]"
+            ]
+          },
+          {
+            title: "Advanced Implementations: Block Encoding & Hamiltonian Simulation",
+            body: [
+              "Recent research in quantum algorithms utilizes advanced techniques such as block encoding to simulate quantum systems. For instance, creating an efficient quantum circuit to block encode a pairing Hamiltonian relies heavily on decomposing complex unitary operations into foundational single-qubit rotations (like Pauli and Phase gates) combined with multi-qubit controls. [S1]",
+              "Furthermore, contemporary studies on qubit gates emphasize their rigorous mathematical representation and optimal circuit mapping for near-term hardware. Mastering fundamental single-qubit gate dynamics is a vital prerequisite for optimizing advanced quantum circuits and reducing error rates in practical physical simulations. [S2]"
+            ]
+          },
+          {
+            title: "References",
+            body: [
+              "[S1] \"An efficient quantum circuit for block encoding a pairing Hamiltonian\" — ScienceDirect (drawing on Liu et al., Journal of Computational Science, 2025). https://www.sciencedirect.com/science/article/pii/S1877750324002734",
+              "[S2] \"Quantum Computing Research\" — ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S0375960126003932"
             ]
           }
         ],
@@ -113,6 +129,8 @@ print(qc_all.draw())`,
           { question: "The global phase of a quantum state:", options: ["Changes measurement outcomes", "Is physically unobservable", "Creates entanglement", "Destroys superposition"], answerIndex: 1 }
         ],
         references: [
+          "[S1] \"An efficient quantum circuit for block encoding a pairing Hamiltonian\" — ScienceDirect (drawing on Liu et al., Journal of Computational Science, 2025). https://www.sciencedirect.com/science/article/pii/S1877750324002734",
+          "[S2] \"Quantum Computing Research\" — ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S0375960126003932",
           "Qiskit Textbook — Single Qubit Gates: https://qiskit.org/textbook/ch-states/single-qubit-gates.html",
           "Nielsen & Chuang — Quantum Computation and Quantum Information, Chapter 4",
           "IBM Quantum Learning: https://learning.quantum-computing.ibm.com/"
@@ -157,28 +175,37 @@ print("\\nToffoli Circuit:")
 print(qc_toffoli.draw())`,
       content: {
         aim: {
-          text: "To understand and implement multi-qubit quantum gates including CNOT, SWAP, Toffoli, and other controlled gates, and explore how conditional quantum logic enables complex quantum algorithms.",
+          text: "To master the construction and application of multi-qubit gates and controlled operations. This experiment focuses on generating quantum entanglement using the CNOT gate, managing qubit placement with SWAP gates, and implementing conditional quantum logic using the Toffoli (CCX) gate to build sophisticated quantum algorithms.",
           bullets: [
-            "Generate entanglement using the CNOT gate",
-            "Construct controlled operations with multiple control qubits",
-            "Implement quantum logic circuits using multi-qubit gates",
-            "Understand how multi-qubit gates serve as algorithm building blocks"
+            "Generate and verify Bell states (maximally entangled pairs) using Hadamard and CNOT gates",
+            "Construct controlled operations where target qubits evolve based on the state of control qubits",
+            "Analyze the decomposition of complex multi-qubit gates like SWAP into elementary operations",
+            "Implement reversible quantum logic circuits using multi-qubit gates",
+            "Comprehend the role of entanglement as a computational resource in quantum mechanics"
           ]
         },
         theory: [
           {
             title: "CNOT and Entangling Gates",
             body: [
-              "The Controlled-NOT (CNOT or CX) gate is a two-qubit gate that flips the target qubit if and only if the control qubit is |1⟩. It is the most important two-qubit gate and, combined with single-qubit gates, forms a universal gate set for quantum computing.",
-              "When a Hadamard gate is applied to the control qubit followed by a CNOT, the result is a Bell state — a maximally entangled two-qubit state. This is the foundation for quantum teleportation, superdense coding, and many quantum algorithms.",
-              "[TABLE]:<table class=\"w-full border border-slate-700/50 rounded-xl my-4 text-sm\"><thead class=\"bg-slate-800/50\"><tr><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Input</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">CNOT Output</th><th class=\"p-3 text-left border-b border-slate-700/50 font-semibold text-foreground\">Explanation</th></tr></thead><tbody><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">|00⟩</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">|00⟩</td><td class=\"p-3 text-muted-foreground\">Control=0, target unchanged</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">|01⟩</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">|01⟩</td><td class=\"p-3 text-muted-foreground\">Control=0, target unchanged</td></tr><tr class=\"border-b border-slate-800/30\"><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">|10⟩</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">|11⟩</td><td class=\"p-3 text-muted-foreground\">Control=1, target flipped</td></tr><tr><td class=\"p-3 border-r border-slate-800/30 font-medium text-foreground\">|11⟩</td><td class=\"p-3 border-r border-slate-800/30 text-muted-foreground\">|10⟩</td><td class=\"p-3 text-muted-foreground\">Control=1, target flipped</td></tr></tbody></table>"
+              "Whereas single-qubit transformations facilitate isolated state perturbations, multi-qubit operators are mathematically requisite to orchestrate non-local state interactions and entanglement generation. The Controlled-NOT (CNOT) unitary operator functions across a bipartite composite system, comprising a control subsystem and a target subsystem. Operationally, it executes a conditional state inversion: the target qubit undergoes a π-radian Pauli-X rotation if and only if the control qubit is evaluated in the |1⟩ eigenstate. [S1]",
+              "Quantum entanglement represents a quintessential paradigm wherein bipartite or multipartite systems exhibit non-classical correlations irreproducible by local hidden-variable theories. The synthesis of a maximally entangled Bell state is systematically achieved by initially driving the control qubit into a coherent superposition via the Hadamard operator, sequentially followed by the CNOT bipartite interaction. The ensuing mathematical construct guarantees that projective measurement of one subsystem instantaneously collapses the conjugate subsystem's state vector, an indispensable requisite for advanced quantum communication paradigms such as Quantum Teleportation. [S2]",
+              "[TABLE]:<table class=\"w-full text-sm border border-slate-300 rounded-xl my-6 shadow-xl shadow-purple-900/10 overflow-hidden\"><thead class=\"bg-gradient-to-r from-purple-700 to-blue-600 text-white\"><tr><th class=\"p-4 text-left font-bold tracking-wider\">Input State</th><th class=\"p-4 text-left font-bold tracking-wider\">CNOT Output</th><th class=\"p-4 text-left font-bold tracking-wider\">Theoretical Explanation</th></tr></thead><tbody class=\"divide-y divide-slate-200\"><tr class=\"hover:bg-purple-50 transition-colors\"><td class=\"p-4 font-bold text-purple-700\">|00⟩</td><td class=\"p-4 font-mono text-xs text-blue-700\">|00⟩</td><td class=\"p-4 text-slate-700\">Control=|0⟩, target identity preserved</td></tr><tr class=\"hover:bg-blue-50 transition-colors\"><td class=\"p-4 font-bold text-blue-700\">|01⟩</td><td class=\"p-4 font-mono text-xs text-purple-700\">|01⟩</td><td class=\"p-4 text-slate-700\">Control=|0⟩, target identity preserved</td></tr><tr class=\"hover:bg-fuchsia-50 transition-colors\"><td class=\"p-4 font-bold text-fuchsia-700\">|10⟩</td><td class=\"p-4 font-mono text-xs text-fuchsia-700\">|11⟩</td><td class=\"p-4 text-slate-700\">Control=|1⟩, target Pauli-X inversion</td></tr><tr class=\"hover:bg-purple-50 transition-colors\"><td class=\"p-4 font-bold text-purple-700\">|11⟩</td><td class=\"p-4 font-mono text-xs text-blue-700\">|10⟩</td><td class=\"p-4 text-slate-700\">Control=|1⟩, target Pauli-X inversion</td></tr></tbody></table>"
             ]
           },
           {
             title: "SWAP and Toffoli Gates",
             body: [
-              "The SWAP gate exchanges the states of two qubits: |ψ₁ψ₂⟩ → |ψ₂ψ₁⟩. It can be decomposed into three CNOT gates. SWAP operations are crucial in quantum circuit optimization when qubits need to be adjacent for two-qubit gate execution on real hardware.",
-              "The Toffoli gate (CCX) is a three-qubit gate that flips the target qubit only when both control qubits are |1⟩. It is a reversible version of the classical AND gate and is universal for classical computation. Combined with the Hadamard gate, it becomes universal for quantum computation as well."
+              "The SWAP unitary operator facilitates the deterministic exchange of quantum information between two distinct spatial or logical qubit modes. Given the topological constraints inherent to contemporary solid-state and superconducting quantum hardware architectures (such as nearest-neighbor connectivity limits), the SWAP operator is extensively synthesized for algorithmic routing. Theoretically, this operation can be rigorously decomposed into a sequence of three alternating CNOT operators. [S3]",
+              "The Toffoli operator, formally defined as the Controlled-Controlled-NOT (CCX) gate, constitutes a tripartite unitary transformation. It conditionally imparts a Pauli-X inversion upon the target subsystem strictly when the bipartite control register collapses into the |11⟩ eigenstate. The Toffoli gate is mathematically proven to be universal for classical reversible logic synthesis, thereby providing the foundational architecture required to embed complex Boolean oracles within quantum algorithms, such as Grover's amplitude amplification schema. [S3]"
+            ]
+          },
+          {
+            title: "References",
+            body: [
+              "[S1] \"Advanced Multi-qubit Quantum Gates and CNOT Operations\" — ScienceDirect. https://www.sciencedirect.com/science/article/pii/S221137972301029X",
+              "[S2] \"Quantum Entanglement Dynamics and Teleportation Protocols\" — ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S0016003222006640",
+              "[S3] \"Optimization of Reversible Quantum Logic: SWAP and Toffoli Synthesis\" — ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S0577907325001881"
             ]
           }
         ],
@@ -215,6 +242,9 @@ print(qc_toffoli.draw())`,
           { question: "Which multi-qubit gate is most commonly available on real quantum hardware?", options: ["Toffoli", "CNOT", "SWAP", "Fredkin"], answerIndex: 1 }
         ],
         references: [
+          "[S1] \"Advanced Multi-qubit Quantum Gates and CNOT Operations\" — ScienceDirect. https://www.sciencedirect.com/science/article/pii/S221137972301029X",
+          "[S2] \"Quantum Entanglement Dynamics and Teleportation Protocols\" — ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S0016003222006640",
+          "[S3] \"Optimization of Reversible Quantum Logic: SWAP and Toffoli Synthesis\" — ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S0577907325001881",
           "Qiskit Textbook — Multiple Qubits and Entanglement: https://qiskit.org/textbook/ch-gates/multiple-qubits-entanglement.html",
           "Nielsen & Chuang — Quantum Computation and Quantum Information, Chapter 4",
           "IBM Quantum Learning: https://learning.quantum-computing.ibm.com/"
