@@ -81,7 +81,7 @@ export const compArchCourse: Course = {
                 body: [
                   "Computers are built from billions of tiny switches that can be either ON or OFF. Each switch stores one bit of information—a binary digit.",
                   "Binary uses only two digits: 0 and 1.",
-                  "![Binary Switch](/binary_switch.webp)",
+                  "![Binary Switch](/math_number_systems.webp)",
                   "Just like decimal, binary is positional: each position represents a power of 2.",
                   "Binary: 1011₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 8 + 0 + 2 + 1 = 11₁₀.",
                   "Every binary number converts to a decimal number, and vice versa.",
@@ -98,7 +98,6 @@ export const compArchCourse: Course = {
                   "3 ÷ 2 = 1 remainder 1",
                   "1 ÷ 2 = 0 remainder 1 (most significant bit)",
                   "Reading remainders from bottom to top: 13₁₀ = 1101₂.",
-                  "![Decimal to Binary](/decimal_to_binary.webp)",
                   "Check: 1×8 + 1×4 + 0×2 + 1×1 = 13. ✓"
                 ]
               },
@@ -108,7 +107,6 @@ export const compArchCourse: Course = {
                   "Binary numbers get long quickly. 255₁₀ is 11111111₂—eight bits!",
                   "Octal (base 8) groups binary digits in threes: 11111111₂ = 377₈.",
                   "Hexadecimal (base 16) groups binary digits in fours: 11111111₂ = FF₁₆.",
-                  "![Octal Hexadecimal](/octal_hexadecimal.webp)",
                   "Octal uses digits 0-7.",
                   "Hexadecimal uses 0-9 and A-F (10-15).",
                   "These systems are important because they're compact yet easily convertible to binary—they're the 'human-friendly' versions of binary.",
@@ -125,7 +123,6 @@ export const compArchCourse: Course = {
                   "Example: Convert 2A₁₆ to octal.",
                   "Step 1: 2A₁₆ = 2×16¹ + 10×16⁰ = 32 + 10 = 42₁₀.",
                   "Step 2: 42₁₀ to octal: 42 ÷ 8 = 5 remainder 2, 5 ÷ 8 = 0 remainder 5 → 52₈.",
-                  "![Conversion Example](/conversion_example.webp)",
                   "Shortcut: Convert hex to binary (each hex digit = 4 bits), then binary to octal (group in threes).",
                   "2A₁₆ = 0010 1010₂ = 010 101 010₂ = 252₈."
                 ]
@@ -223,7 +220,6 @@ export const compArchCourse: Course = {
                   "Negative numbers are the bitwise complement plus 1.",
                   "Example (4 bits): +3 = 0011, -3 = 1101.",
                   "Two's complement: +0 = 0000, -0 = 0000 (only one zero!).",
-                  "![Signed Representations](/signed_representations.webp)",
                   "Two's complement is used because it makes addition and subtraction simple—the same hardware works for both signed and unsigned numbers."
                 ]
               },
@@ -237,7 +233,6 @@ export const compArchCourse: Course = {
                   "For 4 bits: range is -8 to 7.",
                   "For 8 bits: range is -128 to 127.",
                   "For 32 bits: range is -2.147 billion to 2.147 billion.",
-                  "![Two's Complement](/twos_complement.webp)",
                   "To negate a number in two's complement: flip all bits and add 1.",
                   "Example: +3 = 0011, flip = 1100, add 1 = 1101 = -3. ✓"
                 ]
@@ -249,7 +244,6 @@ export const compArchCourse: Course = {
                   "Example: 5 + 3 = 0101 + 0011 = 1000 = 8.",
                   "Subtraction is done by adding the two's complement: A - B = A + (~B + 1).",
                   "Example: 5 - 3 = 0101 + (1101) = 0010 = 2.",
-                  "![Binary Addition](/binary_addition.webp)",
                   "This is why two's complement is so powerful: the same addition hardware handles both addition and subtraction!"
                 ]
               },
@@ -260,7 +254,6 @@ export const compArchCourse: Course = {
                   "For 4-bit two's complement (-8 to 7):",
                   "5 + 4 = 9, but 9 > 7 → overflow! 0101 + 0100 = 1001 = -7 (wrong answer!).",
                   "How to detect overflow: If the carry into the sign bit differs from the carry out of the sign bit.",
-                  "![Overflow](/overflow.webp)",
                   "In programming languages, overflow is often ignored (it wraps around). This is why you might see unexpected results when numbers get very large—like in the famous Y2K bug or the PlayStation 2's 32-bit integer overflow."
                 ]
               },
@@ -273,7 +266,6 @@ export const compArchCourse: Course = {
                   "• 1 bit: sign",
                   "• 8 bits: exponent (biased by 127)",
                   "• 23 bits: mantissa (fraction)",
-                  "![IEEE 754](/ieee_754.webp)",
                   "A double (double precision) uses 64 bits:",
                   "• 1 bit: sign",
                   "• 11 bits: exponent (biased by 1023)",
@@ -378,7 +370,7 @@ export const compArchCourse: Course = {
                   "• ALU (Arithmetic Logic Unit): Performs arithmetic and logic operations (add, subtract, AND, OR, etc.).",
                   "• Registers: Small, fast memory inside the CPU for temporary storage.",
                   "• Control Unit: Decodes instructions and controls the flow of data.",
-                  "![CPU Structure](/cpu_structure.webp)",
+                  "![CPU Structure](/cpu_internal_architecture.webp)",
                   "The CPU fetches instructions from memory, decodes them, and executes them.",
                   "This is the 'fetch-decode-execute' cycle that we'll explore in the next experiment."
                 ]
@@ -391,7 +383,7 @@ export const compArchCourse: Course = {
                   "• Cache: Very fast, moderate size (on or near CPU).",
                   "• RAM: Fast, large (main memory).",
                   "• Disk: Slow, huge (storage).",
-                  "![Memory Hierarchy](/memory_hierarchy.webp)",
+                  "![Memory Hierarchy](/memory_hierarchy_pyramid.webp)",
                   "This hierarchy exists because speed costs money: faster memory is more expensive per bit.",
                   "The goal is to keep the most frequently used data in the fastest memory—this is why caches work so well."
                 ]
@@ -402,7 +394,6 @@ export const compArchCourse: Course = {
                   "I/O (Input/Output) devices connect the computer to the outside world.",
                   "Input devices: Keyboard, mouse, camera, microphone, network interface.",
                   "Output devices: Monitor, printer, speakers, network interface.",
-                  "![IO System](/io_system.webp)",
                   "The I/O system handles communication between the CPU and devices.",
                   "There are three main methods:",
                   "1. Programmed I/O: The CPU polls the device (checks status). Simple but wastes CPU time.",
@@ -418,7 +409,6 @@ export const compArchCourse: Course = {
                   "• Data bus: Carries data between components.",
                   "• Address bus: Carries memory addresses.",
                   "• Control bus: Carries control signals (read/write, interrupt, clock).",
-                  "![Bus System](/bus_system.webp)",
                   "Bus width (number of parallel lines) determines performance:",
                   "• 8-bit bus: Carries 8 bits at a time.",
                   "• 32-bit bus: Carries 32 bits at a time.",
@@ -500,7 +490,7 @@ export const compArchCourse: Course = {
                   "2. Decode: The CPU decodes the instruction to understand what operation to perform.",
                   "3. Execute: The CPU performs the operation.",
                   "4. (Optional) Interrupt: Handle interrupts from I/O devices.",
-                  "![Instruction Cycle](/instruction_cycle.webp)",
+                  "![Instruction Cycle](/math_instruction_cycle.webp)",
                   "This cycle repeats billions of times per second!",
                   "The Program Counter (PC) keeps track of the address of the next instruction to fetch."
                 ]
@@ -512,7 +502,6 @@ export const compArchCourse: Course = {
                   "1. The CPU puts the address from the Program Counter (PC) onto the address bus.",
                   "2. Memory reads the instruction at that address and puts it on the data bus.",
                   "3. The CPU stores the instruction in the Instruction Register (IR).",
-                  "![Fetch Phase](/fetch_phase.webp)",
                   "After the fetch, the PC is incremented (by 1 for each byte) to point to the next instruction.",
                   "This is why instructions are stored in memory—it's a continuous stream of bytes that the CPU processes one at a time."
                 ]
@@ -524,7 +513,6 @@ export const compArchCourse: Course = {
                   "• The instruction format tells the CPU what operation to perform.",
                   "• It identifies the opcode (operation code) and the operands.",
                   "• The control unit generates the control signals needed for execution.",
-                  "![Decode Phase](/decode_phase.webp)",
                   "Instruction format: [Opcode] [Operand1] [Operand2]",
                   "Example: ADD R1, R2, R3 → R1 = R2 + R3.",
                   "The control unit is the 'conductor' of the CPU—it orchestrates all the other components."
@@ -537,7 +525,6 @@ export const compArchCourse: Course = {
                   "• The ALU performs the arithmetic or logic operation.",
                   "• Data is moved between registers and memory.",
                   "• The result is stored back in a register or memory.",
-                  "![Execute Phase](/execute_phase.webp)",
                   "Different operations take different numbers of cycles:",
                   "• Register-to-register addition: 1 cycle (fast).",
                   "• Memory-to-register addition: 2-3 cycles (slower).",
@@ -552,7 +539,6 @@ export const compArchCourse: Course = {
                   "• I/O interrupts: A device needs attention (key pressed, data arrived).",
                   "• Timer interrupts: A timer has expired (time-slicing in multitasking).",
                   "• Hardware interrupts: Error conditions (division by zero, page fault).",
-                  "![Interrupt Handling](/interrupt_handling.webp)",
                   "The interrupt cycle:",
                   "1. The CPU finishes the current instruction.",
                   "2. It saves the current state (PC and registers) to the stack.",
@@ -648,7 +634,6 @@ export const compArchCourse: Course = {
                   "• 1993: Intel Pentium (32-bit, 60 MHz, 3.1 million transistors).",
                   "• 2006: Intel Core (64-bit, 2.66 GHz, 151 million transistors).",
                   "• 2023: Apple M3 (3 nm, >20 billion transistors).",
-                  "![Microprocessor Evolution](/microprocessor_evolution.webp)",
                   "ARM processors (used in most phones and tablets) follow a different philosophy: RISC (Reduced Instruction Set Computer) with fewer, simpler instructions that execute faster."
                 ]
               },
@@ -661,7 +646,7 @@ export const compArchCourse: Course = {
                   "• Control Unit: Decodes instructions and generates control signals.",
                   "• Buses: Internal data, address, and control buses.",
                   "• Cache: Small, fast memory inside the CPU.",
-                  "![Microprocessor Architecture](/microprocessor_architecture.webp)",
+                  "![Microprocessor Architecture](/cpu_internal_architecture.webp)",
                   "Registers are the fastest memory in the computer. The 8085 has 6 general-purpose registers (B, C, D, E, H, L) and a few special registers (Program Counter, Stack Pointer).",
                   "ARM has 16 general-purpose registers (R0-R15), where R13 is the stack pointer, R14 is the link register, and R15 is the program counter."
                 ]
@@ -678,7 +663,6 @@ export const compArchCourse: Course = {
                   "   Example: MOV R1, [R2] (load the value at the address in R2).",
                   "4. Indexed Addressing: Base + offset.",
                   "   Example: MOV R1, [R2 + #4] (load from address R2 + 4).",
-                  "![Addressing Modes](/addressing_modes.webp)",
                   "Different addressing modes give programmers flexibility and are used for different data structures."
                 ]
               },
@@ -690,7 +674,6 @@ export const compArchCourse: Course = {
                   "```\nLDA 1000H  ; Load first number from address 1000H into A\nMOV B, A   ; Copy A to B\nLDA 1001H  ; Load second number from address 1001H into A\nADD B      ; Add B to A (result in A)\nSTA 1002H  ; Store result at address 1002H\nHLT        ; Halt\n```",
                   "Example (ARM): Add two numbers",
                   "```\nLDR R0, =1000  ; Load address 1000 into R0\nLDR R1, [R0]   ; Load value at 1000 into R1\nLDR R2, [R0, #4] ; Load value at 1004 into R2\nADD R3, R1, R2 ; R3 = R1 + R2\nSTR R3, [R0, #8] ; Store result at 1008\n```",
-                  "![Assembly Program](/assembly_program.webp)",
                   "Assembly is still used in: embedded systems, device drivers, operating system kernels, and performance-critical code."
                 ]
               },
@@ -786,7 +769,7 @@ export const compArchCourse: Course = {
                   "• Size: We need large memory for complex programs.",
                   "• Cost: Memory must be affordable.",
                   "The solution: a hierarchy of memory types:",
-                  "![Memory Hierarchy Layers](/memory_hierarchy_layers.webp)",
+                  "![Memory Hierarchy Layers](/memory_hierarchy_pyramid.webp)",
                   "Level 0: Registers (fastest, smallest, most expensive)",
                   "Level 1: Cache (very fast, small, expensive)",
                   "Level 2: Main Memory (fast, large, affordable)",
@@ -806,7 +789,6 @@ export const compArchCourse: Course = {
                   "   Flexible but expensive to implement.",
                   "3. Set-Associative Mapping: A compromise between direct and fully associative.",
                   "   Memory blocks are divided into sets, each block can go anywhere in its set.",
-                  "![Cache Mapping](/cache_mapping.webp)",
                   "Cache replacement policies: When the cache is full, which block to remove?",
                   "• LRU (Least Recently Used): Remove the block not used for the longest time.",
                   "• FIFO (First In First Out): Remove the oldest block.",
@@ -822,7 +804,6 @@ export const compArchCourse: Course = {
                   "• Read-write: Can be both read and written.",
                   "• DRAM (Dynamic RAM): Needs periodic refresh. Cheaper, slower.",
                   "• SRAM (Static RAM): No refresh needed. Faster, more expensive.",
-                  "![RAM vs ROM](/ram_vs_rom.webp)",
                   "ROM (Read-Only Memory):",
                   "• Non-volatile: Data is retained when power is off.",
                   "• Read-only: Can only be read (except for programmable variants).",
@@ -839,7 +820,6 @@ export const compArchCourse: Course = {
                   "• The MMU (Memory Management Unit) translates virtual addresses to physical addresses.",
                   "• Only part of the program is in physical memory at any time.",
                   "• The rest is stored on disk (in the swap file or page file).",
-                  "![Virtual Memory](/virtual_memory.webp)",
                   "Two key concepts:",
                   "1. Paging: Memory is divided into fixed-size pages (typically 4KB).",
                   "2. Segmentation: Memory is divided into variable-size segments.",
@@ -860,7 +840,6 @@ export const compArchCourse: Course = {
                   "• NAND flash (SSDs): Getting cheaper and faster.",
                   "• Persistent memory (Optane, MRAM): Combines the speed of RAM with the persistence of storage.",
                   "• Storage class memory: A new tier between main memory and storage.",
-                  "![Storage Comparison](/storage_comparison.webp)",
                   "The future: Memory technologies that are both fast and persistent, blurring the line between memory and storage."
                 ]
               }
@@ -957,7 +936,7 @@ export const compArchCourse: Course = {
                   "   Symbol: A ⊕ B, Truth: 0⊕0=0, 0⊕1=1, 1⊕0=1, 1⊕1=0",
                   "7. XNOR: Output is 1 if inputs are the same.",
                   "   Symbol: (A⊕B)', Truth: 0⊕0=1, 0⊕1=0, 1⊕0=0, 1⊕1=1",
-                  "![Logic Gates](/logic_gates.webp)"
+                  "![Logic Gates](/logic_gates_symbols.webp)"
                 ]
               },
               {
@@ -977,7 +956,6 @@ export const compArchCourse: Course = {
                   "• Double negation: ¬(¬A) = A",
                   "• Absorption: A · (A + B) = A, A + (A · B) = A",
                   "• De Morgan's: ¬(A · B) = ¬A + ¬B, ¬(A + B) = ¬A · ¬B",
-                  "![Boolean Algebra](/boolean_algebra.webp)"
                 ]
               },
               {
@@ -991,7 +969,6 @@ export const compArchCourse: Course = {
                   "| 1 | 0 |  1  |   0   |",
                   "| 1 | 1 |  0  |   1   |",
                   "Sum = A ⊕ B (XOR), Carry = A · B (AND).",
-                  "![Truth Table](/truth_table.webp)",
                   "Truth tables are the foundation of digital design—they tell us exactly what a circuit must do."
                 ]
               },
@@ -1018,7 +995,6 @@ export const compArchCourse: Course = {
                   "• Combinational circuits combine to form sequential circuits (flip-flops, registers).",
                   "• Sequential circuits form functional units (ALU, control unit).",
                   "• Functional units form the CPU.",
-                  "![Gates to Microprocessor](/gates_to_microprocessor.webp)",
                   "The transistor count in modern CPUs is in the billions—each one is a tiny switch that works like a logic gate."
                 ]
               }
@@ -1094,7 +1070,7 @@ export const compArchCourse: Course = {
                 body: [
                   "A Karnaugh map (K-map) is a graphical way to simplify Boolean expressions.",
                   "It represents all possible input combinations in a grid.",
-                  "![Karnaugh Map](/karnaugh_map.webp)",
+                  "![Karnaugh Map](/karnaugh_map_example.webp)",
                   "For 2 variables: 2×2 grid.",
                   "For 3 variables: 2×4 grid.",
                   "For 4 variables: 4×4 grid.",
@@ -1119,7 +1095,7 @@ export const compArchCourse: Course = {
                   "Full Adder: Adds 3 bits (A, B, and carry-in).",
                   "• Sum = A ⊕ B ⊕ C_in",
                   "• Carry_out = (A·B) + (C_in·(A⊕B))",
-                  "![Adder Circuit](/adder_circuit.webp)",
+                  "![Adder Circuit](/math_full_adder.webp)",
                   "Subtractor: Subtracts two binary numbers using addition.",
                   "• Use two's complement: A - B = A + (~B + 1).",
                   "• The same adder can be used for both addition and subtraction!",
@@ -1134,7 +1110,6 @@ export const compArchCourse: Course = {
                   "• 2-to-1 MUX: 2 data inputs, 1 select line.",
                   "• 4-to-1 MUX: 4 data inputs, 2 select lines.",
                   "• 8-to-1 MUX: 8 data inputs, 3 select lines.",
-                  "![Multiplexer](/multiplexer.webp)",
                   "MUX is the basis of many digital designs:",
                   "• ALU operation selection.",
                   "• Register file read/write.",
@@ -1155,7 +1130,6 @@ export const compArchCourse: Course = {
                   "Decoder: Converts from one format to another (expands data).",
                   "• Example: 3-to-8 decoder: 3-bit input → 8 outputs.",
                   "• Each output corresponds to one input combination.",
-                  "![Encoder Decoder](/encoder_decoder.webp)",
                   "Decoders are used in:",
                   "• Memory address decoders (select a specific memory location).",
                   "• Display drivers (convert a number to a 7-segment display pattern).",
@@ -1175,7 +1149,6 @@ export const compArchCourse: Course = {
                   "• 4-bit AND and OR gates.",
                   "• 4-to-1 MUX to select the output.",
                   "• Control lines (2 bits) to select the operation.",
-                  "![Simple ALU](/simple_alu.webp)",
                   "This is how real ALUs work—they just combine simple circuits in a smart way.",
                   "Modern ALUs are more complex (with multiplication, division, shifting, and more), but the basic idea is the same."
                 ]
