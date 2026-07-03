@@ -63,6 +63,7 @@ print(qc_u.draw())`,
             title: "Quantum Gates as the Building Blocks of Quantum Circuits",
             body: [
               "Quantum gates are basic quantum circuits that act on a small number of qubits and serve as the fundamental building blocks of larger quantum circuits, playing the same structural role that classical logic gates play in digital circuits. [S1]",
+              "![Phase Gates Visualization](https://res.cloudinary.com/dupgeybqj/video/upload/v1783066401/Exp1_sgyf3j.mp4)",
               "A quantum gate is implemented as a unitary reversible operator U that converts an initial qubit state into a final qubit state while guaranteeing no loss of quantum information, in contrast to irreversible classical operations. [S2]",
               "Some quantum gates act on a single qubit, while others act on two or more qubits at once; multi-qubit gates are essential because the size of the quantum state vector grows exponentially with the number of qubits, and this growth is what allows quantum algorithms to outperform classical ones on certain tasks. [S2]"
             ]
@@ -162,6 +163,7 @@ print(qc_reg.draw())`,
             title: "The Born Rule: Formal Statement",
             body: [
               "For a system in state |ψ⟩ and an observable A with an orthonormal eigenbasis {|a1⟩,...,|an⟩}, associate each eigenvector |ai⟩ with a projector Pi and eigenvalue λi; the Born rule states that the probability of a measurement of A returning the value λi is |⟨ai|ψ⟩|², which is equivalent to writing the same probability as the expectation value ⟨ψ|Pi|ψ⟩ of the corresponding projector. [S1]",
+              "![Born rule visualization](https://res.cloudinary.com/dupgeybqj/video/upload/v1783066492/Exp2_waftbl.mp4)",
               "This matches the more general measurement postulate: an exact measurement of an observable always yields one of its eigenvalues as a result, and if the system was in state |α⟩ beforehand, the probability that the outcome is eigenvalue a(i) is given by |⟨a(i)|α⟩|² — since some eigenvalue must always occur, these probabilities across all possible outcomes must sum to exactly 1. [S2]",
               "The rule is illustrated concretely by the measurement of a single qubit in the state |ψ⟩ = α0|0⟩ + α1|1⟩ using a one-qubit measurement gate in the computational basis: the instrument reports 0, corresponding to |0⟩, with probability p0 = |α0|², and reports 1, corresponding to |1⟩, with probability p1 = |α1|² — precisely the calculation your lab performs using Ry(θ). [S1]"
             ]
@@ -280,6 +282,7 @@ print(teleport.draw())`,
             title: "Bell States and Entanglement",
             body: [
               "A complete Bell-state measurement projects an arbitrary two-photon state onto one of four maximally entangled Bell states, and this operation underlies photonic quantum teleportation, superdense coding, entanglement swapping, quantum repeaters, and quantum key distribution alike. [S1]",
+              "![Entanglement Visualization](https://res.cloudinary.com/dupgeybqj/video/upload/v1783066579/Exp3_dnan4x.mp4)",
               "One of the most striking properties of quantum information is that quantum correlations, unlike classical correlations, cannot be freely shared: if two qubits are in a maximally entangled pure state, neither of them can be simultaneously correlated with a third system elsewhere in the universe — a property known as the monogamy of entanglement. [S2]",
               "A joint (pure) Bell-pair state is known exactly, yet the state of either qubit taken on its own is a mixed state — reflected mathematically in the fact that the trace of the squared density operator equals 1 for the full pair but less than 1 for either qubit alone, which is precisely why measuring one half of an entangled pair yields a random outcome even though the pair as a whole is perfectly defined. [S2]"
             ]
