@@ -14,6 +14,7 @@ import { mathFoundationsCourse } from './math-c1-data'
 import { classicalMechCourse } from './math-c2-data';
 import { compArchCourse } from './math-c3-data';
 import { datavizSeabornPlotlyCourse } from "./dataviz-seaborn-plotly-data";
+import { datavizPandasCourse } from "./dataviz-pandas-data";
 export type MCQ = {
   question: string;
   options: string[];
@@ -5646,6 +5647,7 @@ export const courses: Record<string, Course> = {
   "classical-mechanics-and-electromagnetism" : classicalMechCourse,
   "computer-architecture-and-digital-logic" : compArchCourse,
   "data-visualization-with-seaborn-plotly": datavizSeabornPlotlyCourse,
+  "data-visualization-with-pandas": datavizPandasCourse,
   "machine-learning": {
     id: "machine-learning",
     title: "Machine Learning Lab",

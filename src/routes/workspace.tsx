@@ -1183,7 +1183,8 @@ ORDER  BY grade DESC;`,
       details?.course.id === "machine-learning" ||
       details?.course.id === "llms" ||
       details?.course.id === "python" ||
-      details?.course.id?.startsWith("dataviz-")
+      details?.course.id?.startsWith("dataviz-") ||
+      details?.course.id?.startsWith("data-visualization-")
     ) {
       setLanguage("python");
     } else if (details?.course.id === "advanced-data-structures" || details?.course.id === "java") {
@@ -1451,7 +1452,7 @@ except BaseException:
   const isAITools = details?.course.id === "ai-tools";
   const isIot = details?.course.id === "iot";
   const isQuantum = details?.course.id === "foundations-of-quantum-computing" || details?.course.id === "quantum-computing-using-qiskit-lab";
-  const isDataViz = details?.course.id?.startsWith("dataviz-") ?? false;
+  const isDataViz = (details?.course.id?.startsWith("dataviz-") || details?.course.id?.startsWith("data-visualization-")) ?? false;
   const isMathCourse = ["mathematics-for-emerging-technologies", "classical-mechanics-and-electromagnetism", "computer-architecture-and-digital-logic"].includes(details?.course?.id ?? "");
 
   useEffect(() => {

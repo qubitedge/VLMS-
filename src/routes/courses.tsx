@@ -1012,21 +1012,21 @@ function CoursesPage() {
       <Link
         key={t}
         to={`/course/${slug}` as any}
-        className={`group relative overflow-hidden flex flex-col justify-between p-6 rounded-xl border ${cardBorderClass} ${cardBgClass} transition-all h-[190px] hover:shadow-[0_8px_30px_rgba(20,184,166,0.15)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:-translate-y-1`}
+        className={`group relative overflow-hidden flex flex-col justify-between p-6 rounded-xl border ${cardBorderClass} ${cardBgClass} transition-all min-h-[220px] h-full hover:shadow-[0_8px_30px_rgba(20,184,166,0.15)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:-translate-y-1`}
       >
-        <div className="relative z-10 w-3/4">
-          <h3 className="font-display text-[21px] font-bold mb-1 flex items-start gap-2.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary">
+        <div className="relative z-10 w-full pr-14">
+          <h3 className="font-display text-[20px] font-bold mb-1 flex items-start gap-2.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan to-primary">
             {getTopicIcon(t) && (
-              <div className="mt-1">{getTopicIcon(t)}</div>
+              <div className="mt-1 flex-shrink-0">{getTopicIcon(t)}</div>
             )}
             <span className="leading-tight">{t}</span>
           </h3>
-          <p className="text-[13.5px] text-[#4A5558] dark:text-slate-400 font-medium leading-relaxed mt-1.5 mb-6">
+          <p className="text-[13.5px] text-[#4A5558] dark:text-slate-400 font-medium leading-relaxed mt-1.5 mb-3">
             {getSubtitle(t)}
           </p>
         </div>
 
-        <div className="relative z-10 flex items-center gap-2.5 w-fit mt-4">
+        <div className="relative z-10 flex items-center gap-2.5 w-fit mt-auto pt-2">
           <div
             className={`inline-flex items-center justify-center gap-1.5 px-4 py-1.5 bg-transparent border ${btnBorderClass} rounded-full text-[13px] font-medium text-[#111111] dark:text-slate-300 hover:bg-[#111F22]/5 dark:hover:bg-slate-800 transition-colors`}
           >
