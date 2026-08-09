@@ -3,9 +3,6 @@
 import { Course } from './course-data';
 import { datavizSeabornPlotlyShortNotes } from './dataviz-seaborn-plotly-short-notes';
 
-// Since you don't have short notes for this course yet, use empty string
-// You can create a separate file later if needed
-
 export const datavizSeabornPlotlyCourse: Course = {
   id: "data-visualization-with-seaborn-plotly",
   title: "Data Visualization with Seaborn & Plotly",
@@ -114,8 +111,6 @@ export const datavizSeabornPlotlyCourse: Course = {
                 answerIndex: 1,
                 hint: "KDE stands for Kernel Density Estimate.",
               },
-            ],
-            posttest: [
               {
                 question: "What does sns.set_theme() do?",
                 options: [
@@ -137,6 +132,64 @@ export const datavizSeabornPlotlyCourse: Course = {
                 ],
                 answerIndex: 1,
                 hint: "It adds, not replaces.",
+              },
+              {
+                question: "What type of data is best visualized using histplot?",
+                options: [
+                  "Categorical data",
+                  "Continuous numerical data",
+                  "Text data",
+                  "Image data",
+                ],
+                answerIndex: 1,
+                hint: "Histograms are for numerical distributions.",
+              },
+            ],
+            posttest: [
+              {
+                question: "Which Seaborn function would you use to create a histogram?",
+                options: ["sns.histplot()", "sns.barplot()", "sns.scatterplot()", "sns.boxplot()"],
+                answerIndex: 0,
+                hint: "Look for the function that creates histograms.",
+              },
+              {
+                question: "What does the 'kde' parameter control in histplot?",
+                options: [
+                  "Chart color",
+                  "Whether to overlay a density curve",
+                  "Number of bins",
+                  "Axis labels",
+                ],
+                answerIndex: 1,
+                hint: "KDE adds a smooth curve to show distribution shape.",
+              },
+              {
+                question: "Which import statement is needed for Seaborn?",
+                options: [
+                  "import matplotlib",
+                  "import seaborn as sns",
+                  "import plotly",
+                  "import pandas",
+                ],
+                answerIndex: 1,
+                hint: "Seaborn is commonly imported as 'sns'.",
+              },
+              {
+                question: "What is the purpose of plt.show() in the code?",
+                options: [
+                  "To save the plot to a file",
+                  "To display the plot on screen",
+                  "To clear the plot",
+                  "To add a title",
+                ],
+                answerIndex: 1,
+                hint: "This function renders the plot for viewing.",
+              },
+              {
+                question: "Which of these is NOT a Seaborn plot type?",
+                options: ["histplot", "kdeplot", "ggplot", "boxplot"],
+                answerIndex: 2,
+                hint: "ggplot is a different plotting system in R.",
               },
             ],
             procedure: [
@@ -189,18 +242,76 @@ export const datavizSeabornPlotlyCourse: Course = {
                 answerIndex: 1,
                 hint: "IQR = Q3 - Q1.",
               },
+              {
+                question: "What does the line inside the box of a box plot represent?",
+                options: ["Mean", "Median", "Mode", "Standard deviation"],
+                answerIndex: 1,
+                hint: "The middle line shows the 50th percentile.",
+              },
+              {
+                question: "What are the dots beyond the whiskers in a box plot called?",
+                options: ["Inliers", "Outliers", "Medians", "Quartiles"],
+                answerIndex: 1,
+                hint: "They fall outside the typical range.",
+              },
+              {
+                question: "Which plot type shows the full distribution shape?",
+                options: ["Box plot", "Violin plot", "Bar plot", "Scatter plot"],
+                answerIndex: 1,
+                hint: "This plot shows density on both sides.",
+              },
+              {
+                question: "A violin plot combines a box plot with what?",
+                options: ["Bar chart", "Kernel density estimate", "Scatter plot", "Line chart"],
+                answerIndex: 1,
+                hint: "It adds a smoothed distribution shape.",
+              },
             ],
             posttest: [
               {
-                question: "A violin plot is preferred over a box plot when:",
+                question: "Which Seaborn function creates a box plot?",
+                options: ["sns.boxplot()", "sns.violinplot()", "sns.barplot()", "sns.scatterplot()"],
+                answerIndex: 0,
+                hint: "Box plots show quartiles and outliers.",
+              },
+              {
+                question: "What is the interquartile range (IQR)?",
                 options: [
-                  "The dataset has categorical labels",
-                  "The distribution is multimodal and shape matters",
-                  "You want a pie chart instead",
-                  "The dataset has only 2 rows",
+                  "The range from min to max",
+                  "The range from Q1 to Q3",
+                  "The mean of all values",
+                  "The standard deviation",
                 ],
                 answerIndex: 1,
-                hint: "Think about what a violin plot adds over a box plot.",
+                hint: "It's the middle 50% of the data.",
+              },
+              {
+                question: "What advantage does a violin plot have over a box plot?",
+                options: [
+                  "It's simpler to read",
+                  "It shows the full distribution shape",
+                  "It uses less space",
+                  "It shows exact values",
+                ],
+                answerIndex: 1,
+                hint: "Violin plots show density shape.",
+              },
+              {
+                question: "Which of the following is a categorical plot in Seaborn?",
+                options: ["histplot", "violinplot", "kdeplot", "lineplot"],
+                answerIndex: 1,
+                hint: "Categorical plots compare groups.",
+              },
+              {
+                question: "What does plt.subplots(1, 2) create?",
+                options: [
+                  "Two plots stacked vertically",
+                  "Two plots side by side",
+                  "One large plot",
+                  "Three small plots",
+                ],
+                answerIndex: 1,
+                hint: "The numbers represent rows and columns.",
               },
             ],
             procedure: [
@@ -241,16 +352,84 @@ export const datavizSeabornPlotlyCourse: Course = {
                 question: "Which Seaborn parameter maps a variable to marker shape?",
                 options: ["hue", "style", "size", "palette"],
                 answerIndex: 1,
-                hint: "Shape, not color."
-              }
+                hint: "Shape, not color.",
+              },
+              {
+                question: "What does the 'hue' parameter do in a scatterplot?",
+                options: [
+                  "Changes marker size",
+                  "Colors points by a categorical variable",
+                  "Sets the plot title",
+                  "Adds a trend line",
+                ],
+                answerIndex: 1,
+                hint: "Hue relates to color grouping.",
+              },
+              {
+                question: "What type of plot is created by sns.scatterplot()?",
+                options: ["Bar chart", "Scatter plot", "Histogram", "Box plot"],
+                answerIndex: 1,
+                hint: "It's a two-dimensional point plot.",
+              },
+              {
+                question: "What does the 's' parameter control in scatterplot?",
+                options: ["Marker size", "Marker color", "Marker shape", "Axis range"],
+                answerIndex: 0,
+                hint: "S stands for size.",
+              },
+              {
+                question: "How many dimensions can be encoded in a 2D scatter plot using Seaborn?",
+                options: ["2", "3", "4", "5"],
+                answerIndex: 2,
+                hint: "x, y, hue, style, and size can encode multiple dimensions.",
+              },
             ],
             posttest: [
               {
-                question: "The hue parameter in sns.scatterplot() controls:",
-                options: ["Marker size", "Point color grouping", "Axis scale", "Legend position"],
+                question: "What does the 'style' parameter do in sns.scatterplot()?",
+                options: [
+                  "Changes marker shape",
+                  "Changes marker color",
+                  "Changes marker size",
+                  "Changes axis labels",
+                ],
+                answerIndex: 0,
+                hint: "Style controls marker appearance.",
+              },
+              {
+                question: "Which parameter would you use to color points by category?",
+                options: ["size", "style", "hue", "palette"],
+                answerIndex: 2,
+                hint: "Hue adds color dimension.",
+              },
+              {
+                question: "What is the purpose of using both hue and style together?",
+                options: [
+                  "To create a 3D plot",
+                  "To encode two categorical variables",
+                  "To make the plot smaller",
+                  "To remove the legend",
+                ],
                 answerIndex: 1,
-                hint: "Hue relates to color."
-              }
+                hint: "Different visual encodings for different variables.",
+              },
+              {
+                question: "A legend is automatically added when using which parameters?",
+                options: ["hue", "style", "Both hue and style", "Neither"],
+                answerIndex: 2,
+                hint: "Both color and shape need explanations.",
+              },
+              {
+                question: "What is exploratory data analysis (EDA)?",
+                options: [
+                  "Analyzing data to find patterns and insights",
+                  "Exporting data to CSV",
+                  "Cleaning data only",
+                  "Training machine learning models",
+                ],
+                answerIndex: 0,
+                hint: "EDA is about discovering patterns.",
+              },
             ],
             procedure: [
               "Build a DataFrame with two numeric columns and two categorical columns.",
@@ -297,16 +476,84 @@ export const datavizSeabornPlotlyCourse: Course = {
                 question: "A correlation value close to -1 indicates:",
                 options: ["No relationship", "Strong positive relationship", "Strong negative (inverse) relationship", "Missing data"],
                 answerIndex: 2,
-                hint: "Negative sign means inverse."
-              }
+                hint: "Negative sign means inverse.",
+              },
+              {
+                question: "What does a correlation value of 0 mean?",
+                options: [
+                  "Perfect positive correlation",
+                  "No linear relationship",
+                  "Perfect negative correlation",
+                  "Error in calculation",
+                ],
+                answerIndex: 1,
+                hint: "Zero means no linear relationship.",
+              },
+              {
+                question: "What is the range of correlation coefficients?",
+                options: ["0 to 1", "-1 to 1", "0 to 100", "1 to 10"],
+                answerIndex: 1,
+                hint: "Correlation ranges from -1 to 1.",
+              },
+              {
+                question: "Which function computes the correlation matrix in pandas?",
+                options: ["df.corr()", "df.cov()", "df.mean()", "df.std()"],
+                answerIndex: 0,
+                hint: "Corr stands for correlation.",
+              },
+              {
+                question: "What is a good color scheme for correlation heatmaps?",
+                options: ["Binary", "Diverging (e.g., coolwarm)", "Sequential", "Random"],
+                answerIndex: 1,
+                hint: "Need to show positive and negative clearly.",
+              },
             ],
             posttest: [
               {
                 question: "What does annot=True do in sns.heatmap()?",
                 options: ["Rotates labels", "Displays numeric values inside each cell", "Adds a legend", "Changes color scheme"],
                 answerIndex: 1,
-                hint: "Annotation = text labels."
-              }
+                hint: "Annotation = text labels.",
+              },
+              {
+                question: "Which parameter controls the color scheme of a heatmap?",
+                options: ["cmap", "annot", "vmin", "vmax"],
+                answerIndex: 0,
+                hint: "CMAP stands for colormap.",
+              },
+              {
+                question: "What does a positive correlation indicate?",
+                options: [
+                  "Variables move in opposite directions",
+                  "Variables move in the same direction",
+                  "No relationship exists",
+                  "Data is invalid",
+                ],
+                answerIndex: 1,
+                hint: "Positive means as one increases, the other increases.",
+              },
+              {
+                question: "What is the purpose of vmin and vmax in a heatmap?",
+                options: [
+                  "Set the color scale limits",
+                  "Set the font size",
+                  "Set the chart title",
+                  "Set the axis labels",
+                ],
+                answerIndex: 0,
+                hint: "vmin/vmax control color mapping range.",
+              },
+              {
+                question: "Which data type is best visualized with a heatmap?",
+                options: [
+                  "Text data",
+                  "Correlation matrix",
+                  "Categorical counts",
+                  "Time series",
+                ],
+                answerIndex: 1,
+                hint: "Heatmaps are great for matrices.",
+              },
             ],
             procedure: [
               "Create a DataFrame with several numeric columns.",
@@ -345,16 +592,89 @@ export const datavizSeabornPlotlyCourse: Course = {
                 question: "What appears on the diagonal of a pairplot by default?",
                 options: ["Scatter plots", "Distribution/histogram plots", "Empty cells", "Box plots"],
                 answerIndex: 1,
-                hint: "Diagonal compares a variable to itself."
-              }
+                hint: "Diagonal compares a variable to itself.",
+              },
+              {
+                question: "What does the 'hue' parameter do in pairplot?",
+                options: [
+                  "Adds color based on a categorical variable",
+                  "Changes plot size",
+                  "Adds a title",
+                  "Removes the diagonal",
+                ],
+                answerIndex: 0,
+                hint: "Hue colors points by category.",
+              },
+              {
+                question: "What is the Iris dataset?",
+                options: [
+                  "A dataset of iris flower measurements",
+                  "A dataset of car prices",
+                  "A dataset of house prices",
+                  "A dataset of weather data",
+                ],
+                answerIndex: 0,
+                hint: "It's a famous dataset about flowers.",
+              },
+              {
+                question: "What is pairplot useful for?",
+                options: [
+                  "Checking all pairwise relationships at once",
+                  "Creating a single scatter plot",
+                  "Drawing a pie chart",
+                  "Making a bar chart",
+                ],
+                answerIndex: 0,
+                hint: "It shows all variable pairs.",
+              },
+              {
+                question: "What is EDA an acronym for?",
+                options: [
+                  "Electronic Data Analysis",
+                  "Exploratory Data Analysis",
+                  "Expert Data Assessment",
+                  "Enhanced Data Application",
+                ],
+                answerIndex: 1,
+                hint: "It's about exploring data.",
+              },
             ],
             posttest: [
               {
                 question: "Adding hue='species' to pairplot() will:",
                 options: ["Remove the diagonal plots", "Color points by category across all subplots", "Only affect one subplot", "Convert to a heatmap"],
                 answerIndex: 1,
-                hint: "Hue affects the whole grid consistently."
-              }
+                hint: "Hue affects the whole grid consistently.",
+              },
+              {
+                question: "What type of plot is on the diagonal of a pairplot?",
+                options: ["Bar chart", "Histogram", "Scatter plot", "Box plot"],
+                answerIndex: 1,
+                hint: "Distribution of each variable.",
+              },
+              {
+                question: "Which library provides the Iris dataset?",
+                options: ["Pandas", "Seaborn", "Matplotlib", "Plotly"],
+                answerIndex: 1,
+                hint: "Seaborn comes with sample datasets.",
+              },
+              {
+                question: "What is the purpose of pairplot in EDA?",
+                options: [
+                  "To show all pairwise relationships quickly",
+                  "To create a publication-ready chart",
+                  "To clean the data",
+                  "To train a machine learning model",
+                ],
+                answerIndex: 0,
+                hint: "It's for quick exploration.",
+              },
+              {
+                question: "How many subplots does pairplot create for 4 variables?",
+                options: ["4", "8", "12", "16"],
+                answerIndex: 3,
+                hint: "It creates n x n subplots.",
+              },
             ],
             procedure: [
               "Load or construct a DataFrame with multiple numeric columns and one categorical column.",
@@ -393,16 +713,99 @@ export const datavizSeabornPlotlyCourse: Course = {
                 question: "What design principle does FacetGrid implement?",
                 options: ["3D visualization", "Small multiples", "Color blending", "Data compression"],
                 answerIndex: 1,
-                hint: "Repeating simple charts side by side."
-              }
+                hint: "Repeating simple charts side by side.",
+              },
+              {
+                question: "What does the 'col' parameter do in FacetGrid?",
+                options: [
+                  "Creates columns of subplots",
+                  "Sets the chart color",
+                  "Adds a column of data",
+                  "Defines the dataset",
+                ],
+                answerIndex: 0,
+                hint: "It creates a grid column for each category.",
+              },
+              {
+                question: "What is the 'Tips' dataset about?",
+                options: [
+                  "Restaurant tipping data",
+                  "Tips for programming",
+                  "Cooking tips",
+                  "Travel tips",
+                ],
+                answerIndex: 0,
+                hint: "It's about restaurant bills and tips.",
+              },
+              {
+                question: "What does the .map() method do in FacetGrid?",
+                options: [
+                  "Loads a map of the world",
+                  "Applies a plotting function to each facet",
+                  "Adds a legend",
+                  "Saves the grid to a file",
+                ],
+                answerIndex: 1,
+                hint: "It maps a function across facets.",
+              },
+              {
+                question: "What is the benefit of small multiples?",
+                options: [
+                  "Easy comparison across categories",
+                  "Uses less code",
+                  "Automatically colors plots",
+                  "Only works with time data",
+                ],
+                answerIndex: 0,
+                hint: "Small multiples make comparison easy.",
+              },
             ],
             posttest: [
               {
                 question: "The .map() method on a FacetGrid object:",
                 options: ["Loads external map data", "Applies a plotting function to every facet", "Deletes empty facets", "Only works with heatmaps"],
                 answerIndex: 1,
-                hint: "It maps a function across facets."
-              }
+                hint: "It maps a function across facets.",
+              },
+              {
+                question: "What does the 'row' parameter do in FacetGrid?",
+                options: [
+                  "Creates rows of subplots",
+                  "Sets the chart title",
+                  "Adds a data row",
+                  "Defines the plot color",
+                ],
+                answerIndex: 0,
+                hint: "It creates a grid row for each category.",
+              },
+              {
+                question: "What type of plot is created in the example?",
+                options: ["Scatter plot", "Histogram", "Box plot", "Bar chart"],
+                answerIndex: 1,
+                hint: "It uses histplot on total_bill.",
+              },
+              {
+                question: "What is a 'facet' in FacetGrid?",
+                options: [
+                  "A separate subplot for a subset of data",
+                  "A type of color scheme",
+                  "A data cleaning tool",
+                  "A chart title",
+                ],
+                answerIndex: 0,
+                hint: "Each facet shows a subset of data.",
+              },
+              {
+                question: "Why use FacetGrid instead of separate charts?",
+                options: [
+                  "It ensures consistent axes for comparison",
+                  "It uses less memory",
+                  "It creates interactive charts",
+                  "It exports to Excel",
+                ],
+                answerIndex: 0,
+                hint: "Consistent scales make comparison easier.",
+              },
             ],
             procedure: [
               "Load a dataset with at least two categorical columns suitable for faceting.",
@@ -450,16 +853,89 @@ export const datavizSeabornPlotlyCourse: Course = {
                 question: "The main advantage of Plotly over Matplotlib is:",
                 options: ["Faster rendering only", "Built-in interactivity (hover, zoom, pan)", "Smaller file sizes", "It requires no Python"],
                 answerIndex: 1,
-                hint: "Think about user interaction."
-              }
+                hint: "Think about user interaction.",
+              },
+              {
+                question: "What does Plotly Express (px) provide?",
+                options: [
+                  "A low-level API for plotting",
+                  "A high-level API for common plots",
+                  "Data cleaning tools",
+                  "Machine learning algorithms",
+                ],
+                answerIndex: 1,
+                hint: "Express is easy to use.",
+              },
+              {
+                question: "What is the output of fig.show()?",
+                options: [
+                  "A static image",
+                  "An interactive HTML chart",
+                  "A CSV file",
+                  "A PDF document",
+                ],
+                answerIndex: 1,
+                hint: "Plotly creates interactive charts.",
+              },
+              {
+                question: "Which parameter adds markers to a line chart?",
+                options: ["markers", "markers=True", "points", "show_markers"],
+                answerIndex: 1,
+                hint: "Set markers to True.",
+              },
+              {
+                question: "What kind of chart is created by px.line()?",
+                options: ["Line chart", "Bar chart", "Scatter plot", "Histogram"],
+                answerIndex: 0,
+                hint: "Line is for trends over time.",
+              },
             ],
             posttest: [
               {
                 question: "px.line() belongs to which Plotly module?",
                 options: ["plotly.graph_objects", "plotly.express", "plotly.io", "plotly.figure_factory"],
                 answerIndex: 1,
-                hint: "It's the high-level express API."
-              }
+                hint: "It's the high-level express API.",
+              },
+              {
+                question: "What does fig.show() do?",
+                options: [
+                  "Saves the chart to disk",
+                  "Displays the interactive chart",
+                  "Prints the data",
+                  "Creates a PDF",
+                ],
+                answerIndex: 1,
+                hint: "It displays the chart for interaction.",
+              },
+              {
+                question: "What is the purpose of the 'title' parameter?",
+                options: [
+                  "Sets the chart title",
+                  "Sets the x-axis label",
+                  "Sets the y-axis label",
+                  "Sets the data source",
+                ],
+                answerIndex: 0,
+                hint: "Title is the chart title.",
+              },
+              {
+                question: "Which of these is NOT interactive in Plotly?",
+                options: ["Zoom", "Pan", "Hover tooltips", "Static images"],
+                answerIndex: 3,
+                hint: "Plotly creates interactive charts.",
+              },
+              {
+                question: "What is Plotly Express designed for?",
+                options: [
+                  "Complex low-level control",
+                  "Quick and easy chart creation",
+                  "Data storage",
+                  "Web development only",
+                ],
+                answerIndex: 1,
+                hint: "Express makes charting easy.",
+              },
             ],
             procedure: [
               "Import plotly.express as px.",
@@ -498,16 +974,89 @@ export const datavizSeabornPlotlyCourse: Course = {
                 question: "A choropleth map encodes data using:",
                 options: ["Marker size", "Region shading/color", "Line thickness", "3D height"],
                 answerIndex: 1,
-                hint: "Think 'color-filled regions'."
-              }
+                hint: "Think 'color-filled regions'.",
+              },
+              {
+                question: "What is the parameter for the data column to map on a choropleth?",
+                options: ["locations", "color", "value", "data"],
+                answerIndex: 1,
+                hint: "Color maps the numeric values.",
+              },
+              {
+                question: "What does 'locationmode' determine?",
+                options: [
+                  "How locations are matched to data",
+                  "The color scheme",
+                  "The chart size",
+                  "The title format",
+                ],
+                answerIndex: 0,
+                hint: "It tells Plotly how to interpret location names.",
+              },
+              {
+                question: "What is a choropleth map useful for?",
+                options: [
+                  "Showing geographic patterns",
+                  "Showing time series",
+                  "Comparing categories",
+                  "Displaying distributions",
+                ],
+                answerIndex: 0,
+                hint: "It maps data to geographic regions.",
+              },
+              {
+                question: "Which parameter specifies the location column?",
+                options: ["locations", "color", "title", "data"],
+                answerIndex: 0,
+                hint: "Locations tells Plotly which column has place names.",
+              },
             ],
             posttest: [
               {
                 question: "locationmode='country names' means Plotly will match locations by:",
                 options: ["Latitude/longitude only", "Exact country name strings", "Postal codes", "IP addresses"],
                 answerIndex: 1,
-                hint: "It reads the plain country name."
-              }
+                hint: "It reads the plain country name.",
+              },
+              {
+                question: "What does px.choropleth() create?",
+                options: [
+                  "A bar chart",
+                  "A color-coded map",
+                  "A line chart",
+                  "A pie chart",
+                ],
+                answerIndex: 1,
+                hint: "Choropleth means color map.",
+              },
+              {
+                question: "What is the purpose of the 'title' parameter in choropleth?",
+                options: [
+                  "Sets the map title",
+                  "Sets the country names",
+                  "Sets the color scale",
+                  "Sets the data source",
+                ],
+                answerIndex: 0,
+                hint: "Title is the chart title.",
+              },
+              {
+                question: "Which parameter controls what data column appears as color?",
+                options: ["locations", "color", "locationmode", "title"],
+                answerIndex: 1,
+                hint: "Color maps the data values.",
+              },
+              {
+                question: "What type of data is best for a choropleth map?",
+                options: [
+                  "Geographic data",
+                  "Time series data",
+                  "Text data",
+                  "Audio data",
+                ],
+                answerIndex: 0,
+                hint: "Choropleth maps show geographic data.",
+              },
             ],
             procedure: [
               "Build a DataFrame with a country column and a numeric value column.",
@@ -546,16 +1095,99 @@ export const datavizSeabornPlotlyCourse: Course = {
                 question: "In px.scatter_3d(), the size parameter encodes:",
                 options: ["A fourth numeric variable via marker size", "The z-axis", "Chart title", "Color only"],
                 answerIndex: 0,
-                hint: "Size is separate from x, y, z."
-              }
+                hint: "Size is separate from x, y, z.",
+              },
+              {
+                question: "What does a 3D scatter plot add compared to 2D?",
+                options: [
+                  "A third numeric dimension (z-axis)",
+                  "Better colors",
+                  "More categories",
+                  "Larger markers",
+                ],
+                answerIndex: 0,
+                hint: "3D adds a z dimension.",
+              },
+              {
+                question: "What is the purpose of 'size' in bubble charts?",
+                options: [
+                  "To encode an additional data dimension",
+                  "To make all markers the same",
+                  "To set chart dimensions",
+                  "To change the plot size",
+                ],
+                answerIndex: 0,
+                hint: "Size represents data values.",
+              },
+              {
+                question: "How many dimensions can a 3D scatter plot with size encode?",
+                options: ["2", "3", "4", "5"],
+                answerIndex: 2,
+                hint: "x, y, z, size = 4 dimensions.",
+              },
+              {
+                question: "What does the 'color' parameter do in 3D scatter?",
+                options: [
+                  "Colors points by a categorical or numeric variable",
+                  "Sets the chart background",
+                  "Changes marker size",
+                  "Sets the axis labels",
+                ],
+                answerIndex: 0,
+                hint: "Color groups or grades the data.",
+              },
             ],
             posttest: [
               {
                 question: "Why should 3D charts be used cautiously?",
                 options: ["They load slowly", "Depth can be harder to judge precisely than 2D position", "They can't use color", "They only work with time-series data"],
                 answerIndex: 1,
-                hint: "Think about perceptual accuracy in 3D."
-              }
+                hint: "Think about perceptual accuracy in 3D.",
+              },
+              {
+                question: "What does px.scatter_3d() create?",
+                options: [
+                  "A 2D scatter plot",
+                  "A 3D scatter plot",
+                  "A bar chart",
+                  "A line chart",
+                ],
+                answerIndex: 1,
+                hint: "The _3d suffix indicates 3 dimensions.",
+              },
+              {
+                question: "What is a bubble chart?",
+                options: [
+                  "A scatter plot with variable marker sizes",
+                  "A bar chart with circular bars",
+                  "A pie chart with bubbles",
+                  "A line chart with dots",
+                ],
+                answerIndex: 0,
+                hint: "Bubbles are markers that vary in size.",
+              },
+              {
+                question: "What advantage does a 3D scatter plot have?",
+                options: [
+                  "Shows relationships between three numeric variables",
+                  "Uses less space",
+                  "Is easier to read than 2D",
+                  "Works with any data type",
+                ],
+                answerIndex: 0,
+                hint: "It adds a third dimension to explore.",
+              },
+              {
+                question: "What is the z-axis in a 3D plot?",
+                options: [
+                  "The third numeric dimension",
+                  "The x-axis",
+                  "The y-axis",
+                  "The title",
+                ],
+                answerIndex: 0,
+                hint: "z is the third dimension in 3D space.",
+              },
             ],
             procedure: [
               "Generate a DataFrame with three numeric columns (x, y, z) plus a size and category column.",
@@ -601,16 +1233,94 @@ export const datavizSeabornPlotlyCourse: Course = {
                 question: "make_subplots() belongs to which module?",
                 options: ["plotly.express", "plotly.subplots", "plotly.io", "pandas"],
                 answerIndex: 1,
-                hint: "Read the import statement."
-              }
+                hint: "Read the import statement.",
+              },
+              {
+                question: "What does go stand for in Plotly?",
+                options: [
+                  "Graph Objects",
+                  "General Options",
+                  "Global Operations",
+                  "Graphics Output",
+                ],
+                answerIndex: 0,
+                hint: "go is the low-level API.",
+              },
+              {
+                question: "What is a 'trace' in Plotly?",
+                options: [
+                  "A single chart or data series",
+                  "A line connecting points",
+                  "A data cleaning function",
+                  "A color scheme",
+                ],
+                answerIndex: 0,
+                hint: "Each trace is one chart element.",
+              },
+              {
+                question: "What does a dashboard typically combine?",
+                options: [
+                  "Multiple charts on one page",
+                  "Single charts only",
+                  "Only text and numbers",
+                  "Only maps",
+                ],
+                answerIndex: 0,
+                hint: "Dashboards show multiple visualizations.",
+              },
+              {
+                question: "What is the purpose of subplot_titles?",
+                options: [
+                  "To label each subplot",
+                  "To set the chart background",
+                  "To define the data source",
+                  "To set the color scheme",
+                ],
+                answerIndex: 0,
+                hint: "Titles identify each chart.",
+              },
             ],
             posttest: [
               {
                 question: "row= and col= parameters in fig.add_trace() specify:",
                 options: ["Chart color", "Which subplot cell the trace is placed in", "Data type", "Axis range"],
                 answerIndex: 1,
-                hint: "Think grid position."
-              }
+                hint: "Think grid position.",
+              },
+              {
+                question: "How many subplots are in a 2x2 grid?",
+                options: ["2", "3", "4", "6"],
+                answerIndex: 2,
+                hint: "2 rows x 2 columns = 4.",
+              },
+              {
+                question: "What type of chart is go.Bar()?",
+                options: ["Bar chart", "Line chart", "Pie chart", "Scatter plot"],
+                answerIndex: 0,
+                hint: "Bar creates a bar chart.",
+              },
+              {
+                question: "What does fig.update_layout() do?",
+                options: [
+                  "Updates chart layout properties",
+                  "Adds new data",
+                  "Saves the chart",
+                  "Prints the data",
+                ],
+                answerIndex: 0,
+                hint: "Layout controls the overall appearance.",
+              },
+              {
+                question: "What is the advantage of combining charts in one dashboard?",
+                options: [
+                  "Easy to compare different views",
+                  "Uses less code",
+                  "Faster loading",
+                  "Better colors",
+                ],
+                answerIndex: 0,
+                hint: "Dashboards facilitate comparison.",
+              },
             ],
             procedure: [
               "Import make_subplots from plotly.subplots and go from plotly.graph_objects.",
@@ -649,16 +1359,99 @@ export const datavizSeabornPlotlyCourse: Course = {
                 question: "df['Sales'].fillna(df['Sales'].mean()) does what?",
                 options: ["Removes the Sales column", "Replaces missing values with the column's mean", "Sorts the DataFrame", "Converts Sales to text"],
                 answerIndex: 1,
-                hint: "fillna replaces NaNs."
-              }
+                hint: "fillna replaces NaNs.",
+              },
+              {
+                question: "What does estimator=sum do in sns.barplot()?",
+                options: [
+                  "Shows total sales instead of average",
+                  "Shows the data distribution",
+                  "Makes the chart interactive",
+                  "Sorts the bars",
+                ],
+                answerIndex: 0,
+                hint: "Estimator controls the aggregation function.",
+              },
+              {
+                question: "What is the purpose of cleaning data?",
+                options: [
+                  "To handle missing or incorrect values",
+                  "To make data bigger",
+                  "To add random noise",
+                  "To convert to Excel",
+                ],
+                answerIndex: 0,
+                hint: "Cleaning prepares data for analysis.",
+              },
+              {
+                question: "What does df.groupby('Region') do?",
+                options: [
+                  "Groups data by region for aggregation",
+                  "Deletes the Region column",
+                  "Sorts by Region",
+                  "Creates a pie chart",
+                ],
+                answerIndex: 0,
+                hint: "Groupby prepares for summary calculations.",
+              },
+              {
+                question: "What is a static chart?",
+                options: [
+                  "A chart that doesn't change or have interactivity",
+                  "A chart that moves",
+                  "A chart with animation",
+                  "A chart that can be zoomed",
+                ],
+                answerIndex: 0,
+                hint: "Static means fixed, no interactivity.",
+              },
             ],
             posttest: [
               {
                 question: "Why produce both a Seaborn and a Plotly chart from the same data?",
                 options: ["It's required by Python", "Different audiences/contexts need static vs interactive output", "Plotly can't read Pandas DataFrames", "Seaborn charts can't have titles"],
                 answerIndex: 1,
-                hint: "Think about report vs. dashboard use cases."
-              }
+                hint: "Think about report vs. dashboard use cases.",
+              },
+              {
+                question: "What is a 'pipeline' in data analysis?",
+                options: [
+                  "A series of data processing steps",
+                  "A type of chart",
+                  "A database system",
+                  "A programming language",
+                ],
+                answerIndex: 0,
+                hint: "Pipeline describes the workflow.",
+              },
+              {
+                question: "What does the sum() function do after groupby?",
+                options: [
+                  "Adds up values within each group",
+                  "Counts rows",
+                  "Finds the average",
+                  "Deletes data",
+                ],
+                answerIndex: 0,
+                hint: "Sum calculates totals.",
+              },
+              {
+                question: "When would you use a static chart?",
+                options: [
+                  "For printed reports",
+                  "For interactive websites",
+                  "For dashboards",
+                  "For animations",
+                ],
+                answerIndex: 0,
+                hint: "Static charts are good for printing.",
+              },
+              {
+                question: "What type of chart is px.pie()?",
+                options: ["Pie chart", "Bar chart", "Line chart", "Scatter plot"],
+                answerIndex: 0,
+                hint: "Pie creates a pie chart.",
+              },
             ],
             procedure: [
               "Build a DataFrame with a missing value and fill it using the column mean.",
@@ -699,16 +1492,94 @@ export const datavizSeabornPlotlyCourse: Course = {
                 question: "Which chart best answers 'how is this trending over time'?",
                 options: ["Pie chart", "Line chart", "Box plot", "Heatmap"],
                 answerIndex: 1,
-                hint: "Time-series data pairs with a specific chart from Table 2."
-              }
+                hint: "Time-series data pairs with a specific chart.",
+              },
+              {
+                question: "Which chart type is best for comparing categories?",
+                options: ["Pie chart", "Bar chart", "Histogram", "Scatter plot"],
+                answerIndex: 1,
+                hint: "Bars are great for comparison.",
+              },
+              {
+                question: "What does a histogram show?",
+                options: [
+                  "Distribution of numeric data",
+                  "Comparison of categories",
+                  "Trends over time",
+                  "Composition of totals",
+                ],
+                answerIndex: 0,
+                hint: "Histograms show frequency distribution.",
+              },
+              {
+                question: "What is the purpose of a pie chart?",
+                options: [
+                  "To show parts of a whole",
+                  "To show trends",
+                  "To compare categories",
+                  "To show distribution",
+                ],
+                answerIndex: 0,
+                hint: "Pie charts show composition.",
+              },
+              {
+                question: "What does pd.date_range() create?",
+                options: [
+                  "A range of dates",
+                  "A range of numbers",
+                  "A range of categories",
+                  "A random sample",
+                ],
+                answerIndex: 0,
+                hint: "It creates a sequence of dates.",
+              },
             ],
             posttest: [
               {
                 question: "This capstone notebook demonstrates chart selection based primarily on:",
                 options: ["Random choice", "The analytical question being asked", "File size constraints", "Available colors"],
                 answerIndex: 1,
-                hint: "Recall the 'Appropriate Chart Selection' design principle."
-              }
+                hint: "Recall the 'Appropriate Chart Selection' design principle.",
+              },
+              {
+                question: "What are the four analytical questions covered?",
+                options: [
+                  "Trend, Comparison, Distribution, Composition",
+                  "Color, Size, Shape, Texture",
+                  "Mean, Median, Mode, Range",
+                  "Python, R, SQL, Excel",
+                ],
+                answerIndex: 0,
+                hint: "These are the core analytics questions.",
+              },
+              {
+                question: "What type of plot shows parts of a whole?",
+                options: ["Line chart", "Pie chart", "Histogram", "Scatter plot"],
+                answerIndex: 1,
+                hint: "Pie charts show composition.",
+              },
+              {
+                question: "What is the purpose of autopct in plt.pie()?",
+                options: [
+                  "To show percentage labels",
+                  "To set the chart title",
+                  "To change colors",
+                  "To add a legend",
+                ],
+                answerIndex: 0,
+                hint: "Auto percent formats the labels.",
+              },
+              {
+                question: "Why is a line chart good for trends?",
+                options: [
+                  "It shows change over time clearly",
+                  "It shows distributions",
+                  "It compares categories",
+                  "It shows composition",
+                ],
+                answerIndex: 0,
+                hint: "Lines connect points over time.",
+              },
             ],
             procedure: [
               "Generate a synthetic 90-day sales dataset with date, region, and sales columns.",

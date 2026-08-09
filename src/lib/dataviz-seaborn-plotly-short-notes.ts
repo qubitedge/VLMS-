@@ -8,6 +8,8 @@ INTRODUCTION TO DATA VISUALIZATION WITH PYTHON
 Data visualization is the graphical representation of information and data. By using visual elements like charts, graphs, and maps, data visualization tools provide an accessible way to see and understand trends, outliers, and patterns in data. In the Python ecosystem, two libraries stand out for their power and flexibility: Seaborn and Plotly.
 
 Seaborn vs Plotly: A Comparison
+![Seaborn vs Plotly Comparison](/dataviz_seaborn_plotly_comparision.webp)
+
 [TABLE]:<table class="w-full border-collapse border border-cyan/30 text-base text-foreground/90 my-6 shadow-md rounded-xl overflow-hidden"><thead class="bg-gradient-to-r from-cyan/20 to-blue-500/10 text-cyan font-bold"><tr><th class="p-3 border border-cyan/20 tracking-wide">Feature</th><th class="p-3 border border-cyan/20 tracking-wide">Seaborn</th><th class="p-3 border border-cyan/20 tracking-wide">Plotly</th></tr></thead><tbody class="divide-y divide-cyan/10"><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-medium">Output Type</td><td class="p-3 border border-cyan/20">Static images (PNG, PDF, SVG)</td><td class="p-3 border border-cyan/20">Interactive HTML/JavaScript charts</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-medium">Interactivity</td><td class="p-3 border border-cyan/20">Limited (requires Matplotlib widgets)</td><td class="p-3 border border-cyan/20">Full (hover, zoom, pan, click events)</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-medium">Statistical Focus</td><td class="p-3 border border-cyan/20">Designed specifically for statistical graphics</td><td class="p-3 border border-cyan/20">General purpose with statistical capabilities</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-medium">Built on</td><td class="p-3 border border-cyan/20">Matplotlib</td><td class="p-3 border border-cyan/20">D3.js, WebGL, and HTML5 Canvas</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-medium">Ease of Use</td><td class="p-3 border border-cyan/20">High-level API, similar to Pandas</td><td class="p-3 border border-cyan/20">Express API for simplicity, Graph Objects for control</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-medium">3D Capabilities</td><td class="p-3 border border-cyan/20">Limited (via Matplotlib 3D toolkit)</td><td class="p-3 border border-cyan/20">Full 3D rendering with rotation and zoom</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-medium">Geographic Maps</td><td class="p-3 border border-cyan/20">Basic (via external libraries)</td><td class="p-3 border border-cyan/20">Advanced choropleth and scatter maps</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-medium">Dashboard Creation</td><td class="p-3 border border-cyan/20">Not supported natively</td><td class="p-3 border border-cyan/20">Full support via Plotly Dash</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-medium">Best Use Cases</td><td class="p-3 border border-cyan/20">EDA, statistical reports, publications</td><td class="p-3 border border-cyan/20">Dashboards, web apps, interactive reports</td></tr></tbody></table>
 
 Visualization Pipeline:
@@ -38,6 +40,8 @@ sns.set_theme(style="whitegrid", palette="muted")
 
 DISTRIBUTION PLOTS
 
+![Seaborn Distribution Plot Types](/dataviz_distribution_plots.webp)
+
 Histograms and Density Plots:
 [TABLE]:<table class="w-full border-collapse border border-cyan/30 text-base text-foreground/90 my-6 shadow-md rounded-xl overflow-hidden"><thead class="bg-gradient-to-r from-cyan/20 to-blue-500/10 text-cyan font-bold"><tr><th class="p-3 border border-cyan/20 tracking-wide text-left">Function</th><th class="p-3 border border-cyan/20 tracking-wide text-left">Purpose</th><th class="p-3 border border-cyan/20 tracking-wide text-left">Key Parameters</th></tr></thead><tbody class="divide-y divide-cyan/10"><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">histplot()</td><td class="p-3 border border-cyan-20">Distribution of a single variable using bins</td><td class="p-3 border border-cyan/20">bins, binwidth, kde, stat</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">kdeplot()</td><td class="p-3 border border-cyan/20">Smoothed density estimation</td><td class="p-3 border border-cyan/20">bw_method, clip, cumulative</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">ecdfplot()</td><td class="p-3 border border-cyan/20">Empirical cumulative distribution function</td><td class="p-3 border border-cyan/20">stat, complementary</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">rugplot()</td><td class="p-3 border border-cyan/20">Tick marks for each observation</td><td class="p-3 border border-cyan/20">height, expand_margins</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">displot()</td><td class="p-3 border border-cyan/20">Figure-level distribution plot</td><td class="p-3 border border-cyan/20">kind (hist, kde, ecdf), rug, col, row</td></tr></tbody></table>
 
@@ -65,6 +69,7 @@ plt.show()
 CATEGORICAL PLOTS
 
 Seaborn offers several plot types for visualizing categorical data:
+
 
 Categorical Plot Types:
 [TABLE]:<table class="w-full border-collapse border border-cyan/30 text-base text-foreground/90 my-6 shadow-md rounded-xl overflow-hidden"><thead class="bg-gradient-to-r from-cyan/20 to-blue-500/10 text-cyan font-bold"><tr><th class="p-3 border border-cyan/20 tracking-wide text-left">Plot Type</th><th class="p-3 border border-cyan/20 tracking-wide text-left">Description</th><th class="p-3 border border-cyan/20 tracking-wide text-left">Best Used For</th></tr></thead><tbody class="divide-y divide-cyan/10"><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">boxplot()</td><td class="p-3 border border-cyan/20">Box and whisker plot showing quartiles and outliers</td><td class="p-3 border border-cyan/20">Comparing distributions across categories</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">violinplot()</td><td class="p-3 border border-cyan/20">Combination of box plot and KDE, showing full distribution</td><td class="p-3 border border-cyan/20">Multimodal distributions, density shape</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">barplot()</td><td class="p-3 border border-cyan/20">Bar chart showing aggregate statistics (mean, sum)</td><td class="p-3 border border-cyan/20">Comparing summary values across categories</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">countplot()</td><td class="p-3 border border-cyan/20">Number of observations in each category</td><td class="p-3 border border-cyan/20">Frequency distribution of categorical data</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">pointplot()</td><td class="p-3 border border-cyan/20">Point estimates with confidence intervals</td><td class="p-3 border border-cyan/20">Trend visualization across categories</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">catplot()</td><td class="p-3 border border-cyan/20">Figure-level categorical plot</td><td class="p-3 border border-cyan/20">Faceted categorical comparisons</td></tr></tbody></table>
@@ -123,6 +128,8 @@ plt.show()
 
 MATRIX PLOTS
 
+
+
 Heatmaps and Pairplots:
 
 Heatmap Example:
@@ -142,6 +149,8 @@ sns.heatmap(correlation, annot=True, cmap='coolwarm', vmin=-1, vmax=1)
 plt.title("Correlation Heatmap")
 plt.show()
 [END_CODE_SNIPPET]
+
+![Seaborn Heatmap Example](/seaborn_heatmap.webp)
 
 Pairplot Example:
 [START_CODE_SNIPPET]
@@ -163,7 +172,11 @@ sns.pairplot(df, hue="species",
 plt.show()
 [END_CODE_SNIPPET]
 
+![Seaborn Pairplot Examples](/seaborn_pairplot.webp)
+
 ADVANCED SEABORN — FACETGRID AND SMALL MULTIPLES
+
+
 
 FacetGrid is a multi-plot grid system for visualizing subsets of data:
 
@@ -202,6 +215,7 @@ Plotly Express — High-Level API:
 Plotly Express provides concise syntax similar to Seaborn but with built-in interactivity.
 
 Core Plotly Express Functions:
+![Plotly Express Core Functions](/dataviz_plotly_express_functions.webp)
 [TABLE]:<table class="w-full border-collapse border border-cyan/30 text-base text-foreground/90 my-6 shadow-md rounded-xl overflow-hidden"><thead class="bg-gradient-to-r from-cyan/20 to-blue-500/10 text-cyan font-bold"><tr><th class="p-3 border border-cyan/20 tracking-wide text-left">Function</th><th class="p-3 border border-cyan/20 tracking-wide text-left">Chart Type</th><th class="p-3 border border-cyan/20 tracking-wide text-left">Best Used For</th></tr></thead><tbody class="divide-y divide-cyan/10"><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">px.line()</td><td class="p-3 border border-cyan/20">Line chart</td><td class="p-3 border border-cyan/20">Time series trends</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">px.bar()</td><td class="p-3 border border-cyan/20">Bar chart</td><td class="p-3 border border-cyan/20">Categorical comparisons</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">px.scatter()</td><td class="p-3 border border-cyan/20">Scatter plot</td><td class="p-3 border border-cyan/20">Relationships between variables</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">px.histogram()</td><td class="p-3 border border-cyan/20">Histogram</td><td class="p-3 border border-cyan/20">Distribution of single variable</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">px.box()</td><td class="p-3 border border-cyan/20">Box plot</td><td class="p-3 border border-cyan/20">Distribution comparison across categories</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">px.violin()</td><td class="p-3 border border-cyan/20">Violin plot</td><td class="p-3 border border-cyan/20">Density comparison across categories</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/90">px.pie()</td><td class="p-3 border border-cyan/20">Pie chart</td><td class="p-3 border border-cyan/20">Part-to-whole relationships</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/20">px.scatter_3d()</td><td class="p-3 border border-cyan/20">3D scatter plot</td><td class="p-3 border border-cyan/20">Three-dimensional relationships</td></tr><tr class="hover:bg-cyan/5 transition-colors"><td class="p-3 border border-cyan/20 font-bold text-cyan/20">px.choropleth()</td><td class="p-3 border border-cyan/20">Geographic map</td><td class="p-3 border border-cyan/20">Spatial data visualization</td></tr></tbody></table>
 
 Example: Interactive Chart Creation
@@ -229,6 +243,8 @@ fig.show()
 [END_CODE_SNIPPET]
 
 GEOSPATIAL VISUALIZATION WITH PLOTLY
+
+![Plotly Choropleth Map Example](/dataviz_choropleth_map.webp)
 
 Choropleth Maps:
 [START_CODE_SNIPPET]
@@ -267,6 +283,8 @@ fig.show()
 [END_CODE_SNIPPET]
 
 3D VISUALIZATION
+
+![Plotly 3D Scatter Plot](/dataviz_3d_scatter.webp)
 
 3D Scatter Plots:
 [START_CODE_SNIPPET]
@@ -333,6 +351,8 @@ fig.show()
 
 PLOTLY SUBPLOTS
 
+
+
 Creating multi-panel interactive charts:
 
 Subplots Example:
@@ -377,6 +397,8 @@ fig.show()
 [END_CODE_SNIPPET]
 
 PLOTLY DASH — INTERACTIVE DASHBOARDS
+
+![Plotly Dash Application Architecture](/dataviz_dash_architecture.webp)
 
 Dash is Plotly's framework for building web applications with interactive visualizations:
 
@@ -631,4 +653,4 @@ The key is knowing when to use each tool:
 - Use Plotly for interactive presentations and dashboards
 - Combine both in the same pipeline for maximum effectiveness
 - Always consider your audience and the story you're telling
-`; 
+`;

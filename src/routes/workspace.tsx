@@ -259,8 +259,30 @@ async function loadDatavizPyodide(): Promise<any> {
   if (datavizPyodidePromise) return datavizPyodidePromise;
   datavizPyodidePromise = (async () => {
     const pyodide = await loadPyodide();
-    // Load numpy, pandas, and matplotlib for data visualization
-    await pyodide.loadPackage(['numpy', 'pandas', 'matplotlib']);
+
+    // 1. Load everything available as a native Pyodide wheel first
+    await pyodide.loadPackage(['numpy', 'pandas', 'matplotlib', 'micropip']);
+
+    // 2. Install packages not bundled with Pyodide via micropip (PyPI pure-python/WASM wheels)
+    await pyodide.runPythonAsync(`
+import micropip
+await micropip.install(['seaborn', 'scipy', 'plotly'])
+    `);
+
+    // 3. Pre-import heavy libraries once so subsequent runs are fast,
+    //    and so any import errors surface immediately at load time (not at Run time).
+    await pyodide.runPythonAsync(`
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import plotly
+import plotly.express as px
+import plotly.graph_objects as go
+    `);
+
     return pyodide;
   })();
   return datavizPyodidePromise;
@@ -840,98 +862,122 @@ plt.show()`);
     setIsLoading(true);
     setOutput("Executing...");
     setIsError(false);
-
+  
     try {
       const pyodide = pyodideRef.current;
       let stdoutBuffer = "";
       let stderrBuffer = "";
-
+  
       pyodide.setStdout({
         batched: (str: string) => {
           stdoutBuffer += str + "\n";
         },
       });
-
+  
       pyodide.setStderr({
         batched: (str: string) => {
           stderrBuffer += str + "\n";
         },
       });
-
-      // Run the code with matplotlib support
+  
       const runCode = `
-import sys, io, builtins, traceback
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import base64
-from io import BytesIO
-
-# Capture plots as base64 images
-_plots = []
-_original_show = plt.show
-def _captured_show():
-    buf = BytesIO()
-    plt.savefig(buf, format='png', bbox_inches='tight', dpi=100)
-    buf.seek(0)
-    img_b64 = base64.b64encode(buf.read()).decode('utf-8')
-    _plots.append(img_b64)
-    plt.close()
-    return _original_show()
-
-plt.show = _captured_show
-
-try:
-    exec(${JSON.stringify(code)}, {"__builtins__": builtins, "__name__": "__main__", "plt": plt, "np": np, "pd": pd})
-    plt.show()
-except SystemExit:
-    pass
-except BaseException:
-    traceback.print_exc()
-
-# Print plot count
-if _plots:
-    print(f"Generated {len(_plots)} plot(s)")
-    for i, img in enumerate(_plots):
-        print(f"PLOT_{i+1}:data:image/png;base64,{img}")
-`;
-
+  import sys, io, builtins, traceback, json
+  import matplotlib
+  matplotlib.use('Agg')
+  import matplotlib.pyplot as plt
+  import numpy as np
+  import pandas as pd
+  import seaborn as sns
+  import plotly
+  import plotly.express as px
+  import plotly.graph_objects as go
+  import base64
+  from io import BytesIO
+  
+  # ── Capture Matplotlib/Seaborn figures as base64 PNGs ──────────────────────
+  _plots = []
+  _original_show = plt.show
+  def _captured_show(*args, **kwargs):
+      buf = BytesIO()
+      plt.savefig(buf, format='png', bbox_inches='tight', dpi=100)
+      buf.seek(0)
+      img_b64 = base64.b64encode(buf.read()).decode('utf-8')
+      _plots.append(('png', img_b64))
+      plt.close('all')
+  
+  plt.show = _captured_show
+  
+  # ── Capture Plotly figures as embeddable HTML/JS (no kaleido needed) ───────
+  _plotly_htmls = []
+  def _captured_plotly_show(self, *args, **kwargs):
+      html = plotly.io.to_html(self, include_plotlyjs='cdn', full_html=False)
+      _plotly_htmls.append(html)
+  
+  plotly.graph_objects.Figure.show = _captured_plotly_show
+  
+  _globals = {
+      "__builtins__": builtins,
+      "__name__": "__main__",
+      "plt": plt,
+      "np": np,
+      "pd": pd,
+      "sns": sns,
+      "px": px,
+      "go": go,
+      "plotly": plotly,
+  }
+  
+  try:
+      exec(${JSON.stringify(code)}, _globals)
+  except SystemExit:
+      pass
+  except BaseException:
+      traceback.print_exc()
+  
+  # Emit results as a single JSON blob on its own dedicated marker line
+  _result = {
+      "plots": [p[1] for p in _plots],
+      "plotly_htmls": _plotly_htmls
+  }
+  print("__DATAVIZ_RESULT__:" + json.dumps(_result))
+  `;
+  
       await pyodide.runPythonAsync(runCode);
-
-      // Parse output for embedded images
+  
+      // Parse output: pull out the single JSON result line, everything else is plain stdout
       const lines = stdoutBuffer.split('\n');
       let cleanOutput = '';
       let imageData: string[] = [];
-
+      let plotlyHtmls: string[] = [];
+  
       for (const line of lines) {
-        if (line.startsWith('PLOT_')) {
-          const imgMatch = line.match(/PLOT_\d+:data:image\/png;base64,(.+)/);
-          if (imgMatch) {
-            imageData.push(`data:image/png;base64,${imgMatch[1]}`);
+        if (line.startsWith('__DATAVIZ_RESULT__:')) {
+          try {
+            const jsonStr = line.slice('__DATAVIZ_RESULT__:'.length);
+            const parsed = JSON.parse(jsonStr);
+            imageData = (parsed.plots || []).map((b64: string) => `data:image/png;base64,${b64}`);
+            plotlyHtmls = parsed.plotly_htmls || [];
+          } catch (e) {
+            // ignore parse errors, fall through
           }
         } else {
           cleanOutput += line + '\n';
         }
       }
-
+  
       if (stderrBuffer) {
         setIsError(true);
         setOutput(stderrBuffer.replace(/\n$/, ""));
-      } else if (imageData.length > 0) {
-        // Show images inline
-        const imageHtml = imageData.map(img => 
-          `<img src="${img}" alt="Generated Plot" style="max-width: 100%; border-radius: 8px; margin: 8px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />`
-        ).join('');
-        setOutput(cleanOutput || "Plot generated successfully!");
-        // We'll render images in the output area
+      } else if (imageData.length > 0 || plotlyHtmls.length > 0) {
+        setOutput(cleanOutput.trim() || "Plot generated successfully!");
         setIsError(false);
-        // Store images in a ref for rendering
         (window as any).__dataviz_images = imageData;
+        (window as any).__dataviz_plotly_htmls = plotlyHtmls;
       } else {
         setIsError(false);
-        setOutput(cleanOutput || "Program exited with no output.");
+        setOutput(cleanOutput.trim() || "Program exited with no output.");
+        (window as any).__dataviz_images = [];
+        (window as any).__dataviz_plotly_htmls = [];
       }
     } catch (err: any) {
       setIsError(true);
@@ -940,9 +986,6 @@ if _plots:
       setIsLoading(false);
     }
   };
-
-  // Get stored images for rendering
-  const images = (window as any).__dataviz_images || [];
 
   return (
     <div className="h-full flex flex-col">
@@ -957,12 +1000,13 @@ if _plots:
             <span className="ml-2 text-white/40">|</span>
             <span className="ml-2 flex items-center gap-1 text-cyan/70">
               <Terminal className="size-3" />
-              {isLoaded ? "Ready" : loadError ? "Load failed" : "Loading…"}
+              {isLoaded ? "Ready" : loadError ? "Load failed" : "Loading Python, Pandas, Seaborn & Plotly…"}
             </span>
           </div>
           <div className="flex gap-2">
             <button 
-              onClick={() => setCode(experimentCode || `import matplotlib.pyplot as plt
+              onClick={() => {
+                setCode(experimentCode || `import matplotlib.pyplot as plt
 import numpy as np
 
 x = np.linspace(0, 10, 100)
@@ -972,7 +1016,12 @@ plt.figure(figsize=(8, 4))
 plt.plot(x, y)
 plt.title('Sine Wave')
 plt.grid(True)
-plt.show()`)} 
+plt.show()`);
+                setOutput("");
+                setIsError(false);
+                (window as any).__dataviz_images = [];
+                (window as any).__dataviz_plotly_htmls = [];
+              }} 
               className="inline-flex items-center gap-2 rounded-md border border-border/10 bg-white/5 px-3 py-1.5 text-xs text-white/70 hover:bg-white/10 hover:text-white transition-colors"
             >
               <RotateCcw className="size-3.5" /> Reset
@@ -1019,14 +1068,28 @@ plt.show()`)}
                 <pre className={`text-[13px] font-mono whitespace-pre-wrap ${isError ? "text-red-400" : "text-green-400"}`}>
                   {output}
                 </pre>
-                {images.length > 0 && (
+                {(window as any).__dataviz_images?.length > 0 && (
                   <div className="mt-4 space-y-4">
-                    {images.map((img: string, i: number) => (
+                    {(window as any).__dataviz_images.map((img: string, i: number) => (
                       <img 
                         key={i} 
                         src={img} 
                         alt={`Generated Plot ${i + 1}`} 
                         className="max-w-full rounded-lg border border-white/10 shadow-lg"
+                      />
+                    ))}
+                  </div>
+                )}
+                {(window as any).__dataviz_plotly_htmls?.length > 0 && (
+                  <div className="mt-4 space-y-4">
+                    {(window as any).__dataviz_plotly_htmls.map((html: string, i: number) => (
+                      <iframe
+                        key={`plotly-${i}`}
+                        srcDoc={html}
+                        title={`Plotly Chart ${i + 1}`}
+                        className="w-full rounded-lg border border-white/10 shadow-lg bg-white"
+                        style={{ height: '500px' }}
+                        sandbox="allow-scripts"
                       />
                     ))}
                   </div>
@@ -1072,16 +1135,16 @@ function Workspace() {
   const pyodideRef = useRef<any>(null); // pyodide instance
 
   // ── Quantum-specific Pyodide state ────────────────────────────────────────────
-const [quantumPyodideLoaded, setQuantumPyodideLoaded] = useState(false);
-const [quantumPyodideError, setQuantumPyodideError] = useState<string | null>(null);
-const quantumPyodideRef = useRef<any>(null);
-const quantumShimRef = useRef<string | null>(null); // stores shim source
+  const [quantumPyodideLoaded, setQuantumPyodideLoaded] = useState(false);
+  const [quantumPyodideError, setQuantumPyodideError] = useState<string | null>(null);
+  const quantumPyodideRef = useRef<any>(null);
+  const quantumShimRef = useRef<string | null>(null);
 
-// ── DataViz-specific Pyodide state ────────────────────────────────────────────
-const [datavizPyodideLoaded, setDatavizPyodideLoaded] = useState(false);
-const [datavizPyodideError, setDatavizPyodideError] = useState<string | null>(null);
-const datavizPyodideRef = useRef<any>(null);
-const datavizShimRef = useRef<string | null>(null);
+  // ── DataViz-specific Pyodide state ────────────────────────────────────────────
+  const [datavizPyodideLoaded, setDatavizPyodideLoaded] = useState(false);
+  const [datavizPyodideError, setDatavizPyodideError] = useState<string | null>(null);
+  const datavizPyodideRef = useRef<any>(null);
+  const datavizShimRef = useRef<string | null>(null);
 
   const [showPostSolveModal, setShowPostSolveModal] = useState(false);
 
@@ -1474,17 +1537,17 @@ except BaseException:
   }, [isQuantum, quantumPyodideLoaded]);
 
   // ── DataViz Pyodide loader ────────────────────────────────────────────────────
-useEffect(() => {
-  // Pre-load Pyodide + numpy + pandas + matplotlib for data visualization courses
-  if (isDataViz && !datavizPyodideLoaded) {
-    loadDatavizPyodide()
-      .then(pyodide => {
-        datavizPyodideRef.current = pyodide;
-        setDatavizPyodideLoaded(true);
-      })
-      .catch(err => setDatavizPyodideError(err.message));
-  }
-}, [isDataViz, datavizPyodideLoaded]);
+  useEffect(() => {
+    // Pre-load Pyodide + numpy + pandas + matplotlib for data visualization courses
+    if (isDataViz && !datavizPyodideLoaded) {
+      loadDatavizPyodide()
+        .then(pyodide => {
+          datavizPyodideRef.current = pyodide;
+          setDatavizPyodideLoaded(true);
+        })
+        .catch(err => setDatavizPyodideError(err.message));
+    }
+  }, [isDataViz, datavizPyodideLoaded]);
 
   const WORKSPACE_STEPS = useMemo(() => {
     if (isMathCourse) {
@@ -1651,15 +1714,15 @@ useEffect(() => {
     if (!user) {
       // ── GUEST PATH: Check if they've already skipped once for this experiment ──
       const alreadyShown = sessionStorage.getItem('vlms_popup_shown') === 'true';
-if (alreadyShown) {
-  toast.success("Experiment Completed! 🎉");
-  if (details?.course?.id) {
-    navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
-  } else {
-    navigate({ to: '/courses' });
-  }
-  return;
-}
+      if (alreadyShown) {
+        toast.success("Experiment Completed! 🎉");
+        if (details?.course?.id) {
+          navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
+        } else {
+          navigate({ to: '/courses' });
+        }
+        return;
+      }
   
       // First time completing without login — show the prompt modal
       setShowPostSolveModal(true);
@@ -1728,92 +1791,91 @@ if (alreadyShown) {
   };
 
   // Called when guest clicks "Skip for now"
-const handlePostSolveSkip = () => {
-  setShowPostSolveModal(false);
-  if (details?.experiment?.id && details?.course?.id) {
-    sessionStorage.setItem('vlms_popup_shown', 'true');
-  }
-  toast.success("Experiment saved locally! Sign in anytime to sync. 🎉");
-  if (details?.course?.id) {
-    navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
-  } else {
-    navigate({ to: '/courses' });
-  }
-};
-
-// Called when guest successfully logs in / signs up from the post-solve modal
-const handlePostSolveAuthenticated = async (userId: string) => {
-  setShowPostSolveModal(false);
-
-  await migrateGuestProgress(userId);
-
-  if (details?.experiment?.id && details?.course?.id) {
-    await markExperimentComplete(userId, details.experiment.id, details.course.id);
-  }
-
-  try {
-    const { data: completions } = await supabase
-      .from('experiment_completions')
-      .select('experiment_id')
-      .eq('user_id', userId);
-    if ((completions?.length ?? 0) === 1) {
-      await awardBadge(userId, 'first_solve');
+  const handlePostSolveSkip = () => {
+    setShowPostSolveModal(false);
+    if (details?.experiment?.id && details?.course?.id) {
+      sessionStorage.setItem('vlms_popup_shown', 'true');
     }
-  } catch (err) {
-    console.error('Badge error on post-solve auth:', err);
-  }
+    toast.success("Experiment saved locally! Sign in anytime to sync. 🎉");
+    if (details?.course?.id) {
+      navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
+    } else {
+      navigate({ to: '/courses' });
+    }
+  };
 
-  toast.success("Progress saved! Welcome to VLMS 🎉");
+  // Called when guest successfully logs in / signs up from the post-solve modal
+  const handlePostSolveAuthenticated = async (userId: string) => {
+    setShowPostSolveModal(false);
 
-  // Wait for Supabase session to be fully written before reloading
-  await new Promise(r => setTimeout(r, 800));
+    await migrateGuestProgress(userId);
 
-  window.location.href = details?.course?.id
-    ? `/course/${details.course.id}#experiments`
-    : '/courses';
-};
+    if (details?.experiment?.id && details?.course?.id) {
+      await markExperimentComplete(userId, details.experiment.id, details.course.id);
+    }
 
-
-const handleLearnComplete = () => {
-  if (details?.experiment?.id) {
-    // Mark as learned (for unlocking Solve mode in non-math courses)
-    const learned = JSON.parse(localStorage.getItem('learned_experiments') || '{}');
-    learned[details.experiment.id] = true;
-    localStorage.setItem('learned_experiments', JSON.stringify(learned));
-
-    if (isMathCourse) {
-      // For math courses, also mark as solved to count toward progress
-      const solved = JSON.parse(localStorage.getItem('solved_experiments') || '{}');
-      solved[details.experiment.id] = true;
-      localStorage.setItem('solved_experiments', JSON.stringify(solved));
-
-      // Also save to Supabase if user is logged in
-      const saveCompletion = async () => {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user && details?.experiment?.id && details?.course?.id) {
-          await markExperimentComplete(user.id, details.experiment.id, details.course.id);
-        }
-      };
-      saveCompletion();
-
-      toast.success("Module Completed Successfully! 🎉");
-      if (details?.course?.id) {
-        navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
-      } else {
-        navigate({ to: '/courses' });
+    try {
+      const { data: completions } = await supabase
+        .from('experiment_completions')
+        .select('experiment_id')
+        .eq('user_id', userId);
+      if ((completions?.length ?? 0) === 1) {
+        await awardBadge(userId, 'first_solve');
       }
-      return;
+    } catch (err) {
+      console.error('Badge error on post-solve auth:', err);
     }
 
-    toast.success("Learn phase completed! Solve mode unlocked. 🎉");
-    navigate({
-      to: "/workspace",
-      search: { exp: details.experiment.id, mode: "solve" }
-    });
-    setActiveStepIndex(0);
-    setMaxStepReached(0);
-  }
-};
+    toast.success("Progress saved! Welcome to VLMS 🎉");
+
+    // Wait for Supabase session to be fully written before reloading
+    await new Promise(r => setTimeout(r, 800));
+
+    window.location.href = details?.course?.id
+      ? `/course/${details.course.id}#experiments`
+      : '/courses';
+  };
+
+  const handleLearnComplete = () => {
+    if (details?.experiment?.id) {
+      // Mark as learned (for unlocking Solve mode in non-math courses)
+      const learned = JSON.parse(localStorage.getItem('learned_experiments') || '{}');
+      learned[details.experiment.id] = true;
+      localStorage.setItem('learned_experiments', JSON.stringify(learned));
+
+      if (isMathCourse) {
+        // For math courses, also mark as solved to count toward progress
+        const solved = JSON.parse(localStorage.getItem('solved_experiments') || '{}');
+        solved[details.experiment.id] = true;
+        localStorage.setItem('solved_experiments', JSON.stringify(solved));
+
+        // Also save to Supabase if user is logged in
+        const saveCompletion = async () => {
+          const { data: { user } } = await supabase.auth.getUser();
+          if (user && details?.experiment?.id && details?.course?.id) {
+            await markExperimentComplete(user.id, details.experiment.id, details.course.id);
+          }
+        };
+        saveCompletion();
+
+        toast.success("Module Completed Successfully! 🎉");
+        if (details?.course?.id) {
+          navigate({ to: `/course/${details.course.id}`, hash: 'experiments' });
+        } else {
+          navigate({ to: '/courses' });
+        }
+        return;
+      }
+
+      toast.success("Learn phase completed! Solve mode unlocked. 🎉");
+      navigate({
+        to: "/workspace",
+        search: { exp: details.experiment.id, mode: "solve" }
+      });
+      setActiveStepIndex(0);
+      setMaxStepReached(0);
+    }
+  };
 
   const handleNext = () => {
     if (!isNextEnabled) {
