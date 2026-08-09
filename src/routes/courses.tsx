@@ -6,6 +6,7 @@ import {
   Sparkles, Bot, Star, Network, Cpu, TerminalSquare, Coffee,
   MessageSquareText, Wifi, Code2, ArrowRight, Share2, Hexagon,
   Component, ChevronRight, Calculator, Sigma, FlaskConical,
+  ChartArea,
 } from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -37,6 +38,7 @@ function getTopicIcon(topic: string) {
     return <FlaskConical className={iconClass} />;
   if (topic === "Computer Architecture and Digital Logic")
     return <Cpu className={iconClass} />;
+  if (topic.startsWith("Data Visualization")) return <ChartArea className={iconClass} />;
 
   return null;
 }
@@ -63,7 +65,14 @@ function getSubtitle(topic: string) {
     return "Lagrangian mechanics, Hamiltonian theory & Maxwell's equations";
   if (topic === "Computer Architecture and Digital Logic")
     return "Number systems, CPU design, microprocessors & Boolean algebra";
-
+  if (topic === "Data Visualization Foundations")
+    return "Charts, data types & design principles";
+  if (topic === "Data Visualization with Pandas")
+    return "DataFrames, cleaning & aggregation for plotting";
+  if (topic === "Data Visualization with Matplotlib")
+    return "Static & multi-panel plotting in Python";
+  if (topic === "Data Visualization with Seaborn & Plotly")
+    return "Statistical graphics & interactive dashboards";
   return "Comprehensive learning module";
 }
 
@@ -186,6 +195,228 @@ function getMathBgIcon(topic: string) {
   return null;
 }
 
+function getDataVizBgIcon(topic: string) {
+  // ── Data Visualization Foundations ────────────────────────────────
+  if (topic === "Data Visualization Foundations") {
+    return (
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-30 group-hover:opacity-50">
+        <svg
+          className="w-56 h-56 translate-x-10 translate-y-10"
+          viewBox="0 0 200 200"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+        >
+          {/* Multiple chart types */}
+          <g className="text-blue-500/60">
+            {/* Bar chart */}
+            <rect x="20" y="80" width="20" height="60" strokeWidth="2" className="text-blue-500/70" />
+            <rect x="50" y="60" width="20" height="80" strokeWidth="2" className="text-blue-500/70" />
+            <rect x="80" y="40" width="20" height="100" strokeWidth="2" className="text-blue-500/70" />
+            <rect x="110" y="70" width="20" height="70" strokeWidth="2" className="text-blue-500/70" />
+            {/* Line chart */}
+            <path d="M 150 100 L 160 80 L 170 90 L 180 60 L 190 70" strokeWidth="2" className="text-blue-400/60" />
+            <circle cx="150" cy="100" r="3" fill="currentColor" className="text-blue-400" />
+            <circle cx="160" cy="80" r="3" fill="currentColor" className="text-blue-400" />
+            <circle cx="170" cy="90" r="3" fill="currentColor" className="text-blue-400" />
+            <circle cx="180" cy="60" r="3" fill="currentColor" className="text-blue-400" />
+            <circle cx="190" cy="70" r="3" fill="currentColor" className="text-blue-400" />
+            {/* Pie chart */}
+            <circle cx="50" cy="150" r="25" strokeWidth="2" className="text-blue-500/50" />
+            <path d="M 50 150 L 50 125 A 25 25 0 0 1 75 150 Z" fill="currentColor" className="text-blue-400/30" stroke="none" />
+            <path d="M 50 150 L 75 150 A 25 25 0 0 1 35 135 Z" fill="currentColor" className="text-blue-500/20" stroke="none" />
+          </g>
+          {/* Axis labels */}
+          <text x="25" y="175" fontSize="8" fill="currentColor" stroke="none" className="text-blue-400/50">A</text>
+          <text x="55" y="175" fontSize="8" fill="currentColor" stroke="none" className="text-blue-400/50">B</text>
+          <text x="85" y="175" fontSize="8" fill="currentColor" stroke="none" className="text-blue-400/50">C</text>
+          <text x="115" y="175" fontSize="8" fill="currentColor" stroke="none" className="text-blue-400/50">D</text>
+        </svg>
+      </div>
+    );
+  }
+
+  // ── Data Visualization with Pandas ─────────────────────────────────
+  if (topic === "Data Visualization with Pandas") {
+    return (
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-30 group-hover:opacity-50">
+        <svg
+          className="w-56 h-56 translate-x-8 translate-y-8"
+          viewBox="0 0 200 200"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+        >
+          {/* DataFrame grid */}
+          <g className="text-cyan-500/60" strokeWidth="1.5">
+            {/* Table outline */}
+            <rect x="30" y="30" width="140" height="140" rx="2" strokeWidth="2" className="text-cyan-500/70" />
+            {/* Column headers */}
+            <rect x="30" y="30" width="140" height="25" fill="currentColor" className="text-cyan-500/20" stroke="none" />
+            <line x1="30" y1="55" x2="170" y2="55" />
+            <line x1="100" y1="30" x2="100" y2="170" />
+            <line x1="130" y1="30" x2="130" y2="170" />
+            {/* Row lines */}
+            <line x1="30" y1="80" x2="170" y2="80" />
+            <line x1="30" y1="105" x2="170" y2="105" />
+            <line x1="30" y1="130" x2="170" y2="130" />
+            {/* Data cells with numbers */}
+            <text x="45" y="72" fontSize="10" fill="currentColor" stroke="none" className="text-cyan-400/70" fontFamily="monospace">1.2</text>
+            <text x="110" y="72" fontSize="10" fill="currentColor" stroke="none" className="text-cyan-400/70" fontFamily="monospace">3.4</text>
+            <text x="145" y="72" fontSize="10" fill="currentColor" stroke="none" className="text-cyan-400/70" fontFamily="monospace">5.6</text>
+            <text x="45" y="97" fontSize="10" fill="currentColor" stroke="none" className="text-cyan-400/70" fontFamily="monospace">7.8</text>
+            <text x="110" y="97" fontSize="10" fill="currentColor" stroke="none" className="text-cyan-400/70" fontFamily="monospace">9.0</text>
+            <text x="145" y="97" fontSize="10" fill="currentColor" stroke="none" className="text-cyan-400/70" fontFamily="monospace">1.2</text>
+            <text x="45" y="122" fontSize="10" fill="currentColor" stroke="none" className="text-cyan-400/70" fontFamily="monospace">3.4</text>
+            <text x="110" y="122" fontSize="10" fill="currentColor" stroke="none" className="text-cyan-400/70" fontFamily="monospace">5.6</text>
+            <text x="145" y="122" fontSize="10" fill="currentColor" stroke="none" className="text-cyan-400/70" fontFamily="monospace">7.8</text>
+            {/* Column labels */}
+            <text x="45" y="48" fontSize="9" fill="currentColor" stroke="none" className="text-cyan-300/60" fontFamily="monospace">x</text>
+            <text x="112" y="48" fontSize="9" fill="currentColor" stroke="none" className="text-cyan-300/60" fontFamily="monospace">y</text>
+            <text x="142" y="48" fontSize="9" fill="currentColor" stroke="none" className="text-cyan-300/60" fontFamily="monospace">z</text>
+            {/* Row labels */}
+            <text x="12" y="72" fontSize="9" fill="currentColor" stroke="none" className="text-cyan-300/50" fontFamily="monospace">0</text>
+            <text x="12" y="97" fontSize="9" fill="currentColor" stroke="none" className="text-cyan-300/50" fontFamily="monospace">1</text>
+            <text x="12" y="122" fontSize="9" fill="currentColor" stroke="none" className="text-cyan-300/50" fontFamily="monospace">2</text>
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
+  // ── Data Visualization with Matplotlib ─────────────────────────────
+  if (topic === "Data Visualization with Matplotlib") {
+    return (
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-30 group-hover:opacity-50">
+        <svg
+          className="w-56 h-56 translate-x-10 translate-y-10"
+          viewBox="0 0 200 200"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+        >
+          {/* Subplot grid layout */}
+          <g className="text-amber-500/60" strokeWidth="1.5">
+            {/* Top-left subplot - line chart */}
+            <rect x="15" y="15" width="80" height="75" rx="3" strokeWidth="2" className="text-amber-500/70" />
+            <path d="M 20 80 L 35 60 L 50 70 L 65 40 L 80 50" strokeWidth="2" className="text-amber-400/60" />
+            <circle cx="20" cy="80" r="2.5" fill="currentColor" className="text-amber-400" />
+            <circle cx="35" cy="60" r="2.5" fill="currentColor" className="text-amber-400" />
+            <circle cx="50" cy="70" r="2.5" fill="currentColor" className="text-amber-400" />
+            <circle cx="65" cy="40" r="2.5" fill="currentColor" className="text-amber-400" />
+            <circle cx="80" cy="50" r="2.5" fill="currentColor" className="text-amber-400" />
+            {/* Axes */}
+            <line x1="20" y1="85" x2="85" y2="85" strokeWidth="1" className="text-amber-500/30" />
+            <line x1="20" y1="20" x2="20" y2="85" strokeWidth="1" className="text-amber-500/30" />
+            
+            {/* Top-right subplot - scatter */}
+            <rect x="105" y="15" width="80" height="75" rx="3" strokeWidth="2" className="text-amber-500/70" />
+            <circle cx="120" cy="70" r="3" fill="currentColor" className="text-amber-400/70" />
+            <circle cx="135" cy="50" r="4" fill="currentColor" className="text-amber-500/70" />
+            <circle cx="150" cy="65" r="3" fill="currentColor" className="text-amber-400/70" />
+            <circle cx="165" cy="35" r="5" fill="currentColor" className="text-amber-600/70" />
+            <circle cx="140" cy="30" r="3" fill="currentColor" className="text-amber-400/70" />
+            <line x1="110" y1="85" x2="175" y2="85" strokeWidth="1" className="text-amber-500/30" />
+            <line x1="110" y1="20" x2="110" y2="85" strokeWidth="1" className="text-amber-500/30" />
+            
+            {/* Bottom-left subplot - bar */}
+            <rect x="15" y="105" width="80" height="80" rx="3" strokeWidth="2" className="text-amber-500/70" />
+            <rect x="30" y="140" width="12" height="40" fill="currentColor" className="text-amber-400/40" stroke="none" />
+            <rect x="48" y="120" width="12" height="60" fill="currentColor" className="text-amber-500/40" stroke="none" />
+            <rect x="66" y="130" width="12" height="50" fill="currentColor" className="text-amber-400/40" stroke="none" />
+            <line x1="25" y1="180" x2="85" y2="180" strokeWidth="1" className="text-amber-500/30" />
+            <line x1="25" y1="110" x2="25" y2="180" strokeWidth="1" className="text-amber-500/30" />
+            
+            {/* Bottom-right subplot - heatmap style grid */}
+            <rect x="105" y="105" width="80" height="80" rx="3" strokeWidth="2" className="text-amber-500/70" />
+            <rect x="115" y="115" width="14" height="14" fill="currentColor" className="text-amber-300/30" stroke="none" />
+            <rect x="131" y="115" width="14" height="14" fill="currentColor" className="text-amber-500/40" stroke="none" />
+            <rect x="147" y="115" width="14" height="14" fill="currentColor" className="text-amber-600/30" stroke="none" />
+            <rect x="163" y="115" width="14" height="14" fill="currentColor" className="text-amber-300/30" stroke="none" />
+            <rect x="115" y="131" width="14" height="14" fill="currentColor" className="text-amber-600/40" stroke="none" />
+            <rect x="131" y="131" width="14" height="14" fill="currentColor" className="text-amber-300/30" stroke="none" />
+            <rect x="147" y="131" width="14" height="14" fill="currentColor" className="text-amber-400/40" stroke="none" />
+            <rect x="163" y="131" width="14" height="14" fill="currentColor" className="text-amber-500/30" stroke="none" />
+            <rect x="115" y="147" width="14" height="14" fill="currentColor" className="text-amber-400/30" stroke="none" />
+            <rect x="131" y="147" width="14" height="14" fill="currentColor" className="text-amber-600/40" stroke="none" />
+            <rect x="147" y="147" width="14" height="14" fill="currentColor" className="text-amber-300/30" stroke="none" />
+            <rect x="163" y="147" width="14" height="14" fill="currentColor" className="text-amber-400/40" stroke="none" />
+            
+            {/* Subplot labels */}
+            <text x="40" y="190" fontSize="8" fill="currentColor" stroke="none" className="text-amber-400/50">(a)</text>
+            <text x="135" y="190" fontSize="8" fill="currentColor" stroke="none" className="text-amber-400/50">(b)</text>
+            <text x="40" y="95" fontSize="8" fill="currentColor" stroke="none" className="text-amber-400/50">(c)</text>
+            <text x="135" y="95" fontSize="8" fill="currentColor" stroke="none" className="text-amber-400/50">(d)</text>
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
+  // ── Data Visualization with Seaborn & Plotly ──────────────────────
+  if (topic === "Data Visualization with Seaborn & Plotly") {
+    return (
+      <div className="absolute right-0 bottom-0 pointer-events-none transition-all duration-700 group-hover:scale-105 overflow-visible opacity-30 group-hover:opacity-50">
+        <svg
+          className="w-56 h-56 translate-x-8 translate-y-8"
+          viewBox="0 0 200 200"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+        >
+          {/* Statistical visualizations */}
+          <g className="text-purple-500/60" strokeWidth="1.5">
+            {/* Box plot */}
+            <rect x="20" y="80" width="50" height="40" strokeWidth="2" className="text-purple-500/70" fill="currentColor" fillOpacity="0.1" />
+            <line x1="45" y1="80" x2="45" y2="65" strokeWidth="2" className="text-purple-500/70" />
+            <line x1="35" y1="65" x2="55" y2="65" strokeWidth="2" className="text-purple-500/70" />
+            <line x1="45" y1="120" x2="45" y2="135" strokeWidth="2" className="text-purple-500/70" />
+            <line x1="35" y1="135" x2="55" y2="135" strokeWidth="2" className="text-purple-500/70" />
+            <line x1="20" y1="100" x2="70" y2="100" strokeWidth="1.5" className="text-purple-400/50" />
+            {/* Outliers */}
+            <circle cx="75" cy="70" r="2.5" fill="currentColor" className="text-purple-400" />
+            <circle cx="78" cy="90" r="2.5" fill="currentColor" className="text-purple-400" />
+            <circle cx="15" cy="110" r="2.5" fill="currentColor" className="text-purple-400" />
+            
+            {/* Distribution/KDE plot */}
+            <path d="M 95 130 Q 105 110 115 100 Q 125 90 135 100 Q 145 110 155 130" strokeWidth="2" className="text-purple-400/70" />
+            <path d="M 95 130 Q 105 120 115 110 Q 125 100 135 110 Q 145 120 155 130" strokeWidth="1.5" className="text-purple-300/40" />
+            {/* Fill under KDE */}
+            <path d="M 95 130 Q 105 110 115 100 Q 125 90 135 100 Q 145 110 155 130 L 155 130 L 95 130 Z" fill="currentColor" className="text-purple-400/15" stroke="none" />
+            
+            {/* Interactive controls (Plotly icons) */}
+            <g className="text-purple-400/50" strokeWidth="1.5">
+              {/* Zoom icon */}
+              <circle cx="170" cy="20" r="12" strokeWidth="2" className="text-purple-500/60" />
+              <line x1="170" y1="14" x2="170" y2="26" />
+              <line x1="164" y1="20" x2="176" y2="20" />
+              <line x1="179" y1="29" x2="185" y2="35" />
+              
+              {/* Pan/hand icon */}
+              <path d="M 185 45 L 185 55 Q 185 62 178 62 L 168 60 Q 168 55 165 55 L 165 48" strokeWidth="2" />
+              <path d="M 175 45 L 175 55" strokeWidth="1.5" />
+              <path d="M 180 45 L 180 55" strokeWidth="1.5" />
+            </g>
+            
+            {/* Color palette swatches (Seaborn) */}
+            <rect x="90" y="150" width="12" height="12" fill="currentColor" className="text-purple-400" />
+            <rect x="104" y="150" width="12" height="12" fill="currentColor" className="text-purple-500" />
+            <rect x="118" y="150" width="12" height="12" fill="currentColor" className="text-purple-600" />
+            <rect x="132" y="150" width="12" height="12" fill="currentColor" className="text-purple-400" />
+            <rect x="146" y="150" width="12" height="12" fill="currentColor" className="text-purple-500" />
+            
+            {/* Facet grid indicator */}
+            <rect x="10" y="160" width="50" height="30" rx="2" strokeWidth="1" strokeDasharray="3 3" className="text-purple-400/30" />
+            <text x="18" y="178" fontSize="8" fill="currentColor" stroke="none" className="text-purple-400/40">facet</text>
+          </g>
+        </svg>
+      </div>
+    );
+  }
+
+  return null;
+}
+
 function getBgIcon(topic: string) {
   // ── Route math topics to the dedicated math bg-icon helper ────────
   if (
@@ -194,6 +425,9 @@ function getBgIcon(topic: string) {
     topic === "Computer Architecture and Digital Logic"
   ) {
     return getMathBgIcon(topic);
+  }
+  if (topic.startsWith("Data Visualization")) {
+    return getDataVizBgIcon(topic); // new function, similar SVG bar/scatter motif, rose/pink theme
   }
 
   const baseClass =
@@ -708,8 +942,8 @@ function CoursesPage() {
 
   // ── Tab state — now includes "mathematics" ───────────────────────
   const [activeTab, setActiveTab] = useState<
-    "programming" | "ai" | "emerging" | "mathematics"
-  >("programming");
+    "mathematics" | "emerging" | "ai" | "programming" | "dataviz"
+  >("mathematics");
 
   useEffect(() => {
     const profileStr = localStorage.getItem("currentUserProfile");
@@ -741,7 +975,8 @@ function CoursesPage() {
       // exclude the new math courses from "Emerging"
       c !== "Mathematics for Emerging Technologies" &&
       c !== "Classical Mechanics and Electromagnetism" &&
-      c !== "Computer Architecture and Digital Logic"
+      c !== "Computer Architecture and Digital Logic" &&
+      !c.startsWith("Data Visualization")
   );
 
   // ── NEW: Mathematics tab filter ──────────────────────────────────
@@ -752,6 +987,8 @@ function CoursesPage() {
       "computer architecture and digital logic",
     ].includes(c.toLowerCase())
   );
+
+  const dataVizCourses = courses.filter((c) => c.toLowerCase().startsWith("data visualization"));
 
   // ── Card renderer (shared across all tabs) ───────────────────────
   const renderCard = (t: string) => {
@@ -766,15 +1003,10 @@ function CoursesPage() {
       t === "Classical Mechanics and Electromagnetism" ||
       t === "Computer Architecture and Digital Logic";
 
-    const cardBgClass = isMath
-      ? "bg-amber-50/60 dark:bg-amber-950/20"
-      : "bg-[#f0f9fa] dark:bg-cyan-950/30";
-    const cardBorderClass = isMath
-      ? "border-amber-400/30 dark:border-amber-600/30"
-      : "border-[#14b8a6]/20 dark:border-slate-500";
-    const btnBorderClass = isMath
-      ? "border-amber-400/50 dark:border-amber-600/40"
-      : "border-[#14b8a6]/40 dark:border-slate-500";
+    const isDataViz = t.startsWith("Data Visualization");
+    const cardBgClass = isMath ? "bg-amber-50/60 dark:bg-amber-950/20" : isDataViz ? "bg-rose-50/60 dark:bg-rose-950/20" : "bg-[#f0f9fa] dark:bg-cyan-950/30";
+    const cardBorderClass = isMath ? "border-amber-400/30 dark:border-amber-600/30" : isDataViz ? "border-rose-400/30 dark:border-rose-600/30" : "border-[#14b8a6]/20 dark:border-slate-500";
+    const btnBorderClass = isMath ? "border-amber-400/50 dark:border-amber-600/40" : isDataViz ? "border-rose-400/50 dark:border-rose-600/40" : "border-[#14b8a6]/40 dark:border-slate-500";
 
     return (
       <Link
@@ -878,6 +1110,18 @@ function CoursesPage() {
         >
           <Calculator className="size-4" /> Mathematics
         </button>
+
+        {/* Data Visualization */}
+        <button
+  onClick={() => setActiveTab("dataviz")}
+  className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all ${
+    activeTab === "dataviz"
+      ? "bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-400/50 shadow-sm"
+      : "bg-white/5 dark:bg-slate-800/50 text-muted-foreground border border-transparent hover:bg-white/10 dark:hover:bg-slate-800"
+  }`}
+>
+  <ChartArea className="size-4" /> Data Visualization
+</button>
       </div>
 
       {/* ── Tab Content ─────────────────────────────────────────────── */}
@@ -904,6 +1148,12 @@ function CoursesPage() {
       {activeTab === "mathematics" && mathCourses.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
           {mathCourses.map((t) => renderCard(t))}
+        </div>
+      )}
+
+      {activeTab === "dataviz" && dataVizCourses.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          {dataVizCourses.map((t) => renderCard(t))}
         </div>
       )}
     </div>

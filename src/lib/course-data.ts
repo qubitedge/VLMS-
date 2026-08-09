@@ -13,6 +13,7 @@ import { qiskitCourse } from './qiskit-data';
 import { mathFoundationsCourse } from './math-c1-data'
 import { classicalMechCourse } from './math-c2-data';
 import { compArchCourse } from './math-c3-data';
+import { datavizSeabornPlotlyCourse } from "./dataviz-seaborn-plotly-data";
 export type MCQ = {
   question: string;
   options: string[];
@@ -5644,6 +5645,7 @@ export const courses: Record<string, Course> = {
   "mathematics-for-emerging-technologies": mathFoundationsCourse,
   "classical-mechanics-and-electromagnetism" : classicalMechCourse,
   "computer-architecture-and-digital-logic" : compArchCourse,
+  "data-visualization-with-seaborn-plotly": datavizSeabornPlotlyCourse,
   "machine-learning": {
     id: "machine-learning",
     title: "Machine Learning Lab",

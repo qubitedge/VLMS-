@@ -252,6 +252,20 @@ async function loadQuantumPyodide(): Promise<any> {
   return quantumPyodidePromise;
 }
 
+// ── DataViz-specific Pyodide state ────────────────────────────────────────────
+let datavizPyodidePromise: Promise<any> | null = null;
+
+async function loadDatavizPyodide(): Promise<any> {
+  if (datavizPyodidePromise) return datavizPyodidePromise;
+  datavizPyodidePromise = (async () => {
+    const pyodide = await loadPyodide();
+    // Load numpy, pandas, and matplotlib for data visualization
+    await pyodide.loadPackage(['numpy', 'pandas', 'matplotlib']);
+    return pyodide;
+  })();
+  return datavizPyodidePromise;
+}
+
 function runSqlQuery(SQL: any, dbRef: React.MutableRefObject<any>, query: string): { tables: SqlResultTable[]; messages: string[]; error?: string } {
   try {
     // Create a fresh in-memory DB each run so state is predictable
@@ -777,6 +791,257 @@ const sandboxCheatsheets: Record<string, { title: string; sections: Array<{ head
   }
 };
 
+function DataVizWorkspace({ 
+  experimentCode, 
+  isLoaded, 
+  loadError, 
+  pyodideRef,
+  shimRef 
+}: { 
+  experimentCode: string; 
+  isLoaded: boolean; 
+  loadError: string | null; 
+  pyodideRef: React.MutableRefObject<any>;
+  shimRef: React.MutableRefObject<string | null>;
+}) {
+  const [output, setOutput] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [code, setCode] = useState(experimentCode || `import matplotlib.pyplot as plt
+import numpy as np
+
+# Create sample data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create plot
+plt.figure(figsize=(8, 4))
+plt.plot(x, y, label='sin(x)')
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.title('Sample Sine Wave')
+plt.legend()
+plt.grid(True)
+plt.show()`);
+
+  // Update code when experiment changes
+  useEffect(() => {
+    if (experimentCode) {
+      setCode(experimentCode);
+    }
+  }, [experimentCode]);
+
+  const runDataVizCode = async () => {
+    if (!pyodideRef.current) {
+      setOutput(loadError || "Python engine is loading, please wait…");
+      setIsError(true);
+      return;
+    }
+    setIsLoading(true);
+    setOutput("Executing...");
+    setIsError(false);
+
+    try {
+      const pyodide = pyodideRef.current;
+      let stdoutBuffer = "";
+      let stderrBuffer = "";
+
+      pyodide.setStdout({
+        batched: (str: string) => {
+          stdoutBuffer += str + "\n";
+        },
+      });
+
+      pyodide.setStderr({
+        batched: (str: string) => {
+          stderrBuffer += str + "\n";
+        },
+      });
+
+      // Run the code with matplotlib support
+      const runCode = `
+import sys, io, builtins, traceback
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import base64
+from io import BytesIO
+
+# Capture plots as base64 images
+_plots = []
+_original_show = plt.show
+def _captured_show():
+    buf = BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight', dpi=100)
+    buf.seek(0)
+    img_b64 = base64.b64encode(buf.read()).decode('utf-8')
+    _plots.append(img_b64)
+    plt.close()
+    return _original_show()
+
+plt.show = _captured_show
+
+try:
+    exec(${JSON.stringify(code)}, {"__builtins__": builtins, "__name__": "__main__", "plt": plt, "np": np, "pd": pd})
+    plt.show()
+except SystemExit:
+    pass
+except BaseException:
+    traceback.print_exc()
+
+# Print plot count
+if _plots:
+    print(f"Generated {len(_plots)} plot(s)")
+    for i, img in enumerate(_plots):
+        print(f"PLOT_{i+1}:data:image/png;base64,{img}")
+`;
+
+      await pyodide.runPythonAsync(runCode);
+
+      // Parse output for embedded images
+      const lines = stdoutBuffer.split('\n');
+      let cleanOutput = '';
+      let imageData: string[] = [];
+
+      for (const line of lines) {
+        if (line.startsWith('PLOT_')) {
+          const imgMatch = line.match(/PLOT_\d+:data:image\/png;base64,(.+)/);
+          if (imgMatch) {
+            imageData.push(`data:image/png;base64,${imgMatch[1]}`);
+          }
+        } else {
+          cleanOutput += line + '\n';
+        }
+      }
+
+      if (stderrBuffer) {
+        setIsError(true);
+        setOutput(stderrBuffer.replace(/\n$/, ""));
+      } else if (imageData.length > 0) {
+        // Show images inline
+        const imageHtml = imageData.map(img => 
+          `<img src="${img}" alt="Generated Plot" style="max-width: 100%; border-radius: 8px; margin: 8px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />`
+        ).join('');
+        setOutput(cleanOutput || "Plot generated successfully!");
+        // We'll render images in the output area
+        setIsError(false);
+        // Store images in a ref for rendering
+        (window as any).__dataviz_images = imageData;
+      } else {
+        setIsError(false);
+        setOutput(cleanOutput || "Program exited with no output.");
+      }
+    } catch (err: any) {
+      setIsError(true);
+      setOutput(err.message || "An error occurred during execution.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Get stored images for rendering
+  const images = (window as any).__dataviz_images || [];
+
+  return (
+    <div className="h-full flex flex-col">
+      <div className="flex-1 flex flex-col bg-[#0f111a]">
+        {/* Toolbar */}
+        <div className="flex items-center justify-between p-3 border-b border-border/10 bg-black/20">
+          <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground ml-2">
+            <span className="size-2 rounded-full bg-destructive/70" />
+            <span className="size-2 rounded-full bg-cyan/80" />
+            <span className="size-2 rounded-full bg-mint" />
+            <span className="ml-2 text-white/60">Data Visualization with Python (Matplotlib/Seaborn)</span>
+            <span className="ml-2 text-white/40">|</span>
+            <span className="ml-2 flex items-center gap-1 text-cyan/70">
+              <Terminal className="size-3" />
+              {isLoaded ? "Ready" : loadError ? "Load failed" : "Loading…"}
+            </span>
+          </div>
+          <div className="flex gap-2">
+            <button 
+              onClick={() => setCode(experimentCode || `import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.figure(figsize=(8, 4))
+plt.plot(x, y)
+plt.title('Sine Wave')
+plt.grid(True)
+plt.show()`)} 
+              className="inline-flex items-center gap-2 rounded-md border border-border/10 bg-white/5 px-3 py-1.5 text-xs text-white/70 hover:bg-white/10 hover:text-white transition-colors"
+            >
+              <RotateCcw className="size-3.5" /> Reset
+            </button>
+            <button
+              onClick={runDataVizCode}
+              disabled={isLoading || !isLoaded}
+              className="inline-flex items-center gap-2 rounded-md bg-mint/20 text-mint border border-mint/20 px-4 py-1.5 text-xs font-medium hover:bg-mint/30 transition-colors disabled:opacity-50"
+            >
+              <Play className="size-3.5" /> {isLoading ? "Running…" : "Run Code"}
+            </button>
+          </div>
+        </div>
+
+        {/* Editor */}
+        <div className="flex-1 overflow-hidden">
+          <Editor
+            height="100%"
+            language="python"
+            theme="vs-dark"
+            value={code}
+            onChange={(val) => setCode(val || "")}
+            options={{
+              minimap: { enabled: false },
+              fontSize: 14,
+              fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+              scrollBeyondLastLine: false,
+              padding: { top: 16, bottom: 16 },
+              lineHeight: 24,
+            }}
+          />
+        </div>
+
+        {/* Output Panel with Image Support */}
+        <div className="h-72 border-t border-border/10 bg-black/40 flex flex-col">
+          <div className="flex items-center gap-2 px-4 py-2 border-b border-border/10 text-xs font-mono uppercase tracking-wider text-muted-foreground">
+            <Terminal className="size-3.5" /> Output / Plots
+          </div>
+          <div className="flex-1 overflow-auto p-4">
+            {isLoading ? (
+              <span className="text-white/30 text-[13px] font-mono italic">Executing…</span>
+            ) : output ? (
+              <>
+                <pre className={`text-[13px] font-mono whitespace-pre-wrap ${isError ? "text-red-400" : "text-green-400"}`}>
+                  {output}
+                </pre>
+                {images.length > 0 && (
+                  <div className="mt-4 space-y-4">
+                    {images.map((img: string, i: number) => (
+                      <img 
+                        key={i} 
+                        src={img} 
+                        alt={`Generated Plot ${i + 1}`} 
+                        className="max-w-full rounded-lg border border-white/10 shadow-lg"
+                      />
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <span className="text-white/30 text-[13px] font-mono italic">Results and plots will appear here…</span>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Workspace() {
   const { exp, mode } = Route.useSearch();
   const navigate = useNavigate();
@@ -811,6 +1076,12 @@ const [quantumPyodideLoaded, setQuantumPyodideLoaded] = useState(false);
 const [quantumPyodideError, setQuantumPyodideError] = useState<string | null>(null);
 const quantumPyodideRef = useRef<any>(null);
 const quantumShimRef = useRef<string | null>(null); // stores shim source
+
+// ── DataViz-specific Pyodide state ────────────────────────────────────────────
+const [datavizPyodideLoaded, setDatavizPyodideLoaded] = useState(false);
+const [datavizPyodideError, setDatavizPyodideError] = useState<string | null>(null);
+const datavizPyodideRef = useRef<any>(null);
+const datavizShimRef = useRef<string | null>(null);
 
   const [showPostSolveModal, setShowPostSolveModal] = useState(false);
 
@@ -911,7 +1182,8 @@ ORDER  BY grade DESC;`,
     } else if (
       details?.course.id === "machine-learning" ||
       details?.course.id === "llms" ||
-      details?.course.id === "python"
+      details?.course.id === "python" ||
+      details?.course.id?.startsWith("dataviz-")
     ) {
       setLanguage("python");
     } else if (details?.course.id === "advanced-data-structures" || details?.course.id === "java") {
@@ -1179,6 +1451,7 @@ except BaseException:
   const isAITools = details?.course.id === "ai-tools";
   const isIot = details?.course.id === "iot";
   const isQuantum = details?.course.id === "foundations-of-quantum-computing" || details?.course.id === "quantum-computing-using-qiskit-lab";
+  const isDataViz = details?.course.id?.startsWith("dataviz-") ?? false;
   const isMathCourse = ["mathematics-for-emerging-technologies", "classical-mechanics-and-electromagnetism", "computer-architecture-and-digital-logic"].includes(details?.course?.id ?? "");
 
   useEffect(() => {
@@ -1198,6 +1471,19 @@ except BaseException:
         .catch(err => setQuantumPyodideError(err.message));
     }
   }, [isQuantum, quantumPyodideLoaded]);
+
+  // ── DataViz Pyodide loader ────────────────────────────────────────────────────
+useEffect(() => {
+  // Pre-load Pyodide + numpy + pandas + matplotlib for data visualization courses
+  if (isDataViz && !datavizPyodideLoaded) {
+    loadDatavizPyodide()
+      .then(pyodide => {
+        datavizPyodideRef.current = pyodide;
+        setDatavizPyodideLoaded(true);
+      })
+      .catch(err => setDatavizPyodideError(err.message));
+  }
+}, [isDataViz, datavizPyodideLoaded]);
 
   const WORKSPACE_STEPS = useMemo(() => {
     if (isMathCourse) {
@@ -2075,7 +2361,15 @@ const handleLearnComplete = () => {
                   pyodideRef={quantumPyodideRef}
                   shimRef={quantumShimRef}
                 />
-              ) : (
+              ) : isDataViz ? (
+                <DataVizWorkspace
+                  experimentCode={details?.experiment?.code ?? ''}
+                  isLoaded={datavizPyodideLoaded}
+                  loadError={datavizPyodideError}
+                  pyodideRef={datavizPyodideRef}
+                  shimRef={datavizShimRef}
+                />
+              ) :  (
                 <>
                   {/* Toolbar */}
               <div className="flex items-center justify-between p-3 border-b border-border/10 bg-black/20">

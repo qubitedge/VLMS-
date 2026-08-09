@@ -1,10 +1,11 @@
 // lib/math-data.ts
 
 import { Course } from './course-data';
-
+import { mathShortNotes } from './math-c1-short-notes';
 export const mathFoundationsCourse: Course = {
   id: "mathematics-for-emerging-technologies",
   title: "Mathematics for Emerging Technologies",
+  shortNotes: mathShortNotes,
   objectives: [
     "To understand vectors, vector spaces, and linear transformations as fundamental mathematical tools",
     "To master eigenvalues, eigenvectors, and diagonalization with applications to quantum computing",
