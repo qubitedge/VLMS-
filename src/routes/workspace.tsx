@@ -1453,7 +1453,7 @@ except BaseException:
   const isIot = details?.course.id === "iot";
   const isQuantum = details?.course.id === "foundations-of-quantum-computing" || details?.course.id === "quantum-computing-using-qiskit-lab";
   const isDataViz = (details?.course.id?.startsWith("dataviz-") || details?.course.id?.startsWith("data-visualization-")) ?? false;
-  const isMathCourse = ["mathematics-for-emerging-technologies", "classical-mechanics-and-electromagnetism", "computer-architecture-and-digital-logic"].includes(details?.course?.id ?? "");
+  const isMathCourse = ["mathematics-for-emerging-technologies", "classical-mechanics-and-electromagnetism", "computer-architecture-and-digital-logic", "data-visualization-foundations"].includes(details?.course?.id ?? "");
 
   useEffect(() => {
     // Pre-load Pyodide + numpy + matplotlib for quantum course

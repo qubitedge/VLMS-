@@ -16,6 +16,7 @@ import { compArchCourse } from './math-c3-data';
 import { datavizSeabornPlotlyCourse } from "./dataviz-seaborn-plotly-data";
 import { datavizPandasCourse } from "./dataviz-pandas-data";
 import { datavizMatplotlibCourse } from "./dataviz-matplotlib-data";
+import { datavizFoundationsCourse } from "./dataviz-foundations-data";
 export type MCQ = {
   question: string;
   options: string[];
@@ -89,6 +90,7 @@ export type Course = {
 };
 
 export const courses: Record<string, Course> = {
+  "data-visualization-foundations": datavizFoundationsCourse,
   "foundations-of-quantum-computing": quantumCourse,
   "quantum-computing-using-qiskit-lab": qiskitCourse,
   "ai-tools": aiCourse,
