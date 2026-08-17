@@ -940,11 +940,6 @@ export const Route = createFileRoute("/courses")({
 function CoursesPage() {
   const [profile, setProfile] = useState<{ name: string; interests: string[] } | null>(null);
 
-  // ── Tab state — reordered: mathematics first, then programming, dataviz, ai, emerging ──
-  const [activeTab, setActiveTab] = useState<
-    "mathematics" | "programming" | "dataviz" | "ai" | "emerging"
-  >("mathematics");
-
   useEffect(() => {
     const profileStr = localStorage.getItem("currentUserProfile");
     if (profileStr) {
@@ -957,73 +952,33 @@ function CoursesPage() {
   const itBranch = branches.find((b) => b.code === "IT");
   const courses = itBranch?.topics || [];
 
-  // ── Tab filters ─────────────────────────────────────────────────
-  // Programming: C, Python, Java, Data Structures, AND DBMS
+  // Programming Domain Courses Only (C, Python, Java, Data Structures, DBMS, Advanced Data Structures)
   const programmingCourses = courses.filter((c) =>
     ["c programming", "python", "java", "data structures", "dbms"].some((p) =>
       c.toLowerCase().includes(p)
     )
   );
 
-  // AI: ML, AI Tools, LLMs (DBMS removed from here)
-  const aiCourses = courses.filter((c) =>
-    ["machine learning", "ai tools", "llms"].some((p) =>
-      c.toLowerCase().includes(p)
-    )
-  );
-
-  // Emerging: everything else except math, dataviz, programming, ai
-  const emergingCourses = courses.filter(
-    (c) =>
-      !programmingCourses.includes(c) &&
-      !aiCourses.includes(c) &&
-      c !== "Mathematics for Emerging Technologies" &&
-      c !== "Classical Mechanics and Electromagnetism" &&
-      c !== "Computer Architecture and Digital Logic" &&
-      !c.startsWith("Data Visualization")
-  );
-
-  // Mathematics tab filter
-  const mathCourses = courses.filter((c) =>
-    [
-      "mathematics for emerging technologies",
-      "classical mechanics and electromagnetism",
-      "computer architecture and digital logic",
-    ].includes(c.toLowerCase())
-  );
-
-  const dataVizCourses = courses.filter((c) => c.toLowerCase().startsWith("data visualization"));
-
-  // ── Card renderer (shared across all tabs) ───────────────────────
+  // ── Card renderer ───────────────────────
   const renderCard = (t: string) => {
     const slug = t
       .toLowerCase()
       .replace(/ & /g, "-")
       .replace(/ /g, "-");
 
-    // ── Card colour theming per tab ──────────────────────────────
-    const isMath =
-      t === "Mathematics for Emerging Technologies" ||
-      t === "Classical Mechanics and Electromagnetism" ||
-      t === "Computer Architecture and Digital Logic";
-
-    const isDataViz = t.startsWith("Data Visualization");
     const isDatabase = t === "DBMS";
     
-    const cardBgClass = isMath ? "bg-amber-50/60 dark:bg-amber-950/20" : 
-                        isDataViz ? "bg-rose-50/60 dark:bg-rose-950/20" :
-                        isDatabase ? "bg-emerald-50/60 dark:bg-emerald-950/20" :
-                        "bg-[#f0f9fa] dark:bg-cyan-950/30";
+    const cardBgClass = isDatabase 
+      ? "bg-emerald-50/60 dark:bg-emerald-950/20" 
+      : "bg-[#f0f9fa] dark:bg-cyan-950/30";
                         
-    const cardBorderClass = isMath ? "border-amber-400/30 dark:border-amber-600/30" : 
-                            isDataViz ? "border-rose-400/30 dark:border-rose-600/30" :
-                            isDatabase ? "border-emerald-400/30 dark:border-emerald-600/30" :
-                            "border-[#14b8a6]/20 dark:border-slate-500";
+    const cardBorderClass = isDatabase 
+      ? "border-emerald-400/30 dark:border-emerald-600/30" 
+      : "border-[#14b8a6]/20 dark:border-slate-500";
                             
-    const btnBorderClass = isMath ? "border-amber-400/50 dark:border-amber-600/40" : 
-                           isDataViz ? "border-rose-400/50 dark:border-rose-600/40" :
-                           isDatabase ? "border-emerald-400/50 dark:border-emerald-600/40" :
-                           "border-[#14b8a6]/40 dark:border-slate-500";
+    const btnBorderClass = isDatabase 
+      ? "border-emerald-400/50 dark:border-emerald-600/40" 
+      : "border-[#14b8a6]/40 dark:border-slate-500";
 
     return (
       <Link
@@ -1073,104 +1028,21 @@ function CoursesPage() {
           Welcome back, {profile.name}!
         </p>
       )}
-      <p className="mt-2 text-muted-foreground max-w-2xl mb-10">
-        Explore the complete syllabus and experiment workspace for your courses.
+      <p className="mt-2 text-muted-foreground max-w-2xl mb-8">
+        Explore the complete syllabus and experiment workspace for your programming courses.
       </p>
 
-      {/* ── Tab Navigation ── No scroll bar ────────────────────────── */}
-      <div className="flex items-center gap-4 mb-10 flex-wrap">
-        {/* Mathematics (FIRST) */}
-        <button
-          onClick={() => setActiveTab("mathematics")}
-          className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
-            activeTab === "mathematics"
-              ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-400/50 shadow-sm"
-              : "bg-white/5 dark:bg-slate-800/50 text-muted-foreground border border-transparent hover:bg-white/10 dark:hover:bg-slate-800"
-          }`}
-        >
-          <Calculator className="size-4" /> Mathematics
-        </button>
-
-        {/* Programming (SECOND) - now includes DBMS */}
-        <button
-          onClick={() => setActiveTab("programming")}
-          className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
-            activeTab === "programming"
-              ? "bg-blue-500/10 text-blue-500 border border-blue-400/50 shadow-sm"
-              : "bg-white/5 dark:bg-slate-800/50 text-muted-foreground border border-transparent hover:bg-white/10 dark:hover:bg-slate-800"
-          }`}
-        >
-          <Code className="size-4" /> Programming
-        </button>
-
-        {/* Data Visualization (THIRD) */}
-        <button
-          onClick={() => setActiveTab("dataviz")}
-          className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
-            activeTab === "dataviz"
-              ? "bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-400/50 shadow-sm"
-              : "bg-white/5 dark:bg-slate-800/50 text-muted-foreground border border-transparent hover:bg-white/10 dark:hover:bg-slate-800"
-          }`}
-        >
-          <ChartArea className="size-4" /> Data Visualization
-        </button>
-
-        {/* Artificial Intelligence (FOURTH) - DBMS removed */}
-        <button
-          onClick={() => setActiveTab("ai")}
-          className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
-            activeTab === "ai"
-              ? "bg-purple-500/10 text-purple-500 border border-purple-400/50 shadow-sm"
-              : "bg-white/5 dark:bg-slate-800/50 text-muted-foreground border border-transparent hover:bg-white/10 dark:hover:bg-slate-800"
-          }`}
-        >
-          <Sparkles className="size-4" /> Artificial Intelligence
-        </button>
-
-        {/* Emerging Technologies (FIFTH) */}
-        <button
-          onClick={() => setActiveTab("emerging")}
-          className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
-            activeTab === "emerging"
-              ? "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-400/50 shadow-sm"
-              : "bg-white/5 dark:bg-slate-800/50 text-muted-foreground border border-transparent hover:bg-white/10 dark:hover:bg-slate-800"
-          }`}
-        >
-          <Hexagon className="size-4" /> Emerging Technologies
-        </button>
+      {/* Domain Badge / Filter */}
+      <div className="flex items-center gap-4 mb-8">
+        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-400/40 shadow-sm">
+          <Code className="size-4" /> Programming Domain
+        </div>
       </div>
 
-      {/* ── Tab Content ─────────────────────────────────────────────── */}
-
-      {activeTab === "mathematics" && mathCourses.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          {mathCourses.map((t) => renderCard(t))}
-        </div>
-      )}
-
-      {activeTab === "programming" && programmingCourses.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          {programmingCourses.map((t) => renderCard(t))}
-        </div>
-      )}
-
-      {activeTab === "dataviz" && dataVizCourses.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          {dataVizCourses.map((t) => renderCard(t))}
-        </div>
-      )}
-
-      {activeTab === "ai" && aiCourses.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          {aiCourses.map((t) => renderCard(t))}
-        </div>
-      )}
-
-      {activeTab === "emerging" && emergingCourses.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          {emergingCourses.map((t) => renderCard(t))}
-        </div>
-      )}
+      {/* Grid of Programming Courses */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        {programmingCourses.map((t) => renderCard(t))}
+      </div>
     </div>
   );
 }

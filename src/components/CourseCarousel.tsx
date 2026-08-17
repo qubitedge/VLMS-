@@ -259,7 +259,11 @@ function getBgIcon(topic: string) {
 }
 
 export function CourseCarousel() {
-  const allCourses = branches.find(b => b.code === "IT")?.topics || [];
+  const allCourses = (branches.find(b => b.code === "IT")?.topics || []).filter((c) =>
+    ["c programming", "python", "java", "data structures", "dbms"].some((p) =>
+      c.toLowerCase().includes(p)
+    )
+  );
   
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
