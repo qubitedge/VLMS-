@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { branches } from "@/lib/lab-data";
 import { 
   Code, Monitor, Database, Brain, Sparkles, Hexagon, Workflow, 
-  ChevronLeft, ChevronRight, ArrowRight, BookOpen 
+  ChevronLeft, ChevronRight, ArrowRight, BookOpen, Sigma, FlaskConical, Cpu, ChartArea
 } from "lucide-react";
 
 // Local Helper for Course Icons
@@ -21,6 +21,10 @@ function getTopicIcon(topic: string) {
   if (topic === "IoT") return <Hexagon className={iconClass} />;
   if (topic === "Foundations of Quantum Computing" || topic === "Quantum Computing using Qiskit Lab") return <Hexagon className={iconClass} />;
   if (topic === "Algorithms") return <Workflow className={iconClass} />;
+  if (topic === "Mathematics for Emerging Technologies") return <Sigma className={iconClass} />;
+  if (topic === "Classical Mechanics and Electromagnetism") return <FlaskConical className={iconClass} />;
+  if (topic === "Computer Architecture and Digital Logic") return <Cpu className={iconClass} />;
+  if (topic.startsWith("Data Visualization")) return <ChartArea className={iconClass} />;
   return <BookOpen className={iconClass} />;
 }
 
@@ -38,16 +42,28 @@ function getSubtitle(topic: string) {
   if (topic === "Foundations of Quantum Computing") return "Study qubit states, superposition, and quantum gates.";
   if (topic === "Quantum Computing using Qiskit Lab") return "Program quantum gates, circuits, and algorithms using IBM Qiskit.";
   if (topic === "Mathematics for Emerging Technologies") return "Linear algebra, probability theory, and discrete optimization.";
+  if (topic === "Classical Mechanics and Electromagnetism") return "Lagrangian mechanics, Hamiltonian theory & Maxwell's equations.";
+  if (topic === "Computer Architecture and Digital Logic") return "Number systems, CPU design, microprocessors & Boolean algebra.";
+  if (topic === "Data Visualization Foundations") return "Charts, data types & design principles.";
+  if (topic === "Data Visualization with Pandas") return "DataFrames, cleaning & aggregation for plotting.";
+  if (topic === "Data Visualization with Matplotlib") return "Static & multi-panel plotting in Python.";
+  if (topic === "Data Visualization with Seaborn & Plotly") return "Statistical graphics & interactive dashboards.";
   return "Comprehensive computer science laboratory curriculum.";
 }
 
 // Local Helper for card themes / gradients
 function getCardGradient(topic: string) {
-  if (["C Programming", "Python", "Java"].includes(topic)) {
+  if (["C Programming", "Python", "Java", "Data Structures using C Programming", "Advanced Data Structures"].some(p => topic.includes(p))) {
     return "from-blue-500/10 via-cyan-500/5 to-transparent border-blue-500/20 hover:border-blue-500/40 dark:hover:shadow-blue-500/5";
   }
   if (["Machine Learning", "AI Tools", "LLMs"].includes(topic)) {
     return "from-purple-500/10 via-pink-500/5 to-transparent border-purple-500/20 hover:border-purple-500/40 dark:hover:shadow-purple-500/5";
+  }
+  if (topic.startsWith("Data Visualization")) {
+    return "from-rose-500/10 via-pink-500/5 to-transparent border-rose-500/20 hover:border-rose-500/40 dark:hover:shadow-rose-500/5";
+  }
+  if (["Mathematics for Emerging Technologies", "Classical Mechanics and Electromagnetism", "Computer Architecture and Digital Logic"].includes(topic)) {
+    return "from-amber-500/10 via-orange-500/5 to-transparent border-amber-500/20 hover:border-amber-500/40 dark:hover:shadow-amber-500/5";
   }
   return "from-teal-500/10 via-emerald-500/5 to-transparent border-teal-500/20 hover:border-teal-500/40 dark:hover:shadow-teal-500/5";
 }
@@ -259,11 +275,7 @@ function getBgIcon(topic: string) {
 }
 
 export function CourseCarousel() {
-  const allCourses = (branches.find(b => b.code === "IT")?.topics || []).filter((c) =>
-    ["c programming", "python", "java", "data structures", "dbms"].some((p) =>
-      c.toLowerCase().includes(p)
-    )
-  );
+  const allCourses = branches.find(b => b.code === "IT")?.topics || [];
   
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
@@ -444,15 +456,15 @@ export function CourseCarousel() {
 
       {/* Dots Indicator Progress */}
       {maxIndex > 0 && (
-        <div className="flex items-center justify-center gap-2 mt-8">
+        <div className="flex items-center justify-center gap-1.5 mt-8 flex-wrap px-4">
           {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
             <button
               key={idx}
               onClick={() => handleDotClick(idx)}
-              className={`h-2.5 rounded-full transition-all duration-500 ${
+              className={`h-2 rounded-full transition-all duration-300 ${
                 currentIndex === idx 
-                  ? "w-7 bg-purple-600 dark:bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.4)]" 
-                  : "w-2.5 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400"
+                  ? "w-6 bg-purple-600 dark:bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.4)]" 
+                  : "w-2 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400"
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />

@@ -323,6 +323,114 @@ print("- Solution: Creating unhackable networks using Quantum Key Distribution (
         ],
         posttest: []
       }
+    },
+    {
+      id: "qc-m5-6",
+      title: "6. Numerical Quantum Dynamics: Rabi & Jaynes-Cummings",
+      desc: "Simulate driven two-level atomic systems and quantum electrodynamics in optical cavities (AICTE QT 03 / QT 11).",
+      code: `import numpy as np
+import matplotlib.pyplot as plt
+
+# --- Numerical Simulation of Rabi Oscillations & Jaynes-Cummings Dynamics ---
+print("=================================================================")
+print(" AICTE QT 03 / QT 11: NUMERICAL QUANTUM LIGHT-MATTER DYNAMICS")
+print("=================================================================")
+
+# 1. Rabi Oscillations for Driven Two-Level Atom
+omega = 3.0    # Rabi drive frequency (rad/s)
+delta = 0.5    # Detuning (omega_drive - omega_atomic)
+gamma = 0.08   # Spontaneous emission / damping rate
+t = np.linspace(0, 10, 500)
+
+omega_eff = np.sqrt(omega**2 + delta**2)
+pe_rabi = ((omega / omega_eff)**2) * (np.sin(omega_eff * t / 2)**2) * np.exp(-gamma * t)
+pg_rabi = 1.0 - pe_rabi
+
+print(f"\\n[Rabi Model] Drive Omega: {omega} rad/s, Detuning Delta: {delta} rad/s")
+print(f"Generalized Rabi Frequency Omega_eff: {omega_eff:.3f} rad/s")
+print(f"Maximum Transition Probability: {(omega / omega_eff)**2 * 100:.1f}%")
+
+# 2. Jaynes-Cummings Model (Quantized Cavity Field - Collapse and Revival)
+g = 2.5        # Vacuum Rabi coupling
+n_mean = 10    # Mean photon number in coherent cavity field
+max_n = 35
+p_n = [np.exp(-n_mean) * (n_mean**n) / np.math.factorial(n) for n in range(max_n)]
+
+inversion_jc = np.zeros_like(t)
+for n, p in enumerate(p_n):
+    inversion_jc += p * np.cos(2 * g * np.sqrt(n + 1) * t)
+
+print(f"\\n[Jaynes-Cummings] Coupling g: {g} rad/s, Mean Cavity Photons: {n_mean}")
+print("Observed Quantum Collapse and Revival of Atomic Inversion!")
+
+# Plot results
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9, 6))
+
+ax1.plot(t, pe_rabi, color='crimson', lw=2, label="Excited P_e(t)")
+ax1.plot(t, pg_rabi, color='dodgerblue', lw=1.5, ls='--', label="Ground P_g(t)")
+ax1.set_title("1. Driven Two-Level Atom (Rabi Oscillations with Damping)")
+ax1.set_ylabel("Probability")
+ax1.grid(True, alpha=0.3)
+ax1.legend(loc='upper right')
+
+ax2.plot(t, inversion_jc, color='goldenrod', lw=2, label="Inversion W(t)")
+ax2.axhline(0, color='gray', ls=':', alpha=0.5)
+ax2.set_title("2. Jaynes-Cummings Model: Quantum Collapse and Revival")
+ax2.set_xlabel("Time (s)")
+ax2.set_ylabel("Population Inversion")
+ax2.grid(True, alpha=0.3)
+ax2.legend(loc='upper right')
+
+plt.tight_layout()
+plt.show()`,
+      content: {
+        aim: {
+          text: "To numerically solve and simulate the coherent quantum dynamics of driven two-level atoms (Rabi oscillations) and quantized light-matter interaction in optical cavities (Jaynes-Cummings model) as mandated by AICTE QT 03 and QT 11.",
+          bullets: [
+            "Model resonant and detuned Rabi oscillations under classical coherent drive fields.",
+            "Analyze the effect of spontaneous emission decay on coherence.",
+            "Simulate the Jaynes-Cummings Hamiltonian for a two-level atom coupled to a quantized electromagnetic cavity mode.",
+            "Observe the purely quantum phenomenon of collapse and revival in atomic population inversion."
+          ]
+        },
+        theory: [
+          {
+            title: "Driven Two-Level Atom and Rabi Oscillations",
+            body: [
+              "When an atomic two-level system with transition frequency ω₀ is irradiated by a coherent electromagnetic laser field of frequency ω, the interaction Hamiltonian under the Rotating Wave Approximation (RWA) induces continuous sinusoidal population exchanges between the ground state |g⟩ and excited state |e⟩.",
+              "The generalized effective Rabi frequency is given by Ω_eff = √(Ω² + Δ²), where Ω is the on-resonance Rabi frequency proportional to the transition dipole moment and laser electric field amplitude, and Δ = ω - ω₀ is the frequency detuning.",
+              "When on resonance (Δ = 0), complete population inversion (P_e = 1.0) is achieved periodically. In the presence of detuning (Δ ≠ 0), the maximum excitation probability is reduced to (Ω / Ω_eff)² < 1, while the oscillation speed increases."
+            ]
+          },
+          {
+            title: "The Jaynes-Cummings Model & Quantum Collapse-Revivals",
+            body: [
+              "The Jaynes-Cummings Hamiltonian represents the simplest solvable, fully quantized model of light-matter interaction: H_JC = ℏω_c a†a + (ℏω_a / 2)σ_z + ℏg(a†σ_− + aσ_+), describing an atom coupled to a single cavity mode with coupling constant g.",
+              "When the cavity contains a coherent state with Poissonian photon distribution P(n), each Fock state component |n⟩ oscillates at its own distinct Rabi frequency Ω_n = 2g√(n+1). Because these frequencies are incommensurate, the oscillations initially dephase, causing the atomic population inversion W(t) to collapse to zero.",
+              "Remarkably, because photon numbers are discrete integers, constructive re-phasing occurs at the revival time T_rev ≈ (2π√(⟨n⟩)) / g, restoring the atomic oscillation. This collapse-and-revival cycle is unequivocal, direct physical proof of the quantized nature of the electromagnetic field."
+            ]
+          }
+        ],
+        pretest: [
+          { question: "What is the condition for complete population transfer in Rabi oscillations?", options: ["Zero laser intensity", "Zero detuning (resonance Δ = 0)", "Infinite damping", "Negative frequency"], answerIndex: 1 },
+          { question: "In the Jaynes-Cummings model, what causes the collapse and revival of inversion?", options: ["Thermal fluctuations", "Classical noise", "Discrete photon statistics of the quantized field", "Measurement error"], answerIndex: 2 }
+        ],
+        procedure: [
+          "1. Execute the numerical simulation script to solve both the semi-classical and quantized dynamics.",
+          "2. Observe how detuning Δ reduces the peak excitation amplitude in the upper plot.",
+          "3. In the lower plot, observe the initial damping (collapse) followed by spontaneous re-emergence (revival) of atomic inversion.",
+          "4. Adjust coupling g and mean photons n to observe the shift in revival time T_rev."
+        ],
+        posttest: [
+          { question: "The Jaynes-Cummings revival time T_rev scales with mean photon number as:", options: ["Proportional to ⟨n⟩²", "Proportional to √⟨n⟩", "Independent of ⟨n⟩", "Inversely proportional to ⟨n⟩³"], answerIndex: 1 },
+          { question: "Vacuum Rabi splitting frequency for an atom in an empty cavity (n=0) is:", options: ["0", "g", "2g", "4g²"], answerIndex: 2 }
+        ],
+        references: [
+          "E.T. Jaynes and F.W. Cummings, Proc. IEEE 51, 89 (1963).",
+          "Christopher Gerry and Peter Knight, Introductory Quantum Optics, Cambridge University Press.",
+          "AICTE Model Curriculum: QT 03 Basic Programming Lab & QT 11 Quantum Optics."
+        ]
+      }
     }
   ]
 };

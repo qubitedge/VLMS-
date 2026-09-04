@@ -17,12 +17,13 @@ export const quantumCourse: Course = {
     "To understand and apply single-qubit and multi-qubit logic gates to design quantum circuits.",
     "To explore the phenomena of quantum entanglement and teleportation for secure communication.",
     "To implement and analyze foundational quantum algorithms, including Deutsch-Jozsa, Grover's search, and the concepts of Shor's factorization.",
+    "To numerically simulate atomic two-level systems, Rabi oscillations, and cavity QED (Jaynes-Cummings dynamics) in consonance with AICTE QT 03 and QT 11.",
     "To survey the integration of quantum computing into machine learning (QML) and real-world industry applications."
   ],
   introduction: [
     "Quantum Computing represents a paradigm shift in information processing. By leveraging the bizarre and powerful laws of quantum mechanics—such as superposition and entanglement—quantum computers have the potential to solve specific, highly complex problems exponentially faster than any classical supercomputer.",
     "This Virtual Quantum Computing Lab provides an interactive, accessible environment for students to dive into quantum mechanics without requiring access to a physical quantum processor. Through theoretical modules, embedded visual animations, and interactive Python/Qiskit-based simulations, learners can experiment with quantum states and algorithms directly in the browser.",
-    "The course is structured into five comprehensive modules. It begins with the fundamental physics of wave-particle duality and uncertainty, transitions into the mathematics of qubits and quantum gates, explores the 'spooky' nature of entanglement, and culminates in advanced quantum algorithms and machine learning applications.",
+    "The course is structured into five comprehensive modules in consonance with the AICTE National Quantum Mission model curriculum. It begins with the fundamental physics of wave-particle duality and uncertainty, transitions into the mathematics of qubits and quantum gates, explores the 'spooky' nature of entanglement, and culminates in advanced quantum algorithms, numerical light-matter dynamics (Rabi & Jaynes-Cummings), and machine learning applications.",
     "Whether you are interested in breaking classical encryption, discovering new pharmaceutical drugs through molecular simulation, or pushing the boundaries of artificial intelligence, this lab lays the necessary mathematical and conceptual foundation."
   ],
   targetAudience: {
@@ -39,20 +40,20 @@ export const quantumCourse: Course = {
     ]
   },
   alignment: {
-    university: "Virtual Lab",
+    university: "Virtual Lab (National Quantum Mission & AICTE Aligned)",
     department: "Advanced Computing & Physics",
     course: "Quantum Computing Laboratory",
     credits: "L:0 T:0 P:3 C:1.5",
-    yearSem: "Elective / Advanced",
+    yearSem: "Elective / Minor Degree (NQM)",
     branches: "Computer Science, Physics, Electronics, Mathematics",
-    totalExperiments: "25 Topics",
+    totalExperiments: "26 Topics",
     compiler: "Pyodide (Python / Qiskit support) running directly in the browser",
     units: [
       { unit: "Module 1", topics: "Foundations of Quantum Physics", weeks: "Week 1" },
       { unit: "Module 2", topics: "Qubits and Quantum Information", weeks: "Week 2" },
       { unit: "Module 3", topics: "Quantum Gates and Circuits", weeks: "Week 3" },
       { unit: "Module 4", topics: "Entanglement and Quantum Communication", weeks: "Week 4" },
-      { unit: "Module 5", topics: "Quantum Algorithms and Applications", weeks: "Week 5" }
+      { unit: "Module 5", topics: "Quantum Algorithms, Light-Matter Dynamics and Applications", weeks: "Week 5" }
     ]
   },
   weeks: [

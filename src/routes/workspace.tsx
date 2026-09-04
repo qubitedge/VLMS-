@@ -126,6 +126,9 @@ import { JavaJDBCDeleteSim } from "@/components/simulations/JavaJDBCDeleteSim";
 import { PostSolveAuthModal } from '@/components/PostSolveAuthModal';
 import { markGuestSolved, hasGuestSolved } from '@/lib/guestProgress';
 import { QuantumWorkspace } from "@/components/QuantumWorkspace";
+import { BlochSphereSandbox } from "@/components/quantum/BlochSphereSandbox";
+import { BB84QkdSimulator } from "@/components/quantum/BB84QkdSimulator";
+import { RabiJaynesCummingsSim } from "@/components/quantum/RabiJaynesCummingsSim";
 type WorkspaceSearch = {
   exp?: string;
   mode?: "learn" | "solve";
@@ -3586,6 +3589,38 @@ except BaseException:
                 }
 
                 if (step === "visualization") {
+                  // Dedicated Quantum Interactive Simulators
+                  if (isQuantum) {
+                    const expId = details?.experiment?.id ?? "";
+                    const isBlochExp = expId === "qc-m2-2" || expId === "qk-m2-1";
+                    const isQkdExp = expId === "qc-m4-5" || expId === "qk-m3-3";
+                    const isRabiExp = expId === "qc-m5-6";
+
+                    if (isBlochExp) {
+                      return (
+                        <div className="h-[640px] rounded-2xl overflow-hidden border border-border shadow-2xl animate-in fade-in zoom-in-95 duration-500">
+                          <BlochSphereSandbox />
+                        </div>
+                      );
+                    }
+
+                    if (isQkdExp) {
+                      return (
+                        <div className="h-[640px] rounded-2xl overflow-hidden border border-border shadow-2xl animate-in fade-in zoom-in-95 duration-500">
+                          <BB84QkdSimulator />
+                        </div>
+                      );
+                    }
+
+                    if (isRabiExp) {
+                      return (
+                        <div className="h-[640px] rounded-2xl overflow-hidden border border-border shadow-2xl animate-in fade-in zoom-in-95 duration-500">
+                          <RabiJaynesCummingsSim />
+                        </div>
+                      );
+                    }
+                  }
+
                   const visuals: { alt: string, url: string }[] = [];
                   (content.theory ?? []).forEach((section: any) => {
                     section.body.forEach((p: string) => {
