@@ -2,12 +2,8 @@
 // src/lib/supabase.ts
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
-}
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'placeholder-anon-key';
 
 // Pass explicit auth configuration options to bypass strict 401 header blocks
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
@@ -194,9 +190,9 @@ export async function createProfile(
 export async function updateProfile(
   userId: string,
   updates: Partial<Pick<Profile,
-  'name' | 'college' | 'interests' | 'skills' |
-  'degree' | 'branch' | 'year_of_study' | 'graduation_year' | 'bio'
->>
+    'name' | 'college' | 'interests' | 'skills' |
+    'degree' | 'branch' | 'year_of_study' | 'graduation_year' | 'bio'
+  >>
 ): Promise<Profile | null> {
   const { data, error } = await supabase
     .from('profiles')
@@ -227,7 +223,7 @@ export async function awardBadge(userId: string, badgeId: string): Promise<void>
   const { data, error } = await supabase
     .from('user_badges')
     .upsert(
-      { user_id: userId, badge_id: badgeId }, 
+      { user_id: userId, badge_id: badgeId },
       { onConflict: 'user_id,badge_id' }
     )
     .select();
